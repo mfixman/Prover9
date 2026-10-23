@@ -165,8 +165,7 @@ deadline, and stops at the first complete refutation. This avoids waiting for
 Prover9's automatic multiple-denial search to finish several proofs. Its JSON
 records wall and child CPU time. Both arms use this same runner.
 
-Prover9's search itself is C. Python handles the experiment, existing Connections
-parser/graph construction, and calls into the compiled TorchScript model.
+Prover9's search itself is C. Python handles the experiment, bundled parser/graph construction, and calls into the compiled TorchScript model.
 Rewriting the small selection loop would save very little: its measured median
 was about 0.025 milliseconds on the initial development sample. Graph construction
 and model inference remain material costs on large inputs. The final model is

@@ -69,13 +69,7 @@ with tempfile.TemporaryDirectory() as temporary:
     assert rows[0]['proved'] == 'True' and rows[0]['elapsed_s'] == '0.1'
     assert rows[1]['error'] == 'comma, newline\nerror'
     original = output.read_bytes()
-    try:
-        prepare_output(output)
-    except FileExistsError:
-        pass
-    else:
-        raise AssertionError('Existing output accepted')
-
+    prepare_output(output)
     assert output.read_bytes() == original
 
 print('Partition CLI matches Connections scheme 5; parts are disjoint and exhaustive; invalid parts and empty summaries handled. No searches launched.')

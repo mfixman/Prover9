@@ -91,7 +91,7 @@ python axiom_selection/compare.py --all-cnf-unsat --seconds 30 --workers 18 \
   --output axiom_selection/results/full-cnf-resume1
 ```
 
-The output directory must be new. This adapter supports CNF only, not all TPTP
+Existing outputs resume automatically. This adapter supports CNF only, not all TPTP
 languages; FOF still needs a shared clausification step. The all-CNF command
 includes training families, so analyze held-out families separately. A longer
 per-problem budget scales the guided allocation and scoring cap, which has not
@@ -131,10 +131,32 @@ When `--output` is omitted, results go to `axiom_selection/results/part-P.csv`
 (for example, `part-0.csv`). The companion directory `part-P/` holds manifests,
 JSON results, inputs and proof logs. CSV rows are appended after each completed
 problem group, with problem, replicate, CPU, strategy, proof status, elapsed
-seconds and error columns. Existing outputs are never overwritten.
+seconds and error columns. Existing completed results are retained on resume.
 
 Selecting multiple parts uses names such as `part-0-2.csv`; selecting every part
 of a split larger than one uses `part-all.csv`. Without splitting, the default
 is `part-0.csv`. Explicit directory outputs retain their previous behavior;
 explicit `.csv` outputs use the same CSV-plus-companion-directory layout.
 The summary command accepts either the CSV path or its companion directory.
+
+## Resume an interrupted job
+
+Rerun the same command with the same output. Completed problem/strategy pairs
+are recovered from JSON checkpoints and skipped; interrupted strategies restart
+with their original budget. Finished failures, including timeouts, are completed
+measurements and are also skipped. Incomplete strategy logs are preserved in
+`.interrupted-*` directories before retrying.
+
+The aggregate JSON is written atomically. CSV output is rebuilt from recovered
+complete groups before appending new groups, so interruption does not duplicate
+rows. A partial group retains its completed strategies even if the main summary
+was not written. An empty pre-existing output directory is also accepted.
+
+The runner rejects changes to the problem list, strategy list, time budget,
+selection settings, repeat count, model or Prover9 binary when resuming. Worker
+count may change. Each invocation saves its code snapshot and settings under
+`sessions/`, retaining the original manifest and earlier snapshots. Code updates
+are recorded rather than preventing resume. A lock prevents two active drivers
+from writing the same output simultaneously; concurrent partition jobs still
+need separate output paths. Wall-time totals cover completed invocations;
+interrupted invocation wall time is not reconstructed.

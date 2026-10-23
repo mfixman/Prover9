@@ -16,6 +16,7 @@ from premise_run import Mode, solve
 from validation import sample
 from problem_split import ProblemSplit
 from experiment_output import default_output, prepare_output, append_result
+from experiment_resume import write_json, lock_output, case_directory, recover, check_manifest, start_session, rebuild_csv
 
 predictor = None
 
@@ -31,21 +32,33 @@ def initialize(cpus, tptp):
     for i in range(3):
         predictor.predict(warmup)
 
-def evaluate(path, tptp, output, budget, threshold, probe, minimum, modes, replicate = 0):
+def evaluate(path, tptp, output, budget, threshold, probe, minimum, modes, replicate = 0, previous = None):
     path = Path(path)
-    suffix = f'-repeat{replicate + 1}' if replicate else ''
-    directory = Path(output) / (path.stem + suffix)
-    directory.mkdir()
+    directory = case_directory(Path(output), path, replicate)
+    directory.mkdir(exist_ok = True)
     modes = [Mode(m) for m in modes]
     random.Random(f'{path.stem}:{replicate}').shuffle(modes)
-    result = {'problem': path.stem, 'replicate': replicate, 'cpu': min(os.sched_getaffinity(0)), 'results': {}}
+    cpu = min(os.sched_getaffinity(0))
+    result = previous or {'problem': path.stem, 'replicate': replicate, 'cpu':cpu, 'results': {}}
+    result.setdefault('cpu', cpu)
+    result.setdefault('mode_cpus', {})
+    for mode in result['results']:
+        result['mode_cpus'].setdefault(mode, result['cpu'])
+
     for mode in modes:
+        if mode in result['results']:
+            continue
+
         target = directory / mode
+        if target.exists():
+            target.rename(directory / f'{mode}.interrupted-{time.time_ns()}')
         target.mkdir()
         run = lambda: solve(path, tptp, predictor, mode, budget - 0.05, target, threshold, probe, minimum)
         result['results'][mode] = bounded(run, budget, target / 'result.json', process_group = True)
+        result['mode_cpus'][mode] = cpu
+        write_json(directory / 'results.json', result)
 
-    (directory / 'results.json').write_text(json.dumps(result, indent = 2))
+    write_json(directory / 'results.json', result)
     return result
 
 def main():
@@ -86,6 +99,7 @@ def main():
         parser.error(f'Use 1–{len(allowed)} workers and a positive repeat count.')
     requested_output = args.output or default_output(folder, partition.parts, partition.split)
     args.output, csv_output = prepare_output(requested_output)
+    output_lock = lock_output(args.output)
     cpus = allowed[:args.workers]
     tptp = args.tptp.resolve()
     paths = []
@@ -108,7 +122,7 @@ def main():
 
     candidate_count = len(paths)
     paths = partition.select(paths)
-    source_names = ['premise_run.py', 'portfolio.py', 'bounded.py', 'native_search.c', 'predict.py', 'problem.py', 'half_support.py', 'live_search.py', 'experiment_output.py', 'problem_split.py', 'experiments/paired.py', 'experiments/validation.py']
+    source_names = ['premise_run.py', 'portfolio.py', 'bounded.py', 'native_search.c', 'predict.py', 'problem.py', 'half_support.py', 'live_search.py', 'experiment_output.py', 'experiment_resume.py', 'problem_split.py', 'experiments/paired.py', 'experiments/validation.py']
     source_names += [str(p.relative_to(folder)) for p in sorted((folder / 'torok_vendor').rglob('*')) if p.is_file() and (p.suffix in ('.py', '.json') or p.name == 'LICENSE')]
     manifest = {'tptp':str(tptp), 'paths': paths, 'split': split_description, 'seconds': args.seconds,
                 'csv_output': str(csv_output) if csv_output else None,
@@ -119,27 +133,32 @@ def main():
                 'runner_sha256': {name: hashlib.sha256((folder / 'build' / name).read_bytes()).hexdigest() for name in ['native-search', 'native-search-control']},
                 'source_sha256': {name: hashlib.sha256((folder / name).read_bytes()).hexdigest() for name in source_names},
                 'protocol': 'Actual wall deadline includes parse, lazy scoring and search. Model loaded and warmed with three GRP001-1 forwards per worker before timing; warm batch deployment. RandomSupport selects the same fixed number of axioms without scoring; Random filtering pays scoring to match subset size.'}
-    (args.output / 'manifest.json').write_text(json.dumps(manifest, indent = 2))
-    sources = args.output / 'source'
-    sources.mkdir()
-    for name in manifest['source_sha256']:
-        (sources / name).parent.mkdir(parents = True, exist_ok = True)
-        (sources / name).write_bytes((folder / name).read_bytes())
+    previous_manifest = check_manifest(args.output, manifest)
+    session = start_session(args.output, manifest, folder)
+    results, pending = recover(args.output, paths, args.modes, args.repeat)
+    if previous_manifest is None:
+        write_json(args.output / 'manifest.json', manifest)
+    else:
+        manifest = previous_manifest
 
+    rebuild_csv(csv_output, results)
+    write_json(args.output / 'results.json', results)
+    print(f'Resuming: {len(results)} complete problem groups; {len(pending)} pending.', flush = True)
     started = time.monotonic()
-    results = []
-    (args.output / 'results.json').write_text('[]\n')
     with ProcessPoolExecutor(max_workers = len(cpus), mp_context = multiprocessing.get_context('spawn'), initializer = initialize, initargs = (cpus, str(tptp))) as pool:
-        futures = [pool.submit(evaluate, p, str(tptp), str(args.output), args.seconds, args.threshold, args.probe, args.minimum, args.modes, repeat) for repeat in range(args.repeat) for p in paths]
+        futures = [pool.submit(evaluate, p, str(tptp), str(args.output), args.seconds, args.threshold, args.probe, args.minimum, args.modes, repeat, previous) for p, repeat, previous in pending]
         for future in as_completed(futures):
             results.append(future.result())
             append_result(csv_output, results[-1])
-            (args.output / 'results.json').write_text(json.dumps(results, indent = 2))
+            write_json(args.output / 'results.json', results)
             counts = {str(m):sum(r['results'][m].get('proved', False) for r in results) for m in args.modes}
             print(len(results), counts, flush = True)
 
-    manifest['elapsed_s'] = time.monotonic() - started
-    (args.output / 'manifest.json').write_text(json.dumps(manifest, indent = 2))
+    elapsed = time.monotonic() - started
+    manifest['elapsed_s'] = manifest.get('elapsed_s', 0) + elapsed
+    write_json(args.output / 'manifest.json', manifest)
+    write_json(session / 'completion.json', {'elapsed_s':elapsed, 'groups':len(results)})
+    output_lock.close()
 
 if __name__ == '__main__':
     main()

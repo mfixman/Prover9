@@ -51,6 +51,26 @@ with tempfile.TemporaryDirectory() as directory:
     unproved = next(row for row in results if row['problem'] == 'GRP002-1')['results']
     assert 'guided_search' in unproved['ResumeSupport1']
     assert unproved['WeightedSupport16']['scored']
+    completed = output.with_suffix('') / 'GRP001-1/Baseline/result.json'
+    original_time = completed.stat().st_mtime_ns
+    original_csv = output.read_bytes()
+    subprocess.run(command, cwd = root, env = env, check = True, timeout = 90)
+    assert completed.stat().st_mtime_ns == original_time
+    assert output.read_bytes() == original_csv
+
+    partial = output.with_suffix('') / 'GRP002-1'
+    (partial / 'results.json').unlink()
+    (partial / 'WeightedSupport16/result.json').write_text('{interrupted')
+    output.with_suffix('').joinpath('results.json').write_text('{interrupted')
+    subprocess.run(command, cwd = root, env = env, check = True, timeout = 90)
+    assert completed.stat().st_mtime_ns == original_time
+    assert list(partial.glob('WeightedSupport16.interrupted-*'))
+    with output.open(newline = '') as stream:
+        resumed_rows = list(csv.DictReader(stream))
+
+    assert len(resumed_rows) == 6 and all(not row['error'] for row in resumed_rows)
+    rejected = subprocess.run(command + ['--seconds', '4'], cwd = root, env = env, capture_output = True, text = True)
+    assert rejected.returncode != 0 and 'changed seconds' in rejected.stderr
     subprocess.run([sys.executable, str(adapter / 'experiments/summary.py'), str(output)], cwd = root, env = env, check = True, capture_output = True)
 
-print('Relocated checkout runs all three strategies, scoring, CSV output and summary with external Connections imports forbidden.')
+print('Standalone strategies, no-op resume, partial/corrupt checkpoint recovery, CSV deduplication and configuration checks passed with external imports forbidden.')

@@ -14,14 +14,7 @@ def prepare_output(path):
     path = Path(path)
     csv_path = path if path.suffix.lower() == '.csv' else None
     directory = path.with_suffix('') if csv_path else path
-    if path.exists() or directory.exists():
-        raise FileExistsError(f'Output already exists: {path} or {directory}')
-
-    directory.mkdir(parents = True)
-    if csv_path:
-        with csv_path.open('x', newline = '') as stream:
-            csv.DictWriter(stream, fieldnames = fields).writeheader()
-
+    directory.mkdir(parents = True, exist_ok = True)
     return directory, csv_path
 
 def append_result(path, result):
@@ -32,6 +25,7 @@ def append_result(path, result):
         writer = csv.DictWriter(stream, fieldnames = fields)
         for strategy, outcome in result['results'].items():
             row = {name:result.get(name, '') for name in ('problem', 'replicate', 'cpu')}
+            row['cpu'] = result.get('mode_cpus', {}).get(strategy, row['cpu'])
             row.update(strategy = strategy, proved = bool(outcome.get('proved')),
                        elapsed_s = outcome.get('elapsed_s', ''), error = outcome.get('error', ''))
             writer.writerow(row)
