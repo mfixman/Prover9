@@ -76,12 +76,35 @@ A baseline run uses the original Prover9 executable and does not load PyTorch.
 
 ## Build and run
 
-Use the existing Connections checkout for parsing and graph construction; set
-`CONNECTIONS_ROOT` if it is not `~/TP/connections`. This avoids duplicating its
-representation code. No files in Connections are modified. The adapter requires
-Python, PyTorch, Lark, GCC and make; the installed Connections environment is
-recommended. This checkout was tested with Python 3.14 and PyTorch 2.14.1;
-TorchScript emits a Python-3.14 support warning but passed the parity tests.
+The adapter is self-contained with respect to Connections: the required parser,
+CNF representation and graph builder are frozen under `torok_vendor/`, and the
+TorchScript model is included under `models/`. No Connections checkout or
+`CONNECTIONS_ROOT` setting is needed. The bundled source retains its license and
+provenance in `torok_vendor/LICENSE` and `torok_vendor/provenance.json`.
+
+On the HPC, copy this Prover9 repository including `axiom_selection/torok_vendor/`
+and `axiom_selection/models/torok.ts`. Install the ordinary Python dependencies
+and build the native executables on that machine:
+
+```sh
+python -m pip install -r axiom_selection/requirements.txt
+python axiom_selection/build.py
+```
+
+Requirements are Python 3.10+, PyTorch, Lark, GCC, make, and Linux for process
+control. TPTP remains an external dataset: by default the batch runner looks in
+the sibling `TPTP` directory; use `--tptp /path/to/TPTP` to override it. The
+batch warm-up uses `Problems/GRP/GRP001-1.p` from that dataset. The existing
+experiment command otherwise stays the same.
+
+The isolated-copy test runs baseline, resumed top-1 and weighted top-16 with a
+small fixture dataset, a nonexistent Connections root and external Connections
+imports forbidden. It checks scoring, proof outcomes, CSV output and summaries:
+
+```sh
+python axiom_selection/tests/standalone.py
+python axiom_selection/tests/preprocessing.py
+```
 
 ```sh
 python axiom_selection/build.py
@@ -98,7 +121,7 @@ use the benchmark driver or an external timeout: `run.py` subtracts preprocessin
 from the search budget, but cannot interrupt every Python/native preprocessing
 operation itself. The benchmark kills the entire process group at its deadline.
 
-This first adapter deliberately accepts **CNF only**. Connections parses includes
+This first adapter deliberately accepts **CNF only**. The bundled parser resolves includes
 and produces one shared clause matrix; both modes receive the same native input,
 with clause-index labels connecting model scores to proof ancestry. Equality is
 restored from Connections' internal representation to Prover9's native equality.

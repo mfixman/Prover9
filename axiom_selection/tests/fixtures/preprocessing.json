@@ -1,0 +1,83 @@
+[
+  {
+    "name": "variables",
+    "files": {
+      "case.p": "cnf(a,axiom,(p(f(X),X)|~q(X))). cnf(b,axiom,q(a)). cnf(c,negated_conjecture,~p(f(a),a))."
+    },
+    "graph_sha256": "af5f28bd8187391802c14c236b1c01b364a081b3bb751228b9f55a79dff1ba71",
+    "clauses": [
+      "p(f(V0),V0) | -q(V0)",
+      "q(a)",
+      "-p(f(a),a)"
+    ],
+    "conjectures": [
+      2
+    ],
+    "weights": [
+      0.9977390766143799,
+      0.9669567346572876,
+      1.0
+    ]
+  },
+  {
+    "name": "includes-equality",
+    "files": {
+      "axioms.ax": "cnf(eq,axiom,a=b). cnf(other,axiom,q(c)). cnf(rule,axiom,p(a)).",
+      "case.p": "include('axioms.ax',[eq,rule]). cnf(goal,negated_conjecture,~p(b))."
+    },
+    "graph_sha256": "358a56d8c50cc8a31ee1f22ef75849cdcc336c1aaf3b273900a9951c0c4ebe34",
+    "clauses": [
+      "(a = b)",
+      "p(a)",
+      "-p(b)"
+    ],
+    "conjectures": [
+      2
+    ],
+    "weights": [
+      0.0007984597468748689,
+      0.02000955119729042,
+      1.0
+    ]
+  },
+  {
+    "name": "truth",
+    "files": {
+      "case.p": "cnf(a,axiom,$true). cnf(b,axiom,(a!=b|p(a))). cnf(c,negated_conjecture,$false)."
+    },
+    "graph_sha256": "f7710bf8c5ba2f3127ff3be0969a4f913c6407b9a3ff16a3faa06594186a4b8d",
+    "clauses": [
+      "true___ | -true___",
+      "-(a = b) | p(a)",
+      "$F"
+    ],
+    "conjectures": [
+      2
+    ],
+    "weights": [
+      0.7639715671539307,
+      6.477402166638058e-06,
+      1.0
+    ]
+  },
+  {
+    "name": "shared-terms",
+    "files": {
+      "case.p": "cnf(a,axiom,(p(f(a),X)|q(X,g(Y)))). cnf(b,axiom,(~p(f(a),Z)|~q(Z,g(b)))). cnf(c,negated_conjecture,~r(f(a)))."
+    },
+    "graph_sha256": "f06955df5a4296c86ac62fe8c3492889b6437b29bf4335d1a2863d88cd338df4",
+    "clauses": [
+      "p(f(a),V0) | q(V0,g(V1))",
+      "-p(f(a),V0) | -q(V0,g(b))",
+      "-r(f(a))"
+    ],
+    "conjectures": [
+      2
+    ],
+    "weights": [
+      0.9524276256561279,
+      0.8266370892524719,
+      1.0
+    ]
+  }
+]

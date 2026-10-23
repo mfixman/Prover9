@@ -12,7 +12,7 @@ import time
 folder = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(folder))
 from portfolio import Premises, Slice, run_schedule
-from environment import connections_root
+from problem_split import ProblemSplit
 from prepare import prepare_bounded
 
 predictor = None
@@ -25,8 +25,6 @@ def initialize(cpus):
     predictor = Predictor()
 
 def sample(tptp, part, size, seed, excluded = ()):
-    connections_root()
-    from axiom_prediction.split import ProblemSplit
     import re
 
     split = ProblemSplit(10, [part], scheme = 4)

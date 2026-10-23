@@ -4,11 +4,17 @@ from pathlib import Path
 import statistics
 
 def summarize(directory):
+    if directory.suffix.lower() == '.csv':
+        directory = directory.with_suffix('')
+
     rows = json.loads((directory / 'results.json').read_text())
     manifest = json.loads((directory / 'manifest.json').read_text())
     limit = manifest['seconds']
     invalid = [r for r in rows if all('Unsupported symbol' in x.get('error', '') for x in r['results'].values())]
     rows = [r for r in rows if r not in invalid]
+    if not rows:
+        return {'cases':0, 'unsupported':[r['problem'] for r in invalid], 'modes':{}}
+
     modes = list(rows[0]['results'])
     key = lambda r:(r['problem'], r.get('replicate', 0))
     base = {key(r) for r in rows if r['results']['Baseline'].get('proved')}
@@ -35,6 +41,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('directory', type = Path)
     args = parser.parse_args()
+    if args.directory.suffix.lower() == '.csv':
+        args.directory = args.directory.with_suffix('')
+
     result = summarize(args.directory)
     (args.directory / 'summary.json').write_text(json.dumps(result, indent = 2))
     print(json.dumps(result, indent = 2))

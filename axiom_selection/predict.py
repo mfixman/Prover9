@@ -1,11 +1,9 @@
 from pathlib import Path
 import math
 import time
-from environment import connections_root
 
 class Predictor:
     def __init__(self, model = None):
-        connections_root()
         import torch
 
         torch.set_num_threads(1)
@@ -15,8 +13,8 @@ class Predictor:
         self.torch = torch
 
     def predict(self, matrix):
-        from axiom_prediction.graph import build_axiom_graph
-        from axiom_prediction.representation.schema import node_types, relations
+        from torok_vendor.axiom_prediction.graph import build_axiom_graph
+        from torok_vendor.axiom_prediction.representation.schema import node_types, relations
 
         started = time.monotonic()
         conjectures = list(matrix.conjecture_clauses)

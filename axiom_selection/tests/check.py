@@ -6,25 +6,9 @@ import tempfile
 
 folder = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(folder))
-from environment import connections_root
+from preprocessing import check_preprocessing
 from problem import load_problem, prover_input
 from predict import Predictor
-
-def check_export():
-    from axiom_prediction.model import AxiomPredictor
-
-    root = connections_root()
-    original = AxiomPredictor.load(root / 'models/torok.pt', device = 'cpu')
-    exported = Predictor()
-    for name in ['GRP001-1', 'SYN139-1']:
-        matrix = load_problem(folder.parent.parent / f'TPTP/Problems/{name[:3]}/{name}.p', folder.parent.parent / 'TPTP')
-        weights, _ = exported.predict(matrix)
-        conjectures = list(matrix.conjecture_clauses)
-        axioms = [i for i in range(len(matrix.clauses)) if i not in conjectures]
-        expected = original.predict(matrix, axiom_clause_ids = axioms, conjecture_clause_ids = conjectures)
-        assert max(abs(weights[item.clause_index] - max(1e-6, item.probability)) for item in expected) < 1e-5
-
-    print('Copied TorchScript probabilities match the original checkpoint.')
 
 def check_logic():
     cases = [
@@ -56,5 +40,5 @@ def check_logic():
 if __name__ == '__main__':
     subprocess.run(['gcc', '-O2', '-Wall', str(folder / 'tests/selection.c'), str(folder.parent / 'ladr/libladr.a'), '-lm', '-o', str(folder / 'build/check-selection')], check = True)
     subprocess.run([str(folder / 'build/check-selection')], check = True)
-    check_export()
+    check_preprocessing()
     check_logic()

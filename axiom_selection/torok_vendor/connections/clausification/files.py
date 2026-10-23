@@ -1,0 +1,56 @@
+from __future__ import annotations
+
+from collections.abc import Iterable
+from pathlib import Path
+
+from torok_vendor.connections.clausification.translate import (
+    ClausificationTranslationMode,
+    clausify,
+)
+from torok_vendor.connections.syntax.logic import Domain, Logic
+from torok_vendor.connections.syntax.matrix import Matrix
+from torok_vendor.connections.recursion import deep_recursion
+from torok_vendor.connections.trace_logging import TRACE_LEVEL, clausification_trace_logger, trace
+
+
+@deep_recursion()
+def matrix_from_file(
+    path: str | Path,
+    *,
+    translation: ClausificationTranslationMode = "default",
+    reorder: int = 0,
+    mark_conjecture: bool = False,
+    logic: Logic = "classical",
+    domain: Domain = "constant",
+    source_file_dirs: Iterable[str | Path] = (),
+) -> Matrix:
+    """Load a matrix from a source file using the native parser and translator.
+
+    The returned matrix carries its logic/domain stamp: they are part of omega's
+    identity, since they parameterize admissibility and the accepting set.
+    """
+
+    resolved_source_file_dirs = tuple(
+        Path(directory).resolve() for directory in source_file_dirs
+    )
+
+    from torok_vendor.connections.parsing.tptp.parser import parse_tptp_file
+
+    if clausification_trace_logger.isEnabledFor(TRACE_LEVEL):
+        trace(clausification_trace_logger, "%s", "matrix.from_file.start")
+    parsed = parse_tptp_file(path, source_roots=resolved_source_file_dirs)
+    matrix = clausify(
+        parsed,
+        translation=translation,
+        reorder=reorder,
+        mark_conjecture=mark_conjecture,
+        logic=logic,
+    )
+    matrix.logic = logic
+    matrix.domain = domain
+    if clausification_trace_logger.isEnabledFor(TRACE_LEVEL):
+        trace(clausification_trace_logger, "%s", "matrix.from_file.done")
+    return matrix
+
+
+__all__ = ["matrix_from_file"]

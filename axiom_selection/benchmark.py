@@ -16,9 +16,7 @@ import time
 folder = Path(__file__).resolve().parent
 
 def candidates(tptp, seed):
-    from environment import connections_root
-    connections_root()
-    from axiom_prediction.split import ProblemSplit
+    from problem_split import ProblemSplit
 
     split = ProblemSplit(10, [9], scheme = 4)
     paths = sorted((tptp / 'Problems').glob('*/*-*.p'))
@@ -98,7 +96,7 @@ def main():
     paths = candidates(args.tptp, 2026102303)
     sources = list(folder.glob('*.py')) + list(folder.glob('*.c')) + [folder.parent / 'provers.src/giv_select.c']
 
-    metadata = {'seed': 2026102303, 'split': {'scheme': 4, 'split': 10, 'parts': [9]}, 'candidate_count': len(paths), 'sample_order': list(map(str, paths)), 'seconds_per_arm_including_startup': args.seconds, 'launch_seconds': args.launch_seconds, 'workers': args.workers, 'cpus': cpus, 'prover_revision': revision(folder.parent), 'connections_revision': revision(Path('~/TP/connections').expanduser()), 'model_sha256': hashlib.sha256((folder / 'models/torok.ts').read_bytes()).hexdigest(), 'source_sha256': {str(p.relative_to(folder.parent)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}, 'selection': 'One random CNF Unsatisfiable variant per TPTP family, scheme-4 test part 9; stop launching whole matched groups at the preregistered wall deadline; no filtering on baseline outcomes.'}
+    metadata = {'seed': 2026102303, 'split': {'scheme': 4, 'split': 10, 'parts': [9]}, 'candidate_count': len(paths), 'sample_order': list(map(str, paths)), 'seconds_per_arm_including_startup': args.seconds, 'launch_seconds': args.launch_seconds, 'workers': args.workers, 'cpus': cpus, 'prover_revision': revision(folder.parent), 'preprocessing_provenance_sha256': hashlib.sha256((folder / 'torok_vendor/provenance.json').read_bytes()).hexdigest(), 'model_sha256': hashlib.sha256((folder / 'models/torok.ts').read_bytes()).hexdigest(), 'source_sha256': {str(p.relative_to(folder.parent)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}, 'selection': 'One random CNF Unsatisfiable variant per TPTP family, scheme-4 test part 9; stop launching whole matched groups at the preregistered wall deadline; no filtering on baseline outcomes.'}
     (args.output / 'manifest.json').write_text(json.dumps(metadata, indent = 2))
     started = time.monotonic()
     pending, completed, lock = queue.Queue(), [], threading.Lock()

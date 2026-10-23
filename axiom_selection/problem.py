@@ -1,12 +1,9 @@
 import re
 from pathlib import Path
-from environment import connections_root
-
-connections_root()
-from connections.parsing.tptp.parser import parse_tptp_file
-from connections.parsing.tptp.transformer import StmtCNF
-from connections.clausification import make_matrix_from_cnf_statements
-from connections.syntax.formula import Variable
+from torok_vendor.connections.parsing.tptp.parser import parse_tptp_file
+from torok_vendor.connections.parsing.tptp.transformer import StmtCNF
+from torok_vendor.connections.clausification import make_matrix_from_cnf_statements
+from torok_vendor.connections.syntax.formula import Variable
 
 def load_problem(path, tptp):
     document = parse_tptp_file(path, source_roots = (Path(tptp).resolve(),))

@@ -66,6 +66,10 @@ run; these results do not isolate how much the learned ranking contributes.
 
 ## Execute
 
+No Connections checkout is required. The parser and graph builder are bundled
+under `torok_vendor/`; install `requirements.txt` and run `build.py` on the HPC.
+Use `--tptp /path/to/TPTP` if the dataset is not in the sibling TPTP directory.
+
 The defaults are 60 seconds per strategy and one worker per CPU available in
 the process affinity mask. On the HPC, run inside the scheduler allocation
 with the appropriate CPU binding. For local runs, pass `--workers 18`. The
@@ -97,3 +101,40 @@ The implementation and model hashes are frozen in `resume_config.json`; each
 new experiment also saves its source snapshot and executable hashes. The
 pause/resume, paused-process timeout, first-proof, and support-splitting checks
 pass. Earlier unsuccessful alternatives are recorded in `SUPPORT.md`.
+
+## Concurrent HPC jobs
+
+Use `--split N --part P` to divide the selected problem list into disjoint
+zero-based parts. For example, run this in each of four allocations, changing
+`--part` and the output directory to 0, 1, 2 and 3:
+
+```sh
+python axiom_selection/compare.py --all-cnf-unsat --seconds 60 \
+  --modes Baseline ResumeSupport1 WeightedSupport16 \
+  --split 4 --part 0 --output axiom_selection/results/hpc-part-0
+```
+
+This locally implements Connections' split scheme 5 (without depending on its Python API): MD5 of the TPTP family prefix, interpreted
+as a big-endian integer modulo N. Filename variants stay together, and directory
+locations do not affect assignment. `--part 0 2` (or `--parts 0 2`) selects multiple
+parts. Omitting `--part` selects all parts; `--split` defaults to 1.
+
+Partitioning filters the problem list after `--all-cnf-unsat`, `--manifest`, or
+the default development sampling. Use the same input list, sample seed/count,
+and split count in every job. All strategies and repetitions for a problem stay
+in that job. Hash partitions need not have equal problem counts or runtime.
+The manifest records `partition` separately from the original dataset `split`;
+job partitions are not claims of separation from Torok's training data.
+Each job uses its own CPU affinity allocation and needs a distinct output directory.
+
+When `--output` is omitted, results go to `axiom_selection/results/part-P.csv`
+(for example, `part-0.csv`). The companion directory `part-P/` holds manifests,
+JSON results, inputs and proof logs. CSV rows are appended after each completed
+problem group, with problem, replicate, CPU, strategy, proof status, elapsed
+seconds and error columns. Existing outputs are never overwritten.
+
+Selecting multiple parts uses names such as `part-0-2.csv`; selecting every part
+of a split larger than one uses `part-all.csv`. Without splitting, the default
+is `part-0.csv`. Explicit directory outputs retain their previous behavior;
+explicit `.csv` outputs use the same CSV-plus-companion-directory layout.
+The summary command accepts either the CSV path or its companion directory.
