@@ -1,0 +1,91 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 46 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+le(A,A) # label(sos_01) # label(axiom).
+-le(max(A,B),C) | le(A,C) # label(sos_02) # label(axiom).
+-le(max(A,B),C) | le(B,C) # label(sos_03) # label(axiom).
+eq(f(A),a0) | eq(f(A),a1) | eq(f(A),a2) | eq(f(A),a3) | eq(f(A),a4) | eq(f(A),a5) # label(sos_04) # label(axiom).
+-eq(f(A0),a0) | -eq(f(A1),a0) | -eq(f(A2),a0) | -eq(f(A3),a0) | -eq(f(A4),a0) | -eq(f(A5),a0) | -eq(f(A6),a0) | -eq(f(A7),a0) | -le(s(A0),A1) | -le(s(A1),A2) | -le(s(A2),A3) | -le(s(A3),A4) | -le(s(A4),A5) | -le(s(A5),A6) | -le(s(A6),A7) # label(sos_05) # label(axiom).
+-eq(f(A0),a1) | -eq(f(A1),a1) | -eq(f(A2),a1) | -eq(f(A3),a1) | -eq(f(A4),a1) | -eq(f(A5),a1) | -eq(f(A6),a1) | -eq(f(A7),a1) | -le(s(A0),A1) | -le(s(A1),A2) | -le(s(A2),A3) | -le(s(A3),A4) | -le(s(A4),A5) | -le(s(A5),A6) | -le(s(A6),A7) # label(sos_06) # label(axiom).
+-eq(f(A0),a2) | -eq(f(A1),a2) | -eq(f(A2),a2) | -eq(f(A3),a2) | -eq(f(A4),a2) | -eq(f(A5),a2) | -eq(f(A6),a2) | -eq(f(A7),a2) | -le(s(A0),A1) | -le(s(A1),A2) | -le(s(A2),A3) | -le(s(A3),A4) | -le(s(A4),A5) | -le(s(A5),A6) | -le(s(A6),A7) # label(sos_07) # label(axiom).
+-eq(f(A0),a3) | -eq(f(A1),a3) | -eq(f(A2),a3) | -eq(f(A3),a3) | -eq(f(A4),a3) | -eq(f(A5),a3) | -eq(f(A6),a3) | -eq(f(A7),a3) | -le(s(A0),A1) | -le(s(A1),A2) | -le(s(A2),A3) | -le(s(A3),A4) | -le(s(A4),A5) | -le(s(A5),A6) | -le(s(A6),A7) # label(sos_08) # label(axiom).
+-eq(f(A0),a4) | -eq(f(A1),a4) | -eq(f(A2),a4) | -eq(f(A3),a4) | -eq(f(A4),a4) | -eq(f(A5),a4) | -eq(f(A6),a4) | -eq(f(A7),a4) | -le(s(A0),A1) | -le(s(A1),A2) | -le(s(A2),A3) | -le(s(A3),A4) | -le(s(A4),A5) | -le(s(A5),A6) | -le(s(A6),A7) # label(sos_09) # label(axiom).
+-eq(f(A0),a5) | -eq(f(A1),a5) | -eq(f(A2),a5) | -eq(f(A3),a5) | -eq(f(A4),a5) | -eq(f(A5),a5) | -eq(f(A6),a5) | -eq(f(A7),a5) | -le(s(A0),A1) | -le(s(A1),A2) | -le(s(A2),A3) | -le(s(A3),A4) | -le(s(A4),A5) | -le(s(A5),A6) | -le(s(A6),A7) # label(sos_10) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ eq, le ]).
+Function symbol precedence:  function_order([ a0, a1, a2, a3, a4, a5, max, f, s ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== STATISTICS ============================
+
+Given=0. Generated=32. Kept=17. proofs=0.
+Usable=0. Sos=4. Demods=0. Limbo=13, Disabled=10. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=15. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=57. Nonunit_bsub_feature_tests=7.
+Megabytes=0.10.
+User_CPU=21.39, System_CPU=0.01, Wall_clock=22.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 46 exit (max_seconds) Fri Oct 23 15:00:45 2026
+
+SEARCH FAILED
+
+------ process 46 exit (max_seconds) ------
+

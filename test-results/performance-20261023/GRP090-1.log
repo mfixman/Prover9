@@ -1,0 +1,160 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 141 was started by mfixman on bodoque,
+Fri Oct 23 15:00:46 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+divide(divide(X,divide(Y,Z)),divide(X,Y)) = Z # label(single_axiom) # label(axiom).
+multiply(X,Y) = divide(X,divide(divide(Z,Z),Y)) # label(multiply) # label(axiom).
+inverse(X) = divide(divide(Z,Z),X) # label(inverse) # label(axiom).
+multiply(inverse(a1),a1) != multiply(inverse(b1),b1) | multiply(multiply(inverse(b2),b2),a2) != a2 | multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | multiply(a4,b4) != multiply(b4,a4) # label(prove_these_axioms) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_these_axioms to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ a1, a2, a3, a4, b1, b2, b3, b4, c3, divide, multiply, inverse ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(hyper_resolution).  % (nonunit Horn with equality)
+    % set(hyper_resolution) -> set(pos_hyper_resolution).
+  % set(neg_ur_resolution).  % (nonunit Horn with equality)
+  % assign(para_lit_limit, 4).  % (nonunit Horn with equality)
+
+Auto_process settings:
+  % set(unit_deletion).  % (Horn set with negative nonunits)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+% Operation multiply is commutative; C redundancy checks enabled.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.03 (+ 0.00) seconds: prove_these_axioms.
+% Length of proof is 48.
+% Level of proof is 16.
+% Maximum clause weight is 41.000.
+% Given clauses 48 (3.000 givens/level).
+
+1 divide(divide(A,divide(B,C)),divide(A,B)) = C # label(single_axiom) # label(axiom).  [assumption].
+2 multiply(A,B) = divide(A,divide(divide(C,C),B)) # label(multiply) # label(axiom).  [assumption].
+3 inverse(A) = divide(divide(B,B),A) # label(inverse) # label(axiom).  [assumption].
+4 multiply(inverse(a1),a1) != multiply(inverse(b1),b1) | multiply(multiply(inverse(b2),b2),a2) != a2 | multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | multiply(a4,b4) != multiply(b4,a4) # label(prove_these_axioms) # label(negated_conjecture) # answer(prove_these_axioms).  [assumption].
+5 multiply(inverse(b1),b1) != multiply(inverse(a1),a1) | multiply(multiply(inverse(b2),b2),a2) != a2 | multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | multiply(b4,a4) != multiply(a4,b4) # answer(prove_these_axioms).  [copy(4),flip(a),flip(d)].
+6 divide(divide(A,B),divide(A,divide(C,divide(D,B)))) = divide(C,D).  [para(1(a,1),1(a,1,1,2))].
+7 divide(A,divide(divide(B,divide(C,A)),B)) = C.  [para(1(a,1),1(a,1,1))].
+10 divide(multiply(A,B),divide(A,divide(C,C))) = B.  [para(2(a,2),1(a,1,1))].
+20 inverse(divide(divide(A,B),A)) = B.  [para(3(a,2),1(a,1))].
+22 multiply(A,B) = divide(A,inverse(B)).  [para(3(a,2),2(a,2,2))].
+23 inverse(divide(divide(A,A),B)) = multiply(divide(C,C),B).  [para(3(a,2),2(a,2)),flip(a)].
+29 multiply(inverse(b1),b1) != multiply(inverse(a1),a1) | multiply(multiply(divide(divide(A,A),b2),b2),a2) != a2 | multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | multiply(b4,a4) != multiply(a4,b4) # answer(prove_these_axioms).  [para(3(a,1),5(b,1,1,1))].
+31 divide(divide(A,B),divide(divide(C,D),C)) = divide(A,divide(B,D)).  [para(6(a,1),1(a,1,1))].
+57 multiply(inverse(b1),b1) != multiply(divide(divide(A,A),a1),a1) | multiply(multiply(divide(divide(B,B),b2),b2),a2) != a2 | multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | multiply(b4,a4) != multiply(a4,b4) # answer(prove_these_axioms).  [para(3(a,1),29(a,2,1))].
+70 divide(A,divide(A,B)) = B.  [para(20(a,1),3(a,1)),rewrite([31(4)]),flip(a)].
+72 inverse(inverse(A)) = A.  [para(3(a,2),20(a,1,1))].
+75 inverse(divide(divide(A,A),B)) = B.  [para(3(a,1),72(a,1,1))].
+76 inverse(A) = divide(divide(B,A),B).  [para(20(a,1),72(a,1,1))].
+77 multiply(divide(A,A),B) = B.  [back_rewrite(23),rewrite([75(3)]),flip(a)].
+81 divide(A,divide(B,B)) = A.  [para(70(a,1),1(a,1,1))].
+87 divide(divide(A,B),divide(A,B)) = divide(C,C).  [para(70(a,1),6(a,1,2,2))].
+88 divide(divide(A,B),divide(C,B)) = divide(A,C).  [para(70(a,1),6(a,1,2))].
+90 inverse(divide(A,B)) = divide(B,A).  [para(70(a,1),20(a,1,1,1))].
+94 divide(multiply(A,B),A) = B.  [back_rewrite(10),rewrite([81(3)])].
+95 divide(A,A) = divide(B,B).  [back_rewrite(87),rewrite([88(3)])].
+99 multiply(multiply(divide(divide(A,A),B),B),C) = C.  [para(2(a,2),77(a,1,1))].
+100 multiply(inverse(b1),b1) != multiply(divide(divide(A,A),a1),a1) | multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | multiply(b4,a4) != multiply(a4,b4) # answer(prove_these_axioms).  [back_rewrite(57),rewrite([99(17)]),xx(b)].
+106 multiply(A,divide(B,A)) = B.  [para(7(a,1),2(a,2))].
+116 multiply(inverse(b1),b1) != divide(A,A) | multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | multiply(b4,a4) != multiply(a4,b4) # answer(prove_these_axioms).  [para(2(a,1),100(a,2)),rewrite([88(11),81(7)])].
+121 multiply(divide(divide(A,A),b1),b1) != divide(B,B) | multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | multiply(b4,a4) != multiply(a4,b4) # answer(prove_these_axioms).  [para(3(a,1),116(a,1,1))].
+126 multiply(divide(divide(A,A),b1),b1) != divide(B,B) | multiply(multiply(a3,b3),c3) != divide(a3,divide(divide(C,C),multiply(b3,c3))) | multiply(b4,a4) != multiply(a4,b4) # answer(prove_these_axioms).  [para(2(a,1),121(b,2))].
+137 divide(multiply(A,B),B) = A.  [para(94(a,1),70(a,1,2))].
+138 multiply(divide(divide(A,A),B),B) = divide(C,C).  [para(95(a,1),2(a,2))].
+140 multiply(multiply(a3,b3),c3) != divide(a3,divide(divide(A,A),multiply(b3,c3))) | multiply(b4,a4) != multiply(a4,b4) # answer(prove_these_axioms).  [back_unit_del(126),unit_del(a,138)].
+144 multiply(divide(A,B),C) = divide(A,divide(B,C)).  [para(1(a,1),106(a,1,2))].
+178 divide(a3,inverse(multiply(b3,c3))) != multiply(multiply(a3,b3),c3) | multiply(b4,a4) != multiply(a4,b4) # answer(prove_these_axioms).  [para(3(a,2),140(a,2,2)),flip(a)].
+192 multiply(A,B) = multiply(B,A).  [para(137(a,1),106(a,1,2))].
+199 divide(a3,inverse(multiply(b3,c3))) != multiply(c3,multiply(a3,b3)) # answer(prove_these_axioms).  [back_rewrite(178),rewrite([192(11),192(15)]),xx(b)].
+219 divide(divide(A,inverse(B)),B) = A.  [para(22(a,1),137(a,1,1))].
+220 multiply(A,B) = divide(B,inverse(A)).  [para(22(a,1),192(a,1)),flip(a)].
+265 divide(a3,inverse(multiply(b3,c3))) != multiply(c3,divide(a3,inverse(b3))) # answer(prove_these_axioms).  [para(22(a,1),199(a,2,2))].
+298 multiply(A,divide(B,C)) = divide(A,divide(C,B)).  [para(90(a,1),22(a,2,2))].
+299 inverse(multiply(A,B)) = divide(inverse(B),A).  [para(22(a,2),90(a,1,1))].
+306 divide(a3,divide(inverse(c3),b3)) != divide(c3,divide(inverse(b3),a3)) # answer(prove_these_axioms).  [back_rewrite(265),rewrite([299(5),298(12)])].
+358 divide(inverse(A),B) = divide(inverse(B),A).  [para(76(a,2),219(a,1,1))].
+368 divide(a3,divide(inverse(b3),c3)) != divide(c3,divide(inverse(a3),b3)) # answer(prove_these_axioms).  [back_rewrite(306),rewrite([358(5),358(11)])].
+383 divide(A,divide(B,C)) = divide(C,divide(B,A)).  [para(90(a,1),220(a,2,2)),rewrite([144(2)])].
+392 $F # answer(prove_these_axioms).  [back_rewrite(368),rewrite([383(6),358(5)]),xx(a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=48. Generated=1023. Kept=390. proofs=1.
+Usable=23. Sos=192. Demods=107. Limbo=9, Disabled=170. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=632. Back_subsumed=29.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=151 (5 lex), Back_demodulated=133. Back_unit_deleted=4.
+Demod_attempts=10246. Demod_rewrites=1032.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=100. Nonunit_bsub_feature_tests=130.
+Megabytes=0.66.
+User_CPU=0.03, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 141 exit (max_proofs) Fri Oct 23 15:00:46 2026
+-------- Proof 1 -------- prove_these_axioms.
+
+THEOREM PROVED
+
+------ process 141 exit (max_proofs) ------
+

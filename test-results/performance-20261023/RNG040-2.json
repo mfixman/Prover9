@@ -1,0 +1,12 @@
+{
+  "problem": "RNG040-2",
+  "domain": "RNG",
+  "rating": 0.0,
+  "conversion_wall_seconds": 0.00447471700317692,
+  "exit_code": 0,
+  "search_wall_seconds": 0.018533855996793136,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.02,
+  "total_wall_seconds": 0.024547302004066296
+}

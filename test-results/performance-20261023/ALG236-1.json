@@ -1,0 +1,12 @@
+{
+  "problem": "ALG236-1",
+  "domain": "ALG",
+  "rating": 0.09,
+  "conversion_wall_seconds": 0.009386343997903168,
+  "exit_code": 0,
+  "search_wall_seconds": 0.6745237490104046,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.63,
+  "total_wall_seconds": 0.6846815970056923
+}

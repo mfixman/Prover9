@@ -1,0 +1,12 @@
+{
+  "problem": "SWV422-1.405",
+  "domain": "SWV",
+  "rating": 0.86,
+  "conversion_wall_seconds": 0.07144023600267246,
+  "exit_code": 4,
+  "search_wall_seconds": 20.30085840000538,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.05,
+  "total_wall_seconds": 20.374287396
+}

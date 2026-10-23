@@ -1,0 +1,14 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+nand(nand(A,nand(nand(B,A),A)),nand(B,nand(C,A))) = B # label(sh_1) # label(axiom).
+nand(a,nand(b,nand(a,c))) != nand(nand(nand(c,b),b),a) # label(prove_meredith_2_basis_2) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

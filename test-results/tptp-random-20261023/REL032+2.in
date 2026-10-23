@@ -1,0 +1,32 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+
+% Including file Axioms/REL001+0.ax
+
+
+% Including file Axioms/REL001+1.ax
+
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all X0 all X1 join(X0,X1) = join(X1,X0)) # label(maddux1_join_commutativity) # label(axiom).
+(all X0 all X1 all X2 join(X0,join(X1,X2)) = join(join(X0,X1),X2)) # label(maddux2_join_associativity) # label(axiom).
+(all X0 all X1 X0 = join(complement(join(complement(X0),complement(X1))),complement(join(complement(X0),X1)))) # label(maddux3_a_kind_of_de_Morgan) # label(axiom).
+(all X0 all X1 meet(X0,X1) = complement(join(complement(X0),complement(X1)))) # label(maddux4_definiton_of_meet) # label(axiom).
+(all X0 all X1 all X2 composition(X0,composition(X1,X2)) = composition(composition(X0,X1),X2)) # label(composition_associativity) # label(axiom).
+(all X0 composition(X0,one) = X0) # label(composition_identity) # label(axiom).
+(all X0 all X1 all X2 composition(join(X0,X1),X2) = join(composition(X0,X2),composition(X1,X2))) # label(composition_distributivity) # label(axiom).
+(all X0 converse(converse(X0)) = X0) # label(converse_idempotence) # label(axiom).
+(all X0 all X1 converse(join(X0,X1)) = join(converse(X0),converse(X1))) # label(converse_additivity) # label(axiom).
+(all X0 all X1 converse(composition(X0,X1)) = composition(converse(X1),converse(X0))) # label(converse_multiplicativity) # label(axiom).
+(all X0 all X1 join(composition(converse(X0),complement(composition(X0,X1))),complement(X1)) = complement(X1)) # label(converse_cancellativity) # label(axiom).
+(all X0 top = join(X0,complement(X0))) # label(def_top) # label(axiom).
+(all X0 zero = meet(X0,complement(X0))) # label(def_zero) # label(axiom).
+(all X0 all X1 all X2 join(meet(composition(X0,X1),X2),composition(meet(X0,composition(X2,converse(X1))),meet(X1,composition(converse(X0),X2)))) = composition(meet(X0,composition(X2,converse(X1))),meet(X1,composition(converse(X0),X2)))) # label(dedekind_law) # label(axiom).
+(all X0 all X1 all X2 join(meet(composition(X0,X1),X2),meet(composition(X0,meet(X1,composition(converse(X0),X2))),X2)) = meet(composition(X0,meet(X1,composition(converse(X0),X2))),X2)) # label(modular_law_1) # label(axiom).
+(all X0 all X1 all X2 join(meet(composition(X0,X1),X2),meet(composition(meet(X0,composition(X2,converse(X1))),X1),X2)) = meet(composition(meet(X0,composition(X2,converse(X1))),X1),X2)) # label(modular_law_2) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all X0 all X1 all X2 join(composition(X0,meet(X1,X2)),meet(composition(X0,X1),composition(X0,X2))) = meet(composition(X0,X1),composition(X0,X2))) # label(goals) # label(conjecture).
+end_of_list.

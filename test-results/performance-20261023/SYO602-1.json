@@ -1,0 +1,11 @@
+{
+  "problem": "SYO602-1",
+  "domain": "SYO",
+  "rating": 1.0,
+  "conversion_wall_seconds": 0.7228087609983049,
+  "exit_code": "wall_timeout",
+  "search_wall_seconds": 25.007149932993343,
+  "outcome": "unsolved",
+  "reason": "wall_timeout",
+  "total_wall_seconds": 25.754366697001387
+}

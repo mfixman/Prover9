@@ -1,0 +1,389 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 257 was started by mfixman on bodoque,
+Fri Oct 23 15:01:30 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+next(e_1,e_2) # label(e_1_then_e_2) # label(axiom).
+next(e_2,e_3) # label(e_2_then_e_3) # label(axiom).
+next(e_3,e_4) # label(e_3_then_e_4) # label(axiom).
+greater(e_2,e_1) # label(e_2_greater_e_1) # label(axiom).
+greater(e_3,e_1) # label(e_3_greater_e_1) # label(axiom).
+greater(e_4,e_1) # label(e_4_greater_e_1) # label(axiom).
+greater(e_3,e_2) # label(e_3_greater_e_2) # label(axiom).
+greater(e_4,e_2) # label(e_4_greater_e_2) # label(axiom).
+greater(e_4,e_3) # label(e_4_greater_e_3) # label(axiom).
+-product(X,e_1,Y) | -next(X,X1) | -greater(Y,X1) # label(no_redundancy) # label(axiom).
+group_element(e_1) # label(element_1) # label(axiom).
+group_element(e_2) # label(element_2) # label(axiom).
+group_element(e_3) # label(element_3) # label(axiom).
+group_element(e_4) # label(element_4) # label(axiom).
+-equalish(e_1,e_2) # label(e_1_is_not_e_2) # label(axiom).
+-equalish(e_1,e_3) # label(e_1_is_not_e_3) # label(axiom).
+-equalish(e_1,e_4) # label(e_1_is_not_e_4) # label(axiom).
+-equalish(e_2,e_1) # label(e_2_is_not_e_1) # label(axiom).
+-equalish(e_2,e_3) # label(e_2_is_not_e_3) # label(axiom).
+-equalish(e_2,e_4) # label(e_2_is_not_e_4) # label(axiom).
+-equalish(e_3,e_1) # label(e_3_is_not_e_1) # label(axiom).
+-equalish(e_3,e_2) # label(e_3_is_not_e_2) # label(axiom).
+-equalish(e_3,e_4) # label(e_3_is_not_e_4) # label(axiom).
+-equalish(e_4,e_1) # label(e_4_is_not_e_1) # label(axiom).
+-equalish(e_4,e_2) # label(e_4_is_not_e_2) # label(axiom).
+-equalish(e_4,e_3) # label(e_4_is_not_e_3) # label(axiom).
+-group_element(X) | -group_element(Y) | product(X,Y,e_1) | product(X,Y,e_2) | product(X,Y,e_3) | product(X,Y,e_4) # label(product_total_function1) # label(axiom).
+-product(X,Y,W) | -product(X,Y,Z) | equalish(W,Z) # label(product_total_function2) # label(axiom).
+-product(X,W,Y) | -product(X,Z,Y) | equalish(W,Z) # label(product_right_cancellation) # label(axiom).
+-product(W,Y,X) | -product(Z,Y,X) | equalish(W,Z) # label(product_left_cancellation) # label(axiom).
+-product(Y,X,Z1) | -product(X,Z1,Z2) | product(Z1,Y,Z2) # label(qg3) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating next/2
+1 -product(A,e_1,B) | -next(A,C) | -greater(B,C) # label(no_redundancy) # label(axiom).  [assumption].
+2 next(e_1,e_2) # label(e_1_then_e_2) # label(axiom).  [assumption].
+3 next(e_2,e_3) # label(e_2_then_e_3) # label(axiom).  [assumption].
+4 next(e_3,e_4) # label(e_3_then_e_4) # label(axiom).  [assumption].
+Derived: -product(e_1,e_1,A) | -greater(A,e_2).  [resolve(1,b,2,a)].
+Derived: -product(e_2,e_1,A) | -greater(A,e_3).  [resolve(1,b,3,a)].
+Derived: -product(e_3,e_1,A) | -greater(A,e_4).  [resolve(1,b,4,a)].
+
+Eliminating greater/2
+5 -product(e_1,e_1,A) | -greater(A,e_2).  [resolve(1,b,2,a)].
+6 greater(e_2,e_1) # label(e_2_greater_e_1) # label(axiom).  [assumption].
+7 greater(e_3,e_1) # label(e_3_greater_e_1) # label(axiom).  [assumption].
+8 greater(e_4,e_1) # label(e_4_greater_e_1) # label(axiom).  [assumption].
+9 greater(e_3,e_2) # label(e_3_greater_e_2) # label(axiom).  [assumption].
+10 greater(e_4,e_2) # label(e_4_greater_e_2) # label(axiom).  [assumption].
+11 greater(e_4,e_3) # label(e_4_greater_e_3) # label(axiom).  [assumption].
+Derived: -product(e_1,e_1,e_3).  [resolve(5,b,9,a)].
+Derived: -product(e_1,e_1,e_4).  [resolve(5,b,10,a)].
+12 -product(e_2,e_1,A) | -greater(A,e_3).  [resolve(1,b,3,a)].
+Derived: -product(e_2,e_1,e_4).  [resolve(12,b,11,a)].
+13 -product(e_3,e_1,A) | -greater(A,e_4).  [resolve(1,b,4,a)].
+
+Eliminating equalish/2
+14 -product(A,B,C) | -product(A,B,D) | equalish(C,D) # label(product_total_function2) # label(axiom).  [assumption].
+15 -equalish(e_1,e_2) # label(e_1_is_not_e_2) # label(axiom).  [assumption].
+16 -equalish(e_1,e_3) # label(e_1_is_not_e_3) # label(axiom).  [assumption].
+17 -equalish(e_1,e_4) # label(e_1_is_not_e_4) # label(axiom).  [assumption].
+18 -equalish(e_2,e_1) # label(e_2_is_not_e_1) # label(axiom).  [assumption].
+19 -equalish(e_2,e_3) # label(e_2_is_not_e_3) # label(axiom).  [assumption].
+20 -equalish(e_2,e_4) # label(e_2_is_not_e_4) # label(axiom).  [assumption].
+21 -equalish(e_3,e_1) # label(e_3_is_not_e_1) # label(axiom).  [assumption].
+22 -equalish(e_3,e_2) # label(e_3_is_not_e_2) # label(axiom).  [assumption].
+23 -equalish(e_3,e_4) # label(e_3_is_not_e_4) # label(axiom).  [assumption].
+24 -equalish(e_4,e_1) # label(e_4_is_not_e_1) # label(axiom).  [assumption].
+25 -equalish(e_4,e_2) # label(e_4_is_not_e_2) # label(axiom).  [assumption].
+26 -equalish(e_4,e_3) # label(e_4_is_not_e_3) # label(axiom).  [assumption].
+Derived: -product(A,B,e_1) | -product(A,B,e_2).  [resolve(14,c,15,a)].
+Derived: -product(A,B,e_1) | -product(A,B,e_3).  [resolve(14,c,16,a)].
+Derived: -product(A,B,e_1) | -product(A,B,e_4).  [resolve(14,c,17,a)].
+Derived: -product(A,B,e_2) | -product(A,B,e_3).  [resolve(14,c,19,a)].
+Derived: -product(A,B,e_2) | -product(A,B,e_4).  [resolve(14,c,20,a)].
+Derived: -product(A,B,e_3) | -product(A,B,e_4).  [resolve(14,c,23,a)].
+27 -product(A,B,C) | -product(A,D,C) | equalish(B,D) # label(product_right_cancellation) # label(axiom).  [assumption].
+Derived: -product(A,e_1,B) | -product(A,e_2,B).  [resolve(27,c,15,a)].
+Derived: -product(A,e_1,B) | -product(A,e_3,B).  [resolve(27,c,16,a)].
+Derived: -product(A,e_1,B) | -product(A,e_4,B).  [resolve(27,c,17,a)].
+Derived: -product(A,e_2,B) | -product(A,e_3,B).  [resolve(27,c,19,a)].
+Derived: -product(A,e_2,B) | -product(A,e_4,B).  [resolve(27,c,20,a)].
+Derived: -product(A,e_3,B) | -product(A,e_4,B).  [resolve(27,c,23,a)].
+28 -product(A,B,C) | -product(D,B,C) | equalish(A,D) # label(product_left_cancellation) # label(axiom).  [assumption].
+Derived: -product(e_1,A,B) | -product(e_2,A,B).  [resolve(28,c,15,a)].
+Derived: -product(e_1,A,B) | -product(e_3,A,B).  [resolve(28,c,16,a)].
+Derived: -product(e_1,A,B) | -product(e_4,A,B).  [resolve(28,c,17,a)].
+Derived: -product(e_2,A,B) | -product(e_3,A,B).  [resolve(28,c,19,a)].
+Derived: -product(e_2,A,B) | -product(e_4,A,B).  [resolve(28,c,20,a)].
+Derived: -product(e_3,A,B) | -product(e_4,A,B).  [resolve(28,c,23,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ group_element, product ]).
+Function symbol precedence:  function_order([ e_1, e_2, e_3, e_4 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+given #500 (T,wt=28): 561 product(e_3,e_2,e_1) | product(e_3,e_2,e_2) | product(e_3,e_2,e_3) | product(e_2,e_4,e_1) | product(e_2,e_4,e_2) | product(e_2,e_4,e_3) | -product(e_3,e_3,e_4).  [resolve(213,d,55,b)].
+
+given #1000 (T,wt=8): 4019 product(e_4,e_2,e_2) | -product(e_3,e_2,e_3).  [resolve(3938,b,55,b)].
+
+============================== PROOF =================================
+
+% Proof 1 at 1.25 (+ 0.01) seconds.
+% Length of proof is 195.
+% Level of proof is 69.
+% Maximum clause weight is 40.000.
+% Given clauses 1037 (15.029 givens/level).
+
+1 -product(A,e_1,B) | -next(A,C) | -greater(B,C) # label(no_redundancy) # label(axiom).  [assumption].
+2 next(e_1,e_2) # label(e_1_then_e_2) # label(axiom).  [assumption].
+3 next(e_2,e_3) # label(e_2_then_e_3) # label(axiom).  [assumption].
+5 -product(e_1,e_1,A) | -greater(A,e_2).  [resolve(1,b,2,a)].
+9 greater(e_3,e_2) # label(e_3_greater_e_2) # label(axiom).  [assumption].
+10 greater(e_4,e_2) # label(e_4_greater_e_2) # label(axiom).  [assumption].
+11 greater(e_4,e_3) # label(e_4_greater_e_3) # label(axiom).  [assumption].
+12 -product(e_2,e_1,A) | -greater(A,e_3).  [resolve(1,b,3,a)].
+14 -product(A,B,C) | -product(A,B,D) | equalish(C,D) # label(product_total_function2) # label(axiom).  [assumption].
+15 -equalish(e_1,e_2) # label(e_1_is_not_e_2) # label(axiom).  [assumption].
+16 -equalish(e_1,e_3) # label(e_1_is_not_e_3) # label(axiom).  [assumption].
+17 -equalish(e_1,e_4) # label(e_1_is_not_e_4) # label(axiom).  [assumption].
+19 -equalish(e_2,e_3) # label(e_2_is_not_e_3) # label(axiom).  [assumption].
+20 -equalish(e_2,e_4) # label(e_2_is_not_e_4) # label(axiom).  [assumption].
+23 -equalish(e_3,e_4) # label(e_3_is_not_e_4) # label(axiom).  [assumption].
+27 -product(A,B,C) | -product(A,D,C) | equalish(B,D) # label(product_right_cancellation) # label(axiom).  [assumption].
+28 -product(A,B,C) | -product(D,B,C) | equalish(A,D) # label(product_left_cancellation) # label(axiom).  [assumption].
+29 group_element(e_1) # label(element_1) # label(axiom).  [assumption].
+30 group_element(e_2) # label(element_2) # label(axiom).  [assumption].
+31 group_element(e_3) # label(element_3) # label(axiom).  [assumption].
+32 group_element(e_4) # label(element_4) # label(axiom).  [assumption].
+33 -group_element(A) | -group_element(B) | product(A,B,e_1) | product(A,B,e_2) | product(A,B,e_3) | product(A,B,e_4) # label(product_total_function1) # label(axiom).  [assumption].
+34 -product(A,B,C) | -product(B,C,D) | product(C,A,D) # label(qg3) # label(negated_conjecture).  [assumption].
+35 -product(e_1,e_1,e_3).  [resolve(5,b,9,a)].
+36 -product(e_1,e_1,e_4).  [resolve(5,b,10,a)].
+37 -product(e_2,e_1,e_4).  [resolve(12,b,11,a)].
+38 -product(A,B,e_1) | -product(A,B,e_2).  [resolve(14,c,15,a)].
+39 -product(A,B,e_1) | -product(A,B,e_3).  [resolve(14,c,16,a)].
+41 -product(A,B,e_2) | -product(A,B,e_3).  [resolve(14,c,19,a)].
+43 -product(A,B,e_3) | -product(A,B,e_4).  [resolve(14,c,23,a)].
+44 -product(A,e_1,B) | -product(A,e_2,B).  [resolve(27,c,15,a)].
+45 -product(A,e_1,B) | -product(A,e_3,B).  [resolve(27,c,16,a)].
+46 -product(A,e_1,B) | -product(A,e_4,B).  [resolve(27,c,17,a)].
+47 -product(A,e_2,B) | -product(A,e_3,B).  [resolve(27,c,19,a)].
+48 -product(A,e_2,B) | -product(A,e_4,B).  [resolve(27,c,20,a)].
+49 -product(A,e_3,B) | -product(A,e_4,B).  [resolve(27,c,23,a)].
+50 -product(e_1,A,B) | -product(e_2,A,B).  [resolve(28,c,15,a)].
+51 -product(e_1,A,B) | -product(e_3,A,B).  [resolve(28,c,16,a)].
+52 -product(e_1,A,B) | -product(e_4,A,B).  [resolve(28,c,17,a)].
+53 -product(e_2,A,B) | -product(e_3,A,B).  [resolve(28,c,19,a)].
+54 -product(e_2,A,B) | -product(e_4,A,B).  [resolve(28,c,20,a)].
+55 -product(e_3,A,B) | -product(e_4,A,B).  [resolve(28,c,23,a)].
+56 -group_element(A) | product(A,A,e_1) | product(A,A,e_2) | product(A,A,e_3) | product(A,A,e_4).  [factor(33,a,b)].
+57 -group_element(A) | product(e_4,A,e_1) | product(e_4,A,e_2) | product(e_4,A,e_3) | product(e_4,A,e_4).  [resolve(33,a,32,a)].
+58 -group_element(A) | product(e_3,A,e_1) | product(e_3,A,e_2) | product(e_3,A,e_3) | product(e_3,A,e_4).  [resolve(33,a,31,a)].
+59 -group_element(A) | product(e_2,A,e_1) | product(e_2,A,e_2) | product(e_2,A,e_3) | product(e_2,A,e_4).  [resolve(33,a,30,a)].
+60 -group_element(A) | product(e_1,A,e_1) | product(e_1,A,e_2) | product(e_1,A,e_3) | product(e_1,A,e_4).  [resolve(33,a,29,a)].
+65 product(e_4,e_4,e_1) | product(e_4,e_4,e_2) | product(e_4,e_4,e_3) | product(e_4,e_4,e_4).  [resolve(56,a,32,a)].
+66 product(e_3,e_3,e_1) | product(e_3,e_3,e_2) | product(e_3,e_3,e_3) | product(e_3,e_3,e_4).  [resolve(56,a,31,a)].
+68 product(e_1,e_1,e_1) | product(e_1,e_1,e_2).  [resolve(56,a,29,a),unit_del(c,35),unit_del(d,36)].
+71 product(e_4,e_1,e_1) | product(e_4,e_1,e_2) | product(e_4,e_1,e_3) | product(e_4,e_1,e_4).  [resolve(57,a,29,a)].
+73 product(e_1,e_1,e_1) | -product(e_1,e_2,A) | product(e_2,e_1,A).  [resolve(68,b,34,a)].
+74 product(e_4,e_4,e_1) | product(e_4,e_4,e_2) | product(e_4,e_4,e_3) | -product(e_3,e_4,e_4).  [resolve(65,d,55,b)].
+76 product(e_4,e_4,e_1) | product(e_4,e_4,e_2) | product(e_4,e_4,e_3) | -product(e_1,e_4,e_4).  [resolve(65,d,52,b)].
+81 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_3,e_4,e_4).  [resolve(58,a,32,a)].
+83 product(e_3,e_1,e_1) | product(e_3,e_1,e_2) | product(e_3,e_1,e_3) | product(e_3,e_1,e_4).  [resolve(58,a,29,a)].
+87 product(e_3,e_3,e_1) | product(e_3,e_3,e_2) | product(e_3,e_3,e_3) | -product(e_3,e_1,e_4).  [resolve(66,d,45,b)].
+108 product(e_2,e_1,e_1) | product(e_2,e_1,e_2) | product(e_2,e_1,e_3).  [resolve(59,a,29,a),unit_del(d,37)].
+113 product(e_4,e_1,e_1) | product(e_4,e_1,e_2) | product(e_4,e_1,e_3) | -product(e_1,e_4,A) | product(e_4,e_4,A).  [resolve(71,d,34,a)].
+114 product(e_1,e_4,e_1) | product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_1,e_4,e_4).  [resolve(60,a,32,a)].
+115 product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | product(e_1,e_3,e_4).  [resolve(60,a,31,a)].
+116 product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | product(e_1,e_2,e_3) | product(e_1,e_2,e_4).  [resolve(60,a,30,a)].
+120 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_4,e_1) | product(e_4,e_4,e_2) | product(e_4,e_4,e_3).  [resolve(81,d,74,d)].
+127 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | -product(e_4,e_4,A) | product(e_4,e_3,A).  [resolve(81,d,34,a)].
+134 product(e_3,e_1,e_1) | product(e_3,e_1,e_2) | product(e_3,e_1,e_3) | -product(e_1,e_4,A) | product(e_4,e_3,A).  [resolve(83,d,34,a)].
+136 product(e_3,e_3,e_1) | product(e_3,e_3,e_2) | product(e_3,e_3,e_3) | product(e_3,e_1,e_1) | product(e_3,e_1,e_2) | product(e_3,e_1,e_3).  [resolve(87,d,83,d)].
+158 product(e_1,e_4,e_1) | product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_4,e_1) | product(e_4,e_4,e_2) | product(e_4,e_4,e_3).  [resolve(114,d,76,d)].
+162 product(e_1,e_4,e_1) | product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | -product(e_4,e_4,A) | product(e_4,e_1,A).  [resolve(114,d,34,a)].
+166 product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | -product(e_1,e_2,e_4).  [resolve(115,d,47,b)].
+167 product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | -product(A,e_1,e_3) | product(e_3,A,e_4).  [resolve(115,d,34,b)].
+168 product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | -product(e_3,e_4,A) | product(e_4,e_1,A).  [resolve(115,d,34,a)].
+172 product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | product(e_1,e_2,e_3) | product(e_1,e_1,e_1).  [resolve(116,d,73,b),unit_del(e,37)].
+192 product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | product(e_1,e_2,e_3).  [resolve(166,d,116,d)].
+193 product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | product(e_1,e_1,e_1) | product(e_2,e_1,e_3).  [resolve(172,c,73,b),merge(d)].
+197 product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | product(e_1,e_1,e_1) | -product(A,e_2,e_1) | product(e_1,A,e_3).  [resolve(193,d,34,b)].
+198 product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | product(e_1,e_1,e_1) | -product(e_1,e_3,A) | product(e_3,e_2,A).  [resolve(193,d,34,a)].
+242 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_4,e_1) | product(e_4,e_4,e_2) | product(e_4,e_3,e_3).  [resolve(120,f,127,d),merge(f),merge(g),merge(h)].
+249 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_4,e_1) | product(e_4,e_4,e_2) | -product(e_4,e_3,A) | product(e_3,e_4,A).  [resolve(120,f,34,a)].
+257 product(e_3,e_3,e_1) | product(e_3,e_3,e_2) | product(e_3,e_1,e_1) | product(e_3,e_1,e_2) | product(e_3,e_1,e_3) | -product(e_1,e_3,e_3).  [resolve(136,c,51,b)].
+319 product(e_1,e_4,e_1) | product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_4,e_1) | product(e_4,e_4,e_2) | product(e_4,e_1,e_3).  [resolve(158,f,162,d),merge(f),merge(g),merge(h)].
+324 product(e_1,e_4,e_1) | product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_4,e_1) | product(e_4,e_4,e_2) | -product(e_4,e_1,e_3).  [resolve(158,f,46,b)].
+470 product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | product(e_1,e_2,e_3) | -product(e_3,e_3,A) | product(e_3,e_1,A).  [resolve(192,c,34,a)].
+541 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_4,e_1) | product(e_4,e_3,e_3) | product(e_4,e_3,e_2).  [resolve(242,e,127,d),merge(f),merge(g),merge(h)].
+545 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_4,e_1) | product(e_4,e_3,e_3) | -product(e_4,e_3,e_2).  [resolve(242,e,49,b)].
+570 product(e_3,e_3,e_1) | product(e_3,e_3,e_2) | product(e_3,e_1,e_1) | product(e_3,e_1,e_2) | product(e_3,e_1,e_3) | product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | product(e_1,e_2,e_3).  [resolve(257,f,192,c)].
+672 product(e_1,e_4,e_1) | product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_4,e_1) | product(e_4,e_1,e_3) | product(e_4,e_1,e_2).  [resolve(319,e,162,d),merge(f),merge(g),merge(h)].
+678 product(e_1,e_4,e_1) | product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_4,e_1) | product(e_4,e_1,e_3) | -product(e_4,e_1,e_2).  [resolve(319,e,46,b)].
+845 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_3,e_3) | product(e_4,e_3,e_2) | product(e_4,e_3,e_1).  [resolve(541,d,127,d),merge(f),merge(g),merge(h)].
+849 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_3,e_3) | product(e_4,e_3,e_2) | -product(e_4,e_3,e_1).  [resolve(541,d,49,b)].
+873 product(e_1,e_4,e_1) | product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_1,e_3) | product(e_4,e_1,e_2) | product(e_4,e_1,e_1).  [resolve(672,d,162,d),merge(f),merge(g),merge(h)].
+922 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_3,e_2) | product(e_4,e_3,e_1) | product(e_4,e_4,e_1) | product(e_4,e_4,e_2).  [resolve(845,d,249,f),merge(f),merge(g),merge(h),merge(k)].
+949 product(e_1,e_4,e_1) | product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_1,e_2) | product(e_4,e_1,e_1) | product(e_4,e_4,e_1) | product(e_4,e_4,e_2).  [resolve(873,d,324,f),merge(f),merge(g),merge(h)].
+957 product(e_1,e_4,e_1) | product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_1,e_2) | product(e_4,e_1,e_1) | -product(A,e_4,e_1) | product(e_1,A,e_3).  [resolve(873,d,34,b)].
+1581 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_3,e_2) | product(e_4,e_3,e_1) | product(e_4,e_4,e_1).  [resolve(922,g,127,d),merge(g),merge(h),merge(i),merge(j)].
+1582 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_3,e_2) | product(e_4,e_3,e_1).  [resolve(1581,f,127,d),merge(f),merge(g),merge(h),merge(i)].
+1583 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_3,e_1) | product(e_4,e_4,e_1) | product(e_4,e_3,e_3).  [resolve(1582,d,545,f),merge(e),merge(f),merge(g)].
+1628 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_3,e_1) | product(e_4,e_3,e_3).  [resolve(1583,e,127,d),merge(f),merge(g),merge(h),merge(i)].
+1640 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_3,e_1) | -product(e_4,e_3,e_2).  [resolve(1628,e,41,b)].
+1672 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_3,e_1).  [resolve(1640,e,1582,d),merge(e),merge(f),merge(g),merge(h)].
+1673 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_3,e_3) | product(e_4,e_3,e_2).  [resolve(1672,d,849,f),merge(d),merge(e),merge(f)].
+1718 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_3,e_2) | -product(e_4,e_3,e_1).  [resolve(1673,d,39,b)].
+1755 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | product(e_4,e_3,e_2).  [resolve(1718,e,1672,d),merge(e),merge(f),merge(g)].
+1767 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3) | -product(e_4,e_3,e_1).  [resolve(1755,d,38,b)].
+1789 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_3,e_4,e_3).  [resolve(1767,d,1672,d),merge(d),merge(e),merge(f)].
+1797 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | product(e_4,e_1,e_3).  [resolve(1789,c,168,d)].
+1841 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | product(e_3,e_4,e_4).  [resolve(1797,f,167,d),merge(f),merge(g),merge(h)].
+1893 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | -product(e_3,e_4,e_3).  [resolve(1841,f,43,b)].
+2051 product(e_3,e_4,e_1) | product(e_3,e_4,e_2) | product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3).  [resolve(1893,f,1789,c),merge(f),merge(g)].
+2057 product(e_3,e_4,e_1) | product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | product(e_4,e_1,e_2).  [resolve(2051,b,168,d),merge(e),merge(f),merge(g)].
+2060 product(e_3,e_4,e_1) | product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | -product(e_1,e_4,e_2).  [resolve(2051,b,51,b)].
+2069 product(e_3,e_4,e_1) | product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | -product(e_1,e_1,e_2).  [resolve(2057,e,52,b)].
+2079 product(e_3,e_3,e_1) | product(e_3,e_1,e_1) | product(e_3,e_1,e_2) | product(e_3,e_1,e_3) | product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | product(e_1,e_2,e_3).  [resolve(570,b,470,f),merge(j),merge(k),merge(l),merge(m),merge(n),merge(o)].
+2080 product(e_3,e_4,e_1) | product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | product(e_1,e_1,e_1).  [resolve(2069,e,68,b)].
+2092 product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | product(e_1,e_1,e_1) | product(e_4,e_1,e_1).  [resolve(2080,a,168,d),merge(e),merge(f),merge(g)].
+2098 product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | product(e_1,e_1,e_1) | -product(e_4,e_1,A) | product(e_1,e_3,A).  [resolve(2080,a,34,a)].
+2099 product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | product(e_1,e_1,e_1) | -product(e_4,e_1,e_1).  [factor(2098,a,f)].
+2117 product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | product(e_1,e_1,e_1).  [resolve(2099,e,2092,e),merge(e),merge(f),merge(g),merge(h)].
+2133 product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_1,e_1) | -product(e_1,e_2,e_3).  [resolve(2117,c,47,b)].
+2143 product(e_1,e_3,e_1) | product(e_1,e_3,e_2) | product(e_1,e_1,e_1) | product(e_1,e_2,e_1) | product(e_1,e_2,e_2).  [resolve(2133,d,172,c),merge(f)].
+2150 product(e_1,e_3,e_1) | product(e_1,e_1,e_1) | product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | -product(e_1,e_1,e_2).  [resolve(2143,b,45,b)].
+2167 product(e_1,e_3,e_1) | product(e_1,e_1,e_1) | product(e_1,e_2,e_1) | product(e_1,e_2,e_2).  [resolve(2150,e,68,b),merge(e)].
+2169 product(e_1,e_1,e_1) | product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | product(e_3,e_2,e_1).  [resolve(2167,a,198,d),merge(d),merge(e),merge(f)].
+2176 product(e_1,e_1,e_1) | product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | product(e_1,e_3,e_3).  [resolve(2169,d,197,d),merge(d),merge(e),merge(f)].
+2197 product(e_1,e_1,e_1) | product(e_1,e_2,e_1) | product(e_1,e_2,e_2) | -product(e_1,e_2,e_3).  [resolve(2176,d,47,b)].
+2220 product(e_1,e_1,e_1) | product(e_1,e_2,e_1) | product(e_1,e_2,e_2).  [resolve(2197,d,172,c),merge(d),merge(e),merge(f)].
+2223 product(e_1,e_1,e_1) | product(e_1,e_2,e_1) | -product(e_1,e_1,e_2).  [resolve(2220,c,44,b)].
+2229 product(e_1,e_1,e_1) | product(e_1,e_2,e_1).  [resolve(2223,c,68,b),merge(c)].
+2240 product(e_1,e_1,e_1) | product(e_2,e_1,e_1).  [resolve(2229,b,73,b),merge(b)].
+2242 product(e_1,e_1,e_1) | -product(e_2,e_1,A) | product(e_1,e_1,A).  [resolve(2229,b,34,a)].
+2243 product(e_1,e_1,e_1) | -product(e_2,e_1,e_1).  [factor(2242,a,c)].
+2248 product(e_1,e_1,e_1).  [resolve(2243,b,2240,b),merge(b)].
+2250 -product(e_4,e_1,e_1).  [ur(52,a,2248,a)].
+2251 -product(e_3,e_1,e_1).  [ur(51,a,2248,a)].
+2252 -product(e_2,e_1,e_1).  [ur(50,a,2248,a)].
+2253 -product(e_1,e_4,e_1).  [ur(46,a,2248,a)].
+2254 -product(e_1,e_3,e_1).  [ur(45,a,2248,a)].
+2255 -product(e_1,e_2,e_1).  [ur(44,a,2248,a)].
+2391 product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_1,e_2) | -product(A,e_4,e_1) | product(e_1,A,e_3).  [back_unit_del(957),unit_del(a,2253),unit_del(e,2250)].
+2399 product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_1,e_2) | product(e_4,e_4,e_1) | product(e_4,e_4,e_2).  [back_unit_del(949),unit_del(a,2253),unit_del(e,2250)].
+2470 product(e_4,e_1,e_2) | product(e_4,e_1,e_3) | -product(e_1,e_4,A) | product(e_4,e_4,A).  [back_unit_del(113),unit_del(a,2250)].
+2482 product(e_3,e_3,e_1) | product(e_3,e_1,e_2) | product(e_3,e_1,e_3) | product(e_1,e_3,e_2) | product(e_1,e_2,e_2) | product(e_1,e_2,e_3).  [back_unit_del(2079),unit_del(b,2251),unit_del(e,2254),unit_del(g,2255)].
+2578 product(e_3,e_1,e_2) | product(e_3,e_1,e_3) | -product(e_1,e_4,A) | product(e_4,e_3,A).  [back_unit_del(134),unit_del(a,2251)].
+2677 product(e_2,e_1,e_2) | product(e_2,e_1,e_3).  [back_unit_del(108),unit_del(a,2252)].
+2801 product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_4,e_1) | product(e_4,e_1,e_3) | -product(e_4,e_1,e_2).  [back_unit_del(678),unit_del(a,2253)].
+2836 product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | -product(e_4,e_4,A) | product(e_4,e_1,A).  [back_unit_del(162),unit_del(a,2253)].
+2862 product(e_3,e_4,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | -product(e_1,e_4,e_2).  [back_unit_del(2060),unit_del(b,2254)].
+2942 product(e_1,e_3,e_2) | product(e_1,e_3,e_3) | -product(e_3,e_4,A) | product(e_4,e_1,A).  [back_unit_del(168),unit_del(a,2254)].
+3058 product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_1,e_2) | -product(e_4,e_4,e_1).  [factor(2391,b,e)].
+3143 product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_1,e_2) | product(e_4,e_4,e_1).  [resolve(2399,e,2836,c),merge(e),merge(f),merge(g)].
+3144 product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_1,e_2).  [resolve(3143,d,3058,d),merge(d),merge(e),merge(f)].
+3152 product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | -product(A,e_4,e_1) | product(e_1,A,e_2).  [resolve(3144,c,34,b)].
+3154 product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | -product(e_4,e_4,e_1).  [factor(3152,a,d)].
+3259 product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_4,e_1) | product(e_4,e_1,e_3).  [resolve(2801,e,3144,c),merge(e),merge(f)].
+3260 product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | product(e_4,e_1,e_3).  [resolve(3259,c,3154,c),merge(d),merge(e)].
+3273 product(e_1,e_4,e_2) | product(e_1,e_4,e_3) | -product(e_4,e_1,e_2).  [resolve(3260,c,41,b)].
+3277 product(e_1,e_4,e_2) | product(e_1,e_4,e_3).  [resolve(3273,c,3144,c),merge(c),merge(d)].
+3278 product(e_1,e_4,e_2) | product(e_3,e_1,e_2) | product(e_3,e_1,e_3) | product(e_4,e_3,e_3).  [resolve(3277,b,2578,c)].
+3279 product(e_1,e_4,e_2) | product(e_4,e_1,e_2) | product(e_4,e_1,e_3) | product(e_4,e_4,e_3).  [resolve(3277,b,2470,c)].
+3297 product(e_1,e_4,e_2) | -product(e_4,e_3,A) | product(e_3,e_1,A).  [resolve(3277,b,34,a)].
+3323 product(e_1,e_4,e_2) | product(e_3,e_1,e_2) | product(e_3,e_1,e_3).  [resolve(3278,d,3297,b),merge(d),merge(e)].
+3327 product(e_1,e_4,e_2) | product(e_3,e_1,e_2) | -product(e_2,e_1,e_3).  [resolve(3323,c,53,b)].
+3330 product(e_1,e_4,e_2) | product(e_3,e_1,e_2) | product(e_2,e_1,e_2).  [resolve(3327,c,2677,b)].
+3354 product(e_1,e_4,e_2) | product(e_4,e_1,e_2) | product(e_4,e_1,e_3) | -product(e_1,e_4,e_3).  [resolve(3279,d,52,b)].
+3381 product(e_1,e_4,e_2) | product(e_4,e_1,e_2) | product(e_4,e_1,e_3).  [resolve(3354,d,3277,b),merge(d)].
+3390 product(e_1,e_4,e_2) | product(e_4,e_1,e_2) | -product(e_3,e_1,e_3).  [resolve(3381,c,55,b)].
+3391 product(e_1,e_4,e_2) | product(e_4,e_1,e_2) | -product(e_2,e_1,e_3).  [resolve(3381,c,54,b)].
+3399 product(e_1,e_4,e_2) | product(e_4,e_1,e_2) | product(e_3,e_1,e_2).  [resolve(3390,c,3323,c),merge(c)].
+3400 product(e_1,e_4,e_2) | product(e_4,e_1,e_2) | product(e_2,e_1,e_2).  [resolve(3391,c,2677,b)].
+3407 product(e_1,e_4,e_2) | product(e_3,e_1,e_2) | -product(e_2,e_1,e_2).  [resolve(3399,b,54,b)].
+3415 product(e_1,e_4,e_2) | product(e_2,e_1,e_2) | -product(e_3,e_1,e_2).  [resolve(3400,b,55,b)].
+3432 product(e_1,e_4,e_2) | product(e_2,e_1,e_2).  [resolve(3415,c,3330,b),merge(c),merge(d)].
+3433 product(e_1,e_4,e_2) | product(e_3,e_1,e_2).  [resolve(3432,b,3407,c),merge(b)].
+3440 product(e_1,e_4,e_2) | -product(e_2,e_1,e_2).  [resolve(3433,b,53,b)].
+3458 product(e_1,e_4,e_2).  [resolve(3440,b,3432,b),merge(b)].
+3464 product(e_3,e_4,e_1) | product(e_1,e_3,e_2) | product(e_1,e_3,e_3).  [back_unit_del(2862),unit_del(d,3458)].
+3487 product(e_4,e_1,e_2) | product(e_4,e_1,e_3) | product(e_4,e_4,e_2).  [resolve(3458,a,2470,c)].
+3494 -product(e_1,e_3,e_2).  [resolve(3458,a,49,b)].
+3495 -product(e_1,e_2,e_2).  [resolve(3458,a,48,b)].
+3498 -product(e_4,e_4,e_2).  [ur(52,a,3458,a)].
+3505 product(e_3,e_4,e_1) | product(e_1,e_3,e_3).  [back_unit_del(3464),unit_del(b,3494)].
+3523 product(e_1,e_3,e_3) | -product(e_3,e_4,A) | product(e_4,e_1,A).  [back_unit_del(2942),unit_del(a,3494)].
+3645 product(e_3,e_3,e_1) | product(e_3,e_1,e_2) | product(e_3,e_1,e_3) | product(e_1,e_2,e_3).  [back_unit_del(2482),unit_del(d,3494),unit_del(e,3495)].
+3736 product(e_4,e_1,e_2) | product(e_4,e_1,e_3).  [back_unit_del(3487),unit_del(c,3498)].
+4011 product(e_4,e_1,e_2) | -product(e_2,e_1,e_3).  [resolve(3736,b,54,b)].
+4026 product(e_4,e_1,e_2) | product(e_2,e_1,e_2).  [resolve(4011,b,2677,b)].
+4049 product(e_2,e_1,e_2) | -product(e_3,e_1,e_2).  [resolve(4026,a,55,b)].
+4083 product(e_1,e_3,e_3).  [resolve(3523,b,3505,a),merge(c),unit_del(b,2250)].
+4096 -product(e_1,e_2,e_3).  [resolve(4083,a,47,b)].
+4100 -product(e_3,e_3,e_3).  [ur(51,a,4083,a)].
+4103 -product(e_3,e_3,e_1).  [ur(34,a,4083,a,c,2251,a)].
+4168 product(e_3,e_1,e_2) | product(e_3,e_1,e_3).  [back_unit_del(3645),unit_del(a,4103),unit_del(d,4096)].
+4245 -product(e_3,e_1,e_3).  [ur(34,b,4083,a,c,4100,a)].
+4246 product(e_3,e_1,e_2).  [back_unit_del(4168),unit_del(b,4245)].
+4247 product(e_2,e_1,e_2).  [back_unit_del(4049),unit_del(b,4246)].
+4272 $F.  [resolve(4246,a,53,b),unit_del(a,4247)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=1037. Generated=9289. Kept=4243. proofs=1.
+Usable=79. Sos=100. Demods=0. Limbo=0, Disabled=4119. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=5045. Back_subsumed=2383.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=1681.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=238763. Nonunit_bsub_feature_tests=137858.
+Megabytes=7.53.
+User_CPU=1.25, System_CPU=0.01, Wall_clock=1.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 257 exit (max_proofs) Fri Oct 23 15:01:31 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 257 exit (max_proofs) ------
+

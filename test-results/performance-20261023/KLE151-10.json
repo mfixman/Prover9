@@ -1,0 +1,12 @@
+{
+  "problem": "KLE151-10",
+  "domain": "KLE",
+  "rating": 0.82,
+  "conversion_wall_seconds": 0.011485864000860602,
+  "exit_code": 4,
+  "search_wall_seconds": 21.187236947007477,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.67,
+  "total_wall_seconds": 21.20172582399391
+}

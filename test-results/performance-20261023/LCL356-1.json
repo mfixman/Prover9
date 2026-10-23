@@ -1,0 +1,12 @@
+{
+  "problem": "LCL356-1",
+  "domain": "LCL",
+  "rating": 0.0,
+  "conversion_wall_seconds": 0.00894274000893347,
+  "exit_code": 0,
+  "search_wall_seconds": 0.005709233999368735,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.0,
+  "total_wall_seconds": 0.016969581993180327
+}

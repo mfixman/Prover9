@@ -1,0 +1,11 @@
+{
+  "problem": "SYN857-1",
+  "domain": "SYN",
+  "rating": 0.14,
+  "conversion_wall_seconds": 0.5677978530002292,
+  "exit_code": "wall_timeout",
+  "search_wall_seconds": 25.01929039499373,
+  "outcome": "unsolved",
+  "reason": "wall_timeout",
+  "total_wall_seconds": 25.60584898199886
+}

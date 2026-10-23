@@ -1,0 +1,12 @@
+{
+  "problem": "LCL125-1",
+  "domain": "LCL",
+  "rating": 0.67,
+  "conversion_wall_seconds": 0.01213593599095475,
+  "exit_code": 4,
+  "search_wall_seconds": 21.29108456200629,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 21.02,
+  "total_wall_seconds": 21.304090176010504
+}

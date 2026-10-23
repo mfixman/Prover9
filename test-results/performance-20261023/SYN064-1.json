@@ -1,0 +1,12 @@
+{
+  "problem": "SYN064-1",
+  "domain": "SYN",
+  "rating": 0.0,
+  "conversion_wall_seconds": 0.021482267999090254,
+  "exit_code": 0,
+  "search_wall_seconds": 0.010555726999882609,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.0,
+  "total_wall_seconds": 0.03272062700125389
+}

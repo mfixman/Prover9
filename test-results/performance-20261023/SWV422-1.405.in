@@ -1,0 +1,497 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+succ(s0,s1) # label(bound1) # label(axiom).
+succ(s1,s2) # label(bound2) # label(axiom).
+succ(s2,s3) # label(bound3) # label(axiom).
+succ(s3,s4) # label(bound4) # label(axiom).
+succ(s4,s5) # label(bound5) # label(axiom).
+succ(s5,s6) # label(bound6) # label(axiom).
+succ(s6,s7) # label(bound7) # label(axiom).
+succ(s7,s8) # label(bound8) # label(axiom).
+succ(s8,s9) # label(bound9) # label(axiom).
+succ(s9,s10) # label(bound10) # label(axiom).
+succ(s10,s11) # label(bound11) # label(axiom).
+succ(s11,s12) # label(bound12) # label(axiom).
+succ(s12,s13) # label(bound13) # label(axiom).
+succ(s13,s14) # label(bound14) # label(axiom).
+succ(s14,s15) # label(bound15) # label(axiom).
+succ(s15,s16) # label(bound16) # label(axiom).
+succ(s16,s17) # label(bound17) # label(axiom).
+succ(s17,s18) # label(bound18) # label(axiom).
+succ(s18,s19) # label(bound19) # label(axiom).
+succ(s19,s20) # label(bound20) # label(axiom).
+succ(s20,s21) # label(bound21) # label(axiom).
+succ(s21,s22) # label(bound22) # label(axiom).
+succ(s22,s23) # label(bound23) # label(axiom).
+succ(s23,s24) # label(bound24) # label(axiom).
+succ(s24,s25) # label(bound25) # label(axiom).
+succ(s25,s26) # label(bound26) # label(axiom).
+succ(s26,s27) # label(bound27) # label(axiom).
+succ(s27,s28) # label(bound28) # label(axiom).
+succ(s28,s29) # label(bound29) # label(axiom).
+succ(s29,s30) # label(bound30) # label(axiom).
+succ(s30,s31) # label(bound31) # label(axiom).
+succ(s31,s32) # label(bound32) # label(axiom).
+succ(s32,s33) # label(bound33) # label(axiom).
+succ(s33,s34) # label(bound34) # label(axiom).
+succ(s34,s35) # label(bound35) # label(axiom).
+succ(s35,s36) # label(bound36) # label(axiom).
+succ(s36,s37) # label(bound37) # label(axiom).
+succ(s37,s38) # label(bound38) # label(axiom).
+succ(s38,s39) # label(bound39) # label(axiom).
+succ(s39,s40) # label(bound40) # label(axiom).
+succ(s40,s41) # label(bound41) # label(axiom).
+succ(s41,s42) # label(bound42) # label(axiom).
+succ(s42,s43) # label(bound43) # label(axiom).
+succ(s43,s44) # label(bound44) # label(axiom).
+succ(s44,s45) # label(bound45) # label(axiom).
+succ(s45,s46) # label(bound46) # label(axiom).
+succ(s46,s47) # label(bound47) # label(axiom).
+succ(s47,s48) # label(bound48) # label(axiom).
+succ(s48,s49) # label(bound49) # label(axiom).
+succ(s49,s50) # label(bound50) # label(axiom).
+succ(s50,s51) # label(bound51) # label(axiom).
+succ(s51,s52) # label(bound52) # label(axiom).
+succ(s52,s53) # label(bound53) # label(axiom).
+succ(s53,s54) # label(bound54) # label(axiom).
+succ(s54,s55) # label(bound55) # label(axiom).
+succ(s55,s56) # label(bound56) # label(axiom).
+succ(s56,s57) # label(bound57) # label(axiom).
+succ(s57,s58) # label(bound58) # label(axiom).
+succ(s58,s59) # label(bound59) # label(axiom).
+succ(s59,s60) # label(bound60) # label(axiom).
+succ(s60,s61) # label(bound61) # label(axiom).
+succ(s61,s62) # label(bound62) # label(axiom).
+succ(s62,s63) # label(bound63) # label(axiom).
+succ(s63,s64) # label(bound64) # label(axiom).
+succ(s64,s65) # label(bound65) # label(axiom).
+succ(s65,s66) # label(bound66) # label(axiom).
+succ(s66,s67) # label(bound67) # label(axiom).
+succ(s67,s68) # label(bound68) # label(axiom).
+succ(s68,s69) # label(bound69) # label(axiom).
+succ(s69,s70) # label(bound70) # label(axiom).
+succ(s70,s71) # label(bound71) # label(axiom).
+succ(s71,s72) # label(bound72) # label(axiom).
+succ(s72,s73) # label(bound73) # label(axiom).
+succ(s73,s74) # label(bound74) # label(axiom).
+succ(s74,s75) # label(bound75) # label(axiom).
+succ(s75,s76) # label(bound76) # label(axiom).
+succ(s76,s77) # label(bound77) # label(axiom).
+succ(s77,s78) # label(bound78) # label(axiom).
+succ(s78,s79) # label(bound79) # label(axiom).
+succ(s79,s80) # label(bound80) # label(axiom).
+succ(s80,s81) # label(bound81) # label(axiom).
+succ(s81,s82) # label(bound82) # label(axiom).
+succ(s82,s83) # label(bound83) # label(axiom).
+succ(s83,s84) # label(bound84) # label(axiom).
+succ(s84,s85) # label(bound85) # label(axiom).
+succ(s85,s86) # label(bound86) # label(axiom).
+succ(s86,s87) # label(bound87) # label(axiom).
+succ(s87,s88) # label(bound88) # label(axiom).
+succ(s88,s89) # label(bound89) # label(axiom).
+succ(s89,s90) # label(bound90) # label(axiom).
+succ(s90,s91) # label(bound91) # label(axiom).
+succ(s91,s92) # label(bound92) # label(axiom).
+succ(s92,s93) # label(bound93) # label(axiom).
+succ(s93,s94) # label(bound94) # label(axiom).
+succ(s94,s95) # label(bound95) # label(axiom).
+succ(s95,s96) # label(bound96) # label(axiom).
+succ(s96,s97) # label(bound97) # label(axiom).
+succ(s97,s98) # label(bound98) # label(axiom).
+succ(s98,s99) # label(bound99) # label(axiom).
+succ(s99,s100) # label(bound100) # label(axiom).
+succ(s100,s101) # label(bound101) # label(axiom).
+succ(s101,s102) # label(bound102) # label(axiom).
+succ(s102,s103) # label(bound103) # label(axiom).
+succ(s103,s104) # label(bound104) # label(axiom).
+succ(s104,s105) # label(bound105) # label(axiom).
+succ(s105,s106) # label(bound106) # label(axiom).
+succ(s106,s107) # label(bound107) # label(axiom).
+succ(s107,s108) # label(bound108) # label(axiom).
+succ(s108,s109) # label(bound109) # label(axiom).
+succ(s109,s110) # label(bound110) # label(axiom).
+succ(s110,s111) # label(bound111) # label(axiom).
+succ(s111,s112) # label(bound112) # label(axiom).
+succ(s112,s113) # label(bound113) # label(axiom).
+succ(s113,s114) # label(bound114) # label(axiom).
+succ(s114,s115) # label(bound115) # label(axiom).
+succ(s115,s116) # label(bound116) # label(axiom).
+succ(s116,s117) # label(bound117) # label(axiom).
+succ(s117,s118) # label(bound118) # label(axiom).
+succ(s118,s119) # label(bound119) # label(axiom).
+succ(s119,s120) # label(bound120) # label(axiom).
+succ(s120,s121) # label(bound121) # label(axiom).
+succ(s121,s122) # label(bound122) # label(axiom).
+succ(s122,s123) # label(bound123) # label(axiom).
+succ(s123,s124) # label(bound124) # label(axiom).
+succ(s124,s125) # label(bound125) # label(axiom).
+succ(s125,s126) # label(bound126) # label(axiom).
+succ(s126,s127) # label(bound127) # label(axiom).
+succ(s127,s128) # label(bound128) # label(axiom).
+succ(s128,s129) # label(bound129) # label(axiom).
+succ(s129,s130) # label(bound130) # label(axiom).
+succ(s130,s131) # label(bound131) # label(axiom).
+succ(s131,s132) # label(bound132) # label(axiom).
+succ(s132,s133) # label(bound133) # label(axiom).
+succ(s133,s134) # label(bound134) # label(axiom).
+succ(s134,s135) # label(bound135) # label(axiom).
+succ(s135,s136) # label(bound136) # label(axiom).
+succ(s136,s137) # label(bound137) # label(axiom).
+succ(s137,s138) # label(bound138) # label(axiom).
+succ(s138,s139) # label(bound139) # label(axiom).
+succ(s139,s140) # label(bound140) # label(axiom).
+succ(s140,s141) # label(bound141) # label(axiom).
+succ(s141,s142) # label(bound142) # label(axiom).
+succ(s142,s143) # label(bound143) # label(axiom).
+succ(s143,s144) # label(bound144) # label(axiom).
+succ(s144,s145) # label(bound145) # label(axiom).
+succ(s145,s146) # label(bound146) # label(axiom).
+succ(s146,s147) # label(bound147) # label(axiom).
+succ(s147,s148) # label(bound148) # label(axiom).
+succ(s148,s149) # label(bound149) # label(axiom).
+succ(s149,s150) # label(bound150) # label(axiom).
+succ(s150,s151) # label(bound151) # label(axiom).
+succ(s151,s152) # label(bound152) # label(axiom).
+succ(s152,s153) # label(bound153) # label(axiom).
+succ(s153,s154) # label(bound154) # label(axiom).
+succ(s154,s155) # label(bound155) # label(axiom).
+succ(s155,s156) # label(bound156) # label(axiom).
+succ(s156,s157) # label(bound157) # label(axiom).
+succ(s157,s158) # label(bound158) # label(axiom).
+succ(s158,s159) # label(bound159) # label(axiom).
+succ(s159,s160) # label(bound160) # label(axiom).
+succ(s160,s161) # label(bound161) # label(axiom).
+succ(s161,s162) # label(bound162) # label(axiom).
+succ(s162,s163) # label(bound163) # label(axiom).
+succ(s163,s164) # label(bound164) # label(axiom).
+succ(s164,s165) # label(bound165) # label(axiom).
+succ(s165,s166) # label(bound166) # label(axiom).
+succ(s166,s167) # label(bound167) # label(axiom).
+succ(s167,s168) # label(bound168) # label(axiom).
+succ(s168,s169) # label(bound169) # label(axiom).
+succ(s169,s170) # label(bound170) # label(axiom).
+succ(s170,s171) # label(bound171) # label(axiom).
+succ(s171,s172) # label(bound172) # label(axiom).
+succ(s172,s173) # label(bound173) # label(axiom).
+succ(s173,s174) # label(bound174) # label(axiom).
+succ(s174,s175) # label(bound175) # label(axiom).
+succ(s175,s176) # label(bound176) # label(axiom).
+succ(s176,s177) # label(bound177) # label(axiom).
+succ(s177,s178) # label(bound178) # label(axiom).
+succ(s178,s179) # label(bound179) # label(axiom).
+succ(s179,s180) # label(bound180) # label(axiom).
+succ(s180,s181) # label(bound181) # label(axiom).
+succ(s181,s182) # label(bound182) # label(axiom).
+succ(s182,s183) # label(bound183) # label(axiom).
+succ(s183,s184) # label(bound184) # label(axiom).
+succ(s184,s185) # label(bound185) # label(axiom).
+succ(s185,s186) # label(bound186) # label(axiom).
+succ(s186,s187) # label(bound187) # label(axiom).
+succ(s187,s188) # label(bound188) # label(axiom).
+succ(s188,s189) # label(bound189) # label(axiom).
+succ(s189,s190) # label(bound190) # label(axiom).
+succ(s190,s191) # label(bound191) # label(axiom).
+succ(s191,s192) # label(bound192) # label(axiom).
+succ(s192,s193) # label(bound193) # label(axiom).
+succ(s193,s194) # label(bound194) # label(axiom).
+succ(s194,s195) # label(bound195) # label(axiom).
+succ(s195,s196) # label(bound196) # label(axiom).
+succ(s196,s197) # label(bound197) # label(axiom).
+succ(s197,s198) # label(bound198) # label(axiom).
+succ(s198,s199) # label(bound199) # label(axiom).
+succ(s199,s200) # label(bound200) # label(axiom).
+succ(s200,s201) # label(bound201) # label(axiom).
+succ(s201,s202) # label(bound202) # label(axiom).
+succ(s202,s203) # label(bound203) # label(axiom).
+succ(s203,s204) # label(bound204) # label(axiom).
+succ(s204,s205) # label(bound205) # label(axiom).
+succ(s205,s206) # label(bound206) # label(axiom).
+succ(s206,s207) # label(bound207) # label(axiom).
+succ(s207,s208) # label(bound208) # label(axiom).
+succ(s208,s209) # label(bound209) # label(axiom).
+succ(s209,s210) # label(bound210) # label(axiom).
+succ(s210,s211) # label(bound211) # label(axiom).
+succ(s211,s212) # label(bound212) # label(axiom).
+succ(s212,s213) # label(bound213) # label(axiom).
+succ(s213,s214) # label(bound214) # label(axiom).
+succ(s214,s215) # label(bound215) # label(axiom).
+succ(s215,s216) # label(bound216) # label(axiom).
+succ(s216,s217) # label(bound217) # label(axiom).
+succ(s217,s218) # label(bound218) # label(axiom).
+succ(s218,s219) # label(bound219) # label(axiom).
+succ(s219,s220) # label(bound220) # label(axiom).
+succ(s220,s221) # label(bound221) # label(axiom).
+succ(s221,s222) # label(bound222) # label(axiom).
+succ(s222,s223) # label(bound223) # label(axiom).
+succ(s223,s224) # label(bound224) # label(axiom).
+succ(s224,s225) # label(bound225) # label(axiom).
+succ(s225,s226) # label(bound226) # label(axiom).
+succ(s226,s227) # label(bound227) # label(axiom).
+succ(s227,s228) # label(bound228) # label(axiom).
+succ(s228,s229) # label(bound229) # label(axiom).
+succ(s229,s230) # label(bound230) # label(axiom).
+succ(s230,s231) # label(bound231) # label(axiom).
+succ(s231,s232) # label(bound232) # label(axiom).
+succ(s232,s233) # label(bound233) # label(axiom).
+succ(s233,s234) # label(bound234) # label(axiom).
+succ(s234,s235) # label(bound235) # label(axiom).
+succ(s235,s236) # label(bound236) # label(axiom).
+succ(s236,s237) # label(bound237) # label(axiom).
+succ(s237,s238) # label(bound238) # label(axiom).
+succ(s238,s239) # label(bound239) # label(axiom).
+succ(s239,s240) # label(bound240) # label(axiom).
+succ(s240,s241) # label(bound241) # label(axiom).
+succ(s241,s242) # label(bound242) # label(axiom).
+succ(s242,s243) # label(bound243) # label(axiom).
+succ(s243,s244) # label(bound244) # label(axiom).
+succ(s244,s245) # label(bound245) # label(axiom).
+succ(s245,s246) # label(bound246) # label(axiom).
+succ(s246,s247) # label(bound247) # label(axiom).
+succ(s247,s248) # label(bound248) # label(axiom).
+succ(s248,s249) # label(bound249) # label(axiom).
+succ(s249,s250) # label(bound250) # label(axiom).
+succ(s250,s251) # label(bound251) # label(axiom).
+succ(s251,s252) # label(bound252) # label(axiom).
+succ(s252,s253) # label(bound253) # label(axiom).
+succ(s253,s254) # label(bound254) # label(axiom).
+succ(s254,s255) # label(bound255) # label(axiom).
+succ(s255,s256) # label(bound256) # label(axiom).
+succ(s256,s257) # label(bound257) # label(axiom).
+succ(s257,s258) # label(bound258) # label(axiom).
+succ(s258,s259) # label(bound259) # label(axiom).
+succ(s259,s260) # label(bound260) # label(axiom).
+succ(s260,s261) # label(bound261) # label(axiom).
+succ(s261,s262) # label(bound262) # label(axiom).
+succ(s262,s263) # label(bound263) # label(axiom).
+succ(s263,s264) # label(bound264) # label(axiom).
+succ(s264,s265) # label(bound265) # label(axiom).
+succ(s265,s266) # label(bound266) # label(axiom).
+succ(s266,s267) # label(bound267) # label(axiom).
+succ(s267,s268) # label(bound268) # label(axiom).
+succ(s268,s269) # label(bound269) # label(axiom).
+succ(s269,s270) # label(bound270) # label(axiom).
+succ(s270,s271) # label(bound271) # label(axiom).
+succ(s271,s272) # label(bound272) # label(axiom).
+succ(s272,s273) # label(bound273) # label(axiom).
+succ(s273,s274) # label(bound274) # label(axiom).
+succ(s274,s275) # label(bound275) # label(axiom).
+succ(s275,s276) # label(bound276) # label(axiom).
+succ(s276,s277) # label(bound277) # label(axiom).
+succ(s277,s278) # label(bound278) # label(axiom).
+succ(s278,s279) # label(bound279) # label(axiom).
+succ(s279,s280) # label(bound280) # label(axiom).
+succ(s280,s281) # label(bound281) # label(axiom).
+succ(s281,s282) # label(bound282) # label(axiom).
+succ(s282,s283) # label(bound283) # label(axiom).
+succ(s283,s284) # label(bound284) # label(axiom).
+succ(s284,s285) # label(bound285) # label(axiom).
+succ(s285,s286) # label(bound286) # label(axiom).
+succ(s286,s287) # label(bound287) # label(axiom).
+succ(s287,s288) # label(bound288) # label(axiom).
+succ(s288,s289) # label(bound289) # label(axiom).
+succ(s289,s290) # label(bound290) # label(axiom).
+succ(s290,s291) # label(bound291) # label(axiom).
+succ(s291,s292) # label(bound292) # label(axiom).
+succ(s292,s293) # label(bound293) # label(axiom).
+succ(s293,s294) # label(bound294) # label(axiom).
+succ(s294,s295) # label(bound295) # label(axiom).
+succ(s295,s296) # label(bound296) # label(axiom).
+succ(s296,s297) # label(bound297) # label(axiom).
+succ(s297,s298) # label(bound298) # label(axiom).
+succ(s298,s299) # label(bound299) # label(axiom).
+succ(s299,s300) # label(bound300) # label(axiom).
+succ(s300,s301) # label(bound301) # label(axiom).
+succ(s301,s302) # label(bound302) # label(axiom).
+succ(s302,s303) # label(bound303) # label(axiom).
+succ(s303,s304) # label(bound304) # label(axiom).
+succ(s304,s305) # label(bound305) # label(axiom).
+succ(s305,s306) # label(bound306) # label(axiom).
+succ(s306,s307) # label(bound307) # label(axiom).
+succ(s307,s308) # label(bound308) # label(axiom).
+succ(s308,s309) # label(bound309) # label(axiom).
+succ(s309,s310) # label(bound310) # label(axiom).
+succ(s310,s311) # label(bound311) # label(axiom).
+succ(s311,s312) # label(bound312) # label(axiom).
+succ(s312,s313) # label(bound313) # label(axiom).
+succ(s313,s314) # label(bound314) # label(axiom).
+succ(s314,s315) # label(bound315) # label(axiom).
+succ(s315,s316) # label(bound316) # label(axiom).
+succ(s316,s317) # label(bound317) # label(axiom).
+succ(s317,s318) # label(bound318) # label(axiom).
+succ(s318,s319) # label(bound319) # label(axiom).
+succ(s319,s320) # label(bound320) # label(axiom).
+succ(s320,s321) # label(bound321) # label(axiom).
+succ(s321,s322) # label(bound322) # label(axiom).
+succ(s322,s323) # label(bound323) # label(axiom).
+succ(s323,s324) # label(bound324) # label(axiom).
+succ(s324,s325) # label(bound325) # label(axiom).
+succ(s325,s326) # label(bound326) # label(axiom).
+succ(s326,s327) # label(bound327) # label(axiom).
+succ(s327,s328) # label(bound328) # label(axiom).
+succ(s328,s329) # label(bound329) # label(axiom).
+succ(s329,s330) # label(bound330) # label(axiom).
+succ(s330,s331) # label(bound331) # label(axiom).
+succ(s331,s332) # label(bound332) # label(axiom).
+succ(s332,s333) # label(bound333) # label(axiom).
+succ(s333,s334) # label(bound334) # label(axiom).
+succ(s334,s335) # label(bound335) # label(axiom).
+succ(s335,s336) # label(bound336) # label(axiom).
+succ(s336,s337) # label(bound337) # label(axiom).
+succ(s337,s338) # label(bound338) # label(axiom).
+succ(s338,s339) # label(bound339) # label(axiom).
+succ(s339,s340) # label(bound340) # label(axiom).
+succ(s340,s341) # label(bound341) # label(axiom).
+succ(s341,s342) # label(bound342) # label(axiom).
+succ(s342,s343) # label(bound343) # label(axiom).
+succ(s343,s344) # label(bound344) # label(axiom).
+succ(s344,s345) # label(bound345) # label(axiom).
+succ(s345,s346) # label(bound346) # label(axiom).
+succ(s346,s347) # label(bound347) # label(axiom).
+succ(s347,s348) # label(bound348) # label(axiom).
+succ(s348,s349) # label(bound349) # label(axiom).
+succ(s349,s350) # label(bound350) # label(axiom).
+succ(s350,s351) # label(bound351) # label(axiom).
+succ(s351,s352) # label(bound352) # label(axiom).
+succ(s352,s353) # label(bound353) # label(axiom).
+succ(s353,s354) # label(bound354) # label(axiom).
+succ(s354,s355) # label(bound355) # label(axiom).
+succ(s355,s356) # label(bound356) # label(axiom).
+succ(s356,s357) # label(bound357) # label(axiom).
+succ(s357,s358) # label(bound358) # label(axiom).
+succ(s358,s359) # label(bound359) # label(axiom).
+succ(s359,s360) # label(bound360) # label(axiom).
+succ(s360,s361) # label(bound361) # label(axiom).
+succ(s361,s362) # label(bound362) # label(axiom).
+succ(s362,s363) # label(bound363) # label(axiom).
+succ(s363,s364) # label(bound364) # label(axiom).
+succ(s364,s365) # label(bound365) # label(axiom).
+succ(s365,s366) # label(bound366) # label(axiom).
+succ(s366,s367) # label(bound367) # label(axiom).
+succ(s367,s368) # label(bound368) # label(axiom).
+succ(s368,s369) # label(bound369) # label(axiom).
+succ(s369,s370) # label(bound370) # label(axiom).
+succ(s370,s371) # label(bound371) # label(axiom).
+succ(s371,s372) # label(bound372) # label(axiom).
+succ(s372,s373) # label(bound373) # label(axiom).
+succ(s373,s374) # label(bound374) # label(axiom).
+succ(s374,s375) # label(bound375) # label(axiom).
+succ(s375,s376) # label(bound376) # label(axiom).
+succ(s376,s377) # label(bound377) # label(axiom).
+succ(s377,s378) # label(bound378) # label(axiom).
+succ(s378,s379) # label(bound379) # label(axiom).
+succ(s379,s380) # label(bound380) # label(axiom).
+succ(s380,s381) # label(bound381) # label(axiom).
+succ(s381,s382) # label(bound382) # label(axiom).
+succ(s382,s383) # label(bound383) # label(axiom).
+succ(s383,s384) # label(bound384) # label(axiom).
+succ(s384,s385) # label(bound385) # label(axiom).
+succ(s385,s386) # label(bound386) # label(axiom).
+succ(s386,s387) # label(bound387) # label(axiom).
+succ(s387,s388) # label(bound388) # label(axiom).
+succ(s388,s389) # label(bound389) # label(axiom).
+succ(s389,s390) # label(bound390) # label(axiom).
+succ(s390,s391) # label(bound391) # label(axiom).
+succ(s391,s392) # label(bound392) # label(axiom).
+succ(s392,s393) # label(bound393) # label(axiom).
+succ(s393,s394) # label(bound394) # label(axiom).
+succ(s394,s395) # label(bound395) # label(axiom).
+succ(s395,s396) # label(bound396) # label(axiom).
+succ(s396,s397) # label(bound397) # label(axiom).
+succ(s397,s398) # label(bound398) # label(axiom).
+succ(s398,s399) # label(bound399) # label(axiom).
+succ(s399,s400) # label(bound400) # label(axiom).
+succ(s400,s401) # label(bound401) # label(axiom).
+succ(s401,s402) # label(bound402) # label(axiom).
+succ(s402,s403) # label(bound403) # label(axiom).
+succ(s403,s404) # label(bound404) # label(axiom).
+last(s404) # label(bound405) # label(axiom).
+-succ(X,Y) | trans(X,Y) # label(bound406) # label(axiom).
+-loop | trans(s404,s0) | trans(s404,s1) | trans(s404,s2) | trans(s404,s3) | trans(s404,s4) | trans(s404,s5) | trans(s404,s6) | trans(s404,s7) | trans(s404,s8) | trans(s404,s9) | trans(s404,s10) | trans(s404,s11) | trans(s404,s12) | trans(s404,s13) | trans(s404,s14) | trans(s404,s15) | trans(s404,s16) | trans(s404,s17) | trans(s404,s18) | trans(s404,s19) | trans(s404,s20) | trans(s404,s21) | trans(s404,s22) | trans(s404,s23) | trans(s404,s24) | trans(s404,s25) | trans(s404,s26) | trans(s404,s27) | trans(s404,s28) | trans(s404,s29) | trans(s404,s30) | trans(s404,s31) | trans(s404,s32) | trans(s404,s33) | trans(s404,s34) | trans(s404,s35) | trans(s404,s36) | trans(s404,s37) | trans(s404,s38) | trans(s404,s39) | trans(s404,s40) | trans(s404,s41) | trans(s404,s42) | trans(s404,s43) | trans(s404,s44) | trans(s404,s45) | trans(s404,s46) | trans(s404,s47) | trans(s404,s48) | trans(s404,s49) | trans(s404,s50) | trans(s404,s51) | trans(s404,s52) | trans(s404,s53) | trans(s404,s54) | trans(s404,s55) | trans(s404,s56) | trans(s404,s57) | trans(s404,s58) | trans(s404,s59) | trans(s404,s60) | trans(s404,s61) | trans(s404,s62) | trans(s404,s63) | trans(s404,s64) | trans(s404,s65) | trans(s404,s66) | trans(s404,s67) | trans(s404,s68) | trans(s404,s69) | trans(s404,s70) | trans(s404,s71) | trans(s404,s72) | trans(s404,s73) | trans(s404,s74) | trans(s404,s75) | trans(s404,s76) | trans(s404,s77) | trans(s404,s78) | trans(s404,s79) | trans(s404,s80) | trans(s404,s81) | trans(s404,s82) | trans(s404,s83) | trans(s404,s84) | trans(s404,s85) | trans(s404,s86) | trans(s404,s87) | trans(s404,s88) | trans(s404,s89) | trans(s404,s90) | trans(s404,s91) | trans(s404,s92) | trans(s404,s93) | trans(s404,s94) | trans(s404,s95) | trans(s404,s96) | trans(s404,s97) | trans(s404,s98) | trans(s404,s99) | trans(s404,s100) | trans(s404,s101) | trans(s404,s102) | trans(s404,s103) | trans(s404,s104) | trans(s404,s105) | trans(s404,s106) | trans(s404,s107) | trans(s404,s108) | trans(s404,s109) | trans(s404,s110) | trans(s404,s111) | trans(s404,s112) | trans(s404,s113) | trans(s404,s114) | trans(s404,s115) | trans(s404,s116) | trans(s404,s117) | trans(s404,s118) | trans(s404,s119) | trans(s404,s120) | trans(s404,s121) | trans(s404,s122) | trans(s404,s123) | trans(s404,s124) | trans(s404,s125) | trans(s404,s126) | trans(s404,s127) | trans(s404,s128) | trans(s404,s129) | trans(s404,s130) | trans(s404,s131) | trans(s404,s132) | trans(s404,s133) | trans(s404,s134) | trans(s404,s135) | trans(s404,s136) | trans(s404,s137) | trans(s404,s138) | trans(s404,s139) | trans(s404,s140) | trans(s404,s141) | trans(s404,s142) | trans(s404,s143) | trans(s404,s144) | trans(s404,s145) | trans(s404,s146) | trans(s404,s147) | trans(s404,s148) | trans(s404,s149) | trans(s404,s150) | trans(s404,s151) | trans(s404,s152) | trans(s404,s153) | trans(s404,s154) | trans(s404,s155) | trans(s404,s156) | trans(s404,s157) | trans(s404,s158) | trans(s404,s159) | trans(s404,s160) | trans(s404,s161) | trans(s404,s162) | trans(s404,s163) | trans(s404,s164) | trans(s404,s165) | trans(s404,s166) | trans(s404,s167) | trans(s404,s168) | trans(s404,s169) | trans(s404,s170) | trans(s404,s171) | trans(s404,s172) | trans(s404,s173) | trans(s404,s174) | trans(s404,s175) | trans(s404,s176) | trans(s404,s177) | trans(s404,s178) | trans(s404,s179) | trans(s404,s180) | trans(s404,s181) | trans(s404,s182) | trans(s404,s183) | trans(s404,s184) | trans(s404,s185) | trans(s404,s186) | trans(s404,s187) | trans(s404,s188) | trans(s404,s189) | trans(s404,s190) | trans(s404,s191) | trans(s404,s192) | trans(s404,s193) | trans(s404,s194) | trans(s404,s195) | trans(s404,s196) | trans(s404,s197) | trans(s404,s198) | trans(s404,s199) | trans(s404,s200) | trans(s404,s201) | trans(s404,s202) | trans(s404,s203) | trans(s404,s204) | trans(s404,s205) | trans(s404,s206) | trans(s404,s207) | trans(s404,s208) | trans(s404,s209) | trans(s404,s210) | trans(s404,s211) | trans(s404,s212) | trans(s404,s213) | trans(s404,s214) | trans(s404,s215) | trans(s404,s216) | trans(s404,s217) | trans(s404,s218) | trans(s404,s219) | trans(s404,s220) | trans(s404,s221) | trans(s404,s222) | trans(s404,s223) | trans(s404,s224) | trans(s404,s225) | trans(s404,s226) | trans(s404,s227) | trans(s404,s228) | trans(s404,s229) | trans(s404,s230) | trans(s404,s231) | trans(s404,s232) | trans(s404,s233) | trans(s404,s234) | trans(s404,s235) | trans(s404,s236) | trans(s404,s237) | trans(s404,s238) | trans(s404,s239) | trans(s404,s240) | trans(s404,s241) | trans(s404,s242) | trans(s404,s243) | trans(s404,s244) | trans(s404,s245) | trans(s404,s246) | trans(s404,s247) | trans(s404,s248) | trans(s404,s249) | trans(s404,s250) | trans(s404,s251) | trans(s404,s252) | trans(s404,s253) | trans(s404,s254) | trans(s404,s255) | trans(s404,s256) | trans(s404,s257) | trans(s404,s258) | trans(s404,s259) | trans(s404,s260) | trans(s404,s261) | trans(s404,s262) | trans(s404,s263) | trans(s404,s264) | trans(s404,s265) | trans(s404,s266) | trans(s404,s267) | trans(s404,s268) | trans(s404,s269) | trans(s404,s270) | trans(s404,s271) | trans(s404,s272) | trans(s404,s273) | trans(s404,s274) | trans(s404,s275) | trans(s404,s276) | trans(s404,s277) | trans(s404,s278) | trans(s404,s279) | trans(s404,s280) | trans(s404,s281) | trans(s404,s282) | trans(s404,s283) | trans(s404,s284) | trans(s404,s285) | trans(s404,s286) | trans(s404,s287) | trans(s404,s288) | trans(s404,s289) | trans(s404,s290) | trans(s404,s291) | trans(s404,s292) | trans(s404,s293) | trans(s404,s294) | trans(s404,s295) | trans(s404,s296) | trans(s404,s297) | trans(s404,s298) | trans(s404,s299) | trans(s404,s300) | trans(s404,s301) | trans(s404,s302) | trans(s404,s303) | trans(s404,s304) | trans(s404,s305) | trans(s404,s306) | trans(s404,s307) | trans(s404,s308) | trans(s404,s309) | trans(s404,s310) | trans(s404,s311) | trans(s404,s312) | trans(s404,s313) | trans(s404,s314) | trans(s404,s315) | trans(s404,s316) | trans(s404,s317) | trans(s404,s318) | trans(s404,s319) | trans(s404,s320) | trans(s404,s321) | trans(s404,s322) | trans(s404,s323) | trans(s404,s324) | trans(s404,s325) | trans(s404,s326) | trans(s404,s327) | trans(s404,s328) | trans(s404,s329) | trans(s404,s330) | trans(s404,s331) | trans(s404,s332) | trans(s404,s333) | trans(s404,s334) | trans(s404,s335) | trans(s404,s336) | trans(s404,s337) | trans(s404,s338) | trans(s404,s339) | trans(s404,s340) | trans(s404,s341) | trans(s404,s342) | trans(s404,s343) | trans(s404,s344) | trans(s404,s345) | trans(s404,s346) | trans(s404,s347) | trans(s404,s348) | trans(s404,s349) | trans(s404,s350) | trans(s404,s351) | trans(s404,s352) | trans(s404,s353) | trans(s404,s354) | trans(s404,s355) | trans(s404,s356) | trans(s404,s357) | trans(s404,s358) | trans(s404,s359) | trans(s404,s360) | trans(s404,s361) | trans(s404,s362) | trans(s404,s363) | trans(s404,s364) | trans(s404,s365) | trans(s404,s366) | trans(s404,s367) | trans(s404,s368) | trans(s404,s369) | trans(s404,s370) | trans(s404,s371) | trans(s404,s372) | trans(s404,s373) | trans(s404,s374) | trans(s404,s375) | trans(s404,s376) | trans(s404,s377) | trans(s404,s378) | trans(s404,s379) | trans(s404,s380) | trans(s404,s381) | trans(s404,s382) | trans(s404,s383) | trans(s404,s384) | trans(s404,s385) | trans(s404,s386) | trans(s404,s387) | trans(s404,s388) | trans(s404,s389) | trans(s404,s390) | trans(s404,s391) | trans(s404,s392) | trans(s404,s393) | trans(s404,s394) | trans(s404,s395) | trans(s404,s396) | trans(s404,s397) | trans(s404,s398) | trans(s404,s399) | trans(s404,s400) | trans(s404,s401) | trans(s404,s402) | trans(s404,s403) | trans(s404,s404) # label(bound407) # label(axiom).
+m_main_v_state1(X,c_n1) | m_main_v_state1(X,c_t1) | m_main_v_state1(X,c_c1) # label(m_main_1) # label(axiom).
+-m_main_v_state1(X,c_n1) | -m_main_v_state1(X,c_t1) # label(m_main_2) # label(axiom).
+-m_main_v_state1(X,c_n1) | -m_main_v_state1(X,c_c1) # label(m_main_3) # label(axiom).
+-m_main_v_state1(X,c_t1) | -m_main_v_state1(X,c_c1) # label(m_main_4) # label(axiom).
+m_main_v_state2(X,c_n2) | m_main_v_state2(X,c_t2) | m_main_v_state2(X,c_c2) # label(m_main_5) # label(axiom).
+-m_main_v_state2(X,c_n2) | -m_main_v_state2(X,c_t2) # label(m_main_6) # label(axiom).
+-m_main_v_state2(X,c_n2) | -m_main_v_state2(X,c_c2) # label(m_main_7) # label(axiom).
+-m_main_v_state2(X,c_t2) | -m_main_v_state2(X,c_c2) # label(m_main_8) # label(axiom).
+m_main_v_turn(X,c_1) | m_main_v_turn(X,c_2) # label(m_main_9) # label(axiom).
+-m_main_v_turn(X,c_1) | -m_main_v_turn(X,c_2) # label(m_main_10) # label(axiom).
+m_main_v_state1(s0,c_n1) # label(m_main_11) # label(axiom).
+m_main_v_state2(s0,c_n2) # label(m_main_12) # label(axiom).
+m_main_v_turn(s0,c_1) # label(m_main_13) # label(axiom).
+m_main_v_state1(X,c_n1) | -node1(X) # label(m_main_14) # label(axiom).
+m_main_v_state2(X,c_t2) | -node1(X) # label(m_main_15) # label(axiom).
+m_main_v_state1(X,c_n1) | -node2(X) # label(m_main_16) # label(axiom).
+m_main_v_state2(X,c_n2) | -node2(X) # label(m_main_17) # label(axiom).
+m_main_v_state1(X,c_n1) | -node3(X) # label(m_main_18) # label(axiom).
+m_main_v_state2(X,c_c2) | -node3(X) # label(m_main_19) # label(axiom).
+m_main_v_state1(X,c_t1) | -node4(X) # label(m_main_20) # label(axiom).
+m_main_v_state2(X,c_n2) | -node4(X) # label(m_main_21) # label(axiom).
+m_main_v_state1(X,c_t1) | -node5(X) # label(m_main_22) # label(axiom).
+m_main_v_state2(X,c_t2) | -node5(X) # label(m_main_23) # label(axiom).
+m_main_v_turn(X,c_1) | -node5(X) # label(m_main_24) # label(axiom).
+m_main_v_state1(Y,V) | -m_main_v_state1(X,V) | -node6(X,Y) # label(m_main_25) # label(axiom).
+-m_main_v_state1(Y,V) | m_main_v_state1(X,V) | -node6(X,Y) # label(m_main_26) # label(axiom).
+-m_main_v_state1(X,c_n1) | -m_main_v_state2(X,c_t2) | m_main_v_state1(Y,c_t1) | -node7(X,Y) # label(m_main_27) # label(axiom).
+node1(X) | -m_main_v_state1(X,c_n1) | -m_main_v_state2(X,c_n2) | m_main_v_state1(Y,c_t1) | -node7(X,Y) # label(m_main_28) # label(axiom).
+node1(X) | node2(X) | -m_main_v_state1(X,c_n1) | -m_main_v_state2(X,c_c2) | m_main_v_state1(Y,c_t1) | -node7(X,Y) # label(m_main_29) # label(axiom).
+node1(X) | node2(X) | node3(X) | -m_main_v_state1(X,c_t1) | -m_main_v_state2(X,c_n2) | m_main_v_state1(Y,c_c1) | -node7(X,Y) # label(m_main_30) # label(axiom).
+node1(X) | node2(X) | node3(X) | node4(X) | -m_main_v_state1(X,c_t1) | -m_main_v_state2(X,c_t2) | -m_main_v_turn(X,c_1) | m_main_v_state1(Y,c_c1) | -node7(X,Y) # label(m_main_31) # label(axiom).
+node1(X) | node2(X) | node3(X) | node4(X) | node5(X) | -m_main_v_state1(X,c_c1) | m_main_v_state1(Y,c_n1) | -node7(X,Y) # label(m_main_32) # label(axiom).
+node1(X) | node2(X) | node3(X) | node4(X) | node5(X) | m_main_v_state1(X,c_c1) | node6(X,Y) | -node7(X,Y) # label(m_main_33) # label(axiom).
+-trans(X,Y) | node7(X,Y) # label(m_main_34) # label(axiom).
+m_main_v_state2(X,c_n2) | -node8(X) # label(m_main_35) # label(axiom).
+m_main_v_state1(X,c_t1) | -node8(X) # label(m_main_36) # label(axiom).
+m_main_v_state2(X,c_n2) | -node9(X) # label(m_main_37) # label(axiom).
+m_main_v_state1(X,c_n1) | -node9(X) # label(m_main_38) # label(axiom).
+m_main_v_state2(X,c_n2) | -node10(X) # label(m_main_39) # label(axiom).
+m_main_v_state1(X,c_c1) | -node10(X) # label(m_main_40) # label(axiom).
+m_main_v_state2(X,c_t2) | -node11(X) # label(m_main_41) # label(axiom).
+m_main_v_state1(X,c_n1) | -node11(X) # label(m_main_42) # label(axiom).
+m_main_v_state2(X,c_t2) | -node12(X) # label(m_main_43) # label(axiom).
+m_main_v_state1(X,c_t1) | -node12(X) # label(m_main_44) # label(axiom).
+m_main_v_turn(X,c_2) | -node12(X) # label(m_main_45) # label(axiom).
+m_main_v_state2(Y,V) | -m_main_v_state2(X,V) | -node13(X,Y) # label(m_main_46) # label(axiom).
+-m_main_v_state2(Y,V) | m_main_v_state2(X,V) | -node13(X,Y) # label(m_main_47) # label(axiom).
+-m_main_v_state2(X,c_n2) | -m_main_v_state1(X,c_t1) | m_main_v_state2(Y,c_t2) | -node14(X,Y) # label(m_main_48) # label(axiom).
+node8(X) | -m_main_v_state2(X,c_n2) | -m_main_v_state1(X,c_n1) | m_main_v_state2(Y,c_t2) | -node14(X,Y) # label(m_main_49) # label(axiom).
+node8(X) | node9(X) | -m_main_v_state2(X,c_n2) | -m_main_v_state1(X,c_c1) | m_main_v_state2(Y,c_t2) | -node14(X,Y) # label(m_main_50) # label(axiom).
+node8(X) | node9(X) | node10(X) | -m_main_v_state2(X,c_t2) | -m_main_v_state1(X,c_n1) | m_main_v_state2(Y,c_c2) | -node14(X,Y) # label(m_main_51) # label(axiom).
+node8(X) | node9(X) | node10(X) | node11(X) | -m_main_v_state2(X,c_t2) | -m_main_v_state1(X,c_t1) | -m_main_v_turn(X,c_2) | m_main_v_state2(Y,c_c2) | -node14(X,Y) # label(m_main_52) # label(axiom).
+node8(X) | node9(X) | node10(X) | node11(X) | node12(X) | -m_main_v_state2(X,c_c2) | m_main_v_state2(Y,c_n2) | -node14(X,Y) # label(m_main_53) # label(axiom).
+node8(X) | node9(X) | node10(X) | node11(X) | node12(X) | m_main_v_state2(X,c_c2) | node13(X,Y) | -node14(X,Y) # label(m_main_54) # label(axiom).
+-trans(X,Y) | node14(X,Y) # label(m_main_55) # label(axiom).
+m_main_v_state1(X,c_n1) | -node15(X) # label(m_main_56) # label(axiom).
+m_main_v_state2(X,c_t2) | -node15(X) # label(m_main_57) # label(axiom).
+m_main_v_state2(X,c_n2) | -node16(X) # label(m_main_58) # label(axiom).
+m_main_v_state1(X,c_t1) | -node16(X) # label(m_main_59) # label(axiom).
+m_main_v_turn(Y,V) | -m_main_v_turn(X,V) | -node17(X,Y) # label(m_main_60) # label(axiom).
+-m_main_v_turn(Y,V) | m_main_v_turn(X,V) | -node17(X,Y) # label(m_main_61) # label(axiom).
+-m_main_v_state1(X,c_n1) | -m_main_v_state2(X,c_t2) | m_main_v_turn(Y,c_2) | -node18(X,Y) # label(m_main_62) # label(axiom).
+node15(X) | -m_main_v_state2(X,c_n2) | -m_main_v_state1(X,c_t1) | m_main_v_turn(Y,c_1) | -node18(X,Y) # label(m_main_63) # label(axiom).
+node15(X) | node16(X) | node17(X,Y) | -node18(X,Y) # label(m_main_64) # label(axiom).
+-trans(X,Y) | node18(X,Y) # label(m_main_65) # label(axiom).
+-m_main_v_state2(X,c_c2) | -always25(X) # label(prpty14) # label(negated_conjecture).
+always25(Y) | -trans(X,Y) | -always25(X) # label(prpty15) # label(negated_conjecture).
+loop | -always25(X) | -last(X) # label(prpty16) # label(negated_conjecture).
+m_main_v_state2(X,c_t2) | -node26(X) # label(prpty17) # label(negated_conjecture).
+always25(X) | -node26(X) # label(prpty18) # label(negated_conjecture).
+node26(X) | xuntil28(X) | -until27(X) # label(prpty19) # label(negated_conjecture).
+until27(Y) | -succ(X,Y) | -xuntil28(X) # label(prpty20) # label(negated_conjecture).
+loop | -last(X) | -xuntil28(X) # label(prpty21) # label(negated_conjecture).
+until2p29(Y) | -trans(X,Y) | -last(X) | -xuntil28(X) # label(prpty22) # label(negated_conjecture).
+node26(X) | xuntil2p30(X) | -until2p29(X) # label(prpty23) # label(negated_conjecture).
+until2p29(Y) | -succ(X,Y) | -xuntil2p30(X) # label(prpty24) # label(negated_conjecture).
+-last(X) | -xuntil2p30(X) # label(prpty25) # label(negated_conjecture).
+until27(s0) # label(prpty26) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

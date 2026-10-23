@@ -1,0 +1,24 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+ifeq(A,A,B,C) = B # label(ifeq_axiom) # label(axiom).
+axiom(implies(or(A,A),A)) = true # label(axiom_1_2) # label(axiom).
+axiom(implies(A,or(B,A))) = true # label(axiom_1_3) # label(axiom).
+axiom(implies(or(A,B),or(B,A))) = true # label(axiom_1_4) # label(axiom).
+axiom(implies(or(A,or(B,C)),or(B,or(A,C)))) = true # label(axiom_1_5) # label(axiom).
+axiom(implies(implies(A,B),implies(or(C,A),or(C,B)))) = true # label(axiom_1_6) # label(axiom).
+implies(X,Y) = or(not(X),Y) # label(implies_definition) # label(axiom).
+ifeq(axiom(X),true,theorem(X),true) = true # label(rule_1) # label(axiom).
+ifeq(theorem(implies(Y,X)),true,ifeq(theorem(Y),true,theorem(X),true),true) = true # label(rule_2) # label(axiom).
+and(P,Q) = not(or(not(P),not(Q))) # label(and_defn) # label(axiom).
+equivalent(P,Q) = and(implies(P,Q),implies(Q,P)) # label(equivalent_defn) # label(axiom).
+theorem(equivalent(equivalent(p,q),equivalent(not(p),not(q)))) != true # label(prove_this) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

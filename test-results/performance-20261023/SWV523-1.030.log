@@ -1,0 +1,530 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 67 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+select(store(A,I,E),I) = E # label(a1) # label(axiom).
+I = J | select(store(A,I,E),J) = select(A,J) # label(a2) # label(axiom).
+store(store(A,I,select(A,J)),J,select(A,I)) = store(store(A,J,select(A,I)),I,select(A,J)) # label(a3) # label(axiom).
+i29 != i30 # label(hyp0) # label(hypothesis).
+i28 != i30 # label(hyp1) # label(hypothesis).
+i28 != i29 # label(hyp2) # label(hypothesis).
+i27 != i30 # label(hyp3) # label(hypothesis).
+i27 != i29 # label(hyp4) # label(hypothesis).
+i27 != i28 # label(hyp5) # label(hypothesis).
+i26 != i30 # label(hyp6) # label(hypothesis).
+i26 != i29 # label(hyp7) # label(hypothesis).
+i26 != i28 # label(hyp8) # label(hypothesis).
+i26 != i27 # label(hyp9) # label(hypothesis).
+i25 != i30 # label(hyp10) # label(hypothesis).
+i25 != i29 # label(hyp11) # label(hypothesis).
+i25 != i28 # label(hyp12) # label(hypothesis).
+i25 != i27 # label(hyp13) # label(hypothesis).
+i25 != i26 # label(hyp14) # label(hypothesis).
+i24 != i30 # label(hyp15) # label(hypothesis).
+i24 != i29 # label(hyp16) # label(hypothesis).
+i24 != i28 # label(hyp17) # label(hypothesis).
+i24 != i27 # label(hyp18) # label(hypothesis).
+i24 != i26 # label(hyp19) # label(hypothesis).
+i24 != i25 # label(hyp20) # label(hypothesis).
+i23 != i30 # label(hyp21) # label(hypothesis).
+i23 != i29 # label(hyp22) # label(hypothesis).
+i23 != i28 # label(hyp23) # label(hypothesis).
+i23 != i27 # label(hyp24) # label(hypothesis).
+i23 != i26 # label(hyp25) # label(hypothesis).
+i23 != i25 # label(hyp26) # label(hypothesis).
+i23 != i24 # label(hyp27) # label(hypothesis).
+i22 != i30 # label(hyp28) # label(hypothesis).
+i22 != i29 # label(hyp29) # label(hypothesis).
+i22 != i28 # label(hyp30) # label(hypothesis).
+i22 != i27 # label(hyp31) # label(hypothesis).
+i22 != i26 # label(hyp32) # label(hypothesis).
+i22 != i25 # label(hyp33) # label(hypothesis).
+i22 != i24 # label(hyp34) # label(hypothesis).
+i22 != i23 # label(hyp35) # label(hypothesis).
+i21 != i30 # label(hyp36) # label(hypothesis).
+i21 != i29 # label(hyp37) # label(hypothesis).
+i21 != i28 # label(hyp38) # label(hypothesis).
+i21 != i27 # label(hyp39) # label(hypothesis).
+i21 != i26 # label(hyp40) # label(hypothesis).
+i21 != i25 # label(hyp41) # label(hypothesis).
+i21 != i24 # label(hyp42) # label(hypothesis).
+i21 != i23 # label(hyp43) # label(hypothesis).
+i21 != i22 # label(hyp44) # label(hypothesis).
+i20 != i30 # label(hyp45) # label(hypothesis).
+i20 != i29 # label(hyp46) # label(hypothesis).
+i20 != i28 # label(hyp47) # label(hypothesis).
+i20 != i27 # label(hyp48) # label(hypothesis).
+i20 != i26 # label(hyp49) # label(hypothesis).
+i20 != i25 # label(hyp50) # label(hypothesis).
+i20 != i24 # label(hyp51) # label(hypothesis).
+i20 != i23 # label(hyp52) # label(hypothesis).
+i20 != i22 # label(hyp53) # label(hypothesis).
+i20 != i21 # label(hyp54) # label(hypothesis).
+i19 != i30 # label(hyp55) # label(hypothesis).
+i19 != i29 # label(hyp56) # label(hypothesis).
+i19 != i28 # label(hyp57) # label(hypothesis).
+i19 != i27 # label(hyp58) # label(hypothesis).
+i19 != i26 # label(hyp59) # label(hypothesis).
+i19 != i25 # label(hyp60) # label(hypothesis).
+i19 != i24 # label(hyp61) # label(hypothesis).
+i19 != i23 # label(hyp62) # label(hypothesis).
+i19 != i22 # label(hyp63) # label(hypothesis).
+i19 != i21 # label(hyp64) # label(hypothesis).
+i19 != i20 # label(hyp65) # label(hypothesis).
+i18 != i30 # label(hyp66) # label(hypothesis).
+i18 != i29 # label(hyp67) # label(hypothesis).
+i18 != i28 # label(hyp68) # label(hypothesis).
+i18 != i27 # label(hyp69) # label(hypothesis).
+i18 != i26 # label(hyp70) # label(hypothesis).
+i18 != i25 # label(hyp71) # label(hypothesis).
+i18 != i24 # label(hyp72) # label(hypothesis).
+i18 != i23 # label(hyp73) # label(hypothesis).
+i18 != i22 # label(hyp74) # label(hypothesis).
+i18 != i21 # label(hyp75) # label(hypothesis).
+i18 != i20 # label(hyp76) # label(hypothesis).
+i18 != i19 # label(hyp77) # label(hypothesis).
+i17 != i30 # label(hyp78) # label(hypothesis).
+i17 != i29 # label(hyp79) # label(hypothesis).
+i17 != i28 # label(hyp80) # label(hypothesis).
+i17 != i27 # label(hyp81) # label(hypothesis).
+i17 != i26 # label(hyp82) # label(hypothesis).
+i17 != i25 # label(hyp83) # label(hypothesis).
+i17 != i24 # label(hyp84) # label(hypothesis).
+i17 != i23 # label(hyp85) # label(hypothesis).
+i17 != i22 # label(hyp86) # label(hypothesis).
+i17 != i21 # label(hyp87) # label(hypothesis).
+i17 != i20 # label(hyp88) # label(hypothesis).
+i17 != i19 # label(hyp89) # label(hypothesis).
+i17 != i18 # label(hyp90) # label(hypothesis).
+i16 != i30 # label(hyp91) # label(hypothesis).
+i16 != i29 # label(hyp92) # label(hypothesis).
+i16 != i28 # label(hyp93) # label(hypothesis).
+i16 != i27 # label(hyp94) # label(hypothesis).
+i16 != i26 # label(hyp95) # label(hypothesis).
+i16 != i25 # label(hyp96) # label(hypothesis).
+i16 != i24 # label(hyp97) # label(hypothesis).
+i16 != i23 # label(hyp98) # label(hypothesis).
+i16 != i22 # label(hyp99) # label(hypothesis).
+i16 != i21 # label(hyp100) # label(hypothesis).
+i16 != i20 # label(hyp101) # label(hypothesis).
+i16 != i19 # label(hyp102) # label(hypothesis).
+i16 != i18 # label(hyp103) # label(hypothesis).
+i16 != i17 # label(hyp104) # label(hypothesis).
+i15 != i30 # label(hyp105) # label(hypothesis).
+i15 != i29 # label(hyp106) # label(hypothesis).
+i15 != i28 # label(hyp107) # label(hypothesis).
+i15 != i27 # label(hyp108) # label(hypothesis).
+i15 != i26 # label(hyp109) # label(hypothesis).
+i15 != i25 # label(hyp110) # label(hypothesis).
+i15 != i24 # label(hyp111) # label(hypothesis).
+i15 != i23 # label(hyp112) # label(hypothesis).
+i15 != i22 # label(hyp113) # label(hypothesis).
+i15 != i21 # label(hyp114) # label(hypothesis).
+i15 != i20 # label(hyp115) # label(hypothesis).
+i15 != i19 # label(hyp116) # label(hypothesis).
+i15 != i18 # label(hyp117) # label(hypothesis).
+i15 != i17 # label(hyp118) # label(hypothesis).
+i15 != i16 # label(hyp119) # label(hypothesis).
+i14 != i30 # label(hyp120) # label(hypothesis).
+i14 != i29 # label(hyp121) # label(hypothesis).
+i14 != i28 # label(hyp122) # label(hypothesis).
+i14 != i27 # label(hyp123) # label(hypothesis).
+i14 != i26 # label(hyp124) # label(hypothesis).
+i14 != i25 # label(hyp125) # label(hypothesis).
+i14 != i24 # label(hyp126) # label(hypothesis).
+i14 != i23 # label(hyp127) # label(hypothesis).
+i14 != i22 # label(hyp128) # label(hypothesis).
+i14 != i21 # label(hyp129) # label(hypothesis).
+i14 != i20 # label(hyp130) # label(hypothesis).
+i14 != i19 # label(hyp131) # label(hypothesis).
+i14 != i18 # label(hyp132) # label(hypothesis).
+i14 != i17 # label(hyp133) # label(hypothesis).
+i14 != i16 # label(hyp134) # label(hypothesis).
+i14 != i15 # label(hyp135) # label(hypothesis).
+i13 != i30 # label(hyp136) # label(hypothesis).
+i13 != i29 # label(hyp137) # label(hypothesis).
+i13 != i28 # label(hyp138) # label(hypothesis).
+i13 != i27 # label(hyp139) # label(hypothesis).
+i13 != i26 # label(hyp140) # label(hypothesis).
+i13 != i25 # label(hyp141) # label(hypothesis).
+i13 != i24 # label(hyp142) # label(hypothesis).
+i13 != i23 # label(hyp143) # label(hypothesis).
+i13 != i22 # label(hyp144) # label(hypothesis).
+i13 != i21 # label(hyp145) # label(hypothesis).
+i13 != i20 # label(hyp146) # label(hypothesis).
+i13 != i19 # label(hyp147) # label(hypothesis).
+i13 != i18 # label(hyp148) # label(hypothesis).
+i13 != i17 # label(hyp149) # label(hypothesis).
+i13 != i16 # label(hyp150) # label(hypothesis).
+i13 != i15 # label(hyp151) # label(hypothesis).
+i13 != i14 # label(hyp152) # label(hypothesis).
+i12 != i30 # label(hyp153) # label(hypothesis).
+i12 != i29 # label(hyp154) # label(hypothesis).
+i12 != i28 # label(hyp155) # label(hypothesis).
+i12 != i27 # label(hyp156) # label(hypothesis).
+i12 != i26 # label(hyp157) # label(hypothesis).
+i12 != i25 # label(hyp158) # label(hypothesis).
+i12 != i24 # label(hyp159) # label(hypothesis).
+i12 != i23 # label(hyp160) # label(hypothesis).
+i12 != i22 # label(hyp161) # label(hypothesis).
+i12 != i21 # label(hyp162) # label(hypothesis).
+i12 != i20 # label(hyp163) # label(hypothesis).
+i12 != i19 # label(hyp164) # label(hypothesis).
+i12 != i18 # label(hyp165) # label(hypothesis).
+i12 != i17 # label(hyp166) # label(hypothesis).
+i12 != i16 # label(hyp167) # label(hypothesis).
+i12 != i15 # label(hyp168) # label(hypothesis).
+i12 != i14 # label(hyp169) # label(hypothesis).
+i12 != i13 # label(hyp170) # label(hypothesis).
+i11 != i30 # label(hyp171) # label(hypothesis).
+i11 != i29 # label(hyp172) # label(hypothesis).
+i11 != i28 # label(hyp173) # label(hypothesis).
+i11 != i27 # label(hyp174) # label(hypothesis).
+i11 != i26 # label(hyp175) # label(hypothesis).
+i11 != i25 # label(hyp176) # label(hypothesis).
+i11 != i24 # label(hyp177) # label(hypothesis).
+i11 != i23 # label(hyp178) # label(hypothesis).
+i11 != i22 # label(hyp179) # label(hypothesis).
+i11 != i21 # label(hyp180) # label(hypothesis).
+i11 != i20 # label(hyp181) # label(hypothesis).
+i11 != i19 # label(hyp182) # label(hypothesis).
+i11 != i18 # label(hyp183) # label(hypothesis).
+i11 != i17 # label(hyp184) # label(hypothesis).
+i11 != i16 # label(hyp185) # label(hypothesis).
+i11 != i15 # label(hyp186) # label(hypothesis).
+i11 != i14 # label(hyp187) # label(hypothesis).
+i11 != i13 # label(hyp188) # label(hypothesis).
+i11 != i12 # label(hyp189) # label(hypothesis).
+i10 != i30 # label(hyp190) # label(hypothesis).
+i10 != i29 # label(hyp191) # label(hypothesis).
+i10 != i28 # label(hyp192) # label(hypothesis).
+i10 != i27 # label(hyp193) # label(hypothesis).
+i10 != i26 # label(hyp194) # label(hypothesis).
+i10 != i25 # label(hyp195) # label(hypothesis).
+i10 != i24 # label(hyp196) # label(hypothesis).
+i10 != i23 # label(hyp197) # label(hypothesis).
+i10 != i22 # label(hyp198) # label(hypothesis).
+i10 != i21 # label(hyp199) # label(hypothesis).
+i10 != i20 # label(hyp200) # label(hypothesis).
+i10 != i19 # label(hyp201) # label(hypothesis).
+i10 != i18 # label(hyp202) # label(hypothesis).
+i10 != i17 # label(hyp203) # label(hypothesis).
+i10 != i16 # label(hyp204) # label(hypothesis).
+i10 != i15 # label(hyp205) # label(hypothesis).
+i10 != i14 # label(hyp206) # label(hypothesis).
+i10 != i13 # label(hyp207) # label(hypothesis).
+i10 != i12 # label(hyp208) # label(hypothesis).
+i10 != i11 # label(hyp209) # label(hypothesis).
+i9 != i30 # label(hyp210) # label(hypothesis).
+i9 != i29 # label(hyp211) # label(hypothesis).
+i9 != i28 # label(hyp212) # label(hypothesis).
+i9 != i27 # label(hyp213) # label(hypothesis).
+i9 != i26 # label(hyp214) # label(hypothesis).
+i9 != i25 # label(hyp215) # label(hypothesis).
+i9 != i24 # label(hyp216) # label(hypothesis).
+i9 != i23 # label(hyp217) # label(hypothesis).
+i9 != i22 # label(hyp218) # label(hypothesis).
+i9 != i21 # label(hyp219) # label(hypothesis).
+i9 != i20 # label(hyp220) # label(hypothesis).
+i9 != i19 # label(hyp221) # label(hypothesis).
+i9 != i18 # label(hyp222) # label(hypothesis).
+i9 != i17 # label(hyp223) # label(hypothesis).
+i9 != i16 # label(hyp224) # label(hypothesis).
+i9 != i15 # label(hyp225) # label(hypothesis).
+i9 != i14 # label(hyp226) # label(hypothesis).
+i9 != i13 # label(hyp227) # label(hypothesis).
+i9 != i12 # label(hyp228) # label(hypothesis).
+i9 != i11 # label(hyp229) # label(hypothesis).
+i9 != i10 # label(hyp230) # label(hypothesis).
+i8 != i30 # label(hyp231) # label(hypothesis).
+i8 != i29 # label(hyp232) # label(hypothesis).
+i8 != i28 # label(hyp233) # label(hypothesis).
+i8 != i27 # label(hyp234) # label(hypothesis).
+i8 != i26 # label(hyp235) # label(hypothesis).
+i8 != i25 # label(hyp236) # label(hypothesis).
+i8 != i24 # label(hyp237) # label(hypothesis).
+i8 != i23 # label(hyp238) # label(hypothesis).
+i8 != i22 # label(hyp239) # label(hypothesis).
+i8 != i21 # label(hyp240) # label(hypothesis).
+i8 != i20 # label(hyp241) # label(hypothesis).
+i8 != i19 # label(hyp242) # label(hypothesis).
+i8 != i18 # label(hyp243) # label(hypothesis).
+i8 != i17 # label(hyp244) # label(hypothesis).
+i8 != i16 # label(hyp245) # label(hypothesis).
+i8 != i15 # label(hyp246) # label(hypothesis).
+i8 != i14 # label(hyp247) # label(hypothesis).
+i8 != i13 # label(hyp248) # label(hypothesis).
+i8 != i12 # label(hyp249) # label(hypothesis).
+i8 != i11 # label(hyp250) # label(hypothesis).
+i8 != i10 # label(hyp251) # label(hypothesis).
+i8 != i9 # label(hyp252) # label(hypothesis).
+i7 != i30 # label(hyp253) # label(hypothesis).
+i7 != i29 # label(hyp254) # label(hypothesis).
+i7 != i28 # label(hyp255) # label(hypothesis).
+i7 != i27 # label(hyp256) # label(hypothesis).
+i7 != i26 # label(hyp257) # label(hypothesis).
+i7 != i25 # label(hyp258) # label(hypothesis).
+i7 != i24 # label(hyp259) # label(hypothesis).
+i7 != i23 # label(hyp260) # label(hypothesis).
+i7 != i22 # label(hyp261) # label(hypothesis).
+i7 != i21 # label(hyp262) # label(hypothesis).
+i7 != i20 # label(hyp263) # label(hypothesis).
+i7 != i19 # label(hyp264) # label(hypothesis).
+i7 != i18 # label(hyp265) # label(hypothesis).
+i7 != i17 # label(hyp266) # label(hypothesis).
+i7 != i16 # label(hyp267) # label(hypothesis).
+i7 != i15 # label(hyp268) # label(hypothesis).
+i7 != i14 # label(hyp269) # label(hypothesis).
+i7 != i13 # label(hyp270) # label(hypothesis).
+i7 != i12 # label(hyp271) # label(hypothesis).
+i7 != i11 # label(hyp272) # label(hypothesis).
+i7 != i10 # label(hyp273) # label(hypothesis).
+i7 != i9 # label(hyp274) # label(hypothesis).
+i7 != i8 # label(hyp275) # label(hypothesis).
+i6 != i30 # label(hyp276) # label(hypothesis).
+i6 != i29 # label(hyp277) # label(hypothesis).
+i6 != i28 # label(hyp278) # label(hypothesis).
+i6 != i27 # label(hyp279) # label(hypothesis).
+i6 != i26 # label(hyp280) # label(hypothesis).
+i6 != i25 # label(hyp281) # label(hypothesis).
+i6 != i24 # label(hyp282) # label(hypothesis).
+i6 != i23 # label(hyp283) # label(hypothesis).
+i6 != i22 # label(hyp284) # label(hypothesis).
+i6 != i21 # label(hyp285) # label(hypothesis).
+i6 != i20 # label(hyp286) # label(hypothesis).
+i6 != i19 # label(hyp287) # label(hypothesis).
+i6 != i18 # label(hyp288) # label(hypothesis).
+i6 != i17 # label(hyp289) # label(hypothesis).
+i6 != i16 # label(hyp290) # label(hypothesis).
+i6 != i15 # label(hyp291) # label(hypothesis).
+i6 != i14 # label(hyp292) # label(hypothesis).
+i6 != i13 # label(hyp293) # label(hypothesis).
+i6 != i12 # label(hyp294) # label(hypothesis).
+i6 != i11 # label(hyp295) # label(hypothesis).
+i6 != i10 # label(hyp296) # label(hypothesis).
+i6 != i9 # label(hyp297) # label(hypothesis).
+i6 != i8 # label(hyp298) # label(hypothesis).
+i6 != i7 # label(hyp299) # label(hypothesis).
+i5 != i30 # label(hyp300) # label(hypothesis).
+i5 != i29 # label(hyp301) # label(hypothesis).
+i5 != i28 # label(hyp302) # label(hypothesis).
+i5 != i27 # label(hyp303) # label(hypothesis).
+i5 != i26 # label(hyp304) # label(hypothesis).
+i5 != i25 # label(hyp305) # label(hypothesis).
+i5 != i24 # label(hyp306) # label(hypothesis).
+i5 != i23 # label(hyp307) # label(hypothesis).
+i5 != i22 # label(hyp308) # label(hypothesis).
+i5 != i21 # label(hyp309) # label(hypothesis).
+i5 != i20 # label(hyp310) # label(hypothesis).
+i5 != i19 # label(hyp311) # label(hypothesis).
+i5 != i18 # label(hyp312) # label(hypothesis).
+i5 != i17 # label(hyp313) # label(hypothesis).
+i5 != i16 # label(hyp314) # label(hypothesis).
+i5 != i15 # label(hyp315) # label(hypothesis).
+i5 != i14 # label(hyp316) # label(hypothesis).
+i5 != i13 # label(hyp317) # label(hypothesis).
+i5 != i12 # label(hyp318) # label(hypothesis).
+i5 != i11 # label(hyp319) # label(hypothesis).
+i5 != i10 # label(hyp320) # label(hypothesis).
+i5 != i9 # label(hyp321) # label(hypothesis).
+i5 != i8 # label(hyp322) # label(hypothesis).
+i5 != i7 # label(hyp323) # label(hypothesis).
+i5 != i6 # label(hyp324) # label(hypothesis).
+i4 != i30 # label(hyp325) # label(hypothesis).
+i4 != i29 # label(hyp326) # label(hypothesis).
+i4 != i28 # label(hyp327) # label(hypothesis).
+i4 != i27 # label(hyp328) # label(hypothesis).
+i4 != i26 # label(hyp329) # label(hypothesis).
+i4 != i25 # label(hyp330) # label(hypothesis).
+i4 != i24 # label(hyp331) # label(hypothesis).
+i4 != i23 # label(hyp332) # label(hypothesis).
+i4 != i22 # label(hyp333) # label(hypothesis).
+i4 != i21 # label(hyp334) # label(hypothesis).
+i4 != i20 # label(hyp335) # label(hypothesis).
+i4 != i19 # label(hyp336) # label(hypothesis).
+i4 != i18 # label(hyp337) # label(hypothesis).
+i4 != i17 # label(hyp338) # label(hypothesis).
+i4 != i16 # label(hyp339) # label(hypothesis).
+i4 != i15 # label(hyp340) # label(hypothesis).
+i4 != i14 # label(hyp341) # label(hypothesis).
+i4 != i13 # label(hyp342) # label(hypothesis).
+i4 != i12 # label(hyp343) # label(hypothesis).
+i4 != i11 # label(hyp344) # label(hypothesis).
+i4 != i10 # label(hyp345) # label(hypothesis).
+i4 != i9 # label(hyp346) # label(hypothesis).
+i4 != i8 # label(hyp347) # label(hypothesis).
+i4 != i7 # label(hyp348) # label(hypothesis).
+i4 != i6 # label(hyp349) # label(hypothesis).
+i4 != i5 # label(hyp350) # label(hypothesis).
+i3 != i30 # label(hyp351) # label(hypothesis).
+i3 != i29 # label(hyp352) # label(hypothesis).
+i3 != i28 # label(hyp353) # label(hypothesis).
+i3 != i27 # label(hyp354) # label(hypothesis).
+i3 != i26 # label(hyp355) # label(hypothesis).
+i3 != i25 # label(hyp356) # label(hypothesis).
+i3 != i24 # label(hyp357) # label(hypothesis).
+i3 != i23 # label(hyp358) # label(hypothesis).
+i3 != i22 # label(hyp359) # label(hypothesis).
+i3 != i21 # label(hyp360) # label(hypothesis).
+i3 != i20 # label(hyp361) # label(hypothesis).
+i3 != i19 # label(hyp362) # label(hypothesis).
+i3 != i18 # label(hyp363) # label(hypothesis).
+i3 != i17 # label(hyp364) # label(hypothesis).
+i3 != i16 # label(hyp365) # label(hypothesis).
+i3 != i15 # label(hyp366) # label(hypothesis).
+i3 != i14 # label(hyp367) # label(hypothesis).
+i3 != i13 # label(hyp368) # label(hypothesis).
+i3 != i12 # label(hyp369) # label(hypothesis).
+i3 != i11 # label(hyp370) # label(hypothesis).
+i3 != i10 # label(hyp371) # label(hypothesis).
+i3 != i9 # label(hyp372) # label(hypothesis).
+i3 != i8 # label(hyp373) # label(hypothesis).
+i3 != i7 # label(hyp374) # label(hypothesis).
+i3 != i6 # label(hyp375) # label(hypothesis).
+i3 != i5 # label(hyp376) # label(hypothesis).
+i3 != i4 # label(hyp377) # label(hypothesis).
+i2 != i30 # label(hyp378) # label(hypothesis).
+i2 != i29 # label(hyp379) # label(hypothesis).
+i2 != i28 # label(hyp380) # label(hypothesis).
+i2 != i27 # label(hyp381) # label(hypothesis).
+i2 != i26 # label(hyp382) # label(hypothesis).
+i2 != i25 # label(hyp383) # label(hypothesis).
+i2 != i24 # label(hyp384) # label(hypothesis).
+i2 != i23 # label(hyp385) # label(hypothesis).
+i2 != i22 # label(hyp386) # label(hypothesis).
+i2 != i21 # label(hyp387) # label(hypothesis).
+i2 != i20 # label(hyp388) # label(hypothesis).
+i2 != i19 # label(hyp389) # label(hypothesis).
+i2 != i18 # label(hyp390) # label(hypothesis).
+i2 != i17 # label(hyp391) # label(hypothesis).
+i2 != i16 # label(hyp392) # label(hypothesis).
+i2 != i15 # label(hyp393) # label(hypothesis).
+i2 != i14 # label(hyp394) # label(hypothesis).
+i2 != i13 # label(hyp395) # label(hypothesis).
+i2 != i12 # label(hyp396) # label(hypothesis).
+i2 != i11 # label(hyp397) # label(hypothesis).
+i2 != i10 # label(hyp398) # label(hypothesis).
+i2 != i9 # label(hyp399) # label(hypothesis).
+i2 != i8 # label(hyp400) # label(hypothesis).
+i2 != i7 # label(hyp401) # label(hypothesis).
+i2 != i6 # label(hyp402) # label(hypothesis).
+i2 != i5 # label(hyp403) # label(hypothesis).
+i2 != i4 # label(hyp404) # label(hypothesis).
+i2 != i3 # label(hyp405) # label(hypothesis).
+i1 != i30 # label(hyp406) # label(hypothesis).
+i1 != i29 # label(hyp407) # label(hypothesis).
+i1 != i28 # label(hyp408) # label(hypothesis).
+i1 != i27 # label(hyp409) # label(hypothesis).
+i1 != i26 # label(hyp410) # label(hypothesis).
+i1 != i25 # label(hyp411) # label(hypothesis).
+i1 != i24 # label(hyp412) # label(hypothesis).
+i1 != i23 # label(hyp413) # label(hypothesis).
+i1 != i22 # label(hyp414) # label(hypothesis).
+i1 != i21 # label(hyp415) # label(hypothesis).
+i1 != i20 # label(hyp416) # label(hypothesis).
+i1 != i19 # label(hyp417) # label(hypothesis).
+i1 != i18 # label(hyp418) # label(hypothesis).
+i1 != i17 # label(hyp419) # label(hypothesis).
+i1 != i16 # label(hyp420) # label(hypothesis).
+i1 != i15 # label(hyp421) # label(hypothesis).
+i1 != i14 # label(hyp422) # label(hypothesis).
+i1 != i13 # label(hyp423) # label(hypothesis).
+i1 != i12 # label(hyp424) # label(hypothesis).
+i1 != i11 # label(hyp425) # label(hypothesis).
+i1 != i10 # label(hyp426) # label(hypothesis).
+i1 != i9 # label(hyp427) # label(hypothesis).
+i1 != i8 # label(hyp428) # label(hypothesis).
+i1 != i7 # label(hyp429) # label(hypothesis).
+i1 != i6 # label(hyp430) # label(hypothesis).
+i1 != i5 # label(hyp431) # label(hypothesis).
+i1 != i4 # label(hyp432) # label(hypothesis).
+i1 != i3 # label(hyp433) # label(hypothesis).
+i1 != i2 # label(hyp434) # label(hypothesis).
+select(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(a1,i1,e1),i2,e2),i3,e3),i4,e4),i5,e5),i6,e6),i7,e7),i8,e8),i9,e9),i10,e10),i11,e11),i12,e12),i13,e13),i14,e14),i15,e15),i16,e16),i17,e17),i18,e18),i19,e19),i20,e20),i21,e21),i22,e22),i23,e23),i24,e24),i25,e25),i26,e26),i27,e27),i28,e28),i29,e29),i30,e30),sk(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(a1,i1,e1),i2,e2),i3,e3),i4,e4),i5,e5),i6,e6),i7,e7),i8,e8),i9,e9),i10,e10),i11,e11),i12,e12),i13,e13),i14,e14),i15,e15),i16,e16),i17,e17),i18,e18),i19,e19),i20,e20),i21,e21),i22,e22),i23,e23),i24,e24),i25,e25),i26,e26),i27,e27),i28,e28),i29,e29),i30,e30),store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(a1,i13,e13),i1,e1),i19,e19),i4,e4),i9,e9),i30,e30),i2,e2),i15,e15),i25,e25),i18,e18),i20,e20),i8,e8),i21,e21),i6,e6),i11,e11),i14,e14),i29,e29),i5,e5),i26,e26),i22,e22),i27,e27),i3,e3),i12,e12),i16,e16),i28,e28),i17,e17),i23,e23),i24,e24),i7,e7),i10,e10))) != select(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(a1,i13,e13),i1,e1),i19,e19),i4,e4),i9,e9),i30,e30),i2,e2),i15,e15),i25,e25),i18,e18),i20,e20),i8,e8),i21,e21),i6,e6),i11,e11),i14,e14),i29,e29),i5,e5),i26,e26),i22,e22),i27,e27),i3,e3),i12,e12),i16,e16),i28,e28),i17,e17),i23,e23),i24,e24),i7,e7),i10,e10),sk(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(a1,i1,e1),i2,e2),i3,e3),i4,e4),i5,e5),i6,e6),i7,e7),i8,e8),i9,e9),i10,e10),i11,e11),i12,e12),i13,e13),i14,e14),i15,e15),i16,e16),i17,e17),i18,e18),i19,e19),i20,e20),i21,e21),i22,e22),i23,e23),i24,e24),i25,e25),i26,e26),i27,e27),i28,e28),i29,e29),i30,e30),store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(store(a1,i13,e13),i1,e1),i19,e19),i4,e4),i9,e9),i30,e30),i2,e2),i15,e15),i25,e25),i18,e18),i20,e20),i8,e8),i21,e21),i6,e6),i11,e11),i14,e14),i29,e29),i5,e5),i26,e26),i22,e22),i27,e27),i3,e3),i12,e12),i16,e16),i28,e28),i17,e17),i23,e23),i24,e24),i7,e7),i10,e10))) # label(goal) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ a1, e1, e10, e11, e12, e13, e14, e15, e16, e17, e18, e19, e2, e20, e21, e22, e23, e24, e25, e26, e27, e28, e29, e3, e30, e4, e5, e6, e7, e8, e9, i1, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i2, i20, i21, i22, i23, i24, i25, i26, i27, i28, i29, i3, i30, i4, i5, i6, i7, i8, i9, select, sk, store ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+============================== STATISTICS ============================
+
+Given=476. Generated=12113. Kept=3708. proofs=0.
+Usable=476. Sos=3161. Demods=28. Limbo=65, Disabled=445. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=634.
+Forward_subsumed=7771. Back_subsumed=6.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=28 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=217640. Demod_rewrites=2463.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=1885549. Nonunit_bsub_feature_tests=335485.
+Megabytes=14.12.
+User_CPU=20.02, System_CPU=0.01, Wall_clock=20.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 67 exit (max_seconds) Fri Oct 23 15:00:43 2026
+
+SEARCH FAILED
+
+------ process 67 exit (max_seconds) ------
+

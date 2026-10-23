@@ -1,0 +1,180 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 167 was started by mfixman on bodoque,
+Fri Oct 23 15:00:59 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-environment(A) | -subpopulations(B,C,A,D) | subpopulations(C,B,A,D) # label(mp_symmetry_of_subpopulations_1) # label(axiom).
+-environment(A) | -subpopulations(first_movers,efficient_producers,A,B) | in_environment(A,B) # label(mp_time_point_occur_2) # label(axiom).
+environment(A) | -greater(zero,growth_rate(B,C)) # label(mp_growth_rate_relationships_3) # label(axiom).
+subpopulations(A,B,C,D) | -greater(zero,growth_rate(A,D)) # label(mp_growth_rate_relationships_4) # label(axiom).
+-greater_or_equal(growth_rate(A,B),zero) | -greater(zero,growth_rate(A,B)) # label(mp_growth_rate_relationships_5) # label(axiom).
+greater(zero,growth_rate(A,B)) | -environment(C) | -subpopulations(A,D,C,B) | greater_or_equal(growth_rate(A,B),zero) # label(mp_growth_rate_relationships_6) # label(axiom).
+-environment(A) | -subpopulations(B,C,A,D) | -greater_or_equal(growth_rate(C,D),zero) | -greater(zero,growth_rate(B,D)) | outcompetes(C,B,D) # label(d2_7) # label(hypothesis).
+-environment(A) | -subpopulations(B,C,A,D) | -outcompetes(C,B,D) | greater_or_equal(growth_rate(C,D),zero) # label(d2_8) # label(hypothesis).
+-environment(A) | -subpopulations(B,C,A,D) | -outcompetes(C,B,D) | greater(zero,growth_rate(B,D)) # label(d2_9) # label(hypothesis).
+greater(resilience(efficient_producers),resilience(first_movers)) # label(a2_10) # label(hypothesis).
+-environment(A) | -in_environment(A,B) | greater(zero,growth_rate(C,B)) | -greater(resilience(D),resilience(C)) | -greater(zero,growth_rate(D,B)) # label(a13_11) # label(hypothesis).
+environment(sk1) # label(prove_t5_12) # label(negated_conjecture).
+subpopulations(first_movers,efficient_producers,sk1,sk2) # label(prove_t5_13) # label(negated_conjecture).
+outcompetes(first_movers,efficient_producers,sk2) # label(prove_t5_14) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating environment/1
+1 environment(A) | -greater(zero,growth_rate(B,C)) # label(mp_growth_rate_relationships_3) # label(axiom).  [assumption].
+2 -environment(A) | -subpopulations(B,C,A,D) | subpopulations(C,B,A,D) # label(mp_symmetry_of_subpopulations_1) # label(axiom).  [assumption].
+3 -environment(A) | -subpopulations(first_movers,efficient_producers,A,B) | in_environment(A,B) # label(mp_time_point_occur_2) # label(axiom).  [assumption].
+Derived: -greater(zero,growth_rate(A,B)) | -subpopulations(C,D,E,F) | subpopulations(D,C,E,F).  [resolve(1,a,2,a)].
+Derived: -greater(zero,growth_rate(A,B)) | -subpopulations(first_movers,efficient_producers,C,D) | in_environment(C,D).  [resolve(1,a,3,a)].
+4 greater(zero,growth_rate(A,B)) | -environment(C) | -subpopulations(A,D,C,B) | greater_or_equal(growth_rate(A,B),zero) # label(mp_growth_rate_relationships_6) # label(axiom).  [assumption].
+Derived: greater(zero,growth_rate(A,B)) | -subpopulations(A,C,D,B) | greater_or_equal(growth_rate(A,B),zero) | -greater(zero,growth_rate(E,F)).  [resolve(4,b,1,a)].
+5 -environment(A) | -subpopulations(B,C,A,D) | -greater_or_equal(growth_rate(C,D),zero) | -greater(zero,growth_rate(B,D)) | outcompetes(C,B,D) # label(d2_7) # label(hypothesis).  [assumption].
+Derived: -subpopulations(A,B,C,D) | -greater_or_equal(growth_rate(B,D),zero) | -greater(zero,growth_rate(A,D)) | outcompetes(B,A,D) | -greater(zero,growth_rate(E,F)).  [resolve(5,a,1,a)].
+6 -environment(A) | -subpopulations(B,C,A,D) | -outcompetes(C,B,D) | greater_or_equal(growth_rate(C,D),zero) # label(d2_8) # label(hypothesis).  [assumption].
+Derived: -subpopulations(A,B,C,D) | -outcompetes(B,A,D) | greater_or_equal(growth_rate(B,D),zero) | -greater(zero,growth_rate(E,F)).  [resolve(6,a,1,a)].
+7 -environment(A) | -subpopulations(B,C,A,D) | -outcompetes(C,B,D) | greater(zero,growth_rate(B,D)) # label(d2_9) # label(hypothesis).  [assumption].
+Derived: -subpopulations(A,B,C,D) | -outcompetes(B,A,D) | greater(zero,growth_rate(A,D)) | -greater(zero,growth_rate(E,F)).  [resolve(7,a,1,a)].
+8 -environment(A) | -in_environment(A,B) | greater(zero,growth_rate(C,B)) | -greater(resilience(D),resilience(C)) | -greater(zero,growth_rate(D,B)) # label(a13_11) # label(hypothesis).  [assumption].
+Derived: -in_environment(A,B) | greater(zero,growth_rate(C,B)) | -greater(resilience(D),resilience(C)) | -greater(zero,growth_rate(D,B)) | -greater(zero,growth_rate(E,F)).  [resolve(8,a,1,a)].
+9 environment(sk1) # label(prove_t5_12) # label(negated_conjecture).  [assumption].
+Derived: -subpopulations(A,B,sk1,C) | subpopulations(B,A,sk1,C).  [resolve(9,a,2,a)].
+Derived: -subpopulations(first_movers,efficient_producers,sk1,A) | in_environment(sk1,A).  [resolve(9,a,3,a)].
+Derived: greater(zero,growth_rate(A,B)) | -subpopulations(A,C,sk1,B) | greater_or_equal(growth_rate(A,B),zero).  [resolve(9,a,4,b)].
+Derived: -subpopulations(A,B,sk1,C) | -outcompetes(B,A,C) | greater_or_equal(growth_rate(B,C),zero).  [resolve(9,a,6,a)].
+Derived: -subpopulations(A,B,sk1,C) | -outcompetes(B,A,C) | greater(zero,growth_rate(A,C)).  [resolve(9,a,7,a)].
+
+Eliminating greater_or_equal/2
+10 greater(zero,growth_rate(A,B)) | -subpopulations(A,C,D,B) | greater_or_equal(growth_rate(A,B),zero) | -greater(zero,growth_rate(E,F)).  [resolve(4,b,1,a)].
+11 -greater_or_equal(growth_rate(A,B),zero) | -greater(zero,growth_rate(A,B)) # label(mp_growth_rate_relationships_5) # label(axiom).  [assumption].
+12 -subpopulations(A,B,C,D) | -greater_or_equal(growth_rate(B,D),zero) | -greater(zero,growth_rate(A,D)) | outcompetes(B,A,D) | -greater(zero,growth_rate(E,F)).  [resolve(5,a,1,a)].
+Derived: -subpopulations(A,B,C,D) | -greater(zero,growth_rate(A,D)) | outcompetes(B,A,D) | -greater(zero,growth_rate(E,F)) | greater(zero,growth_rate(B,D)) | -subpopulations(B,V6,V7,D) | -greater(zero,growth_rate(V8,V9)).  [resolve(12,b,10,c)].
+13 -subpopulations(A,B,C,D) | -outcompetes(B,A,D) | greater_or_equal(growth_rate(B,D),zero) | -greater(zero,growth_rate(E,F)).  [resolve(6,a,1,a)].
+Derived: -subpopulations(A,B,C,D) | -outcompetes(B,A,D) | -greater(zero,growth_rate(E,F)) | -greater(zero,growth_rate(B,D)).  [resolve(13,c,11,a)].
+Derived: -subpopulations(A,B,C,D) | -outcompetes(B,A,D) | -greater(zero,growth_rate(E,F)) | -subpopulations(V6,B,V7,D) | -greater(zero,growth_rate(V6,D)) | outcompetes(B,V6,D) | -greater(zero,growth_rate(V8,V9)).  [resolve(13,c,12,b)].
+14 greater(zero,growth_rate(A,B)) | -subpopulations(A,C,sk1,B) | greater_or_equal(growth_rate(A,B),zero).  [resolve(9,a,4,b)].
+15 -subpopulations(A,B,sk1,C) | -outcompetes(B,A,C) | greater_or_equal(growth_rate(B,C),zero).  [resolve(9,a,6,a)].
+
+Eliminating in_environment/2
+16 -in_environment(A,B) | greater(zero,growth_rate(C,B)) | -greater(resilience(D),resilience(C)) | -greater(zero,growth_rate(D,B)) | -greater(zero,growth_rate(E,F)).  [resolve(8,a,1,a)].
+17 -greater(zero,growth_rate(A,B)) | -subpopulations(first_movers,efficient_producers,C,D) | in_environment(C,D).  [resolve(1,a,3,a)].
+Derived: greater(zero,growth_rate(A,B)) | -greater(resilience(C),resilience(A)) | -greater(zero,growth_rate(C,B)) | -greater(zero,growth_rate(D,E)) | -greater(zero,growth_rate(F,V6)) | -subpopulations(first_movers,efficient_producers,V7,B).  [resolve(16,a,17,c)].
+18 -subpopulations(first_movers,efficient_producers,sk1,A) | in_environment(sk1,A).  [resolve(9,a,3,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ greater, outcompetes, subpopulations ]).
+Function symbol precedence:  function_order([ zero, efficient_producers, first_movers, sk1, sk2, growth_rate, resilience ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 25.
+% Level of proof is 5.
+% Maximum clause weight is 30.000.
+% Given clauses 15 (3.000 givens/level).
+
+1 environment(A) | -greater(zero,growth_rate(B,C)) # label(mp_growth_rate_relationships_3) # label(axiom).  [assumption].
+2 -environment(A) | -subpopulations(B,C,A,D) | subpopulations(C,B,A,D) # label(mp_symmetry_of_subpopulations_1) # label(axiom).  [assumption].
+3 -environment(A) | -subpopulations(first_movers,efficient_producers,A,B) | in_environment(A,B) # label(mp_time_point_occur_2) # label(axiom).  [assumption].
+6 -environment(A) | -subpopulations(B,C,A,D) | -outcompetes(C,B,D) | greater_or_equal(growth_rate(C,D),zero) # label(d2_8) # label(hypothesis).  [assumption].
+7 -environment(A) | -subpopulations(B,C,A,D) | -outcompetes(C,B,D) | greater(zero,growth_rate(B,D)) # label(d2_9) # label(hypothesis).  [assumption].
+8 -environment(A) | -in_environment(A,B) | greater(zero,growth_rate(C,B)) | -greater(resilience(D),resilience(C)) | -greater(zero,growth_rate(D,B)) # label(a13_11) # label(hypothesis).  [assumption].
+9 environment(sk1) # label(prove_t5_12) # label(negated_conjecture).  [assumption].
+11 -greater_or_equal(growth_rate(A,B),zero) | -greater(zero,growth_rate(A,B)) # label(mp_growth_rate_relationships_5) # label(axiom).  [assumption].
+13 -subpopulations(A,B,C,D) | -outcompetes(B,A,D) | greater_or_equal(growth_rate(B,D),zero) | -greater(zero,growth_rate(E,F)).  [resolve(6,a,1,a)].
+16 -in_environment(A,B) | greater(zero,growth_rate(C,B)) | -greater(resilience(D),resilience(C)) | -greater(zero,growth_rate(D,B)) | -greater(zero,growth_rate(E,F)).  [resolve(8,a,1,a)].
+17 -greater(zero,growth_rate(A,B)) | -subpopulations(first_movers,efficient_producers,C,D) | in_environment(C,D).  [resolve(1,a,3,a)].
+20 greater(resilience(efficient_producers),resilience(first_movers)) # label(a2_10) # label(hypothesis).  [assumption].
+21 subpopulations(first_movers,efficient_producers,sk1,sk2) # label(prove_t5_13) # label(negated_conjecture).  [assumption].
+22 outcompetes(first_movers,efficient_producers,sk2) # label(prove_t5_14) # label(negated_conjecture).  [assumption].
+25 -subpopulations(A,B,sk1,C) | subpopulations(B,A,sk1,C).  [resolve(9,a,2,a)].
+26 -subpopulations(A,B,sk1,C) | -outcompetes(B,A,C) | greater(zero,growth_rate(A,C)).  [resolve(9,a,7,a)].
+28 -subpopulations(A,B,C,D) | -outcompetes(B,A,D) | -greater(zero,growth_rate(E,F)) | -greater(zero,growth_rate(B,D)).  [resolve(13,c,11,a)].
+30 greater(zero,growth_rate(A,B)) | -greater(resilience(C),resilience(A)) | -greater(zero,growth_rate(C,B)) | -greater(zero,growth_rate(D,E)) | -greater(zero,growth_rate(F,V6)) | -subpopulations(first_movers,efficient_producers,V7,B).  [resolve(16,a,17,c)].
+32 -subpopulations(A,B,C,D) | -outcompetes(B,A,D) | -greater(zero,growth_rate(B,D)).  [factor(28,c,d)].
+34 greater(zero,growth_rate(A,B)) | -greater(resilience(C),resilience(A)) | -greater(zero,growth_rate(C,B)) | -greater(zero,growth_rate(D,E)) | -subpopulations(first_movers,efficient_producers,F,B).  [factor(30,c,d)].
+37 greater(zero,growth_rate(A,B)) | -greater(resilience(C),resilience(A)) | -greater(zero,growth_rate(C,B)) | -subpopulations(first_movers,efficient_producers,D,B).  [factor(34,c,d)].
+40 subpopulations(efficient_producers,first_movers,sk1,sk2).  [resolve(25,a,21,a)].
+50 -greater(zero,growth_rate(first_movers,sk2)).  [resolve(40,a,32,a),unit_del(a,22)].
+51 greater(zero,growth_rate(efficient_producers,sk2)).  [resolve(40,a,26,a),unit_del(a,22)].
+53 $F.  [ur(37,a,50,a,b,20,a,d,21,a),unit_del(a,51)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=15. Generated=54. Kept=34. proofs=1.
+Usable=15. Sos=3. Demods=0. Limbo=0, Disabled=46. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=19. Back_subsumed=14.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=2.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=19. Nonunit_bsub_feature_tests=50.
+Megabytes=0.12.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 167 exit (max_proofs) Fri Oct 23 15:00:59 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 167 exit (max_proofs) ------
+

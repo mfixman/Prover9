@@ -1,0 +1,172 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 33 was started by mfixman on bodoque,
+Fri Oct 23 14:54:44 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,10).
+assign(max_megs,256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+divide(A,divide(divide(divide(identity,B),C),divide(divide(divide(A,A),A),C))) = B # label(single_axiom) # label(axiom).
+multiply(A,B) = divide(A,divide(identity,B)) # label(multiply) # label(axiom).
+inverse(A) = divide(identity,A) # label(inverse) # label(axiom).
+identity = divide(A,A) # label(identity) # label(axiom).
+multiply(identity,a2) != a2 # label(prove_these_axioms_2) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+divide(A,divide(divide(divide(identity,B),C),divide(divide(divide(A,A),A),C))) = B # label(single_axiom) # label(axiom).  [assumption].
+multiply(A,B) = divide(A,divide(identity,B)) # label(multiply) # label(axiom).  [assumption].
+inverse(A) = divide(identity,A) # label(inverse) # label(axiom).  [assumption].
+identity = divide(A,A) # label(identity) # label(axiom).  [assumption].
+multiply(identity,a2) != a2 # label(prove_these_axioms_2) # label(negated_conjecture).  [assumption].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_these_axioms_2 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ identity, a2, divide, multiply, inverse ]).
+After inverse_order:  (no changes).
+Unfolding symbols: inverse/1 multiply/2.
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+kept:      1 divide(A,divide(divide(divide(identity,B),C),divide(divide(divide(A,A),A),C))) = B # label(single_axiom) # label(axiom).  [assumption].
+kept:      2 multiply(A,B) = divide(A,divide(identity,B)) # label(multiply) # label(axiom).  [assumption].
+kept:      3 inverse(A) = divide(identity,A) # label(inverse) # label(axiom).  [assumption].
+           4 identity = divide(A,A) # label(identity) # label(axiom).  [assumption].
+kept:      5 divide(A,A) = identity.  [copy(4),flip(a)].
+           6 multiply(identity,a2) != a2 # label(prove_these_axioms_2) # label(negated_conjecture) # answer(prove_these_axioms_2).  [assumption].
+kept:      7 divide(identity,divide(identity,a2)) != a2 # answer(prove_these_axioms_2).  [copy(6),rewrite([2(3)])].
+kept:      8 divide(A,divide(divide(divide(identity,B),C),divide(divide(identity,A),C))) = B.  [back_rewrite(1),rewrite([5(4)])].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+2 multiply(A,B) = divide(A,divide(identity,B)) # label(multiply) # label(axiom).  [assumption].
+3 inverse(A) = divide(identity,A) # label(inverse) # label(axiom).  [assumption].
+5 divide(A,A) = identity.  [copy(4),flip(a)].
+7 divide(identity,divide(identity,a2)) != a2 # answer(prove_these_axioms_2).  [copy(6),rewrite([2(3)])].
+8 divide(A,divide(divide(divide(identity,B),C),divide(divide(identity,A),C))) = B.  [back_rewrite(1),rewrite([5(4)])].
+end_of_list.
+
+formulas(demodulators).
+2 multiply(A,B) = divide(A,divide(identity,B)) # label(multiply) # label(axiom).  [assumption].
+3 inverse(A) = divide(identity,A) # label(inverse) # label(axiom).  [assumption].
+5 divide(A,A) = identity.  [copy(4),flip(a)].
+8 divide(A,divide(divide(divide(identity,B),C),divide(divide(identity,A),C))) = B.  [back_rewrite(1),rewrite([5(4)])].
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+given #1 (I,wt=9): 2 multiply(A,B) = divide(A,divide(identity,B)) # label(multiply) # label(axiom).  [assumption].
+
+given #2 (I,wt=6): 3 inverse(A) = divide(identity,A) # label(inverse) # label(axiom).  [assumption].
+
+given #3 (I,wt=5): 5 divide(A,A) = identity.  [copy(4),flip(a)].
+
+given #4 (I,wt=7): 7 divide(identity,divide(identity,a2)) != a2 # answer(prove_these_axioms_2).  [copy(6),rewrite([2(3)])].
+
+given #5 (I,wt=15): 8 divide(A,divide(divide(divide(identity,B),C),divide(divide(identity,A),C))) = B.  [back_rewrite(1),rewrite([5(4)])].
+
+given #6 (A,wt=13): 10 divide(identity,divide(divide(divide(identity,A),B),divide(identity,B))) = A.  [para(8(a,1),3(a,2)),rewrite([5(6),3(7)])].
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds: prove_these_axioms_2.
+% Length of proof is 12.
+% Level of proof is 5.
+% Maximum clause weight is 17.000.
+% Given clauses 6 (1.200 givens/level).
+
+1 divide(A,divide(divide(divide(identity,B),C),divide(divide(divide(A,A),A),C))) = B # label(single_axiom) # label(axiom).  [assumption].
+2 multiply(A,B) = divide(A,divide(identity,B)) # label(multiply) # label(axiom).  [assumption].
+3 inverse(A) = divide(identity,A) # label(inverse) # label(axiom).  [assumption].
+4 identity = divide(A,A) # label(identity) # label(axiom).  [assumption].
+5 divide(A,A) = identity.  [copy(4),flip(a)].
+6 multiply(identity,a2) != a2 # label(prove_these_axioms_2) # label(negated_conjecture) # answer(prove_these_axioms_2).  [assumption].
+7 divide(identity,divide(identity,a2)) != a2 # answer(prove_these_axioms_2).  [copy(6),rewrite([2(3)])].
+8 divide(A,divide(divide(divide(identity,B),C),divide(divide(identity,A),C))) = B.  [back_rewrite(1),rewrite([5(4)])].
+10 divide(identity,divide(divide(divide(identity,A),B),divide(identity,B))) = A.  [para(8(a,1),3(a,2)),rewrite([5(6),3(7)])].
+14 divide(A,identity) = A.  [para(5(a,1),8(a,1,2))].
+21 divide(identity,divide(identity,A)) = A.  [para(5(a,1),10(a,1,2,2)),rewrite([14(5),14(5)])].
+22 $F # answer(prove_these_axioms_2).  [resolve(21,a,7,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=6. Generated=35. Kept=19. proofs=1.
+Usable=6. Sos=8. Demods=13. Limbo=1, Disabled=8. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=16. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=16 (0 lex), Back_demodulated=3. Back_unit_deleted=0.
+Demod_attempts=352. Demod_rewrites=30.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.08.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 33 exit (max_proofs) Fri Oct 23 14:54:44 2026
+-------- Proof 1 -------- prove_these_axioms_2.
+
+THEOREM PROVED
+
+------ process 33 exit (max_proofs) ------
+

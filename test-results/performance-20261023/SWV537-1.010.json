@@ -1,0 +1,12 @@
+{
+  "problem": "SWV537-1.010",
+  "domain": "SWV",
+  "rating": 0.93,
+  "conversion_wall_seconds": 0.005726599003537558,
+  "exit_code": 4,
+  "search_wall_seconds": 20.890333314004238,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.14,
+  "total_wall_seconds": 20.897217056990485
+}

@@ -1,0 +1,12 @@
+{
+  "problem": "BOO076-1",
+  "domain": "BOO",
+  "rating": 0.73,
+  "conversion_wall_seconds": 0.008772239001700655,
+  "exit_code": 4,
+  "search_wall_seconds": 20.435570554007427,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.14,
+  "total_wall_seconds": 20.447099266995792
+}

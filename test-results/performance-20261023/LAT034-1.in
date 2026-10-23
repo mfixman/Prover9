@@ -1,0 +1,19 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+meet(X,join(X,Y)) = X # label(absorption1) # label(axiom).
+join(X,meet(X,Y)) = X # label(absorption2) # label(axiom).
+meet(X,Y) = meet(Y,X) # label(commutativity_of_meet) # label(axiom).
+join(X,Y) = join(Y,X) # label(commutativity_of_join) # label(axiom).
+meet(meet(X,Y),Z) = meet(X,meet(Y,Z)) # label(associativity_of_meet) # label(axiom).
+join(join(X,Y),Z) = join(X,join(Y,Z)) # label(associativity_of_join) # label(axiom).
+meet(xx,xx) != xx # label(idempotence_of_meet) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

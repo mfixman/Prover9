@@ -1,0 +1,173 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 119 was started by mfixman on bodoque,
+Fri Oct 23 15:00:44 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+mult(A,ld(A,B)) = B # label(f01) # label(axiom).
+ld(A,mult(A,B)) = B # label(f02) # label(axiom).
+mult(rd(A,B),B) = A # label(f03) # label(axiom).
+rd(mult(A,B),B) = A # label(f04) # label(axiom).
+mult(A,unit) = A # label(f05) # label(axiom).
+mult(unit,A) = A # label(f06) # label(axiom).
+mult(A,mult(B,C)) = mult(rd(mult(A,B),A),mult(A,C)) # label(f07) # label(axiom).
+mult(mult(A,B),C) = mult(mult(A,C),ld(C,mult(B,C))) # label(f08) # label(axiom).
+mult(x0,x1) = unit # label(goal1) # label(negated_conjecture).
+mult(mult(x2,x3),mult(x1,x0)) != mult(x2,mult(x3,mult(x1,x0))) # label(goal2) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label goal2 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ unit, x0, x1, x2, x3, mult, ld, rd ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+Demod_increase_limit: mult(mult(mult(mult(x0,mult(mult(x0,mult(x1,mult(mult(mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit))),mult(mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))),mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))))),mult(mult(x0,x0),x1)))),mult(mult(x0,mult(x0,ld(A,B))),mult(x0,mult(x1,mult(mult(mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit))),mult(mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))),mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))))),mult(mult(x0,x0),x1))))))),x1),mult(mult(mult(x0,ld(A,B)),x1),mult(mult(x0,mult(mult(x0,mult(x1,mult(mult(mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit))),mult(mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))),mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))))),mult(mult(x0,x0),x1)))),mult(mult(x0,mult(x0,ld(A,B))),mult(x0,mult(x1,mult(mult(mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit))),mult(mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))),mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))))),mult(mult(x0,x0),x1))))))),x1))),mult(mult(B,x1),mult(mult(mult(x0,mult(mult(x0,mult(x1,mult(mult(mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit))),mult(mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))),mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))))),mult(mult(x0,x0),x1)))),mult(mult(x0,mult(x0,ld(A,B))),mult(x0,mult(x1,mult(mult(mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit))),mult(mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))),mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))))),mult(mult(x0,x0),x1))))))),x1),mult(mult(mult(x0,ld(A,B)),x1),mult(mult(x0,mult(mult(x0,mult(x1,mult(mult(mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit))),mult(mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))),mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))))),mult(mult(x0,x0),x1)))),mult(mult(x0,mult(x0,ld(A,B))),mult(x0,mult(x1,mult(mult(mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit))),mult(mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))),mult(mult(x1,ld(A,B)),mult(mult(mult(ld(B,unit),mult(mult(mult(mult(A,A),B),B),ld(B,unit))),ld(B,ld(A,B))),mult(ld(B,A),ld(A,unit)))))),mult(mult(x0,x0),x1))))))),x1))))) = mult(mult(mult(mult(x0,mult(ld(mult(x0,ld(A,B)),unit),mult(mult(x0,mult(x0,ld(A,B))),ld(mult(x0,ld(A,B)),unit)))),x1),mult(mult(unit,mult(mult(x0,ld(A,B)),x1)),mult(mult(x0,mult(ld(mult(x0,ld(A,B)),unit),mult(mult(x0,mult(x0,ld(A,B))),ld(mult(x0,ld(A,B)),unit)))),x1))),mult(mult(mult(A,mult(mult(x0,ld(A,B)),x1)),ld(mult(mult(x0,ld(A,B)),x1),unit)),mult(mult(x1,mult(mult(x0,ld(A,B)),x1)),ld(mult(mult(x0,ld(A,B)),x1),unit)))).  [para(297(a,1),4499(a,1,2,1)),rewrite([4899(7),3524(6),6(8),4853(8),4822(6),4853(6),4502(15),4822(26),4853(26),4502(35),4822(47),4853(47),4502(56),3524(82),6(84),4853(84),4822(82),4853(82),4502(91),4822(102),4853(102),4502(111),4822(123),4853(123),4502(132),6(160),3524(164),6(166),4853(166),4822(164),4853(164),4502(173),4822(184),4853(184),4502(193),4822(205),4853(205),4502(214),3524(240),6(242),4853(242),4822(240),4853(240),4502(249),4822(260),4853(260),4502(269),4822(281),4853(281),4502(290),4899(322),3524(321),6(323),4853(323),4822(321),4853(321),4502(330),4822(341),4853(341),4502(350),4822(362),4853(362),4502(371),3524(397),6(399),4853(399),4822(397),4853(397),4502(406),4822(417),4853(417),4502(426),4822(438),4853(438),4502(447),6(475),3524(479),6(481),4853(481),4822(479),4853(479),4502(488),4822(499),4853(499),4502(508),4822(520),4853(520),4502(529),3524(555),6(557),4853(557),4822(555),4853(555),4502(564),4822(575),4853(575),4502(584),4822(596),4853(596),4502(605),4853(638),4899(637)])].
+
+Demod_increase_limit (steps=102, size=1069).
+The most recent kept clause is 4901.
+From here on, a short message will be printed
+for each 100 times the limit is hit.
+
+Demod_limit hit 100 times.
+
+Low Water (keep): wt=95.000, iters=7239
+
+Low Water (keep): wt=87.000, iters=6952
+
+Low Water (keep): wt=81.000, iters=6684
+Demod_limit hit 200 times.
+
+Low Water (keep): wt=79.000, iters=6786
+
+Low Water (keep): wt=77.000, iters=6823
+
+Low Water (keep): wt=75.000, iters=6748
+
+Low Water (keep): wt=73.000, iters=6724
+
+Low Water (keep): wt=71.000, iters=6764
+
+Low Water (keep): wt=69.000, iters=6770
+
+Low Water (keep): wt=67.000, iters=6683
+
+Low Water (keep): wt=65.000, iters=6769
+
+Low Water (keep): wt=63.000, iters=6790
+
+Low Water (keep): wt=61.000, iters=6671
+Demod_limit hit 300 times.
+
+Low Water (keep): wt=59.000, iters=6757
+
+Low Water (keep): wt=57.000, iters=6679
+
+Low Water (keep): wt=55.000, iters=6670
+
+Low Water (keep): wt=53.000, iters=6754
+
+Low Water (keep): wt=51.000, iters=6708
+Demod_limit hit 400 times.
+
+Low Water (keep): wt=49.000, iters=6680
+
+Low Water (keep): wt=47.000, iters=6726
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 44 (0.00 of 12.21 sec).
+
+given #500 (T,wt=17): 19291 mult(mult(x0,mult(x0,mult(x1,x1))),mult(x0,mult(mult(x1,x0),x1))) = unit.  [back_rewrite(13714),rewrite([19104(17)])].
+
+Low Water (keep): wt=45.000, iters=6717
+Demod_limit hit 500 times.
+
+Low Water (keep): wt=43.000, iters=6670
+
+Low Water (keep): wt=41.000, iters=6698
+
+Low Water (keep): wt=39.000, iters=6759
+Demod_limit hit 600 times.
+
+Low Water (keep): wt=37.000, iters=6689
+Demod_limit hit 700 times.
+Demod_limit hit 800 times.
+
+Low Water (keep): wt=35.000, iters=6678
+Demod_limit hit 900 times.
+
+============================== STATISTICS ============================
+
+Given=718. Generated=114613. Kept=25379. proofs=0.
+Usable=348. Sos=12299. Demods=6398. Limbo=12, Disabled=12730. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=13730.
+Forward_subsumed=54820. Back_subsumed=453.
+Sos_limit_deleted=20684. Sos_displaced=0. Sos_removed=0.
+New_demodulators=14127 (0 lex), Back_demodulated=12267. Back_unit_deleted=0.
+Demod_attempts=14301691. Demod_rewrites=1935461.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=84.10.
+User_CPU=20.00, System_CPU=0.12, Wall_clock=20.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 119 exit (max_seconds) Fri Oct 23 15:01:04 2026
+Demod_increase_limit (see stdout)
+
+SEARCH FAILED
+
+------ process 119 exit (max_seconds) ------
+

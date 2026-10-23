@@ -1,0 +1,131 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 89 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-member(X,Y) | little_set(X) # label(a2) # label(axiom).
+little_set(f1(X,Y)) | X = Y # label(extensionality1) # label(axiom).
+member(f1(X,Y),X) | member(f1(X,Y),Y) | X = Y # label(extensionality2) # label(axiom).
+-member(f1(X,Y),X) | -member(f1(X,Y),Y) | X = Y # label(extensionality3) # label(axiom).
+-member(Z,intersection(X,Y)) | member(Z,X) # label(intersection1) # label(axiom).
+-member(Z,intersection(X,Y)) | member(Z,Y) # label(intersection2) # label(axiom).
+member(Z,intersection(X,Y)) | -member(Z,X) | -member(Z,Y) # label(intersection3) # label(axiom).
+-member(Z,complement(X)) | -member(Z,X) # label(complement1) # label(axiom).
+member(Z,complement(X)) | -little_set(Z) | member(Z,X) # label(complement2) # label(axiom).
+union(X,Y) = complement(intersection(complement(X),complement(Y))) # label(union) # label(axiom).
+-member(Z,empty_set) # label(empty_set) # label(axiom).
+member(Z,universal_set) | -little_set(Z) # label(universal_set) # label(axiom).
+union(as,bs) = cs # label(a_union_b_is_c) # label(hypothesis).
+union(bs,as) = ds # label(b_union_a_is_d) # label(hypothesis).
+cs != ds # label(prove_c_equals_d) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating little_set/1
+1 member(A,complement(B)) | -little_set(A) | member(A,B) # label(complement2) # label(axiom).  [assumption].
+2 -member(A,B) | little_set(A) # label(a2) # label(axiom).  [assumption].
+3 little_set(f1(A,B)) | A = B # label(extensionality1) # label(axiom).  [assumption].
+Derived: member(A,complement(B)) | member(A,B) | -member(A,C).  [resolve(1,b,2,b)].
+Derived: member(f1(A,B),complement(C)) | member(f1(A,B),C) | A = B.  [resolve(1,b,3,a)].
+4 member(A,universal_set) | -little_set(A) # label(universal_set) # label(axiom).  [assumption].
+Derived: member(A,universal_set) | -member(A,B).  [resolve(4,b,2,b)].
+Derived: member(f1(A,B),universal_set) | A = B.  [resolve(4,b,3,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, member ]).
+Function symbol precedence:  function_order([ as, bs, universal_set, cs, ds, empty_set, f1, intersection, union, complement ]).
+After inverse_order:  (no changes).
+Unfolding symbols: union/2 cs/0 ds/0.
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+given #500 (T,wt=16): 3956 member(f1(intersection(A,B),empty_set),complement(intersection(complement(B),C))) | intersection(A,B) = empty_set.  [para(3896(a,1),2471(c,2)),flip(b),unit_del(c,12)].
+
+given #1000 (T,wt=15): 7095 universal_set = A | member(f1(universal_set,A),complement(intersection(intersection(B,intersection(A,C)),D))).  [para(6577(a,1),3875(c,2)),rewrite([663(6)]),unit_del(c,12)].
+
+Low Water (keep): wt=64.000, iters=6860
+
+Low Water (keep): wt=62.000, iters=6828
+
+Low Water (keep): wt=55.000, iters=6701
+
+Low Water (keep): wt=53.000, iters=6761
+
+Low Water (keep): wt=49.000, iters=6674
+
+Low Water (keep): wt=46.000, iters=6794
+
+============================== STATISTICS ============================
+
+Given=1087. Generated=531087. Kept=19037. proofs=0.
+Usable=858. Sos=13339. Demods=969. Limbo=59, Disabled=4800. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=511411. Back_subsumed=1017.
+Sos_limit_deleted=639. Sos_displaced=0. Sos_removed=0.
+New_demodulators=979 (0 lex), Back_demodulated=3764. Back_unit_deleted=0.
+Demod_attempts=7652387. Demod_rewrites=970659.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=23934971. Nonunit_bsub_feature_tests=5391590.
+Megabytes=30.70.
+User_CPU=20.00, System_CPU=0.34, Wall_clock=22.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 89 exit (max_seconds) Fri Oct 23 15:00:45 2026
+
+SEARCH FAILED
+
+------ process 89 exit (max_seconds) ------
+

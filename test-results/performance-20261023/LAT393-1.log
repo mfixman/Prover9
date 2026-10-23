@@ -1,0 +1,124 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 185 was started by mfixman on bodoque,
+Fri Oct 23 15:01:05 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+f(f(f(f(A,B),f(B,C)),D),f(B,f(f(B,f(f(A,A),A)),C))) = B # label(sos) # label(axiom).
+or(A,B) = f(f(A,A),f(B,B)) # label(sos_001) # label(axiom).
+and(A,B) = f(f(A,B),f(A,B)) # label(sos_002) # label(axiom).
+neg(A) = f(A,A) # label(sos_003) # label(axiom).
+f(x0,f(f(x1,x2),f(x1,x2))) != f(x1,f(f(x0,x2),f(x0,x2))) # label(goals) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label goals to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ x0, x1, x2, f, and, or, neg ]).
+After inverse_order:  (no changes).
+Unfolding symbols: neg/1 and/2 or/2.
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+Low Water (keep): wt=97.000, iters=6669
+
+Low Water (keep): wt=91.000, iters=6863
+
+Low Water (keep): wt=83.000, iters=6825
+
+Low Water (keep): wt=75.000, iters=6672
+
+Low Water (keep): wt=71.000, iters=6684
+
+Low Water (keep): wt=69.000, iters=6822
+
+Low Water (keep): wt=67.000, iters=6747
+
+Low Water (keep): wt=65.000, iters=6691
+
+Low Water (keep): wt=63.000, iters=6735
+
+Low Water (keep): wt=61.000, iters=6741
+
+Low Water (keep): wt=59.000, iters=6711
+
+Low Water (keep): wt=57.000, iters=6807
+
+Low Water (keep): wt=55.000, iters=6669
+
+% Operation f is commutative; C redundancy checks enabled.
+
+Low Water (keep): wt=53.000, iters=6800
+
+============================== STATISTICS ============================
+
+Given=332. Generated=227570. Kept=16354. proofs=0.
+Usable=264. Sos=6165. Demods=5514. Limbo=1311, Disabled=8619. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=4020.
+Forward_subsumed=203379. Back_subsumed=937.
+Sos_limit_deleted=3817. Sos_displaced=0. Sos_removed=0.
+New_demodulators=11237 (1 lex), Back_demodulated=7677. Back_unit_deleted=0.
+Demod_attempts=7579297. Demod_rewrites=644853.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=46.14.
+User_CPU=20.00, System_CPU=0.22, Wall_clock=20.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 185 exit (max_seconds) Fri Oct 23 15:01:25 2026
+
+SEARCH FAILED
+
+------ process 185 exit (max_seconds) ------
+

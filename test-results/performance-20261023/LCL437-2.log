@@ -1,0 +1,113 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 123 was started by mfixman on bodoque,
+Fri Oct 23 15:00:44 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-c_in(c_PropLog_Opl_Oop_A_N_62(v_p,c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Oop_A_N_62(v_pa,c_PropLog_Opl_Ofalse,t_a),c_PropLog_Opl_Ofalse,t_a),v_pa,t_a),t_a),c_PropLog_Othms(v_H,t_a),tc_PropLog_Opl(t_a)) # label(cls_conjecture_0) # label(negated_conjecture).
+c_in(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Oop_A_N_62(V_p,c_PropLog_Opl_Ofalse,T_a),c_PropLog_Opl_Ofalse,T_a),V_p,T_a),c_PropLog_Othms(V_H,T_a),tc_PropLog_Opl(T_a)) # label(cls_PropLog_Othms_ODN_0) # label(axiom).
+-c_in(V_q,c_PropLog_Othms(V_H,T_a),tc_PropLog_Opl(T_a)) | c_in(c_PropLog_Opl_Oop_A_N_62(V_p,V_q,T_a),c_PropLog_Othms(V_H,T_a),tc_PropLog_Opl(T_a)) # label(cls_PropLog_Oweaken__right_0) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label cls_conjecture_0 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ c_in ]).
+Function symbol precedence:  function_order([ c_PropLog_Opl_Ofalse, t_a, v_H, v_p, v_pa, c_PropLog_Othms, tc_PropLog_Opl, c_PropLog_Opl_Oop_A_N_62 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds: cls_conjecture_0.
+% Length of proof is 5.
+% Level of proof is 2.
+% Maximum clause weight is 19.000.
+% Given clauses 3 (1.500 givens/level).
+
+1 -c_in(c_PropLog_Opl_Oop_A_N_62(v_p,c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Oop_A_N_62(v_pa,c_PropLog_Opl_Ofalse,t_a),c_PropLog_Opl_Ofalse,t_a),v_pa,t_a),t_a),c_PropLog_Othms(v_H,t_a),tc_PropLog_Opl(t_a)) # label(cls_conjecture_0) # label(negated_conjecture) # answer(cls_conjecture_0).  [assumption].
+2 c_in(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Oop_A_N_62(A,c_PropLog_Opl_Ofalse,B),c_PropLog_Opl_Ofalse,B),A,B),c_PropLog_Othms(C,B),tc_PropLog_Opl(B)) # label(cls_PropLog_Othms_ODN_0) # label(axiom).  [assumption].
+3 -c_in(A,c_PropLog_Othms(B,C),tc_PropLog_Opl(C)) | c_in(c_PropLog_Opl_Oop_A_N_62(D,A,C),c_PropLog_Othms(B,C),tc_PropLog_Opl(C)) # label(cls_PropLog_Oweaken__right_0) # label(axiom).  [assumption].
+4 -c_in(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Oop_A_N_62(v_pa,c_PropLog_Opl_Ofalse,t_a),c_PropLog_Opl_Ofalse,t_a),v_pa,t_a),c_PropLog_Othms(v_H,t_a),tc_PropLog_Opl(t_a)) # answer(cls_conjecture_0).  [resolve(3,b,1,a)].
+5 $F # answer(cls_conjecture_0).  [resolve(4,a,2,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=3. Generated=4. Kept=4. proofs=1.
+Usable=3. Sos=0. Demods=0. Limbo=0, Disabled=3. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=1.
+Megabytes=0.06.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 123 exit (max_proofs) Fri Oct 23 15:00:44 2026
+-------- Proof 1 -------- cls_conjecture_0.
+
+THEOREM PROVED
+
+------ process 123 exit (max_proofs) ------
+

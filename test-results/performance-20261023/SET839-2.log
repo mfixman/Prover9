@@ -1,0 +1,122 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 156 was started by mfixman on bodoque,
+Fri Oct 23 15:00:49 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-c_lessequals(v_S,c_insert(V_U,c_emptyset,tc_set(t_a)),tc_set(tc_set(t_a))) # label(cls_conjecture_0) # label(negated_conjecture).
+c_lessequals(V_U,V_V,tc_set(t_a)) | -c_in(V_V,v_S,tc_set(t_a)) | -c_in(V_U,v_S,tc_set(t_a)) # label(cls_conjecture_1) # label(negated_conjecture).
+c_in(V_x,c_insert(V_x,V_B,T_a),T_a) # label(cls_Set_OinsertCI_1) # label(axiom).
+c_in(c_Main_OsubsetI__1(V_A,V_B,T_a),V_A,T_a) | c_lessequals(V_A,V_B,tc_set(T_a)) # label(cls_Set_OsubsetI_0) # label(axiom).
+-c_in(c_Main_OsubsetI__1(V_A,V_B,T_a),V_B,T_a) | c_lessequals(V_A,V_B,tc_set(T_a)) # label(cls_Set_OsubsetI_1) # label(axiom).
+-c_lessequals(V_B,V_A,tc_set(T_a)) | -c_lessequals(V_A,V_B,tc_set(T_a)) | V_A = V_B # label(cls_Set_Osubset__antisym_0) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, c_in, c_lessequals ]).
+Function symbol precedence:  function_order([ t_a, v_S, c_emptyset, tc_set, c_Main_OsubsetI__1, c_insert ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds.
+% Length of proof is 12.
+% Level of proof is 6.
+% Maximum clause weight is 21.000.
+% Given clauses 16 (2.667 givens/level).
+
+1 -c_lessequals(v_S,c_insert(A,c_emptyset,tc_set(t_a)),tc_set(tc_set(t_a))) # label(cls_conjecture_0) # label(negated_conjecture).  [assumption].
+2 c_lessequals(A,B,tc_set(t_a)) | -c_in(B,v_S,tc_set(t_a)) | -c_in(A,v_S,tc_set(t_a)) # label(cls_conjecture_1) # label(negated_conjecture).  [assumption].
+3 c_in(A,c_insert(A,B,C),C) # label(cls_Set_OinsertCI_1) # label(axiom).  [assumption].
+4 c_in(c_Main_OsubsetI__1(A,B,C),A,C) | c_lessequals(A,B,tc_set(C)) # label(cls_Set_OsubsetI_0) # label(axiom).  [assumption].
+5 -c_in(c_Main_OsubsetI__1(A,B,C),B,C) | c_lessequals(A,B,tc_set(C)) # label(cls_Set_OsubsetI_1) # label(axiom).  [assumption].
+6 -c_lessequals(A,B,tc_set(C)) | -c_lessequals(B,A,tc_set(C)) | B = A # label(cls_Set_Osubset__antisym_0) # label(axiom).  [assumption].
+8 c_in(c_Main_OsubsetI__1(v_S,c_insert(A,c_emptyset,tc_set(t_a)),tc_set(t_a)),v_S,tc_set(t_a)).  [resolve(4,b,1,a)].
+13 c_lessequals(c_Main_OsubsetI__1(v_S,c_insert(A,c_emptyset,tc_set(t_a)),tc_set(t_a)),B,tc_set(t_a)) | -c_in(B,v_S,tc_set(t_a)).  [resolve(8,a,2,c)].
+20 c_lessequals(c_Main_OsubsetI__1(v_S,c_insert(A,c_emptyset,tc_set(t_a)),tc_set(t_a)),c_Main_OsubsetI__1(v_S,c_insert(B,c_emptyset,tc_set(t_a)),tc_set(t_a)),tc_set(t_a)).  [resolve(13,b,8,a)].
+24 c_Main_OsubsetI__1(v_S,c_insert(A,c_emptyset,tc_set(t_a)),tc_set(t_a)) = c_Main_OsubsetI__1(v_S,c_insert(B,c_emptyset,tc_set(t_a)),tc_set(t_a)).  [resolve(20,a,6,b),unit_del(a,20)].
+25 -c_in(c_Main_OsubsetI__1(v_S,c_insert(A,c_emptyset,tc_set(t_a)),tc_set(t_a)),c_insert(B,c_emptyset,tc_set(t_a)),tc_set(t_a)).  [para(24(a,1),5(a,1)),unit_del(b,1)].
+26 $F.  [resolve(25,a,3,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=16. Generated=37. Kept=25. proofs=1.
+Usable=16. Sos=5. Demods=0. Limbo=0, Disabled=9. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=12. Back_subsumed=3.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=32. Nonunit_bsub_feature_tests=29.
+Megabytes=0.12.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 156 exit (max_proofs) Fri Oct 23 15:00:49 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 156 exit (max_proofs) ------
+

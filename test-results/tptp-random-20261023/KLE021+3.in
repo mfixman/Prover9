@@ -1,0 +1,37 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+
+% Including file Axioms/KLE001+0.ax
+
+
+% Including file Axioms/KLE001+1.ax
+
+
+% Including file Axioms/KLE001+2.ax
+
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all A all B addition(A,B) = addition(B,A)) # label(additive_commutativity) # label(axiom).
+(all C all B all A addition(A,addition(B,C)) = addition(addition(A,B),C)) # label(additive_associativity) # label(axiom).
+(all A addition(A,zero) = A) # label(additive_identity) # label(axiom).
+(all A addition(A,A) = A) # label(additive_idempotence) # label(axiom).
+(all A all B all C multiplication(A,multiplication(B,C)) = multiplication(multiplication(A,B),C)) # label(multiplicative_associativity) # label(axiom).
+(all A multiplication(A,one) = A) # label(multiplicative_right_identity) # label(axiom).
+(all A multiplication(one,A) = A) # label(multiplicative_left_identity) # label(axiom).
+(all A all B all C multiplication(A,addition(B,C)) = addition(multiplication(A,B),multiplication(A,C))) # label(right_distributivity) # label(axiom).
+(all A all B all C multiplication(addition(A,B),C) = addition(multiplication(A,C),multiplication(B,C))) # label(left_distributivity) # label(axiom).
+(all A multiplication(A,zero) = zero) # label(right_annihilation) # label(axiom).
+(all A multiplication(zero,A) = zero) # label(left_annihilation) # label(axiom).
+(all A all B (leq(A,B) <-> addition(A,B) = B)) # label(order) # label(axiom).
+(all X0 (test(X0) <-> (exists X1 complement(X1,X0)))) # label(test_1) # label(axiom).
+(all X0 all X1 (complement(X1,X0) <-> multiplication(X0,X1) = zero & multiplication(X1,X0) = zero & addition(X0,X1) = one)) # label(test_2) # label(axiom).
+(all X0 all X1 (test(X0) -> (c(X0) = X1 <-> complement(X0,X1)))) # label(test_3) # label(axiom).
+(all X0 (-test(X0) -> c(X0) = zero)) # label(test_4) # label(axiom).
+(all X0 all X1 (test(X0) & test(X1) -> c(addition(X0,X1)) = multiplication(c(X0),c(X1)))) # label(test_deMorgan1) # label(axiom).
+(all X0 all X1 (test(X0) & test(X1) -> c(multiplication(X0,X1)) = addition(c(X0),c(X1)))) # label(test_deMorgan2) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all X0 all X1 (test(X1) -> X0 = addition(multiplication(X1,X0),multiplication(c(X1),X0)))) # label(goals) # label(conjecture).
+end_of_list.

@@ -1,0 +1,144 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 41 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-equalish(X,Y) | equalish(additive_inverse(X),additive_inverse(Y)) # label(additive_inverse_substitution) # label(axiom).
+-equalish(X,Y) | equalish(add(X,W),add(Y,W)) # label(add_substitution1) # label(axiom).
+-equalish(X,Y) | -sum(X,W,Z) | sum(Y,W,Z) # label(sum_substitution1) # label(axiom).
+-equalish(X,Y) | -sum(W,X,Z) | sum(W,Y,Z) # label(sum_substitution2) # label(axiom).
+-equalish(X,Y) | -sum(W,Z,X) | sum(W,Z,Y) # label(sum_substitution3) # label(axiom).
+-equalish(X,Y) | equalish(multiply(X,W),multiply(Y,W)) # label(multiply_substitution1) # label(axiom).
+-equalish(X,Y) | -product(X,W,Z) | product(Y,W,Z) # label(product_substitution1) # label(axiom).
+-equalish(X,Y) | -product(W,X,Z) | product(W,Y,Z) # label(product_substitution2) # label(axiom).
+-equalish(X,Y) | -product(W,Z,X) | product(W,Z,Y) # label(product_substitution3) # label(axiom).
+sum(additive_identity,X,X) # label(additive_identity1) # label(axiom).
+sum(X,additive_identity,X) # label(additive_identity2) # label(axiom).
+product(X,Y,multiply(X,Y)) # label(closure_of_multiplication) # label(axiom).
+sum(X,Y,add(X,Y)) # label(closure_of_addition) # label(axiom).
+sum(additive_inverse(X),X,additive_identity) # label(left_inverse) # label(axiom).
+sum(X,additive_inverse(X),additive_identity) # label(right_inverse) # label(axiom).
+-sum(X,Y,U) | -sum(Y,Z,V) | -sum(U,Z,W) | sum(X,V,W) # label(associativity_of_addition1) # label(axiom).
+-sum(X,Y,U) | -sum(Y,Z,V) | -sum(X,V,W) | sum(U,Z,W) # label(associativity_of_addition2) # label(axiom).
+-sum(X,Y,Z) | sum(Y,X,Z) # label(commutativity_of_addition) # label(axiom).
+-product(X,Y,U) | -product(Y,Z,V) | -product(U,Z,W) | product(X,V,W) # label(associativity_of_multiplication1) # label(axiom).
+-product(X,Y,U) | -product(Y,Z,V) | -product(X,V,W) | product(U,Z,W) # label(associativity_of_multiplication2) # label(axiom).
+-product(X,Y,V1) | -product(X,Z,V2) | -sum(Y,Z,V3) | -product(X,V3,V4) | sum(V1,V2,V4) # label(distributivity1) # label(axiom).
+-product(X,Y,V1) | -product(X,Z,V2) | -sum(Y,Z,V3) | -sum(V1,V2,V4) | product(X,V3,V4) # label(distributivity2) # label(axiom).
+-product(Y,X,V1) | -product(Z,X,V2) | -sum(Y,Z,V3) | -product(V3,X,V4) | sum(V1,V2,V4) # label(distributivity3) # label(axiom).
+-product(Y,X,V1) | -product(Z,X,V2) | -sum(Y,Z,V3) | -sum(V1,V2,V4) | product(V3,X,V4) # label(distributivity4) # label(axiom).
+-sum(X,Y,U) | -sum(X,Y,V) | equalish(U,V) # label(addition_is_well_defined) # label(axiom).
+-product(X,Y,U) | -product(X,Y,V) | equalish(U,V) # label(multiplication_is_well_defined) # label(axiom).
+product(additive_identity,X,additive_identity) # label(multiplicative_identity1) # label(axiom).
+product(X,additive_identity,additive_identity) # label(multiplicative_identity2) # label(axiom).
+product(a,b,d) # label(a_times_b) # label(hypothesis).
+product(additive_inverse(a),b,c) # label(a_inverse_times_b) # label(hypothesis).
+-sum(c,d,additive_identity) # label(prove_sum_is_additive_identity) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_sum_is_additive_identity to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ equalish, product, sum ]).
+Function symbol precedence:  function_order([ additive_identity, a, b, c, d, add, multiply, additive_inverse ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=-3)
+  % clear(ordered_res).  % (HNE depth_diff=-3)
+  % set(ur_resolution).  % (HNE depth_diff=-3)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds: prove_sum_is_additive_identity.
+% Length of proof is 8.
+% Level of proof is 2.
+% Maximum clause weight is 20.000.
+% Given clauses 30 (15.000 givens/level).
+
+14 sum(additive_inverse(A),A,additive_identity) # label(left_inverse) # label(axiom).  [assumption].
+23 -product(A,B,C) | -product(D,B,E) | -sum(A,D,F) | -product(F,B,V6) | sum(C,E,V6) # label(distributivity3) # label(axiom).  [assumption].
+27 product(additive_identity,A,additive_identity) # label(multiplicative_identity1) # label(axiom).  [assumption].
+29 product(a,b,d) # label(a_times_b) # label(hypothesis).  [assumption].
+30 product(additive_inverse(a),b,c) # label(a_inverse_times_b) # label(hypothesis).  [assumption].
+31 -sum(c,d,additive_identity) # label(prove_sum_is_additive_identity) # label(negated_conjecture) # answer(prove_sum_is_additive_identity).  [assumption].
+357 sum(c,d,additive_identity).  [ur(23,a,30,a,b,29,a,c,14,a,d,27,a)].
+358 $F # answer(prove_sum_is_additive_identity).  [resolve(357,a,31,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=30. Generated=987. Kept=357. proofs=1.
+Usable=30. Sos=263. Demods=0. Limbo=39, Disabled=55. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=630. Back_subsumed=24.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=12. Nonunit_bsub_feature_tests=53.
+Megabytes=0.44.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 41 exit (max_proofs) Fri Oct 23 15:00:23 2026
+-------- Proof 1 -------- prove_sum_is_additive_identity.
+
+THEOREM PROVED
+
+------ process 41 exit (max_proofs) ------
+

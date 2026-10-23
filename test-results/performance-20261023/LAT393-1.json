@@ -1,0 +1,12 @@
+{
+  "problem": "LAT393-1",
+  "domain": "LAT",
+  "rating": 0.64,
+  "conversion_wall_seconds": 0.00959007500205189,
+  "exit_code": 4,
+  "search_wall_seconds": 20.750841916000354,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.22,
+  "total_wall_seconds": 20.76282801499474
+}

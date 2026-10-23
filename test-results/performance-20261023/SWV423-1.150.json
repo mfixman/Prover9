@@ -1,0 +1,11 @@
+{
+  "problem": "SWV423-1.150",
+  "domain": "SWV",
+  "rating": 1.0,
+  "conversion_wall_seconds": 0.11617371199827176,
+  "exit_code": "wall_timeout",
+  "search_wall_seconds": 25.019897130987374,
+  "outcome": "unsolved",
+  "reason": "wall_timeout",
+  "total_wall_seconds": 25.13928276700608
+}

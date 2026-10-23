@@ -1,0 +1,12 @@
+{
+  "problem": "SWV968-1",
+  "domain": "SWV",
+  "rating": 0.05,
+  "conversion_wall_seconds": 0.03254697399097495,
+  "exit_code": 0,
+  "search_wall_seconds": 0.0569892679923214,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.05,
+  "total_wall_seconds": 0.09068520501023158
+}

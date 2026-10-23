@@ -1,0 +1,142 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 103 was started by mfixman on bodoque,
+Fri Oct 23 15:00:34 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-organization(A,B) | inertia(A,sk1(B,A),B) # label(mp5_1) # label(axiom).
+-organization(A,B) | -organization(C,D) | -class(A,E,B) | -class(C,E,D) | -complexity(A,F,B) | -complexity(C,G,D) | -inertia(A,H,B) | -inertia(C,I,D) | -greater(G,F) | greater(I,H) # label(a12_FOL_2) # label(hypothesis).
+-organization(A,B) | -organization(C,B) | -organization(C,D) | -class(A,E,B) | -class(C,E,B) | -reorganization(A,B,F) | -reorganization(C,B,D) | -reorganization_type(A,G,B) | -reorganization_type(C,G,B) | -inertia(A,H,B) | -inertia(C,I,B) | -greater(I,H) | greater(D,F) # label(a13_FOL_3) # label(hypothesis).
+organization(sk2,sk8) # label(t15_FOL_4) # label(negated_conjecture).
+organization(sk3,sk8) # label(t15_FOL_5) # label(negated_conjecture).
+organization(sk3,sk10) # label(t15_FOL_6) # label(negated_conjecture).
+class(sk2,sk5,sk8) # label(t15_FOL_7) # label(negated_conjecture).
+class(sk3,sk5,sk8) # label(t15_FOL_8) # label(negated_conjecture).
+reorganization(sk2,sk8,sk9) # label(t15_FOL_9) # label(negated_conjecture).
+reorganization(sk3,sk8,sk10) # label(t15_FOL_10) # label(negated_conjecture).
+reorganization_type(sk2,sk4,sk8) # label(t15_FOL_11) # label(negated_conjecture).
+reorganization_type(sk3,sk4,sk8) # label(t15_FOL_12) # label(negated_conjecture).
+complexity(sk2,sk6,sk8) # label(t15_FOL_13) # label(negated_conjecture).
+complexity(sk3,sk7,sk8) # label(t15_FOL_14) # label(negated_conjecture).
+greater(sk7,sk6) # label(t15_FOL_15) # label(negated_conjecture).
+-greater(sk10,sk9) # label(t15_FOL_16) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label t15_FOL_16 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ organization, greater, class, inertia, complexity, reorganization, reorganization_type ]).
+Function symbol precedence:  function_order([ sk8, sk3, sk2, sk10, sk4, sk5, sk6, sk7, sk9, sk1 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=-1)
+  % clear(ordered_res).  % (HNE depth_diff=-1)
+  % set(ur_resolution).  % (HNE depth_diff=-1)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.02 (+ 0.00) seconds: t15_FOL_16.
+% Length of proof is 21.
+% Level of proof is 3.
+% Maximum clause weight is 47.000.
+% Given clauses 22 (7.333 givens/level).
+
+1 -organization(A,B) | inertia(A,sk1(B,A),B) # label(mp5_1) # label(axiom).  [assumption].
+2 -organization(A,B) | -organization(C,D) | -class(A,E,B) | -class(C,E,D) | -complexity(A,F,B) | -complexity(C,V6,D) | -inertia(A,V7,B) | -inertia(C,V8,D) | -greater(V6,F) | greater(V8,V7) # label(a12_FOL_2) # label(hypothesis).  [assumption].
+3 -organization(A,B) | -organization(C,B) | -organization(C,D) | -class(A,E,B) | -class(C,E,B) | -reorganization(A,B,F) | -reorganization(C,B,D) | -reorganization_type(A,V6,B) | -reorganization_type(C,V6,B) | -inertia(A,V7,B) | -inertia(C,V8,B) | -greater(V8,V7) | greater(D,F) # label(a13_FOL_3) # label(hypothesis).  [assumption].
+4 organization(sk2,sk8) # label(t15_FOL_4) # label(negated_conjecture).  [assumption].
+5 organization(sk3,sk8) # label(t15_FOL_5) # label(negated_conjecture).  [assumption].
+6 organization(sk3,sk10) # label(t15_FOL_6) # label(negated_conjecture).  [assumption].
+7 class(sk2,sk5,sk8) # label(t15_FOL_7) # label(negated_conjecture).  [assumption].
+8 class(sk3,sk5,sk8) # label(t15_FOL_8) # label(negated_conjecture).  [assumption].
+9 reorganization(sk2,sk8,sk9) # label(t15_FOL_9) # label(negated_conjecture).  [assumption].
+10 reorganization(sk3,sk8,sk10) # label(t15_FOL_10) # label(negated_conjecture).  [assumption].
+11 reorganization_type(sk2,sk4,sk8) # label(t15_FOL_11) # label(negated_conjecture).  [assumption].
+12 reorganization_type(sk3,sk4,sk8) # label(t15_FOL_12) # label(negated_conjecture).  [assumption].
+13 complexity(sk2,sk6,sk8) # label(t15_FOL_13) # label(negated_conjecture).  [assumption].
+14 complexity(sk3,sk7,sk8) # label(t15_FOL_14) # label(negated_conjecture).  [assumption].
+15 greater(sk7,sk6) # label(t15_FOL_15) # label(negated_conjecture).  [assumption].
+16 -greater(sk10,sk9) # label(t15_FOL_16) # label(negated_conjecture) # answer(t15_FOL_16).  [assumption].
+17 inertia(sk2,sk1(sk8,sk2),sk8).  [ur(1,a,4,a)].
+18 inertia(sk3,sk1(sk8,sk3),sk8).  [ur(1,a,5,a)].
+60 greater(sk1(sk8,sk3),sk1(sk8,sk2)).  [ur(2,a,4,a,b,5,a,c,7,a,d,8,a,e,13,a,f,14,a,g,17,a,h,18,a,i,15,a)].
+61 -greater(sk1(sk8,sk3),sk1(sk8,sk2)) # answer(t15_FOL_16).  [ur(3,a,4,a,b,5,a,c,6,a,d,7,a,e,8,a,f,9,a,g,10,a,h,11,a,i,12,a,j,17,a,k,18,a,m,16,a)].
+62 $F # answer(t15_FOL_16).  [resolve(61,a,60,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=22. Generated=62. Kept=61. proofs=1.
+Usable=19. Sos=36. Demods=0. Limbo=1, Disabled=20. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=1. Back_subsumed=4.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=49. Nonunit_bsub_feature_tests=76.
+Megabytes=0.22.
+User_CPU=0.02, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 103 exit (max_proofs) Fri Oct 23 15:00:34 2026
+-------- Proof 1 -------- t15_FOL_16.
+
+THEOREM PROVED
+
+------ process 103 exit (max_proofs) ------
+

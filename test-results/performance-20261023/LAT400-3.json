@@ -1,0 +1,12 @@
+{
+  "problem": "LAT400-3",
+  "domain": "LAT",
+  "rating": 0.82,
+  "conversion_wall_seconds": 0.009799057006603107,
+  "exit_code": 4,
+  "search_wall_seconds": 20.838987961004023,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.18,
+  "total_wall_seconds": 20.849607840995304
+}

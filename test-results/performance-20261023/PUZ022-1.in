@@ -1,0 +1,45 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-borders(Y,X) | borders(X,Y) # label(symmetry_of_borders) # label(axiom).
+ocean(atlantic) # label(atlantic) # label(negated_conjecture).
+ocean(indian) # label(indian) # label(negated_conjecture).
+ocean(pacific) # label(pacific) # label(negated_conjecture).
+ocean(southern) # label(southern) # label(negated_conjecture).
+state(western_australia) # label(western_australia) # label(negated_conjecture).
+state(northern_territory) # label(northern_territory) # label(negated_conjecture).
+state(queensland) # label(queensland) # label(negated_conjecture).
+state(south_australia) # label(south_australia) # label(negated_conjecture).
+state(new_south_wales) # label(new_south_wales) # label(negated_conjecture).
+state(victoria) # label(victoria) # label(negated_conjecture).
+state(tasmania) # label(tasmania) # label(negated_conjecture).
+borders(western_australia,northern_territory) # label(wa_nt) # label(negated_conjecture).
+borders(western_australia,south_australia) # label(wa_sa) # label(negated_conjecture).
+borders(south_australia,northern_territory) # label(sa_nt) # label(negated_conjecture).
+borders(south_australia,queensland) # label(sa_qld) # label(negated_conjecture).
+borders(south_australia,new_south_wales) # label(sa_nsw) # label(negated_conjecture).
+borders(south_australia,victoria) # label(sa_vic) # label(negated_conjecture).
+borders(northern_territory,queensland) # label(nt_qld) # label(negated_conjecture).
+borders(queensland,new_south_wales) # label(qld_nsw) # label(negated_conjecture).
+borders(new_south_wales,victoria) # label(nsw_vic) # label(negated_conjecture).
+borders(indian,western_australia) # label(indian_wa) # label(negated_conjecture).
+borders(indian,northern_territory) # label(indian_nt) # label(negated_conjecture).
+borders(indian,queensland) # label(indian_qld) # label(negated_conjecture).
+borders(southern,western_australia) # label(southern_wa) # label(negated_conjecture).
+borders(southern,south_australia) # label(southern_sa) # label(negated_conjecture).
+borders(southern,victoria) # label(southern_vic) # label(negated_conjecture).
+borders(southern,tasmania) # label(southern_tas) # label(negated_conjecture).
+borders(pacific,queensland) # label(pacific_qld) # label(negated_conjecture).
+borders(pacific,new_south_wales) # label(pacific_nsw) # label(negated_conjecture).
+borders(pacific,victoria) # label(pacific_vic) # label(negated_conjecture).
+borders(pacific,tasmania) # label(pacific_tas) # label(negated_conjecture).
+-state(State1) | -state(State2) | -borders(State1,State2) | -borders(State1,Ocean) | -borders(State2,Ocean) | -ocean(Ocean) # label(prove_borders) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

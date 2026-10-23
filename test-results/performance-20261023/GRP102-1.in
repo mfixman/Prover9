@@ -1,0 +1,17 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+double_divide(double_divide(X,double_divide(double_divide(double_divide(Y,X),Z),double_divide(Y,identity))),double_divide(identity,identity)) = Z # label(single_axiom) # label(axiom).
+multiply(X,Y) = double_divide(double_divide(Y,X),identity) # label(multiply) # label(axiom).
+inverse(X) = double_divide(X,identity) # label(inverse) # label(axiom).
+identity = double_divide(X,inverse(X)) # label(identity) # label(axiom).
+multiply(inverse(a1),a1) != identity | multiply(identity,a2) != a2 | multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | multiply(a4,b4) != multiply(b4,a4) # label(prove_these_axioms) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

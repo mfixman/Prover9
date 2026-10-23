@@ -1,0 +1,152 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-less(X1,X2) | -less(X1,X3) | -less(X2,X3) | plus(X2,times(X4,X3)) != plus(X1,times(X5,X3)) # label(axiom_1) # label(axiom).
+X1 = X2 | less(X1,X2) | less(X2,X1) # label(axiom_2) # label(axiom).
+plus(X1,plus(X2,X3)) = plus(plus(X1,X2),X3) # label(axiom_3) # label(axiom).
+plus(X1,X2) != plus(X1,X3) | X2 = X3 # label(axiom_4) # label(axiom).
+plus(X1,X2) = plus(X2,X1) # label(axiom_5) # label(axiom).
+plus(plus(X1,X2),X3) = plus(X1,plus(X2,X3)) # label(axiom_6) # label(axiom).
+X1 != plus(X1,X2) | X2 = n0 # label(axiom_7) # label(axiom).
+X1 != plus(X2,X1) | X2 = n0 # label(axiom_8) # label(axiom).
+plus(X1,X2) != plus(X3,X2) | X1 = X3 # label(axiom_9) # label(axiom).
+plus(X1,X2) != X1 | X2 = n0 # label(axiom_10) # label(axiom).
+plus(X1,X2) != X2 | X1 = n0 # label(axiom_11) # label(axiom).
+plus(n0,X1) = X1 # label(axiom_12) # label(axiom).
+plus(X1,n0) = X1 # label(axiom_13) # label(axiom).
+plus(n1,plus(X1,n1)) != n1 # label(axiom_14) # label(axiom).
+X1 != X2 | plus(X3,X1) = plus(X3,X2) # label(axiom_15) # label(axiom).
+plus(X1,n1) != n0 # label(axiom_16) # label(axiom).
+times(X1,X2) = times(X2,X1) # label(axiom_17) # label(axiom).
+times(X1,times(X2,X3)) = times(times(X1,X2),X3) # label(axiom_18) # label(axiom).
+times(times(X1,X2),X3) = times(X1,times(X2,X3)) # label(axiom_19) # label(axiom).
+times(X1,n1) = X1 # label(axiom_20) # label(axiom).
+times(n1,X1) = X1 # label(axiom_21) # label(axiom).
+times(X1,plus(X2,X3)) = plus(times(X1,X2),times(X1,X3)) # label(axiom_22) # label(axiom).
+plus(times(X1,X2),times(X1,X3)) = times(X1,plus(X3,X2)) # label(axiom_23) # label(axiom).
+times(plus(X1,X2),X3) = plus(times(X1,X3),times(X2,X3)) # label(axiom_24) # label(axiom).
+times(plus(X1,X2),X3) = plus(times(X2,X3),times(X1,X3)) # label(axiom_25) # label(axiom).
+plus(times(X1,X2),times(X3,X2)) = times(plus(X1,X3),X2) # label(axiom_26) # label(axiom).
+plus(times(X1,X2),X1) = times(X1,plus(X2,n1)) # label(axiom_27) # label(axiom).
+n1 != times(X1,X2) | X1 = n1 # label(axiom_28) # label(axiom).
+n1 != times(X2,X1) | X1 = n1 # label(axiom_29) # label(axiom).
+-less(X1,X2) | -less(X1,X3) | -less(X2,X3) | plus(X1,times(X4,X3)) != plus(X2,times(X5,X3)) # label(axiom_30) # label(axiom).
+less(n0,plus(X1,n1)) # label(axiom_31) # label(axiom).
+-less(plus(X6,n1),X3) | less(X6,X3) # label(axiom_32) # label(axiom).
+-less(n1,X1) | X1 != n1 # label(axiom_33) # label(axiom).
+-less(n1,X1) | n1 != times(X2,X1) # label(axiom_34) # label(axiom).
+-less(n0,X7) | -less(n0,p__0) | -less(X7,p__0) | plus(X7,times(X8,p__0)) != plus(n0,times(X9,p__0)) # label(clause_1) # label(negated_conjecture).
+-less(n0,p__0) | less(s_5(p__0,X10),p__0) # label(clause_2) # label(negated_conjecture).
+X11 != n1 | X11 = n1 # label(clause_3) # label(negated_conjecture).
+plus(n1,plus(X12,n1)) != n1 # label(clause_4) # label(negated_conjecture).
+-element(plus(X13,plus(X14,n1)),X15) # label(clause_5) # label(negated_conjecture).
+plus(X13,plus(X14,n1)) != plus(X1,times(X16,plus(X12,n1))) | plus(X13,plus(X14,n1)) = plus(X1,times(X16,plus(X12,n1))) # label(clause_6) # label(negated_conjecture).
+X14 != plus(n0,times(X17,p__1)) | X14 = plus(n0,times(X17,p__1)) # label(clause_7) # label(negated_conjecture).
+X18 != plus(X19,times(X20,plus(X21,n1))) | X18 = plus(X19,times(X20,plus(X21,n1))) # label(clause_8) # label(negated_conjecture).
+X14 != plus(n0,times(X22,p__0)) | X14 = plus(n0,times(X22,p__0)) # label(clause_9) # label(negated_conjecture).
+-less(n0,p__0) | p__0 = plus(s_7(p__0),n1) # label(clause_10) # label(negated_conjecture).
+X14 != n1 | X14 = n1 # label(clause_11) # label(negated_conjecture).
+X23 != plus(n0,times(X24,p__0)) | X23 = plus(n0,times(X24,p__0)) # label(clause_12) # label(negated_conjecture).
+-element(X1,X15) # label(clause_13) # label(negated_conjecture).
+X25 != n1 | X25 = n1 # label(clause_14) # label(negated_conjecture).
+X19 != n1 | X19 = n1 # label(clause_15) # label(negated_conjecture).
+X26 != plus(X27,times(X28,plus(X29,n1))) | X26 = plus(X27,times(X28,plus(X29,n1))) # label(clause_16) # label(negated_conjecture).
+X27 != plus(n0,times(X30,p__0)) | X27 = plus(n0,times(X30,p__0)) # label(clause_17) # label(negated_conjecture).
+X14 != n1 | X14 = n1 # label(clause_18) # label(negated_conjecture).
+X18 != n1 | X18 = n1 # label(clause_19) # label(negated_conjecture).
+plus(plus(times(plus(X10,n1),X31),X10),n1) = times(plus(X10,n1),plus(X31,n1)) # label(clause_20) # label(negated_conjecture).
+-less(n0,p__0) | X13 != plus(X7,times(X8,p__0)) | X13 = plus(X7,times(X8,p__0)) # label(clause_21) # label(negated_conjecture).
+X14 != plus(n0,times(X32,p__1)) | X14 = plus(n0,times(X32,p__1)) # label(clause_22) # label(negated_conjecture).
+X33 != n1 | X33 = n1 # label(clause_23) # label(negated_conjecture).
+X23 != plus(n0,times(X34,p__1)) | X23 = plus(n0,times(X34,p__1)) # label(clause_24) # label(negated_conjecture).
+-less(n0,p__0) | plus(times(X8,p__0),times(X9,p__0)) = times(plus(X8,X9),p__0) # label(clause_25) # label(negated_conjecture).
+X13 != plus(n0,times(X35,p__1)) | X13 = plus(n0,times(X35,p__1)) # label(clause_26) # label(negated_conjecture).
+X13 != plus(X23,times(X9,times(plus(X10,n1),plus(X31,n1)))) | X13 = plus(X23,times(times(X9,plus(X31,n1)),plus(X10,n1))) # label(clause_27) # label(negated_conjecture).
+-less(n0,p__0) | X10 != plus(X7,times(plus(X8,X9),p__0)) | X10 = plus(X7,times(plus(X8,X9),p__0)) # label(clause_28) # label(negated_conjecture).
+-less(n0,p__0) | s_5(p__0,X10) != n0 | X10 = plus(n0,times(s_6(p__0,X10),p__0)) # label(clause_29) # label(negated_conjecture).
+plus(X36,plus(X37,n1)) != n1 | plus(X36,plus(X37,n1)) = n1 # label(clause_30) # label(negated_conjecture).
+-less(n0,p__0) | -less(X7,p__0) | less(X7,p__0) # label(clause_31) # label(negated_conjecture).
+X26 != plus(n0,times(X38,p__0)) | X26 = plus(n0,times(X38,p__0)) # label(clause_32) # label(negated_conjecture).
+X14 != plus(n0,times(X39,p__0)) | X14 = plus(n0,times(X39,p__0)) # label(clause_33) # label(negated_conjecture).
+-less(n0,p__0) | X7 != n0 | X7 = n0 # label(clause_34) # label(negated_conjecture).
+plus(X13,plus(plus(times(X1,plus(X12,plus(n1,n1))),times(X12,plus(X13,n1))),n1)) = plus(X1,times(plus(X1,plus(X13,n1)),plus(X12,n1))) # label(clause_35) # label(negated_conjecture).
+X13 != plus(X23,times(X9,times(plus(X10,n1),plus(X31,n1)))) | X13 = plus(X23,times(times(X9,plus(X10,n1)),plus(X31,n1))) # label(clause_36) # label(negated_conjecture).
+X13 != plus(n0,times(X40,p__0)) | X13 = plus(n0,times(X40,p__0)) # label(clause_37) # label(negated_conjecture).
+X33 != plus(X11,times(X41,plus(X42,n1))) | X33 = plus(X11,times(X41,plus(X42,n1))) # label(clause_38) # label(negated_conjecture).
+-less(n0,p__0) | X10 = plus(s_5(p__0,X10),times(s_6(p__0,X10),p__0)) # label(clause_39) # label(negated_conjecture).
+-less(n0,p__0) | plus(plus(X7,times(X8,p__0)),times(X9,p__0)) = plus(X7,plus(times(X8,p__0),times(X9,p__0))) # label(clause_40) # label(negated_conjecture).
+X10 != plus(X7,times(X8,p__0)) | X10 = plus(X7,times(X8,p__0)) # label(clause_41) # label(negated_conjecture).
+X7 = n0 | less(X7,n0) | less(n0,X7) # label(clause_42) # label(negated_conjecture).
+-less(X7,n0) | -less(n0,p__0) | -less(X7,p__0) | plus(X7,times(X8,p__0)) != plus(n0,times(X9,p__0)) # label(clause_43) # label(negated_conjecture).
+-less(plus(n0,n1),p__0) | less(n0,p__0) # label(clause_44) # label(negated_conjecture).
+-less(n1,p__0) | less(n1,p__0) # label(clause_45) # label(negated_conjecture).
+plus(n0,n1) = n1 # label(clause_46) # label(negated_conjecture).
+-less(n0,p__1) | X10 != plus(X7,times(plus(X8,X9),p__1)) | X10 = plus(X7,times(plus(X8,X9),p__1)) # label(clause_47) # label(negated_conjecture).
+-less(n0,p__1) | plus(times(X8,p__1),times(X9,p__1)) = times(plus(X8,X9),p__1) # label(clause_48) # label(negated_conjecture).
+-less(n0,p__1) | -less(X7,p__1) | less(X7,p__1) # label(clause_49) # label(negated_conjecture).
+-less(n0,p__1) | plus(plus(X7,times(X8,p__1)),times(X9,p__1)) = plus(X7,plus(times(X8,p__1),times(X9,p__1))) # label(clause_50) # label(negated_conjecture).
+-less(n0,p__1) | X13 != plus(X7,times(X8,p__1)) | X13 = plus(X7,times(X8,p__1)) # label(clause_51) # label(negated_conjecture).
+-less(n0,p__1) | X7 != n0 | X7 = n0 # label(clause_52) # label(negated_conjecture).
+-less(n0,p__1) | p__1 = plus(s_7(p__1),n1) # label(clause_53) # label(negated_conjecture).
+-less(n0,p__1) | X10 = plus(s_5(p__1,X10),times(s_6(p__1,X10),p__1)) # label(clause_54) # label(negated_conjecture).
+-less(n0,X7) | -less(n0,p__1) | -less(X7,p__1) | plus(X7,times(X8,p__1)) != plus(n0,times(X9,p__1)) # label(clause_55) # label(negated_conjecture).
+-less(n0,p__1) | s_5(p__1,X10) != n0 | X10 = plus(n0,times(s_6(p__1,X10),p__1)) # label(clause_56) # label(negated_conjecture).
+-less(n0,p__1) | less(s_5(p__1,X10),p__1) # label(clause_57) # label(negated_conjecture).
+X7 = n0 | less(X7,n0) | less(n0,X7) # label(clause_58) # label(negated_conjecture).
+-less(X7,n0) | -less(n0,p__1) | -less(X7,p__1) | plus(X7,times(X8,p__1)) != plus(n0,times(X9,p__1)) # label(clause_59) # label(negated_conjecture).
+X10 != plus(X7,times(X8,p__1)) | X10 = plus(X7,times(X8,p__1)) # label(clause_60) # label(negated_conjecture).
+-less(plus(n0,n1),p__1) | less(n0,p__1) # label(clause_61) # label(negated_conjecture).
+-less(n1,p__1) | less(n1,p__1) # label(clause_62) # label(negated_conjecture).
+plus(n0,n1) = n1 # label(clause_63) # label(negated_conjecture).
+X43 != p__1 | X43 = p__1 # label(clause_64) # label(negated_conjecture).
+X43 != n1 | X43 = n1 # label(clause_65) # label(negated_conjecture).
+times(X43,X44) != p__1 | times(X43,X44) = p__1 # label(clause_66) # label(negated_conjecture).
+X45 != p__0 | X45 = p__0 # label(clause_67) # label(negated_conjecture).
+-less(n1,p__1) | less(n1,p__1) # label(clause_68) # label(negated_conjecture).
+p__1 = p__1 # label(clause_69) # label(negated_conjecture).
+X45 != n1 | X45 = n1 # label(clause_70) # label(negated_conjecture).
+times(X45,X46) != p__0 | times(X45,X46) = p__0 # label(clause_71) # label(negated_conjecture).
+p__0 = p__0 # label(clause_72) # label(negated_conjecture).
+-less(n1,p__0) | less(n1,p__0) # label(clause_73) # label(negated_conjecture).
+X47 != X10 | X47 = X10 # label(clause_74) # label(negated_conjecture).
+X47 != n1 | X47 = n1 # label(clause_75) # label(negated_conjecture).
+times(X47,X48) != X10 | times(X47,X48) = X10 # label(clause_76) # label(negated_conjecture).
+X10 != p__1 | times(X49,X50) != X10 | X49 = n1 | X49 = X10 # label(clause_77) # label(negated_conjecture).
+-less(n1,X10) | less(n1,X10) # label(clause_78) # label(negated_conjecture).
+X10 != p__0 | X10 = p__0 # label(clause_79) # label(negated_conjecture).
+X13 != plus(n0,times(X51,X10)) | X13 = plus(n0,times(X51,X10)) # label(clause_80) # label(negated_conjecture).
+X10 != p__1 | less(n1,X10) # label(clause_81) # label(negated_conjecture).
+X10 != p__0 | times(X49,X50) != X10 | X49 = n1 | X49 = X10 # label(clause_82) # label(negated_conjecture).
+X10 != p__0 | less(n1,X10) # label(clause_83) # label(negated_conjecture).
+X13 != plus(n0,times(X52,X10)) | X13 = plus(n0,times(X52,X10)) # label(clause_84) # label(negated_conjecture).
+X10 != p__1 | X10 = p__1 # label(clause_85) # label(negated_conjecture).
+X13 = n1 | X13 = X13 # label(clause_86) # label(negated_conjecture).
+X10 != p__0 | X10 = p__0 # label(clause_87) # label(negated_conjecture).
+X13 = n1 | times(s_1(X13),s_4(X13)) = X13 # label(clause_88) # label(negated_conjecture).
+X13 = n1 | times(s_4(X13),s_1(X13)) = times(s_1(X13),s_4(X13)) # label(clause_89) # label(negated_conjecture).
+X13 != n1 | X13 = n1 # label(clause_90) # label(negated_conjecture).
+X13 != n1 | X13 = n1 # label(clause_91) # label(negated_conjecture).
+X13 = n1 | plus(n0,times(s_4(X13),s_1(X13))) = times(s_4(X13),s_1(X13)) # label(clause_92) # label(negated_conjecture).
+X13 = n1 | s_1(X13) = p__0 | s_1(X13) = p__1 # label(clause_93) # label(negated_conjecture).
+X10 != p__1 | plus(n0,times(X14,X10)) = times(X14,X10) # label(clause_94) # label(negated_conjecture).
+X10 != p__0 | n1 != times(X14,X10) # label(clause_95) # label(negated_conjecture).
+X10 != p__1 | n1 != times(X14,X10) # label(clause_96) # label(negated_conjecture).
+X10 != p__1 | X13 != n1 | X13 = n1 # label(clause_97) # label(negated_conjecture).
+X10 != p__0 | X13 != n1 | X13 = n1 # label(clause_98) # label(negated_conjecture).
+X10 != p__0 | plus(n0,times(X14,X10)) = times(X14,X10) # label(clause_99) # label(negated_conjecture).
+X13 != plus(n0,times(X53,p__1)) | X13 = plus(n0,times(X53,p__1)) # label(clause_100) # label(negated_conjecture).
+X13 != plus(n0,times(X54,X10)) | X13 = plus(n0,times(X54,X10)) # label(clause_101) # label(negated_conjecture).
+p__1 = p__1 # label(clause_102) # label(negated_conjecture).
+X13 != plus(n0,times(X55,p__0)) | X13 = plus(n0,times(X55,p__0)) # label(clause_103) # label(negated_conjecture).
+X10 != p__0 | X10 = p__0 # label(clause_104) # label(negated_conjecture).
+p__0 = p__0 # label(clause_105) # label(negated_conjecture).
+n1 = n1 # label(clause_106) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

@@ -1,0 +1,12 @@
+{
+  "problem": "SYO691-1.003",
+  "domain": "SYO",
+  "rating": 1.0,
+  "conversion_wall_seconds": 0.009641083001042716,
+  "exit_code": 4,
+  "search_wall_seconds": 20.857859784999164,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.65,
+  "total_wall_seconds": 20.868406245004735
+}

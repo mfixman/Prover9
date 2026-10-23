@@ -1,0 +1,103 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 206 was started by mfixman on bodoque,
+Fri Oct 23 15:01:09 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+top(f(f(f(f(f(Z,a),a),a),Y),f(X,a)),f(f(X,f(f(f(f(Y,a),a),a),a)),Z)) # label(rule_1) # label(axiom).
+-seq(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(zero))))))))))))))))),X,X) # label(prove) # label(negated_conjecture).
+-top(X,Y) | step(X,Y) # label(rewrite_top) # label(axiom).
+-step(X,Y) | step(f(X,Z),f(Y,Z)) # label(rewrite_left) # label(axiom).
+-step(Y,Z) | step(f(X,Y),f(X,Z)) # label(rewrite_right) # label(axiom).
+seq(zero,X,X) # label(rewrite_sequence_zero) # label(axiom).
+-seq(N,X,Y) | -step(Y,Z) | seq(succ(N),X,Z) # label(rewrite_sequence_succ) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating top/2
+1 -top(A,B) | step(A,B) # label(rewrite_top) # label(axiom).  [assumption].
+2 top(f(f(f(f(f(A,a),a),a),B),f(C,a)),f(f(C,f(f(f(f(B,a),a),a),a)),A)) # label(rule_1) # label(axiom).  [assumption].
+Derived: step(f(f(f(f(f(A,a),a),a),B),f(C,a)),f(f(C,f(f(f(f(B,a),a),a),a)),A)).  [resolve(1,a,2,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ step, seq ]).
+Function symbol precedence:  function_order([ a, zero, f, succ ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=-3)
+  % clear(ordered_res).  % (HNE depth_diff=-3)
+  % set(ur_resolution).  % (HNE depth_diff=-3)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== STATISTICS ============================
+
+Given=78. Generated=925727. Kept=3921. proofs=0.
+Usable=78. Sos=3700. Demods=0. Limbo=143, Disabled=8. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=909114.
+Forward_subsumed=12692. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=213069. Nonunit_bsub_feature_tests=73791.
+Megabytes=25.56.
+User_CPU=20.00, System_CPU=0.65, Wall_clock=21.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 206 exit (max_seconds) Fri Oct 23 15:01:30 2026
+
+SEARCH FAILED
+
+------ process 206 exit (max_seconds) ------
+

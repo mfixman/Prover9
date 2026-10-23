@@ -1,0 +1,15 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+apply(apply(apply(s,X),Y),Z) = apply(apply(X,Z),apply(Y,Z)) # label(s_definition) # label(axiom).
+apply(apply(l,X),Y) = apply(X,apply(Y,Y)) # label(l_definition) # label(axiom).
+apply(Y,f(Y)) != apply(f(Y),apply(Y,f(Y))) # label(prove_fixed_point) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

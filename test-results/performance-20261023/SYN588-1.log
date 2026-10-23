@@ -1,0 +1,198 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 211 was started by mfixman on bodoque,
+Fri Oct 23 15:01:13 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+p2(X8,X8) # label(p2_1) # label(negated_conjecture).
+p7(X25,X25) # label(p7_2) # label(negated_conjecture).
+p2(c25,f3(c17)) # label(p2_3) # label(negated_conjecture).
+-p2(c16,f3(c17)) # label(not_p2_4) # label(negated_conjecture).
+p14(c18,f3(f4(f5(c17)))) # label(p14_5) # label(negated_conjecture).
+p14(c23,f3(f4(f5(c17)))) # label(p14_6) # label(negated_conjecture).
+p14(c19,f6(f3(f4(f5(c17))),c16)) # label(p14_7) # label(negated_conjecture).
+p14(c24,f6(f3(f4(f5(c17))),c16)) # label(p14_8) # label(negated_conjecture).
+p7(f12(X34),f12(X35)) | -p7(X34,X35) # label(p7_9) # label(negated_conjecture).
+p2(f3(X15),f3(X16)) | -p2(X15,X16) # label(p2_10) # label(negated_conjecture).
+p2(f4(X17),f4(X18)) | -p2(X17,X18) # label(p2_11) # label(negated_conjecture).
+p2(f5(X19),f5(X20)) | -p2(X19,X20) # label(p2_12) # label(negated_conjecture).
+p7(f11(X32),f11(X33)) | -p2(X32,X33) # label(p7_13) # label(negated_conjecture).
+p7(X26,X27) | -p7(X25,X26) | -p7(X25,X27) # label(p7_14) # label(negated_conjecture).
+p2(X9,X10) | -p2(X8,X9) | -p2(X8,X10) # label(p2_15) # label(negated_conjecture).
+p15(f6(f3(f4(f5(c17))),f13(c16,f3(f5(c17)))),c19) # label(p15_16) # label(negated_conjecture).
+p14(X0,X1) | -p2(X2,X0) | -p2(X3,X1) | -p14(X2,X3) # label(p14_17) # label(negated_conjecture).
+p15(X4,X5) | -p2(X6,X4) | -p2(X7,X5) | -p15(X6,X7) # label(p15_18) # label(negated_conjecture).
+p2(f13(X11,X12),f13(X13,X14)) | -p2(X11,X13) | -p2(X12,X14) # label(p2_19) # label(negated_conjecture).
+p7(f9(X40,X41),f9(X42,X43)) | -p7(X40,X42) | -p7(X41,X43) # label(p7_20) # label(negated_conjecture).
+p7(f8(X36,X37),f8(X38,X39)) | -p7(X36,X38) | -p7(X37,X39) # label(p7_21) # label(negated_conjecture).
+p7(f10(X28,X29),f10(X30,X31)) | -p2(X29,X31) | -p7(X28,X30) # label(p7_22) # label(negated_conjecture).
+p2(f6(X21,X22),f6(X23,X24)) | -p2(X21,X23) | -p2(X22,X24) # label(p2_23) # label(negated_conjecture).
+p7(c20,f8(f10(f12(f11(f3(f5(c17)))),c23),f8(f10(f11(f3(f4(f5(c17)))),c25),f9(f11(c24),f10(f11(f3(f4(f5(c17)))),c22))))) # label(p7_24) # label(negated_conjecture).
+p7(c20,f8(f10(f12(f11(f3(f5(c17)))),c18),f8(f10(f11(f3(f4(f5(c17)))),c21),f9(f11(c19),f10(f11(f3(f4(f5(c17)))),c22))))) # label(p7_25) # label(negated_conjecture).
+-p7(f8(f10(f12(f11(f3(f5(c17)))),c18),f8(f10(f11(f3(f4(f5(c17)))),c21),f9(f11(c19),f10(f11(f3(f4(f5(c17)))),c22)))),f8(f10(f12(f11(f3(f5(c17)))),c23),f8(f10(f11(f3(f4(f5(c17)))),c25),f9(f11(c24),f10(f11(f3(f4(f5(c17)))),c22))))) # label(not_p7_26) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label not_p2_4 to answer in negative clause
+  % copying label not_p7_26 to answer in negative clause
+  % assign(max_proofs, 2).  % (Horn set with more than one neg. clause)
+
+WARNING, because some of the denials share constants,
+some of the denials or their descendents may be subsumed,
+preventing the target number of proofs from being found.
+The shared constants are:  c17.
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ p2, p7, p14, p15 ]).
+Function symbol precedence:  function_order([ c17, c16, c19, c18, c20, c22, c23, c24, c25, c21, f10, f8, f6, f9, f13, f3, f5, f4, f11, f12 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=-10)
+  % clear(ordered_res).  % (HNE depth_diff=-10)
+  % set(ur_resolution).  % (HNE depth_diff=-10)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds: not_p7_26.
+% Length of proof is 6.
+% Level of proof is 2.
+% Maximum clause weight is 53.000.
+% Given clauses 25 (12.500 givens/level).
+
+14 p7(A,B) | -p7(C,A) | -p7(C,B) # label(p7_14) # label(negated_conjecture).  [assumption].
+24 p7(c20,f8(f10(f12(f11(f3(f5(c17)))),c23),f8(f10(f11(f3(f4(f5(c17)))),c25),f9(f11(c24),f10(f11(f3(f4(f5(c17)))),c22))))) # label(p7_24) # label(negated_conjecture).  [assumption].
+25 p7(c20,f8(f10(f12(f11(f3(f5(c17)))),c18),f8(f10(f11(f3(f4(f5(c17)))),c21),f9(f11(c19),f10(f11(f3(f4(f5(c17)))),c22))))) # label(p7_25) # label(negated_conjecture).  [assumption].
+26 -p7(f8(f10(f12(f11(f3(f5(c17)))),c18),f8(f10(f11(f3(f4(f5(c17)))),c21),f9(f11(c19),f10(f11(f3(f4(f5(c17)))),c22)))),f8(f10(f12(f11(f3(f5(c17)))),c23),f8(f10(f11(f3(f4(f5(c17)))),c25),f9(f11(c24),f10(f11(f3(f4(f5(c17)))),c22))))) # label(not_p7_26) # label(negated_conjecture) # answer(not_p7_26).  [assumption].
+65 p7(f8(f10(f12(f11(f3(f5(c17)))),c18),f8(f10(f11(f3(f4(f5(c17)))),c21),f9(f11(c19),f10(f11(f3(f4(f5(c17)))),c22)))),f8(f10(f12(f11(f3(f5(c17)))),c23),f8(f10(f11(f3(f4(f5(c17)))),c25),f9(f11(c24),f10(f11(f3(f4(f5(c17)))),c22))))).  [ur(14,b,25,a,c,24,a)].
+66 $F # answer(not_p7_26).  [resolve(65,a,26,a)].
+
+============================== end of proof ==========================
+
+% Disable descendants (x means already disabled):
+ 26
+
+Low Water (keep): wt=61.000, iters=6827
+
+Low Water (keep): wt=59.000, iters=6748
+
+Low Water (keep): wt=55.000, iters=6728
+
+Low Water (keep): wt=41.000, iters=6693
+
+Low Water (keep): wt=39.000, iters=6879
+
+Low Water (keep): wt=38.000, iters=6932
+
+Low Water (keep): wt=37.000, iters=6903
+
+Low Water (keep): wt=21.000, iters=6773
+
+Low Water (keep): wt=20.000, iters=6683
+
+Low Water (keep): wt=19.000, iters=6732
+
+Low Water (keep): wt=17.000, iters=6689
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 5165 (0.00 of 1.52 sec).
+
+given #500 (T,wt=11): 140 p2(f6(c25,f5(c25)),f6(f3(c17),f5(f3(c17)))).  [ur(23,b,3,a,c,29,a)].
+
+Low Water (keep): wt=16.000, iters=6932
+
+Low Water (displace): id=3601, wt=91.000
+
+Low Water (displace): id=18222, wt=19.000
+
+Low Water (displace): id=18636, wt=18.000
+
+Low Water (displace): id=18446, wt=17.000
+
+given #1000 (F,wt=12): 5241 -p2(c16,f3(f4(f5(f3(c17))))) | -p2(f4(f5(c25)),c17) # answer(not_p2_4).  [resolve(1439,c,163,a)].
+
+Low Water (displace): id=19753, wt=16.000
+
+given #1500 (T,wt=12): 11413 p2(f5(f4(f3(f3(c25)))),f5(f4(f3(f3(f3(c17)))))).  [ur(12,b,1139,a)].
+
+given #2000 (F,wt=13): 7225 -p2(f13(A,f3(f3(c17))),c16) | -p2(f13(A,f3(c25)),c25) # answer(not_p2_4).  [resolve(79,a,89,b)].
+
+Low Water (displace): id=25411, wt=15.000
+
+Low Water (keep): wt=15.000, iters=6725
+
+============================== STATISTICS ============================
+
+Given=2266. Generated=2254016. Kept=25584. proofs=1.
+Usable=2266. Sos=19997. Demods=0. Limbo=0, Disabled=3347. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=260.
+Forward_subsumed=26718. Back_subsumed=3.
+Sos_limit_deleted=2201454. Sos_displaced=3317. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=3666088. Nonunit_bsub_feature_tests=87919.
+Megabytes=40.76.
+User_CPU=20.01, System_CPU=1.29, Wall_clock=22.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with 1 proof.
+
+Process 211 exit (max_seconds) Fri Oct 23 15:01:35 2026
+
+WARNING: denials share constants (see output).
+
+-------- Proof 1 -------- not_p7_26.
+
+SEARCH FAILED
+
+------ process 211 exit (max_seconds) ------
+

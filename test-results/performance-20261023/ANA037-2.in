@@ -1,0 +1,22 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+c_lessequals(c_0,v_f(v_xa),t_b) # label(cls_conjecture_2) # label(negated_conjecture).
+c_lessequals(c_HOL_Oabs(v_a(v_xa),t_b),c_times(v_c,v_f(v_xa),t_b),t_b) # label(cls_conjecture_4) # label(negated_conjecture).
+-c_lessequals(c_HOL_Oabs(v_a(v_xa),t_b),c_times(c_Orderings_Omax(v_c,v_ca,t_b),v_f(v_xa),t_b),t_b) # label(cls_conjecture_8) # label(negated_conjecture).
+class_Ring__and__Field_Oordered__idom(t_b) # label(tfree_tcs) # label(negated_conjecture).
+-class_Orderings_Olinorder(T_b) | c_lessequals(V_x,c_Orderings_Omax(V_x,V_y,T_b),T_b) # label(cls_Orderings_Ole__maxI1_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | -c_lessequals(V_y,V_z,T_a) | -c_lessequals(V_x,V_y,T_a) | c_lessequals(V_x,V_z,T_a) # label(cls_Orderings_Oorder__class_Oorder__trans_0) # label(axiom).
+-class_Ring__and__Field_Opordered__semiring(T_a) | -c_lessequals(V_a,V_b,T_a) | -c_lessequals(c_0,V_c,T_a) | c_lessequals(c_times(V_a,V_c,T_a),c_times(V_b,V_c,T_a),T_a) # label(cls_Ring__and__Field_Opordered__semiring__class_Omult__right__mono_0) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T) | class_Orderings_Olinorder(T) # label(clsrel_Ring__and__Field_Oordered__idom_33) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T) | class_Ring__and__Field_Opordered__semiring(T) # label(clsrel_Ring__and__Field_Oordered__idom_42) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T) | class_Orderings_Oorder(T) # label(clsrel_Ring__and__Field_Oordered__idom_44) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.

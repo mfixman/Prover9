@@ -1,0 +1,56 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all U all V (man(U,V) -> male(U,V))) # label(ax1) # label(axiom).
+(all U all V (human_person(U,V) -> animate(U,V))) # label(ax2) # label(axiom).
+(all U all V (human_person(U,V) -> human(U,V))) # label(ax3) # label(axiom).
+(all U all V (organism(U,V) -> living(U,V))) # label(ax4) # label(axiom).
+(all U all V (organism(U,V) -> impartial(U,V))) # label(ax5) # label(axiom).
+(all U all V (organism(U,V) -> entity(U,V))) # label(ax6) # label(axiom).
+(all U all V (human_person(U,V) -> organism(U,V))) # label(ax7) # label(axiom).
+(all U all V (man(U,V) -> human_person(U,V))) # label(ax8) # label(axiom).
+(all U all V (object(U,V) -> unisex(U,V))) # label(ax9) # label(axiom).
+(all U all V (object(U,V) -> impartial(U,V))) # label(ax10) # label(axiom).
+(all U all V (object(U,V) -> nonliving(U,V))) # label(ax11) # label(axiom).
+(all U all V (entity(U,V) -> existent(U,V))) # label(ax12) # label(axiom).
+(all U all V (entity(U,V) -> specific(U,V))) # label(ax13) # label(axiom).
+(all U all V (entity(U,V) -> thing(U,V))) # label(ax14) # label(axiom).
+(all U all V (object(U,V) -> entity(U,V))) # label(ax15) # label(axiom).
+(all U all V (artifact(U,V) -> object(U,V))) # label(ax16) # label(axiom).
+(all U all V (instrumentality(U,V) -> artifact(U,V))) # label(ax17) # label(axiom).
+(all U all V (weaponry(U,V) -> instrumentality(U,V))) # label(ax18) # label(axiom).
+(all U all V (weapon(U,V) -> weaponry(U,V))) # label(ax19) # label(axiom).
+(all U all V (cannon(U,V) -> weapon(U,V))) # label(ax20) # label(axiom).
+(all U all V (fire(U,V) -> event(U,V))) # label(ax21) # label(axiom).
+(all U all V (six(U,V) -> group(U,V))) # label(ax22) # label(axiom).
+(all U all V (set(U,V) -> multiple(U,V))) # label(ax23) # label(axiom).
+(all U all V (group(U,V) -> set(U,V))) # label(ax24) # label(axiom).
+(all U all V (shot(U,V) -> action(U,V))) # label(ax25) # label(axiom).
+(all U all V (act(U,V) -> event(U,V))) # label(ax26) # label(axiom).
+(all U all V (action(U,V) -> act(U,V))) # label(ax27) # label(axiom).
+(all U all V (revenge(U,V) -> action(U,V))) # label(ax28) # label(axiom).
+(all U all V (cry(U,V) -> event(U,V))) # label(ax29) # label(axiom).
+(all U all V (scream(U,V) -> event(U,V))) # label(ax30) # label(axiom).
+(all U all V (eventuality(U,V) -> unisex(U,V))) # label(ax31) # label(axiom).
+(all U all V (eventuality(U,V) -> nonexistent(U,V))) # label(ax32) # label(axiom).
+(all U all V (eventuality(U,V) -> specific(U,V))) # label(ax33) # label(axiom).
+(all U all V (thing(U,V) -> singleton(U,V))) # label(ax34) # label(axiom).
+(all U all V (eventuality(U,V) -> thing(U,V))) # label(ax35) # label(axiom).
+(all U all V (event(U,V) -> eventuality(U,V))) # label(ax36) # label(axiom).
+(all U all V (sound(U,V) -> event(U,V))) # label(ax37) # label(axiom).
+(all U all V (scream(U,V) -> sound(U,V))) # label(ax38) # label(axiom).
+(all U all V (animate(U,V) -> -nonliving(U,V))) # label(ax39) # label(axiom).
+(all U all V (existent(U,V) -> -nonexistent(U,V))) # label(ax40) # label(axiom).
+(all U all V (nonliving(U,V) -> -living(U,V))) # label(ax41) # label(axiom).
+(all U all V (singleton(U,V) -> -multiple(U,V))) # label(ax42) # label(axiom).
+(all U all V (unisex(U,V) -> -male(U,V))) # label(ax43) # label(axiom).
+(all U all V (six(U,V) <-> (exists W (member(U,W,V) & (exists X (member(U,X,V) & X != W & (exists Y (member(U,Y,V) & Y != X & Y != W & (exists Z (member(U,Z,V) & Z != Y & Z != X & Z != W & (exists X1 (member(U,X1,V) & X1 != Z & X1 != Y & X1 != X & X1 != W & (exists X2 (member(U,X2,V) & X2 != X1 & X2 != Z & X2 != Y & X2 != X & X2 != W & (all X3 (member(U,X3,V) -> X3 = X2 | X3 = X1 | X3 = Z | X3 = Y | X3 = X | X3 = W)))))))))))))))) # label(ax44) # label(axiom).
+(all U member(U,V,V)) # label(ax45) # label(axiom).
+(all U all V all W all X (nonreflexive(U,V) & agent(U,V,W) & patient(U,V,X) -> W != X)) # label(ax46) # label(axiom).
+end_of_list.
+
+formulas(goals).
+-((exists U (actual_world(U) & (exists V exists W exists X (male(U,V) & man(U,V) & of(U,W,V) & cannon(U,W) & (all Y (member(U,Y,X) -> (exists Z (event(U,Z) & agent(U,Z,V) & patient(U,Z,Y) & present(U,Z) & nonreflexive(U,Z) & fire(U,Z) & from_loc(U,Z,W))))) & six(U,X) & group(U,X) & (all X1 (member(U,X1,X) -> shot(U,X1))))))) & actual_world(X2) & (exists V exists W exists X exists X3 exists X4 exists X5 (male(X2,V) & man(X2,V) & of(X2,W,V) & cannon(X2,W) & (all Y (member(X2,Y,X) -> (exists Z (event(X2,Z) & agent(X2,Z,V) & patient(X2,Z,Y) & present(X2,Z) & nonreflexive(X2,Z) & fire(X2,Z) & from_loc(X2,Z,W))))) & six(X2,X) & group(X2,X) & (all X1 (member(X2,X1,X) -> shot(X2,X1))) & cry(X2,X3) & revenge(X2,X4) & event(X2,X5) & agent(X2,X5,V) & patient(X2,X5,X3) & present(X2,X5) & nonreflexive(X2,X5) & scream(X2,X5) & of(X2,X5,X4)))) # label(co1) # label(conjecture).
+end_of_list.

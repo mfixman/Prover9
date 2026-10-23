@@ -1,0 +1,12 @@
+{
+  "problem": "LCL823-1",
+  "domain": "LCL",
+  "rating": 0.4,
+  "conversion_wall_seconds": 0.057583041008911096,
+  "exit_code": 4,
+  "search_wall_seconds": 20.90759376999631,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.18,
+  "total_wall_seconds": 20.96757824800443
+}

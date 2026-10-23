@@ -1,0 +1,102 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 97 was started by mfixman on bodoque,
+Fri Oct 23 15:00:26 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+le(A,A) # label(sos_01) # label(axiom).
+-le(max(A,B),C) | le(A,C) # label(sos_02) # label(axiom).
+-le(max(A,B),C) | le(B,C) # label(sos_03) # label(axiom).
+eq(f(A),a0) | eq(f(A),a1) | eq(f(A),a2) # label(sos_04) # label(axiom).
+-eq(f(A0),a0) | -eq(f(A1),a0) | -le(s(A0),A1) # label(sos_05) # label(axiom).
+-eq(f(A0),a1) | -eq(f(A1),a1) | -le(s(A0),A1) # label(sos_06) # label(axiom).
+-eq(f(A0),a2) | -eq(f(A1),a2) | -le(s(A0),A1) # label(sos_07) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ le, eq ]).
+Function symbol precedence:  function_order([ a0, a1, a2, max, f, s ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 2147483647 (0.00 of 3.96 sec).
+
+given #500 (T,wt=19): 871 le(A,max(B,max(C,max(D,max(E,max(max(max(F,max(V6,A)),V7),V8)))))).  [resolve(358,a,3,a)].
+
+============================== STATISTICS ============================
+
+Given=701. Generated=17062. Kept=6432. proofs=0.
+Usable=701. Sos=5690. Demods=0. Limbo=41, Disabled=7. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=286.
+Forward_subsumed=10344. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=6592040. Nonunit_bsub_feature_tests=788709.
+Megabytes=19.10.
+User_CPU=20.00, System_CPU=0.03, Wall_clock=20.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 97 exit (max_seconds) Fri Oct 23 15:00:46 2026
+
+SEARCH FAILED
+
+------ process 97 exit (max_seconds) ------
+

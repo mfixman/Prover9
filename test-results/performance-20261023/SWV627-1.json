@@ -1,0 +1,12 @@
+{
+  "problem": "SWV627-1",
+  "domain": "SWV",
+  "rating": 0.2,
+  "conversion_wall_seconds": 0.0637015730026178,
+  "exit_code": 0,
+  "search_wall_seconds": 0.931540274003055,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.83,
+  "total_wall_seconds": 1.0015840720006963
+}

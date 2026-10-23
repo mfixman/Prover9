@@ -1,0 +1,1745 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 50 was started by mfixman on bodoque,
+Fri Oct 23 14:54:44 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,10).
+assign(max_megs,256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all W0 (aElement0(W0) -> $T)) # label(mElmSort) # label(axiom).
+aElement0(sz00) # label(mSortsC) # label(axiom).
+aElement0(sz10) # label(mSortsC_01) # label(axiom).
+(all W0 (aElement0(W0) -> aElement0(smndt0(W0)))) # label(mSortsU) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> aElement0(sdtpldt0(W0,W1)))) # label(mSortsB) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> aElement0(sdtasdt0(W0,W1)))) # label(mSortsB_02) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> sdtpldt0(W0,W1) = sdtpldt0(W1,W0))) # label(mAddComm) # label(axiom).
+(all W0 all W1 all W2 (aElement0(W0) & aElement0(W1) & aElement0(W2) -> sdtpldt0(sdtpldt0(W0,W1),W2) = sdtpldt0(W0,sdtpldt0(W1,W2)))) # label(mAddAsso) # label(axiom).
+(all W0 (aElement0(W0) -> sdtpldt0(W0,sz00) = W0 & W0 = sdtpldt0(sz00,W0))) # label(mAddZero) # label(axiom).
+(all W0 (aElement0(W0) -> sdtpldt0(W0,smndt0(W0)) = sz00 & sz00 = sdtpldt0(smndt0(W0),W0))) # label(mAddInvr) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> sdtasdt0(W0,W1) = sdtasdt0(W1,W0))) # label(mMulComm) # label(axiom).
+(all W0 all W1 all W2 (aElement0(W0) & aElement0(W1) & aElement0(W2) -> sdtasdt0(sdtasdt0(W0,W1),W2) = sdtasdt0(W0,sdtasdt0(W1,W2)))) # label(mMulAsso) # label(axiom).
+(all W0 (aElement0(W0) -> sdtasdt0(W0,sz10) = W0 & W0 = sdtasdt0(sz10,W0))) # label(mMulUnit) # label(axiom).
+(all W0 all W1 all W2 (aElement0(W0) & aElement0(W1) & aElement0(W2) -> sdtasdt0(W0,sdtpldt0(W1,W2)) = sdtpldt0(sdtasdt0(W0,W1),sdtasdt0(W0,W2)) & sdtasdt0(sdtpldt0(W1,W2),W0) = sdtpldt0(sdtasdt0(W1,W0),sdtasdt0(W2,W0)))) # label(mAMDistr) # label(axiom).
+(all W0 (aElement0(W0) -> sdtasdt0(smndt0(sz10),W0) = smndt0(W0) & smndt0(W0) = sdtasdt0(W0,smndt0(sz10)))) # label(mMulMnOne) # label(axiom).
+(all W0 (aElement0(W0) -> sdtasdt0(W0,sz00) = sz00 & sz00 = sdtasdt0(sz00,W0))) # label(mMulZero) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> (sdtasdt0(W0,W1) = sz00 -> W0 = sz00 | W1 = sz00))) # label(mCancel) # label(axiom).
+sz10 != sz00 # label(mUnNeZr) # label(axiom).
+(all W0 (aSet0(W0) -> $T)) # label(mSetSort) # label(axiom).
+(all W0 (aSet0(W0) -> (all W1 (aElementOf0(W1,W0) -> aElement0(W1))))) # label(mEOfElem) # label(axiom).
+(all W0 all W1 (aSet0(W0) & aSet0(W1) -> ((all W2 (aElementOf0(W2,W0) -> aElementOf0(W2,W1))) & (all W2 (aElementOf0(W2,W1) -> aElementOf0(W2,W0))) -> W0 = W1))) # label(mSetEq) # label(axiom).
+(all W0 all W1 (aSet0(W0) & aSet0(W1) -> (all W2 (W2 = sdtpldt1(W0,W1) <-> aSet0(W2) & (all W3 (aElementOf0(W3,W2) <-> (exists W4 exists W5 (aElementOf0(W4,W0) & aElementOf0(W5,W1) & sdtpldt0(W4,W5) = W3)))))))) # label(mDefSSum) # label(definition).
+(all W0 all W1 (aSet0(W0) & aSet0(W1) -> (all W2 (W2 = sdtasasdt0(W0,W1) <-> aSet0(W2) & (all W3 (aElementOf0(W3,W2) <-> aElementOf0(W3,W0) & aElementOf0(W3,W1))))))) # label(mDefSInt) # label(definition).
+(all W0 (aIdeal0(W0) <-> aSet0(W0) & (all W1 (aElementOf0(W1,W0) -> (all W2 (aElementOf0(W2,W0) -> aElementOf0(sdtpldt0(W1,W2),W0))) & (all W2 (aElement0(W2) -> aElementOf0(sdtasdt0(W2,W1),W0))))))) # label(mDefIdeal) # label(definition).
+(all W0 all W1 (aIdeal0(W0) & aIdeal0(W1) -> aIdeal0(sdtpldt1(W0,W1)))) # label(mIdeSum) # label(axiom).
+(all W0 all W1 (aIdeal0(W0) & aIdeal0(W1) -> aIdeal0(sdtasasdt0(W0,W1)))) # label(mIdeInt) # label(axiom).
+(all W0 all W1 all W2 (aElement0(W0) & aElement0(W1) & aIdeal0(W2) -> (sdteqdtlpzmzozddtrp0(W0,W1,W2) <-> aElementOf0(sdtpldt0(W0,smndt0(W1)),W2)))) # label(mDefMod) # label(definition).
+(all W0 all W1 (aIdeal0(W0) & aIdeal0(W1) -> ((all W2 (aElement0(W2) -> aElementOf0(W2,sdtpldt1(W0,W1)))) -> (all W2 all W3 (aElement0(W2) & aElement0(W3) -> (exists W4 (aElement0(W4) & sdteqdtlpzmzozddtrp0(W4,W2,W0) & sdteqdtlpzmzozddtrp0(W4,W3,W1)))))))) # label(mChineseRemainder) # label(axiom).
+(all W0 (aNaturalNumber0(W0) -> $T)) # label(mNatSort) # label(axiom).
+(all W0 (aElement0(W0) & W0 != sz00 -> aNaturalNumber0(sbrdtbr0(W0)))) # label(mEucSort) # label(axiom).
+(all W0 all W1 (aNaturalNumber0(W0) & aNaturalNumber0(W1) -> (iLess0(W0,W1) -> $T))) # label(mNatLess) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) & W1 != sz00 -> (exists W2 exists W3 (aElement0(W2) & aElement0(W3) & W0 = sdtpldt0(sdtasdt0(W2,W1),W3) & (W3 != sz00 -> iLess0(sbrdtbr0(W3),sbrdtbr0(W1))))))) # label(mDivision) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> (doDivides0(W0,W1) <-> (exists W2 (aElement0(W2) & sdtasdt0(W0,W2) = W1))))) # label(mDefDiv) # label(definition).
+(all W0 (aElement0(W0) -> (all W1 (aDivisorOf0(W1,W0) <-> aElement0(W1) & doDivides0(W1,W0))))) # label(mDefDvs) # label(definition).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> (all W2 (aGcdOfAnd0(W2,W0,W1) <-> aDivisorOf0(W2,W0) & aDivisorOf0(W2,W1) & (all W3 (aDivisorOf0(W3,W0) & aDivisorOf0(W3,W1) -> doDivides0(W3,W2))))))) # label(mDefGCD) # label(definition).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> (misRelativelyPrime0(W0,W1) <-> aGcdOfAnd0(sz10,W0,W1)))) # label(mDefRel) # label(definition).
+(all W0 (aElement0(W0) -> (all W1 (W1 = slsdtgt0(W0) <-> aSet0(W1) & (all W2 (aElementOf0(W2,W1) <-> (exists W3 (aElement0(W3) & sdtasdt0(W0,W3) = W2)))))))) # label(mDefPrIdeal) # label(definition).
+aElement0(xc) # label(m__1905) # label(hypothesis).
+aElementOf0(xx,slsdtgt0(xc)) & aElementOf0(xy,slsdtgt0(xc)) & aElement0(xz) # label(m__1933) # label(hypothesis).
+aElement0(xu) & sdtasdt0(xc,xu) = xx # label(m__1956) # label(hypothesis).
+aElement0(xv) & sdtasdt0(xc,xv) = xy # label(m__1979) # label(hypothesis).
+sdtpldt0(xx,xy) = sdtasdt0(xc,sdtpldt0(xu,xv)) # label(m__2010) # label(hypothesis).
+end_of_list.
+
+formulas(goals).
+sdtasdt0(xz,xx) = sdtasdt0(xc,sdtasdt0(xu,xz)) # label(m__) # label(conjecture).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all W0 (aElement0(W0) -> $T)) # label(mElmSort) # label(axiom) # label(non_clause).  [assumption].
+2 (all W0 (aElement0(W0) -> aElement0(smndt0(W0)))) # label(mSortsU) # label(axiom) # label(non_clause).  [assumption].
+3 (all W0 all W1 (aElement0(W0) & aElement0(W1) -> aElement0(sdtpldt0(W0,W1)))) # label(mSortsB) # label(axiom) # label(non_clause).  [assumption].
+4 (all W0 all W1 (aElement0(W0) & aElement0(W1) -> aElement0(sdtasdt0(W0,W1)))) # label(mSortsB_02) # label(axiom) # label(non_clause).  [assumption].
+5 (all W0 all W1 (aElement0(W0) & aElement0(W1) -> sdtpldt0(W0,W1) = sdtpldt0(W1,W0))) # label(mAddComm) # label(axiom) # label(non_clause).  [assumption].
+6 (all W0 all W1 all W2 (aElement0(W0) & aElement0(W1) & aElement0(W2) -> sdtpldt0(sdtpldt0(W0,W1),W2) = sdtpldt0(W0,sdtpldt0(W1,W2)))) # label(mAddAsso) # label(axiom) # label(non_clause).  [assumption].
+7 (all W0 (aElement0(W0) -> sdtpldt0(W0,sz00) = W0 & W0 = sdtpldt0(sz00,W0))) # label(mAddZero) # label(axiom) # label(non_clause).  [assumption].
+8 (all W0 (aElement0(W0) -> sdtpldt0(W0,smndt0(W0)) = sz00 & sz00 = sdtpldt0(smndt0(W0),W0))) # label(mAddInvr) # label(axiom) # label(non_clause).  [assumption].
+9 (all W0 all W1 (aElement0(W0) & aElement0(W1) -> sdtasdt0(W0,W1) = sdtasdt0(W1,W0))) # label(mMulComm) # label(axiom) # label(non_clause).  [assumption].
+10 (all W0 all W1 all W2 (aElement0(W0) & aElement0(W1) & aElement0(W2) -> sdtasdt0(sdtasdt0(W0,W1),W2) = sdtasdt0(W0,sdtasdt0(W1,W2)))) # label(mMulAsso) # label(axiom) # label(non_clause).  [assumption].
+11 (all W0 (aElement0(W0) -> sdtasdt0(W0,sz10) = W0 & W0 = sdtasdt0(sz10,W0))) # label(mMulUnit) # label(axiom) # label(non_clause).  [assumption].
+12 (all W0 all W1 all W2 (aElement0(W0) & aElement0(W1) & aElement0(W2) -> sdtasdt0(W0,sdtpldt0(W1,W2)) = sdtpldt0(sdtasdt0(W0,W1),sdtasdt0(W0,W2)) & sdtasdt0(sdtpldt0(W1,W2),W0) = sdtpldt0(sdtasdt0(W1,W0),sdtasdt0(W2,W0)))) # label(mAMDistr) # label(axiom) # label(non_clause).  [assumption].
+13 (all W0 (aElement0(W0) -> sdtasdt0(smndt0(sz10),W0) = smndt0(W0) & smndt0(W0) = sdtasdt0(W0,smndt0(sz10)))) # label(mMulMnOne) # label(axiom) # label(non_clause).  [assumption].
+14 (all W0 (aElement0(W0) -> sdtasdt0(W0,sz00) = sz00 & sz00 = sdtasdt0(sz00,W0))) # label(mMulZero) # label(axiom) # label(non_clause).  [assumption].
+15 (all W0 all W1 (aElement0(W0) & aElement0(W1) -> (sdtasdt0(W0,W1) = sz00 -> W0 = sz00 | W1 = sz00))) # label(mCancel) # label(axiom) # label(non_clause).  [assumption].
+16 (all W0 (aSet0(W0) -> $T)) # label(mSetSort) # label(axiom) # label(non_clause).  [assumption].
+17 (all W0 (aSet0(W0) -> (all W1 (aElementOf0(W1,W0) -> aElement0(W1))))) # label(mEOfElem) # label(axiom) # label(non_clause).  [assumption].
+18 (all W0 all W1 (aSet0(W0) & aSet0(W1) -> ((all W2 (aElementOf0(W2,W0) -> aElementOf0(W2,W1))) & (all W2 (aElementOf0(W2,W1) -> aElementOf0(W2,W0))) -> W0 = W1))) # label(mSetEq) # label(axiom) # label(non_clause).  [assumption].
+19 (all W0 all W1 (aSet0(W0) & aSet0(W1) -> (all W2 (W2 = sdtpldt1(W0,W1) <-> aSet0(W2) & (all W3 (aElementOf0(W3,W2) <-> (exists W4 exists W5 (aElementOf0(W4,W0) & aElementOf0(W5,W1) & sdtpldt0(W4,W5) = W3)))))))) # label(mDefSSum) # label(definition) # label(non_clause).  [assumption].
+20 (all W0 all W1 (aSet0(W0) & aSet0(W1) -> (all W2 (W2 = sdtasasdt0(W0,W1) <-> aSet0(W2) & (all W3 (aElementOf0(W3,W2) <-> aElementOf0(W3,W0) & aElementOf0(W3,W1))))))) # label(mDefSInt) # label(definition) # label(non_clause).  [assumption].
+21 (all W0 (aIdeal0(W0) <-> aSet0(W0) & (all W1 (aElementOf0(W1,W0) -> (all W2 (aElementOf0(W2,W0) -> aElementOf0(sdtpldt0(W1,W2),W0))) & (all W2 (aElement0(W2) -> aElementOf0(sdtasdt0(W2,W1),W0))))))) # label(mDefIdeal) # label(definition) # label(non_clause).  [assumption].
+22 (all W0 all W1 (aIdeal0(W0) & aIdeal0(W1) -> aIdeal0(sdtpldt1(W0,W1)))) # label(mIdeSum) # label(axiom) # label(non_clause).  [assumption].
+23 (all W0 all W1 (aIdeal0(W0) & aIdeal0(W1) -> aIdeal0(sdtasasdt0(W0,W1)))) # label(mIdeInt) # label(axiom) # label(non_clause).  [assumption].
+24 (all W0 all W1 all W2 (aElement0(W0) & aElement0(W1) & aIdeal0(W2) -> (sdteqdtlpzmzozddtrp0(W0,W1,W2) <-> aElementOf0(sdtpldt0(W0,smndt0(W1)),W2)))) # label(mDefMod) # label(definition) # label(non_clause).  [assumption].
+25 (all W0 all W1 (aIdeal0(W0) & aIdeal0(W1) -> ((all W2 (aElement0(W2) -> aElementOf0(W2,sdtpldt1(W0,W1)))) -> (all W2 all W3 (aElement0(W2) & aElement0(W3) -> (exists W4 (aElement0(W4) & sdteqdtlpzmzozddtrp0(W4,W2,W0) & sdteqdtlpzmzozddtrp0(W4,W3,W1)))))))) # label(mChineseRemainder) # label(axiom) # label(non_clause).  [assumption].
+26 (all W0 (aNaturalNumber0(W0) -> $T)) # label(mNatSort) # label(axiom) # label(non_clause).  [assumption].
+27 (all W0 (aElement0(W0) & W0 != sz00 -> aNaturalNumber0(sbrdtbr0(W0)))) # label(mEucSort) # label(axiom) # label(non_clause).  [assumption].
+28 (all W0 all W1 (aNaturalNumber0(W0) & aNaturalNumber0(W1) -> (iLess0(W0,W1) -> $T))) # label(mNatLess) # label(axiom) # label(non_clause).  [assumption].
+29 (all W0 all W1 (aElement0(W0) & aElement0(W1) & W1 != sz00 -> (exists W2 exists W3 (aElement0(W2) & aElement0(W3) & W0 = sdtpldt0(sdtasdt0(W2,W1),W3) & (W3 != sz00 -> iLess0(sbrdtbr0(W3),sbrdtbr0(W1))))))) # label(mDivision) # label(axiom) # label(non_clause).  [assumption].
+30 (all W0 all W1 (aElement0(W0) & aElement0(W1) -> (doDivides0(W0,W1) <-> (exists W2 (aElement0(W2) & sdtasdt0(W0,W2) = W1))))) # label(mDefDiv) # label(definition) # label(non_clause).  [assumption].
+31 (all W0 (aElement0(W0) -> (all W1 (aDivisorOf0(W1,W0) <-> aElement0(W1) & doDivides0(W1,W0))))) # label(mDefDvs) # label(definition) # label(non_clause).  [assumption].
+32 (all W0 all W1 (aElement0(W0) & aElement0(W1) -> (all W2 (aGcdOfAnd0(W2,W0,W1) <-> aDivisorOf0(W2,W0) & aDivisorOf0(W2,W1) & (all W3 (aDivisorOf0(W3,W0) & aDivisorOf0(W3,W1) -> doDivides0(W3,W2))))))) # label(mDefGCD) # label(definition) # label(non_clause).  [assumption].
+33 (all W0 all W1 (aElement0(W0) & aElement0(W1) -> (misRelativelyPrime0(W0,W1) <-> aGcdOfAnd0(sz10,W0,W1)))) # label(mDefRel) # label(definition) # label(non_clause).  [assumption].
+34 (all W0 (aElement0(W0) -> (all W1 (W1 = slsdtgt0(W0) <-> aSet0(W1) & (all W2 (aElementOf0(W2,W1) <-> (exists W3 (aElement0(W3) & sdtasdt0(W0,W3) = W2)))))))) # label(mDefPrIdeal) # label(definition) # label(non_clause).  [assumption].
+35 aElementOf0(xx,slsdtgt0(xc)) & aElementOf0(xy,slsdtgt0(xc)) & aElement0(xz) # label(m__1933) # label(hypothesis) # label(non_clause).  [assumption].
+36 aElement0(xu) & sdtasdt0(xc,xu) = xx # label(m__1956) # label(hypothesis) # label(non_clause).  [assumption].
+37 aElement0(xv) & sdtasdt0(xc,xv) = xy # label(m__1979) # label(hypothesis) # label(non_clause).  [assumption].
+38 sdtasdt0(xz,xx) = sdtasdt0(xc,sdtasdt0(xu,xz)) # label(m__) # label(conjecture) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+aElement0(sz00) # label(mSortsC) # label(axiom).  [assumption].
+aElement0(sz10) # label(mSortsC_01) # label(axiom).  [assumption].
+-aElement0(A) | aElement0(smndt0(A)) # label(mSortsU) # label(axiom).  [clausify(2)].
+-aElement0(A) | -aElement0(B) | aElement0(sdtpldt0(A,B)) # label(mSortsB) # label(axiom).  [clausify(3)].
+-aElement0(A) | -aElement0(B) | aElement0(sdtasdt0(A,B)) # label(mSortsB_02) # label(axiom).  [clausify(4)].
+-aElement0(A) | -aElement0(B) | sdtpldt0(B,A) = sdtpldt0(A,B) # label(mAddComm) # label(axiom).  [clausify(5)].
+-aElement0(A) | -aElement0(B) | -aElement0(C) | sdtpldt0(sdtpldt0(A,B),C) = sdtpldt0(A,sdtpldt0(B,C)) # label(mAddAsso) # label(axiom).  [clausify(6)].
+-aElement0(A) | sdtpldt0(A,sz00) = A # label(mAddZero) # label(axiom).  [clausify(7)].
+-aElement0(A) | sdtpldt0(sz00,A) = A # label(mAddZero) # label(axiom).  [clausify(7)].
+-aElement0(A) | sdtpldt0(A,smndt0(A)) = sz00 # label(mAddInvr) # label(axiom).  [clausify(8)].
+-aElement0(A) | sdtpldt0(smndt0(A),A) = sz00 # label(mAddInvr) # label(axiom).  [clausify(8)].
+-aElement0(A) | -aElement0(B) | sdtasdt0(B,A) = sdtasdt0(A,B) # label(mMulComm) # label(axiom).  [clausify(9)].
+-aElement0(A) | -aElement0(B) | -aElement0(C) | sdtasdt0(sdtasdt0(A,B),C) = sdtasdt0(A,sdtasdt0(B,C)) # label(mMulAsso) # label(axiom).  [clausify(10)].
+-aElement0(A) | sdtasdt0(A,sz10) = A # label(mMulUnit) # label(axiom).  [clausify(11)].
+-aElement0(A) | sdtasdt0(sz10,A) = A # label(mMulUnit) # label(axiom).  [clausify(11)].
+-aElement0(A) | -aElement0(B) | -aElement0(C) | sdtasdt0(A,sdtpldt0(B,C)) = sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,C)) # label(mAMDistr) # label(axiom).  [clausify(12)].
+-aElement0(A) | -aElement0(B) | -aElement0(C) | sdtasdt0(sdtpldt0(B,C),A) = sdtpldt0(sdtasdt0(B,A),sdtasdt0(C,A)) # label(mAMDistr) # label(axiom).  [clausify(12)].
+-aElement0(A) | sdtasdt0(smndt0(sz10),A) = smndt0(A) # label(mMulMnOne) # label(axiom).  [clausify(13)].
+-aElement0(A) | sdtasdt0(A,smndt0(sz10)) = smndt0(A) # label(mMulMnOne) # label(axiom).  [clausify(13)].
+-aElement0(A) | sdtasdt0(A,sz00) = sz00 # label(mMulZero) # label(axiom).  [clausify(14)].
+-aElement0(A) | sdtasdt0(sz00,A) = sz00 # label(mMulZero) # label(axiom).  [clausify(14)].
+-aElement0(A) | -aElement0(B) | sdtasdt0(A,B) != sz00 | sz00 = A | B = sz00 # label(mCancel) # label(axiom).  [clausify(15)].
+sz10 != sz00 # label(mUnNeZr) # label(axiom).  [assumption].
+-aSet0(A) | -aElementOf0(B,A) | aElement0(B) # label(mEOfElem) # label(axiom).  [clausify(17)].
+-aSet0(A) | -aSet0(B) | aElementOf0(f1(A,B),A) | aElementOf0(f2(A,B),B) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+-aSet0(A) | -aSet0(B) | aElementOf0(f1(A,B),A) | -aElementOf0(f2(A,B),A) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+-aSet0(A) | -aSet0(B) | -aElementOf0(f1(A,B),B) | aElementOf0(f2(A,B),B) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+-aSet0(A) | -aSet0(B) | -aElementOf0(f1(A,B),B) | -aElementOf0(f2(A,B),A) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+-aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | aSet0(C) # label(mDefSSum) # label(definition).  [clausify(19)].
+-aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | -aElementOf0(D,C) | aElementOf0(f3(A,B,C,D),A) # label(mDefSSum) # label(definition).  [clausify(19)].
+-aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | -aElementOf0(D,C) | aElementOf0(f4(A,B,C,D),B) # label(mDefSSum) # label(definition).  [clausify(19)].
+-aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | -aElementOf0(D,C) | sdtpldt0(f3(A,B,C,D),f4(A,B,C,D)) = D # label(mDefSSum) # label(definition).  [clausify(19)].
+-aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | aElementOf0(D,C) | -aElementOf0(E,A) | -aElementOf0(F,B) | sdtpldt0(E,F) != D # label(mDefSSum) # label(definition).  [clausify(19)].
+-aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | aElementOf0(f5(A,B,C),C) | aElementOf0(f6(A,B,C),A) # label(mDefSSum) # label(definition).  [clausify(19)].
+-aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | aElementOf0(f5(A,B,C),C) | aElementOf0(f7(A,B,C),B) # label(mDefSSum) # label(definition).  [clausify(19)].
+-aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | aElementOf0(f5(A,B,C),C) | sdtpldt0(f6(A,B,C),f7(A,B,C)) = f5(A,B,C) # label(mDefSSum) # label(definition).  [clausify(19)].
+-aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | -aElementOf0(f5(A,B,C),C) | -aElementOf0(D,A) | -aElementOf0(E,B) | sdtpldt0(D,E) != f5(A,B,C) # label(mDefSSum) # label(definition).  [clausify(19)].
+-aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | aSet0(C) # label(mDefSInt) # label(definition).  [clausify(20)].
+-aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | -aElementOf0(D,C) | aElementOf0(D,A) # label(mDefSInt) # label(definition).  [clausify(20)].
+-aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | -aElementOf0(D,C) | aElementOf0(D,B) # label(mDefSInt) # label(definition).  [clausify(20)].
+-aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | aElementOf0(D,C) | -aElementOf0(D,A) | -aElementOf0(D,B) # label(mDefSInt) # label(definition).  [clausify(20)].
+-aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = C | -aSet0(C) | aElementOf0(f8(A,B,C),C) | aElementOf0(f8(A,B,C),A) # label(mDefSInt) # label(definition).  [clausify(20)].
+-aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = C | -aSet0(C) | aElementOf0(f8(A,B,C),C) | aElementOf0(f8(A,B,C),B) # label(mDefSInt) # label(definition).  [clausify(20)].
+-aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = C | -aSet0(C) | -aElementOf0(f8(A,B,C),C) | -aElementOf0(f8(A,B,C),A) | -aElementOf0(f8(A,B,C),B) # label(mDefSInt) # label(definition).  [clausify(20)].
+-aIdeal0(A) | aSet0(A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+-aIdeal0(A) | -aElementOf0(B,A) | -aElementOf0(C,A) | aElementOf0(sdtpldt0(B,C),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+-aIdeal0(A) | -aElementOf0(B,A) | -aElement0(C) | aElementOf0(sdtasdt0(C,B),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+aIdeal0(A) | -aSet0(A) | aElementOf0(f9(A),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+aIdeal0(A) | -aSet0(A) | aElementOf0(f10(A),A) | aElement0(f11(A)) # label(mDefIdeal) # label(definition).  [clausify(21)].
+aIdeal0(A) | -aSet0(A) | aElementOf0(f10(A),A) | -aElementOf0(sdtasdt0(f11(A),f9(A)),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+aIdeal0(A) | -aSet0(A) | -aElementOf0(sdtpldt0(f9(A),f10(A)),A) | aElement0(f11(A)) # label(mDefIdeal) # label(definition).  [clausify(21)].
+aIdeal0(A) | -aSet0(A) | -aElementOf0(sdtpldt0(f9(A),f10(A)),A) | -aElementOf0(sdtasdt0(f11(A),f9(A)),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+-aIdeal0(A) | -aIdeal0(B) | aIdeal0(sdtpldt1(A,B)) # label(mIdeSum) # label(axiom).  [clausify(22)].
+-aIdeal0(A) | -aIdeal0(B) | aIdeal0(sdtasasdt0(A,B)) # label(mIdeInt) # label(axiom).  [clausify(23)].
+-aElement0(A) | -aElement0(B) | -aIdeal0(C) | -sdteqdtlpzmzozddtrp0(A,B,C) | aElementOf0(sdtpldt0(A,smndt0(B)),C) # label(mDefMod) # label(definition).  [clausify(24)].
+-aElement0(A) | -aElement0(B) | -aIdeal0(C) | sdteqdtlpzmzozddtrp0(A,B,C) | -aElementOf0(sdtpldt0(A,smndt0(B)),C) # label(mDefMod) # label(definition).  [clausify(24)].
+-aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | aElement0(f13(A,B,C,D)) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+-aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | sdteqdtlpzmzozddtrp0(f13(A,B,C,D),C,A) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+-aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | sdteqdtlpzmzozddtrp0(f13(A,B,C,D),D,B) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+-aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | aElement0(f13(A,B,C,D)) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+-aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | sdteqdtlpzmzozddtrp0(f13(A,B,C,D),C,A) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+-aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | sdteqdtlpzmzozddtrp0(f13(A,B,C,D),D,B) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+-aElement0(A) | sz00 = A | aNaturalNumber0(sbrdtbr0(A)) # label(mEucSort) # label(axiom).  [clausify(27)].
+-aElement0(A) | -aElement0(B) | B = sz00 | aElement0(f14(A,B)) # label(mDivision) # label(axiom).  [clausify(29)].
+-aElement0(A) | -aElement0(B) | B = sz00 | aElement0(f15(A,B)) # label(mDivision) # label(axiom).  [clausify(29)].
+-aElement0(A) | -aElement0(B) | B = sz00 | sdtpldt0(sdtasdt0(f14(A,B),B),f15(A,B)) = A # label(mDivision) # label(axiom).  [clausify(29)].
+-aElement0(A) | -aElement0(B) | B = sz00 | f15(A,B) = sz00 | iLess0(sbrdtbr0(f15(A,B)),sbrdtbr0(B)) # label(mDivision) # label(axiom).  [clausify(29)].
+-aElement0(A) | -aElement0(B) | -doDivides0(A,B) | aElement0(f16(A,B)) # label(mDefDiv) # label(definition).  [clausify(30)].
+-aElement0(A) | -aElement0(B) | -doDivides0(A,B) | sdtasdt0(A,f16(A,B)) = B # label(mDefDiv) # label(definition).  [clausify(30)].
+-aElement0(A) | -aElement0(B) | doDivides0(A,B) | -aElement0(C) | sdtasdt0(A,C) != B # label(mDefDiv) # label(definition).  [clausify(30)].
+-aElement0(A) | -aDivisorOf0(B,A) | aElement0(B) # label(mDefDvs) # label(definition).  [clausify(31)].
+-aElement0(A) | -aDivisorOf0(B,A) | doDivides0(B,A) # label(mDefDvs) # label(definition).  [clausify(31)].
+-aElement0(A) | aDivisorOf0(B,A) | -aElement0(B) | -doDivides0(B,A) # label(mDefDvs) # label(definition).  [clausify(31)].
+-aElement0(A) | -aElement0(B) | -aGcdOfAnd0(C,A,B) | aDivisorOf0(C,A) # label(mDefGCD) # label(definition).  [clausify(32)].
+-aElement0(A) | -aElement0(B) | -aGcdOfAnd0(C,A,B) | aDivisorOf0(C,B) # label(mDefGCD) # label(definition).  [clausify(32)].
+-aElement0(A) | -aElement0(B) | -aGcdOfAnd0(C,A,B) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C) # label(mDefGCD) # label(definition).  [clausify(32)].
+-aElement0(A) | -aElement0(B) | aGcdOfAnd0(C,A,B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),A) # label(mDefGCD) # label(definition).  [clausify(32)].
+-aElement0(A) | -aElement0(B) | aGcdOfAnd0(C,A,B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),B) # label(mDefGCD) # label(definition).  [clausify(32)].
+-aElement0(A) | -aElement0(B) | aGcdOfAnd0(C,A,B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | -doDivides0(f17(A,B,C),C) # label(mDefGCD) # label(definition).  [clausify(32)].
+-aElement0(A) | -aElement0(B) | -misRelativelyPrime0(A,B) | aGcdOfAnd0(sz10,A,B) # label(mDefRel) # label(definition).  [clausify(33)].
+-aElement0(A) | -aElement0(B) | misRelativelyPrime0(A,B) | -aGcdOfAnd0(sz10,A,B) # label(mDefRel) # label(definition).  [clausify(33)].
+-aElement0(A) | slsdtgt0(A) != B | aSet0(B) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+-aElement0(A) | slsdtgt0(A) != B | -aElementOf0(C,B) | aElement0(f18(A,B,C)) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+-aElement0(A) | slsdtgt0(A) != B | -aElementOf0(C,B) | sdtasdt0(A,f18(A,B,C)) = C # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+-aElement0(A) | slsdtgt0(A) != B | aElementOf0(C,B) | -aElement0(D) | sdtasdt0(A,D) != C # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+-aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | aElementOf0(f19(A,B),B) | aElement0(f20(A,B)) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+-aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | aElementOf0(f19(A,B),B) | sdtasdt0(A,f20(A,B)) = f19(A,B) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+-aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | -aElementOf0(f19(A,B),B) | -aElement0(C) | sdtasdt0(A,C) != f19(A,B) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+aElement0(xc) # label(m__1905) # label(hypothesis).  [assumption].
+aElementOf0(xx,slsdtgt0(xc)) # label(m__1933) # label(hypothesis).  [clausify(35)].
+aElementOf0(xy,slsdtgt0(xc)) # label(m__1933) # label(hypothesis).  [clausify(35)].
+aElement0(xz) # label(m__1933) # label(hypothesis).  [clausify(35)].
+aElement0(xu) # label(m__1956) # label(hypothesis).  [clausify(36)].
+sdtasdt0(xc,xu) = xx # label(m__1956) # label(hypothesis).  [clausify(36)].
+aElement0(xv) # label(m__1979) # label(hypothesis).  [clausify(37)].
+sdtasdt0(xc,xv) = xy # label(m__1979) # label(hypothesis).  [clausify(37)].
+sdtpldt0(xx,xy) = sdtasdt0(xc,sdtpldt0(xu,xv)) # label(m__2010) # label(hypothesis).  [assumption].
+sdtasdt0(xz,xx) != sdtasdt0(xc,sdtasdt0(xu,xz)) # label(m__) # label(conjecture).  [deny(38)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating sdteqdtlpzmzozddtrp0/3
+39 -aElement0(A) | -aElement0(B) | -aIdeal0(C) | sdteqdtlpzmzozddtrp0(A,B,C) | -aElementOf0(sdtpldt0(A,smndt0(B)),C) # label(mDefMod) # label(definition).  [clausify(24)].
+40 -aElement0(A) | -aElement0(B) | -aIdeal0(C) | -sdteqdtlpzmzozddtrp0(A,B,C) | aElementOf0(sdtpldt0(A,smndt0(B)),C) # label(mDefMod) # label(definition).  [clausify(24)].
+41 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | sdteqdtlpzmzozddtrp0(f13(A,B,C,D),C,A) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+Derived: -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | -aElement0(C) | -aIdeal0(A) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(C)),A).  [resolve(41,f,40,d)].
+42 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | sdteqdtlpzmzozddtrp0(f13(A,B,C,D),D,B) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+Derived: -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | -aElement0(D) | -aIdeal0(B) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(D)),B).  [resolve(42,f,40,d)].
+43 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | sdteqdtlpzmzozddtrp0(f13(A,B,C,D),C,A) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+Derived: -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | -aElement0(C) | -aIdeal0(A) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(C)),A).  [resolve(43,f,40,d)].
+44 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | sdteqdtlpzmzozddtrp0(f13(A,B,C,D),D,B) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+Derived: -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | -aElement0(D) | -aIdeal0(B) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(D)),B).  [resolve(44,f,40,d)].
+
+Eliminating aNaturalNumber0/1
+
+Eliminating iLess0/2
+
+Eliminating misRelativelyPrime0/2
+45 -aElement0(A) | -aElement0(B) | misRelativelyPrime0(A,B) | -aGcdOfAnd0(sz10,A,B) # label(mDefRel) # label(definition).  [clausify(33)].
+46 -aElement0(A) | -aElement0(B) | -misRelativelyPrime0(A,B) | aGcdOfAnd0(sz10,A,B) # label(mDefRel) # label(definition).  [clausify(33)].
+
+Eliminating aGcdOfAnd0/3
+47 -aElement0(A) | -aElement0(B) | aGcdOfAnd0(C,A,B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),A) # label(mDefGCD) # label(definition).  [clausify(32)].
+48 -aElement0(A) | -aElement0(B) | -aGcdOfAnd0(C,A,B) | aDivisorOf0(C,A) # label(mDefGCD) # label(definition).  [clausify(32)].
+49 -aElement0(A) | -aElement0(B) | -aGcdOfAnd0(C,A,B) | aDivisorOf0(C,B) # label(mDefGCD) # label(definition).  [clausify(32)].
+50 -aElement0(A) | -aElement0(B) | -aGcdOfAnd0(C,A,B) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C) # label(mDefGCD) # label(definition).  [clausify(32)].
+Derived: -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),A) | -aElement0(A) | -aElement0(B) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [resolve(47,c,50,c)].
+51 -aElement0(A) | -aElement0(B) | aGcdOfAnd0(C,A,B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),B) # label(mDefGCD) # label(definition).  [clausify(32)].
+Derived: -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),B) | -aElement0(A) | -aElement0(B) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [resolve(51,c,50,c)].
+52 -aElement0(A) | -aElement0(B) | aGcdOfAnd0(C,A,B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | -doDivides0(f17(A,B,C),C) # label(mDefGCD) # label(definition).  [clausify(32)].
+Derived: -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | -doDivides0(f17(A,B,C),C) | -aElement0(A) | -aElement0(B) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [resolve(52,c,50,c)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, aElement0, aSet0, aIdeal0, aElementOf0, aDivisorOf0, doDivides0 ]).
+Function symbol precedence:  function_order([ sz00, xc, sz10, xu, xv, xx, xy, xz, sdtasdt0, sdtpldt0, sdtpldt1, sdtasasdt0, f1, f2, f12, f14, f15, f16, f19, f20, smndt0, slsdtgt0, f9, f10, f11, f5, f6, f7, f8, f17, f18, f3, f4, f13 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: xx/0.
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+kept:      53 aElement0(sz00) # label(mSortsC) # label(axiom).  [assumption].
+kept:      54 aElement0(sz10) # label(mSortsC_01) # label(axiom).  [assumption].
+kept:      55 -aElement0(A) | aElement0(smndt0(A)) # label(mSortsU) # label(axiom).  [clausify(2)].
+kept:      56 -aElement0(A) | -aElement0(B) | aElement0(sdtpldt0(A,B)) # label(mSortsB) # label(axiom).  [clausify(3)].
+kept:      57 -aElement0(A) | -aElement0(B) | aElement0(sdtasdt0(A,B)) # label(mSortsB_02) # label(axiom).  [clausify(4)].
+kept:      58 -aElement0(A) | -aElement0(B) | sdtpldt0(B,A) = sdtpldt0(A,B) # label(mAddComm) # label(axiom).  [clausify(5)].
+kept:      59 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtpldt0(sdtpldt0(A,B),C) = sdtpldt0(A,sdtpldt0(B,C)) # label(mAddAsso) # label(axiom).  [clausify(6)].
+kept:      60 -aElement0(A) | sdtpldt0(A,sz00) = A # label(mAddZero) # label(axiom).  [clausify(7)].
+kept:      61 -aElement0(A) | sdtpldt0(sz00,A) = A # label(mAddZero) # label(axiom).  [clausify(7)].
+kept:      62 -aElement0(A) | sdtpldt0(A,smndt0(A)) = sz00 # label(mAddInvr) # label(axiom).  [clausify(8)].
+kept:      63 -aElement0(A) | sdtpldt0(smndt0(A),A) = sz00 # label(mAddInvr) # label(axiom).  [clausify(8)].
+kept:      64 -aElement0(A) | -aElement0(B) | sdtasdt0(B,A) = sdtasdt0(A,B) # label(mMulComm) # label(axiom).  [clausify(9)].
+kept:      65 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtasdt0(sdtasdt0(A,B),C) = sdtasdt0(A,sdtasdt0(B,C)) # label(mMulAsso) # label(axiom).  [clausify(10)].
+kept:      66 -aElement0(A) | sdtasdt0(A,sz10) = A # label(mMulUnit) # label(axiom).  [clausify(11)].
+kept:      67 -aElement0(A) | sdtasdt0(sz10,A) = A # label(mMulUnit) # label(axiom).  [clausify(11)].
+           68 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtasdt0(A,sdtpldt0(B,C)) = sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,C)) # label(mAMDistr) # label(axiom).  [clausify(12)].
+kept:      69 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,C)) = sdtasdt0(A,sdtpldt0(B,C)).  [copy(68),flip(d)].
+           70 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtasdt0(sdtpldt0(B,C),A) = sdtpldt0(sdtasdt0(B,A),sdtasdt0(C,A)) # label(mAMDistr) # label(axiom).  [clausify(12)].
+kept:      71 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtpldt0(sdtasdt0(B,A),sdtasdt0(C,A)) = sdtasdt0(sdtpldt0(B,C),A).  [copy(70),flip(d)].
+kept:      72 -aElement0(A) | sdtasdt0(smndt0(sz10),A) = smndt0(A) # label(mMulMnOne) # label(axiom).  [clausify(13)].
+kept:      73 -aElement0(A) | sdtasdt0(A,smndt0(sz10)) = smndt0(A) # label(mMulMnOne) # label(axiom).  [clausify(13)].
+kept:      74 -aElement0(A) | sdtasdt0(A,sz00) = sz00 # label(mMulZero) # label(axiom).  [clausify(14)].
+kept:      75 -aElement0(A) | sdtasdt0(sz00,A) = sz00 # label(mMulZero) # label(axiom).  [clausify(14)].
+           76 -aElement0(A) | -aElement0(B) | sdtasdt0(A,B) != sz00 | sz00 = A | B = sz00 # label(mCancel) # label(axiom).  [clausify(15)].
+kept:      77 -aElement0(A) | -aElement0(B) | sdtasdt0(A,B) != sz00 | sz00 = A | sz00 = B.  [copy(76),flip(e)].
+kept:      78 sz10 != sz00 # label(mUnNeZr) # label(axiom).  [assumption].
+kept:      79 -aSet0(A) | -aElementOf0(B,A) | aElement0(B) # label(mEOfElem) # label(axiom).  [clausify(17)].
+kept:      80 -aSet0(A) | -aSet0(B) | aElementOf0(f1(A,B),A) | aElementOf0(f2(A,B),B) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+kept:      81 -aSet0(A) | -aSet0(B) | aElementOf0(f1(A,B),A) | -aElementOf0(f2(A,B),A) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+kept:      82 -aSet0(A) | -aSet0(B) | -aElementOf0(f1(A,B),B) | aElementOf0(f2(A,B),B) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+kept:      83 -aSet0(A) | -aSet0(B) | -aElementOf0(f1(A,B),B) | -aElementOf0(f2(A,B),A) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+kept:      84 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | aSet0(C) # label(mDefSSum) # label(definition).  [clausify(19)].
+kept:      85 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | -aElementOf0(D,C) | aElementOf0(f3(A,B,C,D),A) # label(mDefSSum) # label(definition).  [clausify(19)].
+kept:      86 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | -aElementOf0(D,C) | aElementOf0(f4(A,B,C,D),B) # label(mDefSSum) # label(definition).  [clausify(19)].
+kept:      87 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | -aElementOf0(D,C) | sdtpldt0(f3(A,B,C,D),f4(A,B,C,D)) = D # label(mDefSSum) # label(definition).  [clausify(19)].
+kept:      88 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | aElementOf0(D,C) | -aElementOf0(E,A) | -aElementOf0(F,B) | sdtpldt0(E,F) != D # label(mDefSSum) # label(definition).  [clausify(19)].
+kept:      89 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | aElementOf0(f5(A,B,C),C) | aElementOf0(f6(A,B,C),A) # label(mDefSSum) # label(definition).  [clausify(19)].
+kept:      90 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | aElementOf0(f5(A,B,C),C) | aElementOf0(f7(A,B,C),B) # label(mDefSSum) # label(definition).  [clausify(19)].
+kept:      91 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | aElementOf0(f5(A,B,C),C) | sdtpldt0(f6(A,B,C),f7(A,B,C)) = f5(A,B,C) # label(mDefSSum) # label(definition).  [clausify(19)].
+           92 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | -aElementOf0(f5(A,B,C),C) | -aElementOf0(D,A) | -aElementOf0(E,B) | sdtpldt0(D,E) != f5(A,B,C) # label(mDefSSum) # label(definition).  [clausify(19)].
+kept:      93 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | -aElementOf0(f5(A,B,C),C) | -aElementOf0(D,A) | -aElementOf0(E,B) | f5(A,B,C) != sdtpldt0(D,E).  [copy(92),flip(h)].
+kept:      94 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | aSet0(C) # label(mDefSInt) # label(definition).  [clausify(20)].
+kept:      95 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | -aElementOf0(D,C) | aElementOf0(D,A) # label(mDefSInt) # label(definition).  [clausify(20)].
+kept:      96 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | -aElementOf0(D,C) | aElementOf0(D,B) # label(mDefSInt) # label(definition).  [clausify(20)].
+kept:      97 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | aElementOf0(D,C) | -aElementOf0(D,A) | -aElementOf0(D,B) # label(mDefSInt) # label(definition).  [clausify(20)].
+kept:      98 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = C | -aSet0(C) | aElementOf0(f8(A,B,C),C) | aElementOf0(f8(A,B,C),A) # label(mDefSInt) # label(definition).  [clausify(20)].
+kept:      99 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = C | -aSet0(C) | aElementOf0(f8(A,B,C),C) | aElementOf0(f8(A,B,C),B) # label(mDefSInt) # label(definition).  [clausify(20)].
+kept:      100 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = C | -aSet0(C) | -aElementOf0(f8(A,B,C),C) | -aElementOf0(f8(A,B,C),A) | -aElementOf0(f8(A,B,C),B) # label(mDefSInt) # label(definition).  [clausify(20)].
+kept:      101 -aIdeal0(A) | aSet0(A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+kept:      102 -aIdeal0(A) | -aElementOf0(B,A) | -aElementOf0(C,A) | aElementOf0(sdtpldt0(B,C),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+kept:      103 -aIdeal0(A) | -aElementOf0(B,A) | -aElement0(C) | aElementOf0(sdtasdt0(C,B),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+kept:      104 aIdeal0(A) | -aSet0(A) | aElementOf0(f9(A),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+kept:      105 aIdeal0(A) | -aSet0(A) | aElementOf0(f10(A),A) | aElement0(f11(A)) # label(mDefIdeal) # label(definition).  [clausify(21)].
+kept:      106 aIdeal0(A) | -aSet0(A) | aElementOf0(f10(A),A) | -aElementOf0(sdtasdt0(f11(A),f9(A)),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+kept:      107 aIdeal0(A) | -aSet0(A) | -aElementOf0(sdtpldt0(f9(A),f10(A)),A) | aElement0(f11(A)) # label(mDefIdeal) # label(definition).  [clausify(21)].
+kept:      108 aIdeal0(A) | -aSet0(A) | -aElementOf0(sdtpldt0(f9(A),f10(A)),A) | -aElementOf0(sdtasdt0(f11(A),f9(A)),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+kept:      109 -aIdeal0(A) | -aIdeal0(B) | aIdeal0(sdtpldt1(A,B)) # label(mIdeSum) # label(axiom).  [clausify(22)].
+kept:      110 -aIdeal0(A) | -aIdeal0(B) | aIdeal0(sdtasasdt0(A,B)) # label(mIdeInt) # label(axiom).  [clausify(23)].
+kept:      111 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | aElement0(f13(A,B,C,D)) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+kept:      112 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | aElement0(f13(A,B,C,D)) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+           113 -aElement0(A) | -aElement0(B) | B = sz00 | aElement0(f14(A,B)) # label(mDivision) # label(axiom).  [clausify(29)].
+kept:      114 -aElement0(A) | -aElement0(B) | sz00 = B | aElement0(f14(A,B)).  [copy(113),flip(c)].
+           115 -aElement0(A) | -aElement0(B) | B = sz00 | aElement0(f15(A,B)) # label(mDivision) # label(axiom).  [clausify(29)].
+kept:      116 -aElement0(A) | -aElement0(B) | sz00 = B | aElement0(f15(A,B)).  [copy(115),flip(c)].
+           117 -aElement0(A) | -aElement0(B) | B = sz00 | sdtpldt0(sdtasdt0(f14(A,B),B),f15(A,B)) = A # label(mDivision) # label(axiom).  [clausify(29)].
+kept:      118 -aElement0(A) | -aElement0(B) | sz00 = B | sdtpldt0(sdtasdt0(f14(A,B),B),f15(A,B)) = A.  [copy(117),flip(c)].
+kept:      119 -aElement0(A) | -aElement0(B) | -doDivides0(A,B) | aElement0(f16(A,B)) # label(mDefDiv) # label(definition).  [clausify(30)].
+kept:      120 -aElement0(A) | -aElement0(B) | -doDivides0(A,B) | sdtasdt0(A,f16(A,B)) = B # label(mDefDiv) # label(definition).  [clausify(30)].
+kept:      121 -aElement0(A) | -aElement0(B) | doDivides0(A,B) | -aElement0(C) | sdtasdt0(A,C) != B # label(mDefDiv) # label(definition).  [clausify(30)].
+kept:      122 -aElement0(A) | -aDivisorOf0(B,A) | aElement0(B) # label(mDefDvs) # label(definition).  [clausify(31)].
+kept:      123 -aElement0(A) | -aDivisorOf0(B,A) | doDivides0(B,A) # label(mDefDvs) # label(definition).  [clausify(31)].
+kept:      124 -aElement0(A) | aDivisorOf0(B,A) | -aElement0(B) | -doDivides0(B,A) # label(mDefDvs) # label(definition).  [clausify(31)].
+kept:      125 -aElement0(A) | slsdtgt0(A) != B | aSet0(B) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+kept:      126 -aElement0(A) | slsdtgt0(A) != B | -aElementOf0(C,B) | aElement0(f18(A,B,C)) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+kept:      127 -aElement0(A) | slsdtgt0(A) != B | -aElementOf0(C,B) | sdtasdt0(A,f18(A,B,C)) = C # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+kept:      128 -aElement0(A) | slsdtgt0(A) != B | aElementOf0(C,B) | -aElement0(D) | sdtasdt0(A,D) != C # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+kept:      129 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | aElementOf0(f19(A,B),B) | aElement0(f20(A,B)) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+kept:      130 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | aElementOf0(f19(A,B),B) | sdtasdt0(A,f20(A,B)) = f19(A,B) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+           131 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | -aElementOf0(f19(A,B),B) | -aElement0(C) | sdtasdt0(A,C) != f19(A,B) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+kept:      132 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | -aElementOf0(f19(A,B),B) | -aElement0(C) | f19(A,B) != sdtasdt0(A,C).  [copy(131),flip(f)].
+kept:      133 aElement0(xc) # label(m__1905) # label(hypothesis).  [assumption].
+kept:      134 aElementOf0(xx,slsdtgt0(xc)) # label(m__1933) # label(hypothesis).  [clausify(35)].
+kept:      135 aElementOf0(xy,slsdtgt0(xc)) # label(m__1933) # label(hypothesis).  [clausify(35)].
+kept:      136 aElement0(xz) # label(m__1933) # label(hypothesis).  [clausify(35)].
+kept:      137 aElement0(xu) # label(m__1956) # label(hypothesis).  [clausify(36)].
+           138 sdtasdt0(xc,xu) = xx # label(m__1956) # label(hypothesis).  [clausify(36)].
+kept:      139 xx = sdtasdt0(xc,xu).  [copy(138),flip(a)].
+kept:      140 aElement0(xv) # label(m__1979) # label(hypothesis).  [clausify(37)].
+kept:      141 sdtasdt0(xc,xv) = xy # label(m__1979) # label(hypothesis).  [clausify(37)].
+           142 sdtpldt0(xx,xy) = sdtasdt0(xc,sdtpldt0(xu,xv)) # label(m__2010) # label(hypothesis).  [assumption].
+kept:      143 sdtpldt0(sdtasdt0(xc,xu),xy) = sdtasdt0(xc,sdtpldt0(xu,xv)).  [copy(142),rewrite([139(1)])].
+           144 sdtasdt0(xz,xx) != sdtasdt0(xc,sdtasdt0(xu,xz)) # label(m__) # label(conjecture).  [deny(38)].
+kept:      145 sdtasdt0(xz,sdtasdt0(xc,xu)) != sdtasdt0(xc,sdtasdt0(xu,xz)).  [copy(144),rewrite([139(2)])].
+           146 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | -aElement0(C) | -aIdeal0(A) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(C)),A).  [resolve(41,f,40,d)].
+kept:      147 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(C)),A).  [copy(146),merge(g),merge(h)].
+           148 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | -aElement0(D) | -aIdeal0(B) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(D)),B).  [resolve(42,f,40,d)].
+kept:      149 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(D)),B).  [copy(148),merge(g),merge(h)].
+           150 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | -aElement0(C) | -aIdeal0(A) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(C)),A).  [resolve(43,f,40,d)].
+kept:      151 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(C)),A).  [copy(150),merge(g),merge(h)].
+           152 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | -aElement0(D) | -aIdeal0(B) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(D)),B).  [resolve(44,f,40,d)].
+kept:      153 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(D)),B).  [copy(152),merge(g),merge(h)].
+           154 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),A) | -aElement0(A) | -aElement0(B) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [resolve(47,c,50,c)].
+kept:      155 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),A) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [copy(154),merge(f),merge(g)].
+           156 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),B) | -aElement0(A) | -aElement0(B) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [resolve(51,c,50,c)].
+kept:      157 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),B) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [copy(156),merge(f),merge(g)].
+           158 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | -doDivides0(f17(A,B,C),C) | -aElement0(A) | -aElement0(B) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [resolve(52,c,50,c)].
+kept:      159 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | -doDivides0(f17(A,B,C),C) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [copy(158),merge(f),merge(g)].
+kept:      160 -aElement0(A) | aElement0(sdtpldt0(A,A)).  [factor(56,a,b)].
+kept:      161 -aElement0(A) | aElement0(sdtasdt0(A,A)).  [factor(57,a,b)].
+kept:      162 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,A),B) = sdtpldt0(A,sdtpldt0(A,B)).  [factor(59,a,b)].
+kept:      163 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,B),A) = sdtpldt0(A,sdtpldt0(B,A)).  [factor(59,a,c)].
+kept:      164 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,B),B) = sdtpldt0(A,sdtpldt0(B,B)).  [factor(59,b,c)].
+kept:      165 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,A),B) = sdtasdt0(A,sdtasdt0(A,B)).  [factor(65,a,b)].
+kept:      166 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,B),A) = sdtasdt0(A,sdtasdt0(B,A)).  [factor(65,a,c)].
+kept:      167 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,B),B) = sdtasdt0(A,sdtasdt0(B,B)).  [factor(65,b,c)].
+kept:      168 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(A,B)) = sdtasdt0(A,sdtpldt0(A,B)).  [factor(69,a,b)].
+kept:      169 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,A)) = sdtasdt0(A,sdtpldt0(B,A)).  [factor(69,a,c)].
+kept:      170 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,B)) = sdtasdt0(A,sdtpldt0(B,B)).  [factor(69,b,c)].
+kept:      171 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(B,A)) = sdtasdt0(sdtpldt0(A,B),A).  [factor(71,a,b)].
+kept:      172 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(B,A),sdtasdt0(A,A)) = sdtasdt0(sdtpldt0(B,A),A).  [factor(71,a,c)].
+kept:      173 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(B,A),sdtasdt0(B,A)) = sdtasdt0(sdtpldt0(B,B),A).  [factor(71,b,c)].
+kept:      174 -aElement0(A) | sdtasdt0(A,A) != sz00 | sz00 = A.  [factor(77,a,b),merge(d)].
+kept:      175 -aSet0(A) | sdtpldt1(A,A) != B | aSet0(B).  [factor(84,a,b)].
+kept:      176 -aSet0(A) | sdtpldt1(A,A) != B | -aElementOf0(C,B) | aElementOf0(f3(A,A,B,C),A).  [factor(85,a,b)].
+kept:      177 -aSet0(A) | sdtpldt1(A,A) != B | -aElementOf0(C,B) | aElementOf0(f4(A,A,B,C),A).  [factor(86,a,b)].
+kept:      178 -aSet0(A) | sdtpldt1(A,A) != B | -aElementOf0(C,B) | sdtpldt0(f3(A,A,B,C),f4(A,A,B,C)) = C.  [factor(87,a,b)].
+kept:      179 -aSet0(A) | sdtpldt1(A,A) != B | aElementOf0(C,B) | -aElementOf0(D,A) | -aElementOf0(E,A) | sdtpldt0(D,E) != C.  [factor(88,a,b)].
+kept:      180 -aSet0(A) | sdtpldt1(A,A) != B | aElementOf0(C,B) | -aElementOf0(D,A) | sdtpldt0(D,D) != C.  [factor(88,e,f),merge(b)].
+kept:      181 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | aElementOf0(f5(A,A,B),B) | aElementOf0(f6(A,A,B),A).  [factor(89,a,b)].
+kept:      182 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | aElementOf0(f5(A,B,A),A) | aElementOf0(f6(A,B,A),A).  [factor(89,a,d)].
+kept:      183 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | aElementOf0(f5(A,B,B),B) | aElementOf0(f6(A,B,B),A).  [factor(89,b,d)].
+kept:      184 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | aElementOf0(f5(A,A,B),B) | aElementOf0(f7(A,A,B),A).  [factor(90,a,b)].
+kept:      185 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | aElementOf0(f5(A,B,A),A) | aElementOf0(f7(A,B,A),B).  [factor(90,a,d)].
+kept:      186 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | aElementOf0(f5(A,B,B),B) | aElementOf0(f7(A,B,B),B).  [factor(90,b,d)].
+kept:      187 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | aElementOf0(f5(A,A,B),B) | sdtpldt0(f6(A,A,B),f7(A,A,B)) = f5(A,A,B).  [factor(91,a,b)].
+kept:      188 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | aElementOf0(f5(A,B,A),A) | sdtpldt0(f6(A,B,A),f7(A,B,A)) = f5(A,B,A).  [factor(91,a,d)].
+kept:      189 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | aElementOf0(f5(A,B,B),B) | sdtpldt0(f6(A,B,B),f7(A,B,B)) = f5(A,B,B).  [factor(91,b,d)].
+kept:      190 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | -aElementOf0(f5(A,A,B),B) | -aElementOf0(C,A) | -aElementOf0(D,A) | f5(A,A,B) != sdtpldt0(C,D).  [factor(93,a,b)].
+kept:      191 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | -aElementOf0(f5(A,B,A),A) | -aElementOf0(C,A) | -aElementOf0(D,B) | f5(A,B,A) != sdtpldt0(C,D).  [factor(93,a,d)].
+kept:      192 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | -aElementOf0(f5(A,B,B),B) | -aElementOf0(C,A) | -aElementOf0(D,B) | f5(A,B,B) != sdtpldt0(C,D).  [factor(93,b,d)].
+kept:      193 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | -aElementOf0(f5(A,B,A),A) | -aElementOf0(C,B) | sdtpldt0(f5(A,B,A),C) != f5(A,B,A).  [factor(93,e,f),flip(g),merge(d)].
+kept:      194 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | -aElementOf0(f5(A,B,B),B) | -aElementOf0(C,A) | sdtpldt0(C,f5(A,B,B)) != f5(A,B,B).  [factor(93,e,g),flip(g),merge(d)].
+kept:      195 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | -aElementOf0(f5(A,A,B),B) | -aElementOf0(C,A) | f5(A,A,B) != sdtpldt0(C,C).  [factor(93,f,g),merge(b)].
+kept:      196 -aSet0(A) | sdtasasdt0(A,A) != B | aSet0(B).  [factor(94,a,b)].
+kept:      197 -aSet0(A) | sdtasasdt0(A,A) != B | -aElementOf0(C,B) | aElementOf0(C,A).  [factor(95,a,b)].
+kept:      198 -aSet0(A) | sdtasasdt0(A,A) != B | aElementOf0(C,B) | -aElementOf0(C,A).  [factor(97,a,b),merge(e)].
+kept:      199 -aSet0(A) | sdtasasdt0(A,A) = B | -aSet0(B) | aElementOf0(f8(A,A,B),B) | aElementOf0(f8(A,A,B),A).  [factor(98,a,b)].
+kept:      200 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = A | aElementOf0(f8(A,B,A),A).  [factor(98,a,d),merge(e)].
+kept:      201 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = B | aElementOf0(f8(A,B,B),B) | aElementOf0(f8(A,B,B),A).  [factor(98,b,d)].
+kept:      202 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = B | aElementOf0(f8(A,B,B),B).  [factor(99,b,d),merge(e)].
+kept:      203 -aSet0(A) | sdtasasdt0(A,A) = B | -aSet0(B) | -aElementOf0(f8(A,A,B),B) | -aElementOf0(f8(A,A,B),A).  [factor(100,a,b),merge(f)].
+kept:      204 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = A | -aElementOf0(f8(A,B,A),A) | -aElementOf0(f8(A,B,A),B).  [factor(100,a,d),merge(e)].
+kept:      205 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = B | -aElementOf0(f8(A,B,B),B) | -aElementOf0(f8(A,B,B),A).  [factor(100,b,d),merge(f)].
+kept:      206 -aIdeal0(A) | -aElementOf0(B,A) | aElementOf0(sdtpldt0(B,B),A).  [factor(102,b,c)].
+kept:      207 -aIdeal0(A) | aIdeal0(sdtpldt1(A,A)).  [factor(109,a,b)].
+kept:      208 -aIdeal0(A) | aIdeal0(sdtasasdt0(A,A)).  [factor(110,a,b)].
+kept:      209 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | -aElement0(C) | aElement0(f13(A,A,B,C)).  [factor(111,a,b)].
+kept:      210 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | aElement0(f13(A,B,C,C)).  [factor(111,d,e)].
+kept:      211 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | -aElement0(C) | aElement0(f13(A,A,B,C)).  [factor(112,a,b)].
+kept:      212 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | aElement0(f13(A,B,C,C)).  [factor(112,d,e)].
+kept:      213 -aElement0(A) | sz00 = A | aElement0(f14(A,A)).  [factor(114,a,b)].
+kept:      214 -aElement0(A) | sz00 = A | aElement0(f15(A,A)).  [factor(116,a,b)].
+kept:      215 -aElement0(A) | sz00 = A | sdtpldt0(sdtasdt0(f14(A,A),A),f15(A,A)) = A.  [factor(118,a,b)].
+kept:      216 -aElement0(A) | -doDivides0(A,A) | aElement0(f16(A,A)).  [factor(119,a,b)].
+kept:      217 -aElement0(A) | -doDivides0(A,A) | sdtasdt0(A,f16(A,A)) = A.  [factor(120,a,b)].
+kept:      218 -aElement0(A) | doDivides0(A,A) | -aElement0(B) | sdtasdt0(A,B) != A.  [factor(121,a,b)].
+kept:      219 -aElement0(A) | -aElement0(B) | doDivides0(A,B) | sdtasdt0(A,A) != B.  [factor(121,a,d)].
+kept:      220 -aElement0(A) | -aElement0(B) | doDivides0(A,B) | sdtasdt0(A,B) != B.  [factor(121,b,d)].
+kept:      221 -aElement0(A) | aDivisorOf0(A,A) | -doDivides0(A,A).  [factor(124,a,c)].
+kept:      222 -aElement0(A) | slsdtgt0(A) != B | aElementOf0(C,B) | sdtasdt0(A,A) != C.  [factor(128,a,d)].
+kept:      223 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | -aElementOf0(f19(A,B),B) | f19(A,B) != sdtasdt0(A,A).  [factor(132,a,e)].
+kept:      224 aElementOf0(sdtasdt0(xc,xu),slsdtgt0(xc)).  [back_rewrite(134),rewrite([139(1)])].
+kept:      225 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | -aElement0(C) | -aElement0(f13(A,A,B,C)) | aElementOf0(sdtpldt0(f13(A,A,B,C),smndt0(B)),A).  [factor(147,a,b)].
+kept:      226 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(f13(A,B,C,C)) | aElementOf0(sdtpldt0(f13(A,B,C,C),smndt0(C)),A).  [factor(147,d,e)].
+kept:      227 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | -aElement0(C) | -aElement0(f13(A,A,B,C)) | aElementOf0(sdtpldt0(f13(A,A,B,C),smndt0(C)),A).  [factor(149,a,b)].
+kept:      228 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(f13(A,B,C,C)) | aElementOf0(sdtpldt0(f13(A,B,C,C),smndt0(C)),B).  [factor(149,d,e)].
+kept:      229 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | -aElement0(C) | -aElement0(f13(A,A,B,C)) | aElementOf0(sdtpldt0(f13(A,A,B,C),smndt0(B)),A).  [factor(151,a,b)].
+kept:      230 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(f13(A,B,C,C)) | aElementOf0(sdtpldt0(f13(A,B,C,C),smndt0(C)),A).  [factor(151,d,e)].
+kept:      231 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | -aElement0(C) | -aElement0(f13(A,A,B,C)) | aElementOf0(sdtpldt0(f13(A,A,B,C),smndt0(C)),A).  [factor(153,a,b)].
+kept:      232 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(f13(A,B,C,C)) | aElementOf0(sdtpldt0(f13(A,B,C,C),smndt0(C)),B).  [factor(153,d,e)].
+kept:      233 -aElement0(A) | -aDivisorOf0(B,A) | aDivisorOf0(f17(A,A,B),A) | -aDivisorOf0(C,A) | doDivides0(C,B).  [factor(155,a,b),merge(c),merge(f)].
+kept:      234 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),A) | doDivides0(C,C).  [factor(155,c,f),merge(f)].
+kept:      235 -aElement0(A) | -aDivisorOf0(B,A) | aDivisorOf0(f17(A,A,B),A) | doDivides0(B,B).  [factor(155,c,g),merge(b),merge(d),merge(f)].
+kept:      236 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),B) | doDivides0(C,C).  [factor(157,c,f),merge(f)].
+kept:      237 -aElement0(A) | -aDivisorOf0(B,A) | -doDivides0(f17(A,A,B),B) | -aDivisorOf0(C,A) | doDivides0(C,B).  [factor(159,a,b),merge(c),merge(f)].
+kept:      238 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | -doDivides0(f17(A,B,C),C) | doDivides0(C,C).  [factor(159,c,f),merge(f)].
+kept:      239 -aElement0(A) | -aDivisorOf0(B,A) | -doDivides0(f17(A,A,B),B) | doDivides0(B,B).  [factor(159,c,g),merge(b),merge(d),merge(f)].
+kept:      240 -aElement0(A) | sdtpldt0(sdtpldt0(A,A),A) = sdtpldt0(A,sdtpldt0(A,A)).  [factor(162,a,b)].
+kept:      241 -aElement0(A) | sdtasdt0(sdtasdt0(A,A),A) = sdtasdt0(A,sdtasdt0(A,A)).  [factor(165,a,b)].
+kept:      242 -aElement0(A) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(A,A)) = sdtasdt0(A,sdtpldt0(A,A)).  [factor(168,a,b)].
+kept:      243 -aElement0(A) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(A,A)) = sdtasdt0(sdtpldt0(A,A),A).  [factor(171,a,b)].
+kept:      244 -aSet0(A) | sdtpldt1(A,A) = A | aElementOf0(f5(A,A,A),A) | aElementOf0(f6(A,A,A),A).  [factor(181,a,c)].
+kept:      245 -aSet0(A) | sdtpldt1(A,A) = A | aElementOf0(f5(A,A,A),A) | aElementOf0(f7(A,A,A),A).  [factor(184,a,c)].
+kept:      246 -aSet0(A) | sdtpldt1(A,A) = A | aElementOf0(f5(A,A,A),A) | sdtpldt0(f6(A,A,A),f7(A,A,A)) = f5(A,A,A).  [factor(187,a,c)].
+kept:      247 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | -aElementOf0(B,A) | -aElementOf0(C,A) | f5(A,A,A) != sdtpldt0(B,C).  [factor(190,a,c)].
+kept:      248 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | -aElementOf0(B,A) | sdtpldt0(f5(A,A,A),B) != f5(A,A,A).  [factor(190,d,e),flip(f),merge(c)].
+kept:      249 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | -aElementOf0(B,A) | sdtpldt0(B,f5(A,A,A)) != f5(A,A,A).  [factor(190,d,f),flip(f),merge(c)].
+kept:      250 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | -aElementOf0(B,A) | f5(A,A,A) != sdtpldt0(B,B).  [factor(191,e,f),merge(b)].
+kept:      251 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | sdtpldt0(f5(A,A,A),f5(A,A,A)) != f5(A,A,A).  [factor(193,d,e),merge(b)].
+kept:      252 -aSet0(A) | sdtasasdt0(A,A) = A | aElementOf0(f8(A,A,A),A).  [factor(199,a,c),merge(d)].
+kept:      253 -aSet0(A) | sdtasasdt0(A,A) = A | -aElementOf0(f8(A,A,A),A).  [factor(203,a,c),merge(d)].
+kept:      254 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | aElement0(f13(A,A,B,B)).  [factor(209,c,d)].
+kept:      255 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | aElement0(f13(A,A,B,B)).  [factor(211,c,d)].
+kept:      256 -aElement0(A) | doDivides0(A,A) | sdtasdt0(A,A) != A.  [factor(218,a,c)].
+kept:      257 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | -aElement0(f13(A,A,B,B)) | aElementOf0(sdtpldt0(f13(A,A,B,B),smndt0(B)),A).  [factor(225,c,d)].
+kept:      258 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | -aElement0(f13(A,A,B,B)) | aElementOf0(sdtpldt0(f13(A,A,B,B),smndt0(B)),A).  [factor(229,c,d)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+53 aElement0(sz00) # label(mSortsC) # label(axiom).  [assumption].
+54 aElement0(sz10) # label(mSortsC_01) # label(axiom).  [assumption].
+55 -aElement0(A) | aElement0(smndt0(A)) # label(mSortsU) # label(axiom).  [clausify(2)].
+56 -aElement0(A) | -aElement0(B) | aElement0(sdtpldt0(A,B)) # label(mSortsB) # label(axiom).  [clausify(3)].
+57 -aElement0(A) | -aElement0(B) | aElement0(sdtasdt0(A,B)) # label(mSortsB_02) # label(axiom).  [clausify(4)].
+58 -aElement0(A) | -aElement0(B) | sdtpldt0(B,A) = sdtpldt0(A,B) # label(mAddComm) # label(axiom).  [clausify(5)].
+59 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtpldt0(sdtpldt0(A,B),C) = sdtpldt0(A,sdtpldt0(B,C)) # label(mAddAsso) # label(axiom).  [clausify(6)].
+60 -aElement0(A) | sdtpldt0(A,sz00) = A # label(mAddZero) # label(axiom).  [clausify(7)].
+61 -aElement0(A) | sdtpldt0(sz00,A) = A # label(mAddZero) # label(axiom).  [clausify(7)].
+62 -aElement0(A) | sdtpldt0(A,smndt0(A)) = sz00 # label(mAddInvr) # label(axiom).  [clausify(8)].
+63 -aElement0(A) | sdtpldt0(smndt0(A),A) = sz00 # label(mAddInvr) # label(axiom).  [clausify(8)].
+64 -aElement0(A) | -aElement0(B) | sdtasdt0(B,A) = sdtasdt0(A,B) # label(mMulComm) # label(axiom).  [clausify(9)].
+65 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtasdt0(sdtasdt0(A,B),C) = sdtasdt0(A,sdtasdt0(B,C)) # label(mMulAsso) # label(axiom).  [clausify(10)].
+66 -aElement0(A) | sdtasdt0(A,sz10) = A # label(mMulUnit) # label(axiom).  [clausify(11)].
+67 -aElement0(A) | sdtasdt0(sz10,A) = A # label(mMulUnit) # label(axiom).  [clausify(11)].
+69 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,C)) = sdtasdt0(A,sdtpldt0(B,C)).  [copy(68),flip(d)].
+71 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtpldt0(sdtasdt0(B,A),sdtasdt0(C,A)) = sdtasdt0(sdtpldt0(B,C),A).  [copy(70),flip(d)].
+72 -aElement0(A) | sdtasdt0(smndt0(sz10),A) = smndt0(A) # label(mMulMnOne) # label(axiom).  [clausify(13)].
+73 -aElement0(A) | sdtasdt0(A,smndt0(sz10)) = smndt0(A) # label(mMulMnOne) # label(axiom).  [clausify(13)].
+74 -aElement0(A) | sdtasdt0(A,sz00) = sz00 # label(mMulZero) # label(axiom).  [clausify(14)].
+75 -aElement0(A) | sdtasdt0(sz00,A) = sz00 # label(mMulZero) # label(axiom).  [clausify(14)].
+77 -aElement0(A) | -aElement0(B) | sdtasdt0(A,B) != sz00 | sz00 = A | sz00 = B.  [copy(76),flip(e)].
+78 sz10 != sz00 # label(mUnNeZr) # label(axiom).  [assumption].
+79 -aSet0(A) | -aElementOf0(B,A) | aElement0(B) # label(mEOfElem) # label(axiom).  [clausify(17)].
+80 -aSet0(A) | -aSet0(B) | aElementOf0(f1(A,B),A) | aElementOf0(f2(A,B),B) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+81 -aSet0(A) | -aSet0(B) | aElementOf0(f1(A,B),A) | -aElementOf0(f2(A,B),A) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+82 -aSet0(A) | -aSet0(B) | -aElementOf0(f1(A,B),B) | aElementOf0(f2(A,B),B) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+83 -aSet0(A) | -aSet0(B) | -aElementOf0(f1(A,B),B) | -aElementOf0(f2(A,B),A) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+84 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | aSet0(C) # label(mDefSSum) # label(definition).  [clausify(19)].
+85 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | -aElementOf0(D,C) | aElementOf0(f3(A,B,C,D),A) # label(mDefSSum) # label(definition).  [clausify(19)].
+86 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | -aElementOf0(D,C) | aElementOf0(f4(A,B,C,D),B) # label(mDefSSum) # label(definition).  [clausify(19)].
+87 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | -aElementOf0(D,C) | sdtpldt0(f3(A,B,C,D),f4(A,B,C,D)) = D # label(mDefSSum) # label(definition).  [clausify(19)].
+88 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | aElementOf0(D,C) | -aElementOf0(E,A) | -aElementOf0(F,B) | sdtpldt0(E,F) != D # label(mDefSSum) # label(definition).  [clausify(19)].
+89 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | aElementOf0(f5(A,B,C),C) | aElementOf0(f6(A,B,C),A) # label(mDefSSum) # label(definition).  [clausify(19)].
+90 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | aElementOf0(f5(A,B,C),C) | aElementOf0(f7(A,B,C),B) # label(mDefSSum) # label(definition).  [clausify(19)].
+91 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | aElementOf0(f5(A,B,C),C) | sdtpldt0(f6(A,B,C),f7(A,B,C)) = f5(A,B,C) # label(mDefSSum) # label(definition).  [clausify(19)].
+93 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | -aElementOf0(f5(A,B,C),C) | -aElementOf0(D,A) | -aElementOf0(E,B) | f5(A,B,C) != sdtpldt0(D,E).  [copy(92),flip(h)].
+94 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | aSet0(C) # label(mDefSInt) # label(definition).  [clausify(20)].
+95 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | -aElementOf0(D,C) | aElementOf0(D,A) # label(mDefSInt) # label(definition).  [clausify(20)].
+96 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | -aElementOf0(D,C) | aElementOf0(D,B) # label(mDefSInt) # label(definition).  [clausify(20)].
+97 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | aElementOf0(D,C) | -aElementOf0(D,A) | -aElementOf0(D,B) # label(mDefSInt) # label(definition).  [clausify(20)].
+98 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = C | -aSet0(C) | aElementOf0(f8(A,B,C),C) | aElementOf0(f8(A,B,C),A) # label(mDefSInt) # label(definition).  [clausify(20)].
+99 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = C | -aSet0(C) | aElementOf0(f8(A,B,C),C) | aElementOf0(f8(A,B,C),B) # label(mDefSInt) # label(definition).  [clausify(20)].
+100 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = C | -aSet0(C) | -aElementOf0(f8(A,B,C),C) | -aElementOf0(f8(A,B,C),A) | -aElementOf0(f8(A,B,C),B) # label(mDefSInt) # label(definition).  [clausify(20)].
+101 -aIdeal0(A) | aSet0(A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+102 -aIdeal0(A) | -aElementOf0(B,A) | -aElementOf0(C,A) | aElementOf0(sdtpldt0(B,C),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+103 -aIdeal0(A) | -aElementOf0(B,A) | -aElement0(C) | aElementOf0(sdtasdt0(C,B),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+104 aIdeal0(A) | -aSet0(A) | aElementOf0(f9(A),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+105 aIdeal0(A) | -aSet0(A) | aElementOf0(f10(A),A) | aElement0(f11(A)) # label(mDefIdeal) # label(definition).  [clausify(21)].
+106 aIdeal0(A) | -aSet0(A) | aElementOf0(f10(A),A) | -aElementOf0(sdtasdt0(f11(A),f9(A)),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+107 aIdeal0(A) | -aSet0(A) | -aElementOf0(sdtpldt0(f9(A),f10(A)),A) | aElement0(f11(A)) # label(mDefIdeal) # label(definition).  [clausify(21)].
+108 aIdeal0(A) | -aSet0(A) | -aElementOf0(sdtpldt0(f9(A),f10(A)),A) | -aElementOf0(sdtasdt0(f11(A),f9(A)),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+109 -aIdeal0(A) | -aIdeal0(B) | aIdeal0(sdtpldt1(A,B)) # label(mIdeSum) # label(axiom).  [clausify(22)].
+110 -aIdeal0(A) | -aIdeal0(B) | aIdeal0(sdtasasdt0(A,B)) # label(mIdeInt) # label(axiom).  [clausify(23)].
+111 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | aElement0(f13(A,B,C,D)) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+112 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | aElement0(f13(A,B,C,D)) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+114 -aElement0(A) | -aElement0(B) | sz00 = B | aElement0(f14(A,B)).  [copy(113),flip(c)].
+116 -aElement0(A) | -aElement0(B) | sz00 = B | aElement0(f15(A,B)).  [copy(115),flip(c)].
+118 -aElement0(A) | -aElement0(B) | sz00 = B | sdtpldt0(sdtasdt0(f14(A,B),B),f15(A,B)) = A.  [copy(117),flip(c)].
+119 -aElement0(A) | -aElement0(B) | -doDivides0(A,B) | aElement0(f16(A,B)) # label(mDefDiv) # label(definition).  [clausify(30)].
+120 -aElement0(A) | -aElement0(B) | -doDivides0(A,B) | sdtasdt0(A,f16(A,B)) = B # label(mDefDiv) # label(definition).  [clausify(30)].
+121 -aElement0(A) | -aElement0(B) | doDivides0(A,B) | -aElement0(C) | sdtasdt0(A,C) != B # label(mDefDiv) # label(definition).  [clausify(30)].
+122 -aElement0(A) | -aDivisorOf0(B,A) | aElement0(B) # label(mDefDvs) # label(definition).  [clausify(31)].
+123 -aElement0(A) | -aDivisorOf0(B,A) | doDivides0(B,A) # label(mDefDvs) # label(definition).  [clausify(31)].
+124 -aElement0(A) | aDivisorOf0(B,A) | -aElement0(B) | -doDivides0(B,A) # label(mDefDvs) # label(definition).  [clausify(31)].
+125 -aElement0(A) | slsdtgt0(A) != B | aSet0(B) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+126 -aElement0(A) | slsdtgt0(A) != B | -aElementOf0(C,B) | aElement0(f18(A,B,C)) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+127 -aElement0(A) | slsdtgt0(A) != B | -aElementOf0(C,B) | sdtasdt0(A,f18(A,B,C)) = C # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+128 -aElement0(A) | slsdtgt0(A) != B | aElementOf0(C,B) | -aElement0(D) | sdtasdt0(A,D) != C # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+129 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | aElementOf0(f19(A,B),B) | aElement0(f20(A,B)) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+130 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | aElementOf0(f19(A,B),B) | sdtasdt0(A,f20(A,B)) = f19(A,B) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+132 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | -aElementOf0(f19(A,B),B) | -aElement0(C) | f19(A,B) != sdtasdt0(A,C).  [copy(131),flip(f)].
+133 aElement0(xc) # label(m__1905) # label(hypothesis).  [assumption].
+135 aElementOf0(xy,slsdtgt0(xc)) # label(m__1933) # label(hypothesis).  [clausify(35)].
+136 aElement0(xz) # label(m__1933) # label(hypothesis).  [clausify(35)].
+137 aElement0(xu) # label(m__1956) # label(hypothesis).  [clausify(36)].
+139 xx = sdtasdt0(xc,xu).  [copy(138),flip(a)].
+140 aElement0(xv) # label(m__1979) # label(hypothesis).  [clausify(37)].
+141 sdtasdt0(xc,xv) = xy # label(m__1979) # label(hypothesis).  [clausify(37)].
+143 sdtpldt0(sdtasdt0(xc,xu),xy) = sdtasdt0(xc,sdtpldt0(xu,xv)).  [copy(142),rewrite([139(1)])].
+145 sdtasdt0(xz,sdtasdt0(xc,xu)) != sdtasdt0(xc,sdtasdt0(xu,xz)).  [copy(144),rewrite([139(2)])].
+147 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(C)),A).  [copy(146),merge(g),merge(h)].
+149 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(D)),B).  [copy(148),merge(g),merge(h)].
+151 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(C)),A).  [copy(150),merge(g),merge(h)].
+153 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(D)),B).  [copy(152),merge(g),merge(h)].
+155 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),A) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [copy(154),merge(f),merge(g)].
+157 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),B) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [copy(156),merge(f),merge(g)].
+159 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | -doDivides0(f17(A,B,C),C) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [copy(158),merge(f),merge(g)].
+160 -aElement0(A) | aElement0(sdtpldt0(A,A)).  [factor(56,a,b)].
+161 -aElement0(A) | aElement0(sdtasdt0(A,A)).  [factor(57,a,b)].
+162 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,A),B) = sdtpldt0(A,sdtpldt0(A,B)).  [factor(59,a,b)].
+163 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,B),A) = sdtpldt0(A,sdtpldt0(B,A)).  [factor(59,a,c)].
+164 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,B),B) = sdtpldt0(A,sdtpldt0(B,B)).  [factor(59,b,c)].
+165 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,A),B) = sdtasdt0(A,sdtasdt0(A,B)).  [factor(65,a,b)].
+166 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,B),A) = sdtasdt0(A,sdtasdt0(B,A)).  [factor(65,a,c)].
+167 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,B),B) = sdtasdt0(A,sdtasdt0(B,B)).  [factor(65,b,c)].
+168 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(A,B)) = sdtasdt0(A,sdtpldt0(A,B)).  [factor(69,a,b)].
+169 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,A)) = sdtasdt0(A,sdtpldt0(B,A)).  [factor(69,a,c)].
+170 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,B)) = sdtasdt0(A,sdtpldt0(B,B)).  [factor(69,b,c)].
+171 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(B,A)) = sdtasdt0(sdtpldt0(A,B),A).  [factor(71,a,b)].
+172 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(B,A),sdtasdt0(A,A)) = sdtasdt0(sdtpldt0(B,A),A).  [factor(71,a,c)].
+173 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(B,A),sdtasdt0(B,A)) = sdtasdt0(sdtpldt0(B,B),A).  [factor(71,b,c)].
+174 -aElement0(A) | sdtasdt0(A,A) != sz00 | sz00 = A.  [factor(77,a,b),merge(d)].
+175 -aSet0(A) | sdtpldt1(A,A) != B | aSet0(B).  [factor(84,a,b)].
+176 -aSet0(A) | sdtpldt1(A,A) != B | -aElementOf0(C,B) | aElementOf0(f3(A,A,B,C),A).  [factor(85,a,b)].
+177 -aSet0(A) | sdtpldt1(A,A) != B | -aElementOf0(C,B) | aElementOf0(f4(A,A,B,C),A).  [factor(86,a,b)].
+178 -aSet0(A) | sdtpldt1(A,A) != B | -aElementOf0(C,B) | sdtpldt0(f3(A,A,B,C),f4(A,A,B,C)) = C.  [factor(87,a,b)].
+179 -aSet0(A) | sdtpldt1(A,A) != B | aElementOf0(C,B) | -aElementOf0(D,A) | -aElementOf0(E,A) | sdtpldt0(D,E) != C.  [factor(88,a,b)].
+180 -aSet0(A) | sdtpldt1(A,A) != B | aElementOf0(C,B) | -aElementOf0(D,A) | sdtpldt0(D,D) != C.  [factor(88,e,f),merge(b)].
+181 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | aElementOf0(f5(A,A,B),B) | aElementOf0(f6(A,A,B),A).  [factor(89,a,b)].
+182 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | aElementOf0(f5(A,B,A),A) | aElementOf0(f6(A,B,A),A).  [factor(89,a,d)].
+183 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | aElementOf0(f5(A,B,B),B) | aElementOf0(f6(A,B,B),A).  [factor(89,b,d)].
+184 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | aElementOf0(f5(A,A,B),B) | aElementOf0(f7(A,A,B),A).  [factor(90,a,b)].
+185 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | aElementOf0(f5(A,B,A),A) | aElementOf0(f7(A,B,A),B).  [factor(90,a,d)].
+186 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | aElementOf0(f5(A,B,B),B) | aElementOf0(f7(A,B,B),B).  [factor(90,b,d)].
+187 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | aElementOf0(f5(A,A,B),B) | sdtpldt0(f6(A,A,B),f7(A,A,B)) = f5(A,A,B).  [factor(91,a,b)].
+188 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | aElementOf0(f5(A,B,A),A) | sdtpldt0(f6(A,B,A),f7(A,B,A)) = f5(A,B,A).  [factor(91,a,d)].
+189 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | aElementOf0(f5(A,B,B),B) | sdtpldt0(f6(A,B,B),f7(A,B,B)) = f5(A,B,B).  [factor(91,b,d)].
+190 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | -aElementOf0(f5(A,A,B),B) | -aElementOf0(C,A) | -aElementOf0(D,A) | f5(A,A,B) != sdtpldt0(C,D).  [factor(93,a,b)].
+191 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | -aElementOf0(f5(A,B,A),A) | -aElementOf0(C,A) | -aElementOf0(D,B) | f5(A,B,A) != sdtpldt0(C,D).  [factor(93,a,d)].
+192 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | -aElementOf0(f5(A,B,B),B) | -aElementOf0(C,A) | -aElementOf0(D,B) | f5(A,B,B) != sdtpldt0(C,D).  [factor(93,b,d)].
+193 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | -aElementOf0(f5(A,B,A),A) | -aElementOf0(C,B) | sdtpldt0(f5(A,B,A),C) != f5(A,B,A).  [factor(93,e,f),flip(g),merge(d)].
+194 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | -aElementOf0(f5(A,B,B),B) | -aElementOf0(C,A) | sdtpldt0(C,f5(A,B,B)) != f5(A,B,B).  [factor(93,e,g),flip(g),merge(d)].
+195 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | -aElementOf0(f5(A,A,B),B) | -aElementOf0(C,A) | f5(A,A,B) != sdtpldt0(C,C).  [factor(93,f,g),merge(b)].
+196 -aSet0(A) | sdtasasdt0(A,A) != B | aSet0(B).  [factor(94,a,b)].
+197 -aSet0(A) | sdtasasdt0(A,A) != B | -aElementOf0(C,B) | aElementOf0(C,A).  [factor(95,a,b)].
+198 -aSet0(A) | sdtasasdt0(A,A) != B | aElementOf0(C,B) | -aElementOf0(C,A).  [factor(97,a,b),merge(e)].
+199 -aSet0(A) | sdtasasdt0(A,A) = B | -aSet0(B) | aElementOf0(f8(A,A,B),B) | aElementOf0(f8(A,A,B),A).  [factor(98,a,b)].
+200 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = A | aElementOf0(f8(A,B,A),A).  [factor(98,a,d),merge(e)].
+202 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = B | aElementOf0(f8(A,B,B),B).  [factor(99,b,d),merge(e)].
+203 -aSet0(A) | sdtasasdt0(A,A) = B | -aSet0(B) | -aElementOf0(f8(A,A,B),B) | -aElementOf0(f8(A,A,B),A).  [factor(100,a,b),merge(f)].
+204 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = A | -aElementOf0(f8(A,B,A),A) | -aElementOf0(f8(A,B,A),B).  [factor(100,a,d),merge(e)].
+205 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = B | -aElementOf0(f8(A,B,B),B) | -aElementOf0(f8(A,B,B),A).  [factor(100,b,d),merge(f)].
+206 -aIdeal0(A) | -aElementOf0(B,A) | aElementOf0(sdtpldt0(B,B),A).  [factor(102,b,c)].
+207 -aIdeal0(A) | aIdeal0(sdtpldt1(A,A)).  [factor(109,a,b)].
+208 -aIdeal0(A) | aIdeal0(sdtasasdt0(A,A)).  [factor(110,a,b)].
+209 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | -aElement0(C) | aElement0(f13(A,A,B,C)).  [factor(111,a,b)].
+210 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | aElement0(f13(A,B,C,C)).  [factor(111,d,e)].
+211 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | -aElement0(C) | aElement0(f13(A,A,B,C)).  [factor(112,a,b)].
+212 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | aElement0(f13(A,B,C,C)).  [factor(112,d,e)].
+213 -aElement0(A) | sz00 = A | aElement0(f14(A,A)).  [factor(114,a,b)].
+214 -aElement0(A) | sz00 = A | aElement0(f15(A,A)).  [factor(116,a,b)].
+215 -aElement0(A) | sz00 = A | sdtpldt0(sdtasdt0(f14(A,A),A),f15(A,A)) = A.  [factor(118,a,b)].
+216 -aElement0(A) | -doDivides0(A,A) | aElement0(f16(A,A)).  [factor(119,a,b)].
+217 -aElement0(A) | -doDivides0(A,A) | sdtasdt0(A,f16(A,A)) = A.  [factor(120,a,b)].
+218 -aElement0(A) | doDivides0(A,A) | -aElement0(B) | sdtasdt0(A,B) != A.  [factor(121,a,b)].
+219 -aElement0(A) | -aElement0(B) | doDivides0(A,B) | sdtasdt0(A,A) != B.  [factor(121,a,d)].
+220 -aElement0(A) | -aElement0(B) | doDivides0(A,B) | sdtasdt0(A,B) != B.  [factor(121,b,d)].
+221 -aElement0(A) | aDivisorOf0(A,A) | -doDivides0(A,A).  [factor(124,a,c)].
+222 -aElement0(A) | slsdtgt0(A) != B | aElementOf0(C,B) | sdtasdt0(A,A) != C.  [factor(128,a,d)].
+223 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | -aElementOf0(f19(A,B),B) | f19(A,B) != sdtasdt0(A,A).  [factor(132,a,e)].
+224 aElementOf0(sdtasdt0(xc,xu),slsdtgt0(xc)).  [back_rewrite(134),rewrite([139(1)])].
+225 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | -aElement0(C) | -aElement0(f13(A,A,B,C)) | aElementOf0(sdtpldt0(f13(A,A,B,C),smndt0(B)),A).  [factor(147,a,b)].
+226 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(f13(A,B,C,C)) | aElementOf0(sdtpldt0(f13(A,B,C,C),smndt0(C)),A).  [factor(147,d,e)].
+227 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | -aElement0(C) | -aElement0(f13(A,A,B,C)) | aElementOf0(sdtpldt0(f13(A,A,B,C),smndt0(C)),A).  [factor(149,a,b)].
+228 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(f13(A,B,C,C)) | aElementOf0(sdtpldt0(f13(A,B,C,C),smndt0(C)),B).  [factor(149,d,e)].
+229 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | -aElement0(C) | -aElement0(f13(A,A,B,C)) | aElementOf0(sdtpldt0(f13(A,A,B,C),smndt0(B)),A).  [factor(151,a,b)].
+230 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(f13(A,B,C,C)) | aElementOf0(sdtpldt0(f13(A,B,C,C),smndt0(C)),A).  [factor(151,d,e)].
+231 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | -aElement0(C) | -aElement0(f13(A,A,B,C)) | aElementOf0(sdtpldt0(f13(A,A,B,C),smndt0(C)),A).  [factor(153,a,b)].
+232 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(f13(A,B,C,C)) | aElementOf0(sdtpldt0(f13(A,B,C,C),smndt0(C)),B).  [factor(153,d,e)].
+233 -aElement0(A) | -aDivisorOf0(B,A) | aDivisorOf0(f17(A,A,B),A) | -aDivisorOf0(C,A) | doDivides0(C,B).  [factor(155,a,b),merge(c),merge(f)].
+234 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),A) | doDivides0(C,C).  [factor(155,c,f),merge(f)].
+235 -aElement0(A) | -aDivisorOf0(B,A) | aDivisorOf0(f17(A,A,B),A) | doDivides0(B,B).  [factor(155,c,g),merge(b),merge(d),merge(f)].
+236 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),B) | doDivides0(C,C).  [factor(157,c,f),merge(f)].
+237 -aElement0(A) | -aDivisorOf0(B,A) | -doDivides0(f17(A,A,B),B) | -aDivisorOf0(C,A) | doDivides0(C,B).  [factor(159,a,b),merge(c),merge(f)].
+238 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | -doDivides0(f17(A,B,C),C) | doDivides0(C,C).  [factor(159,c,f),merge(f)].
+239 -aElement0(A) | -aDivisorOf0(B,A) | -doDivides0(f17(A,A,B),B) | doDivides0(B,B).  [factor(159,c,g),merge(b),merge(d),merge(f)].
+240 -aElement0(A) | sdtpldt0(sdtpldt0(A,A),A) = sdtpldt0(A,sdtpldt0(A,A)).  [factor(162,a,b)].
+241 -aElement0(A) | sdtasdt0(sdtasdt0(A,A),A) = sdtasdt0(A,sdtasdt0(A,A)).  [factor(165,a,b)].
+242 -aElement0(A) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(A,A)) = sdtasdt0(A,sdtpldt0(A,A)).  [factor(168,a,b)].
+243 -aElement0(A) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(A,A)) = sdtasdt0(sdtpldt0(A,A),A).  [factor(171,a,b)].
+244 -aSet0(A) | sdtpldt1(A,A) = A | aElementOf0(f5(A,A,A),A) | aElementOf0(f6(A,A,A),A).  [factor(181,a,c)].
+245 -aSet0(A) | sdtpldt1(A,A) = A | aElementOf0(f5(A,A,A),A) | aElementOf0(f7(A,A,A),A).  [factor(184,a,c)].
+246 -aSet0(A) | sdtpldt1(A,A) = A | aElementOf0(f5(A,A,A),A) | sdtpldt0(f6(A,A,A),f7(A,A,A)) = f5(A,A,A).  [factor(187,a,c)].
+247 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | -aElementOf0(B,A) | -aElementOf0(C,A) | f5(A,A,A) != sdtpldt0(B,C).  [factor(190,a,c)].
+248 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | -aElementOf0(B,A) | sdtpldt0(f5(A,A,A),B) != f5(A,A,A).  [factor(190,d,e),flip(f),merge(c)].
+249 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | -aElementOf0(B,A) | sdtpldt0(B,f5(A,A,A)) != f5(A,A,A).  [factor(190,d,f),flip(f),merge(c)].
+250 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | -aElementOf0(B,A) | f5(A,A,A) != sdtpldt0(B,B).  [factor(191,e,f),merge(b)].
+251 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | sdtpldt0(f5(A,A,A),f5(A,A,A)) != f5(A,A,A).  [factor(193,d,e),merge(b)].
+252 -aSet0(A) | sdtasasdt0(A,A) = A | aElementOf0(f8(A,A,A),A).  [factor(199,a,c),merge(d)].
+253 -aSet0(A) | sdtasasdt0(A,A) = A | -aElementOf0(f8(A,A,A),A).  [factor(203,a,c),merge(d)].
+254 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | aElement0(f13(A,A,B,B)).  [factor(209,c,d)].
+255 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | aElement0(f13(A,A,B,B)).  [factor(211,c,d)].
+256 -aElement0(A) | doDivides0(A,A) | sdtasdt0(A,A) != A.  [factor(218,a,c)].
+257 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | -aElement0(f13(A,A,B,B)) | aElementOf0(sdtpldt0(f13(A,A,B,B),smndt0(B)),A).  [factor(225,c,d)].
+258 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | -aElement0(f13(A,A,B,B)) | aElementOf0(sdtpldt0(f13(A,A,B,B),smndt0(B)),A).  [factor(229,c,d)].
+end_of_list.
+
+formulas(demodulators).
+139 xx = sdtasdt0(xc,xu).  [copy(138),flip(a)].
+141 sdtasdt0(xc,xv) = xy # label(m__1979) # label(hypothesis).  [clausify(37)].
+143 sdtpldt0(sdtasdt0(xc,xu),xy) = sdtasdt0(xc,sdtpldt0(xu,xv)).  [copy(142),rewrite([139(1)])].
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+given #1 (I,wt=2): 53 aElement0(sz00) # label(mSortsC) # label(axiom).  [assumption].
+
+given #2 (I,wt=2): 54 aElement0(sz10) # label(mSortsC_01) # label(axiom).  [assumption].
+
+given #3 (I,wt=5): 55 -aElement0(A) | aElement0(smndt0(A)) # label(mSortsU) # label(axiom).  [clausify(2)].
+
+given #4 (I,wt=8): 56 -aElement0(A) | -aElement0(B) | aElement0(sdtpldt0(A,B)) # label(mSortsB) # label(axiom).  [clausify(3)].
+
+given #5 (I,wt=8): 57 -aElement0(A) | -aElement0(B) | aElement0(sdtasdt0(A,B)) # label(mSortsB_02) # label(axiom).  [clausify(4)].
+
+given #6 (I,wt=11): 58 -aElement0(A) | -aElement0(B) | sdtpldt0(B,A) = sdtpldt0(A,B) # label(mAddComm) # label(axiom).  [clausify(5)].
+
+given #7 (I,wt=17): 59 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtpldt0(sdtpldt0(A,B),C) = sdtpldt0(A,sdtpldt0(B,C)) # label(mAddAsso) # label(axiom).  [clausify(6)].
+
+given #8 (I,wt=7): 60 -aElement0(A) | sdtpldt0(A,sz00) = A # label(mAddZero) # label(axiom).  [clausify(7)].
+
+given #9 (I,wt=7): 61 -aElement0(A) | sdtpldt0(sz00,A) = A # label(mAddZero) # label(axiom).  [clausify(7)].
+
+given #10 (I,wt=8): 62 -aElement0(A) | sdtpldt0(A,smndt0(A)) = sz00 # label(mAddInvr) # label(axiom).  [clausify(8)].
+
+given #11 (I,wt=8): 63 -aElement0(A) | sdtpldt0(smndt0(A),A) = sz00 # label(mAddInvr) # label(axiom).  [clausify(8)].
+
+given #12 (I,wt=11): 64 -aElement0(A) | -aElement0(B) | sdtasdt0(B,A) = sdtasdt0(A,B) # label(mMulComm) # label(axiom).  [clausify(9)].
+
+given #13 (I,wt=17): 65 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtasdt0(sdtasdt0(A,B),C) = sdtasdt0(A,sdtasdt0(B,C)) # label(mMulAsso) # label(axiom).  [clausify(10)].
+
+given #14 (I,wt=7): 66 -aElement0(A) | sdtasdt0(A,sz10) = A # label(mMulUnit) # label(axiom).  [clausify(11)].
+
+given #15 (I,wt=7): 67 -aElement0(A) | sdtasdt0(sz10,A) = A # label(mMulUnit) # label(axiom).  [clausify(11)].
+
+given #16 (I,wt=19): 69 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,C)) = sdtasdt0(A,sdtpldt0(B,C)).  [copy(68),flip(d)].
+
+given #17 (I,wt=19): 71 -aElement0(A) | -aElement0(B) | -aElement0(C) | sdtpldt0(sdtasdt0(B,A),sdtasdt0(C,A)) = sdtasdt0(sdtpldt0(B,C),A).  [copy(70),flip(d)].
+
+given #18 (I,wt=9): 72 -aElement0(A) | sdtasdt0(smndt0(sz10),A) = smndt0(A) # label(mMulMnOne) # label(axiom).  [clausify(13)].
+
+given #19 (I,wt=9): 73 -aElement0(A) | sdtasdt0(A,smndt0(sz10)) = smndt0(A) # label(mMulMnOne) # label(axiom).  [clausify(13)].
+
+given #20 (I,wt=7): 74 -aElement0(A) | sdtasdt0(A,sz00) = sz00 # label(mMulZero) # label(axiom).  [clausify(14)].
+
+given #21 (I,wt=7): 75 -aElement0(A) | sdtasdt0(sz00,A) = sz00 # label(mMulZero) # label(axiom).  [clausify(14)].
+
+given #22 (I,wt=15): 77 -aElement0(A) | -aElement0(B) | sdtasdt0(A,B) != sz00 | sz00 = A | sz00 = B.  [copy(76),flip(e)].
+
+given #23 (I,wt=3): 78 sz10 != sz00 # label(mUnNeZr) # label(axiom).  [assumption].
+
+given #24 (I,wt=7): 79 -aSet0(A) | -aElementOf0(B,A) | aElement0(B) # label(mEOfElem) # label(axiom).  [clausify(17)].
+
+given #25 (I,wt=17): 80 -aSet0(A) | -aSet0(B) | aElementOf0(f1(A,B),A) | aElementOf0(f2(A,B),B) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+
+given #26 (I,wt=17): 81 -aSet0(A) | -aSet0(B) | aElementOf0(f1(A,B),A) | -aElementOf0(f2(A,B),A) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+
+given #27 (I,wt=17): 82 -aSet0(A) | -aSet0(B) | -aElementOf0(f1(A,B),B) | aElementOf0(f2(A,B),B) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+
+given #28 (I,wt=17): 83 -aSet0(A) | -aSet0(B) | -aElementOf0(f1(A,B),B) | -aElementOf0(f2(A,B),A) | B = A # label(mSetEq) # label(axiom).  [clausify(18)].
+
+given #29 (I,wt=11): 84 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | aSet0(C) # label(mDefSSum) # label(definition).  [clausify(19)].
+
+given #30 (I,wt=19): 85 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | -aElementOf0(D,C) | aElementOf0(f3(A,B,C,D),A) # label(mDefSSum) # label(definition).  [clausify(19)].
+
+given #31 (I,wt=19): 86 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | -aElementOf0(D,C) | aElementOf0(f4(A,B,C,D),B) # label(mDefSSum) # label(definition).  [clausify(19)].
+
+given #32 (I,wt=25): 87 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | -aElementOf0(D,C) | sdtpldt0(f3(A,B,C,D),f4(A,B,C,D)) = D # label(mDefSSum) # label(definition).  [clausify(19)].
+
+given #33 (I,wt=23): 88 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) != C | aElementOf0(D,C) | -aElementOf0(E,A) | -aElementOf0(F,B) | sdtpldt0(E,F) != D # label(mDefSSum) # label(definition).  [clausify(19)].
+
+given #34 (I,wt=23): 89 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | aElementOf0(f5(A,B,C),C) | aElementOf0(f6(A,B,C),A) # label(mDefSSum) # label(definition).  [clausify(19)].
+
+given #35 (I,wt=23): 90 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | aElementOf0(f5(A,B,C),C) | aElementOf0(f7(A,B,C),B) # label(mDefSSum) # label(definition).  [clausify(19)].
+
+given #36 (I,wt=31): 91 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | aElementOf0(f5(A,B,C),C) | sdtpldt0(f6(A,B,C),f7(A,B,C)) = f5(A,B,C) # label(mDefSSum) # label(definition).  [clausify(19)].
+
+given #37 (I,wt=31): 93 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = C | -aSet0(C) | -aElementOf0(f5(A,B,C),C) | -aElementOf0(D,A) | -aElementOf0(E,B) | f5(A,B,C) != sdtpldt0(D,E).  [copy(92),flip(h)].
+
+given #38 (I,wt=11): 94 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | aSet0(C) # label(mDefSInt) # label(definition).  [clausify(20)].
+
+given #39 (I,wt=15): 95 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | -aElementOf0(D,C) | aElementOf0(D,A) # label(mDefSInt) # label(definition).  [clausify(20)].
+
+given #40 (I,wt=15): 96 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | -aElementOf0(D,C) | aElementOf0(D,B) # label(mDefSInt) # label(definition).  [clausify(20)].
+
+given #41 (I,wt=18): 97 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) != C | aElementOf0(D,C) | -aElementOf0(D,A) | -aElementOf0(D,B) # label(mDefSInt) # label(definition).  [clausify(20)].
+
+given #42 (I,wt=23): 98 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = C | -aSet0(C) | aElementOf0(f8(A,B,C),C) | aElementOf0(f8(A,B,C),A) # label(mDefSInt) # label(definition).  [clausify(20)].
+
+given #43 (I,wt=23): 99 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = C | -aSet0(C) | aElementOf0(f8(A,B,C),C) | aElementOf0(f8(A,B,C),B) # label(mDefSInt) # label(definition).  [clausify(20)].
+
+given #44 (I,wt=29): 100 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = C | -aSet0(C) | -aElementOf0(f8(A,B,C),C) | -aElementOf0(f8(A,B,C),A) | -aElementOf0(f8(A,B,C),B) # label(mDefSInt) # label(definition).  [clausify(20)].
+
+given #45 (I,wt=4): 101 -aIdeal0(A) | aSet0(A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+
+given #46 (I,wt=13): 102 -aIdeal0(A) | -aElementOf0(B,A) | -aElementOf0(C,A) | aElementOf0(sdtpldt0(B,C),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+
+given #47 (I,wt=12): 103 -aIdeal0(A) | -aElementOf0(B,A) | -aElement0(C) | aElementOf0(sdtasdt0(C,B),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+
+given #48 (I,wt=8): 104 aIdeal0(A) | -aSet0(A) | aElementOf0(f9(A),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+
+given #49 (I,wt=11): 105 aIdeal0(A) | -aSet0(A) | aElementOf0(f10(A),A) | aElement0(f11(A)) # label(mDefIdeal) # label(definition).  [clausify(21)].
+
+given #50 (I,wt=15): 106 aIdeal0(A) | -aSet0(A) | aElementOf0(f10(A),A) | -aElementOf0(sdtasdt0(f11(A),f9(A)),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+
+given #51 (I,wt=14): 107 aIdeal0(A) | -aSet0(A) | -aElementOf0(sdtpldt0(f9(A),f10(A)),A) | aElement0(f11(A)) # label(mDefIdeal) # label(definition).  [clausify(21)].
+
+given #52 (I,wt=18): 108 aIdeal0(A) | -aSet0(A) | -aElementOf0(sdtpldt0(f9(A),f10(A)),A) | -aElementOf0(sdtasdt0(f11(A),f9(A)),A) # label(mDefIdeal) # label(definition).  [clausify(21)].
+
+given #53 (I,wt=8): 109 -aIdeal0(A) | -aIdeal0(B) | aIdeal0(sdtpldt1(A,B)) # label(mIdeSum) # label(axiom).  [clausify(22)].
+
+given #54 (I,wt=8): 110 -aIdeal0(A) | -aIdeal0(B) | aIdeal0(sdtasasdt0(A,B)) # label(mIdeInt) # label(axiom).  [clausify(23)].
+
+given #55 (I,wt=18): 111 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | aElement0(f13(A,B,C,D)) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+
+given #56 (I,wt=21): 112 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | aElement0(f13(A,B,C,D)) # label(mChineseRemainder) # label(axiom).  [clausify(25)].
+
+given #57 (I,wt=11): 114 -aElement0(A) | -aElement0(B) | sz00 = B | aElement0(f14(A,B)).  [copy(113),flip(c)].
+
+given #58 (I,wt=11): 116 -aElement0(A) | -aElement0(B) | sz00 = B | aElement0(f15(A,B)).  [copy(115),flip(c)].
+
+given #59 (I,wt=18): 118 -aElement0(A) | -aElement0(B) | sz00 = B | sdtpldt0(sdtasdt0(f14(A,B),B),f15(A,B)) = A.  [copy(117),flip(c)].
+
+given #60 (I,wt=11): 119 -aElement0(A) | -aElement0(B) | -doDivides0(A,B) | aElement0(f16(A,B)) # label(mDefDiv) # label(definition).  [clausify(30)].
+
+given #61 (I,wt=14): 120 -aElement0(A) | -aElement0(B) | -doDivides0(A,B) | sdtasdt0(A,f16(A,B)) = B # label(mDefDiv) # label(definition).  [clausify(30)].
+
+given #62 (I,wt=14): 121 -aElement0(A) | -aElement0(B) | doDivides0(A,B) | -aElement0(C) | sdtasdt0(A,C) != B # label(mDefDiv) # label(definition).  [clausify(30)].
+
+given #63 (I,wt=7): 122 -aElement0(A) | -aDivisorOf0(B,A) | aElement0(B) # label(mDefDvs) # label(definition).  [clausify(31)].
+
+given #64 (I,wt=8): 123 -aElement0(A) | -aDivisorOf0(B,A) | doDivides0(B,A) # label(mDefDvs) # label(definition).  [clausify(31)].
+
+given #65 (I,wt=10): 124 -aElement0(A) | aDivisorOf0(B,A) | -aElement0(B) | -doDivides0(B,A) # label(mDefDvs) # label(definition).  [clausify(31)].
+
+given #66 (I,wt=8): 125 -aElement0(A) | slsdtgt0(A) != B | aSet0(B) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+
+given #67 (I,wt=14): 126 -aElement0(A) | slsdtgt0(A) != B | -aElementOf0(C,B) | aElement0(f18(A,B,C)) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+
+given #68 (I,wt=17): 127 -aElement0(A) | slsdtgt0(A) != B | -aElementOf0(C,B) | sdtasdt0(A,f18(A,B,C)) = C # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+
+given #69 (I,wt=16): 128 -aElement0(A) | slsdtgt0(A) != B | aElementOf0(C,B) | -aElement0(D) | sdtasdt0(A,D) != C # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+
+given #70 (I,wt=17): 129 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | aElementOf0(f19(A,B),B) | aElement0(f20(A,B)) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+
+given #71 (I,wt=22): 130 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | aElementOf0(f19(A,B),B) | sdtasdt0(A,f20(A,B)) = f19(A,B) # label(mDefPrIdeal) # label(definition).  [clausify(34)].
+
+given #72 (I,wt=22): 132 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | -aElementOf0(f19(A,B),B) | -aElement0(C) | f19(A,B) != sdtasdt0(A,C).  [copy(131),flip(f)].
+
+given #73 (I,wt=2): 133 aElement0(xc) # label(m__1905) # label(hypothesis).  [assumption].
+
+given #74 (I,wt=4): 135 aElementOf0(xy,slsdtgt0(xc)) # label(m__1933) # label(hypothesis).  [clausify(35)].
+
+given #75 (I,wt=2): 136 aElement0(xz) # label(m__1933) # label(hypothesis).  [clausify(35)].
+
+given #76 (I,wt=2): 137 aElement0(xu) # label(m__1956) # label(hypothesis).  [clausify(36)].
+
+given #77 (I,wt=5): 139 xx = sdtasdt0(xc,xu).  [copy(138),flip(a)].
+
+given #78 (I,wt=2): 140 aElement0(xv) # label(m__1979) # label(hypothesis).  [clausify(37)].
+
+given #79 (I,wt=5): 141 sdtasdt0(xc,xv) = xy # label(m__1979) # label(hypothesis).  [clausify(37)].
+
+given #80 (I,wt=11): 143 sdtpldt0(sdtasdt0(xc,xu),xy) = sdtasdt0(xc,sdtpldt0(xu,xv)).  [copy(142),rewrite([139(1)])].
+
+given #81 (I,wt=11): 145 sdtasdt0(xz,sdtasdt0(xc,xu)) != sdtasdt0(xc,sdtasdt0(xu,xz)).  [copy(144),rewrite([139(2)])].
+
+given #82 (I,wt=28): 147 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(C)),A).  [copy(146),merge(g),merge(h)].
+
+given #83 (I,wt=28): 149 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(D)),B).  [copy(148),merge(g),merge(h)].
+
+given #84 (I,wt=31): 151 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(C)),A).  [copy(150),merge(g),merge(h)].
+
+given #85 (I,wt=31): 153 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(D) | -aElement0(f13(A,B,C,D)) | aElementOf0(sdtpldt0(f13(A,B,C,D),smndt0(D)),B).  [copy(152),merge(g),merge(h)].
+
+given #86 (I,wt=25): 155 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),A) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [copy(154),merge(f),merge(g)].
+
+given #87 (I,wt=25): 157 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),B) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [copy(156),merge(f),merge(g)].
+
+given #88 (I,wt=25): 159 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | -doDivides0(f17(A,B,C),C) | -aDivisorOf0(D,A) | -aDivisorOf0(D,B) | doDivides0(D,C).  [copy(158),merge(f),merge(g)].
+
+given #89 (I,wt=6): 160 -aElement0(A) | aElement0(sdtpldt0(A,A)).  [factor(56,a,b)].
+
+given #90 (I,wt=6): 161 -aElement0(A) | aElement0(sdtasdt0(A,A)).  [factor(57,a,b)].
+
+given #91 (I,wt=15): 162 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,A),B) = sdtpldt0(A,sdtpldt0(A,B)).  [factor(59,a,b)].
+
+given #92 (I,wt=15): 163 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,B),A) = sdtpldt0(A,sdtpldt0(B,A)).  [factor(59,a,c)].
+
+given #93 (I,wt=15): 164 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,B),B) = sdtpldt0(A,sdtpldt0(B,B)).  [factor(59,b,c)].
+
+given #94 (I,wt=15): 165 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,A),B) = sdtasdt0(A,sdtasdt0(A,B)).  [factor(65,a,b)].
+
+given #95 (I,wt=15): 166 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,B),A) = sdtasdt0(A,sdtasdt0(B,A)).  [factor(65,a,c)].
+
+given #96 (I,wt=15): 167 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,B),B) = sdtasdt0(A,sdtasdt0(B,B)).  [factor(65,b,c)].
+
+given #97 (I,wt=17): 168 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(A,B)) = sdtasdt0(A,sdtpldt0(A,B)).  [factor(69,a,b)].
+
+given #98 (I,wt=17): 169 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,A)) = sdtasdt0(A,sdtpldt0(B,A)).  [factor(69,a,c)].
+
+given #99 (I,wt=17): 170 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,B)) = sdtasdt0(A,sdtpldt0(B,B)).  [factor(69,b,c)].
+
+given #100 (I,wt=17): 171 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(B,A)) = sdtasdt0(sdtpldt0(A,B),A).  [factor(71,a,b)].
+
+given #101 (I,wt=17): 172 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(B,A),sdtasdt0(A,A)) = sdtasdt0(sdtpldt0(B,A),A).  [factor(71,a,c)].
+
+given #102 (I,wt=17): 173 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(B,A),sdtasdt0(B,A)) = sdtasdt0(sdtpldt0(B,B),A).  [factor(71,b,c)].
+
+given #103 (I,wt=10): 174 -aElement0(A) | sdtasdt0(A,A) != sz00 | sz00 = A.  [factor(77,a,b),merge(d)].
+
+given #104 (I,wt=9): 175 -aSet0(A) | sdtpldt1(A,A) != B | aSet0(B).  [factor(84,a,b)].
+
+given #105 (I,wt=17): 176 -aSet0(A) | sdtpldt1(A,A) != B | -aElementOf0(C,B) | aElementOf0(f3(A,A,B,C),A).  [factor(85,a,b)].
+
+given #106 (I,wt=17): 177 -aSet0(A) | sdtpldt1(A,A) != B | -aElementOf0(C,B) | aElementOf0(f4(A,A,B,C),A).  [factor(86,a,b)].
+
+given #107 (I,wt=23): 178 -aSet0(A) | sdtpldt1(A,A) != B | -aElementOf0(C,B) | sdtpldt0(f3(A,A,B,C),f4(A,A,B,C)) = C.  [factor(87,a,b)].
+
+given #108 (I,wt=21): 179 -aSet0(A) | sdtpldt1(A,A) != B | aElementOf0(C,B) | -aElementOf0(D,A) | -aElementOf0(E,A) | sdtpldt0(D,E) != C.  [factor(88,a,b)].
+
+given #109 (I,wt=18): 180 -aSet0(A) | sdtpldt1(A,A) != B | aElementOf0(C,B) | -aElementOf0(D,A) | sdtpldt0(D,D) != C.  [factor(88,e,f),merge(b)].
+
+given #110 (I,wt=21): 181 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | aElementOf0(f5(A,A,B),B) | aElementOf0(f6(A,A,B),A).  [factor(89,a,b)].
+
+given #111 (I,wt=21): 182 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | aElementOf0(f5(A,B,A),A) | aElementOf0(f6(A,B,A),A).  [factor(89,a,d)].
+
+given #112 (I,wt=21): 183 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | aElementOf0(f5(A,B,B),B) | aElementOf0(f6(A,B,B),A).  [factor(89,b,d)].
+
+given #113 (I,wt=21): 184 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | aElementOf0(f5(A,A,B),B) | aElementOf0(f7(A,A,B),A).  [factor(90,a,b)].
+
+given #114 (I,wt=21): 185 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | aElementOf0(f5(A,B,A),A) | aElementOf0(f7(A,B,A),B).  [factor(90,a,d)].
+
+given #115 (I,wt=21): 186 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | aElementOf0(f5(A,B,B),B) | aElementOf0(f7(A,B,B),B).  [factor(90,b,d)].
+
+given #116 (I,wt=29): 187 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | aElementOf0(f5(A,A,B),B) | sdtpldt0(f6(A,A,B),f7(A,A,B)) = f5(A,A,B).  [factor(91,a,b)].
+
+given #117 (I,wt=29): 188 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | aElementOf0(f5(A,B,A),A) | sdtpldt0(f6(A,B,A),f7(A,B,A)) = f5(A,B,A).  [factor(91,a,d)].
+
+given #118 (I,wt=29): 189 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | aElementOf0(f5(A,B,B),B) | sdtpldt0(f6(A,B,B),f7(A,B,B)) = f5(A,B,B).  [factor(91,b,d)].
+
+given #119 (I,wt=29): 190 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | -aElementOf0(f5(A,A,B),B) | -aElementOf0(C,A) | -aElementOf0(D,A) | f5(A,A,B) != sdtpldt0(C,D).  [factor(93,a,b)].
+
+given #120 (I,wt=29): 191 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | -aElementOf0(f5(A,B,A),A) | -aElementOf0(C,A) | -aElementOf0(D,B) | f5(A,B,A) != sdtpldt0(C,D).  [factor(93,a,d)].
+
+given #121 (I,wt=29): 192 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | -aElementOf0(f5(A,B,B),B) | -aElementOf0(C,A) | -aElementOf0(D,B) | f5(A,B,B) != sdtpldt0(C,D).  [factor(93,b,d)].
+
+given #122 (I,wt=29): 193 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = A | -aElementOf0(f5(A,B,A),A) | -aElementOf0(C,B) | sdtpldt0(f5(A,B,A),C) != f5(A,B,A).  [factor(93,e,f),flip(g),merge(d)].
+
+given #123 (I,wt=29): 194 -aSet0(A) | -aSet0(B) | sdtpldt1(A,B) = B | -aElementOf0(f5(A,B,B),B) | -aElementOf0(C,A) | sdtpldt0(C,f5(A,B,B)) != f5(A,B,B).  [factor(93,e,g),flip(g),merge(d)].
+
+given #124 (I,wt=26): 195 -aSet0(A) | sdtpldt1(A,A) = B | -aSet0(B) | -aElementOf0(f5(A,A,B),B) | -aElementOf0(C,A) | f5(A,A,B) != sdtpldt0(C,C).  [factor(93,f,g),merge(b)].
+
+given #125 (I,wt=9): 196 -aSet0(A) | sdtasasdt0(A,A) != B | aSet0(B).  [factor(94,a,b)].
+
+given #126 (I,wt=13): 197 -aSet0(A) | sdtasasdt0(A,A) != B | -aElementOf0(C,B) | aElementOf0(C,A).  [factor(95,a,b)].
+
+given #127 (I,wt=13): 198 -aSet0(A) | sdtasasdt0(A,A) != B | aElementOf0(C,B) | -aElementOf0(C,A).  [factor(97,a,b),merge(e)].
+
+given #128 (I,wt=21): 199 -aSet0(A) | sdtasasdt0(A,A) = B | -aSet0(B) | aElementOf0(f8(A,A,B),B) | aElementOf0(f8(A,A,B),A).  [factor(98,a,b)].
+
+given #129 (I,wt=15): 200 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = A | aElementOf0(f8(A,B,A),A).  [factor(98,a,d),merge(e)].
+
+given #130 (I,wt=15): 202 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = B | aElementOf0(f8(A,B,B),B).  [factor(99,b,d),merge(e)].
+
+given #131 (I,wt=21): 203 -aSet0(A) | sdtasasdt0(A,A) = B | -aSet0(B) | -aElementOf0(f8(A,A,B),B) | -aElementOf0(f8(A,A,B),A).  [factor(100,a,b),merge(f)].
+
+given #132 (I,wt=21): 204 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = A | -aElementOf0(f8(A,B,A),A) | -aElementOf0(f8(A,B,A),B).  [factor(100,a,d),merge(e)].
+
+given #133 (I,wt=21): 205 -aSet0(A) | -aSet0(B) | sdtasasdt0(A,B) = B | -aElementOf0(f8(A,B,B),B) | -aElementOf0(f8(A,B,B),A).  [factor(100,b,d),merge(f)].
+
+given #134 (I,wt=10): 206 -aIdeal0(A) | -aElementOf0(B,A) | aElementOf0(sdtpldt0(B,B),A).  [factor(102,b,c)].
+
+given #135 (I,wt=6): 207 -aIdeal0(A) | aIdeal0(sdtpldt1(A,A)).  [factor(109,a,b)].
+
+given #136 (I,wt=6): 208 -aIdeal0(A) | aIdeal0(sdtasasdt0(A,A)).  [factor(110,a,b)].
+
+given #137 (I,wt=16): 209 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | -aElement0(C) | aElement0(f13(A,A,B,C)).  [factor(111,a,b)].
+
+given #138 (I,wt=16): 210 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | aElement0(f13(A,B,C,C)).  [factor(111,d,e)].
+
+given #139 (I,wt=19): 211 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | -aElement0(C) | aElement0(f13(A,A,B,C)).  [factor(112,a,b)].
+
+given #140 (I,wt=19): 212 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | aElement0(f13(A,B,C,C)).  [factor(112,d,e)].
+
+given #141 (I,wt=9): 213 -aElement0(A) | sz00 = A | aElement0(f14(A,A)).  [factor(114,a,b)].
+
+given #142 (I,wt=9): 214 -aElement0(A) | sz00 = A | aElement0(f15(A,A)).  [factor(116,a,b)].
+
+given #143 (I,wt=16): 215 -aElement0(A) | sz00 = A | sdtpldt0(sdtasdt0(f14(A,A),A),f15(A,A)) = A.  [factor(118,a,b)].
+
+given #144 (I,wt=9): 216 -aElement0(A) | -doDivides0(A,A) | aElement0(f16(A,A)).  [factor(119,a,b)].
+
+given #145 (I,wt=12): 217 -aElement0(A) | -doDivides0(A,A) | sdtasdt0(A,f16(A,A)) = A.  [factor(120,a,b)].
+
+given #146 (I,wt=12): 218 -aElement0(A) | doDivides0(A,A) | -aElement0(B) | sdtasdt0(A,B) != A.  [factor(121,a,b)].
+
+given #147 (I,wt=12): 219 -aElement0(A) | -aElement0(B) | doDivides0(A,B) | sdtasdt0(A,A) != B.  [factor(121,a,d)].
+
+given #148 (I,wt=12): 220 -aElement0(A) | -aElement0(B) | doDivides0(A,B) | sdtasdt0(A,B) != B.  [factor(121,b,d)].
+
+given #149 (I,wt=8): 221 -aElement0(A) | aDivisorOf0(A,A) | -doDivides0(A,A).  [factor(124,a,c)].
+
+given #150 (I,wt=14): 222 -aElement0(A) | slsdtgt0(A) != B | aElementOf0(C,B) | sdtasdt0(A,A) != C.  [factor(128,a,d)].
+
+given #151 (I,wt=20): 223 -aElement0(A) | slsdtgt0(A) = B | -aSet0(B) | -aElementOf0(f19(A,B),B) | f19(A,B) != sdtasdt0(A,A).  [factor(132,a,e)].
+
+given #152 (I,wt=6): 224 aElementOf0(sdtasdt0(xc,xu),slsdtgt0(xc)).  [back_rewrite(134),rewrite([139(1)])].
+
+given #153 (I,wt=26): 225 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | -aElement0(C) | -aElement0(f13(A,A,B,C)) | aElementOf0(sdtpldt0(f13(A,A,B,C),smndt0(B)),A).  [factor(147,a,b)].
+
+given #154 (I,wt=26): 226 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(f13(A,B,C,C)) | aElementOf0(sdtpldt0(f13(A,B,C,C),smndt0(C)),A).  [factor(147,d,e)].
+
+given #155 (I,wt=26): 227 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | -aElement0(C) | -aElement0(f13(A,A,B,C)) | aElementOf0(sdtpldt0(f13(A,A,B,C),smndt0(C)),A).  [factor(149,a,b)].
+
+given #156 (I,wt=26): 228 -aIdeal0(A) | -aIdeal0(B) | aElement0(f12(A,B)) | -aElement0(C) | -aElement0(f13(A,B,C,C)) | aElementOf0(sdtpldt0(f13(A,B,C,C),smndt0(C)),B).  [factor(149,d,e)].
+
+given #157 (I,wt=29): 229 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | -aElement0(C) | -aElement0(f13(A,A,B,C)) | aElementOf0(sdtpldt0(f13(A,A,B,C),smndt0(B)),A).  [factor(151,a,b)].
+
+given #158 (I,wt=29): 230 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(f13(A,B,C,C)) | aElementOf0(sdtpldt0(f13(A,B,C,C),smndt0(C)),A).  [factor(151,d,e)].
+
+given #159 (I,wt=29): 231 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | -aElement0(C) | -aElement0(f13(A,A,B,C)) | aElementOf0(sdtpldt0(f13(A,A,B,C),smndt0(C)),A).  [factor(153,a,b)].
+
+given #160 (I,wt=29): 232 -aIdeal0(A) | -aIdeal0(B) | -aElementOf0(f12(A,B),sdtpldt1(A,B)) | -aElement0(C) | -aElement0(f13(A,B,C,C)) | aElementOf0(sdtpldt0(f13(A,B,C,C),smndt0(C)),B).  [factor(153,d,e)].
+
+given #161 (I,wt=17): 233 -aElement0(A) | -aDivisorOf0(B,A) | aDivisorOf0(f17(A,A,B),A) | -aDivisorOf0(C,A) | doDivides0(C,B).  [factor(155,a,b),merge(c),merge(f)].
+
+given #162 (I,wt=19): 234 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),A) | doDivides0(C,C).  [factor(155,c,f),merge(f)].
+
+given #163 (I,wt=14): 235 -aElement0(A) | -aDivisorOf0(B,A) | aDivisorOf0(f17(A,A,B),A) | doDivides0(B,B).  [factor(155,c,g),merge(b),merge(d),merge(f)].
+
+given #164 (I,wt=19): 236 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | aDivisorOf0(f17(A,B,C),B) | doDivides0(C,C).  [factor(157,c,f),merge(f)].
+
+given #165 (I,wt=17): 237 -aElement0(A) | -aDivisorOf0(B,A) | -doDivides0(f17(A,A,B),B) | -aDivisorOf0(C,A) | doDivides0(C,B).  [factor(159,a,b),merge(c),merge(f)].
+
+given #166 (I,wt=19): 238 -aElement0(A) | -aElement0(B) | -aDivisorOf0(C,A) | -aDivisorOf0(C,B) | -doDivides0(f17(A,B,C),C) | doDivides0(C,C).  [factor(159,c,f),merge(f)].
+
+given #167 (I,wt=14): 239 -aElement0(A) | -aDivisorOf0(B,A) | -doDivides0(f17(A,A,B),B) | doDivides0(B,B).  [factor(159,c,g),merge(b),merge(d),merge(f)].
+
+given #168 (I,wt=13): 240 -aElement0(A) | sdtpldt0(sdtpldt0(A,A),A) = sdtpldt0(A,sdtpldt0(A,A)).  [factor(162,a,b)].
+
+given #169 (I,wt=13): 241 -aElement0(A) | sdtasdt0(sdtasdt0(A,A),A) = sdtasdt0(A,sdtasdt0(A,A)).  [factor(165,a,b)].
+
+given #170 (I,wt=15): 242 -aElement0(A) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(A,A)) = sdtasdt0(A,sdtpldt0(A,A)).  [factor(168,a,b)].
+
+given #171 (I,wt=15): 243 -aElement0(A) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(A,A)) = sdtasdt0(sdtpldt0(A,A),A).  [factor(171,a,b)].
+
+given #172 (I,wt=19): 244 -aSet0(A) | sdtpldt1(A,A) = A | aElementOf0(f5(A,A,A),A) | aElementOf0(f6(A,A,A),A).  [factor(181,a,c)].
+
+given #173 (I,wt=19): 245 -aSet0(A) | sdtpldt1(A,A) = A | aElementOf0(f5(A,A,A),A) | aElementOf0(f7(A,A,A),A).  [factor(184,a,c)].
+
+given #174 (I,wt=27): 246 -aSet0(A) | sdtpldt1(A,A) = A | aElementOf0(f5(A,A,A),A) | sdtpldt0(f6(A,A,A),f7(A,A,A)) = f5(A,A,A).  [factor(187,a,c)].
+
+given #175 (I,wt=27): 247 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | -aElementOf0(B,A) | -aElementOf0(C,A) | f5(A,A,A) != sdtpldt0(B,C).  [factor(190,a,c)].
+
+given #176 (I,wt=27): 248 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | -aElementOf0(B,A) | sdtpldt0(f5(A,A,A),B) != f5(A,A,A).  [factor(190,d,e),flip(f),merge(c)].
+
+given #177 (I,wt=27): 249 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | -aElementOf0(B,A) | sdtpldt0(B,f5(A,A,A)) != f5(A,A,A).  [factor(190,d,f),flip(f),merge(c)].
+
+given #178 (I,wt=24): 250 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | -aElementOf0(B,A) | f5(A,A,A) != sdtpldt0(B,B).  [factor(191,e,f),merge(b)].
+
+given #179 (I,wt=27): 251 -aSet0(A) | sdtpldt1(A,A) = A | -aElementOf0(f5(A,A,A),A) | sdtpldt0(f5(A,A,A),f5(A,A,A)) != f5(A,A,A).  [factor(193,d,e),merge(b)].
+
+given #180 (I,wt=13): 252 -aSet0(A) | sdtasasdt0(A,A) = A | aElementOf0(f8(A,A,A),A).  [factor(199,a,c),merge(d)].
+
+given #181 (I,wt=13): 253 -aSet0(A) | sdtasasdt0(A,A) = A | -aElementOf0(f8(A,A,A),A).  [factor(203,a,c),merge(d)].
+
+given #182 (I,wt=14): 254 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | aElement0(f13(A,A,B,B)).  [factor(209,c,d)].
+
+given #183 (I,wt=17): 255 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | aElement0(f13(A,A,B,B)).  [factor(211,c,d)].
+
+given #184 (I,wt=10): 256 -aElement0(A) | doDivides0(A,A) | sdtasdt0(A,A) != A.  [factor(218,a,c)].
+
+given #185 (I,wt=24): 257 -aIdeal0(A) | aElement0(f12(A,A)) | -aElement0(B) | -aElement0(f13(A,A,B,B)) | aElementOf0(sdtpldt0(f13(A,A,B,B),smndt0(B)),A).  [factor(225,c,d)].
+
+given #186 (I,wt=27): 258 -aIdeal0(A) | -aElementOf0(f12(A,A),sdtpldt1(A,A)) | -aElement0(B) | -aElement0(f13(A,A,B,B)) | aElementOf0(sdtpldt0(f13(A,A,B,B),smndt0(B)),A).  [factor(229,c,d)].
+
+given #187 (A,wt=3): 259 aElement0(smndt0(sz10)).  [resolve(55,a,54,a)].
+
+given #188 (T,wt=3): 407 aElement0(smndt0(xc)).  [resolve(133,a,55,a)].
+
+given #189 (T,wt=3): 824 doDivides0(sz10,sz10).  [resolve(256,a,54,a),rewrite([304(6)]),xx(b)].
+
+given #190 (T,wt=3): 825 doDivides0(sz00,sz00).  [resolve(256,a,53,a),rewrite([335(6)]),xx(b)].
+
+given #191 (T,wt=3): 995 aDivisorOf0(sz10,sz10).  [resolve(824,a,221,c),unit_del(a,54)].
+
+given #192 (A,wt=6): 261 -aElement0(A) | aElement0(sdtpldt0(sz10,A)).  [resolve(56,a,54,a)].
+
+given #193 (T,wt=3): 998 aDivisorOf0(sz00,sz00).  [resolve(825,a,221,c),unit_del(a,53)].
+
+given #194 (T,wt=4): 633 aElement0(sdtpldt0(xv,xv)).  [resolve(160,a,140,a)].
+
+given #195 (T,wt=4): 634 aElement0(sdtpldt0(xu,xu)).  [resolve(160,a,137,a)].
+
+given #196 (T,wt=4): 635 aElement0(sdtpldt0(xz,xz)).  [resolve(160,a,136,a)].
+
+given #197 (A,wt=6): 262 -aElement0(A) | aElement0(sdtpldt0(sz00,A)).  [resolve(56,a,53,a)].
+
+given #198 (T,wt=4): 636 aElement0(sdtpldt0(xc,xc)).  [resolve(160,a,133,a)].
+
+given #199 (T,wt=4): 637 aElement0(sdtpldt0(sz10,sz10)).  [resolve(160,a,54,a)].
+
+given #200 (T,wt=4): 638 aElement0(sdtasdt0(xv,xv)).  [resolve(161,a,140,a)].
+
+given #201 (T,wt=4): 639 aElement0(sdtasdt0(xu,xu)).  [resolve(161,a,137,a)].
+
+given #202 (A,wt=6): 263 -aElement0(A) | aElement0(sdtpldt0(A,sz10)).  [resolve(56,b,54,a)].
+
+given #203 (T,wt=4): 640 aElement0(sdtasdt0(xz,xz)).  [resolve(161,a,136,a)].
+
+given #204 (T,wt=4): 641 aElement0(sdtasdt0(xc,xc)).  [resolve(161,a,133,a)].
+
+given #205 (T,wt=4): 726 aElement0(f14(sz10,sz10)).  [resolve(213,a,54,a),flip(a),unit_del(a,78)].
+
+given #206 (T,wt=4): 731 aElement0(f15(sz10,sz10)).  [resolve(214,a,54,a),flip(a),unit_del(a,78)].
+
+given #207 (A,wt=6): 264 -aElement0(A) | aElement0(sdtpldt0(A,sz00)).  [resolve(56,b,53,a)].
+
+given #208 (T,wt=4): 882 smndt0(sz00) = sz00.  [resolve(259,a,75,a),rewrite([334(4)])].
+
+given #209 (T,wt=4): 997 aElement0(f16(sz10,sz10)).  [resolve(824,a,216,b),unit_del(a,54)].
+
+given #210 (T,wt=4): 1000 aElement0(f16(sz00,sz00)).  [resolve(825,a,216,b),unit_del(a,53)].
+
+given #211 (T,wt=4): 1012 aElement0(sdtpldt0(sz10,xv)).  [resolve(261,a,140,a)].
+
+given #212 (A,wt=6): 265 -aElement0(A) | aElement0(sdtasdt0(sz10,A)).  [resolve(57,a,54,a)].
+
+given #213 (T,wt=4): 1013 aElement0(sdtpldt0(sz10,xu)).  [resolve(261,a,137,a)].
+
+given #214 (T,wt=4): 1014 aElement0(sdtpldt0(sz10,xz)).  [resolve(261,a,136,a)].
+
+given #215 (T,wt=4): 1015 aElement0(sdtpldt0(sz10,xc)).  [resolve(261,a,133,a)].
+
+given #216 (T,wt=4): 1644 aElement0(sdtpldt0(xv,sz10)).  [resolve(263,a,140,a)].
+
+given #217 (A,wt=6): 266 -aElement0(A) | aElement0(sdtasdt0(sz00,A)).  [resolve(57,a,53,a)].
+
+given #218 (T,wt=4): 1645 aElement0(sdtpldt0(xu,sz10)).  [resolve(263,a,137,a)].
+
+given #219 (T,wt=4): 1646 aElement0(sdtpldt0(xz,sz10)).  [resolve(263,a,136,a)].
+
+given #220 (T,wt=4): 1647 aElement0(sdtpldt0(xc,sz10)).  [resolve(263,a,133,a)].
+
+given #221 (T,wt=5): 283 sdtpldt0(sz10,sz00) = sz10.  [resolve(60,a,54,a)].
+
+given #222 (A,wt=6): 267 -aElement0(A) | aElement0(sdtasdt0(A,sz10)).  [resolve(57,b,54,a)].
+
+given #223 (T,wt=5): 284 sdtpldt0(sz00,sz00) = sz00.  [resolve(60,a,53,a)].
+
+given #224 (T,wt=5): 285 sdtpldt0(sz00,sz10) = sz10.  [resolve(61,a,54,a)].
+
+given #225 (T,wt=5): 304 sdtasdt0(sz10,sz10) = sz10.  [resolve(66,a,54,a)].
+
+given #226 (T,wt=5): 305 sdtasdt0(sz00,sz10) = sz00.  [resolve(66,a,53,a)].
+
+given #227 (A,wt=6): 268 -aElement0(A) | aElement0(sdtasdt0(A,sz00)).  [resolve(57,b,53,a)].
+
+given #228 (T,wt=5): 306 sdtasdt0(sz10,sz00) = sz00.  [resolve(67,a,53,a)].
+
+given #229 (T,wt=5): 335 sdtasdt0(sz00,sz00) = sz00.  [resolve(74,a,53,a)].
+
+given #230 (T,wt=5): 379 sdtasdt0(sz00,xc) = sz00.  [resolve(133,a,75,a)].
+
+given #231 (T,wt=5): 380 sdtasdt0(xc,sz00) = sz00.  [resolve(133,a,74,a)].
+
+given #232 (A,wt=9): 269 -aElement0(A) | sdtpldt0(sz10,A) = sdtpldt0(A,sz10).  [resolve(58,a,54,a),flip(b)].
+
+given #233 (T,wt=5): 389 sdtasdt0(sz10,xc) = xc.  [resolve(133,a,67,a)].
+
+given #234 (T,wt=5): 390 sdtasdt0(xc,sz10) = xc.  [resolve(133,a,66,a)].
+
+given #235 (T,wt=5): 397 sdtpldt0(sz00,xc) = xc.  [resolve(133,a,61,a)].
+
+given #236 (T,wt=5): 398 sdtpldt0(xc,sz00) = xc.  [resolve(133,a,60,a)].
+
+given #237 (A,wt=9): 270 -aElement0(A) | sdtpldt0(sz00,A) = sdtpldt0(A,sz00).  [resolve(58,a,53,a),flip(b)].
+
+given #238 (T,wt=5): 439 -aSet0(slsdtgt0(xc)) | aElement0(xy).  [resolve(135,a,79,b)].
+
+given #239 (T,wt=5): 473 sdtasdt0(sz00,xz) = sz00.  [resolve(136,a,75,a)].
+
+given #240 (T,wt=5): 474 sdtasdt0(xz,sz00) = sz00.  [resolve(136,a,74,a)].
+
+given #241 (T,wt=5): 483 sdtasdt0(sz10,xz) = xz.  [resolve(136,a,67,a)].
+
+given #242 (A,wt=15): 271 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(sz10,A),B) = sdtpldt0(sz10,sdtpldt0(A,B)).  [resolve(59,a,54,a)].
+
+given #243 (T,wt=5): 484 sdtasdt0(xz,sz10) = xz.  [resolve(136,a,66,a)].
+
+given #244 (T,wt=5): 491 sdtpldt0(sz00,xz) = xz.  [resolve(136,a,61,a)].
+
+given #245 (T,wt=5): 492 sdtpldt0(xz,sz00) = xz.  [resolve(136,a,60,a)].
+
+given #246 (T,wt=5): 501 aElement0(sdtasdt0(xz,smndt0(sz10))).  [resolve(136,a,55,a),rewrite([475(2)])].
+
+given #247 (A,wt=15): 272 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(sz00,A),B) = sdtpldt0(sz00,sdtpldt0(A,B)).  [resolve(59,a,53,a)].
+
+given #248 (T,wt=5): 531 sdtasdt0(sz00,xu) = sz00.  [resolve(137,a,75,a)].
+
+given #249 (T,wt=5): 532 sdtasdt0(xu,sz00) = sz00.  [resolve(137,a,74,a)].
+
+given #250 (T,wt=5): 541 sdtasdt0(sz10,xu) = xu.  [resolve(137,a,67,a)].
+
+given #251 (T,wt=5): 542 sdtasdt0(xu,sz10) = xu.  [resolve(137,a,66,a)].
+
+given #252 (A,wt=15): 273 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,sz10),B) = sdtpldt0(A,sdtpldt0(sz10,B)).  [resolve(59,b,54,a)].
+
+given #253 (T,wt=5): 549 sdtpldt0(sz00,xu) = xu.  [resolve(137,a,61,a)].
+
+given #254 (T,wt=5): 550 sdtpldt0(xu,sz00) = xu.  [resolve(137,a,60,a)].
+
+given #255 (T,wt=5): 559 aElement0(sdtasdt0(xu,smndt0(sz10))).  [resolve(137,a,55,a),rewrite([533(2)])].
+
+given #256 (T,wt=5): 589 sdtasdt0(sz00,xv) = sz00.  [resolve(140,a,75,a)].
+
+given #257 (A,wt=15): 274 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,sz00),B) = sdtpldt0(A,sdtpldt0(sz00,B)).  [resolve(59,b,53,a)].
+
+given #258 (T,wt=5): 590 sdtasdt0(xv,sz00) = sz00.  [resolve(140,a,74,a)].
+
+given #259 (T,wt=5): 599 sdtasdt0(sz10,xv) = xv.  [resolve(140,a,67,a)].
+
+given #260 (T,wt=5): 600 sdtasdt0(xv,sz10) = xv.  [resolve(140,a,66,a)].
+
+given #261 (T,wt=5): 607 sdtpldt0(sz00,xv) = xv.  [resolve(140,a,61,a)].
+
+given #262 (A,wt=15): 275 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,B),sz10) = sdtpldt0(A,sdtpldt0(B,sz10)).  [resolve(59,c,54,a)].
+
+given #263 (T,wt=5): 608 sdtpldt0(xv,sz00) = xv.  [resolve(140,a,60,a)].
+
+given #264 (T,wt=5): 617 aElement0(sdtasdt0(xv,smndt0(sz10))).  [resolve(140,a,55,a),rewrite([591(2)])].
+
+given #265 (T,wt=5): 1011 aElement0(sdtpldt0(sz10,smndt0(xc))).  [resolve(261,a,407,a)].
+
+given #266 (T,wt=5): 2075 f16(sz10,sz10) = sz10.  [resolve(997,a,67,a),rewrite([996(5)]),flip(a)].
+
+given #267 (A,wt=15): 276 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtpldt0(A,B),sz00) = sdtpldt0(A,sdtpldt0(B,sz00)).  [resolve(59,c,53,a)].
+
+given #268 (T,wt=6): 286 sdtpldt0(sz10,smndt0(sz10)) = sz00.  [resolve(62,a,54,a)].
+
+given #269 (T,wt=6): 288 sdtpldt0(smndt0(sz10),sz10) = sz00.  [resolve(63,a,54,a)].
+
+given #270 (T,wt=6): 340 -aElement0(A) | aElement0(f14(A,sz10)).  [resolve(114,b,54,a),flip(b),unit_del(b,78)].
+
+given #271 (T,wt=4): 3650 aElement0(f14(xv,sz10)).  [resolve(340,a,140,a)].
+
+given #272 (A,wt=13): 277 -aElement0(A) | sdtpldt0(sdtpldt0(sz10,A),A) = sdtpldt0(sz10,sdtpldt0(A,A)).  [factor(271,a,b)].
+
+given #273 (T,wt=4): 3651 aElement0(f14(xu,sz10)).  [resolve(340,a,137,a)].
+
+given #274 (T,wt=4): 3652 aElement0(f14(xz,sz10)).  [resolve(340,a,136,a)].
+
+given #275 (T,wt=4): 3653 aElement0(f14(xc,sz10)).  [resolve(340,a,133,a)].
+
+given #276 (T,wt=4): 3654 aElement0(f14(sz00,sz10)).  [resolve(340,a,53,a)].
+
+given #277 (A,wt=13): 278 -aElement0(A) | sdtpldt0(sdtpldt0(sz00,A),A) = sdtpldt0(sz00,sdtpldt0(A,A)).  [factor(272,a,b)].
+
+given #278 (T,wt=5): 3648 aElement0(f14(smndt0(xc),sz10)).  [resolve(340,a,407,a)].
+
+given #279 (T,wt=5): 3649 aElement0(f14(smndt0(sz10),sz10)).  [resolve(340,a,259,a)].
+
+given #280 (T,wt=6): 343 -aElement0(A) | aElement0(f15(A,sz10)).  [resolve(116,b,54,a),flip(b),unit_del(b,78)].
+
+given #281 (T,wt=4): 4540 aElement0(f15(xv,sz10)).  [resolve(343,a,140,a)].
+
+given #282 (A,wt=13): 279 -aElement0(A) | sdtpldt0(sdtpldt0(A,sz10),A) = sdtpldt0(A,sdtpldt0(sz10,A)).  [factor(273,a,b)].
+
+given #283 (T,wt=4): 4541 aElement0(f15(xu,sz10)).  [resolve(343,a,137,a)].
+
+given #284 (T,wt=4): 4542 aElement0(f15(xz,sz10)).  [resolve(343,a,136,a)].
+
+given #285 (T,wt=4): 4543 aElement0(f15(xc,sz10)).  [resolve(343,a,133,a)].
+
+given #286 (T,wt=4): 4544 aElement0(f15(sz00,sz10)).  [resolve(343,a,53,a)].
+
+given #287 (A,wt=13): 280 -aElement0(A) | sdtpldt0(sdtpldt0(A,sz00),A) = sdtpldt0(A,sdtpldt0(sz00,A)).  [factor(274,a,b)].
+
+given #288 (T,wt=5): 4538 aElement0(f15(smndt0(xc),sz10)).  [resolve(343,a,407,a)].
+
+given #289 (T,wt=5): 4539 aElement0(f15(smndt0(sz10),sz10)).  [resolve(343,a,259,a)].
+
+given #290 (T,wt=6): 359 slsdtgt0(sz10) != A | aSet0(A).  [resolve(125,a,54,a)].
+
+given #291 (T,wt=3): 5421 aSet0(slsdtgt0(sz10)).  [xx_res(359,a)].
+
+given #292 (A,wt=13): 281 -aElement0(A) | sdtpldt0(sdtpldt0(A,A),sz10) = sdtpldt0(A,sdtpldt0(A,sz10)).  [factor(275,a,b)].
+
+given #293 (T,wt=6): 360 slsdtgt0(sz00) != A | aSet0(A).  [resolve(125,a,53,a)].
+
+given #294 (T,wt=3): 5513 aSet0(slsdtgt0(sz00)).  [xx_res(360,a)].
+
+given #295 (T,wt=6): 367 slsdtgt0(xc) != A | aSet0(A).  [resolve(133,a,125,a)].
+
+given #296 (T,wt=2): 5613 aElement0(xy).  [back_unit_del(439),unit_del(a,5569)].
+
+given #297 (A,wt=13): 282 -aElement0(A) | sdtpldt0(sdtpldt0(A,A),sz00) = sdtpldt0(A,sdtpldt0(A,sz00)).  [factor(276,a,b)].
+
+given #298 (T,wt=3): 5569 aSet0(slsdtgt0(xc)).  [xx_res(367,a)].
+
+given #299 (T,wt=4): 5575 aElement0(sdtasdt0(xc,xu)).  [back_unit_del(795),unit_del(a,5569)].
+
+given #300 (T,wt=4): 5620 aElement0(f15(xy,sz10)).  [resolve(5613,a,343,a)].
+
+given #301 (T,wt=4): 5621 aElement0(f14(xy,sz10)).  [resolve(5613,a,340,a)].
+
+given #302 (A,wt=9): 290 -aElement0(A) | sdtasdt0(sz10,A) = sdtasdt0(A,sz10).  [resolve(64,a,54,a),flip(b)].
+
+given #303 (T,wt=4): 5646 aElement0(sdtpldt0(sz10,xy)).  [resolve(5613,a,263,a),rewrite([5640(3)])].
+
+given #304 (T,wt=4): 5687 aElement0(sdtasdt0(xy,xy)).  [resolve(5613,a,161,a)].
+
+given #305 (T,wt=4): 5688 aElement0(sdtpldt0(xy,xy)).  [resolve(5613,a,160,a)].
+
+given #306 (T,wt=5): 5703 sdtasdt0(sz00,xy) = sz00.  [resolve(5613,a,75,a)].
+
+given #307 (A,wt=9): 291 -aElement0(A) | sdtasdt0(sz00,A) = sdtasdt0(A,sz00).  [resolve(64,a,53,a),flip(b)].
+
+given #308 (T,wt=5): 5704 sdtasdt0(xy,sz00) = sz00.  [resolve(5613,a,74,a)].
+
+given #309 (T,wt=5): 5713 sdtasdt0(sz10,xy) = xy.  [resolve(5613,a,67,a)].
+
+given #310 (T,wt=5): 5714 sdtasdt0(xy,sz10) = xy.  [resolve(5613,a,66,a)].
+
+given #311 (T,wt=5): 5721 sdtpldt0(sz00,xy) = xy.  [resolve(5613,a,61,a)].
+
+given #312 (A,wt=15): 292 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(sz10,A),B) = sdtasdt0(sz10,sdtasdt0(A,B)).  [resolve(65,a,54,a)].
+
+given #313 (T,wt=5): 5730 aElement0(sdtasdt0(xy,smndt0(sz10))).  [resolve(5613,a,55,a),rewrite([5705(2)])].
+
+given #314 (T,wt=5): 5738 sdtpldt0(xy,sz00) = xy.  [back_rewrite(5639),rewrite([5721(6)])].
+
+given #315 (T,wt=6): 395 sdtpldt0(smndt0(xc),xc) = sz00.  [resolve(133,a,63,a)].
+
+given #316 (T,wt=6): 396 sdtpldt0(xc,smndt0(xc)) = sz00.  [resolve(133,a,62,a)].
+
+given #317 (A,wt=15): 293 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(sz00,A),B) = sdtasdt0(sz00,sdtasdt0(A,B)).  [resolve(65,a,53,a)].
+
+given #318 (T,wt=6): 403 -aElement0(A) | aElement0(sdtasdt0(A,xc)).  [resolve(133,a,57,b)].
+
+given #319 (T,wt=4): 6892 aElement0(sdtasdt0(xy,xc)).  [resolve(403,a,5613,a)].
+
+given #320 (T,wt=4): 6928 aElement0(sdtasdt0(xv,xc)).  [resolve(403,a,140,a)].
+
+given #321 (T,wt=4): 6929 aElement0(sdtasdt0(xu,xc)).  [resolve(403,a,137,a)].
+
+given #322 (A,wt=15): 294 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,sz10),B) = sdtasdt0(A,sdtasdt0(sz10,B)).  [resolve(65,b,54,a)].
+
+given #323 (T,wt=4): 6930 aElement0(sdtasdt0(xz,xc)).  [resolve(403,a,136,a)].
+
+given #324 (T,wt=5): 6927 aElement0(sdtasdt0(smndt0(xc),xc)).  [resolve(403,a,407,a)].
+
+given #325 (T,wt=6): 404 -aElement0(A) | aElement0(sdtasdt0(xc,A)).  [resolve(133,a,57,a)].
+
+given #326 (T,wt=4): 7708 aElement0(sdtasdt0(xc,xy)).  [resolve(404,a,5613,a)].
+
+given #327 (A,wt=15): 295 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,sz00),B) = sdtasdt0(A,sdtasdt0(sz00,B)).  [resolve(65,b,53,a)].
+
+given #328 (T,wt=4): 7743 aElement0(sdtasdt0(xc,xz)).  [resolve(404,a,136,a)].
+
+given #329 (T,wt=5): 7742 aElement0(sdtasdt0(xc,smndt0(xc))).  [resolve(404,a,407,a)].
+
+given #330 (T,wt=6): 405 -aElement0(A) | aElement0(sdtpldt0(A,xc)).  [resolve(133,a,56,b)].
+
+given #331 (T,wt=4): 8283 aElement0(sdtpldt0(xy,xc)).  [resolve(405,a,5613,a)].
+
+given #332 (A,wt=15): 296 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,B),sz10) = sdtasdt0(A,sdtasdt0(B,sz10)).  [resolve(65,c,54,a)].
+
+given #333 (T,wt=4): 8319 aElement0(sdtpldt0(xv,xc)).  [resolve(405,a,140,a)].
+
+given #334 (T,wt=4): 8320 aElement0(sdtpldt0(xu,xc)).  [resolve(405,a,137,a)].
+
+given #335 (T,wt=4): 8321 aElement0(sdtpldt0(xz,xc)).  [resolve(405,a,136,a)].
+
+given #336 (T,wt=5): 8318 aElement0(sdtpldt0(smndt0(sz10),xc)).  [resolve(405,a,259,a)].
+
+given #337 (A,wt=15): 297 -aElement0(A) | -aElement0(B) | sdtasdt0(sdtasdt0(A,B),sz00) = sdtasdt0(A,sdtasdt0(B,sz00)).  [resolve(65,c,53,a)].
+
+given #338 (T,wt=6): 406 -aElement0(A) | aElement0(sdtpldt0(xc,A)).  [resolve(133,a,56,a)].
+
+given #339 (T,wt=4): 9295 aElement0(sdtpldt0(xc,xy)).  [resolve(406,a,5613,a)].
+
+given #340 (T,wt=4): 9330 aElement0(sdtpldt0(xc,xv)).  [resolve(406,a,140,a)].
+
+given #341 (T,wt=4): 9331 aElement0(sdtpldt0(xc,xu)).  [resolve(406,a,137,a)].
+
+given #342 (A,wt=13): 298 -aElement0(A) | sdtasdt0(sdtasdt0(sz10,A),A) = sdtasdt0(sz10,sdtasdt0(A,A)).  [factor(292,a,b)].
+
+given #343 (T,wt=4): 9332 aElement0(sdtpldt0(xc,xz)).  [resolve(406,a,136,a)].
+
+given #344 (T,wt=5): 9329 aElement0(sdtpldt0(xc,smndt0(sz10))).  [resolve(406,a,259,a)].
+
+given #345 (T,wt=6): 461 slsdtgt0(xz) != A | aSet0(A).  [resolve(136,a,125,a)].
+
+given #346 (T,wt=3): 10137 aSet0(slsdtgt0(xz)).  [xx_res(461,a)].
+
+given #347 (A,wt=13): 299 -aElement0(A) | sdtasdt0(sdtasdt0(sz00,A),A) = sdtasdt0(sz00,sdtasdt0(A,A)).  [factor(293,a,b)].
+
+given #348 (T,wt=6): 497 -aElement0(A) | aElement0(sdtasdt0(A,xz)).  [resolve(136,a,57,b)].
+
+given #349 (T,wt=4): 10278 aElement0(sdtasdt0(xy,xz)).  [resolve(497,a,5613,a)].
+
+given #350 (T,wt=4): 10314 aElement0(sdtasdt0(xv,xz)).  [resolve(497,a,140,a)].
+
+given #351 (T,wt=4): 10315 aElement0(sdtasdt0(xu,xz)).  [resolve(497,a,137,a)].
+
+given #352 (A,wt=13): 300 -aElement0(A) | sdtasdt0(sdtasdt0(A,sz10),A) = sdtasdt0(A,sdtasdt0(sz10,A)).  [factor(294,a,b)].
+
+given #353 (T,wt=5): 10313 aElement0(sdtasdt0(smndt0(xc),xz)).  [resolve(497,a,407,a)].
+
+given #354 (T,wt=6): 498 -aElement0(A) | aElement0(sdtasdt0(xz,A)).  [resolve(136,a,57,a)].
+
+given #355 (T,wt=4): 10957 aElement0(sdtasdt0(xz,xy)).  [resolve(498,a,5613,a)].
+
+given #356 (T,wt=4): 10992 aElement0(sdtasdt0(xz,xv)).  [resolve(498,a,140,a)].
+
+given #357 (A,wt=13): 301 -aElement0(A) | sdtasdt0(sdtasdt0(A,sz00),A) = sdtasdt0(A,sdtasdt0(sz00,A)).  [factor(295,a,b)].
+
+given #358 (T,wt=4): 10993 aElement0(sdtasdt0(xz,xu)).  [resolve(498,a,137,a)].
+
+given #359 (T,wt=5): 10991 aElement0(sdtasdt0(xz,smndt0(xc))).  [resolve(498,a,407,a)].
+
+given #360 (T,wt=6): 499 -aElement0(A) | aElement0(sdtpldt0(A,xz)).  [resolve(136,a,56,b)].
+
+given #361 (T,wt=4): 11648 aElement0(sdtpldt0(xy,xz)).  [resolve(499,a,5613,a)].
+
+given #362 (A,wt=13): 302 -aElement0(A) | sdtasdt0(sdtasdt0(A,A),sz10) = sdtasdt0(A,sdtasdt0(A,sz10)).  [factor(296,a,b)].
+
+given #363 (T,wt=4): 11684 aElement0(sdtpldt0(xv,xz)).  [resolve(499,a,140,a)].
+
+given #364 (T,wt=4): 11685 aElement0(sdtpldt0(xu,xz)).  [resolve(499,a,137,a)].
+
+given #365 (T,wt=5): 11682 aElement0(sdtpldt0(smndt0(xc),xz)).  [resolve(499,a,407,a)].
+
+given #366 (T,wt=5): 11683 aElement0(sdtpldt0(smndt0(sz10),xz)).  [resolve(499,a,259,a)].
+
+given #367 (A,wt=13): 303 -aElement0(A) | sdtasdt0(sdtasdt0(A,A),sz00) = sdtasdt0(A,sdtasdt0(A,sz00)).  [factor(297,a,b)].
+
+given #368 (T,wt=6): 500 -aElement0(A) | aElement0(sdtpldt0(xz,A)).  [resolve(136,a,56,a)].
+
+given #369 (T,wt=4): 12661 aElement0(sdtpldt0(xz,xy)).  [resolve(500,a,5613,a)].
+
+given #370 (T,wt=4): 12696 aElement0(sdtpldt0(xz,xv)).  [resolve(500,a,140,a)].
+
+given #371 (T,wt=4): 12697 aElement0(sdtpldt0(xz,xu)).  [resolve(500,a,137,a)].
+
+given #372 (A,wt=17): 307 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(sz10,A),sdtasdt0(sz10,B)) = sdtasdt0(sz10,sdtpldt0(A,B)).  [resolve(69,a,54,a)].
+
+given #373 (T,wt=5): 12694 aElement0(sdtpldt0(xz,smndt0(xc))).  [resolve(500,a,407,a)].
+
+Low Water (keep): wt=34.000, iters=6879
+
+Low Water (keep): wt=29.000, iters=6803
+
+Low Water (keep): wt=27.000, iters=6714
+
+given #374 (T,wt=5): 12695 aElement0(sdtpldt0(xz,smndt0(sz10))).  [resolve(500,a,259,a)].
+
+Low Water (keep): wt=25.000, iters=6692
+
+given #375 (T,wt=6): 519 slsdtgt0(xu) != A | aSet0(A).  [resolve(137,a,125,a)].
+
+given #376 (T,wt=3): 13648 aSet0(slsdtgt0(xu)).  [xx_res(519,a)].
+
+given #377 (A,wt=17): 308 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(sz00,A),sdtasdt0(sz00,B)) = sdtasdt0(sz00,sdtpldt0(A,B)).  [resolve(69,a,53,a)].
+
+given #378 (T,wt=6): 555 -aElement0(A) | aElement0(sdtasdt0(A,xu)).  [resolve(137,a,57,b)].
+
+given #379 (T,wt=4): 13888 aElement0(sdtasdt0(xy,xu)).  [resolve(555,a,5613,a)].
+
+Low Water (keep): wt=24.000, iters=6681
+
+given #380 (T,wt=4): 13924 aElement0(sdtasdt0(xv,xu)).  [resolve(555,a,140,a)].
+
+Low Water (keep): wt=23.000, iters=6688
+
+given #381 (T,wt=5): 13923 aElement0(sdtasdt0(smndt0(xc),xu)).  [resolve(555,a,407,a)].
+
+given #382 (A,wt=17): 309 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,sz10),sdtasdt0(A,B)) = sdtasdt0(A,sdtpldt0(sz10,B)).  [resolve(69,b,54,a)].
+
+given #383 (T,wt=6): 556 -aElement0(A) | aElement0(sdtasdt0(xu,A)).  [resolve(137,a,57,a)].
+
+given #384 (T,wt=4): 14585 aElement0(sdtasdt0(xu,xy)).  [resolve(556,a,5613,a)].
+
+given #385 (T,wt=4): 14620 aElement0(sdtasdt0(xu,xv)).  [resolve(556,a,140,a)].
+
+Low Water (keep): wt=22.000, iters=6703
+
+given #386 (T,wt=5): 14619 aElement0(sdtasdt0(xu,smndt0(xc))).  [resolve(556,a,407,a)].
+
+Low Water (keep): wt=21.000, iters=6710
+
+given #387 (A,wt=17): 310 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,sz00),sdtasdt0(A,B)) = sdtasdt0(A,sdtpldt0(sz00,B)).  [resolve(69,b,53,a)].
+
+given #388 (T,wt=6): 557 -aElement0(A) | aElement0(sdtpldt0(A,xu)).  [resolve(137,a,56,b)].
+
+given #389 (T,wt=4): 15272 aElement0(sdtpldt0(xy,xu)).  [resolve(557,a,5613,a)].
+
+given #390 (T,wt=4): 15308 aElement0(sdtpldt0(xv,xu)).  [resolve(557,a,140,a)].
+
+given #391 (T,wt=5): 15306 aElement0(sdtpldt0(smndt0(xc),xu)).  [resolve(557,a,407,a)].
+
+given #392 (A,wt=17): 311 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,sz10)) = sdtasdt0(A,sdtpldt0(B,sz10)).  [resolve(69,c,54,a)].
+
+given #393 (T,wt=5): 15307 aElement0(sdtpldt0(smndt0(sz10),xu)).  [resolve(557,a,259,a)].
+
+given #394 (T,wt=6): 558 -aElement0(A) | aElement0(sdtpldt0(xu,A)).  [resolve(137,a,56,a)].
+
+given #395 (T,wt=4): 16008 aElement0(sdtpldt0(xu,xy)).  [resolve(558,a,5613,a)].
+
+given #396 (T,wt=4): 16043 aElement0(sdtpldt0(xu,xv)).  [resolve(558,a,140,a)].
+
+Low Water (keep): wt=19.000, iters=6679
+
+given #397 (A,wt=17): 312 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,B),sdtasdt0(A,sz00)) = sdtasdt0(A,sdtpldt0(B,sz00)).  [resolve(69,c,53,a)].
+
+given #398 (T,wt=5): 16041 aElement0(sdtpldt0(xu,smndt0(xc))).  [resolve(558,a,407,a)].
+
+given #399 (T,wt=5): 16042 aElement0(sdtpldt0(xu,smndt0(sz10))).  [resolve(558,a,259,a)].
+
+given #400 (T,wt=6): 577 slsdtgt0(xv) != A | aSet0(A).  [resolve(140,a,125,a)].
+
+given #401 (T,wt=3): 16562 aSet0(slsdtgt0(xv)).  [xx_res(577,a)].
+
+given #402 (A,wt=15): 313 -aElement0(A) | sdtpldt0(sdtasdt0(sz10,A),sdtasdt0(sz10,A)) = sdtasdt0(sz10,sdtpldt0(A,A)).  [factor(307,a,b)].
+
+given #403 (T,wt=6): 613 -aElement0(A) | aElement0(sdtasdt0(A,xv)).  [resolve(140,a,57,b)].
+
+given #404 (T,wt=4): 16700 aElement0(sdtasdt0(xy,xv)).  [resolve(613,a,5613,a)].
+
+given #405 (T,wt=5): 16735 aElement0(sdtasdt0(smndt0(xc),xv)).  [resolve(613,a,407,a)].
+
+given #406 (T,wt=6): 614 -aElement0(A) | aElement0(sdtasdt0(xv,A)).  [resolve(140,a,57,a)].
+
+given #407 (A,wt=15): 314 -aElement0(A) | sdtpldt0(sdtasdt0(sz00,A),sdtasdt0(sz00,A)) = sdtasdt0(sz00,sdtpldt0(A,A)).  [factor(308,a,b)].
+
+given #408 (T,wt=4): 16960 aElement0(sdtasdt0(xv,xy)).  [resolve(614,a,5613,a)].
+
+given #409 (T,wt=5): 16994 aElement0(sdtasdt0(xv,smndt0(xc))).  [resolve(614,a,407,a)].
+
+given #410 (T,wt=6): 615 -aElement0(A) | aElement0(sdtpldt0(A,xv)).  [resolve(140,a,56,b)].
+
+given #411 (T,wt=4): 17318 aElement0(sdtpldt0(xy,xv)).  [resolve(615,a,5613,a)].
+
+given #412 (A,wt=15): 315 -aElement0(A) | sdtpldt0(sdtasdt0(A,sz10),sdtasdt0(A,A)) = sdtasdt0(A,sdtpldt0(sz10,A)).  [factor(309,a,b)].
+
+given #413 (T,wt=5): 17352 aElement0(sdtpldt0(smndt0(xc),xv)).  [resolve(615,a,407,a)].
+
+given #414 (T,wt=5): 17353 aElement0(sdtpldt0(smndt0(sz10),xv)).  [resolve(615,a,259,a)].
+
+given #415 (T,wt=6): 616 -aElement0(A) | aElement0(sdtpldt0(xv,A)).  [resolve(140,a,56,a)].
+
+given #416 (T,wt=4): 17653 aElement0(sdtpldt0(xv,xy)).  [resolve(616,a,5613,a)].
+
+given #417 (A,wt=15): 316 -aElement0(A) | sdtpldt0(sdtasdt0(A,sz00),sdtasdt0(A,A)) = sdtasdt0(A,sdtpldt0(sz00,A)).  [factor(310,a,b)].
+
+given #418 (T,wt=5): 17685 aElement0(sdtpldt0(xv,smndt0(xc))).  [resolve(616,a,407,a)].
+
+given #419 (T,wt=5): 17686 aElement0(sdtpldt0(xv,smndt0(sz10))).  [resolve(616,a,259,a)].
+
+given #420 (T,wt=6): 866 aElement0(sdtasdt0(smndt0(sz10),smndt0(sz10))).  [resolve(259,a,161,a)].
+
+given #421 (T,wt=6): 867 aElement0(sdtpldt0(smndt0(sz10),smndt0(sz10))).  [resolve(259,a,160,a)].
+
+given #422 (A,wt=15): 317 -aElement0(A) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(A,sz10)) = sdtasdt0(A,sdtpldt0(A,sz10)).  [factor(311,a,b)].
+
+given #423 (T,wt=6): 907 sdtasdt0(sz00,smndt0(sz10)) = sz00.  [back_rewrite(334),rewrite([882(6)])].
+
+given #424 (T,wt=6): 908 sdtasdt0(smndt0(sz10),sz00) = sz00.  [back_rewrite(332),rewrite([882(6)])].
+
+given #425 (T,wt=6): 949 aElement0(sdtasdt0(smndt0(xc),smndt0(xc))).  [resolve(407,a,161,a)].
+
+Low Water (keep): wt=18.000, iters=6675
+
+given #426 (T,wt=6): 950 aElement0(sdtpldt0(smndt0(xc),smndt0(xc))).  [resolve(407,a,160,a)].
+
+given #427 (A,wt=15): 318 -aElement0(A) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(A,sz00)) = sdtasdt0(A,sdtpldt0(A,sz00)).  [factor(312,a,b)].
+
+given #428 (T,wt=6): 965 sdtasdt0(sz00,smndt0(xc)) = sz00.  [resolve(407,a,75,a)].
+
+given #429 (T,wt=6): 966 sdtasdt0(smndt0(xc),sz00) = sz00.  [resolve(407,a,74,a)].
+
+given #430 (T,wt=6): 993 aElement0(sdtasdt0(smndt0(xc),smndt0(sz10))).  [resolve(407,a,55,a),rewrite([967(3)])].
+
+given #431 (T,wt=6): 1026 aElement0(sdtpldt0(sz10,sdtpldt0(xv,xv))).  [resolve(633,a,261,a)].
+
+given #432 (A,wt=17): 319 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,sz10),sdtasdt0(B,sz10)) = sdtasdt0(sdtpldt0(A,B),sz10).  [resolve(71,a,54,a)].
+
+given #433 (T,wt=6): 1113 aElement0(sdtpldt0(sz10,sdtpldt0(xu,xu))).  [resolve(634,a,261,a)].
+
+Low Water (keep): wt=17.000, iters=6693
+
+given #434 (T,wt=6): 1200 aElement0(sdtpldt0(sz10,sdtpldt0(xz,xz))).  [resolve(635,a,261,a)].
+
+given #435 (T,wt=6): 1376 aElement0(sdtpldt0(sz10,sdtpldt0(sz10,sz10))).  [resolve(637,a,261,a)].
+
+given #436 (T,wt=6): 1462 aElement0(sdtpldt0(sz10,sdtasdt0(xv,xv))).  [resolve(638,a,261,a)].
+
+given #437 (A,wt=17): 320 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(A,sz00),sdtasdt0(B,sz00)) = sdtasdt0(sdtpldt0(A,B),sz00).  [resolve(71,a,53,a)].
+
+given #438 (T,wt=6): 1504 aElement0(sdtasdt0(xv,sdtpldt0(xv,xv))).  [resolve(638,a,160,a),rewrite([810(7)])].
+
+given #439 (T,wt=6): 1550 aElement0(sdtpldt0(sz10,sdtasdt0(xu,xu))).  [resolve(639,a,261,a)].
+
+given #440 (T,wt=6): 1592 aElement0(sdtasdt0(xu,sdtpldt0(xu,xu))).  [resolve(639,a,160,a),rewrite([811(7)])].
+
+given #441 (T,wt=6): 1650 aElement0(sdtpldt0(sz10,sdtasdt0(xz,xz))).  [resolve(640,a,261,a)].
+
+given #442 (A,wt=17): 321 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(sz10,A),sdtasdt0(B,A)) = sdtasdt0(sdtpldt0(sz10,B),A).  [resolve(71,b,54,a)].
+
+given #443 (T,wt=6): 1692 aElement0(sdtasdt0(xz,sdtpldt0(xz,xz))).  [resolve(640,a,160,a),rewrite([812(7)])].
+
+given #444 (T,wt=6): 1739 aElement0(sdtpldt0(sz10,sdtasdt0(xc,xc))).  [resolve(641,a,261,a)].
+
+given #445 (T,wt=6): 1781 aElement0(sdtasdt0(xc,sdtpldt0(xc,xc))).  [resolve(641,a,160,a),rewrite([813(7)])].
+
+given #446 (T,wt=6): 1828 aElement0(sdtpldt0(sz10,f14(sz10,sz10))).  [resolve(726,a,261,a)].
+
+given #447 (A,wt=17): 322 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(sz00,A),sdtasdt0(B,A)) = sdtasdt0(sdtpldt0(sz00,B),A).  [resolve(71,b,53,a)].
+
+given #448 (T,wt=6): 1918 aElement0(sdtpldt0(sz10,f15(sz10,sz10))).  [resolve(731,a,261,a)].
+
+given #449 (T,wt=6): 2079 aElement0(sdtpldt0(sz10,f16(sz00,sz00))).  [resolve(1000,a,261,a)].
+
+given #450 (T,wt=6): 2168 aElement0(sdtpldt0(sz10,sdtpldt0(sz10,xv))).  [resolve(1012,a,261,a)].
+
+given #451 (T,wt=6): 2259 aElement0(sdtpldt0(sz10,sdtpldt0(sz10,xu))).  [resolve(1013,a,261,a)].
+
+given #452 (A,wt=17): 323 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(B,A),sdtasdt0(sz10,A)) = sdtasdt0(sdtpldt0(B,sz10),A).  [resolve(71,c,54,a)].
+
+given #453 (T,wt=6): 2350 aElement0(sdtpldt0(sz10,sdtpldt0(sz10,xz))).  [resolve(1014,a,261,a)].
+
+given #454 (T,wt=6): 2808 aElement0(sdtpldt0(sz10,sdtpldt0(xc,sz10))).  [resolve(1647,a,261,a)].
+
+given #455 (T,wt=6): 3628 aElement0(f14(sdtpldt0(xc,sz10),sz10)).  [resolve(340,a,1647,a)].
+
+given #456 (T,wt=6): 3629 aElement0(f14(sdtpldt0(sz10,xz),sz10)).  [resolve(340,a,1014,a)].
+
+given #457 (A,wt=17): 324 -aElement0(A) | -aElement0(B) | sdtpldt0(sdtasdt0(B,A),sdtasdt0(sz00,A)) = sdtasdt0(sdtpldt0(B,sz00),A).  [resolve(71,c,53,a)].
+
+given #458 (T,wt=6): 3630 aElement0(f14(sdtpldt0(sz10,xu),sz10)).  [resolve(340,a,1013,a)].
+
+given #459 (T,wt=6): 3631 aElement0(f14(sdtpldt0(sz10,xv),sz10)).  [resolve(340,a,1012,a)].
+
+given #460 (T,wt=6): 3633 aElement0(f14(f16(sz00,sz00),sz10)).  [resolve(340,a,1000,a)].
+
+given #461 (T,wt=6): 3634 aElement0(f14(f15(sz10,sz10),sz10)).  [resolve(340,a,731,a)].
+
+given #462 (A,wt=15): 325 -aElement0(A) | sdtpldt0(sdtasdt0(A,sz10),sdtasdt0(A,sz10)) = sdtasdt0(sdtpldt0(A,A),sz10).  [factor(319,a,b)].
+
+given #463 (T,wt=6): 3635 aElement0(f14(f14(sz10,sz10),sz10)).  [resolve(340,a,726,a)].
+
+given #464 (T,wt=6): 3636 aElement0(f14(sdtasdt0(xc,xc),sz10)).  [resolve(340,a,641,a)].
+
+given #465 (T,wt=6): 3637 aElement0(f14(sdtasdt0(xz,xz),sz10)).  [resolve(340,a,640,a)].
+
+given #466 (T,wt=6): 3638 aElement0(f14(sdtasdt0(xu,xu),sz10)).  [resolve(340,a,639,a)].
+
+given #467 (A,wt=15): 326 -aElement0(A) | sdtpldt0(sdtasdt0(A,sz00),sdtasdt0(A,sz00)) = sdtasdt0(sdtpldt0(A,A),sz00).  [factor(320,a,b)].
+
+given #468 (T,wt=6): 3639 aElement0(f14(sdtasdt0(xv,xv),sz10)).  [resolve(340,a,638,a)].
+
+given #469 (T,wt=6): 3640 aElement0(f14(sdtpldt0(sz10,sz10),sz10)).  [resolve(340,a,637,a)].
+
+given #470 (T,wt=6): 3641 aElement0(f14(sdtpldt0(xc,xc),sz10)).  [resolve(340,a,636,a)].
+
+given #471 (T,wt=6): 3642 aElement0(f14(sdtpldt0(xz,xz),sz10)).  [resolve(340,a,635,a)].
+
+given #472 (A,wt=15): 327 -aElement0(A) | sdtpldt0(sdtasdt0(sz10,A),sdtasdt0(A,A)) = sdtasdt0(sdtpldt0(sz10,A),A).  [factor(321,a,b)].
+
+given #473 (T,wt=6): 3643 aElement0(f14(sdtpldt0(xu,xu),sz10)).  [resolve(340,a,634,a)].
+
+given #474 (T,wt=6): 3644 aElement0(f14(sdtpldt0(xv,xv),sz10)).  [resolve(340,a,633,a)].
+
+given #475 (T,wt=6): 3655 aElement0(f14(f14(xv,sz10),sz10)).  [resolve(3650,a,340,a)].
+
+given #476 (T,wt=6): 3675 aElement0(sdtpldt0(sz10,f14(xv,sz10))).  [resolve(3650,a,263,a),rewrite([3669(5)])].
+
+given #477 (A,wt=15): 328 -aElement0(A) | sdtpldt0(sdtasdt0(sz00,A),sdtasdt0(A,A)) = sdtasdt0(sdtpldt0(sz00,A),A).  [factor(322,a,b)].
+
+given #478 (T,wt=6): 3795 aElement0(f14(f14(xu,sz10),sz10)).  [resolve(3651,a,340,a)].
+
+given #479 (T,wt=6): 3816 aElement0(sdtpldt0(sz10,f14(xu,sz10))).  [resolve(3651,a,263,a),rewrite([3810(5)])].
+
+given #480 (T,wt=6): 3909 aElement0(f14(f14(xz,sz10),sz10)).  [resolve(3652,a,340,a)].
+
+given #481 (T,wt=6): 3930 aElement0(sdtpldt0(sz10,f14(xz,sz10))).  [resolve(3652,a,263,a),rewrite([3924(5)])].
+
+given #482 (A,wt=15): 329 -aElement0(A) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(sz10,A)) = sdtasdt0(sdtpldt0(A,sz10),A).  [factor(323,a,b)].
+
+given #483 (T,wt=6): 4023 aElement0(f14(f14(xc,sz10),sz10)).  [resolve(3653,a,340,a)].
+
+given #484 (T,wt=6): 4044 aElement0(sdtpldt0(sz10,f14(xc,sz10))).  [resolve(3653,a,263,a),rewrite([4038(5)])].
+
+given #485 (T,wt=6): 4137 aElement0(f14(f14(sz00,sz10),sz10)).  [resolve(3654,a,340,a)].
+
+given #486 (T,wt=6): 4158 aElement0(sdtpldt0(sz10,f14(sz00,sz10))).  [resolve(3654,a,263,a),rewrite([4152(5)])].
+
+given #487 (A,wt=15): 330 -aElement0(A) | sdtpldt0(sdtasdt0(A,A),sdtasdt0(sz00,A)) = sdtasdt0(sdtpldt0(A,sz00),A).  [factor(324,a,b)].
+
+given #488 (T,wt=6): 4511 aElement0(f15(f14(sz00,sz10),sz10)).  [resolve(343,a,3654,a)].
+
+given #489 (T,wt=6): 4512 aElement0(f15(f14(xc,sz10),sz10)).  [resolve(343,a,3653,a)].
+
+given #490 (T,wt=6): 4513 aElement0(f15(f14(xz,sz10),sz10)).  [resolve(343,a,3652,a)].
+
+given #491 (T,wt=6): 4514 aElement0(f15(f14(xu,sz10),sz10)).  [resolve(343,a,3651,a)].
+
+given #492 (A,wt=7): 331 sdtasdt0(smndt0(sz10),sz10) = smndt0(sz10).  [resolve(72,a,54,a)].
+
+given #493 (T,wt=6): 4515 aElement0(f15(f14(xv,sz10),sz10)).  [resolve(343,a,3650,a)].
+
+given #494 (T,wt=6): 4518 aElement0(f15(sdtpldt0(xc,sz10),sz10)).  [resolve(343,a,1647,a)].
+
+given #495 (T,wt=6): 4519 aElement0(f15(sdtpldt0(sz10,xz),sz10)).  [resolve(343,a,1014,a)].
+
+given #496 (T,wt=6): 4520 aElement0(f15(sdtpldt0(sz10,xu),sz10)).  [resolve(343,a,1013,a)].
+
+given #497 (A,wt=7): 333 sdtasdt0(sz10,smndt0(sz10)) = smndt0(sz10).  [resolve(73,a,54,a)].
+
+given #498 (T,wt=6): 4521 aElement0(f15(sdtpldt0(sz10,xv),sz10)).  [resolve(343,a,1012,a)].
+
+given #499 (T,wt=6): 4523 aElement0(f15(f16(sz00,sz00),sz10)).  [resolve(343,a,1000,a)].
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 7127 (0.00 of 9.69 sec).
+
+given #500 (T,wt=6): 4524 aElement0(f15(f15(sz10,sz10),sz10)).  [resolve(343,a,731,a)].
+
+given #501 (T,wt=6): 4525 aElement0(f15(f14(sz10,sz10),sz10)).  [resolve(343,a,726,a)].
+
+given #502 (A,wt=10): 336 -aElement0(A) | sdtasdt0(sz10,A) != sz00 | sz00 = A.  [resolve(77,a,54,a),flip(c),unit_del(c,78)].
+
+given #503 (T,wt=6): 4526 aElement0(f15(sdtasdt0(xc,xc),sz10)).  [resolve(343,a,641,a)].
+
+============================== STATISTICS ============================
+
+Given=503. Generated=38688. Kept=21521. proofs=0.
+Usable=497. Sos=18257. Demods=3381. Limbo=14, Disabled=2858. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=5432. Back_subsumed=3.
+Sos_limit_deleted=11735. Sos_displaced=0. Sos_removed=0.
+New_demodulators=4317 (0 lex), Back_demodulated=2700. Back_unit_deleted=50.
+Demod_attempts=646501. Demod_rewrites=15384.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=405185. Nonunit_bsub_feature_tests=149208.
+Megabytes=32.93.
+User_CPU=10.08, System_CPU=0.02, Wall_clock=10.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 50 exit (max_seconds) Fri Oct 23 14:54:54 2026
+
+SEARCH FAILED
+
+------ process 50 exit (max_seconds) ------
+

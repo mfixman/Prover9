@@ -1,0 +1,240 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 223 was started by mfixman on bodoque,
+Fri Oct 23 15:01:25 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+f(X,f(Y,Z)) = f(f(X,Y),f(X,Z)) # label(a1) # label(axiom).
+a(X,a(Y,Z)) = a(f(X,Y),a(X,Z)) # label(a1a) # label(axiom).
+critical_point(f(U,V)) = a(U,critical_point(V)) # label(a2) # label(axiom).
+-less(X,X) # label(b1) # label(axiom).
+-less(X,Y) | less(a(U,X),a(U,Y)) # label(b4) # label(axiom).
+X = a(U,X) | less(X,a(U,X)) # label(c1) # label(axiom).
+-less(X,critical_point(U)) | a(U,X) = X # label(c2) # label(axiom).
+less(X,critical_point(U)) | less(X,a(U,X)) # label(c3) # label(axiom).
+a(U,X) != X | a(f(V,U),X) = X # label(d2) # label(axiom).
+tt = f(t,t) # label(clause_1) # label(axiom).
+st = f(s,t) # label(clause_2) # label(axiom).
+ts = f(t,s) # label(clause_3) # label(axiom).
+k = critical_point(t) # label(clause_4) # label(axiom).
+sk = f(s,k) # label(clause_5) # label(axiom).
+tk = f(t,k) # label(clause_6) # label(axiom).
+stk = f(st,k) # label(clause_7) # label(axiom).
+tsk = f(ts,k) # label(clause_8) # label(axiom).
+-less(f(tt,tsk),f(t,tsk)) # label(prove_equation) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, less ]).
+Function symbol precedence:  function_order([ t, k, s, st, ts, sk, stk, tk, tsk, tt, f, a, critical_point ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+Low Water (keep): wt=92.000, iters=6901
+
+Low Water (keep): wt=83.000, iters=6688
+
+Low Water (keep): wt=78.000, iters=6754
+
+Low Water (keep): wt=75.000, iters=6679
+
+Low Water (keep): wt=73.000, iters=6679
+
+Low Water (keep): wt=71.000, iters=6791
+
+Low Water (keep): wt=70.000, iters=6668
+
+Low Water (keep): wt=69.000, iters=7001
+
+Low Water (keep): wt=66.000, iters=6763
+
+Low Water (keep): wt=65.000, iters=6754
+
+Low Water (keep): wt=61.000, iters=6692
+
+Low Water (keep): wt=59.000, iters=6725
+
+Low Water (keep): wt=58.000, iters=6728
+
+Low Water (keep): wt=57.000, iters=6719
+
+Low Water (keep): wt=56.000, iters=6705
+
+Low Water (keep): wt=55.000, iters=6879
+
+Low Water (keep): wt=54.000, iters=6777
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 45 (0.00 of 4.25 sec).
+
+given #500 (T,wt=13): 5230 less(a(tt,a(tk,k)),a(t,a(t,a(k,k)))).  [para(327(a,1),195(a,2)),rewrite([1183(5),63(11),45(12)])].
+
+Low Water (keep): wt=53.000, iters=7237
+
+Low Water (keep): wt=51.000, iters=6926
+
+Low Water (keep): wt=50.000, iters=6690
+
+Low Water (keep): wt=49.000, iters=6717
+
+Low Water (keep): wt=47.000, iters=6771
+
+Low Water (keep): wt=45.000, iters=6687
+
+Low Water (keep): wt=44.000, iters=6670
+
+Low Water (keep): wt=43.000, iters=6953
+
+Low Water (keep): wt=42.000, iters=6680
+
+Low Water (keep): wt=41.000, iters=6713
+
+Low Water (keep): wt=40.000, iters=6686
+
+Low Water (keep): wt=39.000, iters=6711
+
+Low Water (displace): id=10417, wt=99.000
+
+Low Water (displace): id=10782, wt=98.000
+
+Low Water (displace): id=10380, wt=97.000
+
+Low Water (displace): id=10779, wt=96.000
+
+Low Water (displace): id=10414, wt=95.000
+
+Low Water (displace): id=21481, wt=38.000
+
+Low Water (keep): wt=38.000, iters=6670
+
+Low Water (displace): id=21937, wt=30.000
+
+Low Water (displace): id=21939, wt=26.000
+
+Low Water (displace): id=21947, wt=22.000
+
+Low Water (keep): wt=37.000, iters=6673
+
+Low Water (displace): id=22871, wt=19.000
+
+Low Water (keep): wt=36.000, iters=6669
+
+Low Water (keep): wt=35.000, iters=6708
+
+Low Water (displace): id=24090, wt=17.000
+
+Low Water (keep): wt=34.000, iters=6693
+
+Low Water (keep): wt=33.000, iters=6750
+
+Low Water (keep): wt=31.000, iters=6686
+
+Low Water (displace): id=27739, wt=15.000
+
+Low Water (keep): wt=30.000, iters=6666
+
+given #1000 (T,wt=14): 4291 less(A,a(t,A)) | less(a(f(t,f(B,t)),A),k).  [para(341(a,1),289(b,2))].
+
+Low Water (keep): wt=29.000, iters=6725
+
+Low Water (keep): wt=28.000, iters=6770
+
+Low Water (keep): wt=27.000, iters=6672
+
+Low Water (keep): wt=26.000, iters=6680
+
+Low Water (keep): wt=25.000, iters=6667
+
+Low Water (keep): wt=24.000, iters=6720
+
+Low Water (keep): wt=23.000, iters=6711
+
+Low Water (keep): wt=22.000, iters=6733
+
+given #1500 (T,wt=15): 2547 less(A,a(k,A)) | less(a(f(B,f(k,stk)),A),critical_point(k)).  [para(2267(a,1),37(b,2))].
+
+Low Water (keep): wt=21.000, iters=6667
+
+given #2000 (T,wt=15): 17816 less(critical_point(s),a(f(f(s,f(A,ts)),s),a(B,critical_point(s)))).  [para(2324(a,1),11186(a,2,2,2))].
+
+Low Water (keep): wt=20.000, iters=6666
+
+given #2500 (T,wt=15): 29527 less(k,a(t,a(s,a(A,a(tt,a(ts,a(B,k))))))).  [para(323(a,1),23623(a,2,2,2,2)),rewrite([187(10),317(11)])].
+
+============================== STATISTICS ============================
+
+Given=2804. Generated=636107. Kept=49891. proofs=0.
+Usable=2761. Sos=19999. Demods=3120. Limbo=0, Disabled=27149. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=7226.
+Forward_subsumed=335453. Back_subsumed=356.
+Sos_limit_deleted=243537. Sos_displaced=26195. Sos_removed=0.
+New_demodulators=13662 (0 lex), Back_demodulated=580. Back_unit_deleted=0.
+Demod_attempts=21038300. Demod_rewrites=991028.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=1238627. Nonunit_bsub_feature_tests=24129.
+Megabytes=98.40.
+User_CPU=20.00, System_CPU=0.31, Wall_clock=20.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 223 exit (max_seconds) Fri Oct 23 15:01:45 2026
+
+SEARCH FAILED
+
+------ process 223 exit (max_seconds) ------
+

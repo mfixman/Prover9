@@ -1,0 +1,216 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 69 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(init) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,X21,X22,X23,X24,X25,s0) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,X21,X22,X23,X24,X25,s1) # label(rule1) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,X21,X22,X23,X24,s0,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,X21,X22,X23,X24,s1,s0) # label(rule2) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,X21,X22,X23,s0,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,X21,X22,X23,s1,s0,s0) # label(rule3) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,X21,X22,s0,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,X21,X22,s1,s0,s0,s0) # label(rule4) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,X21,s0,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,X21,s1,s0,s0,s0,s0) # label(rule5) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,s0,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,s1,s0,s0,s0,s0,s0) # label(rule6) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,s0,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,s1,s0,s0,s0,s0,s0,s0) # label(rule7) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,s0,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,s1,s0,s0,s0,s0,s0,s0,s0) # label(rule8) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,s0,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,s1,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule9) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule10) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule11) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule12) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule13) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule14) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule15) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule16) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule17) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,X8,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,X8,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule18) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,X7,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,X7,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule19) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,X6,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,X6,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule20) # label(axiom).
+-p(X0,X1,X2,X3,X4,X5,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,X5,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule21) # label(axiom).
+-p(X0,X1,X2,X3,X4,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,X4,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule22) # label(axiom).
+-p(X0,X1,X2,X3,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,X3,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule23) # label(axiom).
+-p(X0,X1,X2,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,X2,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule24) # label(axiom).
+-p(X0,X1,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,X1,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule25) # label(axiom).
+-p(X0,s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(X0,s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule26) # label(axiom).
+-p(s0,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) | p(s1,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0) # label(rule27) # label(axiom).
+-p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1) # label(goal) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label goal to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ p ]).
+Function symbol precedence:  function_order([ s0, s1 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 2147483647 (0.00 of 0.05 sec).
+
+given #500 (F,wt=28): 501 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s1,s1,s1,s1,s0,s0,s1) # answer(goal).  [resolve(500,a,3,b)].
+
+given #1000 (T,wt=28): 1001 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s1,s0,s1,s1,s0,s0,s0,s0).  [ur(6,a,1000,a)].
+
+given #1500 (F,wt=28): 1501 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s0,s1,s1,s0,s0,s1,s1,s0,s1) # answer(goal).  [resolve(1500,a,3,b)].
+
+given #2000 (T,wt=28): 2001 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s1,s0,s1,s1,s0,s1,s1,s0,s1).  [ur(2,a,2000,a)].
+
+given #2500 (F,wt=28): 2501 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s0,s1,s0,s1,s0,s0,s0,s0,s1) # answer(goal).  [resolve(2500,a,3,b)].
+
+given #3000 (A,wt=28): 2997 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s0,s1,s1,s0,s0,s0,s1,s1,s0,s1) # answer(goal).  [resolve(2996,a,3,b)].
+
+given #3500 (T,wt=28): 3496 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s1,s0,s0,s0,s0,s0,s0,s1,s1,s0).  [ur(3,a,3495,a)].
+
+given #4000 (F,wt=28): 4001 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s1,s1,s0,s1,s1,s0,s0,s0,s0,s1) # answer(goal).  [resolve(3996,a,3,b)].
+
+given #4500 (T,wt=28): 4501 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s1,s1,s1,s1,s0,s0,s0,s0,s1,s1).  [ur(2,a,4495,a)].
+
+given #5000 (F,wt=28): 5001 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s0,s1,s0,s0,s1,s1,s0,s1,s0,s1) # answer(goal).  [resolve(5000,a,3,b)].
+
+given #5500 (T,wt=28): 5501 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s0,s0,s1,s1,s0,s0,s0,s0,s0,s0,s0).  [ur(9,a,5500,a)].
+
+given #6000 (F,wt=28): 6001 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s0,s1,s1,s0,s0,s0,s0,s1,s0,s0,s1) # answer(goal).  [resolve(6000,a,3,b)].
+
+given #6500 (T,wt=28): 6501 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s0,s1,s1,s0,s0,s1,s1,s1,s1,s0,s1).  [ur(2,a,6500,a)].
+
+given #7000 (F,wt=28): 7001 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s0,s0,s0,s1,s1,s0,s1,s1,s1,s0,s1) # answer(goal).  [resolve(7000,a,3,b)].
+
+given #7500 (A,wt=28): 7497 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s1,s1,s1,s1,s1,s0,s0,s1,s0,s0,s1) # answer(goal).  [resolve(7496,a,3,b)].
+
+given #8000 (T,wt=28): 7996 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s1,s0,s1,s1,s1,s0,s1,s0,s1,s1,s0).  [ur(3,a,7995,a)].
+
+given #8500 (F,wt=28): 8501 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s1,s0,s1,s1,s0,s0,s1,s1,s1,s0,s1) # answer(goal).  [resolve(8496,a,3,b)].
+
+given #9000 (T,wt=28): 9001 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s1,s1,s1,s1,s0,s0,s1,s0,s0,s1,s1).  [ur(2,a,8995,a)].
+
+given #9500 (F,wt=28): 9501 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s0,s1,s1,s0,s1,s1,s1,s0,s0,s0,s1) # answer(goal).  [resolve(9500,a,3,b)].
+
+given #10000 (T,wt=28): 10001 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s0,s0,s0,s1,s0,s1,s0,s1,s0,s0,s0,s0).  [ur(6,a,10000,a)].
+
+given #10500 (F,wt=28): 10501 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s0,s0,s1,s0,s1,s0,s0,s0,s1,s0,s1) # answer(goal).  [resolve(10500,a,3,b)].
+
+given #11000 (T,wt=28): 11001 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s0,s0,s1,s1,s0,s0,s0,s0,s1,s1,s0,s1).  [ur(2,a,11000,a)].
+
+given #11500 (F,wt=28): 11501 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s0,s1,s1,s1,s0,s0,s0,s1,s1,s0,s0,s1) # answer(goal).  [resolve(11500,a,3,b)].
+
+given #12000 (A,wt=28): 11997 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s0,s1,s1,s0,s0,s0,s0,s0,s0,s1,s0,s1) # answer(goal).  [resolve(11996,a,3,b)].
+
+given #12500 (T,wt=28): 12496 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s0,s1,s0,s1,s1,s0,s1,s0,s0,s1,s1,s0).  [ur(3,a,12495,a)].
+
+given #13000 (F,wt=28): 13001 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s0,s0,s1,s1,s1,s1,s0,s1,s1,s0,s0,s1) # answer(goal).  [resolve(12996,a,3,b)].
+
+given #13500 (T,wt=28): 13501 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s0,s1,s1,s1,s0,s1,s1,s0,s0,s0,s1,s1).  [ur(2,a,13495,a)].
+
+given #14000 (F,wt=28): 14001 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s0,s0,s0,s1,s1,s0,s1,s0,s1,s1,s0,s1) # answer(goal).  [resolve(14000,a,3,b)].
+
+given #14500 (T,wt=28): 14501 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s1,s0,s0,s1,s0,s0,s1,s0,s0,s0,s0,s0).  [ur(7,a,14500,a)].
+
+given #15000 (F,wt=28): 15001 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s1,s1,s1,s1,s1,s0,s0,s0,s0,s0,s0,s1) # answer(goal).  [resolve(15000,a,3,b)].
+
+given #15500 (T,wt=28): 15501 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s1,s0,s1,s0,s1,s1,s0,s1,s1,s1,s0,s1).  [ur(2,a,15500,a)].
+
+given #16000 (F,wt=28): 16001 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s1,s1,s0,s1,s0,s1,s0,s1,s0,s1,s0,s1) # answer(goal).  [resolve(16000,a,3,b)].
+
+given #16500 (A,wt=28): 16497 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s1,s1,s0,s0,s0,s1,s0,s0,s0,s0,s0,s1) # answer(goal).  [resolve(16496,a,3,b)].
+
+given #17000 (T,wt=28): 16996 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s1,s1,s0,s1,s0,s1,s1,s1,s0,s1,s1,s0).  [ur(3,a,16995,a)].
+
+given #17500 (F,wt=28): 17501 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s1,s0,s1,s0,s0,s0,s0,s1,s0,s1,s0,s1) # answer(goal).  [resolve(17496,a,3,b)].
+
+given #18000 (T,wt=28): 18001 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s1,s1,s1,s1,s0,s0,s1,s1,s0,s0,s1,s1).  [ur(2,a,17995,a)].
+
+given #18500 (F,wt=28): 18501 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s0,s1,s1,s1,s1,s1,s1,s0,s1,s0,s0,s1) # answer(goal).  [resolve(18500,a,3,b)].
+
+given #19000 (T,wt=28): 19001 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s0,s0,s0,s0,s0,s1,s1,s1,s1,s0,s0,s0,s0).  [ur(6,a,19000,a)].
+
+given #19500 (F,wt=28): 19501 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s0,s1,s0,s1,s1,s0,s1,s1,s1,s1,s0,s1) # answer(goal).  [resolve(19500,a,3,b)].
+
+given #20000 (T,wt=28): 20001 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s0,s0,s0,s1,s0,s1,s0,s1,s0,s1,s1,s0,s1).  [ur(2,a,20000,a)].
+
+given #20500 (F,wt=28): 20501 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s0,s0,s1,s1,s1,s0,s0,s1,s0,s0,s0,s1) # answer(goal).  [resolve(20500,a,3,b)].
+
+given #21000 (A,wt=28): 20997 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s0,s0,s1,s0,s0,s1,s1,s1,s1,s1,s0,s1) # answer(goal).  [resolve(20996,a,3,b)].
+
+given #21500 (T,wt=28): 21496 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s0,s0,s1,s0,s1,s0,s1,s0,s0,s0,s1,s1,s0).  [ur(3,a,21495,a)].
+
+given #22000 (F,wt=28): 22001 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s1,s0,s0,s0,s0,s0,s1,s0,s1,s0,s0,s0,s1) # answer(goal).  [resolve(21996,a,3,b)].
+
+given #22500 (T,wt=28): 22501 p(s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s0,s1,s0,s0,s1,s1,s1,s0,s0,s0,s0,s0,s0,s1,s1).  [ur(2,a,22495,a)].
+
+given #23000 (F,wt=28): 23001 -p(s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s0,s0,s1,s1,s1,s0,s0,s0,s1,s0,s0,s1,s0,s1) # answer(goal).  [resolve(23000,a,3,b)].
+
+============================== STATISTICS ============================
+
+Given=23349. Generated=36306. Kept=23351. proofs=0.
+Usable=23349. Sos=1. Demods=0. Limbo=1, Disabled=29. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=12955. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=351. Nonunit_bsub_feature_tests=395.
+Megabytes=50.08.
+User_CPU=20.00, System_CPU=0.06, Wall_clock=21.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 69 exit (max_seconds) Fri Oct 23 15:00:44 2026
+
+SEARCH FAILED
+
+------ process 69 exit (max_seconds) ------
+

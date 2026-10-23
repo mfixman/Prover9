@@ -1,0 +1,835 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 22 was started by mfixman on bodoque,
+Fri Oct 23 14:54:34 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,10).
+assign(max_megs,256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+mult(A,ld(A,B)) = B # label(c01) # label(axiom).
+ld(A,mult(A,B)) = B # label(c02) # label(axiom).
+mult(rd(A,B),B) = A # label(c03) # label(axiom).
+rd(mult(A,B),B) = A # label(c04) # label(axiom).
+mult(A,unit) = A # label(c05) # label(axiom).
+mult(unit,A) = A # label(c06) # label(axiom).
+ld(A,mult(mult(A,B),C)) = rd(mult(B,mult(C,A)),A) # label(c07) # label(axiom).
+mult(a,mult(b,c)) != mult(rd(mult(a,b),a),mult(a,c)) # label(goals) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+mult(A,ld(A,B)) = B # label(c01) # label(axiom).  [assumption].
+ld(A,mult(A,B)) = B # label(c02) # label(axiom).  [assumption].
+mult(rd(A,B),B) = A # label(c03) # label(axiom).  [assumption].
+rd(mult(A,B),B) = A # label(c04) # label(axiom).  [assumption].
+mult(A,unit) = A # label(c05) # label(axiom).  [assumption].
+mult(unit,A) = A # label(c06) # label(axiom).  [assumption].
+ld(A,mult(mult(A,B),C)) = rd(mult(B,mult(C,A)),A) # label(c07) # label(axiom).  [assumption].
+mult(a,mult(b,c)) != mult(rd(mult(a,b),a),mult(a,c)) # label(goals) # label(negated_conjecture).  [assumption].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label goals to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ unit, a, b, c, mult, ld, rd ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+kept:      1 mult(A,ld(A,B)) = B # label(c01) # label(axiom).  [assumption].
+kept:      2 ld(A,mult(A,B)) = B # label(c02) # label(axiom).  [assumption].
+kept:      3 mult(rd(A,B),B) = A # label(c03) # label(axiom).  [assumption].
+kept:      4 rd(mult(A,B),B) = A # label(c04) # label(axiom).  [assumption].
+kept:      5 mult(A,unit) = A # label(c05) # label(axiom).  [assumption].
+kept:      6 mult(unit,A) = A # label(c06) # label(axiom).  [assumption].
+           7 ld(A,mult(mult(A,B),C)) = rd(mult(B,mult(C,A)),A) # label(c07) # label(axiom).  [assumption].
+kept:      8 rd(mult(A,mult(B,C)),C) = ld(C,mult(mult(C,A),B)).  [copy(7),flip(a)].
+           9 mult(a,mult(b,c)) != mult(rd(mult(a,b),a),mult(a,c)) # label(goals) # label(negated_conjecture) # answer(goals).  [assumption].
+kept:      10 mult(rd(mult(a,b),a),mult(a,c)) != mult(a,mult(b,c)) # answer(goals).  [copy(9),flip(a)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+1 mult(A,ld(A,B)) = B # label(c01) # label(axiom).  [assumption].
+2 ld(A,mult(A,B)) = B # label(c02) # label(axiom).  [assumption].
+3 mult(rd(A,B),B) = A # label(c03) # label(axiom).  [assumption].
+4 rd(mult(A,B),B) = A # label(c04) # label(axiom).  [assumption].
+5 mult(A,unit) = A # label(c05) # label(axiom).  [assumption].
+6 mult(unit,A) = A # label(c06) # label(axiom).  [assumption].
+8 rd(mult(A,mult(B,C)),C) = ld(C,mult(mult(C,A),B)).  [copy(7),flip(a)].
+10 mult(rd(mult(a,b),a),mult(a,c)) != mult(a,mult(b,c)) # answer(goals).  [copy(9),flip(a)].
+end_of_list.
+
+formulas(demodulators).
+1 mult(A,ld(A,B)) = B # label(c01) # label(axiom).  [assumption].
+2 ld(A,mult(A,B)) = B # label(c02) # label(axiom).  [assumption].
+3 mult(rd(A,B),B) = A # label(c03) # label(axiom).  [assumption].
+4 rd(mult(A,B),B) = A # label(c04) # label(axiom).  [assumption].
+5 mult(A,unit) = A # label(c05) # label(axiom).  [assumption].
+6 mult(unit,A) = A # label(c06) # label(axiom).  [assumption].
+8 rd(mult(A,mult(B,C)),C) = ld(C,mult(mult(C,A),B)).  [copy(7),flip(a)].
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+given #1 (I,wt=7): 1 mult(A,ld(A,B)) = B # label(c01) # label(axiom).  [assumption].
+
+given #2 (I,wt=7): 2 ld(A,mult(A,B)) = B # label(c02) # label(axiom).  [assumption].
+
+given #3 (I,wt=7): 3 mult(rd(A,B),B) = A # label(c03) # label(axiom).  [assumption].
+
+given #4 (I,wt=7): 4 rd(mult(A,B),B) = A # label(c04) # label(axiom).  [assumption].
+
+given #5 (I,wt=5): 5 mult(A,unit) = A # label(c05) # label(axiom).  [assumption].
+
+given #6 (I,wt=5): 6 mult(unit,A) = A # label(c06) # label(axiom).  [assumption].
+
+given #7 (I,wt=15): 8 rd(mult(A,mult(B,C)),C) = ld(C,mult(mult(C,A),B)).  [copy(7),flip(a)].
+
+given #8 (A,wt=7): 11 ld(rd(A,B),A) = B.  [para(3(a,1),2(a,1,2))].
+
+given #9 (F,wt=19): 21 mult(ld(a,mult(mult(a,a),rd(b,a))),mult(a,c)) != mult(a,mult(b,c)) # answer(goals).  [back_rewrite(10),rewrite([19(5)])].
+
+given #10 (T,wt=5): 13 ld(A,A) = unit.  [para(5(a,1),2(a,1,2))].
+
+given #11 (T,wt=5): 14 rd(A,unit) = A.  [para(5(a,1),3(a,1))].
+
+given #12 (T,wt=5): 15 ld(unit,A) = A.  [para(6(a,1),1(a,1))].
+
+given #13 (T,wt=5): 16 rd(A,A) = unit.  [para(6(a,1),4(a,1,1))].
+
+given #14 (A,wt=7): 12 rd(A,ld(B,A)) = B.  [para(1(a,1),4(a,1,1))].
+
+given #15 (T,wt=15): 18 mult(ld(A,mult(mult(A,B),C)),A) = mult(B,mult(C,A)).  [para(8(a,1),3(a,1,1))].
+
+given #16 (T,wt=15): 19 rd(mult(A,B),C) = ld(C,mult(mult(C,A),rd(B,C))).  [para(3(a,1),8(a,1,1,2))].
+
+given #17 (T,wt=13): 27 rd(A,B) = ld(B,mult(mult(B,A),rd(unit,B))).  [para(5(a,1),19(a,1,1))].
+
+given #18 (T,wt=11): 36 ld(A,mult(mult(A,A),rd(unit,A))) = unit.  [para(27(a,1),16(a,1))].
+
+given #19 (A,wt=15): 20 ld(A,mult(mult(A,rd(B,mult(C,A))),C)) = rd(B,A).  [para(3(a,1),8(a,1,1)),flip(a)].
+
+given #20 (F,wt=25): 35 mult(ld(a,mult(mult(a,a),ld(a,mult(mult(a,b),rd(unit,a))))),mult(a,c)) != mult(a,mult(b,c)) # answer(goals).  [para(27(a,1),21(a,1,1,2,2))].
+
+given #21 (T,wt=9): 42 mult(mult(A,A),rd(unit,A)) = A.  [para(36(a,1),1(a,1,2)),rewrite([5(2)]),flip(a)].
+
+given #22 (T,wt=11): 69 mult(A,mult(ld(mult(B,B),B),B)) = A.  [back_rewrite(3),rewrite([59(1),22(6),2(2)])].
+
+given #23 (T,wt=9): 70 mult(ld(mult(A,A),A),A) = unit.  [para(69(a,1),2(a,1,2)),rewrite([13(1)]),flip(a)].
+
+given #24 (T,wt=9): 71 ld(ld(mult(A,A),A),unit) = A.  [para(70(a,1),2(a,1,2))].
+
+given #25 (A,wt=15): 22 mult(ld(A,mult(B,C)),A) = mult(ld(A,B),mult(C,A)).  [para(1(a,1),18(a,1,1,2,1))].
+
+given #26 (F,wt=27): 54 mult(ld(a,mult(mult(a,a),ld(a,mult(mult(a,b),ld(mult(a,a),a))))),mult(a,c)) != mult(a,mult(b,c)) # answer(goals).  [back_rewrite(35),rewrite([49(11)])].
+
+given #27 (T,wt=13): 74 mult(ld(A,unit),mult(B,A)) = mult(ld(A,B),A).  [para(6(a,1),22(a,1,1,2)),flip(a)].
+
+given #28 (T,wt=9): 83 mult(ld(A,unit),mult(A,A)) = A.  [para(13(a,1),74(a,2,1)),rewrite([6(6)])].
+
+given #29 (T,wt=9): 93 ld(ld(A,unit),A) = mult(A,A).  [para(83(a,1),2(a,1,2))].
+
+given #30 (T,wt=13): 80 ld(ld(A,unit),mult(ld(A,B),A)) = mult(B,A).  [para(74(a,1),2(a,1,2))].
+
+given #31 (A,wt=15): 23 mult(A,mult(ld(mult(B,A),C),B)) = mult(ld(B,C),B).  [para(1(a,1),18(a,1,1,2)),flip(a)].
+
+given #32 (T,wt=13): 81 ld(ld(A,B),mult(ld(A,unit),mult(B,A))) = A.  [para(74(a,2),2(a,1,2))].
+
+given #33 (T,wt=13): 82 mult(ld(A,unit),mult(mult(A,B),A)) = mult(B,A).  [para(2(a,1),74(a,2,1))].
+
+given #34 (T,wt=13): 98 ld(ld(A,unit),unit) = mult(mult(A,A),ld(A,unit)).  [para(93(a,1),74(a,2,1)),rewrite([1(7),5(6)])].
+
+given #35 (T,wt=13): 100 ld(ld(A,unit),mult(B,A)) = mult(mult(A,B),A).  [para(2(a,1),80(a,1,2,1))].
+
+given #36 (A,wt=15): 24 ld(ld(A,mult(mult(A,B),C)),mult(B,mult(C,A))) = A.  [para(18(a,1),2(a,1,2))].
+
+given #37 (F,wt=27): 166 mult(mult(mult(ld(mult(a,a),a),mult(a,mult(a,b))),ld(mult(a,a),a)),mult(a,c)) != mult(a,mult(b,c)) # answer(goals).  [back_rewrite(156),rewrite([157(21)])].
+
+given #38 (T,wt=13): 105 mult(mult(A,mult(ld(A,unit),ld(A,unit))),A) = unit.  [back_rewrite(43),rewrite([100(9)])].
+
+given #39 (T,wt=13): 127 mult(ld(A,unit),mult(mult(A,A),ld(A,unit))) = unit.  [para(98(a,1),1(a,1,2))].
+
+given #40 (T,wt=13): 163 mult(mult(mult(A,A),A),ld(A,unit)) = mult(A,A).  [back_rewrite(93),rewrite([136(3)])].
+
+given #41 (T,wt=13): 184 ld(mult(A,mult(ld(A,unit),ld(A,unit))),unit) = A.  [para(105(a,1),2(a,1,2))].
+
+given #42 (A,wt=27): 50 ld(ld(A,B),mult(mult(ld(A,B),B),ld(ld(A,B),mult(mult(ld(A,B),ld(mult(B,B),B)),A)))) = A.  [back_rewrite(47),rewrite([49(7)])].
+
+given #43 (T,wt=13): 187 mult(mult(ld(A,unit),ld(A,unit)),A) = ld(A,unit).  [para(105(a,1),74(a,1,2)),rewrite([5(4),2(9)]),flip(a)].
+
+given #44 (T,wt=13): 188 ld(mult(ld(A,unit),ld(A,unit)),ld(A,unit)) = A.  [para(105(a,1),81(a,1,2,2)),rewrite([2(7),5(9)])].
+
+given #45 (T,wt=13): 202 ld(mult(mult(A,A),A),mult(A,A)) = ld(A,unit).  [para(163(a,1),2(a,1,2))].
+
+given #46 (T,wt=15): 72 mult(ld(A,B),mult(ld(B,C),A)) = mult(ld(A,C),A).  [para(1(a,1),22(a,1,1,2)),flip(a)].
+
+given #47 (A,wt=15): 73 ld(ld(A,mult(B,C)),mult(ld(A,B),mult(C,A))) = A.  [para(22(a,1),2(a,1,2))].
+
+given #48 (F,wt=35): 242 mult(mult(mult(mult(a,mult(ld(a,unit),ld(a,unit))),mult(a,mult(a,b))),mult(a,mult(ld(a,unit),ld(a,unit)))),mult(a,c)) != mult(a,mult(b,c)) # answer(goals).  [back_rewrite(166),rewrite([234(5),234(20)])].
+
+given #49 (T,wt=11): 260 mult(ld(A,B),mult(ld(B,A),A)) = A.  [para(13(a,1),72(a,2,1)),rewrite([6(6)])].
+
+given #50 (T,wt=11): 269 mult(ld(mult(A,A),unit),mult(A,A)) = unit.  [para(83(a,1),72(a,1,2)),rewrite([234(2),105(7)]),flip(a)].
+
+given #51 (T,wt=11): 307 ld(ld(A,B),A) = mult(ld(B,A),A).  [para(260(a,1),2(a,1,2))].
+
+given #52 (T,wt=15): 75 mult(ld(mult(A,B),A),mult(B,mult(A,B))) = mult(A,B).  [para(13(a,1),22(a,1,1)),rewrite([6(3)]),flip(a)].
+
+given #53 (A,wt=23): 78 mult(ld(A,ld(B,mult(C,D))),mult(B,A)) = mult(ld(A,ld(B,C)),mult(mult(D,B),A)).  [para(22(a,1),22(a,1,1,2)),rewrite([22(5)]),flip(a)].
+
+given #54 (T,wt=15): 106 mult(ld(mult(A,B),C),A) = ld(B,mult(ld(A,C),A)).  [para(23(a,1),2(a,1,2)),flip(a)].
+
+given #55 (T,wt=15): 136 ld(ld(A,unit),B) = mult(mult(mult(A,B),A),ld(A,unit)).  [para(100(a,1),22(a,1,1)),rewrite([1(11),5(10)]),flip(a)].
+
+given #56 (T,wt=15): 233 mult(mult(A,A),mult(A,mult(ld(A,unit),ld(A,unit)))) = A.  [para(184(a,1),187(a,1,1,1)),rewrite([184(8),184(16)])].
+
+given #57 (T,wt=15): 234 ld(mult(A,A),A) = mult(A,mult(ld(A,unit),ld(A,unit))).  [para(184(a,1),188(a,1,1,1)),rewrite([184(8),184(9)])].
+
+given #58 (A,wt=21): 85 mult(ld(A,ld(B,unit)),mult(mult(C,B),A)) = mult(ld(A,ld(B,C)),mult(B,A)).  [para(74(a,1),22(a,1,1,2)),rewrite([22(4)]),flip(a)].
+
+given #59 (T,wt=15): 257 ld(ld(A,B),mult(ld(A,C),A)) = mult(ld(B,C),A).  [para(72(a,1),2(a,1,2))].
+
+given #60 (T,wt=15): 259 mult(ld(A,B),mult(ld(B,mult(A,C)),A)) = mult(C,A).  [para(2(a,1),72(a,2,1))].
+
+given #61 (T,wt=15): 326 ld(ld(A,mult(mult(A,ld(mult(A,A),unit)),A)),unit) = A.  [para(269(a,1),24(a,1,2))].
+
+given #62 (T,wt=15): 327 mult(ld(mult(A,A),B),mult(ld(B,unit),mult(A,A))) = unit.  [para(269(a,1),72(a,2))].
+
+given #63 (A,wt=25): 86 mult(ld(mult(A,B),C),mult(ld(B,unit),mult(A,B))) = mult(ld(mult(A,B),C),mult(ld(B,A),B)).  [para(74(a,1),22(a,2,2)),rewrite([22(7)])].
+
+given #64 (T,wt=15): 332 mult(mult(A,mult(A,A)),A) = mult(A,mult(mult(A,A),A)).  [para(202(a,1),307(a,1,1)),rewrite([136(5),161(7),2(7)])].
+
+given #65 (T,wt=15): 412 ld(ld(mult(A,B),C),ld(B,mult(ld(A,C),A))) = A.  [para(106(a,1),2(a,1,2))].
+
+given #66 (T,wt=11): 725 ld(ld(mult(A,B),A),ld(B,A)) = A.  [para(13(a,1),412(a,1,2,2,1)),rewrite([6(4)])].
+
+given #67 (T,wt=13): 726 ld(ld(mult(A,mult(ld(A,B),A)),B),unit) = A.  [para(13(a,1),412(a,1,2))].
+
+given #68 (A,wt=17): 87 mult(ld(A,unit),mult(mult(B,C),A)) = mult(ld(A,B),mult(C,A)).  [para(74(a,2),22(a,1))].
+
+given #69 (T,wt=13): 789 ld(ld(mult(A,mult(B,A)),mult(A,B)),unit) = A.  [para(2(a,1),726(a,1,1,1,2,1))].
+
+given #70 (T,wt=15): 438 mult(ld(A,unit),mult(mult(mult(A,B),A),ld(A,unit))) = B.  [para(136(a,1),1(a,1,2))].
+
+given #71 (T,wt=15): 439 mult(mult(mult(A,mult(ld(A,unit),B)),A),ld(A,unit)) = B.  [para(136(a,1),2(a,1))].
+
+given #72 (T,wt=15): 574 ld(ld(A,B),mult(C,A)) = mult(ld(B,mult(A,C)),A).  [para(2(a,1),257(a,1,2,1))].
+
+given #73 (A,wt=19): 91 mult(ld(A,ld(A,B)),A) = mult(ld(A,unit),mult(ld(A,unit),mult(B,A))).  [para(74(a,2),74(a,1,2)),flip(a)].
+
+given #74 (T,wt=15): 709 ld(mult(A,mult(A,A)),mult(A,mult(mult(A,A),A))) = A.  [para(332(a,1),2(a,1,2))].
+
+given #75 (T,wt=15): 713 ld(mult(mult(A,A),A),mult(mult(A,A),mult(A,A))) = A.  [para(332(a,1),24(a,1,1,2)),rewrite([2(4)])].
+
+given #76 (T,wt=15): 724 ld(ld(mult(A,B),mult(A,C)),ld(B,mult(C,A))) = A.  [para(2(a,1),412(a,1,2,2,1))].
+
+given #77 (T,wt=15): 756 ld(ld(mult(mult(A,B),A),mult(A,B)),B) = mult(A,B).  [para(2(a,1),725(a,1,2))].
+
+given #78 (A,wt=25): 92 mult(ld(A,unit),mult(ld(A,unit),mult(mult(B,C),A))) = mult(ld(A,unit),mult(ld(A,B),mult(C,A))).  [back_rewrite(89),rewrite([91(4)])].
+
+given #79 (T,wt=15): 801 mult(mult(A,A),ld(mult(A,mult(ld(A,B),A)),B)) = A.  [para(726(a,1),187(a,1,1,1)),rewrite([726(6),726(12)])].
+
+given #80 (T,wt=15): 926 mult(mult(A,A),ld(mult(A,mult(B,A)),mult(A,B))) = A.  [para(789(a,1),187(a,1,1,1)),rewrite([789(6),789(12)])].
+
+given #81 (T,wt=15): 958 mult(ld(A,unit),mult(mult(B,A),ld(A,unit))) = ld(A,B).  [para(1(a,1),438(a,1,2,1,1))].
+
+given #82 (T,wt=15): 997 ld(mult(mult(A,mult(ld(A,unit),B)),A),B) = ld(A,unit).  [para(439(a,1),2(a,1,2))].
+
+given #83 (A,wt=25): 103 mult(mult(mult(A,A),ld(A,unit)),mult(mult(ld(A,B),A),ld(A,unit))) = mult(mult(B,A),ld(A,unit)).  [para(80(a,1),74(a,2,1)),rewrite([98(4)])].
+
+given #84 (T,wt=15): 1278 mult(mult(A,A),mult(A,A)) = mult(A,mult(A,mult(A,A))).  [para(713(a,1),259(a,1,2,1)),rewrite([2(4)]),flip(a)].
+
+given #85 (T,wt=15): 1289 mult(mult(mult(A,A),A),A) = mult(A,mult(A,mult(A,A))).  [back_rewrite(1265),rewrite([1278(6)])].
+
+given #86 (T,wt=15): 1290 ld(mult(mult(A,A),A),mult(A,mult(A,mult(A,A)))) = A.  [back_rewrite(713),rewrite([1278(5)])].
+
+given #87 (T,wt=15): 1575 mult(A,mult(ld(A,unit),mult(mult(B,A),ld(A,unit)))) = B.  [para(958(a,2),1(a,1,2))].
+
+Demod_increase_limit: mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(ld(mult(mult(A,B),ld(B,unit)),B),mult(B,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(ld(B,unit),mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(C,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(ld(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(ld(mult(mult(A,B),ld(B,unit)),B),mult(B,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(ld(B,unit),mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(C,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),unit),mult(mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(ld(mult(mult(A,B),ld(B,unit)),B),mult(B,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(ld(B,unit),mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(C,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(ld(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(ld(mult(mult(A,B),ld(B,unit)),B),mult(B,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(ld(B,unit),mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(C,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),unit),mult(mult(ld(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(ld(mult(mult(A,B),ld(B,unit)),B),mult(B,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(ld(B,unit),mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(C,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(ld(B,A),B)),mult(ld(B,unit),mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(ld(mult(mult(A,B),ld(B,unit)),B),mult(B,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(ld(B,unit),mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(C,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))))),ld(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(ld(mult(mult(A,B),ld(B,unit)),B),mult(B,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(ld(B,unit),mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(C,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),unit)))),mult(mult(ld(mult(mult(ld(B,A),B),ld(B,unit)),unit),mult(mult(ld(mult(mult(ld(B,A),B),ld(B,unit)),C),mult(mult(A,B),ld(B,unit))),ld(mult(mult(ld(B,A),B),ld(B,unit)),unit))),mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(ld(mult(mult(A,B),ld(B,unit)),B),mult(B,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(ld(B,unit),mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(C,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))))),ld(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(mult(mult(mult(A,B),ld(B,unit)),mult(ld(mult(mult(A,B),ld(B,unit)),unit),mult(mult(ld(mult(mult(A,B),ld(B,unit)),B),mult(B,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(ld(B,unit),mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),mult(C,mult(mult(A,B),ld(B,unit)))),ld(mult(mult(A,B),ld(B,unit)),unit)))),unit)))) = mult(mult(B,B),ld(B,unit)).  [back_rewrite(2205),rewrite([2257(10),2257(19),2257(26),2257(93),103(110),2257(116),2257(254)])].
+
+Demod_increase_limit (steps=7, size=1203).
+The most recent kept clause is 2290.
+From here on, a short message will be printed
+for each 100 times the limit is hit.
+
+
+given #88 (A,wt=25): 126 mult(mult(mult(A,B),A),ld(A,unit)) = mult(mult(mult(A,A),ld(A,unit)),mult(mult(B,A),ld(A,unit))).  [para(82(a,1),82(a,1,2,1)),rewrite([98(4)]),flip(a)].
+
+given #89 (F,wt=23): 2506 mult(mult(a,mult(ld(a,unit),mult(mult(a,b),ld(a,unit)))),mult(a,c)) != mult(a,mult(b,c)) # answer(goals).  [back_rewrite(242),rewrite([2482(25)])].
+
+given #90 (T,wt=17): 161 mult(mult(mult(A,mult(B,A)),A),ld(A,unit)) = mult(mult(A,B),A).  [back_rewrite(100),rewrite([136(4)])].
+
+given #91 (T,wt=17): 206 mult(mult(mult(A,A),ld(A,unit)),mult(A,A)) = mult(mult(A,A),A).  [para(163(a,1),74(a,1,2)),rewrite([136(4),5(2),136(11),161(13),161(12)])].
+
+given #92 (T,wt=13): 2649 mult(ld(mult(A,A),unit),mult(mult(A,A),A)) = A.  [para(206(a,1),74(a,1,2)),rewrite([2257(12),13(13),83(15),6(12),2145(16),83(10)])].
+
+given #93 (T,wt=13): 2672 mult(mult(A,ld(mult(A,A),unit)),mult(A,A)) = A.  [para(2649(a,1),136(a,2,1,1)),rewrite([2092(5),13(3),2223(11),1(6),5(4),13(5),5(4),5(3),6(3),2257(4),13(7),6(8),980(11),233(8),2092(9),13(7),2223(15),1(10),5(8),13(9),5(8),5(7),6(7)]),flip(a)].
+
+given #94 (A,wt=25): 128 mult(mult(mult(A,A),ld(A,unit)),mult(B,ld(A,unit))) = mult(mult(A,A),mult(ld(A,B),ld(A,unit))).  [para(98(a,1),22(a,2,1)),rewrite([6(4),112(6)]),flip(a)].
+
+given #95 (T,wt=11): 2703 mult(A,ld(mult(A,A),unit)) = ld(A,unit).  [para(2672(a,1),1575(a,1,2,2,1)),rewrite([2145(10)]),flip(a)].
+
+given #96 (T,wt=15): 2874 mult(mult(ld(A,unit),A),A) = mult(mult(A,A),ld(A,unit)).  [para(136(a,1),2703(a,2)),rewrite([2703(10),2760(4),13(3),5(6),13(7),5(6),6(5),5(6)])].
+
+given #97 (T,wt=15): 2965 mult(mult(mult(A,A),ld(A,unit)),mult(ld(A,unit),A)) = A.  [para(2874(a,1),126(a,2,2,1)),rewrite([2277(5),2503(16),2950(11)]),flip(a)].
+
+given #98 (T,wt=17): 267 mult(ld(A,unit),mult(B,A)) = mult(ld(A,C),mult(ld(C,B),A)).  [para(72(a,2),74(a,2))].
+
+given #99 (A,wt=19): 129 mult(mult(mult(A,A),ld(A,unit)),mult(ld(A,unit),ld(A,unit))) = ld(A,unit).  [para(98(a,1),83(a,1,1))].
+
+given #100 (T,wt=15): 2999 mult(ld(A,unit),A) = mult(ld(A,B),mult(ld(B,unit),A)).  [para(6(a,1),267(a,1,2))].
+
+given #101 (T,wt=17): 316 mult(ld(A,unit),mult(A,mult(mult(A,A),A))) = mult(mult(A,A),A).  [para(202(a,1),260(a,1,1)),rewrite([2(6)])].
+
+given #102 (T,wt=17): 652 mult(A,mult(ld(B,unit),mult(C,B))) = mult(A,mult(ld(B,C),B)).  [para(2(a,1),86(a,1,1)),rewrite([2(9)])].
+
+given #103 (T,wt=17): 719 mult(mult(A,mult(mult(A,A),A)),ld(A,unit)) = mult(mult(A,A),A).  [para(332(a,1),136(a,2,1)),rewrite([574(4),15(3)]),flip(a)].
+
+given #104 (A,wt=23): 132 mult(mult(mult(A,A),ld(A,unit)),mult(mult(ld(A,unit),B),ld(A,unit))) = mult(B,ld(A,unit)).  [para(98(a,1),82(a,1,1))].
+
+given #105 (T,wt=17): 819 mult(ld(A,unit),mult(mult(mult(A,B),C),A)) = mult(B,mult(C,A)).  [para(2(a,1),87(a,2,1))].
+
+given #106 (T,wt=17): 841 mult(ld(A,ld(B,unit)),A) = mult(ld(A,unit),mult(ld(B,unit),A)).  [para(187(a,1),87(a,1,2,1)),rewrite([226(14)]),flip(a)].
+
+given #107 (T,wt=17): 1518 mult(mult(A,A),ld(mult(A,mult(ld(A,unit),mult(B,A))),B)) = A.  [para(74(a,2),801(a,1,2,1,2))].
+
+given #108 (T,wt=17): 2234 mult(ld(A,unit),mult(A,mult(A,mult(A,A)))) = mult(A,mult(A,A)).  [para(1289(a,1),74(a,1,2)),rewrite([22(10),2(8)])].
+
+given #109 (A,wt=21): 138 mult(mult(mult(A,mult(ld(A,B),mult(C,A))),A),ld(A,unit)) = mult(mult(B,C),A).  [para(22(a,1),100(a,1,2)),rewrite([136(6),1(11)])].
+
+given #110 (T,wt=17): 2687 mult(ld(mult(mult(A,A),A),unit),mult(A,mult(A,mult(A,A)))) = A.  [back_rewrite(2241),rewrite([2682(15),2684(10),2566(11)])].
+
+given #111 (T,wt=17): 2716 mult(A,mult(A,mult(ld(A,unit),ld(A,unit)))) = mult(ld(A,unit),A).  [back_rewrite(2128),rewrite([2703(4)]),flip(a)].
+
+given #112 (T,wt=17): 2885 mult(mult(A,A),mult(ld(A,unit),ld(A,unit))) = mult(ld(A,unit),A).  [para(2703(a,1),161(a,2,1)),rewrite([2878(3),1581(10),2872(6),2716(7),2874(4),2813(7)])].
+
+given #113 (T,wt=17): 2950 mult(mult(mult(A,A),ld(A,unit)),ld(A,unit)) = mult(ld(A,unit),A).  [back_rewrite(2813),rewrite([2885(14)])].
+
+given #114 (A,wt=31): 140 mult(mult(mult(mult(A,B),mult(ld(B,A),B)),mult(A,B)),ld(mult(A,B),unit)) = mult(mult(mult(A,B),ld(B,unit)),mult(A,B)).  [para(74(a,1),100(a,1,2)),rewrite([136(6)])].
+
+given #115 (T,wt=15): 3739 mult(mult(mult(A,A),A),mult(ld(A,unit),ld(A,unit))) = A.  [para(2950(a,1),74(a,1,2)),rewrite([2760(4),13(3),5(6),13(7),5(6),6(5),2874(4),2965(8),2257(7),2760(6),13(5),5(8),13(9),5(8),6(7),2874(6),2257(10),2760(12),13(11),5(14),13(15),5(14),6(13),2874(12),307(15),15(14),1(16),5(15),2760(17),13(16),5(19),13(20),5(19),6(18),2874(17),2170(19),316(12),2760(18),13(17),5(20),13(21),5(20),6(19),2874(18),2503(24)]),flip(a)].
+
+given #116 (T,wt=17): 2972 mult(ld(mult(ld(A,unit),A),unit),A) = mult(A,mult(ld(A,unit),A)).  [back_rewrite(2956),rewrite([2965(13)])].
+
+given #117 (T,wt=17): 3122 mult(mult(ld(A,unit),mult(B,A)),C) = mult(mult(ld(A,B),A),C).  [para(652(a,1),82(a,1,2,1)),rewrite([82(7)]),flip(a)].
+
+given #118 (T,wt=17): 3374 mult(mult(mult(A,A),A),mult(ld(A,unit),A)) = mult(A,mult(A,A)).  [para(719(a,1),819(a,1,2,1)),rewrite([1289(5),2234(6)]),flip(a)].
+
+given #119 (A,wt=39): 144 mult(mult(mult(mult(mult(A,B),A),mult(B,A)),mult(mult(A,B),A)),ld(mult(mult(A,B),A),unit)) = mult(mult(mult(mult(A,B),A),ld(A,unit)),mult(mult(A,B),A)).  [para(82(a,1),100(a,1,2)),rewrite([136(6)])].
+
+given #120 (T,wt=17): 3949 mult(mult(ld(A,B),A),ld(mult(ld(A,unit),mult(B,A)),C)) = C.  [para(3122(a,1),1(a,1))].
+
+given #121 (T,wt=17): 3950 mult(mult(ld(A,unit),mult(B,A)),ld(mult(ld(A,B),A),C)) = C.  [para(3122(a,2),1(a,1))].
+
+given #122 (T,wt=19): 254 mult(ld(mult(mult(A,A),A),A),mult(A,mult(mult(A,A),A))) = mult(A,A).  [para(202(a,1),22(a,1,1)),rewrite([82(5)]),flip(a)].
+
+given #123 (T,wt=19): 287 mult(ld(A,B),mult(ld(B,C),A)) = mult(ld(A,D),mult(ld(D,C),A)).  [para(72(a,2),72(a,2))].
+
+given #124 (A,wt=37): 162 mult(mult(mult(mult(mult(A,B),A),mult(A,B)),ld(mult(A,B),unit)),mult(B,ld(mult(A,B),unit))) = mult(mult(mult(A,B),mult(A,B)),ld(mult(A,B),unit)).  [back_rewrite(97),rewrite([136(4)])].
+
+given #125 (T,wt=17): 4365 mult(ld(mult(A,mult(A,mult(A,A))),A),mult(A,mult(A,A))) = unit.  [para(2234(a,1),287(a,1,2)),rewrite([2224(18)])].
+
+given #126 (T,wt=19): 478 mult(mult(A,mult(ld(A,unit),ld(A,unit))),mult(A,mult(A,A))) = mult(A,A).  [para(234(a,1),260(a,1,1)),rewrite([2(8)])].
+
+given #127 (T,wt=19): 788 ld(ld(mult(ld(A,B),ld(mult(B,A),B)),ld(A,B)),B) = ld(A,B).  [para(725(a,1),725(a,1,2))].
+
+given #128 (T,wt=15): 4601 ld(mult(ld(A,B),ld(mult(B,A),B)),ld(A,B)) = A.  [back_rewrite(4591),rewrite([4592(15),2754(26)]),flip(a)].
+
+given #129 (A,wt=27): 201 ld(mult(mult(ld(A,unit),mult(mult(mult(A,A),ld(A,unit)),B)),ld(A,unit)),B) = mult(mult(A,A),ld(A,unit)).  [back_rewrite(198),rewrite([199(19)])].
+
+given #130 (T,wt=15): 4602 mult(mult(ld(A,B),ld(mult(B,A),B)),A) = ld(A,B).  [para(4601(a,1),1(a,1,2))].
+
+given #131 (T,wt=17): 4623 mult(ld(A,ld(B,C)),A) = mult(ld(A,unit),mult(ld(B,C),A)).  [para(4601(a,1),267(a,2,2,1)),rewrite([2257(10),4607(20)]),flip(a)].
+
+given #132 (T,wt=19): 1514 ld(mult(A,mult(ld(A,B),A)),B) = mult(A,mult(ld(A,unit),ld(A,unit))).  [para(801(a,1),2(a,1,2)),rewrite([234(2)]),flip(a)].
+
+given #133 (T,wt=15): 4904 mult(mult(ld(A,unit),A),mult(A,mult(ld(A,unit),A))) = A.  [para(1514(a,1),2874(a,1,1,1)),rewrite([3914(11),1514(23),1534(24)])].
+
+given #134 (A,wt=35): 216 mult(A,mult(mult(mult(A,mult(ld(A,unit),ld(A,unit))),B),mult(A,mult(ld(A,unit),ld(A,unit))))) = mult(B,mult(A,mult(ld(A,unit),ld(A,unit)))).  [para(184(a,1),82(a,1,1))].
+
+given #135 (T,wt=15): 5016 mult(mult(A,mult(mult(A,A),ld(A,unit))),ld(A,unit)) = A.  [back_rewrite(3896),rewrite([4993(13),4993(29),3716(22),187(11)])].
+
+given #136 (T,wt=19): 1517 mult(mult(A,mult(A,A)),mult(A,mult(ld(A,unit),ld(A,unit)))) = mult(A,A).  [para(801(a,1),74(a,1,2)),rewrite([1514(4),184(8),1514(5),479(9),1514(7)]),flip(a)].
+
+given #137 (T,wt=19): 1600 mult(ld(A,B),mult(mult(ld(B,unit),mult(mult(A,B),ld(B,unit))),A)) = A.  [para(958(a,2),260(a,1,2,1))].
+
+given #138 (T,wt=19): 1602 ld(mult(ld(A,unit),mult(mult(B,A),ld(A,unit))),A) = mult(ld(B,A),A).  [para(958(a,2),307(a,1,1))].
+
+given #139 (A,wt=27): 244 ld(mult(mult(mult(A,mult(ld(A,unit),ld(A,unit))),mult(A,B)),mult(A,mult(ld(A,unit),ld(A,unit)))),B) = A.  [back_rewrite(155),rewrite([234(2),234(10)])].
+
+given #140 (T,wt=19): 1603 mult(mult(ld(A,unit),mult(mult(B,A),ld(A,unit))),B) = mult(ld(A,B),B).  [para(958(a,2),307(a,2,1)),rewrite([307(2)]),flip(a)].
+
+given #141 (T,wt=15): 5385 mult(mult(ld(A,unit),ld(A,unit)),mult(A,mult(A,A))) = A.  [back_rewrite(5012),rewrite([5328(11)])].
+
+given #142 (T,wt=15): 5435 mult(mult(A,ld(mult(A,mult(A,A)),unit)),A) = ld(A,unit).  [para(5385(a,1),140(a,1,1,1,1)),rewrite([2257(8),4737(11),5414(35),5422(18),5431(14),5385(14),2277(7),127(13),5(8),127(7),5385(9),6(4),5385(10),5385(15)]),flip(a)].
+
+given #143 (T,wt=17): 5328 mult(mult(A,mult(mult(A,A),ld(A,unit))),A) = mult(A,mult(A,A)).  [para(2716(a,1),1603(a,1,1,2,1)),rewrite([4952(8),6(6),4871(11),5(2),4952(11),6(9),4871(14),5(5),2874(4),4952(13),4945(20),1517(15)])].
+
+given #144 (A,wt=27): 245 rd(A,B) = mult(mult(mult(B,mult(ld(B,unit),ld(B,unit))),mult(B,A)),mult(B,mult(ld(B,unit),ld(B,unit)))).  [back_rewrite(154),rewrite([234(3),234(11)])].
+
+given #145 (T,wt=17): 5395 mult(A,mult(A,mult(mult(A,A),ld(A,unit)))) = mult(mult(A,A),A).  [back_rewrite(3574),rewrite([5389(9)])].
+
+given #146 (T,wt=15): 5623 ld(mult(A,mult(mult(A,A),ld(A,unit))),A) = ld(A,unit).  [back_rewrite(5392),rewrite([5587(24)])].
+
+given #147 (T,wt=19): 2123 mult(mult(ld(A,unit),mult(mult(B,A),ld(A,unit))),ld(ld(A,B),C)) = C.  [back_rewrite(573),rewrite([1912(13),2107(18),1634(16),1(4)])].
+
+given #148 (T,wt=19): 2151 ld(mult(mult(A,mult(ld(A,B),mult(ld(B,unit),A))),A),A) = ld(A,unit).  [para(72(a,2),997(a,1,1,1,2))].
+
+given #149 (A,wt=55): 246 mult(mult(A,mult(mult(mult(mult(B,A),mult(ld(mult(B,A),unit),ld(mult(B,A),unit))),mult(mult(B,A),C)),mult(mult(B,A),mult(ld(mult(B,A),unit),ld(mult(B,A),unit))))),B) = mult(mult(A,C),mult(A,mult(ld(A,unit),ld(A,unit)))).  [back_rewrite(148),rewrite([234(5),234(17),234(27)])].
+
+given #150 (T,wt=19): 2756 mult(mult(A,mult(mult(A,A),ld(A,unit))),mult(ld(A,unit),A)) = mult(A,A).  [back_rewrite(2164),rewrite([2716(12)])].
+
+given #151 (T,wt=17): 5951 mult(mult(A,A),mult(A,mult(ld(A,unit),A))) = mult(A,mult(A,A)).  [back_rewrite(5602),rewrite([5917(9),5949(12)]),flip(a)].
+
+given #152 (T,wt=19): 2872 mult(ld(A,unit),mult(ld(A,unit),A)) = mult(A,mult(ld(A,unit),ld(A,unit))).  [para(2703(a,1),82(a,1,2,1)),rewrite([1944(10),2696(16)])].
+
+given #153 (T,wt=19): 2878 ld(mult(A,A),unit) = mult(ld(A,unit),mult(mult(ld(A,unit),A),ld(A,unit))).  [para(2703(a,1),438(a,1,2,1,1)),flip(a)].
+
+given #154 (A,wt=27): 251 mult(mult(A,mult(ld(A,unit),ld(A,unit))),mult(A,mult(ld(A,unit),ld(A,unit)))) = mult(ld(A,unit),ld(A,unit)).  [back_rewrite(96),rewrite([234(2),2(7),234(7),234(13)]),flip(a)].
+
+given #155 (T,wt=19): 2958 mult(mult(ld(A,B),mult(ld(B,unit),A)),A) = mult(mult(A,A),ld(A,unit)).  [para(72(a,2),2874(a,1,1))].
+
+given #156 (T,wt=17): 6280 mult(ld(A,unit),mult(mult(ld(A,B),mult(ld(B,unit),A)),A)) = unit.  [para(2958(a,2),127(a,1,2))].
+
+given #157 (T,wt=19): 2982 mult(mult(mult(A,A),ld(A,unit)),mult(ld(A,B),mult(ld(B,unit),A))) = A.  [para(72(a,2),2965(a,1,2))].
+
+given #158 (T,wt=19): 2984 mult(mult(mult(ld(A,unit),A),ld(A,unit)),mult(ld(A,unit),A)) = ld(A,unit).  [para(136(a,1),2965(a,1,1,2)),rewrite([5(7),2572(10),2760(10),13(9),5(12),13(13),5(12),6(11),2874(10),2950(13)])].
+
+given #159 (A,wt=31): 262 mult(ld(mult(ld(A,B),C),D),mult(ld(C,B),C)) = mult(ld(mult(ld(A,B),C),D),mult(ld(C,A),mult(ld(A,B),C))).  [para(72(a,1),22(a,2,2)),rewrite([22(8)]),flip(a)].
+
+given #160 (T,wt=19): 3251 mult(A,mult(ld(B,C),mult(ld(C,D),B))) = mult(A,mult(ld(B,D),B)).  [para(267(a,1),652(a,1,2))].
+
+given #161 (T,wt=19): 3259 mult(A,mult(ld(B,unit),B)) = mult(A,mult(ld(B,C),mult(ld(C,unit),B))).  [para(2999(a,1),652(a,2,2)),rewrite([6(4)])].
+
+given #162 (T,wt=19): 3335 mult(A,mult(ld(B,unit),mult(mult(C,B),ld(B,unit)))) = mult(A,ld(B,C)).  [para(958(a,1),819(a,2,2)),rewrite([819(20)])].
+Demod_limit hit 100 times.
+
+given #163 (T,wt=19): 3381 mult(mult(ld(A,unit),A),mult(A,mult(mult(A,A),ld(A,unit)))) = mult(A,A).  [back_rewrite(2626),rewrite([3361(13)])].
+
+given #164 (A,wt=21): 268 mult(ld(mult(A,B),unit),mult(A,B)) = mult(ld(mult(A,B),B),mult(ld(B,A),B)).  [para(74(a,1),72(a,1,2)),flip(a)].
+
+given #165 (T,wt=19): 3590 mult(mult(ld(A,B),mult(ld(B,C),A)),D) = mult(mult(ld(A,C),A),D).  [para(72(a,2),138(a,2,1)),rewrite([138(9)]),flip(a)].
+
+given #166 (T,wt=19): 3641 mult(mult(ld(A,unit),A),B) = mult(mult(ld(A,C),mult(ld(C,unit),A)),B).  [para(2999(a,2),138(a,2,1)),rewrite([1615(7),3613(18)]),flip(a)].
+
+given #167 (T,wt=19): 3745 mult(mult(A,A),mult(ld(A,unit),mult(mult(ld(A,unit),A),ld(A,unit)))) = unit.  [para(1278(a,1),2950(a,1,1,1)),rewrite([2878(6),2941(13),2878(4),2878(14),2955(22)])].
+
+given #168 (T,wt=19): 3897 mult(mult(ld(A,unit),ld(A,unit)),mult(A,mult(mult(A,A),A))) = mult(A,A).  [back_rewrite(3709),rewrite([3891(21)])].
+
+given #169 (A,wt=25): 275 mult(ld(mult(mult(A,B),A),unit),mult(mult(A,B),A)) = mult(ld(mult(mult(A,B),A),A),mult(B,A)).  [para(82(a,1),72(a,1,2)),flip(a)].
+
+given #170 (T,wt=15): 8025 ld(mult(mult(A,A),A),A) = mult(ld(A,unit),ld(A,unit)).  [para(3897(a,1),1575(a,1,2,2,1)),rewrite([4319(17)])].
+
+given #171 (T,wt=19): 4259 mult(mult(ld(A,B),A),ld(mult(ld(A,C),mult(ld(C,B),A)),D)) = D.  [para(267(a,1),3949(a,1,2,1))].
+
+given #172 (T,wt=19): 4298 mult(mult(ld(A,B),mult(ld(B,C),A)),ld(mult(ld(A,C),A),D)) = D.  [para(267(a,1),3950(a,1,1))].
+
+given #173 (T,wt=19): 4631 mult(ld(mult(A,mult(mult(A,A),A)),A),mult(A,mult(mult(A,A),A))) = A.  [back_rewrite(4315),rewrite([4605(46),83(12)])].
+
+given #174 (A,wt=27): 286 mult(ld(mult(ld(A,B),C),C),mult(ld(C,B),C)) = mult(ld(mult(ld(A,B),C),A),mult(ld(A,B),C)).  [para(72(a,1),72(a,1,2))].
+
+given #175 (T,wt=19): 4661 mult(mult(mult(ld(A,B),B),ld(A,B)),ld(B,A)) = mult(ld(A,B),B).  [para(1(a,1),4602(a,1,1,2,1)),rewrite([307(2),307(8)])].
+
+given #176 (T,wt=19): 4871 mult(mult(A,mult(ld(A,B),A)),mult(A,mult(ld(A,unit),ld(A,unit)))) = B.  [para(1514(a,1),1(a,1,2))].
+
+given #177 (T,wt=19): 4956 mult(mult(ld(A,B),mult(ld(B,unit),A)),mult(A,mult(ld(A,unit),A))) = A.  [para(72(a,2),4904(a,1,1))].
+
+given #178 (T,wt=17): 8573 mult(mult(ld(A,unit),A),mult(A,mult(A,A))) = mult(mult(A,A),A).  [para(8025(a,1),4956(a,1,1,1)),rewrite([82(10),2819(7),6(6),83(6),6195(9),8241(52),3374(9)])].
+
+given #179 (A,wt=23): 317 mult(ld(mult(ld(A,B),B),B),B) = mult(ld(mult(ld(A,B),B),A),mult(ld(A,B),B)).  [para(260(a,1),72(a,1,2))].
+
+given #180 (T,wt=19): 4957 mult(mult(ld(A,unit),A),mult(A,mult(ld(A,B),mult(ld(B,unit),A)))) = A.  [para(72(a,2),4904(a,1,2,2))].
+
+given #181 (T,wt=19): 4960 mult(mult(ld(A,unit),A),mult(A,mult(ld(A,unit),ld(A,unit)))) = ld(A,unit).  [para(136(a,1),4904(a,1,1,1)),rewrite([5(2),2950(7),2760(9),13(8),5(11),13(12),5(11),6(10),2874(9),2950(12),2872(9)])].
+
+given #182 (T,wt=19): 5080 mult(mult(mult(A,A),ld(A,unit)),A) = mult(mult(A,A),mult(ld(A,unit),A)).  [para(5016(a,1),74(a,1,2)),rewrite([2760(4),13(3),5(6),13(7),5(6),6(5),2874(4),2257(13),2760(11),13(10),5(13),13(14),5(13),6(12),2874(11),307(14),15(13),2950(19),2760(20),13(19),5(22),13(23),5(22),6(21),2874(20),2503(26)])].
+
+given #183 (T,wt=19): 5383 mult(mult(A,mult(A,A)),ld(A,unit)) = mult(A,mult(mult(A,A),ld(A,unit))).  [back_rewrite(5042),rewrite([5328(6)])].
+
+given #184 (A,wt=23): 388 mult(mult(mult(A,mult(B,B)),B),ld(B,unit)) = mult(mult(mult(A,B),ld(B,unit)),mult(B,B)).  [para(163(a,1),78(a,2,2)),rewrite([136(6),1(4),1(9),5(8),136(10),1(8)])].
+
+given #185 (T,wt=19): 5419 mult(mult(A,A),mult(ld(A,unit),mult(ld(A,unit),ld(A,unit)))) = ld(A,unit).  [para(136(a,1),5385(a,1,1,1)),rewrite([5(2),2760(8),13(7),5(10),13(11),5(10),6(9),2874(8),2572(9),163(5)])].
+
+given #186 (T,wt=19): 5456 ld(mult(A,mult(A,A)),unit) = mult(ld(A,unit),mult(ld(A,unit),ld(A,unit))).  [para(5435(a,1),438(a,1,2,1)),flip(a)].
+
+given #187 (T,wt=19): 5917 mult(mult(A,mult(ld(A,unit),A)),mult(A,mult(ld(A,unit),A))) = mult(A,A).  [para(2756(a,1),82(a,2)),rewrite([3920(5),3381(20),4976(17)])].
+
+given #188 (T,wt=19): 6033 mult(mult(mult(A,A),A),mult(A,A)) = mult(mult(A,A),mult(A,mult(A,A))).  [back_rewrite(5116),rewrite([6004(15)]),flip(a)].
+
+given #189 (A,wt=27): 441 mult(mult(mult(mult(A,B),A),ld(A,unit)),ld(A,unit)) = mult(mult(mult(A,A),ld(A,unit)),mult(B,ld(A,unit))).  [para(136(a,1),74(a,1,1)),rewrite([5(2),136(11)]),flip(a)].
+
+given #190 (T,wt=19): 6302 mult(mult(mult(ld(A,B),mult(ld(B,unit),A)),A),mult(ld(A,unit),A)) = A.  [para(2958(a,2),2965(a,1,1))].
+
+given #191 (T,wt=19): 6342 mult(mult(A,mult(mult(ld(A,B),mult(ld(B,unit),A)),A)),ld(A,unit)) = A.  [para(2958(a,2),5016(a,1,1,2))].
+
+given #192 (T,wt=19): 6350 ld(mult(A,mult(mult(ld(A,B),mult(ld(B,unit),A)),A)),A) = ld(A,unit).  [para(2958(a,2),5623(a,1,1,2))].
+
+given #193 (T,wt=19): 7068 mult(mult(ld(A,unit),mult(mult(B,A),ld(A,unit))),C) = mult(ld(A,B),C).  [para(3335(a,1),82(a,1,2,1)),rewrite([82(6)]),flip(a)].
+
+given #194 (A,wt=31): 447 mult(mult(mult(mult(A,B),A),ld(A,unit)),mult(ld(B,C),ld(A,unit))) = mult(mult(mult(A,A),ld(A,unit)),mult(C,ld(A,unit))).  [para(136(a,1),72(a,1,1)),rewrite([136(13),441(18)])].
+
+given #195 (T,wt=19): 7473 mult(mult(ld(A,unit),mult(ld(A,unit),ld(A,unit))),mult(mult(A,A),A)) = unit.  [para(163(a,1),268(a,1,1,1)),rewrite([6105(3),6(12),3745(20),5(11),163(14),5776(11),5838(6),5530(16),5389(13),5043(10),127(7),163(6),4737(5),6105(5),6(14),3745(22),5(13),6105(14),6(23),3745(31),5(22),83(24),5838(21),2572(30),5838(23),5530(33),5389(30),5043(27),2950(26),2965(23),2872(17),6105(20),6(29),3745(37),5(28),6212(27),6232(21),2257(14),7120(15),13(14),5(17),13(18),5(17),6(16),5838(15),5530(25),5389(22),5043(19),6(20),1(21),5(20),6(19),13(20),5(23),13(24),5(23),6(22),5838(21),5530(31),5389(28),5043(25),127(22),5(17),2257(19),7120(21),13(20),5(23),13(24),5(23),6(22),5838(21),5530(31),5389(28),5043(25),6(26),1(27),5(26),6(25),13(26),5(29),13(30),5(29),6(28),5838(27),5530(37),5389(34),5043(31),127(28),5(23),7120(24),13(24),5(27),13(28),5(27),6(26),5838(25),5530(35),5389(32),5043(29),6(29),1(30),5(29),1(28),13(29),5(32),13(33),5(32),6(31),5838(30),5530(40),5389(37),5043(34),6(31),2572(30),163(26),1(25),5(24),7120(26),13(25),5(28),13(29),5(28),6(27),5838(26),5530(36),5389(33),5043(30),6(31),1(32),5(31),6(30),13(31),5(34),13(35),5(34),6(33),5838(32),5530(42),5389(39),5043(36),127(33),5(28),2170(28),316(21),1(20),5(19),7120(21),13(20),5(23),13(24),5(23),6(22),5838(21),5530(31),5389(28),5043(25),6(26),1(27),5(26),6(25),13(26),5(29),13(30),5(29),6(28),5838(27),5530(37),5389(34),5043(31),127(28),5(23),2528(22),3275(20),719(15)]),flip(a)].
+
+given #196 (T,wt=19): 7573 mult(mult(A,mult(mult(A,A),ld(A,unit))),mult(ld(A,unit),ld(A,unit))) = unit.  [para(251(a,1),268(a,1,1,1)),rewrite([6105(7),7120(4),13(3),5(6),13(7),5(6),6(5),5838(4),5530(14),5389(11),5043(8),6(9),1(10),5(9),6(8),13(9),5(12),13(13),5(12),6(11),5838(10),5530(20),5389(17),5043(14),127(11),5(6),7120(8),13(7),5(10),13(11),5(10),6(9),5838(8),5530(18),5389(15),5043(12),6(13),1(14),5(13),6(12),13(13),5(16),13(17),5(16),6(15),5838(14),5530(24),5389(21),5043(18),127(15),5(10),2950(11),7120(11),13(10),5(13),13(14),5(13),6(12),5838(11),5530(21),5389(18),5043(15),6(16),1(17),5(16),6(15),13(16),5(19),13(20),5(19),6(18),5838(17),5530(27),5389(24),5043(21),127(18),5(13),2966(12),5041(13),6(12),7120(14),13(13),5(16),13(17),5(16),6(15),5838(14),5530(24),5389(21),5043(18),6(19),1(20),5(19),6(18),13(19),5(22),13(23),5(22),6(21),5838(20),5530(30),5389(27),5043(24),127(21),5(16),7120(18),13(17),5(20),13(21),5(20),6(19),5838(18),5530(28),5389(25),5043(22),6(23),1(24),5(23),6(22),13(23),5(26),13(27),5(26),6(25),5838(24),5530(34),5389(31),5043(28),127(25),5(20),2950(21),7120(21),13(20),5(23),13(24),5(23),6(22),5838(21),5530(31),5389(28),5043(25),6(26),1(27),5(26),6(25),13(26),5(29),13(30),5(29),6(28),5838(27),5530(37),5389(34),5043(31),127(28),5(23),2966(22),5041(23),6124(17),251(18),251(24),2257(23),6105(23),7120(20),13(19),5(22),13(23),5(22),6(21),5838(20),5530(30),5389(27),5043(24),6(25),1(26),5(25),6(24),13(25),5(28),13(29),5(28),6(27),5838(26),5530(36),5389(33),5043(30),127(27),5(22),7120(24),13(23),5(26),13(27),5(26),6(25),5838(24),5530(34),5389(31),5043(28),6(29),1(30),5(29),6(28),13(29),5(32),13(33),5(32),6(31),5838(30),5530(40),5389(37),5043(34),127(31),5(26),2950(27),7120(27),13(26),5(29),13(30),5(29),6(28),5838(27),5530(37),5389(34),5043(31),6(32),1(33),5(32),6(31),13(32),5(35),13(36),5(35),6(34),5838(33),5530(43),5389(40),5043(37),127(34),5(29),2966(28),5041(29),6(28),7120(30),13(29),5(32),13(33),5(32),6(31),5838(30),5530(40),5389(37),5043(34),6(35),1(36),5(35),6(34),13(35),5(38),13(39),5(38),6(37),5838(36),5530(46),5389(43),5043(40),127(37),5(32),7120(34),13(33),5(36),13(37),5(36),6(35),5838(34),5530(44),5389(41),5043(38),6(39),1(40),5(39),6(38),13(39),5(42),13(43),5(42),6(41),5838(40),5530(50),5389(47),5043(44),127(41),5(36),2950(37),7120(37),13(36),5(39),13(40),5(39),6(38),5838(37),5530(47),5389(44),5043(41),6(42),1(43),5(42),6(41),13(42),5(45),13(46),5(45),6(44),5838(43),5530(53),5389(50),5043(47),127(44),5(39),2966(38),5041(39),6124(33),6105(27),7120(25),13(24),5(27),13(28),5(27),6(26),5838(25),5530(35),5389(32),5043(29),6(30),1(31),5(30),6(29),13(30),5(33),13(34),5(33),6(32),5838(31),5530(41),5389(38),5043(35),127(32),5(27),7120(29),13(28),5(31),13(32),5(31),6(30),5838(29),5530(39),5389(36),5043(33),6(34),1(35),5(34),6(33),13(34),5(37),13(38),5(37),6(36),5838(35),5530(45),5389(42),5043(39),127(36),5(31),2950(32),7120(32),13(31),5(34),13(35),5(34),6(33),5838(32),5530(42),5389(39),5043(36),6(37),1(38),5(37),6(36),13(37),5(40),13(41),5(40),6(39),5838(38),5530(48),5389(45),5043(42),127(39),5(34),2966(33),5041(34),7120(36),13(35),5(38),13(39),5(38),6(37),5838(36),5530(46),5389(43),5043(40),6(41),1(42),5(41),6(40),13(41),5(44),13(45),5(44),6(43),5838(42),5530(52),5389(49),5043(46),127(43),5(38),7120(40),13(39),5(42),13(43),5(42),6(41),5838(40),5530(50),5389(47),5043(44),6(45),1(46),5(45),6(44),13(45),5(48),13(49),5(48),6(47),5838(46),5530(56),5389(53),5043(50),127(47),5(42),2950(43),7120(43),13(42),5(45),13(46),5(45),6(44),5838(43),5530(53),5389(50),5043(47),6(48),1(49),5(48),6(47),13(48),5(51),13(52),5(51),6(50),5838(49),5530(59),5389(56),5043(53),127(50),5(45),2966(44),5041(45),3716(38),5328(27),1278(34),6105(42),7120(39),13(38),5(41),13(42),5(41),6(40),5838(39),5530(49),5389(46),5043(43),6(44),1(45),5(44),6(43),13(44),5(47),13(48),5(47),6(46),5838(45),5530(55),5389(52),5043(49),127(46),5(41),7120(43),13(42),5(45),13(46),5(45),6(44),5838(43),5530(53),5389(50),5043(47),6(48),1(49),5(48),6(47),13(48),5(51),13(52),5(51),6(50),5838(49),5530(59),5389(56),5043(53),127(50),5(45),2950(46),7120(46),13(45),5(48),13(49),5(48),6(47),5838(46),5530(56),5389(53),5043(50),6(51),1(52),5(51),6(50),13(51),5(54),13(55),5(54),6(53),5838(52),5530(62),5389(59),5043(56),127(53),5(48),2966(47),5041(48),6(47),7120(49),13(48),5(51),13(52),5(51),6(50),5838(49),5530(59),5389(56),5043(53),6(54),1(55),5(54),6(53),13(54),5(57),13(58),5(57),6(56),5838(55),5530(65),5389(62),5043(59),127(56),5(51),7120(53),13(52),5(55),13(56),5(55),6(54),5838(53),5530(63),5389(60),5043(57),6(58),1(59),5(58),6(57),13(58),5(61),13(62),5(61),6(60),5838(59),5530(69),5389(66),5043(63),127(60),5(55),2950(56),7120(56),13(55),5(58),13(59),5(58),6(57),5838(56),5530(66),5389(63),5043(60),6(61),1(62),5(61),6(60),13(61),5(64),13(65),5(64),6(63),5838(62),5530(72),5389(69),5043(66),127(63),5(58),2966(57),5041(58),6124(52),5449(43),13(28),6(23),4871(22)])].
+
+given #197 (T,wt=19): 7618 ld(mult(mult(ld(A,B),mult(ld(B,unit),A)),A),A) = mult(ld(A,unit),A).  [back_rewrite(7574),rewrite([7611(20)])].
+
+given #198 (T,wt=19): 7993 mult(mult(ld(A,unit),A),mult(A,mult(mult(ld(A,unit),A),ld(A,unit)))) = unit.  [para(3745(a,1),819(a,2)),rewrite([2629(16),2950(15),6469(19)])].
+
+given #199 (A,wt=33): 456 mult(mult(mult(mult(A,B),A),ld(A,unit)),mult(A,A)) = mult(mult(mult(A,A),ld(A,unit)),mult(mult(B,mult(mult(A,A),A)),ld(A,unit))).  [back_rewrite(205),rewrite([441(11)]),flip(a)].
+
+given #200 (T,wt=19): 7996 mult(mult(ld(A,unit),ld(A,unit)),mult(A,mult(mult(A,A),ld(A,unit)))) = unit.  [para(201(a,1),3745(a,1,2,1)),rewrite([5(8),127(7),6(4),5(10),127(9),6(6),5(17),127(16),6(13),7120(13),13(12),5(15),13(16),5(15),6(14),5838(13),5530(23),5389(20),5043(17),6(18),1(19),5(18),6(17),13(18),5(21),13(22),5(21),6(20),5838(19),5530(29),5389(26),5043(23),127(20),5(15),5(21),127(20),6(17),2950(16),5(20),127(19),6(16),7120(16),13(15),5(18),13(19),5(18),6(17),5838(16),5530(26),5389(23),5043(20),6(21),1(22),5(21),6(20),13(21),5(24),13(25),5(24),6(23),5838(22),5530(32),5389(29),5043(26),127(23),5(18),2966(17),5041(18)])].
+
+given #201 (T,wt=19): 8017 mult(mult(A,mult(mult(A,A),A)),mult(ld(A,unit),ld(A,unit))) = mult(A,A).  [para(3897(a,1),82(a,1,2,1)),rewrite([6105(7),7120(4),13(3),5(6),13(7),5(6),6(5),5838(4),5530(14),5389(11),5043(8),6(9),1(10),5(9),6(8),13(9),5(12),13(13),5(12),6(11),5838(10),5530(20),5389(17),5043(14),127(11),5(6),7120(8),13(7),5(10),13(11),5(10),6(9),5838(8),5530(18),5389(15),5043(12),6(13),1(14),5(13),6(12),13(13),5(16),13(17),5(16),6(15),5838(14),5530(24),5389(21),5043(18),127(15),5(10),2950(11),7120(11),13(10),5(13),13(14),5(13),6(12),5838(11),5530(21),5389(18),5043(15),6(16),1(17),5(16),6(15),13(16),5(19),13(20),5(19),6(18),5838(17),5530(27),5389(24),5043(21),127(18),5(13),2966(12),5041(13),6(12),7120(14),13(13),5(16),13(17),5(16),6(15),5838(14),5530(24),5389(21),5043(18),6(19),1(20),5(19),6(18),13(19),5(22),13(23),5(22),6(21),5838(20),5530(30),5389(27),5043(24),127(21),5(16),7120(18),13(17),5(20),13(21),5(20),6(19),5838(18),5530(28),5389(25),5043(22),6(23),1(24),5(23),6(22),13(23),5(26),13(27),5(26),6(25),5838(24),5530(34),5389(31),5043(28),127(25),5(20),2950(21),7120(21),13(20),5(23),13(24),5(23),6(22),5838(21),5530(31),5389(28),5043(25),6(26),1(27),5(26),6(25),13(26),5(29),13(30),5(29),6(28),5838(27),5530(37),5389(34),5043(31),127(28),5(23),2966(22),5041(23),7996(16),5(7),2885(12),2756(9)]),flip(a)].
+
+given #202 (T,wt=19): 8853 mult(mult(A,A),mult(ld(A,unit),A)) = mult(A,mult(A,mult(ld(A,unit),A))).  [para(1514(a,1),5080(a,1,1,2)),rewrite([5917(9),233(8),5917(14),1514(12),3914(17)]),flip(a)].
+
+given #203 (T,wt=19): 9158 mult(mult(ld(A,unit),A),mult(A,A)) = mult(A,mult(A,mult(ld(A,unit),A))).  [back_rewrite(7427),rewrite([8853(10)])].
+
+given #204 (A,wt=29): 457 mult(mult(mult(A,B),A),mult(C,ld(A,unit))) = mult(mult(mult(A,A),ld(A,unit)),mult(mult(mult(B,A),C),ld(A,unit))).  [back_rewrite(137),rewrite([441(10)]),flip(a)].
+
+given #205 (T,wt=19): 9163 mult(ld(A,unit),mult(A,mult(A,A))) = mult(A,mult(A,mult(ld(A,unit),A))).  [back_rewrite(5522),rewrite([8853(10)])].
+
+given #206 (T,wt=19): 9166 mult(mult(mult(A,A),ld(A,unit)),A) = mult(A,mult(A,mult(ld(A,unit),A))).  [back_rewrite(5080),rewrite([8853(10)])].
+
+given #207 (T,wt=19): 9444 mult(mult(A,mult(A,A)),mult(ld(A,unit),mult(ld(A,unit),ld(A,unit)))) = unit.  [para(5456(a,1),1(a,1,2))].
+
+given #208 (T,wt=19): 9664 mult(mult(A,mult(A,A)),mult(A,A)) = mult(A,mult(A,mult(A,mult(A,A)))).  [para(6033(a,1),819(a,1,2,1)),rewrite([6105(3),6(12),3745(20),5(11),6099(16),1278(7)])].
+
+given #209 (A,wt=31): 458 mult(mult(mult(mult(A,B),A),ld(A,unit)),mult(C,ld(A,unit))) = mult(mult(mult(A,A),ld(A,unit)),mult(mult(B,C),ld(A,unit))).  [back_rewrite(440),rewrite([441(9)]),flip(a)].
+
+given #210 (T,wt=19): 9953 mult(ld(A,B),ld(mult(ld(A,unit),mult(mult(B,A),ld(A,unit))),C)) = C.  [para(7068(a,1),1(a,1))].
+
+given #211 (T,wt=19): 10544 mult(mult(A,mult(mult(ld(A,unit),A),ld(A,unit))),mult(ld(A,unit),A)) = unit.  [para(7993(a,1),82(a,1,2,1)),rewrite([9091(5),6(16),8015(15)]),flip(a)].
+
+given #212 (T,wt=19): 10565 mult(mult(ld(A,unit),A),mult(mult(A,mult(ld(A,unit),A)),ld(A,unit))) = unit.  [para(1514(a,1),7993(a,1,1,1)),rewrite([3914(11),1514(13),3914(18),1514(16),4960(17)])].
+
+given #213 (T,wt=19): 10886 mult(mult(A,mult(A,mult(A,A))),A) = mult(mult(A,A),mult(mult(A,A),A)).  [para(5395(a,1),456(a,1,1,1,1)),rewrite([1289(3),3552(6),2662(8),10520(16),3571(20),5016(15)]),flip(a)].
+
+given #214 (A,wt=37): 555 mult(mult(mult(mult(A,ld(B,unit)),A),ld(A,unit)),mult(mult(C,B),ld(A,unit))) = mult(mult(mult(mult(A,ld(B,C)),A),ld(A,unit)),mult(B,ld(A,unit))).  [para(136(a,1),85(a,1,1)),rewrite([136(16)])].
+
+given #215 (T,wt=19): 11641 mult(mult(A,mult(mult(A,A),A)),A) = mult(mult(A,A),mult(A,mult(A,A))).  [para(9664(a,1),388(a,1,1,1)),rewrite([2606(8),332(7),719(10),6033(8)])].
+
+given #216 (T,wt=19): 12652 mult(mult(A,A),mult(A,mult(A,A))) = mult(A,mult(A,mult(mult(A,A),A))).  [para(11641(a,1),819(a,1,2,1)),rewrite([819(8),332(3),6033(8)]),flip(a)].
+
+given #217 (T,wt=19): 12783 mult(mult(A,mult(mult(A,A),A)),A) = mult(A,mult(A,mult(mult(A,A),A))).  [back_rewrite(11641),rewrite([12652(8)])].
+
+given #218 (T,wt=19): 12848 mult(mult(mult(A,A),A),mult(A,A)) = mult(A,mult(A,mult(mult(A,A),A))).  [back_rewrite(6033),rewrite([12652(8)])].
+
+given #219 (A,wt=43): 570 mult(mult(mult(A,mult(B,mult(ld(B,unit),ld(B,unit)))),B),mult(mult(C,mult(B,mult(ld(B,unit),ld(B,unit)))),B)) = mult(mult(mult(A,C),mult(B,mult(ld(B,unit),ld(B,unit)))),B).  [back_rewrite(380),rewrite([511(9),511(17)]),flip(a)].
+
+given #220 (T,wt=21): 838 mult(ld(A,unit),mult(mult(B,mult(A,mult(ld(A,unit),ld(A,unit)))),A)) = ld(A,B).  [para(105(a,1),87(a,2,2)),rewrite([5(14)])].
+
+given #221 (T,wt=21): 850 mult(ld(mult(A,B),B),mult(ld(B,unit),mult(mult(mult(A,B),A),B))) = mult(A,B).  [para(87(a,2),260(a,1,2))].
+
+given #222 (T,wt=21): 1270 mult(ld(A,unit),mult(mult(A,A),mult(mult(A,A),A))) = mult(A,mult(mult(A,A),A)).  [para(713(a,1),22(a,1,1)),rewrite([202(7)]),flip(a)].
+
+given #223 (T,wt=21): 2260 mult(A,mult(ld(A,unit),mult(mult(ld(A,unit),mult(B,A)),ld(A,unit)))) = ld(A,B).  [para(74(a,2),1575(a,1,2,2,1))].
+
+given #224 (A,wt=31): 582 mult(mult(ld(A,B),C),mult(ld(mult(ld(C,B),C),D),ld(C,A))) = mult(mult(ld(A,C),C),mult(ld(C,D),ld(C,A))).  [para(257(a,1),72(a,1,1)),rewrite([333(12)])].
+
+given #225 (T,wt=19): 14083 ld(A,ld(B,C)) = mult(ld(A,unit),mult(mult(ld(B,C),A),ld(A,unit))).  [back_rewrite(4737),rewrite([13791(14)])].
+
+given #226 (T,wt=21): 2265 mult(A,mult(ld(A,unit),mult(ld(A,unit),ld(A,unit)))) = mult(ld(A,unit),ld(A,unit)).  [para(187(a,1),1575(a,1,2,2,1))].
+
+given #227 (T,wt=21): 2528 mult(mult(mult(A,A),A),mult(mult(A,A),ld(A,unit))) = mult(A,mult(mult(A,A),A)).  [para(126(a,2),332(a,1,1,2)),rewrite([163(9),206(6),209(20),2170(18)])].
+
+given #228 (T,wt=21): 2537 mult(ld(A,unit),mult(mult(mult(A,A),ld(A,unit)),mult(mult(B,A),ld(A,unit)))) = B.  [para(126(a,1),438(a,1,2))].
+
+given #229 (A,wt=45): 655 mult(ld(mult(ld(A,B),mult(C,A)),D),mult(ld(A,unit),mult(ld(A,unit),mult(mult(B,C),A)))) = mult(ld(mult(ld(A,B),mult(C,A)),D),mult(ld(A,unit),mult(ld(A,B),mult(C,A)))).  [para(22(a,1),86(a,1,1,1)),rewrite([22(9),22(14),91(19)]),flip(a)].
+
+given #230 (T,wt=21): 2566 mult(mult(mult(A,A),ld(A,unit)),mult(mult(A,A),A)) = mult(A,mult(A,mult(A,A))).  [back_rewrite(2176),rewrite([2554(14)])].
+
+given #231 (T,wt=21): 2572 mult(mult(A,ld(B,unit)),mult(mult(B,B),ld(B,unit))) = mult(mult(A,B),ld(B,unit)).  [para(82(a,1),161(a,2,1)),rewrite([438(8),2092(7),13(6),5(13),13(14),5(13),6(12),2166(11),127(14),5(9)])].
+
+given #232 (T,wt=15): 14935 ld(mult(A,mult(ld(A,unit),mult(B,ld(A,unit)))),B) = A.  [back_rewrite(4887),rewrite([14738(11)])].
+
+given #233 (T,wt=21): 2629 mult(mult(mult(ld(A,unit),A),ld(A,unit)),mult(A,A)) = mult(mult(A,A),ld(A,unit)).  [back_rewrite(2511),rewrite([2572(10)])].
+
+given #234 (A,wt=43): 659 mult(ld(mult(ld(A,unit),mult(B,A)),C),mult(ld(mult(B,A),unit),mult(ld(A,B),A))) = mult(ld(mult(ld(A,B),A),C),mult(ld(mult(B,A),unit),mult(ld(A,unit),mult(B,A)))).  [para(74(a,1),86(a,1,1,1)),rewrite([90(23)]),flip(a)].
+
+given #235 (T,wt=21): 2882 mult(mult(ld(A,unit),mult(mult(ld(A,unit),A),ld(A,unit))),mult(mult(A,A),A)) = A.  [para(2703(a,1),1575(a,1,2,2,1)),rewrite([2878(3),2878(12),2878(25),2282(35),307(12),15(11)])].
+
+given #236 (T,wt=21): 3089 mult(mult(mult(ld(A,B),mult(ld(B,unit),A)),A),ld(A,unit)) = mult(ld(A,unit),A).  [para(2999(a,1),136(a,2,1,1)),rewrite([2760(4),13(3),5(6),13(7),5(6),6(5),2874(4),2647(5),2874(4),2950(7),2760(15),13(14),5(17),13(18),5(17),6(16),2874(15),2572(16)]),flip(a)].
+
+given #237 (T,wt=21): 3141 mult(A,mult(ld(B,unit),mult(C,B))) = mult(A,mult(ld(B,D),mult(ld(D,C),B))).  [para(72(a,2),652(a,2,2))].
+
+given #238 (T,wt=21): 3178 mult(A,mult(ld(B,unit),mult(mult(C,D),B))) = mult(A,mult(ld(B,C),mult(D,B))).  [para(87(a,1),652(a,1,2)),rewrite([2257(6),2277(15),2572(21),2642(18)]),flip(a)].
+
+given #239 (A,wt=43): 660 mult(ld(mult(ld(A,unit),mult(B,A)),C),mult(ld(mult(B,A),unit),mult(ld(A,unit),mult(B,A)))) = mult(ld(mult(ld(A,B),A),C),mult(ld(mult(B,A),unit),mult(ld(A,B),A))).  [para(74(a,1),86(a,2,1,1)),rewrite([90(23)])].
+Demod_limit hit 200 times.
+
+given #240 (T,wt=21): 3369 mult(A,mult(mult(ld(B,unit),mult(C,B)),D)) = mult(A,mult(mult(ld(B,C),B),D)).  [para(652(a,1),819(a,1,2,1)),rewrite([819(8)]),flip(a)].
+
+given #241 (T,wt=21): 3371 mult(A,mult(B,mult(ld(C,unit),mult(D,C)))) = mult(A,mult(B,mult(ld(C,D),C))).  [para(652(a,1),819(a,2,2)),rewrite([819(18)])].
+
+given #242 (T,wt=17): 18041 ld(mult(ld(A,unit),mult(B,A)),C) = ld(mult(ld(A,B),A),C).  [back_rewrite(16805),rewrite([17522(41)]),flip(a)].
+
+given #243 (T,wt=19): 18116 ld(mult(ld(A,B),mult(ld(B,C),A)),D) = ld(mult(ld(A,C),A),D).  [para(267(a,1),18041(a,1,1))].
+
+Low Water (keep): wt=99.000, iters=6783
+
+given #244 (A,wt=39): 661 mult(ld(mult(ld(A,unit),mult(B,A)),C),mult(ld(A,unit),mult(ld(A,B),A))) = mult(ld(mult(ld(A,B),A),C),mult(ld(A,unit),mult(ld(A,unit),mult(B,A)))).  [para(74(a,2),86(a,1,1,1)),rewrite([91(17)])].
+
+Low Water (keep): wt=91.000, iters=6715
+
+given #245 (T,wt=21): 3534 ld(mult(A,mult(ld(A,unit),mult(B,A))),B) = mult(A,mult(ld(A,unit),ld(A,unit))).  [para(1518(a,1),438(a,1,2,1,1)),rewrite([2878(3),2878(14),2942(22)]),flip(a)].
+
+Low Water (keep): wt=89.000, iters=6674
+
+given #246 (T,wt=21): 3638 mult(mult(ld(A,unit),mult(B,A)),C) = mult(mult(ld(A,D),mult(ld(D,B),A)),C).  [para(267(a,2),138(a,2,1)),rewrite([1615(6),3613(17)]),flip(a)].
+
+given #247 (T,wt=21): 3645 mult(mult(A,mult(ld(B,unit),mult(C,B))),D) = mult(mult(A,mult(ld(B,C),B)),D).  [para(652(a,1),138(a,2,1)),rewrite([138(12)])].
+
+Low Water (keep): wt=85.000, iters=6777
+
+given #248 (T,wt=21): 3651 mult(mult(mult(A,mult(B,mult(C,A))),A),ld(A,unit)) = mult(mult(mult(A,B),C),A).  [para(819(a,1),138(a,1,1,1,2)),rewrite([6(11)])].
+
+Low Water (keep): wt=81.000, iters=6724
+
+given #249 (A,wt=39): 662 mult(ld(mult(ld(A,unit),mult(B,A)),C),mult(ld(A,unit),mult(ld(A,unit),mult(B,A)))) = mult(ld(mult(ld(A,B),A),C),mult(ld(A,unit),mult(ld(A,B),A))).  [para(74(a,2),86(a,2,1,1)),rewrite([91(17)]),flip(a)].
+
+Low Water (keep): wt=79.000, iters=6678
+
+given #250 (T,wt=21): 3655 mult(mult(ld(A,unit),mult(mult(B,C),A)),D) = mult(mult(ld(A,B),mult(C,A)),D).  [back_rewrite(3608),rewrite([3651(16),1575(9)]),flip(a)].
+
+given #251 (T,wt=21): 3671 mult(mult(mult(A,A),ld(A,unit)),mult(mult(A,B),A)) = mult(mult(mult(A,A),B),A).  [back_rewrite(2610),rewrite([3651(7)]),flip(a)].
+
+Low Water (keep): wt=77.000, iters=6783
+
+given #252 (T,wt=21): 3912 mult(mult(A,mult(ld(A,unit),ld(A,unit))),mult(A,A)) = mult(A,mult(ld(A,unit),A)).  [back_rewrite(3362),rewrite([3892(16)])].
+
+Low Water (keep): wt=75.000, iters=6693
+
+given #253 (T,wt=19): 21514 mult(mult(A,mult(B,A)),mult(A,mult(ld(A,unit),ld(A,unit)))) = mult(A,B).  [para(3912(a,1),246(a,1,1,2,1)),rewrite([4871(17),5(2)]),flip(a)].
+
+given #254 (A,wt=51): 673 mult(ld(mult(ld(A,B),mult(ld(B,C),A)),D),mult(ld(mult(ld(B,C),A),unit),mult(ld(A,C),A))) = mult(ld(mult(ld(A,C),A),D),mult(ld(mult(ld(B,C),A),unit),mult(ld(A,B),mult(ld(B,C),A)))).  [para(72(a,1),86(a,1,1,1)),rewrite([265(25)]),flip(a)].
+
+given #255 (T,wt=21): 4097 mult(mult(mult(A,A),A),mult(ld(A,B),mult(ld(B,unit),A))) = mult(A,mult(A,A)).  [para(72(a,2),3374(a,1,2))].
+
+given #256 (T,wt=21): 4244 mult(mult(ld(A,B),mult(ld(B,C),A)),ld(mult(ld(A,unit),mult(C,A)),D)) = D.  [para(72(a,2),3949(a,1,1))].
+
+given #257 (T,wt=21): 4252 mult(mult(ld(A,unit),mult(mult(B,C),A)),ld(mult(ld(A,B),mult(C,A)),D)) = D.  [para(87(a,1),3949(a,1,2,1)),rewrite([2257(2),2277(11),2572(17),3330(14),1(7),5(6)])].
+
+Low Water (keep): wt=73.000, iters=6680
+
+given #258 (T,wt=21): 4279 mult(mult(ld(A,unit),mult(B,A)),ld(mult(ld(A,C),mult(ld(C,B),A)),D)) = D.  [para(72(a,2),3950(a,1,2,1))].
+
+given #259 (A,wt=51): 674 mult(ld(mult(ld(A,B),mult(ld(B,C),A)),D),mult(ld(mult(ld(B,C),A),unit),mult(ld(A,B),mult(ld(B,C),A)))) = mult(ld(mult(ld(A,C),A),D),mult(ld(mult(ld(B,C),A),unit),mult(ld(A,C),A))).  [para(72(a,1),86(a,2,1,1)),rewrite([265(25)])].
+
+given #260 (T,wt=21): 4285 mult(mult(ld(A,B),mult(C,A)),ld(mult(ld(A,unit),mult(mult(B,C),A)),D)) = D.  [para(87(a,1),3950(a,1,1)),rewrite([2257(5),2277(14),2572(20),3330(17),1(10),5(9)])].
+
+Low Water (keep): wt=71.000, iters=6715
+
+given #261 (T,wt=21): 4630 mult(ld(mult(A,mult(mult(A,A),A)),unit),mult(A,mult(A,mult(mult(A,A),A)))) = A.  [back_rewrite(4324),rewrite([4605(48),83(14)])].
+
+given #262 (T,wt=21): 5043 mult(ld(A,unit),mult(A,mult(mult(A,A),ld(A,unit)))) = mult(mult(A,A),ld(A,unit)).  [back_rewrite(2957),rewrite([4993(15)])].
+
+Low Water (keep): wt=69.000, iters=6689
+
+given #263 (T,wt=21): 5208 mult(ld(mult(ld(A,unit),mult(B,A)),C),C) = mult(ld(mult(ld(A,B),A),C),C).  [para(3122(a,1),1602(a,1,1,2,1)),rewrite([1602(10)]),flip(a)].
+
+given #264 (A,wt=41): 675 mult(ld(mult(ld(A,B),mult(ld(B,C),A)),D),mult(ld(A,unit),mult(ld(A,C),A))) = mult(ld(mult(ld(A,C),A),D),mult(ld(A,unit),mult(ld(A,unit),mult(C,A)))).  [para(72(a,2),86(a,1,1,1)),rewrite([91(17)])].
+
+given #265 (T,wt=21): 5390 mult(mult(A,A),mult(A,mult(mult(A,A),ld(A,unit)))) = mult(A,mult(mult(A,A),A)).  [back_rewrite(3379),rewrite([5383(6)])].
+
+given #266 (T,wt=21): 5405 mult(mult(ld(A,unit),ld(A,unit)),mult(mult(A,A),A)) = mult(mult(A,A),ld(A,unit)).  [back_rewrite(5046),rewrite([5395(11)])].
+
+given #267 (T,wt=17): 22840 mult(ld(mult(A,mult(mult(A,A),A)),A),mult(mult(A,A),A)) = unit.  [back_rewrite(3096),rewrite([22814(9)]),flip(a)].
+
+given #268 (T,wt=19): 22814 mult(ld(mult(A,mult(mult(A,A),A)),unit),mult(A,mult(mult(A,A),A))) = unit.  [para(5405(a,1),275(a,2,2)),rewrite([3739(8),3739(13),3739(17),2257(15),2257(22),22781(42),11023(27),2268(27),2257(13),10406(15),6(33),7473(34),5(25),10406(26),2265(44),5405(43),10446(40),3897(32),10406(28),6(46),7473(47),5(38),5618(37),14346(30),5606(27),127(16)])].
+
+given #269 (A,wt=41): 677 mult(ld(mult(ld(A,B),mult(ld(B,C),A)),D),mult(ld(A,unit),mult(ld(A,unit),mult(C,A)))) = mult(ld(mult(ld(A,C),A),D),mult(ld(A,unit),mult(ld(A,C),A))).  [para(72(a,2),86(a,2,1,1)),rewrite([91(17)]),flip(a)].
+
+given #270 (T,wt=21): 5415 mult(mult(A,mult(A,A)),mult(ld(A,unit),ld(A,unit))) = mult(A,mult(ld(A,unit),A)).  [para(5385(a,1),82(a,1,2,1)),rewrite([2878(7),2760(4),13(3),5(6),13(7),5(6),6(5),2874(4),2760(8),13(7),5(10),13(11),5(10),6(9),2874(8),2950(11),2760(11),13(10),5(13),13(14),5(13),6(12),2874(11),2966(12),5041(13),3710(12)]),flip(a)].
+Demod_limit hit 300 times.
+
+given #271 (T,wt=21): 5488 mult(mult(A,mult(A,A)),mult(ld(A,unit),mult(mult(ld(A,unit),A),ld(A,unit)))) = A.  [back_rewrite(5398),rewrite([5456(5),5419(10),83(4)]),flip(a)].
+
+given #272 (T,wt=21): 5514 mult(mult(ld(A,unit),mult(ld(A,unit),ld(A,unit))),mult(A,mult(mult(A,A),A))) = A.  [back_rewrite(5417),rewrite([5457(24)])].
+
+Low Water (keep): wt=67.000, iters=6682
+
+given #273 (T,wt=21): 5776 mult(mult(ld(A,unit),mult(B,ld(A,unit))),mult(A,A)) = mult(ld(A,unit),mult(B,A)).  [para(126(a,2),246(a,1,1,2,1,2)),rewrite([2647(12),5(10),2647(18),5(16),2638(19),129(12),438(10),2647(12),5(10),2647(18),5(16),2638(19),129(12),2760(21),13(20),5(23),13(24),5(23),6(22),2874(21),2760(25),13(24),5(27),13(28),5(27),6(26),2874(25),2572(26),163(22),83(19),1581(16)])].
+
+given #274 (A,wt=75): 705 mult(ld(mult(ld(mult(A,B),C),mult(ld(B,unit),mult(A,B))),D),mult(ld(mult(ld(B,unit),mult(A,B)),unit),mult(ld(mult(A,B),C),mult(ld(B,A),B)))) = mult(ld(mult(ld(mult(A,B),C),mult(ld(B,A),B)),D),mult(ld(mult(ld(B,unit),mult(A,B)),unit),mult(ld(mult(A,B),C),mult(ld(B,unit),mult(A,B))))).  [para(86(a,1),86(a,1,1,1)),rewrite([657(41)]),flip(a)].
+
+given #275 (T,wt=21): 5997 mult(mult(A,A),mult(A,mult(ld(A,B),mult(ld(B,unit),A)))) = mult(A,mult(A,A)).  [para(72(a,2),5951(a,1,2,2))].
+
+given #276 (T,wt=21): 6300 mult(mult(mult(ld(A,B),mult(ld(B,unit),A)),A),mult(A,A)) = mult(mult(A,A),A).  [para(2958(a,2),161(a,2,1)),rewrite([83(5),6033(4),6105(7),6(16),3745(24),5(15),6120(14)]),flip(a)].
+
+given #277 (T,wt=21): 6347 mult(mult(A,mult(mult(ld(A,B),mult(ld(B,unit),A)),A)),A) = mult(A,mult(A,A)).  [para(2958(a,2),5328(a,1,1,2))].
+
+given #278 (T,wt=21): 6349 mult(A,mult(A,mult(mult(ld(A,B),mult(ld(B,unit),A)),A))) = mult(mult(A,A),A).  [para(2958(a,2),5395(a,1,2,2))].
+
+given #279 (A,wt=75): 706 mult(ld(mult(ld(mult(A,B),C),mult(ld(B,unit),mult(A,B))),D),mult(ld(mult(ld(B,unit),mult(A,B)),unit),mult(ld(mult(A,B),C),mult(ld(B,unit),mult(A,B))))) = mult(ld(mult(ld(mult(A,B),C),mult(ld(B,A),B)),D),mult(ld(mult(ld(B,unit),mult(A,B)),unit),mult(ld(mult(A,B),C),mult(ld(B,A),B)))).  [para(86(a,1),86(a,2,1,1)),rewrite([657(41)])].
+Demod_limit hit 400 times.
+
+given #280 (T,wt=21): 8484 mult(mult(A,mult(ld(A,unit),mult(B,A))),mult(A,mult(ld(A,unit),ld(A,unit)))) = B.  [para(74(a,2),4871(a,1,1,2))].
+
+given #281 (T,wt=21): 8578 mult(mult(ld(A,B),mult(ld(B,unit),A)),mult(A,mult(A,A))) = mult(mult(A,A),A).  [para(72(a,2),8573(a,1,1))].
+
+given #282 (T,wt=21): 9094 mult(mult(mult(ld(A,unit),A),ld(A,unit)),mult(A,mult(A,mult(ld(A,unit),A)))) = A.  [back_rewrite(8832),rewrite([8853(11),2166(12),5530(16),5563(15),8853(11)])].
+
+given #283 (T,wt=21): 9167 mult(ld(A,unit),mult(A,mult(A,mult(ld(A,unit),A)))) = mult(A,mult(ld(A,unit),A)).  [back_rewrite(5003),rewrite([8853(7)])].
+
+given #284 (A,wt=71): 707 mult(ld(mult(ld(mult(A,B),C),mult(ld(B,unit),mult(A,B))),D),mult(ld(mult(ld(B,A),B),unit),mult(ld(mult(A,B),C),mult(ld(B,A),B)))) = mult(ld(mult(ld(mult(A,B),C),mult(ld(B,A),B)),D),mult(ld(mult(ld(B,A),B),unit),mult(ld(mult(A,B),C),mult(ld(B,unit),mult(A,B))))).  [para(86(a,2),86(a,1,1,1)),rewrite([658(33)])].
+Demod_limit hit 500 times.
+
+given #285 (T,wt=21): 9572 mult(mult(A,mult(mult(A,A),A)),mult(ld(A,unit),mult(ld(A,unit),ld(A,unit)))) = A.  [back_rewrite(5481),rewrite([9568(15),9502(26),3739(20)])].
+
+Low Water (keep): wt=65.000, iters=6668
+
+given #286 (T,wt=21): 9597 mult(mult(A,mult(ld(A,unit),A)),mult(A,mult(A,A))) = mult(A,mult(mult(A,A),A)).  [back_rewrite(5480),rewrite([9568(22)])].
+
+given #287 (T,wt=21): 9604 mult(mult(A,mult(A,A)),mult(A,mult(ld(A,unit),A))) = mult(A,mult(A,mult(A,A))).  [para(5917(a,1),1289(a,1,1,1)),rewrite([5951(6),5917(24),9135(17),9603(18)])].
+
+given #288 (T,wt=21): 9772 mult(mult(ld(A,unit),A),mult(A,mult(mult(A,A),A))) = mult(A,mult(A,mult(A,A))).  [para(316(a,1),441(a,1,1,1,1)),rewrite([163(5),7120(5),13(4),5(7),13(8),5(7),6(6),5838(5),5530(15),5389(12),5043(9),6(10),1(11),5(10),6(9),13(10),5(13),13(14),5(13),6(12),5838(11),5530(21),5389(18),5043(15),127(12),5(7),7120(10),13(9),5(12),13(13),5(12),6(11),5838(10),5530(20),5389(17),5043(14),6(15),1(16),5(15),6(14),13(15),5(18),13(19),5(18),6(17),5838(16),5530(26),5389(23),5043(20),127(17),5(12),2556(11),7120(12),13(11),5(14),13(15),5(14),6(13),5838(12),5530(22),5389(19),5043(16),6(17),1(18),5(17),6(16),13(17),5(20),13(21),5(20),6(19),5838(18),5530(28),5389(25),5043(22),127(19),5(14),2572(13),7120(16),13(15),5(18),13(19),5(18),6(17),5838(16),5530(26),5389(23),5043(20),6(21),1(22),5(21),6(20),13(21),5(24),13(25),5(24),6(23),5838(22),5530(32),5389(29),5043(26),127(23),5(18),3361(18),2528(13)]),flip(a)].
+
+given #289 (A,wt=71): 708 mult(ld(mult(ld(mult(A,B),C),mult(ld(B,unit),mult(A,B))),D),mult(ld(mult(ld(B,A),B),unit),mult(ld(mult(A,B),C),mult(ld(B,unit),mult(A,B))))) = mult(ld(mult(ld(mult(A,B),C),mult(ld(B,A),B)),D),mult(ld(mult(ld(B,A),B),unit),mult(ld(mult(A,B),C),mult(ld(B,A),B)))).  [para(86(a,2),86(a,2,1,1)),rewrite([658(33)]),flip(a)].
+Demod_limit hit 600 times.
+
+given #290 (T,wt=21): 10625 mult(mult(A,mult(mult(ld(A,unit),A),ld(A,unit))),mult(mult(A,A),ld(A,unit))) = A.  [back_rewrite(9092),rewrite([10551(11)])].
+
+given #291 (T,wt=21): 10639 mult(mult(A,mult(ld(A,unit),A)),mult(A,mult(mult(ld(A,unit),A),ld(A,unit)))) = A.  [back_rewrite(9078),rewrite([10551(15)])].
+
+given #292 (T,wt=21): 10810 mult(A,mult(A,mult(mult(ld(A,unit),A),ld(A,unit)))) = mult(mult(A,A),ld(A,unit)).  [back_rewrite(5528),rewrite([10551(11)])].
+
+given #293 (T,wt=21): 11510 mult(mult(mult(A,A),mult(mult(A,A),A)),ld(A,unit)) = mult(A,mult(A,mult(A,A))).  [para(9166(a,1),388(a,1,1,1)),rewrite([6105(5),6(14),3745(22),5(13),5776(13),5838(8),5530(18),5389(15),5043(12),127(9),5(4),1278(3),10886(4),1278(10),6105(13),6(22),3745(30),5(21),2941(20),163(12),1278(10)])].
+
+given #294 (A,wt=27): 825 mult(ld(mult(A,B),unit),mult(mult(C,ld(B,unit)),mult(A,B))) = mult(ld(mult(A,B),C),mult(ld(B,A),B)).  [para(74(a,1),87(a,2,2))].
+
+given #295 (T,wt=21): 12790 mult(ld(A,unit),mult(A,mult(A,mult(mult(A,A),A)))) = mult(A,mult(A,mult(A,A))).  [back_rewrite(11530),rewrite([12652(6)])].
+
+given #296 (T,wt=21): 12792 mult(mult(A,mult(A,mult(mult(A,A),A))),ld(A,unit)) = mult(A,mult(mult(A,A),A)).  [back_rewrite(11437),rewrite([12652(4)])].
+
+given #297 (T,wt=21): 13208 mult(mult(A,mult(B,mult(ld(B,unit),ld(B,unit)))),B) = mult(mult(A,B),ld(B,unit)).  [para(74(a,2),838(a,1,2,1)),rewrite([4952(10),6(8),4871(13),5(4),82(12),4952(15),2257(22),13(11),6(25),1011(26),1011(19),1575(20)])].
+
+given #298 (T,wt=21): 13529 ld(mult(A,mult(ld(A,unit),ld(A,unit))),B) = mult(A,mult(mult(B,A),ld(A,unit))).  [back_rewrite(4952),rewrite([13470(20)])].
+
+given #299 (A,wt=23): 827 mult(ld(A,unit),mult(mult(B,ld(A,C)),A)) = mult(ld(A,B),mult(ld(A,unit),mult(C,A))).  [para(74(a,2),87(a,2,2))].
+
+Low Water (keep): wt=63.000, iters=6738
+
+given #300 (T,wt=21): 14375 mult(mult(A,mult(mult(A,A),A)),mult(ld(A,unit),A)) = mult(A,mult(A,mult(A,A))).  [para(2528(a,1),457(a,2,2,1)),rewrite([332(3),2950(10),719(17),2566(14)])].
+
+given #301 (T,wt=21): 14738 mult(ld(A,unit),mult(mult(mult(A,A),ld(A,unit)),B)) = mult(A,mult(ld(A,unit),B)).  [para(2572(a,1),819(a,1,2,1)),rewrite([819(8)]),flip(a)].
+
+given #302 (T,wt=21): 14956 mult(mult(A,mult(ld(A,unit),mult(B,mult(mult(A,A),ld(A,unit))))),ld(A,unit)) = B.  [back_rewrite(2503),rewrite([14738(13)])].
+
+given #303 (T,wt=21): 14957 ld(mult(A,mult(ld(A,unit),mult(B,mult(mult(A,A),ld(A,unit))))),B) = ld(A,unit).  [back_rewrite(2502),rewrite([14738(13)])].
+
+given #304 (A,wt=29): 829 mult(mult(mult(A,B),C),ld(C,unit)) = mult(mult(mult(C,C),ld(C,unit)),mult(mult(ld(C,A),mult(B,C)),ld(C,unit))).  [para(87(a,1),82(a,1,2,1)),rewrite([136(4),5(2)]),flip(a)].
+
+given #305 (T,wt=21): 14965 ld(mult(mult(A,mult(ld(A,unit),B)),ld(A,unit)),B) = mult(mult(A,A),ld(A,unit)).  [back_rewrite(201),rewrite([14738(8)])].
+
+given #306 (T,wt=21): 16906 mult(mult(mult(ld(A,unit),mult(B,A)),C),D) = mult(mult(mult(ld(A,B),A),C),D).  [para(3369(a,1),82(a,1,2,1)),rewrite([82(8)]),flip(a)].
+
+given #307 (T,wt=21): 18063 ld(mult(ld(A,unit),mult(B,A)),C) = ld(mult(ld(A,D),mult(ld(D,B),A)),C).  [para(72(a,2),18041(a,2,1))].
+
+given #308 (T,wt=21): 18142 mult(A,ld(mult(ld(B,unit),mult(C,B)),unit)) = mult(A,ld(mult(ld(B,C),B),unit)).  [para(18041(a,1),132(a,2,2)),rewrite([132(31)])].
+
+Low Water (keep): wt=61.000, iters=6845
+
+given #309 (A,wt=31): 832 mult(ld(mult(mult(A,B),A),unit),mult(mult(C,ld(A,unit)),mult(mult(A,B),A))) = mult(ld(mult(mult(A,B),A),C),mult(B,A)).  [para(82(a,1),87(a,2,2))].
+
+given #310 (T,wt=21): 19402 mult(ld(mult(A,mult(A,mult(ld(A,unit),A))),A),mult(A,mult(ld(A,unit),A))) = unit.  [back_rewrite(9175),rewrite([19400(13)]),flip(a)].
+
+given #311 (T,wt=21): 19845 mult(mult(A,mult(ld(B,C),B)),ld(mult(A,mult(ld(B,unit),mult(C,B))),D)) = D.  [para(3645(a,1),1(a,1))].
+
+given #312 (T,wt=21): 19846 mult(mult(A,mult(ld(B,unit),mult(C,B))),ld(mult(A,mult(ld(B,C),B)),D)) = D.  [para(3645(a,2),1(a,1))].
+
+Low Water (keep): wt=59.000, iters=6731
+
+given #313 (T,wt=21): 21221 mult(mult(mult(A,A),ld(A,unit)),mult(B,A)) = mult(mult(mult(A,A),ld(A,B)),A).  [para(1(a,1),3671(a,1,2,1))].
+
+given #314 (A,wt=23): 842 mult(ld(A,unit),mult(mult(B,mult(ld(A,unit),ld(A,unit))),A)) = mult(ld(A,B),ld(A,unit)).  [para(187(a,1),87(a,2,2))].
+
+given #315 (T,wt=21): 21285 mult(ld(A,unit),mult(mult(mult(A,B),A),mult(A,A))) = mult(B,mult(A,mult(A,A))).  [para(3671(a,1),819(a,1,2,1)),rewrite([6105(3),6(12),3745(20),5(11),6119(15)]),flip(a)].
+
+given #316 (T,wt=21): 22688 mult(A,ld(mult(ld(B,unit),mult(C,B)),A)) = mult(A,ld(mult(ld(B,C),B),A)).  [para(5208(a,1),21514(a,1,1,2)),rewrite([21514(12)]),flip(a)].
+
+given #317 (T,wt=21): 23295 mult(A,mult(mult(A,mult(ld(A,B),mult(ld(B,unit),A))),A)) = mult(mult(A,A),A).  [para(5997(a,1),819(a,1,2,1)),rewrite([332(5),316(6)]),flip(a)].
+
+Low Water (keep): wt=57.000, iters=6691
+
+given #318 (T,wt=21): 23602 mult(mult(A,mult(mult(A,A),ld(A,unit))),mult(A,B)) = mult(A,mult(mult(A,A),B)).  [back_rewrite(21700),rewrite([23525(15)])].
+
+============================== STATISTICS ============================
+
+Given=318. Generated=108996. Kept=27346. proofs=0.
+Usable=192. Sos=17307. Demods=10434. Limbo=152, Disabled=9703. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=21176.
+Forward_subsumed=51135. Back_subsumed=965.
+Sos_limit_deleted=9339. Sos_displaced=0. Sos_removed=0.
+New_demodulators=17898 (0 lex), Back_demodulated=8730. Back_unit_deleted=0.
+Demod_attempts=16860668. Demod_rewrites=2784234.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=100.94.
+User_CPU=10.02, System_CPU=0.05, Wall_clock=10.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 22 exit (max_seconds) Fri Oct 23 14:54:44 2026
+Demod_increase_limit (see stdout)
+
+SEARCH FAILED
+
+------ process 22 exit (max_seconds) ------
+

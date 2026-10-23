@@ -1,0 +1,938 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 107 was started by mfixman on bodoque,
+Fri Oct 23 15:00:43 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+c_Finite__Set_Ofinite(V_A,T_a) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_B,T_a) # label(cls_rev__finite__subset_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_lessequals(V_a,hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_d),T_a) | -c_lessequals(V_c,V_d,T_a) | -c_lessequals(V_a,hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_c),T_a) # label(cls_le__add__right__mono_0) # label(axiom).
+-class_OrderedGroup_Oab__semigroup__idem__mult(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_x) = V_x # label(cls_mult__idem_0) # label(axiom).
+hAPP(c_Fun_Ofun__upd(V_f,V_x,V_y,T_b,T_a),V_z) = hAPP(V_f,V_z) | V_z = V_x # label(cls_fun__upd__apply_1) # label(axiom).
+hAPP(c_Fun_Ofun__upd(V_f,V_x,V_y,T_a,T_b),V_z) = hAPP(V_f,V_z) | V_z = V_x # label(cls_fun__upd__other_0) # label(axiom).
+c_Finite__Set_Ofinite(V_A,T_b) | -c_Fun_Oinj__on(V_f,V_A,T_b,T_a) | -c_Finite__Set_Ofinite(c_Set_Oimage(V_f,V_A,T_b,T_a),T_a) # label(cls_finite__imageD_0) # label(axiom).
+-class_OrderedGroup_Oab__semigroup__mult(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_b)),V_c) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_c)) # label(cls_ab__semigroup__mult__class_Omult__ac_I1_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),V_ly)),V_rx) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),V_rx)),V_ly) # label(cls_class__semiring_Osemiring__rules_I16_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),V_ly)),V_rx) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_ly),V_rx)) # label(cls_class__semiring_Osemiring__rules_I17_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_rx),V_ry)) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),V_rx)),V_ry) # label(cls_class__semiring_Osemiring__rules_I18_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_rx),V_ry)) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_rx),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),V_ry)) # label(cls_class__semiring_Osemiring__rules_I19_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_y),V_z)) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_y)),V_z) # label(cls_class__semiring_Omul__a_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b)),V_c) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_c)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_c)) # label(cls_class__semiring_Osemiring__rules_I8_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b)),V_c) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_c)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_c)) # label(cls_comm__semiring__class_Odistrib_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_y),V_z)) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_y)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_z)) # label(cls_class__semiring_Omul__d_0) # label(axiom).
+-class_OrderedGroup_Oab__semigroup__idem__mult(T_a) | c_Finite__Set_Ofold1(c_HOL_Otimes__class_Otimes(T_a),c_Set_Oinsert(V_x,V_A,T_a),T_a) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),c_Finite__Set_Ofold1(c_HOL_Otimes__class_Otimes(T_a),V_A,T_a)) | -c_Finite__Set_Ofinite(V_A,T_a) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_fold1__insert__idem_0) # label(axiom).
+-class_OrderedGroup_Oab__semigroup__idem__mult(T_a) | c_Finite__Set_Ofold1(c_HOL_Otimes__class_Otimes(T_a),c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),c_Finite__Set_Ofold1(c_HOL_Otimes__class_Otimes(T_a),V_A,T_a)),c_Finite__Set_Ofold1(c_HOL_Otimes__class_Otimes(T_a),V_B,T_a)) | V_B = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_B,T_a) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_fold1__Un2_0) # label(axiom).
+c_Set_Oimage(c_Fun_Ofun__upd(V_f,V_x,V_y,T_b,T_a),V_A,T_b,T_a) = c_Set_Oimage(V_f,V_A,T_b,T_a) | hBOOL(c_in(V_x,V_A,T_b)) # label(cls_fun__upd__image_1) # label(axiom).
+c_Finite__Set_Ofinite(hAPP(V_B,V_x),T_b) | -hBOOL(c_in(V_x,V_A,T_a)) | -c_Finite__Set_Ofinite(c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_A,V_B,T_a,tc_fun(T_b,tc_bool)),T_b) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_finite__UN_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a)),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_a),V_b)) # label(cls_add__eq__inf__sup_0) # label(axiom).
+-class_OrderedGroup_Oab__semigroup__mult(T_a) | c_Finite__Set_Ofold1(c_HOL_Otimes__class_Otimes(T_a),c_Set_Oinsert(V_x,V_A,T_a),T_a) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),c_Finite__Set_Ofold1(c_HOL_Otimes__class_Otimes(T_a),V_A,T_a)) | hBOOL(c_in(V_x,V_A,T_a)) | -c_Finite__Set_Ofinite(V_A,T_a) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_fold1__insert_0) # label(axiom).
+-class_OrderedGroup_Ocomm__monoid__add(T_a) | c_Finite__Set_Ofold1(c_HOL_Oplus__class_Oplus(T_a),c_Set_Oinsert(V_x,V_A,T_a),T_a) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_x),c_Finite__Set_Ofold1(c_HOL_Oplus__class_Oplus(T_a),V_A,T_a)) | hBOOL(c_in(V_x,V_A,T_a)) | -c_Finite__Set_Ofinite(V_A,T_a) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_comm__monoid__add_Ofold1__insert_0) # label(axiom).
+c_Finite__Set_Ofinite(V_B,T_b) | -c_lessequals(V_B,c_Set_Oimage(V_f,V_A,T_a,T_b),tc_fun(T_b,tc_bool)) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_finite__surj_0) # label(axiom).
+c_Set_Oimage(V_f,V_A,T_a,T_b) != c_Set_Oimage(V_f,V_B,T_a,T_b) | -c_Fun_Oinj__on(V_f,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a,T_b) | V_A = V_B # label(cls_inj__on__Un__image__eq__iff_0) # label(axiom).
+c_Finite__Set_Ofinite(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a) | -c_Finite__Set_Ofinite(c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_a,V_B,T_a),tc_fun(T_a,tc_bool)),T_a) # label(cls_finite__Diff__insert_0) # label(axiom).
+c_Finite__Set_Ofinite(c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_a,V_B,T_a),tc_fun(T_a,tc_bool)),T_a) | -c_Finite__Set_Ofinite(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a) # label(cls_finite__Diff__insert_1) # label(axiom).
+-class_OrderedGroup_Ocomm__monoid__add(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | V_B = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_B,T_a) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_A,T_a) | c_Finite__Set_Ofold1(c_HOL_Oplus__class_Oplus(T_a),c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),c_Finite__Set_Ofold1(c_HOL_Oplus__class_Oplus(T_a),V_A,T_a)),c_Finite__Set_Ofold1(c_HOL_Oplus__class_Oplus(T_a),V_B,T_a)) # label(cls_comm__monoid__add_Ofold1__Un_0) # label(axiom).
+-class_OrderedGroup_Oab__semigroup__mult(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | V_B = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_B,T_a) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_A,T_a) | c_Finite__Set_Ofold1(c_HOL_Otimes__class_Otimes(T_a),c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),c_Finite__Set_Ofold1(c_HOL_Otimes__class_Otimes(T_a),V_A,T_a)),c_Finite__Set_Ofold1(c_HOL_Otimes__class_Otimes(T_a),V_B,T_a)) # label(cls_fold1__Un_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(c_Finite__Set_Ofold1(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_A,T_a),V_a,T_a) | -hBOOL(c_in(V_a,V_A,T_a)) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_fold1__belowI_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Finite__Set_Olinorder__class_OMax(V_M,T_a),c_Finite__Set_Olinorder__class_OMax(V_N,T_a),T_a) | -c_Finite__Set_Ofinite(V_N,T_a) | V_M = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_lessequals(V_M,V_N,tc_fun(T_a,tc_bool)) # label(cls_Max__mono_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Finite__Set_Olinorder__class_OMin(V_N,T_a),c_Finite__Set_Olinorder__class_OMin(V_M,T_a),T_a) | -c_Finite__Set_Ofinite(V_N,T_a) | V_M = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_lessequals(V_M,V_N,tc_fun(T_a,tc_bool)) # label(cls_Min__antimono_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,V_xa,T_a) | -hBOOL(c_in(V_xa,V_A,T_a)) | -c_lessequals(V_x,c_Finite__Set_Ofold1(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_A,T_a),T_a) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_below__fold1__iff_0) # label(axiom).
+-hBOOL(c_in(hAPP(V_f,V_a),c_Set_Oimage(V_f,c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),T_a,T_b),T_b)) | -c_Fun_Oinj__on(V_f,c_Set_Oinsert(V_a,V_A,T_a),T_a,T_b) # label(cls_inj__on__insert_1) # label(axiom).
+c_Finite__Set_Ofinite(V_A,T_a) | -c_Finite__Set_Ofinite(V_B,T_a) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_finite__subset_0) # label(axiom).
+c_Fun_Oinj__on(V_f,V_A,T_a,T_b) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) | -c_Fun_Oinj__on(V_f,V_B,T_a,T_b) # label(cls_subset__inj__on_0) # label(axiom).
+c_Fun_Oinj__on(c_Fun_Ofun__upd(V_f,V_x,V_y,T_a,T_b),V_A,T_a,T_b) | hBOOL(c_in(V_y,c_Set_Oimage(V_f,V_A,T_a,T_b),T_b)) | -c_Fun_Oinj__on(V_f,V_A,T_a,T_b) # label(cls_inj__on__fun__updI_0) # label(axiom).
+-class_OrderedGroup_Oab__semigroup__idem__mult(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_y)) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_y) # label(cls_mult__left__idem_0) # label(axiom).
+c_Fun_Ofun__upd(V_f,V_x,hAPP(V_f,V_x),T_aa,T_a) = V_f # label(cls_fun__upd__idem__iff_1) # label(axiom).
+hAPP(c_Fun_Ofun__upd(V_f,V_x,V_y,T_a,T_aa),V_x) = V_y # label(cls_fun__upd__apply_0) # label(axiom).
+c_Fun_Ofun__upd(V_f,V_x,hAPP(V_f,V_x),T_a,T_b) = V_f # label(cls_fun__upd__triv_0) # label(axiom).
+hAPP(c_Fun_Ofun__upd(V_f,V_x,V_y,T_b,T_a),V_x) = V_y # label(cls_fun__upd__same_0) # label(axiom).
+c_Fun_Ofun__upd(V_f,V_x,hAPP(V_f,V_x),T_b,T_a) = V_f # label(cls_fun__upd__idem_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add(T_a) | c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_c),V_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_c),V_b),T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_add__left__mono_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add(T_a) | c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_c),T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_add__right__mono_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_lessequals(V_a,V_b,T_a) | -c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_c),V_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_c),V_b),T_a) # label(cls_add__le__cancel__left_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_c),V_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_c),V_b),T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_add__le__cancel__left_1) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_lessequals(V_a,V_b,T_a) | -c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_c),T_a) # label(cls_add__le__cancel__right_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_c),T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_add__le__cancel__right_1) # label(axiom).
+c_Finite__Set_Ofinite(c_Set_Oimage(V_h,V_F,T_a,T_b),T_b) | -c_Finite__Set_Ofinite(V_F,T_a) # label(cls_finite__imageI_0) # label(axiom).
+c_Fun_Ofun__upd(c_Fun_Ofun__upd(V_f,V_x,V_y,T_a,T_b),V_x,V_z,T_a,T_b) = c_Fun_Ofun__upd(V_f,V_x,V_z,T_a,T_b) # label(cls_fun__upd__upd_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),V_ly)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_rx),V_ry)) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_rx),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),V_ly)),V_ry)) # label(cls_class__semiring_Osemiring__rules_I15_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),V_ly)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_rx),V_ry)) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_ly),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_rx),V_ry))) # label(cls_class__semiring_Osemiring__rules_I14_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),V_ly)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_rx),V_ry)) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_lx),V_rx)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_ly),V_ry)) # label(cls_class__semiring_Osemiring__rules_I13_J_0) # label(axiom).
+c_Finite__Set_Ofinite(V_G,T_a) | -c_Finite__Set_Ofinite(c_Lattices_Oupper__semilattice__class_Osup(V_F,V_G,tc_fun(T_a,tc_bool)),T_a) # label(cls_finite__Un_1) # label(axiom).
+c_Finite__Set_Ofinite(V_F,T_a) | -c_Finite__Set_Ofinite(c_Lattices_Oupper__semilattice__class_Osup(V_F,V_G,tc_fun(T_a,tc_bool)),T_a) # label(cls_finite__Un_0) # label(axiom).
+-class_Ring__and__Field_Oidom(T_a) | -class_Int_Onumber__ring(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_c)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_d)) != hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_d)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_c)) | V_c = V_d | V_a = V_b # label(cls_class__ringb_Onoteq__reduce_0) # label(axiom).
+-class_Ring__and__Field_Oidom(T_a) | -class_Int_Onumber__ring(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_w),V_y)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_z)) != hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_w),V_z)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_y)) | V_y = V_z | V_w = V_x # label(cls_class__ringb_Oadd__mul__solve_0) # label(axiom).
+c_Set_Oimage(V_f,V_A,T_a,T_a) = V_A | -c_Fun_Oinj__on(V_f,V_A,T_a,T_a) | -c_lessequals(c_Set_Oimage(V_f,V_A,T_a,T_a),V_A,tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_endo__inj__surj_0) # label(axiom).
+c_Fun_Ofun__upd(c_Fun_Ofun__upd(V_m,V_a,V_b,T_a,T_b),V_c,V_d,T_a,T_b) = c_Fun_Ofun__upd(c_Fun_Ofun__upd(V_m,V_c,V_d,T_a,T_b),V_a,V_b,T_a,T_b) | V_a = V_c # label(cls_fun__upd__twist_0) # label(axiom).
+c_Finite__Set_Ofinite(c_Lattices_Oupper__semilattice__class_Osup(V_F,V_G,tc_fun(T_a,tc_bool)),T_a) | -c_Finite__Set_Ofinite(V_G,T_a) | -c_Finite__Set_Ofinite(V_F,T_a) # label(cls_finite__UnI_0) # label(axiom).
+c_Finite__Set_Ofinite(c_Lattices_Oupper__semilattice__class_Osup(V_F,V_G,tc_fun(T_a,tc_bool)),T_a) | -c_Finite__Set_Ofinite(V_G,T_a) | -c_Finite__Set_Ofinite(V_F,T_a) # label(cls_finite__Un_2) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_x),V_y) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_y),V_x) # label(cls_class__semiring_Oadd__c_0) # label(axiom).
+-class_OrderedGroup_Ocomm__monoid__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_a) # label(cls_comm__monoid__add_Omult__commute_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_c),V_a) # label(cls_class__semiring_Osemiring__rules_I24_J_0) # label(axiom).
+-class_Ring__and__Field_Opordered__ring(T_a) | c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),c_HOL_Ominus__class_Ominus(V_a,V_b,T_a)),V_e)),V_c),V_d,T_a) | -c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_e)),V_c),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_e)),V_d),T_a) # label(cls_le__add__iff1_0) # label(axiom).
+-class_Ring__and__Field_Opordered__ring(T_a) | c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_e)),V_c),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_e)),V_d),T_a) | -c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),c_HOL_Ominus__class_Ominus(V_a,V_b,T_a)),V_e)),V_c),V_d,T_a) # label(cls_le__add__iff1_1) # label(axiom).
+-class_Ring__and__Field_Opordered__ring(T_a) | c_lessequals(V_c,hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),c_HOL_Ominus__class_Ominus(V_b,V_a,T_a)),V_e)),V_d),T_a) | -c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_e)),V_c),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_e)),V_d),T_a) # label(cls_le__add__iff2_0) # label(axiom).
+-class_Ring__and__Field_Opordered__ring(T_a) | c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_e)),V_c),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_e)),V_d),T_a) | -c_lessequals(V_c,hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),c_HOL_Ominus__class_Ominus(V_b,V_a,T_a)),V_e)),V_d),T_a) # label(cls_le__add__iff2_1) # label(axiom).
+c_Finite__Set_Ofinite(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a) | -c_Finite__Set_Ofinite(V_A,T_a) | -c_Finite__Set_Ofinite(V_B,T_a) # label(cls_finite__Diff2_1) # label(axiom).
+c_Finite__Set_Ofinite(V_A,T_a) | -c_Finite__Set_Ofinite(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a) | -c_Finite__Set_Ofinite(V_B,T_a) # label(cls_finite__Diff2_0) # label(axiom).
+-class_Ring__and__Field_Oring(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_e)),V_c) != hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_e)),V_d) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),c_HOL_Ominus__class_Ominus(V_a,V_b,T_a)),V_e)),V_c) = V_d # label(cls_eq__add__iff1_0) # label(axiom).
+-class_Ring__and__Field_Oring(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_e)),V_c) != hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_e)),V_d) | V_c = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),c_HOL_Ominus__class_Ominus(V_b,V_a,T_a)),V_e)),V_d) # label(cls_eq__add__iff2_0) # label(axiom).
+-class_Ring__and__Field_Oring(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_e)),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),c_HOL_Ominus__class_Ominus(V_b,V_a,T_a)),V_e)),V_d)) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_e)),V_d) # label(cls_eq__add__iff2_1) # label(axiom).
+c_Fun_Oinj__on(V_f,c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a,T_b) | -c_Fun_Oinj__on(V_f,V_A,T_a,T_b) # label(cls_inj__on__diff_0) # label(axiom).
+c_Finite__Set_Ofinite(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_finite__Diff_0) # label(axiom).
+-class_Ring__and__Field_Oring(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_e)),V_c) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_e)),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),c_HOL_Ominus__class_Ominus(V_a,V_b,T_a)),V_e)),V_c)) # label(cls_eq__add__iff1_1) # label(axiom).
+-class_Ring__and__Field_Oidom(T_a) | -class_Int_Onumber__ring(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_c)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_d)) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_d)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_c)) # label(cls_class__ringb_Onoteq__reduce_1) # label(axiom).
+-class_Ring__and__Field_Oidom(T_a) | -class_Int_Onumber__ring(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_y)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_z)) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_z)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_y)) # label(cls_class__ringb_Oadd__mul__solve_1) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),c_HOL_Ominus__class_Ominus(V_a,V_b,T_a)),V_b) = V_a # label(cls_diff__add__cancel_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add(T_a) | c_lessequals(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_d),T_a) | -c_lessequals(V_c,V_d,T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_add__mono_0) # label(axiom).
+c_Finite__Set_Ofinite(V_A,T_a) | -c_Finite__Set_Ofold__graph(V_f,V_z,V_A,V_x,T_a,T_b) # label(cls_fold__graph__imp__finite_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_x),V_y) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_y),V_x) # label(cls_class__semiring_Omul__c_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_b) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_a) # label(cls_class__semiring_Osemiring__rules_I7_J_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add__join(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),c_Lattices_Oupper__semilattice__class_Osup(V_b,V_c,T_a)) = c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c),T_a) # label(cls_add__sup__distrib__left_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add__join(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a)),V_c) = c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_c),T_a) # label(cls_add__sup__distrib__right_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),c_Lattices_Oupper__semilattice__class_Osup(V_b,V_c,T_a)) = c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c),T_a) # label(cls_lordered__ab__group__add__class_Oadd__sup__inf__distribs_I4_J_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a)),V_c) = c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_c),T_a) # label(cls_lordered__ab__group__add__class_Oadd__sup__inf__distribs_I3_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_x),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_y),V_z)) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_x),V_y)),V_z) # label(cls_class__semiring_Oadd__a_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_x),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_y),V_z)) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_y),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_x),V_z)) # label(cls_add__cancel__21_1) # label(axiom).
+-class_OrderedGroup_Ocomm__monoid__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b)),V_c) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_c)) # label(cls_comm__monoid__add_Omult__assoc_0) # label(axiom).
+-class_OrderedGroup_Ocomm__monoid__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_c)) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c)) # label(cls_comm__monoid__add_Omult__left__commute_0) # label(axiom).
+-class_OrderedGroup_Oab__semigroup__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b)),V_c) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_c)) # label(cls_ab__semigroup__add__class_Oadd__ac_I1_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_c),V_d)) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c)),V_d) # label(cls_class__semiring_Osemiring__rules_I25_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b)),V_c) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c)),V_b) # label(cls_class__semiring_Osemiring__rules_I23_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_c),V_d)) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_c),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_d)) # label(cls_class__semiring_Osemiring__rules_I22_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b)),V_c) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_c)) # label(cls_class__semiring_Osemiring__rules_I21_J_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_x),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_y),V_z)) != hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_y),V_u) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_x),V_z) = V_u # label(cls_add__cancel__21_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add__meet(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_b),V_c)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b)),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c)) # label(cls_add__inf__distrib__left_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add__meet(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_a),V_b)),V_c) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c)),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_c)) # label(cls_add__inf__distrib__right_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_b),V_c)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b)),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c)) # label(cls_lordered__ab__group__add__class_Oadd__sup__inf__distribs_I2_J_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_a),V_b)),V_c) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c)),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_c)) # label(cls_lordered__ab__group__add__class_Oadd__sup__inf__distribs_I1_J_0) # label(axiom).
+-class_Ring__and__Field_Osemiring(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_e)),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_e)),V_c)) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b)),V_e)),V_c) # label(cls_combine__common__factor_0) # label(axiom).
+-class_Ring__and__Field_Oidom(T_a) | -class_Int_Onumber__ring(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_x),V_y) != hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_x),V_z) | V_y = V_z # label(cls_class__ringb_Oadd__cancel_0) # label(axiom).
+-class_OrderedGroup_Ocancel__ab__semigroup__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b) != hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c) | V_b = V_c # label(cls_add__imp__eq_0) # label(axiom).
+-class_OrderedGroup_Ocancel__semigroup__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b) != hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c) | V_b = V_c # label(cls_add__left__cancel_0) # label(axiom).
+-class_OrderedGroup_Ocancel__semigroup__add(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_a) != hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_c),V_a) | V_b = V_c # label(cls_add__right__cancel_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b)),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_c),V_d)) = hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_c)),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_b),V_d)) # label(cls_class__semiring_Osemiring__rules_I20_J_0) # label(axiom).
+-class_Finite__Set_Ofinite_Ofinite(T_a) | c_Finite__Set_Ofinite(V_A,T_a) # label(cls_finite_0) # label(axiom).
+c_Fun_Ofun__upd(V_f,V_x,V_y,T_a,T_b) != V_f | hAPP(V_f,V_x) = V_y # label(cls_fun__upd__idem__iff_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_a),V_m)),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_b),V_m)) = hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b)),V_m) # label(cls_class__semiring_Osemiring__rules_I1_J_0) # label(axiom).
+c_Fun_Oinj__on(V_f,V_A,T_a,T_a) | -c_lessequals(V_A,c_Set_Oimage(V_f,V_A,T_a,T_a),tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_finite__surj__inj_0) # label(axiom).
+c_Fun_Oinj__on(V_f,V_B,T_a,T_b) | -c_Fun_Oinj__on(V_f,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a,T_b) # label(cls_inj__on__Un_1) # label(axiom).
+c_Fun_Oinj__on(V_f,V_A,T_a,T_b) | -c_Fun_Oinj__on(V_f,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a,T_b) # label(cls_inj__on__Un_0) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | c_HOL_Ominus__class_Ominus(hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_a),V_b),V_b,T_a) = V_a # label(cls_add__diff__cancel_0) # label(axiom).
+c_Finite__Set_Ofinite(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_F),V_G),T_a) | -c_Finite__Set_Ofinite(V_G,T_a) # label(cls_finite__Int_1) # label(axiom).
+c_Finite__Set_Ofinite(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_F),V_G),T_a) | -c_Finite__Set_Ofinite(V_F,T_a) # label(cls_finite__Int_0) # label(axiom).
+hAPP(V_f,V_x) != hAPP(V_f,V_y) | -hBOOL(c_in(V_y,V_A,T_a)) | -hBOOL(c_in(V_x,V_A,T_a)) | V_x = V_y | -c_Fun_Oinj__on(V_f,V_A,T_a,T_b) # label(cls_inj__on__contraD_0) # label(axiom).
+hAPP(V_f,V_x) != hAPP(V_f,V_y) | -hBOOL(c_in(V_y,V_A,T_a)) | -hBOOL(c_in(V_x,V_A,T_a)) | -c_Fun_Oinj__on(V_f,V_A,T_a,T_b) | V_x = V_y # label(cls_inj__on__iff_0) # label(axiom).
+hAPP(V_f,V_x) != hAPP(V_f,V_xa) | -hBOOL(c_in(V_xa,V_A,T_a)) | -hBOOL(c_in(V_x,V_A,T_a)) | -c_Fun_Oinj__on(V_f,V_A,T_a,T_b) | V_x = V_xa # label(cls_inj__on__def_0) # label(axiom).
+hAPP(V_f,V_x) != hAPP(V_f,V_y) | -c_Fun_Oinj__on(V_f,V_A,T_a,T_b) | V_x = V_y | -hBOOL(c_in(V_y,V_A,T_a)) | -hBOOL(c_in(V_x,V_A,T_a)) # label(cls_inj__onD_0) # label(axiom).
+c_Finite__Set_Ofinite(c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a) # label(cls_finite_OemptyI_0) # label(axiom).
+c_Fun_Oinj__on(V_f,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a,T_b) # label(cls_inj__on__empty_0) # label(axiom).
+c_Finite__Set_Ofinite(c_Set_Oinsert(V_a,V_A,T_a),T_a) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_finite__insert_1) # label(axiom).
+c_Finite__Set_Ofinite(V_A,T_a) | -c_Finite__Set_Ofinite(c_Set_Oinsert(V_a,V_A,T_a),T_a) # label(cls_finite__insert_0) # label(axiom).
+c_Fun_Oinj__on(V_f,V_A,T_a,T_b) | -c_Fun_Oinj__on(V_f,c_Set_Oinsert(V_a,V_A,T_a),T_a,T_b) # label(cls_inj__on__insert_0) # label(axiom).
+c_Set_Oimage(V_f,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),T_a,T_b) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_b,tc_bool)),c_Set_Oimage(V_f,V_A,T_a,T_b)),c_Set_Oimage(V_f,V_B,T_a,T_b)) | -c_lessequals(V_B,V_C,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_C,tc_fun(T_a,tc_bool)) | -c_Fun_Oinj__on(V_f,V_C,T_a,T_b) # label(cls_inj__on__image__Int_0) # label(axiom).
+c_Set_Oimage(V_f,c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a,T_b) = c_HOL_Ominus__class_Ominus(c_Set_Oimage(V_f,V_A,T_a,T_b),c_Set_Oimage(V_f,V_B,T_a,T_b),tc_fun(T_b,tc_bool)) | -c_lessequals(V_B,V_C,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_C,tc_fun(T_a,tc_bool)) | -c_Fun_Oinj__on(V_f,V_C,T_a,T_b) # label(cls_inj__on__image__set__diff_0) # label(axiom).
+-class_OrderedGroup_Oab__semigroup__mult(T_a) | c_Finite__Set_Ofold__graph(c_HOL_Otimes__class_Otimes(T_a),V_z,c_Set_Oinsert(V_b,V_A,T_a),hAPP(hAPP(c_HOL_Otimes__class_Otimes(T_a),V_z),V_y),T_a,T_a) | hBOOL(c_in(V_b,V_A,T_a)) | -c_Finite__Set_Ofold__graph(c_HOL_Otimes__class_Otimes(T_a),V_b,V_A,V_y,T_a,T_a) # label(cls_fold__graph__insert__swap_0) # label(axiom).
+-class_OrderedGroup_Ocomm__monoid__add(T_a) | c_Finite__Set_Ofold__graph(c_HOL_Oplus__class_Oplus(T_a),V_z,c_Set_Oinsert(V_b,V_A,T_a),hAPP(hAPP(c_HOL_Oplus__class_Oplus(T_a),V_z),V_y),T_a,T_a) | hBOOL(c_in(V_b,V_A,T_a)) | -c_Finite__Set_Ofold__graph(c_HOL_Oplus__class_Oplus(T_a),V_b,V_A,V_y,T_a,T_a) # label(cls_comm__monoid__add_Ofold__graph__insert__swap_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_x,c_Finite__Set_Olinorder__class_OMax(V_A,T_a),T_a) | -hBOOL(c_in(V_x,V_A,T_a)) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_Max__ge_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Finite__Set_Olinorder__class_OMin(V_A,T_a),V_x,T_a) | -hBOOL(c_in(V_x,V_A,T_a)) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_Min__le_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | hBOOL(c_in(c_Finite__Set_Olinorder__class_OMin(V_A,T_a),V_A,T_a)) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_Min__in_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | hBOOL(c_in(c_Finite__Set_Olinorder__class_OMax(V_A,T_a),V_A,T_a)) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_A,T_a) # label(cls_Max__in_0) # label(axiom).
+c_Fun_Oinj__on(V_f,c_Set_Oinsert(V_a,V_A,T_a),T_a,T_b) | hBOOL(c_in(hAPP(V_f,V_a),c_Set_Oimage(V_f,c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),T_a,T_b),T_b)) | -c_Fun_Oinj__on(V_f,V_A,T_a,T_b) # label(cls_inj__on__insert_2) # label(axiom).
+c_Set_Oimage(c_Fun_Ofun__upd(V_f,V_x,V_y,T_b,T_a),V_A,T_b,T_a) = c_Set_Oinsert(V_y,c_Set_Oimage(V_f,c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)),T_b),tc_fun(T_b,tc_bool)),T_b,T_a),T_a) | -hBOOL(c_in(V_x,V_A,T_b)) # label(cls_fun__upd__image_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_b,tc_bool)),c_Set_Oimage(V_f,c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a,T_b)),c_Set_Oimage(V_f,c_HOL_Ominus__class_Ominus(V_B,V_A,tc_fun(T_a,tc_bool)),T_a,T_b)) = c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)) | -c_Fun_Oinj__on(V_f,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a,T_b) # label(cls_inj__on__Un_2) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_b,tc_bool)),c_Set_Oimage(V_f,c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a,T_b)),c_Set_Oimage(V_f,c_HOL_Ominus__class_Ominus(V_B,V_A,tc_fun(T_a,tc_bool)),T_a,T_b)) != c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)) | -c_Fun_Oinj__on(V_f,V_B,T_a,T_b) | -c_Fun_Oinj__on(V_f,V_A,T_a,T_b) | c_Fun_Oinj__on(V_f,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a,T_b) # label(cls_inj__on__Un_3) # label(axiom).
+-class_OrderedGroup_Ocomm__monoid__add(T_a) | c_Finite__Set_Ofold__graph(c_HOL_Oplus__class_Oplus(T_a),V_a,c_Set_Oinsert(V_b,c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),T_a),V_x,T_a,T_a) | hBOOL(c_in(V_b,V_A,T_a)) | -hBOOL(c_in(V_a,V_A,T_a)) | -c_Finite__Set_Ofold__graph(c_HOL_Oplus__class_Oplus(T_a),V_b,V_A,V_x,T_a,T_a) # label(cls_comm__monoid__add_Ofold__graph__permute__diff_0) # label(axiom).
+-class_OrderedGroup_Oab__semigroup__mult(T_a) | c_Finite__Set_Ofold__graph(c_HOL_Otimes__class_Otimes(T_a),V_a,c_Set_Oinsert(V_b,c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),T_a),V_x,T_a,T_a) | hBOOL(c_in(V_b,V_A,T_a)) | -hBOOL(c_in(V_a,V_A,T_a)) | -c_Finite__Set_Ofold__graph(c_HOL_Otimes__class_Otimes(T_a),V_b,V_A,V_x,T_a,T_a) # label(cls_fold__graph__permute__diff_0) # label(axiom).
+c_Finite__Set_Ofold1(V_times,c_Set_Oinsert(V_x,V_A,T_a),T_a) = hAPP(hAPP(V_times,V_x),c_Finite__Set_Ofold1(V_times,V_A,T_a)) | hBOOL(c_in(V_x,V_A,T_a)) | -c_Finite__Set_Ofinite(V_A,T_a) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_OrderedGroup_Oab__semigroup__mult(V_times,T_a) # label(cls_ab__semigroup__mult_Ofold1__insert_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | V_B = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_B,T_a) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_Finite__Set_Ofinite(V_A,T_a) | -c_OrderedGroup_Oab__semigroup__mult(V_times,T_a) | c_Finite__Set_Ofold1(V_times,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a) = hAPP(hAPP(V_times,c_Finite__Set_Ofold1(V_times,V_A,T_a)),c_Finite__Set_Ofold1(V_times,V_B,T_a)) # label(cls_ab__semigroup__mult_Ofold1__Un_0) # label(axiom).
+c_lessequals(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),V_C,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,c_Lattices_Oupper__semilattice__class_Osup(V_B,V_C,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) # label(cls_Diff__subset__conv_1) # label(axiom).
+V_t = V_s | -c_Natural_Oevaln(c_Com_Ocom_OSKIP,V_s,V_n,V_t) # label(cls_evaln__elim__cases_I1_J_0) # label(axiom).
+hBOOL(hAPP(V_A,V_x)) | -hBOOL(hAPP(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),V_x)) # label(cls_inf1E_0) # label(axiom).
+hBOOL(hAPP(V_B,V_x)) | -hBOOL(hAPP(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),V_x)) # label(cls_inf1E_1) # label(axiom).
+c_Set_Ovimage(V_f,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_b,tc_bool)),T_a,T_b) = c_Lattices_Oupper__semilattice__class_Osup(c_Set_Ovimage(V_f,V_A,T_a,T_b),c_Set_Ovimage(V_f,V_B,T_a,T_b),tc_fun(T_a,tc_bool)) # label(cls_vimage__Un_0) # label(axiom).
+hBOOL(c_in(V_x,V_A,T_a)) | -hBOOL(c_in(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),c_Collect(V_P,T_a)),T_a)) # label(cls_Int__Collect_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),c_HOL_Ominus__class_Ominus(V_B,V_A,tc_fun(T_a,tc_bool))) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_Diff__disjoint_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) # label(cls_inf__sup__aci_I8_J_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) # label(cls_sup__left__idem_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) = c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_Un__left__absorb_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_y,V_x,T_a) # label(cls_inf__sup__aci_I5_J_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_y,V_x,T_a) # label(cls_sup__commute_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)) = c_Lattices_Oupper__semilattice__class_Osup(V_B,V_A,tc_fun(T_a,tc_bool)) # label(cls_Un__commute_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),V_C,tc_fun(T_a,tc_bool)) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(V_A,V_C,tc_fun(T_a,tc_bool)),c_HOL_Ominus__class_Ominus(V_B,V_C,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) # label(cls_Un__Diff_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,V_z,T_a) | -c_lessequals(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_z),T_a) # label(cls_le__inf__iff_1) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,V_y,T_a) | -c_lessequals(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_z),T_a) # label(cls_le__inf__iff_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_a),V_b),V_x,T_a) | -c_lessequals(V_b,V_x,T_a) # label(cls_le__infI2_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_a),V_b),V_x,T_a) | -c_lessequals(V_a,V_x,T_a) # label(cls_le__infI1_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,V_b,T_a) | -c_lessequals(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_a),V_b),T_a) # label(cls_le__infE_1) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,V_a,T_a) | -c_lessequals(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_a),V_b),T_a) # label(cls_le__infE_0) # label(axiom).
+c_lessequals(V_C,V_A,tc_fun(T_a,tc_bool)) | -c_lessequals(V_C,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),tc_fun(T_a,tc_bool)) # label(cls_Int__subset__iff_0) # label(axiom).
+c_lessequals(V_C,V_B,tc_fun(T_a,tc_bool)) | -c_lessequals(V_C,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),tc_fun(T_a,tc_bool)) # label(cls_Int__subset__iff_1) # label(axiom).
+-class_HOL_Ominus(T_b) | hAPP(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(t_a,T_b)),v_x) = c_HOL_Ominus__class_Ominus(hAPP(V_A,v_x),hAPP(V_B,v_x),T_b) # label(cls_fun__diff__def_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,c_HOL_Ominus__class_Ominus(V_B,V_A,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) = c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_Un__Diff__cancel_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(V_B,V_A,tc_fun(T_a,tc_bool)),V_A,tc_fun(T_a,tc_bool)) = c_Lattices_Oupper__semilattice__class_Osup(V_B,V_A,tc_fun(T_a,tc_bool)) # label(cls_Un__Diff__cancel2_0) # label(axiom).
+c_lessequals(c_Set_Ovimage(V_f,V_A,T_b,T_a),c_Set_Ovimage(V_f,V_B,T_b,T_a),tc_fun(T_b,tc_bool)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_vimage__mono_0) # label(axiom).
+-class_Complete__Lattice_Ocomplete__lattice(T_b) | c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_A,c_COMBK(V_M,T_b,T_a),T_a,T_b) = V_M | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_SUP__const_0) # label(axiom).
+c_Set_Oimage(c_COMBK(V_c,T_a,T_b),c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)),T_b,T_a) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_image__constant__conv_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),V_C),tc_fun(T_a,tc_bool)),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_C),V_A),tc_fun(T_a,tc_bool)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool))),c_Lattices_Oupper__semilattice__class_Osup(V_B,V_C,tc_fun(T_a,tc_bool)))),c_Lattices_Oupper__semilattice__class_Osup(V_C,V_A,tc_fun(T_a,tc_bool))) # label(cls_Un__Int__crazy_0) # label(axiom).
+c_lessequals(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),V_A,tc_fun(T_a,tc_bool)) # label(cls_Diff__subset_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_z),T_a),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a)),T_a) # label(cls_distrib__inf__le_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,c_HOL_Ominus__class_Ominus(V_B,V_A,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) = V_B | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_Diff__partition_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_x) # label(cls_inf__sup__aci_I1_J_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_x) # label(cls_inf__commute_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),V_A) # label(cls_Int__commute_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_lessequals(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) # label(cls_inf__sup__ord_I3_J_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_lessequals(V_y,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) # label(cls_inf__sup__ord_I4_J_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),V_z,T_a) | -c_lessequals(V_y,V_z,T_a) | -c_lessequals(V_x,V_z,T_a) # label(cls_le__sup__iff_2) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),V_x,T_a) | -c_lessequals(V_z,V_x,T_a) | -c_lessequals(V_y,V_x,T_a) # label(cls_sup__least_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_y,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) # label(cls_sup__ge2_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) # label(cls_sup__ge1_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),V_x,T_a) | -c_lessequals(V_b,V_x,T_a) | -c_lessequals(V_a,V_x,T_a) # label(cls_le__supI_0) # label(axiom).
+c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),V_C,tc_fun(T_a,tc_bool)) | -c_lessequals(V_B,V_C,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_C,tc_fun(T_a,tc_bool)) # label(cls_Un__least_0) # label(axiom).
+c_lessequals(V_A,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) # label(cls_Un__upper1_0) # label(axiom).
+c_lessequals(V_B,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) # label(cls_Un__upper2_0) # label(axiom).
+c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),V_C,tc_fun(T_a,tc_bool)) | -c_lessequals(V_B,V_C,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_C,tc_fun(T_a,tc_bool)) # label(cls_Un__subset__iff_2) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y) = V_y | -c_lessequals(V_y,V_x,T_a) # label(cls_inf__absorb2_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y) != V_x | c_lessequals(V_x,V_y,T_a) # label(cls_le__iff__inf_1) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y) = V_x | -c_lessequals(V_x,V_y,T_a) # label(cls_le__iff__inf_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B) = V_B | -c_lessequals(V_B,V_A,tc_fun(T_a,tc_bool)) # label(cls_Int__absorb1_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B) = V_A | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_Int__absorb2_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),V_z,T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),T_a) # label(cls_inf__sup__aci_I6_J_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_y,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_z,T_a),T_a) # label(cls_inf__sup__aci_I7_J_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_y,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_z,T_a),T_a) # label(cls_sup__left__commute_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),V_z,T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),T_a) # label(cls_sup__assoc_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),V_C,tc_fun(T_a,tc_bool)) = c_Lattices_Oupper__semilattice__class_Osup(V_A,c_Lattices_Oupper__semilattice__class_Osup(V_B,V_C,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) # label(cls_Un__assoc_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,c_Lattices_Oupper__semilattice__class_Osup(V_B,V_C,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) = c_Lattices_Oupper__semilattice__class_Osup(V_B,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_C,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) # label(cls_Un__left__commute_0) # label(axiom).
+c_lessequals(c_HOL_Ominus__class_Ominus(c_Set_Oimage(V_f,V_A,T_b,T_a),c_Set_Oimage(V_f,V_B,T_b,T_a),tc_fun(T_a,tc_bool)),c_Set_Oimage(V_f,c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_b,tc_bool)),T_b,T_a),tc_fun(T_a,tc_bool)) # label(cls_image__diff__subset_0) # label(axiom).
+c_Natural_Oevaln(c_Com_Ocom_OSemi(V_c0,V_c1),V_s0,V_n,V_s2) | -c_Natural_Oevaln(V_c1,V_s1,V_n,V_s2) | -c_Natural_Oevaln(V_c0,V_s0,V_n,V_s1) # label(cls_evaln_OSemi_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Ominus__class_Ominus(V_x,V_x,T_a) != c_HOL_Ominus__class_Ominus(V_x_H,V_y_H,T_a) | V_x_H = V_y_H # label(cls_eq__eqI_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Ominus__class_Ominus(V_xa,V_y,T_a) != c_HOL_Ominus__class_Ominus(V_x,V_x,T_a) | V_xa = V_y # label(cls_eq__eqI_1) # label(axiom).
+c_HOL_Ominus__class_Ominus(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),V_B,tc_fun(T_a,tc_bool)) = c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_Diff__idemp_0) # label(axiom).
+hAPP(c_COMBK(V_P,T_a,T_b),V_Q) = V_P # label(cls_COMBK__def_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(V_A,c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)),V_B,T_b,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) = V_A # label(cls_INT__extend__simps_I4_J_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_x,T_a) = V_x # label(cls_sup__idem_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,V_A,tc_fun(T_a,tc_bool)) = V_A # label(cls_Un__absorb_0) # label(axiom).
+hBOOL(hAPP(V_P,V_x)) | -hBOOL(c_in(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),c_Collect(V_P,T_a)),T_a)) # label(cls_Int__Collect_1) # label(axiom).
+-class_Lattices_Odistrib__lattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a)),V_x) = c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_x),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_z),V_x),T_a) # label(cls_inf__sup__distrib2_0) # label(axiom).
+-class_Lattices_Odistrib__lattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a)) = c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_z),T_a) # label(cls_inf__sup__distrib1_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),c_Lattices_Oupper__semilattice__class_Osup(V_B,V_C,tc_fun(T_a,tc_bool))) = c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_C),tc_fun(T_a,tc_bool)) # label(cls_Int__Un__distrib_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(V_B,V_C,tc_fun(T_a,tc_bool))),V_A) = c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),V_A),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_C),V_A),tc_fun(T_a,tc_bool)) # label(cls_Int__Un__distrib2_0) # label(axiom).
+-class_Lattices_Olattice(T_b) | hAPP(c_Lattices_Oupper__semilattice__class_Osup(V_f,V_g,tc_fun(t_a,T_b)),v_x) = c_Lattices_Oupper__semilattice__class_Osup(hAPP(V_f,v_x),hAPP(V_g,v_x),T_b) # label(cls_sup__fun__eq_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)) = V_A # label(cls_Diff__triv_0) # label(axiom).
+hBOOL(c_in(hAPP(V_f,V_x),V_B,T_a)) | -hBOOL(c_in(V_x,V_A,T_b)) | -c_lessequals(c_Set_Oimage(V_f,V_A,T_b,T_a),V_B,tc_fun(T_a,tc_bool)) # label(cls_image__subset__iff_0) # label(axiom).
+c_Finite__Set_Ofold1(V_f,V_A,T_a) = c_The(c_Finite__Set_Ofold1Set(V_f,V_A,T_a),T_a) # label(cls_fold1__def_0) # label(axiom).
+-class_Complete__Lattice_Ocomplete__lattice(T_b) | c_lessequals(hAPP(V_M,V_i),c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_A,V_M,T_a,T_b),T_b) | -hBOOL(c_in(V_i,V_A,T_a)) # label(cls_le__SUPI_0) # label(axiom).
+c_lessequals(hAPP(V_B,V_a),c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_A,V_B,T_a,tc_fun(T_b,tc_bool)),tc_fun(T_b,tc_bool)) | -hBOOL(c_in(V_a,V_A,T_a)) # label(cls_UN__upper_0) # label(axiom).
+-class_Complete__Lattice_Ocomplete__lattice(T_a) | c_Complete__Lattice_OInf__class_OInf(c_Set_Oinsert(V_a,V_A,T_a),T_a) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_a),c_Complete__Lattice_OInf__class_OInf(V_A,T_a)) # label(cls_Inf__insert_0) # label(axiom).
+c_Set_Ovimage(V_f,c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_b,tc_bool)),T_a,T_b) = c_HOL_Ominus__class_Ominus(c_Set_Ovimage(V_f,V_A,T_a,T_b),c_Set_Ovimage(V_f,V_B,T_a,T_b),tc_fun(T_a,tc_bool)) # label(cls_vimage__Diff_0) # label(axiom).
+c_lessequals(c_Set_Oimage(V_f,c_Set_Ovimage(V_f,V_A,T_b,T_a),T_b,T_a),V_A,tc_fun(T_a,tc_bool)) # label(cls_image__vimage__subset_0) # label(axiom).
+c_Collect(V_P,T_a) = V_P # label(cls_Collect__def_0) # label(axiom).
+c_Com_Ocom_OSemi(V_com1,V_com2) != c_Com_Ocom_OSemi(V_com1_H,V_com2_H) | V_com2 = V_com2_H # label(cls_com_Osimps_I3_J_1) # label(axiom).
+c_Com_Ocom_OSemi(V_com1,V_com2) != c_Com_Ocom_OSemi(V_com1_H,V_com2_H) | V_com1 = V_com1_H # label(cls_com_Osimps_I3_J_0) # label(axiom).
+-class_Complete__Lattice_Ocomplete__lattice(T_a) | c_Complete__Lattice_OSup__class_OSup(c_Set_Oinsert(V_a,V_A,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_a,c_Complete__Lattice_OSup__class_OSup(V_A,T_a),T_a) # label(cls_Sup__insert_0) # label(axiom).
+c_lessequals(hAPP(V_A,V_x),V_B,tc_fun(T_a,tc_bool)) | -hBOOL(c_in(V_x,V_I,T_b)) | -c_lessequals(c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_I,V_A,T_b,tc_fun(T_a,tc_bool)),V_B,tc_fun(T_a,tc_bool)) # label(cls_UN__subset__iff_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(hAPP(V_A,V_k),c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_I,V_A,T_a,tc_fun(T_b,tc_bool)),tc_fun(T_b,tc_bool)) = c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_I,V_A,T_a,tc_fun(T_b,tc_bool)) | -hBOOL(c_in(V_k,V_I,T_a)) # label(cls_UN__absorb_0) # label(axiom).
+c_lessequals(c_Set_Oimage(V_f,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_b,tc_bool)),V_A),V_B),T_b,T_a),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),c_Set_Oimage(V_f,V_A,T_b,T_a)),c_Set_Oimage(V_f,V_B,T_b,T_a)),tc_fun(T_a,tc_bool)) # label(cls_image__Int__subset_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_lessequals(c_SetInterval_Oord__class_OatLeastAtMost(V_a,V_b,T_a),c_SetInterval_Oord__class_OatLeastAtMost(V_c,V_d,T_a),tc_fun(T_a,tc_bool)) | -c_lessequals(V_b,V_d,T_a) | -c_lessequals(V_c,V_a,T_a) # label(cls_atLeastatMost__subset__iff_3) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_lessequals(V_b,V_d,T_a) | -c_lessequals(V_a,V_b,T_a) | -c_lessequals(c_SetInterval_Oord__class_OatLeastAtMost(V_a,V_b,T_a),c_SetInterval_Oord__class_OatLeastAtMost(V_c,V_d,T_a),tc_fun(T_a,tc_bool)) # label(cls_atLeastatMost__subset__iff_1) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_lessequals(V_c,V_a,T_a) | -c_lessequals(V_a,V_b,T_a) | -c_lessequals(c_SetInterval_Oord__class_OatLeastAtMost(V_a,V_b,T_a),c_SetInterval_Oord__class_OatLeastAtMost(V_c,V_d,T_a),tc_fun(T_a,tc_bool)) # label(cls_atLeastatMost__subset__iff_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),V_C,tc_fun(T_a,tc_bool)) != hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),c_Lattices_Oupper__semilattice__class_Osup(V_B,V_C,tc_fun(T_a,tc_bool))) | c_lessequals(V_C,V_A,tc_fun(T_a,tc_bool)) # label(cls_Un__Int__assoc__eq_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),V_C,tc_fun(T_a,tc_bool)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),c_Lattices_Oupper__semilattice__class_Osup(V_B,V_C,tc_fun(T_a,tc_bool))) | -c_lessequals(V_C,V_A,tc_fun(T_a,tc_bool)) # label(cls_Un__Int__assoc__eq_1) # label(axiom).
+c_lessequals(V_A,c_Lattices_Oupper__semilattice__class_Osup(V_B,V_C,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) | -c_lessequals(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),V_C,tc_fun(T_a,tc_bool)) # label(cls_Diff__subset__conv_0) # label(axiom).
+c_Set_Ovimage(V_f,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_b,tc_bool)),V_A),V_B),T_a,T_b) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),c_Set_Ovimage(V_f,V_A,T_a,T_b)),c_Set_Ovimage(V_f,V_B,T_a,T_b)) # label(cls_vimage__Int_0) # label(axiom).
+-class_HOL_Oord(T_b) | c_lessequals(hAPP(V_f,V_x),hAPP(V_g,V_x),T_b) | -c_lessequals(V_f,V_g,tc_fun(T_a,T_b)) # label(cls_le__funD_0) # label(axiom).
+hBOOL(c_in(V_c,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),T_a)) | -hBOOL(c_in(V_c,V_B,T_a)) | -hBOOL(c_in(V_c,V_A,T_a)) # label(cls_Int__iff_2) # label(axiom).
+hBOOL(c_in(V_c,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),T_a)) | -hBOOL(c_in(V_c,V_B,T_a)) | -hBOOL(c_in(V_c,V_A,T_a)) # label(cls_IntI_0) # label(axiom).
+hBOOL(c_in(V_t,V_B,T_a)) | -hBOOL(c_in(V_t,V_A,T_a)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_subset__iff_0) # label(axiom).
+hBOOL(c_in(V_x,V_B,T_a)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) | -hBOOL(c_in(V_x,V_A,T_a)) # label(cls_set__rev__mp_0) # label(axiom).
+hBOOL(c_in(V_c,V_B,T_a)) | -hBOOL(c_in(V_c,V_A,T_a)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_subsetD_0) # label(axiom).
+hBOOL(c_in(V_x,V_B,T_a)) | -hBOOL(c_in(V_x,V_A,T_a)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_set__mp_0) # label(axiom).
+hBOOL(c_in(V_c,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a)) | -hBOOL(c_in(V_c,V_A,T_a)) # label(cls_UnCI_1) # label(axiom).
+hBOOL(c_in(V_c,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a)) | -hBOOL(c_in(V_c,V_B,T_a)) # label(cls_UnCI_0) # label(axiom).
+hBOOL(c_in(V_c,V_B,T_a)) | hBOOL(c_in(V_c,V_A,T_a)) | -hBOOL(c_in(V_c,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a)) # label(cls_UnE_0) # label(axiom).
+-hBOOL(c_in(V_x,c_ATP__Linkup_Osko__Set__Xset__insert__1__1(V_A,V_x,T_a),T_a)) | -hBOOL(c_in(V_x,V_A,T_a)) # label(cls_set__insert_1) # label(axiom).
+-hBOOL(c_in(V_c,V_B,T_a)) | -hBOOL(c_in(V_c,c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a)) # label(cls_DiffE_1) # label(axiom).
+hBOOL(c_in(V_c,V_A,T_a)) | -hBOOL(c_in(V_c,c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a)) # label(cls_DiffE_0) # label(axiom).
+hBOOL(c_in(V_c,V_B,T_a)) | -hBOOL(c_in(V_c,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),T_a)) # label(cls_IntE_1) # label(axiom).
+hBOOL(c_in(V_c,V_A,T_a)) | -hBOOL(c_in(V_c,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),T_a)) # label(cls_IntE_0) # label(axiom).
+hBOOL(c_in(V_a,c_Collect(V_P,T_a),T_a)) | -hBOOL(hAPP(V_P,V_a)) # label(cls_CollectI_0) # label(axiom).
+hBOOL(hAPP(V_P,V_a)) | -hBOOL(c_in(V_a,c_Collect(V_P,T_a),T_a)) # label(cls_CollectD_0) # label(axiom).
+hBOOL(c_in(V_c,c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a)) | hBOOL(c_in(V_c,V_B,T_a)) | -hBOOL(c_in(V_c,V_A,T_a)) # label(cls_Diff__iff_2) # label(axiom).
+hBOOL(c_in(V_c,c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a)) | hBOOL(c_in(V_c,V_B,T_a)) | -hBOOL(c_in(V_c,V_A,T_a)) # label(cls_DiffI_0) # label(axiom).
+hBOOL(c_in(V_b,c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_A,V_B,T_b,tc_fun(T_a,tc_bool)),T_a)) | -hBOOL(c_in(V_b,hAPP(V_B,V_x),T_a)) | -hBOOL(c_in(V_x,V_A,T_b)) # label(cls_UN__iff_2) # label(axiom).
+hBOOL(c_in(V_b,c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_A,V_B,T_a,tc_fun(T_b,tc_bool)),T_b)) | -hBOOL(c_in(V_b,hAPP(V_B,V_a),T_b)) | -hBOOL(c_in(V_a,V_A,T_a)) # label(cls_UN__I_0) # label(axiom).
+hBOOL(c_in(V_a,c_Set_Ovimage(V_f,V_B,T_a,T_b),T_a)) | -hBOOL(c_in(hAPP(V_f,V_a),V_B,T_b)) # label(cls_vimage__eq_1) # label(axiom).
+hBOOL(c_in(V_a,c_Set_Ovimage(V_f,V_A,T_b,T_a),T_b)) | -hBOOL(c_in(hAPP(V_f,V_a),V_A,T_a)) # label(cls_vimageI2_0) # label(axiom).
+hBOOL(c_in(V_a,c_Set_Ovimage(V_f,V_B,T_b,T_a),T_b)) | -hBOOL(c_in(hAPP(V_f,V_a),V_B,T_a)) # label(cls_vimageI_0) # label(axiom).
+hBOOL(c_in(hAPP(V_f,V_a),V_B,T_b)) | -hBOOL(c_in(V_a,c_Set_Ovimage(V_f,V_B,T_a,T_b),T_a)) # label(cls_vimageE_0) # label(axiom).
+hBOOL(c_in(hAPP(V_f,V_a),V_A,T_b)) | -hBOOL(c_in(V_a,c_Set_Ovimage(V_f,V_A,T_a,T_b),T_a)) # label(cls_vimageD_0) # label(axiom).
+hBOOL(hAPP(hAPP(V_less__eq,hAPP(V_Inf,V_A)),V_x)) | -hBOOL(c_in(V_x,V_A,T_a)) | -c_Complete__Lattice_Ocomplete__lattice(V_Inf,V_Sup,V_less__eq,V_less,V_inf,V_sup,V_bot,V_top,T_a) # label(cls_complete__lattice_OInf__lower_0) # label(axiom).
+hBOOL(hAPP(hAPP(V_less__eq,V_x),hAPP(V_Sup,V_A))) | -hBOOL(c_in(V_x,V_A,T_a)) | -c_Complete__Lattice_Ocomplete__lattice(V_Inf,V_Sup,V_less__eq,V_less,V_inf,V_sup,V_bot,V_top,T_a) # label(cls_complete__lattice_OSup__upper_0) # label(axiom).
+hBOOL(hAPP(c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_A,V_B,T_a,tc_fun(T_b,tc_bool)),V_b)) | -hBOOL(hAPP(hAPP(V_B,V_x),V_b)) | -hBOOL(c_in(V_x,V_A,T_a)) # label(cls_SUP1__iff_2) # label(axiom).
+hBOOL(hAPP(c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_A,V_B,T_a,tc_fun(T_b,tc_bool)),V_b)) | -hBOOL(hAPP(hAPP(V_B,V_a),V_b)) | -hBOOL(c_in(V_a,V_A,T_a)) # label(cls_SUP1__I_0) # label(axiom).
+-hBOOL(c_in(V_x,V_A,T_aa)) | hBOOL(c_in(hAPP(V_f,V_x),c_Set_Oimage(V_f,V_A,T_aa,T_a),T_a)) # label(cls_rev__image__eqI_0) # label(axiom).
+-hBOOL(c_in(V_x,V_A,T_b)) | hBOOL(c_in(hAPP(V_f,V_x),c_Set_Oimage(V_f,V_A,T_b,T_a),T_a)) # label(cls_image__iff_2) # label(axiom).
+hBOOL(c_in(hAPP(V_f,V_x),c_Set_Oimage(V_f,V_A,T_b,T_a),T_a)) | -hBOOL(c_in(V_x,V_A,T_b)) # label(cls_image__eqI_0) # label(axiom).
+hBOOL(c_in(hAPP(V_f,V_x),c_Set_Oimage(V_f,V_A,T_a,T_b),T_b)) | -hBOOL(c_in(V_x,V_A,T_a)) # label(cls_imageI_0) # label(axiom).
+c_Set_Ovimage(c_COMBK(V_c,T_b,T_a),V_A,T_a,T_b) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | hBOOL(c_in(V_c,V_A,T_b)) # label(cls_vimage__const_1) # label(axiom).
+hBOOL(hAPP(c_Finite__Set_Ofold1Set(V_f,c_Set_Oinsert(V_a,V_A,T_a),T_a),V_x)) | hBOOL(c_in(V_a,V_A,T_a)) | -c_Finite__Set_Ofold__graph(V_f,V_a,V_A,V_x,T_a,T_a) # label(cls_fold1Set_Ointros_0) # label(axiom).
+c_Finite__Set_Ofold__graph(V_times,V_z,c_Set_Oinsert(V_b,V_A,T_a),hAPP(hAPP(V_times,V_z),V_y),T_a,T_a) | hBOOL(c_in(V_b,V_A,T_a)) | -c_Finite__Set_Ofold__graph(V_times,V_b,V_A,V_y,T_a,T_a) | -c_OrderedGroup_Oab__semigroup__mult(V_times,T_a) # label(cls_ab__semigroup__mult_Ofold__graph__insert__swap_0) # label(axiom).
+c_Finite__Set_Ofold__graph(V_times,V_a,c_Set_Oinsert(V_b,c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),T_a),V_x,T_a,T_a) | hBOOL(c_in(V_b,V_A,T_a)) | -hBOOL(c_in(V_a,V_A,T_a)) | -c_Finite__Set_Ofold__graph(V_times,V_b,V_A,V_x,T_a,T_a) | -c_OrderedGroup_Oab__semigroup__mult(V_times,T_a) # label(cls_ab__semigroup__mult_Ofold__graph__permute__diff_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(c_Orderings_Obot__class_Obot(T_a),V_x,T_a) = V_x # label(cls_sup__bot__left_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Orderings_Obot__class_Obot(T_a),T_a) = V_x # label(cls_sup__bot__right_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),c_Orderings_Obot__class_Obot(T_a)),V_x) = c_Orderings_Obot__class_Obot(T_a) # label(cls_inf__bot__left_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),c_Orderings_Obot__class_Obot(T_a)) = c_Orderings_Obot__class_Obot(T_a) # label(cls_inf__bot__right_0) # label(axiom).
+-class_Orderings_Obot(T_a) | c_lessequals(c_Orderings_Obot__class_Obot(T_a),V_x,T_a) # label(cls_bot__least_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,T_a) != c_Orderings_Obot__class_Obot(T_a) | V_A = c_Orderings_Obot__class_Obot(T_a) # label(cls_sup__eq__bot__eq1_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,T_a) != c_Orderings_Obot__class_Obot(T_a) | V_B = c_Orderings_Obot__class_Obot(T_a) # label(cls_sup__eq__bot__eq2_0) # label(axiom).
+c_Set_Ovimage(V_f,c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)),T_a,T_b) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_vimage__empty_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_Un__empty_2) # label(axiom).
+c_Set_Oimage(V_f,V_A,T_b,T_a) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)) # label(cls_image__is__empty_0) # label(axiom).
+hAPP(V_Inf,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool))) = V_top | -c_Complete__Lattice_Ocomplete__lattice(V_Inf,V_Sup,V_less__eq,V_less,V_inf,V_sup,V_bot,V_top,T_a) # label(cls_complete__lattice_OInf__empty_0) # label(axiom).
+hAPP(V_Sup,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool))) = V_bot | -c_Complete__Lattice_Ocomplete__lattice(V_Inf,V_Sup,V_less__eq,V_less,V_inf,V_sup,V_bot,V_top,T_a) # label(cls_complete__lattice_OSup__empty_0) # label(axiom).
+c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) != c_Collect(V_P,T_a) | -hBOOL(hAPP(V_P,V_x)) # label(cls_empty__Collect__eq_0) # label(axiom).
+c_lessequals(c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) # label(cls_subset__empty_1) # label(axiom).
+V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) # label(cls_subset__empty_0) # label(axiom).
+c_Collect(V_P,T_a) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -hBOOL(hAPP(V_P,V_x)) # label(cls_Collect__empty__eq_0) # label(axiom).
+-hBOOL(hAPP(c_Finite__Set_Ofold1Set(V_f,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),V_x)) # label(cls_empty__fold1SetE_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),V_A,tc_fun(T_a,tc_bool)) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_empty__Diff_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) = V_A # label(cls_Un__empty__right_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),V_B,tc_fun(T_a,tc_bool)) = V_B # label(cls_Un__empty__left_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(V_A,V_A,tc_fun(T_a,tc_bool)) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_Diff__cancel_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(V_A,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) = V_A # label(cls_Diff__empty_0) # label(axiom).
+V_x = V_z | -c_Finite__Set_Ofold__graph(V_f,V_z,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),V_x,T_a,T_b) # label(cls_empty__fold__graphE_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool))) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_Int__empty__right_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool))),V_B) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_Int__empty__left_0) # label(axiom).
+c_lessequals(c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),V_A,tc_fun(T_a,tc_bool)) # label(cls_empty__subsetI_0) # label(axiom).
+c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) != c_Set_Oimage(V_f,V_A,T_b,T_a) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)) # label(cls_empty__is__image_0) # label(axiom).
+c_Set_Oimage(V_f,c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)),T_b,T_a) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_image__empty_0) # label(axiom).
+c_Finite__Set_Ofold__graph(V_f,V_z,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),V_z,T_a,T_b) # label(cls_fold__graph_OemptyI_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | V_B = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_Un__empty_1) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_Un__empty_0) # label(axiom).
+c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) = c_Set_Oimage(V_f,c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)),T_b,T_a) # label(cls_empty__is__image_1) # label(axiom).
+c_Set_Ovimage(V_f,c_Set_Oinsert(V_a,V_B,T_b),T_a,T_b) = c_Lattices_Oupper__semilattice__class_Osup(c_Set_Ovimage(V_f,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)),T_b),T_a,T_b),c_Set_Ovimage(V_f,V_B,T_a,T_b),tc_fun(T_a,tc_bool)) # label(cls_vimage__insert_0) # label(axiom).
+c_Set_Oimage(c_COMBK(V_c,T_a,T_b),V_A,T_b,T_a) = c_Set_Oinsert(V_c,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)) # label(cls_image__constant__conv_1) # label(axiom).
+-class_Complete__Lattice_Ocomplete__lattice(T_a) | c_Complete__Lattice_OSup__class_OSup(c_Set_Oinsert(V_a,c_Set_Oinsert(V_b,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a) # label(cls_Sup__binary_0) # label(axiom).
+c_lessequals(V_A,c_Set_Oinsert(V_x,V_B,T_a),tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) | -c_lessequals(c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),V_B,tc_fun(T_a,tc_bool)) # label(cls_subset__insert__iff_4) # label(axiom).
+-class_Complete__Lattice_Ocomplete__lattice(T_a) | c_Complete__Lattice_OInf__class_OInf(c_Set_Oinsert(V_a,c_Set_Oinsert(V_b,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a),T_a) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_a),V_b) # label(cls_Inf__binary_0) # label(axiom).
+c_lessequals(c_Set_Oinsert(V_a,V_C,T_a),c_Set_Oinsert(V_a,V_D,T_a),tc_fun(T_a,tc_bool)) | -c_lessequals(V_C,V_D,tc_fun(T_a,tc_bool)) # label(cls_insert__mono_0) # label(axiom).
+c_Set_Oimage(V_f,c_Set_Oinsert(V_a,V_B,T_b),T_b,T_a) = c_Set_Oinsert(hAPP(V_f,V_a),c_Set_Oimage(V_f,V_B,T_b,T_a),T_a) # label(cls_image__insert_0) # label(axiom).
+hAPP(V_Inf,c_Set_Oinsert(V_a,V_A,T_a)) = hAPP(hAPP(V_inf,V_a),hAPP(V_Inf,V_A)) | -c_Complete__Lattice_Ocomplete__lattice(V_Inf,V_Sup,V_less__eq,V_less,V_inf,V_sup,V_bot,V_top,T_a) # label(cls_complete__lattice_OInf__insert_0) # label(axiom).
+hAPP(V_Sup,c_Set_Oinsert(V_a,V_A,T_a)) = hAPP(hAPP(V_sup,V_a),hAPP(V_Sup,V_A)) | -c_Complete__Lattice_Ocomplete__lattice(V_Inf,V_Sup,V_less__eq,V_less,V_inf,V_sup,V_bot,V_top,T_a) # label(cls_complete__lattice_OSup__insert_0) # label(axiom).
+c_lessequals(V_B,c_Set_Oinsert(V_a,V_B,T_a),tc_fun(T_a,tc_bool)) # label(cls_subset__insertI_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),c_Set_Oinsert(V_a,V_A,T_a)),c_Set_Oinsert(V_a,V_B,T_a)) = c_Set_Oinsert(V_a,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),T_a) # label(cls_insert__inter__insert_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,c_Set_Oinsert(V_a,V_B,T_a),tc_fun(T_a,tc_bool)) = c_Set_Oinsert(V_a,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),T_a) # label(cls_Un__insert__right_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(c_Set_Oinsert(V_a,V_B,T_a),V_C,tc_fun(T_a,tc_bool)) = c_Set_Oinsert(V_a,c_Lattices_Oupper__semilattice__class_Osup(V_B,V_C,tc_fun(T_a,tc_bool)),T_a) # label(cls_Un__insert__left_0) # label(axiom).
+c_lessequals(V_A,c_Set_Oinsert(V_b,V_B,T_a),tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_subset__insertI2_0) # label(axiom).
+c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) | -c_lessequals(c_Set_Oinsert(V_x,V_A,T_a),V_B,tc_fun(T_a,tc_bool)) # label(cls_insert__subset_1) # label(axiom).
+c_Finite__Set_Ofold__graph(V_f,V_z,V_A,hAPP(hAPP(V_f,V_x),V_y),T_a,T_b) | -hBOOL(c_in(V_x,V_A,T_a)) | -c_Finite__Set_Ofold__graph(V_f,V_z,c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),V_y,T_a,T_b) # label(cls_Diff1__fold__graph_0) # label(axiom).
+c_lessequals(V_A,c_Set_Oinsert(V_x,V_B,T_a),tc_fun(T_a,tc_bool)) | -hBOOL(c_in(V_x,V_A,T_a)) | -c_lessequals(c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),V_B,tc_fun(T_a,tc_bool)) # label(cls_diff__single__insert_0) # label(axiom).
+c_lessequals(V_A,c_Set_Oinsert(V_x,V_B,T_a),tc_fun(T_a,tc_bool)) | -hBOOL(c_in(V_x,V_A,T_a)) | -c_lessequals(c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),V_B,tc_fun(T_a,tc_bool)) # label(cls_subset__insert__iff_3) # label(axiom).
+c_lessequals(c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),V_B,tc_fun(T_a,tc_bool)) | -hBOOL(c_in(V_x,V_A,T_a)) | -c_lessequals(V_A,c_Set_Oinsert(V_x,V_B,T_a),tc_fun(T_a,tc_bool)) # label(cls_subset__insert__iff_0) # label(axiom).
+c_Set_Oimage(c_COMBK(V_c,T_b,T_a),V_A,T_a,T_b) = c_Set_Oinsert(V_c,c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)),T_b) | -hBOOL(c_in(V_x,V_A,T_a)) # label(cls_image__constant_0) # label(axiom).
+hAPP(c_Orderings_Obot__class_Obot(tc_fun(t_a,tc_bool)),v_x) = c_in(v_x,c_Orderings_Obot__class_Obot(tc_fun(t_a,tc_bool)),t_a) # label(cls_bot__empty__eq_0) # label(axiom).
+-hBOOL(c_in(V_x,V_B,T_a)) | -hBOOL(c_in(V_x,V_A,T_a)) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_disjoint__iff__not__equal_0) # label(axiom).
+c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) != c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_A,V_B,T_b,tc_fun(T_a,tc_bool)) | hAPP(V_B,V_x) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -hBOOL(c_in(V_x,V_A,T_b)) # label(cls_UNION__empty__conv_I1_J_0) # label(axiom).
+c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_A,V_B,T_b,tc_fun(T_a,tc_bool)) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | hAPP(V_B,V_x) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -hBOOL(c_in(V_x,V_A,T_b)) # label(cls_UNION__empty__conv_I2_J_0) # label(axiom).
+c_lessequals(c_Set_Oinsert(V_x,V_A,T_a),V_B,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) | -hBOOL(c_in(V_x,V_B,T_a)) # label(cls_insert__subset_2) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),c_Set_Oinsert(V_a,V_B,T_a)) = c_Set_Oinsert(V_a,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),T_a) | -hBOOL(c_in(V_a,V_A,T_a)) # label(cls_Int__insert__right_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),c_Set_Oinsert(V_a,V_B,T_a)),V_C) = c_Set_Oinsert(V_a,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),V_C),T_a) | -hBOOL(c_in(V_a,V_C,T_a)) # label(cls_Int__insert__left_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(c_Set_Oinsert(V_x,V_A,T_a),V_B,tc_fun(T_a,tc_bool)) = c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)) | -hBOOL(c_in(V_x,V_B,T_a)) # label(cls_insert__Diff1_0) # label(axiom).
+hAPP(hAPP(V_times,hAPP(hAPP(V_times,V_a),V_b)),V_c) = hAPP(hAPP(V_times,V_a),hAPP(hAPP(V_times,V_b),V_c)) | -c_OrderedGroup_Oab__semigroup__mult(V_times,T_a) # label(cls_ab__semigroup__mult_Omult__ac_I1_J_0) # label(axiom).
+hAPP(hAPP(V_times,V_a),hAPP(hAPP(V_times,V_b),V_c)) = hAPP(hAPP(V_times,V_b),hAPP(hAPP(V_times,V_a),V_c)) | -c_OrderedGroup_Oab__semigroup__mult(V_times,T_a) # label(cls_ab__semigroup__mult_Omult__left__commute_0) # label(axiom).
+hAPP(hAPP(V_times,V_a),V_b) = hAPP(hAPP(V_times,V_b),V_a) | -c_OrderedGroup_Oab__semigroup__mult(V_times,T_a) # label(cls_ab__semigroup__mult_Omult__commute_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_lessequals(c_SetInterval_Oord__class_OatLeastAtMost(V_a,V_b,T_a),c_SetInterval_Oord__class_OatLeastAtMost(V_c,V_d,T_a),tc_fun(T_a,tc_bool)) | c_lessequals(V_a,V_b,T_a) # label(cls_atLeastatMost__subset__iff_2) # label(axiom).
+hBOOL(hAPP(V_B,V_x)) | hBOOL(hAPP(V_A,V_x)) | -hBOOL(hAPP(c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),V_x)) # label(cls_sup1E_0) # label(axiom).
+hBOOL(hAPP(c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),V_x)) | -hBOOL(hAPP(V_B,V_x)) # label(cls_sup1CI_0) # label(axiom).
+hBOOL(hAPP(c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),V_x)) | -hBOOL(hAPP(V_A,V_x)) # label(cls_sup1CI_1) # label(axiom).
+-class_Lattices_Olattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y)),V_z) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_z)) # label(cls_inf__sup__aci_I2_J_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_z)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_z)) # label(cls_inf__sup__aci_I3_J_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_z)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_z)) # label(cls_inf__left__commute_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y)),V_z) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_z)) # label(cls_inf__assoc_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B)),V_C) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),V_C)) # label(cls_Int__assoc_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),V_C)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_C)) # label(cls_Int__left__commute_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)),V_A,T_b,tc_fun(T_a,tc_bool)),V_B,tc_fun(T_a,tc_bool)) = V_B # label(cls_UN__extend__simps_I2_J_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)),V_B,T_b,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) = V_A # label(cls_UN__extend__simps_I3_J_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_C),c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool))) = c_HOL_Ominus__class_Ominus(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_C),V_A),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_C),V_B),tc_fun(T_a,tc_bool)) # label(cls_Diff__Int__distrib_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool))),V_C) = c_HOL_Ominus__class_Ominus(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_C),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),V_C),tc_fun(T_a,tc_bool)) # label(cls_Diff__Int__distrib2_0) # label(axiom).
+c_lessequals(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),c_HOL_Ominus__class_Ominus(V_C,V_D,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) | -c_lessequals(V_D,V_B,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_C,tc_fun(T_a,tc_bool)) # label(cls_Diff__mono_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_z),T_a),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a)),c_Lattices_Oupper__semilattice__class_Osup(V_x,V_z,T_a)),T_a) # label(cls_distrib__sup__le_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_C),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),V_C),tc_fun(T_a,tc_bool)) = c_HOL_Ominus__class_Ominus(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_C),V_B,tc_fun(T_a,tc_bool)) # label(cls_Diff__Int2_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y),T_a) = V_x # label(cls_sup__inf__absorb_0) # label(axiom).
+V_A = V_B | -c_lessequals(V_B,V_A,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_equalityI_0) # label(axiom).
+V_A = V_B | -c_lessequals(V_B,V_A,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_set__eq__subset_2) # label(axiom).
+-class_Orderings_Oorder(T_a) | V_x = V_y | -c_lessequals(V_y,V_x,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_order__eq__iff_2) # label(axiom).
+-class_Orderings_Oorder(T_a) | V_x = V_y | -c_lessequals(V_y,V_x,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_order__antisym_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | V_x = V_y | -c_lessequals(V_x,V_y,T_a) | -c_lessequals(V_y,V_x,T_a) # label(cls_order__antisym__conv_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a)) = V_x # label(cls_inf__sup__absorb_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),tc_fun(T_a,tc_bool)) = V_A # label(cls_Un__Diff__Int_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) = V_x | -c_lessequals(V_y,V_x,T_a) # label(cls_sup__absorb1_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) != V_y | c_lessequals(V_x,V_y,T_a) # label(cls_le__iff__sup_1) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) = V_y | -c_lessequals(V_x,V_y,T_a) # label(cls_le__iff__sup_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)) = V_B | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_Un__absorb1_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)) = V_A | -c_lessequals(V_B,V_A,tc_fun(T_a,tc_bool)) # label(cls_Un__absorb2_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)) != V_B | c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_subset__Un__eq_1) # label(axiom).
+c_Natural_Oevaln(c_Com_Ocom_OSKIP,V_s,V_n,V_s) # label(cls_evaln_OSkip_0) # label(axiom).
+c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(c_Set_Oinsert(V_a,V_A,T_b),V_B,T_b,tc_fun(T_a,tc_bool)) = c_Lattices_Oupper__semilattice__class_Osup(hAPP(V_B,V_a),c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_A,V_B,T_b,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) # label(cls_UN__insert_0) # label(axiom).
+-class_Complete__Lattice_Ocomplete__lattice(T_a) | c_lessequals(c_Complete__Lattice_OInf__class_OInf(V_A,T_a),V_x,T_a) | -hBOOL(c_in(V_x,V_A,T_a)) # label(cls_Inf__lower_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) = c_SetInterval_Oord__class_OatLeastAtMost(V_a,V_b,T_a) | c_lessequals(V_a,V_b,T_a) # label(cls_atLeastatMost__empty__iff2_1) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) != c_SetInterval_Oord__class_OatLeastAtMost(V_a,V_b,T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_atLeastatMost__empty__iff2_0) # label(axiom).
+c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(V_C,V_D,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) | -c_lessequals(V_B,V_D,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_C,tc_fun(T_a,tc_bool)) # label(cls_Un__mono_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y),V_x,T_a) # label(cls_inf__sup__ord_I1_J_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y),V_y,T_a) # label(cls_inf__sup__ord_I2_J_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_z),T_a) | -c_lessequals(V_x,V_z,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_inf__greatest_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_z),T_a) | -c_lessequals(V_x,V_z,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_le__inf__iff_2) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_a),V_b),T_a) | -c_lessequals(V_x,V_b,T_a) | -c_lessequals(V_x,V_a,T_a) # label(cls_le__infI_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y),V_y,T_a) # label(cls_inf__le2_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y),V_x,T_a) # label(cls_inf__le1_0) # label(axiom).
+c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),V_A,tc_fun(T_a,tc_bool)) # label(cls_Int__lower1_0) # label(axiom).
+c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),V_B,tc_fun(T_a,tc_bool)) # label(cls_Int__lower2_0) # label(axiom).
+c_lessequals(V_C,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),tc_fun(T_a,tc_bool)) | -c_lessequals(V_C,V_B,tc_fun(T_a,tc_bool)) | -c_lessequals(V_C,V_A,tc_fun(T_a,tc_bool)) # label(cls_Int__greatest_0) # label(axiom).
+c_lessequals(V_C,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),tc_fun(T_a,tc_bool)) | -c_lessequals(V_C,V_B,tc_fun(T_a,tc_bool)) | -c_lessequals(V_C,V_A,tc_fun(T_a,tc_bool)) # label(cls_Int__subset__iff_2) # label(axiom).
+c_Com_Ocom_OSemi(V_com1_H,V_com2_H) != c_Com_Ocom_OSKIP # label(cls_com_Osimps_I13_J_0) # label(axiom).
+-class_Lattices_Odistrib__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_z),V_x,T_a) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),c_Lattices_Oupper__semilattice__class_Osup(V_y,V_x,T_a)),c_Lattices_Oupper__semilattice__class_Osup(V_z,V_x,T_a)) # label(cls_sup__inf__distrib2_0) # label(axiom).
+-class_Lattices_Odistrib__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_y),V_z),T_a) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a)),c_Lattices_Oupper__semilattice__class_Osup(V_x,V_z,T_a)) # label(cls_sup__inf__distrib1_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(V_A,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),V_C),tc_fun(T_a,tc_bool)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool))),c_Lattices_Oupper__semilattice__class_Osup(V_A,V_C,tc_fun(T_a,tc_bool))) # label(cls_Un__Int__distrib_0) # label(axiom).
+c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),V_C),V_A,tc_fun(T_a,tc_bool)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(V_B,V_A,tc_fun(T_a,tc_bool))),c_Lattices_Oupper__semilattice__class_Osup(V_C,V_A,tc_fun(T_a,tc_bool))) # label(cls_Un__Int__distrib2_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y) # label(cls_inf__sup__aci_I4_J_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_y) # label(cls_inf__left__idem_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B) # label(cls_Int__left__absorb_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_a),V_x),V_x) = V_x # label(cls_inf__idem_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_A) = V_A # label(cls_Int__absorb_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_y,V_z,T_a) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),V_z,T_a) # label(cls_le__sup__iff_1) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_x,V_z,T_a) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),V_z,T_a) # label(cls_le__sup__iff_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),T_a) | -c_lessequals(V_x,V_b,T_a) # label(cls_le__supI2_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),T_a) | -c_lessequals(V_x,V_a,T_a) # label(cls_le__supI1_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_b,V_x,T_a) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),V_x,T_a) # label(cls_le__supE_1) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_a,V_x,T_a) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),V_x,T_a) # label(cls_le__supE_0) # label(axiom).
+c_lessequals(V_A,V_C,tc_fun(T_a,tc_bool)) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),V_C,tc_fun(T_a,tc_bool)) # label(cls_Un__subset__iff_0) # label(axiom).
+c_lessequals(V_B,V_C,tc_fun(T_a,tc_bool)) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_a,tc_bool)),V_C,tc_fun(T_a,tc_bool)) # label(cls_Un__subset__iff_1) # label(axiom).
+-class_Lattices_Olattice(T_b) | hAPP(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(t_a,T_b)),V_f),V_g),v_x) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(T_b),hAPP(V_f,v_x)),hAPP(V_g,v_x)) # label(cls_inf__fun__eq_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_lessequals(V_z,V_x,T_a) | -c_lessequals(V_z,V_y,T_a) | -c_lessequals(V_y,V_x,T_a) # label(cls_xt1_I6_J_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | c_lessequals(V_x,V_z,T_a) | -c_lessequals(V_y,V_z,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_order__trans_0) # label(axiom).
+c_lessequals(V_x,V_x,tc_fun(T_a,tc_bool)) # label(cls_equalityE_0) # label(axiom).
+c_lessequals(V_A,V_A,tc_fun(T_a,tc_bool)) # label(cls_subset__refl_0) # label(axiom).
+c_lessequals(V_A,V_C,tc_fun(T_a,tc_bool)) | -c_lessequals(V_B,V_C,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_subset__trans_0) # label(axiom).
+hBOOL(hAPP(V_Q,V_x)) | -hBOOL(hAPP(V_P,V_x)) | -c_lessequals(V_P,V_Q,tc_fun(T_a,tc_bool)) # label(cls_predicate1D_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_lessequals(V_x,V_x,T_a) # label(cls_order__eq__iff_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | c_lessequals(V_x,V_x,T_a) # label(cls_order__eq__refl_0) # label(axiom).
+hBOOL(hAPP(V_Q,V_x)) | -c_lessequals(V_P,V_Q,tc_fun(T_a,tc_bool)) | -hBOOL(hAPP(V_P,V_x)) # label(cls_rev__predicate1D_0) # label(axiom).
+c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_C),V_D),tc_fun(T_a,tc_bool)) | -c_lessequals(V_B,V_D,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_C,tc_fun(T_a,tc_bool)) # label(cls_Int__mono_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(V_A,c_Lattices_Oupper__semilattice__class_Osup(V_B,V_C,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool))),c_HOL_Ominus__class_Ominus(V_A,V_C,tc_fun(T_a,tc_bool))) # label(cls_Diff__Un_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_SetInterval_Oord__class_OatLeastAtMost(V_a,V_b,T_a) = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | c_lessequals(V_a,V_b,T_a) # label(cls_atLeastatMost__empty__iff_1) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_SetInterval_Oord__class_OatLeastAtMost(V_a,V_b,T_a) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_lessequals(V_a,V_b,T_a) # label(cls_atLeastatMost__empty__iff_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),V_C,tc_fun(T_a,tc_bool)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),c_HOL_Ominus__class_Ominus(V_B,V_C,tc_fun(T_a,tc_bool))) # label(cls_Int__Diff_0) # label(axiom).
+hBOOL(c_in(V_x,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),c_Collect(V_P,T_a)),T_a)) | -hBOOL(hAPP(V_P,V_x)) | -hBOOL(c_in(V_x,V_A,T_a)) # label(cls_Int__Collect_2) # label(axiom).
+c_HOL_Ominus__class_Ominus(V_A,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),V_C),tc_fun(T_a,tc_bool)) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),c_HOL_Ominus__class_Ominus(V_A,V_C,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) # label(cls_Diff__Int_0) # label(axiom).
+c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_b,tc_bool)),V_M,T_b,tc_fun(T_a,tc_bool)) = c_Lattices_Oupper__semilattice__class_Osup(c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_A,V_M,T_b,tc_fun(T_a,tc_bool)),c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(V_B,V_M,T_b,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) # label(cls_UN__Un_0) # label(axiom).
+hBOOL(hAPP(V_A,hAPP(V_f,V_x))) | -hBOOL(hAPP(c_Set_Ovimage(V_f,V_A,T_a,T_b),V_x)) # label(cls_vimage__code_0) # label(axiom).
+hBOOL(hAPP(c_Set_Ovimage(V_f,V_A,T_a,T_b),V_x)) | -hBOOL(hAPP(V_A,hAPP(V_f,V_x))) # label(cls_vimage__code_1) # label(axiom).
+c_The(c_fequal(V_x,T_a),T_a) = V_x # label(cls_the__sym__eq__trivial_0) # label(axiom).
+hBOOL(hAPP(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B),V_x)) | -hBOOL(hAPP(V_B,V_x)) | -hBOOL(hAPP(V_A,V_x)) # label(cls_inf1I_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(V_B,c_HOL_Ominus__class_Ominus(V_C,V_A,tc_fun(T_a,tc_bool)),tc_fun(T_a,tc_bool)) = V_A | -c_lessequals(V_B,V_C,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_double__diff_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Ominus__class_Ominus(V_x,V_y,T_a) != c_HOL_Ominus__class_Ominus(V_x_H,V_y_H,T_a) | c_lessequals(V_y_H,V_x_H,T_a) | -c_lessequals(V_y,V_x,T_a) # label(cls_le__eqI_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Ominus__class_Ominus(V_x,V_y,T_a) != c_HOL_Ominus__class_Ominus(V_x_H,V_y_H,T_a) | c_lessequals(V_y,V_x,T_a) | -c_lessequals(V_y_H,V_x_H,T_a) # label(cls_le__eqI_1) # label(axiom).
+c_lessequals(c_Set_Oimage(V_f,V_A,T_a,T_b),c_Set_Oimage(V_f,V_B,T_a,T_b),tc_fun(T_b,tc_bool)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) # label(cls_image__mono_0) # label(axiom).
+-c_lessequals(V_x,V_A,tc_fun(T_b,tc_bool)) | c_lessequals(c_Set_Oimage(V_f,V_x,T_b,T_a),c_Set_Oimage(V_f,V_A,T_b,T_a),tc_fun(T_a,tc_bool)) # label(cls_subset__image__iff_2) # label(axiom).
+c_Set_Oimage(V_f,c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,tc_fun(T_b,tc_bool)),T_b,T_a) = c_Lattices_Oupper__semilattice__class_Osup(c_Set_Oimage(V_f,V_A,T_b,T_a),c_Set_Oimage(V_f,V_B,T_b,T_a),tc_fun(T_a,tc_bool)) # label(cls_image__Un_0) # label(axiom).
+-class_Complete__Lattice_Ocomplete__lattice(T_a) | c_lessequals(V_x,c_Complete__Lattice_OSup__class_OSup(V_A,T_a),T_a) | -hBOOL(c_in(V_x,V_A,T_a)) # label(cls_Sup__upper_0) # label(axiom).
+c_Com_Ocom_OSKIP != c_Com_Ocom_OSemi(V_com1_H,V_com2_H) # label(cls_com_Osimps_I12_J_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_y,V_x,T_a) | c_lessequals(V_x,V_y,T_a) # label(cls_linorder__linear_0) # label(axiom).
+V_A = c_Set_Oinsert(V_x,c_ATP__Linkup_Osko__Set__Xset__insert__1__1(V_A,V_x,T_a),T_a) | -hBOOL(c_in(V_x,V_A,T_a)) # label(cls_set__insert_0) # label(axiom).
+hBOOL(c_in(V_x,V_B,T_a)) | -c_lessequals(c_Set_Oinsert(V_x,V_A,T_a),V_B,tc_fun(T_a,tc_bool)) # label(cls_insert__subset_0) # label(axiom).
+c_Set_Oinsert(hAPP(V_f,V_x),c_Set_Oimage(V_f,V_A,T_a,T_b),T_b) = c_Set_Oimage(V_f,V_A,T_a,T_b) | -hBOOL(c_in(V_x,V_A,T_a)) # label(cls_insert__image_0) # label(axiom).
+c_lessequals(V_A,c_Set_Oinsert(V_x,V_B,T_a),tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) | hBOOL(c_in(V_x,V_A,T_a)) # label(cls_subset__insert__iff_2) # label(axiom).
+c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) | hBOOL(c_in(V_x,V_A,T_a)) | -c_lessequals(V_A,c_Set_Oinsert(V_x,V_B,T_a),tc_fun(T_a,tc_bool)) # label(cls_subset__insert__iff_1) # label(axiom).
+c_lessequals(V_A,c_Set_Oinsert(V_x,V_B,T_a),tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) | hBOOL(c_in(V_x,V_A,T_a)) # label(cls_subset__insert_1) # label(axiom).
+c_lessequals(V_A,V_B,tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,c_Set_Oinsert(V_x,V_B,T_a),tc_fun(T_a,tc_bool)) | hBOOL(c_in(V_x,V_A,T_a)) # label(cls_subset__insert_0) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),c_Set_Oinsert(V_a,V_B,T_a)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_A),V_B) | hBOOL(c_in(V_a,V_A,T_a)) # label(cls_Int__insert__right_1) # label(axiom).
+hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),c_Set_Oinsert(V_a,V_B,T_a)),V_C) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(T_a,tc_bool)),V_B),V_C) | hBOOL(c_in(V_a,V_C,T_a)) # label(cls_Int__insert__left_1) # label(axiom).
+c_Finite__Set_Ofold__graph(V_f,V_z,c_Set_Oinsert(V_x,V_A,T_a),hAPP(hAPP(V_f,V_x),V_y),T_a,T_b) | -c_Finite__Set_Ofold__graph(V_f,V_z,V_A,V_y,T_a,T_b) | hBOOL(c_in(V_x,V_A,T_a)) # label(cls_fold__graph_OinsertI_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(c_Set_Oinsert(V_x,V_A,T_a),V_B,tc_fun(T_a,tc_bool)) = c_Set_Oinsert(V_x,c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),T_a) | hBOOL(c_in(V_x,V_B,T_a)) # label(cls_insert__Diff__if_1) # label(axiom).
+-class_Orderings_Obot(T_b) | hAPP(c_Orderings_Obot__class_Obot(tc_fun(t_a,T_b)),v_x) = c_Orderings_Obot__class_Obot(T_b) # label(cls_bot__fun__eq_0) # label(axiom).
+-class_Complete__Lattice_Ocomplete__lattice(T_a) | c_Complete__Lattice_OSup__class_OSup(c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a) = c_Orderings_Obot__class_Obot(T_a) # label(cls_Sup__empty_0) # label(axiom).
+c_Collect(c_fequal(V_a,T_a),T_a) = c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a) # label(cls_singleton__conv2_0) # label(axiom).
+V_A = c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a) | V_A = c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | -c_lessequals(V_A,c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)) # label(cls_subset__singletonD_0) # label(axiom).
+hAPP(V_Inf,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a)) = V_a | -c_Complete__Lattice_Ocomplete__lattice(V_Inf,V_Sup,V_less__eq,V_less,V_inf,V_sup,V_bot,V_top,T_a) # label(cls_complete__lattice_OInf__singleton_0) # label(axiom).
+hAPP(V_Sup,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a)) = V_a | -c_Complete__Lattice_Ocomplete__lattice(V_Inf,V_Sup,V_less__eq,V_less,V_inf,V_sup,V_bot,V_top,T_a) # label(cls_complete__lattice_OSup__singleton_0) # label(axiom).
+-class_Complete__Lattice_Ocomplete__lattice(T_a) | c_Complete__Lattice_OSup__class_OSup(c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) = V_a # label(cls_Sup__singleton_0) # label(axiom).
+hBOOL(hAPP(c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),c_Nitpick_Osko__Nitpick__XEx1__def__1__3(c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a))) # label(cls_Nitpick_OEx1__def_2) # label(axiom).
+c_Set_Oinsert(V_a,c_Complete__Lattice_Ocomplete__lattice__class_OSUPR(c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)),V_B,T_b,tc_fun(T_a,tc_bool)),T_a) = c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a) # label(cls_UN__extend__simps_I1_J_0) # label(axiom).
+hBOOL(hAPP(c_Finite__Set_Ofold1Set(V_f,c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a),V_x)) # label(cls_fold1Set__sing_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Finite__Set_Olinorder__class_OMin(c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) = V_a # label(cls_Min__singleton_0) # label(axiom).
+c_The(c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) = V_x # label(cls_Nitpick_OThe__psimp_0) # label(axiom).
+hAPP(V_Inf,c_Set_Oinsert(V_a,c_Set_Oinsert(V_b,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a)) = hAPP(hAPP(V_inf,V_a),V_b) | -c_Complete__Lattice_Ocomplete__lattice(V_Inf,V_Sup,V_less__eq,V_less,V_inf,V_sup,V_bot,V_top,T_a) # label(cls_complete__lattice_OInf__binary_0) # label(axiom).
+hAPP(V_Sup,c_Set_Oinsert(V_a,c_Set_Oinsert(V_b,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a)) = hAPP(hAPP(V_sup,V_a),V_b) | -c_Complete__Lattice_Ocomplete__lattice(V_Inf,V_Sup,V_less__eq,V_less,V_inf,V_sup,V_bot,V_top,T_a) # label(cls_complete__lattice_OSup__binary_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_a,V_B,T_a),tc_fun(T_a,tc_bool)) = c_HOL_Ominus__class_Ominus(c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),V_B,tc_fun(T_a,tc_bool)) # label(cls_Diff__insert2_0) # label(axiom).
+c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_a,V_B,T_a),tc_fun(T_a,tc_bool)) = c_HOL_Ominus__class_Ominus(c_HOL_Ominus__class_Ominus(V_A,V_B,tc_fun(T_a,tc_bool)),c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)) # label(cls_Diff__insert_0) # label(axiom).
+V_a = V_b | -hBOOL(hAPP(c_Finite__Set_Ofold1Set(V_f,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a),V_b)) # label(cls_fold1Set__sing_0) # label(axiom).
+c_Set_Ocontents(c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) = V_x # label(cls_contents__eq_0) # label(axiom).
+V_y = c_Nitpick_Osko__Nitpick__XEx1__def__1__3(c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) | -hBOOL(hAPP(c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),V_y)) # label(cls_Nitpick_OEx1__def_3) # label(axiom).
+c_Finite__Set_Ofold1(V_f,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) = V_a # label(cls_fold1__singleton_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Finite__Set_Olinorder__class_OMax(c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) = V_a # label(cls_Max__singleton_0) # label(axiom).
+c_Set_Oinsert(V_a,c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),T_a) = c_Set_Oinsert(V_a,V_A,T_a) # label(cls_insert__Diff__single_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_SetInterval_Oord__class_OatLeastAtMost(V_a,V_a,T_a) = c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a) # label(cls_atLeastAtMost__singleton_0) # label(axiom).
+c_Set_Oinsert(V_a,V_A,T_a) = c_Lattices_Oupper__semilattice__class_Osup(c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),V_A,tc_fun(T_a,tc_bool)) # label(cls_insert__is__Un_0) # label(axiom).
+-class_Complete__Lattice_Ocomplete__lattice(T_a) | c_Complete__Lattice_OInf__class_OInf(c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) = V_a # label(cls_Inf__singleton_0) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | hBOOL(hAPP(hAPP(V_xa,V_Z_H),v_sko__Hoare__Mirabelle__Xhoare__derivs__Xconseq__3(V_G,V_P,V_Q,V_c,V_x,V_xa))) | -hBOOL(hAPP(hAPP(V_x,V_Z_H),v_sko__Hoare__Mirabelle__Xhoare__derivs__Xconseq__2(V_G,V_P,V_Q,V_c))) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_x,V_c,V_xa,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) # label(cls_conseq_1) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | hBOOL(hAPP(hAPP(V_Q_H,V_Z_H),v_sko__Hoare__Mirabelle__Xconseq12__3(V_P,V_P_H,V_Q,V_Q_H))) | -hBOOL(hAPP(hAPP(V_P_H,V_Z_H),v_sko__Hoare__Mirabelle__Xconseq12__2(V_P,V_P_H,V_Q,V_Q_H))) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P_H,V_c,V_Q_H,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) # label(cls_conseq12_1) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | hBOOL(hAPP(hAPP(V_xa,V_Z_H),v_sko__Hoare__Mirabelle__Xhoare__derivs__Xintros__6__3(V_G,V_P,V_Q,V_c,V_x,V_xa))) | -hBOOL(hAPP(hAPP(V_x,V_Z_H),v_sko__Hoare__Mirabelle__Xhoare__derivs__Xintros__6__2(V_G,V_P,V_Q,V_c))) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_x,V_c,V_xa,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) # label(cls_hoare__derivs_Ointros_I6_J_1) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | hBOOL(hAPP(hAPP(V_P,v_sko__Hoare__Mirabelle__Xhoare__derivs__Xintros__6__1(V_G,V_P,V_Q,V_c)),v_sko__Hoare__Mirabelle__Xhoare__derivs__Xintros__6__2(V_G,V_P,V_Q,V_c))) # label(cls_hoare__derivs_Ointros_I6_J_0) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | -hBOOL(hAPP(hAPP(V_Q,v_sko__Hoare__Mirabelle__Xhoare__derivs__Xintros__6__1(V_G,V_P,V_Q,V_c)),v_sko__Hoare__Mirabelle__Xhoare__derivs__Xintros__6__3(V_G,V_P,V_Q,V_c,V_x,V_xa))) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_x,V_c,V_xa,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) # label(cls_hoare__derivs_Ointros_I6_J_2) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | hBOOL(hAPP(hAPP(V_P,v_sko__Hoare__Mirabelle__Xhoare__derivs__Xconseq__1(V_G,V_P,V_Q,V_c)),v_sko__Hoare__Mirabelle__Xhoare__derivs__Xconseq__2(V_G,V_P,V_Q,V_c))) # label(cls_conseq_0) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | hBOOL(hAPP(hAPP(V_Q_H,v_sko__Hoare__Mirabelle__Xconseq2__1(V_Q,V_Q_H)),v_sko__Hoare__Mirabelle__Xconseq2__2(V_Q,V_Q_H))) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q_H,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) # label(cls_conseq2_0) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | hBOOL(hAPP(hAPP(V_P,v_sko__Hoare__Mirabelle__Xconseq12__1(V_P,V_P_H,V_Q,V_Q_H)),v_sko__Hoare__Mirabelle__Xconseq12__2(V_P,V_P_H,V_Q,V_Q_H))) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P_H,V_c,V_Q_H,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) # label(cls_conseq12_0) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | hBOOL(hAPP(hAPP(V_P,v_sko__Hoare__Mirabelle__Xconseq1__1(V_P,V_P_H)),v_sko__Hoare__Mirabelle__Xconseq1__2(V_P,V_P_H))) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P_H,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) # label(cls_conseq1_0) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | -hBOOL(hAPP(hAPP(V_Q,v_sko__Hoare__Mirabelle__Xhoare__derivs__Xconseq__1(V_G,V_P,V_Q,V_c)),v_sko__Hoare__Mirabelle__Xhoare__derivs__Xconseq__3(V_G,V_P,V_Q,V_c,V_x,V_xa))) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_x,V_c,V_xa,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) # label(cls_conseq_2) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | -hBOOL(hAPP(hAPP(V_P_H,v_sko__Hoare__Mirabelle__Xconseq1__1(V_P,V_P_H)),v_sko__Hoare__Mirabelle__Xconseq1__2(V_P,V_P_H))) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P_H,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) # label(cls_conseq1_1) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | -hBOOL(hAPP(hAPP(V_Q,v_sko__Hoare__Mirabelle__Xconseq12__1(V_P,V_P_H,V_Q,V_Q_H)),v_sko__Hoare__Mirabelle__Xconseq12__3(V_P,V_P_H,V_Q,V_Q_H))) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P_H,V_c,V_Q_H,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) # label(cls_conseq12_2) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | -hBOOL(hAPP(hAPP(V_Q,v_sko__Hoare__Mirabelle__Xconseq2__1(V_Q,V_Q_H)),v_sko__Hoare__Mirabelle__Xconseq2__2(V_Q,V_Q_H))) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q_H,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) # label(cls_conseq2_1) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | hBOOL(hAPP(hAPP(V_P,v_sko__Hoare__Mirabelle__Xescape__1(V_G,V_P,V_Q,V_c)),v_sko__Hoare__Mirabelle__Xescape__2(V_G,V_P,V_Q,V_c))) # label(cls_escape_0) # label(axiom).
+hBOOL(hAPP(hAPP(V_Q,V_Z),V_s_H)) | -c_Natural_Oevaln(V_c,V_s,V_n,V_s_H) | -hBOOL(hAPP(hAPP(V_P,V_Z),V_s)) | -c_Hoare__Mirabelle_Otriple__valid(V_n,c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,t_a),t_a) # label(cls_triple__valid__def2_0) # label(axiom).
+hAPP(c_COMBK(v_P,t_a,t_b),v_Q) = v_P # label(cls_COMBK__def__raw_0) # label(axiom).
+c_Hoare__Mirabelle_Otriple__valid(V_n,V_x,t_a) | -hBOOL(c_in(V_x,V_ts,tc_Hoare__Mirabelle_Otriple(t_a))) | hBOOL(c_in(v_sko__Hoare__Mirabelle__Xtriples__valid__Suc__1(V_n,V_ts),V_ts,tc_Hoare__Mirabelle_Otriple(t_a))) # label(cls_triples__valid__Suc_0) # label(axiom).
+c_Set_Oinsert(V_a,c_HOL_Ominus__class_Ominus(V_A,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)),T_a) = V_A | -hBOOL(c_in(V_a,V_A,T_a)) # label(cls_insert__Diff_0) # label(axiom).
+hAPP(V_f,V_a) = V_b | -hBOOL(c_in(V_a,c_Set_Ovimage(V_f,c_Set_Oinsert(V_b,c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)),T_b),T_a,T_b),T_a)) # label(cls_vimage__singleton__eq_0) # label(axiom).
+hBOOL(c_in(V_a,c_Set_Ovimage(V_f,c_Set_Oinsert(hAPP(V_f,V_a),c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_aa,T_a),T_aa)) # label(cls_vimage__singleton__eq_1) # label(axiom).
+c_Set_Oinsert(V_x,V_xa,T_b) != c_Orderings_Obot__class_Obot(tc_fun(T_b,tc_bool)) | hBOOL(c_in(V_x,V_xa,T_b)) | -c_OrderedGroup_Oab__semigroup__mult(V_times,T_a) # label(cls_ab__semigroup__mult_Ononempty__iff_2) # label(axiom).
+c_HOL_Ominus__class_Ominus(c_Set_Oinsert(V_x,V_A,T_a),c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),tc_fun(T_a,tc_bool)) = V_A | hBOOL(c_in(V_x,V_A,T_a)) # label(cls_Diff__insert__absorb_0) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,c_Com_Ocom_OSKIP,V_P,T_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(T_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(T_a)),T_a) # label(cls_hoare__derivs_OSkip_0) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,c_Com_Ocom_OSemi(V_c,V_d),V_R,T_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(T_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(T_a)),T_a) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_Q,V_d,V_R,T_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(T_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(T_a)),T_a) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(V_P,V_c,V_Q,T_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(T_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(T_a)),T_a) # label(cls_Comp_0) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(V_t,V_ts,tc_Hoare__Mirabelle_Otriple(T_a)),T_a) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,V_ts,T_a) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(V_t,c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(T_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(T_a)),T_a) # label(cls_hoare__derivs_Oinsert_0) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,V_ts,T_a) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(V_t,V_ts,tc_Hoare__Mirabelle_Otriple(T_a)),T_a) # label(cls_derivs__insertD_1) # label(axiom).
+hBOOL(c_in(V_x,c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a)) # label(cls_singleton__iff_1) # label(axiom).
+hBOOL(c_in(V_a,c_Set_Oinsert(V_b,V_A,T_a),T_a)) | -hBOOL(c_in(V_a,V_A,T_a)) # label(cls_insert__iff_2) # label(axiom).
+hBOOL(c_in(V_a,c_Set_Oinsert(V_b,V_B,T_a),T_a)) | -hBOOL(c_in(V_a,V_B,T_a)) # label(cls_insertCI_0) # label(axiom).
+hBOOL(hAPP(c_Set_Oinsert(V_x,V_A,T_a),V_x)) # label(cls_insert__code_1) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,V_ts,T_a) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,V_G_H,T_a) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G_H,V_ts,T_a) # label(cls_cut_0) # label(axiom).
+-hBOOL(c_in(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a)) # label(cls_ex__in__conv_0) # label(axiom).
+hBOOL(hAPP(V_P,V_x)) | -hBOOL(c_in(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a)) # label(cls_ball__empty_0) # label(axiom).
+-hBOOL(c_in(V_c,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a)) # label(cls_empty__iff_0) # label(axiom).
+-hBOOL(c_in(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a)) # label(cls_emptyE_0) # label(axiom).
+c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) != c_Set_Oinsert(V_a,V_A,T_a) # label(cls_empty__not__insert_0) # label(axiom).
+c_Hoare__Mirabelle_Otriple_Otriple(V_fun1,V_com,V_fun2,T_a) != c_Hoare__Mirabelle_Otriple_Otriple(V_fun1_H,V_com_H,V_fun2_H,T_a) | V_fun2 = V_fun2_H # label(cls_triple_Oinject_2) # label(axiom).
+c_Hoare__Mirabelle_Otriple_Otriple(V_fun1,V_com,V_fun2,T_a) != c_Hoare__Mirabelle_Otriple_Otriple(V_fun1_H,V_com_H,V_fun2_H,T_a) | V_com = V_com_H # label(cls_triple_Oinject_1) # label(axiom).
+c_Hoare__Mirabelle_Otriple_Otriple(V_fun1,V_com,V_fun2,T_a) != c_Hoare__Mirabelle_Otriple_Otriple(V_fun1_H,V_com_H,V_fun2_H,T_a) | V_fun1 = V_fun1_H # label(cls_triple_Oinject_0) # label(axiom).
+c_Set_Oinsert(V_a,c_Set_Oinsert(V_b,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) != c_Set_Oinsert(V_c,c_Set_Oinsert(V_d,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) | V_b = V_c | V_b = V_d # label(cls_doubleton__eq__iff_3) # label(axiom).
+c_Set_Oinsert(V_a,c_Set_Oinsert(V_b,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) != c_Set_Oinsert(V_c,c_Set_Oinsert(V_d,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) | V_a = V_d | V_b = V_d # label(cls_doubleton__eq__iff_2) # label(axiom).
+c_Set_Oinsert(V_a,c_Set_Oinsert(V_b,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) != c_Set_Oinsert(V_c,c_Set_Oinsert(V_d,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) | V_b = V_c | V_a = V_c # label(cls_doubleton__eq__iff_1) # label(axiom).
+c_Set_Oinsert(V_a,c_Set_Oinsert(V_b,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) != c_Set_Oinsert(V_c,c_Set_Oinsert(V_d,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) | V_a = V_d | V_a = V_c # label(cls_doubleton__eq__iff_0) # label(axiom).
+hBOOL(c_in(V_a,V_A,T_a)) | V_a = V_b | -hBOOL(c_in(V_a,c_Set_Oinsert(V_b,V_A,T_a),T_a)) # label(cls_insertE_0) # label(axiom).
+-hBOOL(hAPP(c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),V_x)) # label(cls_bot1E_0) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(T_a),tc_bool)),T_a) # label(cls_empty_0) # label(axiom).
+hBOOL(hAPP(V_A,V_x)) | V_y = V_x | -hBOOL(hAPP(c_Set_Oinsert(V_y,V_A,T_a),V_x)) # label(cls_insert__code_0) # label(axiom).
+c_Set_Oinsert(V_x,c_Set_Oinsert(V_x,V_A,T_a),T_a) = c_Set_Oinsert(V_x,V_A,T_a) # label(cls_insert__absorb2_0) # label(axiom).
+c_Set_Oinsert(V_a,V_A,T_a) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) # label(cls_insert__not__empty_0) # label(axiom).
+V_b = V_a | -hBOOL(c_in(V_b,c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a)) # label(cls_singletonE_0) # label(axiom).
+hBOOL(c_in(V_x,c_Set_Oinsert(V_x,V_A,T_a),T_a)) # label(cls_insert__iff_1) # label(axiom).
+hBOOL(c_in(V_a,c_Set_Oinsert(V_a,V_B,T_a),T_a)) # label(cls_insertI1_0) # label(axiom).
+hBOOL(c_in(V_x,c_Set_Oinsert(V_x,V_B,T_a),T_a)) # label(cls_insertCI_1) # label(axiom).
+c_Set_Oinsert(V_x,c_Set_Oinsert(V_y,V_A,T_a),T_a) = c_Set_Oinsert(V_y,c_Set_Oinsert(V_x,V_A,T_a),T_a) # label(cls_insert__commute_0) # label(axiom).
+hBOOL(c_in(V_x,V_S,T_a)) | -hBOOL(hAPP(V_S,V_x)) # label(cls_mem__def_1) # label(axiom).
+hBOOL(hAPP(V_S,V_x)) | -hBOOL(c_in(V_x,V_S,T_a)) # label(cls_mem__def_0) # label(axiom).
+c_Set_Oinsert(V_xa,c_Set_Oinsert(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) = c_Set_Oinsert(V_x,c_Set_Oinsert(V_xa,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a),T_a) # label(cls_doubleton__eq__iff_4) # label(axiom).
+c_Set_Oinsert(V_a,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a) != c_Set_Oinsert(V_b,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a) | V_a = V_b # label(cls_singleton__inject_0) # label(axiom).
+-hBOOL(hAPP(V_P,V_x)) | -hBOOL(c_in(V_x,c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)),T_a)) # label(cls_bex__empty_0) # label(axiom).
+c_Set_Oinsert(V_x,V_xa,T_a) != c_Orderings_Obot__class_Obot(tc_fun(T_a,tc_bool)) | hBOOL(c_in(V_x,V_xa,T_a)) # label(cls_comm__monoid__add_Ononempty__iff_2) # label(axiom).
+c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(V_t,c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(T_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(T_a)),T_a) | -c_Hoare__Mirabelle_Ohoare__derivs(V_G,c_Set_Oinsert(V_t,V_ts,tc_Hoare__Mirabelle_Otriple(T_a)),T_a) # label(cls_derivs__insertD_0) # label(axiom).
+hBOOL(hAPP(c_Set_Oinsert(V_y,V_A,T_a),V_x)) | -hBOOL(hAPP(V_A,V_x)) # label(cls_insert__code_2) # label(axiom).
+c_Set_Oinsert(V_x,V_A,T_a) != c_Set_Oinsert(V_x,V_B,T_a) | hBOOL(c_in(V_x,V_B,T_a)) | hBOOL(c_in(V_x,V_A,T_a)) | V_A = V_B # label(cls_insert__ident_0) # label(axiom).
+c_Set_Oinsert(V_a,V_A,T_a) = V_A | -hBOOL(c_in(V_a,V_A,T_a)) # label(cls_insert__absorb_0) # label(axiom).
+-c_Hoare__Mirabelle_Otriple__valid(v_n,c_Hoare__Mirabelle_Otriple_Otriple(v_P,v_c,v_Q,t_a),t_a) # label(cls_conjecture_0) # label(negated_conjecture).
+c_Hoare__Mirabelle_Otriple__valid(v_n,V_x,t_a) | -hBOOL(c_in(V_x,v_Ga,tc_Hoare__Mirabelle_Otriple(t_a))) # label(cls_conjecture_1) # label(negated_conjecture).
+c_Hoare__Mirabelle_Ohoare__derivs(v_Ga,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(v_Z(V_sc,V_sd),v_c,v_s(V_sc,V_sd),t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),t_a) | -hBOOL(hAPP(hAPP(v_P,V_sc),V_sd)) # label(cls_conjecture_2) # label(negated_conjecture).
+hBOOL(hAPP(hAPP(v_Q,V_sc),V_s_H)) | hBOOL(hAPP(hAPP(v_Z(V_sc,V_sd),v_sb(V_sc,V_sd,V_s_H)),V_sd)) | -hBOOL(hAPP(hAPP(v_P,V_sc),V_sd)) # label(cls_conjecture_3) # label(negated_conjecture).
+hBOOL(hAPP(hAPP(v_Q,V_sc),V_s_H)) | -hBOOL(hAPP(hAPP(v_s(V_sc,V_sd),v_sb(V_sc,V_sd,V_s_H)),V_s_H)) | -hBOOL(hAPP(hAPP(v_P,V_sc),V_sd)) # label(cls_conjecture_4) # label(negated_conjecture).
+c_Hoare__Mirabelle_Otriple__valid(V_n,V_Za,t_a) | -hBOOL(c_in(V_Za,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(v_Z(V_sc,V_sd),v_c,v_s(V_sc,V_sd),t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),tc_Hoare__Mirabelle_Otriple(t_a))) | hBOOL(c_in(v_sa(V_sc,V_sd,V_n),v_Ga,tc_Hoare__Mirabelle_Otriple(t_a))) | -hBOOL(hAPP(hAPP(v_P,V_sc),V_sd)) # label(cls_conjecture_5) # label(negated_conjecture).
+c_Hoare__Mirabelle_Otriple__valid(V_n,V_Zb,t_a) | -hBOOL(c_in(V_Zb,c_Set_Oinsert(c_Hoare__Mirabelle_Otriple_Otriple(v_Z(V_sc,V_sd),v_c,v_s(V_sc,V_sd),t_a),c_Orderings_Obot__class_Obot(tc_fun(tc_Hoare__Mirabelle_Otriple(t_a),tc_bool)),tc_Hoare__Mirabelle_Otriple(t_a)),tc_Hoare__Mirabelle_Otriple(t_a))) | -c_Hoare__Mirabelle_Otriple__valid(V_n,v_sa(V_sc,V_sd,V_n),t_a) | -hBOOL(hAPP(hAPP(v_P,V_sc),V_sd)) # label(cls_conjecture_6) # label(negated_conjecture).
+class_Complete__Lattice_Ocomplete__lattice(tc_fun(T_2,T_1)) | -class_Complete__Lattice_Ocomplete__lattice(T_1) # label(clsarity_fun__Complete__Lattice_Ocomplete__lattice) # label(axiom).
+class_Lattices_Oupper__semilattice(tc_fun(T_2,T_1)) | -class_Lattices_Olattice(T_1) # label(clsarity_fun__Lattices_Oupper__semilattice) # label(axiom).
+class_Lattices_Olower__semilattice(tc_fun(T_2,T_1)) | -class_Lattices_Olattice(T_1) # label(clsarity_fun__Lattices_Olower__semilattice) # label(axiom).
+class_Lattices_Odistrib__lattice(tc_fun(T_2,T_1)) | -class_Lattices_Odistrib__lattice(T_1) # label(clsarity_fun__Lattices_Odistrib__lattice) # label(axiom).
+class_Lattices_Obounded__lattice(tc_fun(T_2,T_1)) | -class_Lattices_Obounded__lattice(T_1) # label(clsarity_fun__Lattices_Obounded__lattice) # label(axiom).
+class_Finite__Set_Ofinite_Ofinite(tc_fun(T_2,T_1)) | -class_Finite__Set_Ofinite_Ofinite(T_1) | -class_Finite__Set_Ofinite_Ofinite(T_2) # label(clsarity_fun__Finite__Set_Ofinite_Ofinite) # label(axiom).
+class_Orderings_Opreorder(tc_fun(T_2,T_1)) | -class_Orderings_Opreorder(T_1) # label(clsarity_fun__Orderings_Opreorder) # label(axiom).
+class_Lattices_Olattice(tc_fun(T_2,T_1)) | -class_Lattices_Olattice(T_1) # label(clsarity_fun__Lattices_Olattice) # label(axiom).
+class_Orderings_Oorder(tc_fun(T_2,T_1)) | -class_Orderings_Oorder(T_1) # label(clsarity_fun__Orderings_Oorder) # label(axiom).
+class_Orderings_Obot(tc_fun(T_2,T_1)) | -class_Orderings_Obot(T_1) # label(clsarity_fun__Orderings_Obot) # label(axiom).
+class_HOL_Ominus(tc_fun(T_2,T_1)) | -class_HOL_Ominus(T_1) # label(clsarity_fun__HOL_Ominus) # label(axiom).
+class_HOL_Oord(tc_fun(T_2,T_1)) | -class_HOL_Oord(T_1) # label(clsarity_fun__HOL_Oord) # label(axiom).
+class_Complete__Lattice_Ocomplete__lattice(tc_bool) # label(clsarity_bool__Complete__Lattice_Ocomplete__lattice) # label(axiom).
+class_Lattices_Oupper__semilattice(tc_bool) # label(clsarity_bool__Lattices_Oupper__semilattice) # label(axiom).
+class_Lattices_Olower__semilattice(tc_bool) # label(clsarity_bool__Lattices_Olower__semilattice) # label(axiom).
+class_Lattices_Odistrib__lattice(tc_bool) # label(clsarity_bool__Lattices_Odistrib__lattice) # label(axiom).
+class_Lattices_Obounded__lattice(tc_bool) # label(clsarity_bool__Lattices_Obounded__lattice) # label(axiom).
+class_Finite__Set_Ofinite_Ofinite(tc_bool) # label(clsarity_bool__Finite__Set_Ofinite_Ofinite) # label(axiom).
+class_Orderings_Opreorder(tc_bool) # label(clsarity_bool__Orderings_Opreorder) # label(axiom).
+class_Lattices_Olattice(tc_bool) # label(clsarity_bool__Lattices_Olattice) # label(axiom).
+class_Orderings_Oorder(tc_bool) # label(clsarity_bool__Orderings_Oorder) # label(axiom).
+class_Orderings_Obot(tc_bool) # label(clsarity_bool__Orderings_Obot) # label(axiom).
+class_HOL_Ominus(tc_bool) # label(clsarity_bool__HOL_Ominus) # label(axiom).
+class_HOL_Oord(tc_bool) # label(clsarity_bool__HOL_Oord) # label(axiom).
+hBOOL(hAPP(c_fequal(V_x,T_a),V_x)) # label(cls_ATP__Linkup_Oequal__imp__fequal_0) # label(axiom).
+V_X = V_Y | -hBOOL(hAPP(c_fequal(V_X,T_a),V_Y)) # label(cls_ATP__Linkup_Ofequal__imp__equal_0) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating class_OrderedGroup_Opordered__ab__group__add/1
+
+Eliminating class_OrderedGroup_Oab__semigroup__idem__mult/1
+
+Eliminating class_OrderedGroup_Oab__semigroup__mult/1
+
+Eliminating class_Ring__and__Field_Ocomm__semiring__1/1
+
+Eliminating class_Ring__and__Field_Ocomm__semiring/1
+
+Eliminating class_OrderedGroup_Olordered__ab__group__add/1
+
+Eliminating class_OrderedGroup_Ocomm__monoid__add/1
+
+Eliminating class_Lattices_Olower__semilattice/1
+1 class_Lattices_Olower__semilattice(tc_fun(A,B)) | -class_Lattices_Olattice(B) # label(clsarity_fun__Lattices_Olower__semilattice) # label(axiom).  [assumption].
+2 -class_Lattices_Olower__semilattice(A) | c_lessequals(c_Finite__Set_Ofold1(c_Lattices_Olower__semilattice__class_Oinf(A),B,A),C,A) | -hBOOL(c_in(C,B,A)) | -c_Finite__Set_Ofinite(B,A) # label(cls_fold1__belowI_0) # label(axiom).  [assumption].
+3 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,C,A) | -hBOOL(c_in(C,D,A)) | -c_lessequals(B,c_Finite__Set_Ofold1(c_Lattices_Olower__semilattice__class_Oinf(A),D,A),A) | D = c_Orderings_Obot__class_Obot(tc_fun(A,tc_bool)) | -c_Finite__Set_Ofinite(D,A) # label(cls_below__fold1__iff_0) # label(axiom).  [assumption].
+4 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(B,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),D),C),A) # label(cls_le__inf__iff_1) # label(axiom).  [assumption].
+5 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(B,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),C),D),A) # label(cls_le__inf__iff_0) # label(axiom).  [assumption].
+6 -class_Lattices_Olower__semilattice(A) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),C),D,A) | -c_lessequals(C,D,A) # label(cls_le__infI2_0) # label(axiom).  [assumption].
+7 -class_Lattices_Olower__semilattice(A) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),C),D,A) | -c_lessequals(B,D,A) # label(cls_le__infI1_0) # label(axiom).  [assumption].
+8 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(B,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),D),C),A) # label(cls_le__infE_1) # label(axiom).  [assumption].
+9 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(B,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),C),D),A) # label(cls_le__infE_0) # label(axiom).  [assumption].
+10 -class_Lattices_Olower__semilattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),C) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),C),B) # label(cls_inf__commute_0) # label(axiom).  [assumption].
+11 -class_Lattices_Olower__semilattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),C) = C | -c_lessequals(C,B,A) # label(cls_inf__absorb2_0) # label(axiom).  [assumption].
+12 -class_Lattices_Olower__semilattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),C) != B | c_lessequals(B,C,A) # label(cls_le__iff__inf_1) # label(axiom).  [assumption].
+13 -class_Lattices_Olower__semilattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),C) = B | -c_lessequals(B,C,A) # label(cls_le__iff__inf_0) # label(axiom).  [assumption].
+14 -class_Lattices_Olower__semilattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),C),D)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),C),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),D)) # label(cls_inf__left__commute_0) # label(axiom).  [assumption].
+15 -class_Lattices_Olower__semilattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),C)),D) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),C),D)) # label(cls_inf__assoc_0) # label(axiom).  [assumption].
+16 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),C),D),A) | -c_lessequals(B,D,A) | -c_lessequals(B,C,A) # label(cls_inf__greatest_0) # label(axiom).  [assumption].
+17 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),C),D),A) | -c_lessequals(B,D,A) | -c_lessequals(B,C,A) # label(cls_le__inf__iff_2) # label(axiom).  [assumption].
+18 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),C),D),A) | -c_lessequals(B,D,A) | -c_lessequals(B,C,A) # label(cls_le__infI_0) # label(axiom).  [assumption].
+19 -class_Lattices_Olower__semilattice(A) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),C),C,A) # label(cls_inf__le2_0) # label(axiom).  [assumption].
+20 -class_Lattices_Olower__semilattice(A) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),C),B,A) # label(cls_inf__le1_0) # label(axiom).  [assumption].
+21 -class_Lattices_Olower__semilattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),C)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),C) # label(cls_inf__left__idem_0) # label(axiom).  [assumption].
+22 -class_Lattices_Olower__semilattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(A),B),B) = B # label(cls_inf__idem_0) # label(axiom).  [assumption].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(c_Finite__Set_Ofold1(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C,tc_fun(B,A)),D,tc_fun(B,A)) | -hBOOL(c_in(D,C,tc_fun(B,A))) | -c_Finite__Set_Ofinite(C,tc_fun(B,A)).  [resolve(1,a,2,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(B,C,tc_fun(D,A)) | -hBOOL(c_in(C,E,tc_fun(D,A))) | -c_lessequals(B,c_Finite__Set_Ofold1(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(D,A)),E,tc_fun(D,A)),tc_fun(D,A)) | E = c_Orderings_Obot__class_Obot(tc_fun(tc_fun(D,A),tc_bool)) | -c_Finite__Set_Ofinite(E,tc_fun(D,A)).  [resolve(1,a,3,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(B,C,tc_fun(D,A)) | -c_lessequals(B,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(D,A)),E),C),tc_fun(D,A)).  [resolve(1,a,4,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(B,C,tc_fun(D,A)) | -c_lessequals(B,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(D,A)),C),E),tc_fun(D,A)).  [resolve(1,a,5,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),D),E,tc_fun(B,A)) | -c_lessequals(D,E,tc_fun(B,A)).  [resolve(1,a,6,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),D),E,tc_fun(B,A)) | -c_lessequals(C,E,tc_fun(B,A)).  [resolve(1,a,7,a)].
+Derived: -class_Lattices_Olattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),D) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),D),C).  [resolve(1,a,10,a)].
+Derived: -class_Lattices_Olattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),D) = D | -c_lessequals(D,C,tc_fun(B,A)).  [resolve(1,a,11,a)].
+Derived: -class_Lattices_Olattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),D) != C | c_lessequals(C,D,tc_fun(B,A)).  [resolve(1,a,12,a)].
+Derived: -class_Lattices_Olattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),D) = C | -c_lessequals(C,D,tc_fun(B,A)).  [resolve(1,a,13,a)].
+Derived: -class_Lattices_Olattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),D),E)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),D),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),E)).  [resolve(1,a,14,a)].
+Derived: -class_Lattices_Olattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),D)),E) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),D),E)).  [resolve(1,a,15,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(B,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(C,A)),D),E),tc_fun(C,A)) | -c_lessequals(B,E,tc_fun(C,A)) | -c_lessequals(B,D,tc_fun(C,A)).  [resolve(1,a,16,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),D),D,tc_fun(B,A)).  [resolve(1,a,19,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),D),C,tc_fun(B,A)).  [resolve(1,a,20,a)].
+Derived: -class_Lattices_Olattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),D)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),D).  [resolve(1,a,21,a)].
+Derived: -class_Lattices_Olattice(A) | hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(B,A)),C),C) = C.  [resolve(1,a,22,a)].
+23 class_Lattices_Olower__semilattice(tc_bool) # label(clsarity_bool__Lattices_Olower__semilattice) # label(axiom).  [assumption].
+Derived: c_lessequals(c_Finite__Set_Ofold1(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A,tc_bool),B,tc_bool) | -hBOOL(c_in(B,A,tc_bool)) | -c_Finite__Set_Ofinite(A,tc_bool).  [resolve(23,a,2,a)].
+Derived: c_lessequals(A,B,tc_bool) | -hBOOL(c_in(B,C,tc_bool)) | -c_lessequals(A,c_Finite__Set_Ofold1(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),C,tc_bool),tc_bool) | C = c_Orderings_Obot__class_Obot(tc_fun(tc_bool,tc_bool)) | -c_Finite__Set_Ofinite(C,tc_bool).  [resolve(23,a,3,a)].
+Derived: c_lessequals(A,B,tc_bool) | -c_lessequals(A,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),C),B),tc_bool).  [resolve(23,a,4,a)].
+Derived: c_lessequals(A,B,tc_bool) | -c_lessequals(A,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),B),C),tc_bool).  [resolve(23,a,5,a)].
+Derived: c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),B),C,tc_bool) | -c_lessequals(B,C,tc_bool).  [resolve(23,a,6,a)].
+Derived: c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),B),C,tc_bool) | -c_lessequals(A,C,tc_bool).  [resolve(23,a,7,a)].
+Derived: hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),B) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),B),A).  [resolve(23,a,10,a)].
+Derived: hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),B) = B | -c_lessequals(B,A,tc_bool).  [resolve(23,a,11,a)].
+Derived: hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),B) != A | c_lessequals(A,B,tc_bool).  [resolve(23,a,12,a)].
+Derived: hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),B) = A | -c_lessequals(A,B,tc_bool).  [resolve(23,a,13,a)].
+Derived: hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),B),C)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),B),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),C)).  [resolve(23,a,14,a)].
+Derived: hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),B)),C) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),B),C)).  [resolve(23,a,15,a)].
+Derived: c_lessequals(A,hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),B),C),tc_bool) | -c_lessequals(A,C,tc_bool) | -c_lessequals(A,B,tc_bool).  [resolve(23,a,16,a)].
+Derived: c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),B),B,tc_bool).  [resolve(23,a,19,a)].
+Derived: c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),B),A,tc_bool).  [resolve(23,a,20,a)].
+Derived: hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),B)) = hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),B).  [resolve(23,a,21,a)].
+Derived: hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),A),A) = A.  [resolve(23,a,22,a)].
+
+Eliminating class_Orderings_Olinorder/1
+
+Eliminating class_OrderedGroup_Opordered__ab__semigroup__add/1
+
+Eliminating class_OrderedGroup_Opordered__ab__semigroup__add__imp__le/1
+
+Eliminating class_Ring__and__Field_Oidom/1
+
+Eliminating class_Ring__and__Field_Opordered__ring/1
+
+Eliminating class_Ring__and__Field_Oring/1
+
+Eliminating class_OrderedGroup_Ogroup__add/1
+
+Eliminating class_OrderedGroup_Olordered__ab__group__add__join/1
+
+Eliminating class_OrderedGroup_Oab__group__add/1
+
+Eliminating class_OrderedGroup_Oab__semigroup__add/1
+
+Eliminating class_OrderedGroup_Olordered__ab__group__add__meet/1
+
+Eliminating class_Ring__and__Field_Osemiring/1
+
+Eliminating class_OrderedGroup_Ocancel__ab__semigroup__add/1
+
+Eliminating class_OrderedGroup_Ocancel__semigroup__add/1
+
+Eliminating c_OrderedGroup_Oab__semigroup__mult/2
+
+Eliminating class_Lattices_Oupper__semilattice/1
+24 class_Lattices_Oupper__semilattice(tc_fun(A,B)) | -class_Lattices_Olattice(B) # label(clsarity_fun__Lattices_Oupper__semilattice) # label(axiom).  [assumption].
+25 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(B,C,A),A) = c_Lattices_Oupper__semilattice__class_Osup(B,C,A) # label(cls_sup__left__idem_0) # label(axiom).  [assumption].
+26 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,A) = c_Lattices_Oupper__semilattice__class_Osup(C,B,A) # label(cls_sup__commute_0) # label(axiom).  [assumption].
+27 -class_Lattices_Oupper__semilattice(A) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),D,A) | -c_lessequals(C,D,A) | -c_lessequals(B,D,A) # label(cls_le__sup__iff_2) # label(axiom).  [assumption].
+28 -class_Lattices_Oupper__semilattice(A) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),D,A) | -c_lessequals(C,D,A) | -c_lessequals(B,D,A) # label(cls_sup__least_0) # label(axiom).  [assumption].
+29 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(C,B,A),A) # label(cls_sup__ge2_0) # label(axiom).  [assumption].
+30 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(B,C,A),A) # label(cls_sup__ge1_0) # label(axiom).  [assumption].
+31 -class_Lattices_Oupper__semilattice(A) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),D,A) | -c_lessequals(C,D,A) | -c_lessequals(B,D,A) # label(cls_le__supI_0) # label(axiom).  [assumption].
+32 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) = c_Lattices_Oupper__semilattice__class_Osup(C,c_Lattices_Oupper__semilattice__class_Osup(B,D,A),A) # label(cls_sup__left__commute_0) # label(axiom).  [assumption].
+33 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),D,A) = c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) # label(cls_sup__assoc_0) # label(axiom).  [assumption].
+34 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,B,A) = B # label(cls_sup__idem_0) # label(axiom).  [assumption].
+35 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,A) = B | -c_lessequals(C,B,A) # label(cls_sup__absorb1_0) # label(axiom).  [assumption].
+36 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,A) != C | c_lessequals(B,C,A) # label(cls_le__iff__sup_1) # label(axiom).  [assumption].
+37 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,A) = C | -c_lessequals(B,C,A) # label(cls_le__iff__sup_0) # label(axiom).  [assumption].
+38 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(D,B,A),C,A) # label(cls_le__sup__iff_1) # label(axiom).  [assumption].
+39 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,D,A),C,A) # label(cls_le__sup__iff_0) # label(axiom).  [assumption].
+40 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) | -c_lessequals(B,D,A) # label(cls_le__supI2_0) # label(axiom).  [assumption].
+41 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) | -c_lessequals(B,C,A) # label(cls_le__supI1_0) # label(axiom).  [assumption].
+42 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(D,B,A),C,A) # label(cls_le__supE_1) # label(axiom).  [assumption].
+43 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,D,A),C,A) # label(cls_le__supE_0) # label(axiom).  [assumption].
+Derived: -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_fun(D,A)),tc_fun(D,A)) = c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_fun(D,A)).  [resolve(24,a,25,a)].
+Derived: -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_fun(D,A)) = c_Lattices_Oupper__semilattice__class_Osup(C,B,tc_fun(D,A)).  [resolve(24,a,26,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_fun(D,A)),E,tc_fun(D,A)) | -c_lessequals(C,E,tc_fun(D,A)) | -c_lessequals(B,E,tc_fun(D,A)).  [resolve(24,a,27,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(C,B,tc_fun(D,A)),tc_fun(D,A)).  [resolve(24,a,29,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_fun(D,A)),tc_fun(D,A)).  [resolve(24,a,30,a)].
+Derived: -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,tc_fun(E,A)),tc_fun(E,A)) = c_Lattices_Oupper__semilattice__class_Osup(C,c_Lattices_Oupper__semilattice__class_Osup(B,D,tc_fun(E,A)),tc_fun(E,A)).  [resolve(24,a,32,a)].
+Derived: -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_fun(D,A)),E,tc_fun(D,A)) = c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(C,E,tc_fun(D,A)),tc_fun(D,A)).  [resolve(24,a,33,a)].
+Derived: -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,B,tc_fun(C,A)) = B.  [resolve(24,a,34,a)].
+Derived: -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_fun(D,A)) = B | -c_lessequals(C,B,tc_fun(D,A)).  [resolve(24,a,35,a)].
+Derived: -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_fun(D,A)) != C | c_lessequals(B,C,tc_fun(D,A)).  [resolve(24,a,36,a)].
+Derived: -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_fun(D,A)) = C | -c_lessequals(B,C,tc_fun(D,A)).  [resolve(24,a,37,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(B,C,tc_fun(D,A)) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(E,B,tc_fun(D,A)),C,tc_fun(D,A)).  [resolve(24,a,38,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(B,C,tc_fun(D,A)) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,E,tc_fun(D,A)),C,tc_fun(D,A)).  [resolve(24,a,39,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,tc_fun(E,A)),tc_fun(E,A)) | -c_lessequals(B,D,tc_fun(E,A)).  [resolve(24,a,40,a)].
+Derived: -class_Lattices_Olattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,tc_fun(E,A)),tc_fun(E,A)) | -c_lessequals(B,C,tc_fun(E,A)).  [resolve(24,a,41,a)].
+44 class_Lattices_Oupper__semilattice(tc_bool) # label(clsarity_bool__Lattices_Oupper__semilattice) # label(axiom).  [assumption].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_bool),tc_bool) = c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_bool).  [resolve(44,a,25,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_bool) = c_Lattices_Oupper__semilattice__class_Osup(B,A,tc_bool).  [resolve(44,a,26,a)].
+Derived: c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_bool),C,tc_bool) | -c_lessequals(B,C,tc_bool) | -c_lessequals(A,C,tc_bool).  [resolve(44,a,27,a)].
+Derived: c_lessequals(A,c_Lattices_Oupper__semilattice__class_Osup(B,A,tc_bool),tc_bool).  [resolve(44,a,29,a)].
+Derived: c_lessequals(A,c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_bool),tc_bool).  [resolve(44,a,30,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_bool),tc_bool) = c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(A,C,tc_bool),tc_bool).  [resolve(44,a,32,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_bool),C,tc_bool) = c_Lattices_Oupper__semilattice__class_Osup(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_bool),tc_bool).  [resolve(44,a,33,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,A,tc_bool) = A.  [resolve(44,a,34,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_bool) = A | -c_lessequals(B,A,tc_bool).  [resolve(44,a,35,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_bool) != B | c_lessequals(A,B,tc_bool).  [resolve(44,a,36,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_bool) = B | -c_lessequals(A,B,tc_bool).  [resolve(44,a,37,a)].
+Derived: c_lessequals(A,B,tc_bool) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(C,A,tc_bool),B,tc_bool).  [resolve(44,a,38,a)].
+Derived: c_lessequals(A,B,tc_bool) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(A,C,tc_bool),B,tc_bool).  [resolve(44,a,39,a)].
+Derived: c_lessequals(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_bool),tc_bool) | -c_lessequals(A,C,tc_bool).  [resolve(44,a,40,a)].
+Derived: c_lessequals(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_bool),tc_bool) | -c_lessequals(A,B,tc_bool).  [resolve(44,a,41,a)].
+
+Eliminating c_Complete__Lattice_Ocomplete__lattice/9
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, hBOOL, class_Lattices_Olattice, class_Orderings_Oorder, class_Complete__Lattice_Ocomplete__lattice, class_Lattices_Obounded__lattice, class_Lattices_Odistrib__lattice, class_Finite__Set_Ofinite_Ofinite, class_Orderings_Obot, class_Orderings_Opreorder, class_HOL_Ominus, class_HOL_Oord, c_Finite__Set_Ofinite, c_lessequals, c_Hoare__Mirabelle_Ohoare__derivs, c_Hoare__Mirabelle_Otriple__valid, c_Fun_Oinj__on, c_Natural_Oevaln, c_Finite__Set_Ofold__graph ]).
+Function symbol precedence:  function_order([ tc_bool, t_a, v_x, v_P, c_Com_Ocom_OSKIP, v_Ga, v_Q, v_c, t_b, v_n, tc_fun, hAPP, c_Collect, c_Com_Ocom_OSemi, c_Complete__Lattice_OSup__class_OSup, c_Complete__Lattice_OInf__class_OInf, c_fequal, v_Z, v_s, c_The, c_Nitpick_Osko__Nitpick__XEx1__def__1__3, v_sko__Hoare__Mirabelle__Xconseq1__1, v_sko__Hoare__Mirabelle__Xconseq1__2, v_sko__Hoare__Mirabelle__Xconseq2__1, v_sko__Hoare__Mirabelle__Xconseq2__2, c_Set_Ocontents, v_sko__Hoare__Mirabelle__Xtriples__valid__Suc__1, c_Lattices_Olower__semilattice__class_Oinf, c_Orderings_Obot__class_Obot, tc_Hoare__Mirabelle_Otriple, c_Lattices_Oupper__semilattice__class_Osup, c_Set_Oinsert, c_in, c_HOL_Ominus__class_Ominus, c_SetInterval_Oord__class_OatLeastAtMost, c_COMBK, c_Finite__Set_Ofold1, c_Finite__Set_Ofold1Set, v_sa, v_sb, c_ATP__Linkup_Osko__Set__Xset__insert__1__1, c_Set_Oimage, c_Hoare__Mirabelle_Otriple_Otriple, c_Set_Ovimage, c_Complete__Lattice_Ocomplete__lattice__class_OSUPR, v_sko__Hoare__Mirabelle__Xconseq12__1, v_sko__Hoare__Mirabelle__Xconseq12__2, v_sko__Hoare__Mirabelle__Xconseq12__3, v_sko__Hoare__Mirabelle__Xhoare__derivs__Xconseq__1, v_sko__Hoare__Mirabelle__Xhoare__derivs__Xconseq__2, v_sko__Hoare__Mirabelle__Xhoare__derivs__Xintros__6__1, v_sko__Hoare__Mirabelle__Xhoare__derivs__Xintros__6__2, v_sko__Hoare__Mirabelle__Xescape__1, v_sko__Hoare__Mirabelle__Xescape__2, c_Fun_Ofun__upd, v_sko__Hoare__Mirabelle__Xhoare__derivs__Xconseq__3, v_sko__Hoare__Mirabelle__Xhoare__derivs__Xintros__6__3 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: c_Finite__Set_Ofold1/3.
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.41 seconds.
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 42 (0.00 of 1.06 sec).
+
+given #500 (F,wt=18): 2602 c_SetInterval_Oord__class_OatLeastAtMost(A,c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(C,c_Lattices_Oupper__semilattice__class_Osup(A,D,tc_bool),tc_bool),tc_bool),tc_bool) != c_Orderings_Obot__class_Obot(tc_fun(tc_bool,tc_bool)).  [para(567(a,1),2441(a,1,2,2))].
+
+Low Water (keep): wt=64.000, iters=6688
+
+Low Water (keep): wt=63.000, iters=6861
+
+Low Water (keep): wt=60.000, iters=6845
+
+Low Water (keep): wt=57.000, iters=6727
+
+given #1000 (T,wt=13): 1014 c_Lattices_Oupper__semilattice__class_Osup(A,c_HOL_Ominus__class_Ominus(A,B,tc_fun(C,tc_bool)),tc_fun(C,tc_bool)) = A.  [resolve(290,b,116,a)].
+
+Low Water (keep): wt=53.000, iters=6706
+
+Low Water (keep): wt=52.000, iters=6693
+
+Low Water (keep): wt=50.000, iters=6997
+
+Low Water (keep): wt=49.000, iters=6960
+
+Low Water (keep): wt=47.000, iters=6859
+
+Low Water (keep): wt=45.000, iters=6696
+
+Low Water (keep): wt=44.000, iters=6680
+
+Low Water (keep): wt=43.000, iters=6708
+
+Low Water (keep): wt=42.000, iters=6691
+
+Low Water (keep): wt=41.000, iters=6724
+
+Low Water (keep): wt=40.000, iters=6774
+
+Low Water (keep): wt=39.000, iters=6714
+
+Low Water (keep): wt=38.000, iters=6723
+
+Low Water (keep): wt=37.000, iters=6715
+
+Low Water (keep): wt=36.000, iters=6699
+
+Low Water (keep): wt=35.000, iters=6671
+
+Low Water (keep): wt=34.000, iters=6671
+
+Low Water (keep): wt=33.000, iters=6813
+
+Low Water (keep): wt=32.000, iters=6678
+
+Low Water (keep): wt=31.000, iters=6757
+
+Low Water (keep): wt=30.000, iters=6666
+
+Demod_increase_limit: c_lessequals(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool))),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)))),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool))),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)))),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool))),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)))),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool))),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)))),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),B,tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool))),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),B,tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)))),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),B,tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool))),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),B,tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)))),hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),V101,tc_fun(V102,tc_bool))),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),B,tc_fun(V102,tc_bool))),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),V101,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),B,tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool))),c_Lattices_Oupper__semilattice__class_Osup(hAPP(hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_fun(V102,tc_bool)),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),V101,tc_fun(V102,tc_bool))),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,B,C,V102),C,V102),B,tc_fun(V102,tc_bool))),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V103,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V101,C,V102),C,V102),B,tc_fun(V102,tc_bool)),c_HOL_Ominus__class_Ominus(c_Set_Oimage(A,c_Set_Ovimage(A,V104,C,V102),C,V102),B,tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool))))))))),c_Lattices_Oupper__semilattice__class_Osup(V103,V104,tc_fun(V102,tc_bool)),tc_fun(V102,tc_bool)).  [resolve(762,a,727,b),rewrite([97(12),97(10),337(15),337(13),104(20),104(20),104(32),6700(8),104(39),6700(23),104(46),6700(38),6700(53),308(63),309(56),996(64),309(85),273(94),308(97),309(49),308(130),309(97),308(160),309(145),309(193),273(210),273(211),273(212),308(215),309(42),308(256),309(109),308(297),309(173),308(335),309(234),308(373),309(298),308(414),309(365),308(455)])].
+
+Demod_increase_limit (steps=41, size=1060).
+The most recent kept clause is 14860.
+From here on, a short message will be printed
+for each 100 times the limit is hit.
+
+
+Low Water (keep): wt=28.000, iters=6827
+
+Low Water (keep): wt=27.000, iters=7232
+
+Low Water (keep): wt=26.000, iters=6946
+
+given #1500 (F,wt=22): 8775 c_Orderings_Obot__class_Obot(tc_fun(A,tc_bool)) != hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),c_Lattices_Oupper__semilattice__class_Osup(c_in(B,c_Lattices_Oupper__semilattice__class_Osup(c_fequal(B,C),D,tc_fun(E,tc_bool)),F),V6,tc_bool)).  [resolve(5300,a,5261,b)].
+
+Low Water (keep): wt=24.000, iters=6716
+
+Low Water (keep): wt=23.000, iters=6845
+
+Low Water (keep): wt=22.000, iters=6719
+
+given #2000 (A,wt=24): 844 A = B | hBOOL(c_in(A,c_Set_Ovimage(c_Fun_Ofun__upd(C,B,D,E,F),V6,V7,V8),V7)) | -hBOOL(c_in(hAPP(C,A),V6,V8)).  [para(46(a,1),190(b,1,1))].
+
+Low Water (keep): wt=21.000, iters=6666
+
+Low Water (displace): id=4719, wt=99.000
+
+Low Water (displace): id=6756, wt=97.000
+
+Low Water (displace): id=5545, wt=95.000
+
+Low Water (displace): id=19215, wt=91.000
+
+Low Water (displace): id=20021, wt=81.000
+
+Low Water (displace): id=22476, wt=80.000
+
+Low Water (displace): id=17428, wt=79.000
+
+Low Water (displace): id=21375, wt=78.000
+
+Low Water (displace): id=21073, wt=77.000
+
+Low Water (displace): id=23177, wt=20.000
+
+Low Water (displace): id=23536, wt=19.000
+
+Low Water (displace): id=24860, wt=18.000
+
+Low Water (displace): id=25970, wt=16.000
+
+Low Water (keep): wt=20.000, iters=6712
+
+given #2500 (T,wt=15): 15216 c_Finite__Set_Ofinite(A,tc_fun(tc_fun(tc_bool,tc_bool),tc_fun(tc_fun(tc_bool,tc_bool),tc_fun(tc_fun(tc_bool,tc_bool),tc_bool)))).  [resolve(4583,a,74,a)].
+
+given #3000 (F,wt=16): 29543 c_SetInterval_Oord__class_OatLeastAtMost(A,c_Lattices_Oupper__semilattice__class_Osup(B,c_Complete__Lattice_OSup__class_OSup(c_fequal(A,C),tc_bool),tc_bool),tc_bool) != c_Orderings_Obot__class_Obot(tc_fun(D,tc_bool)).  [para(5170(a,1),29308(a,1,2,2))].
+
+given #3500 (T,wt=16): 4580 class_Finite__Set_Ofinite_Ofinite(tc_fun(tc_fun(tc_fun(tc_bool,tc_bool),tc_fun(tc_fun(tc_bool,tc_bool),tc_bool)),tc_fun(tc_bool,tc_fun(tc_bool,tc_bool)))).  [resolve(2996,a,2743,b)].
+
+given #4000 (F,wt=21): 32230 c_SetInterval_Oord__class_OatLeastAtMost(A,c_Complete__Lattice_OSup__class_OSup(c_SetInterval_Oord__class_OatLeastAtMost(c_Orderings_Obot__class_Obot(tc_bool),c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(A,C,tc_bool),tc_bool),tc_bool),tc_bool),tc_bool) != c_Orderings_Obot__class_Obot(tc_fun(tc_bool,tc_bool)).  [para(567(a,1),31996(a,1,2,1,2))].
+
+given #4500 (T,wt=16): 13889 hBOOL(c_in(c_Lattices_Oupper__semilattice__class_Osup(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_bool),tc_bool),hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),C),D)) | -hBOOL(C).  [para(3958(a,1),185(b,1))].
+
+Low Water (keep): wt=19.000, iters=6680
+
+given #5000 (F,wt=22): 35626 c_Orderings_Obot__class_Obot(tc_fun(A,tc_bool)) != hAPP(c_Lattices_Olower__semilattice__class_Oinf(tc_bool),c_in(hAPP(B,C),c_Set_Oimage(B,c_SetInterval_Oord__class_OatLeastAtMost(c_Orderings_Obot__class_Obot(tc_bool),C,tc_bool),D,E),F)).  [resolve(34574,a,1837,b)].
+
+============================== STATISTICS ============================
+
+Given=5447. Generated=364694. Kept=58807. proofs=0.
+Usable=5393. Sos=19998. Demods=853. Limbo=0, Disabled=34046. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=619.
+Forward_subsumed=98650. Back_subsumed=68.
+Sos_limit_deleted=206618. Sos_displaced=32395. Sos_removed=0.
+New_demodulators=1295 (1 lex), Back_demodulated=917. Back_unit_deleted=36.
+Demod_attempts=8055443. Demod_rewrites=119579.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=489206. Nonunit_bsub_feature_tests=14742.
+Megabytes=135.29.
+User_CPU=20.00, System_CPU=0.30, Wall_clock=21.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 107 exit (max_seconds) Fri Oct 23 15:01:04 2026
+Demod_increase_limit (see stdout)
+
+SEARCH FAILED
+
+------ process 107 exit (max_seconds) ------
+

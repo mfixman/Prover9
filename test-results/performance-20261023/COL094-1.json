@@ -1,0 +1,12 @@
+{
+  "problem": "COL094-1",
+  "domain": "COL",
+  "rating": 0.45,
+  "conversion_wall_seconds": 0.014276282003265806,
+  "exit_code": 4,
+  "search_wall_seconds": 20.79272853099974,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.56,
+  "total_wall_seconds": 20.808163116002106
+}

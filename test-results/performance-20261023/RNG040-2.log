@@ -1,0 +1,143 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 36 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+sum(additive_identity,X,X) # label(additive_identity1) # label(axiom).
+sum(X,additive_identity,X) # label(additive_identity2) # label(axiom).
+product(X,Y,multiply(X,Y)) # label(closure_of_multiplication) # label(axiom).
+sum(X,Y,add(X,Y)) # label(closure_of_addition) # label(axiom).
+sum(additive_inverse(X),X,additive_identity) # label(additive_inverse1) # label(axiom).
+sum(X,additive_inverse(X),additive_identity) # label(additive_inverse2) # label(axiom).
+-sum(X,Y,U) | -sum(Y,Z,V) | -sum(U,Z,W) | sum(X,V,W) # label(associativity_of_addition1) # label(axiom).
+-sum(X,Y,U) | -sum(Y,Z,V) | -sum(X,V,W) | sum(U,Z,W) # label(associativity_of_addition2) # label(axiom).
+-sum(X,Y,Z) | sum(Y,X,Z) # label(commutativity_of_addition) # label(axiom).
+-product(X,Y,U) | -product(Y,Z,V) | -product(U,Z,W) | product(X,V,W) # label(associativity_of_multiplication1) # label(axiom).
+-product(X,Y,U) | -product(Y,Z,V) | -product(X,V,W) | product(U,Z,W) # label(associativity_of_multiplication2) # label(axiom).
+-product(X,Y,V1) | -product(X,Z,V2) | -sum(Y,Z,V3) | -product(X,V3,V4) | sum(V1,V2,V4) # label(distributivity1) # label(axiom).
+-product(X,Y,V1) | -product(X,Z,V2) | -sum(Y,Z,V3) | -sum(V1,V2,V4) | product(X,V3,V4) # label(distributivity2) # label(axiom).
+-sum(X,Y,U) | -sum(X,Y,V) | U = V # label(addition_is_well_defined) # label(axiom).
+-product(X,Y,U) | -product(X,Y,V) | U = V # label(multiplication_is_well_defined) # label(axiom).
+product(A,multiplicative_identity,A) # label(right_multiplicative_identity) # label(hypothesis).
+product(multiplicative_identity,A,A) # label(left_multiplicative_identity) # label(hypothesis).
+product(A,h(A),multiplicative_identity) | A = additive_identity # label(clause30) # label(hypothesis).
+product(h(A),A,multiplicative_identity) | A = additive_identity # label(clause31) # label(hypothesis).
+-product(A,B,C) | product(B,A,C) # label(product_symmetry) # label(hypothesis).
+sum(b,c,d) # label(b_plus_c) # label(negated_conjecture).
+product(d,a,additive_identity) # label(d_plus_a) # label(negated_conjecture).
+product(b,a,l) # label(b_plus_a) # label(negated_conjecture).
+product(c,a,n) # label(c_plus_a) # label(negated_conjecture).
+-sum(l,n,additive_identity) # label(prove_equation) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, product, sum ]).
+Function symbol precedence:  function_order([ additive_identity, multiplicative_identity, a, b, c, d, l, n, add, multiply, additive_inverse, h ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.02 (+ 0.00) seconds.
+% Length of proof is 14.
+% Level of proof is 2.
+% Maximum clause weight is 20.000.
+% Given clauses 48 (24.000 givens/level).
+
+9 -sum(A,B,C) | sum(B,A,C) # label(commutativity_of_addition) # label(axiom).  [assumption].
+12 -product(A,B,C) | -product(A,D,E) | -sum(B,D,F) | -product(A,F,V6) | sum(C,E,V6) # label(distributivity1) # label(axiom).  [assumption].
+22 -product(A,B,C) | product(B,A,C) # label(product_symmetry) # label(hypothesis).  [assumption].
+23 sum(b,c,d) # label(b_plus_c) # label(negated_conjecture).  [assumption].
+24 product(d,a,additive_identity) # label(d_plus_a) # label(negated_conjecture).  [assumption].
+25 product(b,a,l) # label(b_plus_a) # label(negated_conjecture).  [assumption].
+26 product(c,a,n) # label(c_plus_a) # label(negated_conjecture).  [assumption].
+27 -sum(l,n,additive_identity) # label(prove_equation) # label(negated_conjecture).  [assumption].
+162 sum(c,b,d).  [resolve(23,a,9,a)].
+169 product(a,d,additive_identity).  [resolve(24,a,22,a)].
+177 product(a,b,l).  [resolve(25,a,22,a)].
+185 product(a,c,n).  [resolve(26,a,22,a)].
+196 -sum(n,l,additive_identity).  [ur(9,b,27,a)].
+334 $F.  [ur(12,b,177,a,c,162,a,d,169,a,e,196,a),unit_del(a,185)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=48. Generated=567. Kept=331. proofs=1.
+Usable=48. Sos=264. Demods=0. Limbo=9, Disabled=35. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=235. Back_subsumed=10.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=1404. Nonunit_bsub_feature_tests=956.
+Megabytes=0.44.
+User_CPU=0.02, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 36 exit (max_proofs) Fri Oct 23 15:00:23 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 36 exit (max_proofs) ------
+

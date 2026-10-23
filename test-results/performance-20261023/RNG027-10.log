@@ -1,0 +1,268 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 49 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+ifeq(A,A,B,C) = B # label(ifeq_axiom) # label(axiom).
+add(additive_identity,X) = X # label(left_additive_identity) # label(axiom).
+multiply(additive_identity,X) = additive_identity # label(left_multiplicative_zero) # label(axiom).
+multiply(X,additive_identity) = additive_identity # label(right_multiplicative_zero) # label(axiom).
+add(additive_inverse(X),X) = additive_identity # label(add_inverse) # label(axiom).
+additive_inverse(add(X,Y)) = add(additive_inverse(X),additive_inverse(Y)) # label(sum_of_inverses) # label(axiom).
+additive_inverse(additive_inverse(X)) = X # label(additive_inverse_additive_inverse) # label(axiom).
+multiply(X,add(Y,Z)) = add(multiply(X,Y),multiply(X,Z)) # label(multiply_over_add1) # label(axiom).
+multiply(add(X,Y),Z) = add(multiply(X,Z),multiply(Y,Z)) # label(multiply_over_add2) # label(axiom).
+multiply(multiply(X,Y),Y) = multiply(X,multiply(Y,Y)) # label(right_alternative) # label(axiom).
+multiply(multiply(X,X),Y) = multiply(X,multiply(X,Y)) # label(left_alternative) # label(axiom).
+multiply(additive_inverse(X),Y) = additive_inverse(multiply(X,Y)) # label(inverse_product1) # label(axiom).
+multiply(X,additive_inverse(Y)) = additive_inverse(multiply(X,Y)) # label(inverse_product2) # label(axiom).
+additive_inverse(additive_identity) = additive_identity # label(inverse_additive_identity) # label(axiom).
+add(X,Y) = add(Y,X) # label(commutativity_for_addition) # label(axiom).
+add(X,add(Y,Z)) = add(add(X,Y),Z) # label(associativity_for_addition) # label(axiom).
+ifeq(add(X,Z),add(Y,Z),X,Y) = Y # label(left_cancellation_for_addition) # label(axiom).
+ifeq(add(Z,X),add(Z,Y),X,Y) = Y # label(right_cancellation_for_addition) # label(axiom).
+associator(X,Y,Z) = add(multiply(multiply(X,Y),Z),additive_inverse(multiply(X,multiply(Y,Z)))) # label(associator) # label(axiom).
+multiply(multiply(Y,X),Y) = multiply(Y,multiply(X,Y)) # label(middle_law) # label(axiom).
+associator(Y,X,Z) = additive_inverse(associator(X,Y,Z)) # label(associator_skew_symmetry1) # label(axiom).
+associator(Z,Y,X) = additive_inverse(associator(X,Y,Z)) # label(associator_skew_symmetry2) # label(axiom).
+multiply(cz,multiply(cx,multiply(cy,cx))) != multiply(multiply(multiply(cz,cx),cy),cx) # label(prove_right_moufang) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_right_moufang to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ additive_identity, cx, cy, cz, multiply, add, additive_inverse, associator, ifeq ]).
+After inverse_order: Function symbol precedence:  function_order([ additive_identity, cx, cy, cz, add, additive_inverse, multiply, associator, ifeq ]).
+Unfolding symbols: associator/3.
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+% Operation add is commutative; C redundancy checks enabled.
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+% Operation add is associative-commutative; CAC redundancy checks enabled.
+% back CAC tautology: 39 add(A,add(B,C)) = add(C,add(A,B)).  [para(17(a,1),15(a,1))].
+% back CAC tautology: 32 add(multiply(A,multiply(B,B)),add(multiply(A,multiply(C,B)),add(multiply(A,multiply(B,C)),multiply(A,multiply(C,C))))) = add(multiply(A,multiply(B,B)),add(multiply(A,multiply(B,C)),add(multiply(A,multiply(C,B)),multiply(A,multiply(C,C))))).  [para(9(a,1),10(a,2,2)),rewrite([8(2),8(5),9(4),10(2),9(9),10(9),17(11),31(11),8(13),8(16),17(18),8(19),8(19),8(19)])].
+% back CAC tautology: 30 add(multiply(A,B),add(multiply(C,B),add(multiply(A,D),multiply(C,D)))) = add(multiply(A,B),add(multiply(A,D),add(multiply(C,B),multiply(C,D)))).  [para(9(a,1),8(a,1)),rewrite([8(2),8(5),17(7),9(9),9(12),17(14)]),flip(a)].
+
+Low Water (keep): wt=77.000, iters=6800
+
+Low Water (keep): wt=75.000, iters=6758
+
+Low Water (keep): wt=74.000, iters=6686
+
+Low Water (keep): wt=67.000, iters=6812
+
+Low Water (keep): wt=65.000, iters=6690
+
+Low Water (keep): wt=62.000, iters=6764
+
+Low Water (keep): wt=60.000, iters=6728
+
+Low Water (keep): wt=58.000, iters=6844
+
+Low Water (keep): wt=57.000, iters=6773
+
+Low Water (keep): wt=56.000, iters=6722
+
+Low Water (keep): wt=55.000, iters=6668
+
+Low Water (keep): wt=53.000, iters=6833
+
+Low Water (keep): wt=49.000, iters=6669
+
+Low Water (keep): wt=48.000, iters=6966
+
+Low Water (keep): wt=47.000, iters=6938
+
+Low Water (keep): wt=46.000, iters=6906
+
+Low Water (keep): wt=45.000, iters=6905
+
+Low Water (keep): wt=44.000, iters=7125
+
+Low Water (keep): wt=43.000, iters=6720
+
+Low Water (keep): wt=41.000, iters=6679
+
+Low Water (keep): wt=40.000, iters=6774
+
+Low Water (displace): id=3118, wt=100.000
+
+Low Water (displace): id=11103, wt=99.000
+
+Low Water (displace): id=20926, wt=39.000
+
+Low Water (displace): id=20938, wt=38.000
+
+Low Water (displace): id=20977, wt=36.000
+
+Low Water (displace): id=20978, wt=35.000
+
+Low Water (displace): id=21030, wt=33.000
+
+Low Water (displace): id=21031, wt=32.000
+
+Low Water (displace): id=21241, wt=31.000
+
+Low Water (displace): id=21337, wt=20.000
+
+Demod_increase_limit: add(multiply(multiply(V100,multiply(B,B)),multiply(B,multiply(B,multiply(B,B)))),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(B,B)))),multiply(B,B)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(B,B)))),multiply(B,B)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(B,B)))),multiply(B,B)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(C,B)))),multiply(B,B)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(C,B)))),multiply(B,B)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(C,B)))),multiply(B,B)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(C,B)))),multiply(B,B)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(B,C)))),multiply(B,B)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(B,C)))),multiply(B,B)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(B,C)))),multiply(B,B)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(B,C)))),multiply(B,B)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(C,C)))),multiply(B,B)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(C,C)))),multiply(B,B)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(C,C)))),multiply(B,B)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(C,C)))),multiply(B,B)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(B,B)))),multiply(C,B)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(B,B)))),multiply(C,B)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(B,B)))),multiply(C,B)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(B,B)))),multiply(C,B)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(C,B)))),multiply(C,B)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(C,B)))),multiply(C,B)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(C,B)))),multiply(C,B)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(C,B)))),multiply(C,B)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(B,C)))),multiply(C,B)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(B,C)))),multiply(C,B)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(B,C)))),multiply(C,B)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(B,C)))),multiply(C,B)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(C,C)))),multiply(C,B)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(C,C)))),multiply(C,B)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(C,C)))),multiply(C,B)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(C,C)))),multiply(C,B)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(B,B)))),multiply(B,C)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(B,B)))),multiply(B,C)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(B,B)))),multiply(B,C)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(B,B)))),multiply(B,C)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(C,B)))),multiply(B,C)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(C,B)))),multiply(B,C)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(C,B)))),multiply(B,C)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(C,B)))),multiply(B,C)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(B,C)))),multiply(B,C)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(B,C)))),multiply(B,C)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(B,C)))),multiply(B,C)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(B,C)))),multiply(B,C)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(C,C)))),multiply(B,C)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(C,C)))),multiply(B,C)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(C,C)))),multiply(B,C)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(C,C)))),multiply(B,C)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(B,B)))),multiply(C,C)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(B,B)))),multiply(C,C)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(B,B)))),multiply(C,C)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(B,B)))),multiply(C,C)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(C,B)))),multiply(C,C)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(C,B)))),multiply(C,C)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(C,B)))),multiply(C,C)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(C,B)))),multiply(C,C)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(B,C)))),multiply(C,C)),add(multiply(multiply(V100,multiply(C,C)),multiply(C,multiply(C,multiply(C,C)))),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(B,C)))),multiply(C,C)),add(multiply(multiply(V100,multiply(B,multiply(C,multiply(B,C)))),multiply(C,C)),add(multiply(multiply(V100,multiply(C,multiply(C,multiply(B,C)))),multiply(C,C)),add(multiply(multiply(V100,multiply(B,multiply(B,multiply(C,C)))),multiply(C,C)),add(multiply(multiply(V100,multiply(C,multiply(B,multiply(C,C)))),multiply(C,C)),multiply(multiply(V100,multiply(B,multiply(C,multiply(C,C)))),multiply(C,C))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) = add(multiply(add(multiply(V100,multiply(B,B)),add(multiply(V100,multiply(C,B)),add(multiply(V100,multiply(B,C)),multiply(V100,multiply(C,C))))),multiply(B,multiply(B,multiply(B,B)))),multiply(add(multiply(V100,multiply(B,B)),add(multiply(V100,multiply(C,B)),add(multiply(V100,multiply(B,C)),multiply(V100,multiply(C,C))))),add(multiply(C,multiply(B,multiply(B,B))),add(multiply(B,multiply(C,multiply(B,B))),add(multiply(C,multiply(C,multiply(B,B))),add(multiply(B,multiply(B,multiply(C,B))),add(multiply(C,multiply(B,multiply(C,B))),add(multiply(B,multiply(C,multiply(C,B))),add(multiply(C,multiply(C,multiply(C,B))),add(multiply(B,multiply(B,multiply(B,C))),add(multiply(C,multiply(B,multiply(B,C))),add(multiply(B,multiply(C,multiply(B,C))),add(multiply(C,multiply(C,multiply(B,C))),add(multiply(B,multiply(B,multiply(C,C))),add(multiply(C,multiply(B,multiply(C,C))),add(multiply(B,multiply(C,multiply(C,C))),multiply(C,multiply(C,multiply(C,C))))))))))))))))))).  [para(8(a,1),125(a,1,1,2,2,2)),rewrite([9(4),9(7),17(9),8(10),9(4),8(13),9(9),8(16),9(14),9(19),17(22),17(23),17(24),8(25),9(4),8(29),9(11),8(33),9(18),8(37),9(25),8(41),9(32),8(45),9(39),8(49),9(46),9(53),17(57),17(58),17(59),17(60),17(61),17(62),17(63),8(64),8(64),8(64),8(64),8(64),8(64),8(64),8(64),8(64),8(64),8(64),8(64),8(64),8(64),8(64),8(82),9(81),9(84),17(86),8(87),9(81),125(6),9(82),9(83),9(84),9(85),9(86),9(87),9(88),9(89),9(90),9(91),9(92),9(93),9(94),9(95),8(196),9(192),9(193),9(194),9(195),9(196),9(197),9(198),9(199),9(200),9(201),9(202),9(203),9(204),9(205),9(206),8(305),9(303),9(304),9(305),9(306),9(307),9(308),9(309),9(310),9(311),9(312),9(313),9(314),9(315),9(316),9(317),9(414),9(415),9(416),9(417),9(418),9(419),9(420),9(421),9(422),9(423),9(424),9(425),9(426),9(427),9(428),125(429),15(430),40(431),40(432),40(433),40(434),40(435),17(445),17(444),17(443),17(442),17(441),17(440),17(439),17(438),17(437),17(436),17(435),17(434),17(433),17(432),17(431),17(446),17(445),17(444),17(443),17(442),17(441),17(440),17(439),17(438),17(437),17(436),17(435),17(434),17(433),17(432),17(447),17(446),17(445),17(444),17(443),17(442),17(441),17(440),17(439),17(438),17(437),17(436),17(435),17(434),17(433),8(450),9(449),9(452),17(454),8(455),8(455),8(455),8(463),9(462),9(465),17(467),8(468),9(462),8(471),9(467),8(474),9(472),9(477),17(480),17(481),17(482),8(483),9(462),8(487),9(469),8(491),9(476),8(495),9(483),8(499),9(490),8(503),9(497),8(507),9(504),9(511),17(515),17(516),17(517),17(518),17(519),17(520),17(521),8(522)])].
+
+Demod_increase_limit (steps=214, size=1071).
+The most recent kept clause is 24025.
+From here on, a short message will be printed
+for each 100 times the limit is hit.
+
+
+Low Water (displace): id=24886, wt=19.000
+
+Low Water (displace): id=24888, wt=18.000
+
+Low Water (keep): wt=39.000, iters=6703
+
+Low Water (keep): wt=38.000, iters=10346
+
+Low Water (keep): wt=37.000, iters=9124
+
+Low Water (keep): wt=36.000, iters=7804
+
+Low Water (keep): wt=35.000, iters=6774
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 173 (0.00 of 9.05 sec).
+
+given #500 (T,wt=15): 18720 ifeq(A,add(B,add(A,C)),add(additive_inverse(C),additive_inverse(B)),additive_identity) = additive_identity.  [para(153(a,1),7311(a,1,1))].
+
+Low Water (displace): id=27209, wt=17.000
+
+Low Water (displace): id=27223, wt=16.000
+
+============================== PROOF =================================
+
+% Proof 1 at 11.04 (+ 0.06) seconds: prove_right_moufang.
+% Length of proof is 44.
+% Level of proof is 9.
+% Maximum clause weight is 51.000.
+% Given clauses 610 (67.778 givens/level).
+
+2 add(additive_identity,A) = A # label(left_additive_identity) # label(axiom).  [assumption].
+5 add(additive_inverse(A),A) = additive_identity # label(add_inverse) # label(axiom).  [assumption].
+6 additive_inverse(add(A,B)) = add(additive_inverse(A),additive_inverse(B)) # label(sum_of_inverses) # label(axiom).  [assumption].
+7 additive_inverse(additive_inverse(A)) = A # label(additive_inverse_additive_inverse) # label(axiom).  [assumption].
+8 multiply(A,add(B,C)) = add(multiply(A,B),multiply(A,C)) # label(multiply_over_add1) # label(axiom).  [assumption].
+9 multiply(add(A,B),C) = add(multiply(A,C),multiply(B,C)) # label(multiply_over_add2) # label(axiom).  [assumption].
+10 multiply(multiply(A,B),B) = multiply(A,multiply(B,B)) # label(right_alternative) # label(axiom).  [assumption].
+11 multiply(multiply(A,A),B) = multiply(A,multiply(A,B)) # label(left_alternative) # label(axiom).  [assumption].
+12 multiply(additive_inverse(A),B) = additive_inverse(multiply(A,B)) # label(inverse_product1) # label(axiom).  [assumption].
+15 add(A,B) = add(B,A) # label(commutativity_for_addition) # label(axiom).  [assumption].
+16 add(A,add(B,C)) = add(add(A,B),C) # label(associativity_for_addition) # label(axiom).  [assumption].
+17 add(add(A,B),C) = add(A,add(B,C)).  [copy(16),flip(a)].
+20 associator(A,B,C) = add(multiply(multiply(A,B),C),additive_inverse(multiply(A,multiply(B,C)))) # label(associator) # label(axiom).  [assumption].
+21 associator(A,B,C) = add(additive_inverse(multiply(A,multiply(B,C))),multiply(multiply(A,B),C)).  [copy(20),rewrite([15(7)])].
+22 multiply(multiply(A,B),A) = multiply(A,multiply(B,A)) # label(middle_law) # label(axiom).  [assumption].
+23 associator(A,B,C) = additive_inverse(associator(B,A,C)) # label(associator_skew_symmetry1) # label(axiom).  [assumption].
+24 add(additive_inverse(multiply(A,multiply(B,C))),multiply(multiply(A,B),C)) = add(multiply(B,multiply(A,C)),additive_inverse(multiply(multiply(B,A),C))).  [copy(23),rewrite([21(1),21(7),6(13),7(10)])].
+25 associator(A,B,C) = additive_inverse(associator(C,B,A)) # label(associator_skew_symmetry2) # label(axiom).  [assumption].
+26 add(additive_inverse(multiply(A,multiply(B,C))),multiply(multiply(A,B),C)) = add(multiply(C,multiply(B,A)),additive_inverse(multiply(multiply(C,B),A))).  [copy(25),rewrite([21(1),21(7),6(13),7(10)])].
+27 multiply(cz,multiply(cx,multiply(cy,cx))) != multiply(multiply(multiply(cz,cx),cy),cx) # label(prove_right_moufang) # label(negated_conjecture) # answer(prove_right_moufang).  [assumption].
+28 multiply(multiply(multiply(cz,cx),cy),cx) != multiply(cz,multiply(cx,multiply(cy,cx))) # answer(prove_right_moufang).  [copy(27),flip(a)].
+29 add(A,additive_inverse(A)) = additive_identity.  [back_rewrite(5),rewrite([15(2)])].
+40 add(A,add(B,C)) = add(B,add(A,C)).  [para(15(a,1),17(a,1,1)),rewrite([17(2)])].
+53 multiply(multiply(A,B),multiply(A,A)) = multiply(A,multiply(B,multiply(A,A))).  [para(22(a,1),10(a,1,1)),rewrite([22(3),10(2)]),flip(a)].
+63 add(additive_inverse(multiply(multiply(A,B),multiply(B,C))),multiply(multiply(A,multiply(B,B)),C)) = add(multiply(B,multiply(multiply(A,B),C)),additive_inverse(multiply(multiply(B,multiply(A,B)),C))).  [para(10(a,1),24(a,1,2,1))].
+87 add(additive_inverse(multiply(A,multiply(B,C))),add(additive_inverse(multiply(A,multiply(D,C))),add(multiply(multiply(A,B),C),multiply(multiply(A,D),C)))) = add(multiply(C,multiply(B,A)),add(multiply(C,multiply(D,A)),add(additive_inverse(multiply(multiply(C,B),A)),additive_inverse(multiply(multiply(C,D),A))))).  [para(8(a,1),26(a,1,2,1)),rewrite([9(2),8(4),6(6),9(11),17(13),9(15),8(17),8(20),9(22),6(24),17(26)])].
+99 add(additive_inverse(multiply(A,multiply(B,C))),add(multiply(multiply(A,B),C),D)) = add(multiply(C,multiply(B,A)),add(additive_inverse(multiply(multiply(C,B),A)),D)).  [para(26(a,1),17(a,1,1)),rewrite([17(7)]),flip(a)].
+115 add(multiply(A,multiply(B,C)),additive_inverse(multiply(multiply(A,B),C))) = add(multiply(C,multiply(A,B)),additive_inverse(multiply(multiply(C,A),B))).  [para(26(a,1),24(a,1)),flip(a)].
+120 add(A,add(additive_inverse(A),B)) = B.  [para(29(a,1),17(a,1,1)),rewrite([2(2)]),flip(a)].
+144 add(A,add(B,additive_inverse(A))) = B.  [para(15(a,1),120(a,1,2))].
+149 multiply(multiply(A,B),C) = add(multiply(A,multiply(B,C)),add(multiply(B,multiply(A,C)),additive_inverse(multiply(multiply(B,A),C)))).  [para(24(a,1),120(a,1,2)),flip(a)].
+150 multiply(multiply(A,B),C) = add(multiply(A,multiply(B,C)),add(multiply(C,multiply(B,A)),additive_inverse(multiply(multiply(C,B),A)))).  [para(26(a,1),120(a,1,2)),flip(a)].
+153 add(additive_inverse(A),add(B,A)) = B.  [para(7(a,1),144(a,1,2,2))].
+155 add(A,add(B,add(C,additive_inverse(A)))) = add(B,C).  [para(17(a,1),144(a,1,2))].
+190 add(additive_inverse(A),add(B,add(A,C))) = add(B,C).  [para(153(a,1),17(a,1,1)),rewrite([17(4)]),flip(a)].
+11198 add(multiply(multiply(A,B),multiply(C,A)),additive_inverse(multiply(multiply(multiply(A,B),C),A))) = add(additive_inverse(multiply(A,multiply(C,multiply(A,B)))),multiply(multiply(A,C),multiply(A,B))).  [para(53(a,1),87(a,2,1)),rewrite([11(11),190(17),22(16),22(17),10(16),40(24),120(25)]),flip(a)].
+22217 add(multiply(multiply(A,B),multiply(C,B)),additive_inverse(multiply(multiply(multiply(A,B),C),B))) = add(additive_inverse(multiply(multiply(A,B),multiply(B,C))),multiply(multiply(A,multiply(B,B)),C)).  [para(115(a,2),63(a,2)),flip(a)].
+25452 add(multiply(cx,multiply(multiply(cz,cy),cx)),add(multiply(multiply(cz,multiply(cx,cy)),cx),additive_inverse(multiply(multiply(multiply(cx,cz),cy),cx)))) != multiply(cz,multiply(cx,multiply(cy,cx))) # answer(prove_right_moufang).  [para(149(a,1),28(a,1,1)),rewrite([40(18),9(20),22(7),9(21),12(22)])].
+25466 add(multiply(multiply(A,B),C),multiply(multiply(B,A),C)) = add(multiply(B,multiply(A,C)),multiply(A,multiply(B,C))).  [para(149(a,2),155(a,1,2))].
+26086 add(multiply(multiply(cy,cz),multiply(cx,cx)),add(additive_inverse(multiply(multiply(cy,multiply(cz,cx)),cx)),multiply(multiply(cz,multiply(cx,cy)),cx))) != multiply(cz,multiply(cx,multiply(cy,cx))) # answer(prove_right_moufang).  [para(150(a,1),25452(a,1,2,2,1,1)),rewrite([40(32),9(34),9(35),22(28),12(36),10(35),15(37),40(38),6(39),7(23),6(37),15(40),17(40),17(39),40(41),40(40),120(39)])].
+26124 add(additive_inverse(multiply(cy,multiply(cz,multiply(cx,cx)))),add(multiply(multiply(cy,cz),multiply(cx,cx)),add(multiply(multiply(cz,cx),multiply(cx,cy)),add(additive_inverse(multiply(multiply(cz,multiply(cx,cx)),cy)),multiply(multiply(cz,multiply(cx,cy)),cx))))) != multiply(cz,multiply(cx,multiply(cy,cx))) # answer(prove_right_moufang).  [para(149(a,1),26086(a,1,2,1,1)),rewrite([10(13),22217(30),6(32),6(32),7(24),17(40),17(39),40(41)])].
+26541 add(multiply(cx,multiply(cx,multiply(cz,cy))),add(additive_inverse(multiply(multiply(cx,multiply(cx,cz)),cy)),add(multiply(multiply(cz,cx),multiply(cx,cy)),add(additive_inverse(multiply(multiply(cz,multiply(cx,cx)),cy)),multiply(multiply(cz,multiply(cx,cy)),cx))))) != multiply(cz,multiply(cx,multiply(cy,cx))) # answer(prove_right_moufang).  [para(99(a,1),26124(a,1)),rewrite([11(7),11(12)])].
+27581 add(additive_inverse(multiply(cz,multiply(cx,multiply(cx,cy)))),add(multiply(multiply(cz,cx),multiply(cx,cy)),multiply(multiply(cz,multiply(cx,cy)),cx))) != multiply(cz,multiply(cx,multiply(cy,cx))) # answer(prove_right_moufang).  [para(149(a,1),26541(a,1,2,2,2,1,1)),rewrite([11(28),11(36),11(41),40(46),6(47),6(47),7(47),17(55),17(54),40(56),40(55),40(54),40(57),40(56),40(55),120(55),120(41)])].
+27799 $F # answer(prove_right_moufang).  [para(149(a,1),27581(a,1,2,2)),rewrite([22(21),11198(38),40(39),15(40),17(40),17(39),25466(38),15(38),15(39),17(39),40(40),120(40),40(24),120(24)]),xx(a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=610. Generated=114313. Kept=27793. proofs=1.
+Usable=582. Sos=19999. Demods=19543. Limbo=2, Disabled=7233. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=2479.
+Forward_subsumed=42466. Back_subsumed=153.
+Sos_limit_deleted=41574. Sos_displaced=3042. Sos_removed=0.
+New_demodulators=25703 (3 lex), Back_demodulated=4012. Back_unit_deleted=0.
+Demod_attempts=3263143. Demod_rewrites=275643.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=74.92.
+User_CPU=11.04, System_CPU=0.06, Wall_clock=11.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 49 exit (max_proofs) Fri Oct 23 15:00:34 2026
+Demod_increase_limit (see stdout)
+-------- Proof 1 -------- prove_right_moufang.
+
+THEOREM PROVED
+
+------ process 49 exit (max_proofs) ------
+

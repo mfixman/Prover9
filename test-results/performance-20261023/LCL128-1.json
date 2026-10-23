@@ -1,0 +1,12 @@
+{
+  "problem": "LCL128-1",
+  "domain": "LCL",
+  "rating": 0.07,
+  "conversion_wall_seconds": 0.009528355993097648,
+  "exit_code": 0,
+  "search_wall_seconds": 4.26795602600032,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 4.16,
+  "total_wall_seconds": 4.278611852991162
+}

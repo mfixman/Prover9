@@ -1,0 +1,26 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+p2(X0,X0) # label(p2_1) # label(negated_conjecture).
+p4(X8,X8) # label(p4_2) # label(negated_conjecture).
+p6(c7,f3(X21)) # label(p6_3) # label(negated_conjecture).
+p5(c7,c10,c9) # label(p5_4) # label(negated_conjecture).
+p5(c7,c10,c8) # label(p5_5) # label(negated_conjecture).
+p5(c7,X21,f3(X21)) # label(p5_6) # label(negated_conjecture).
+p2(f3(X6),f3(X7)) | -p2(X6,X7) # label(p2_7) # label(negated_conjecture).
+-p5(c7,c8,X26) | -p5(c7,c9,X26) # label(not_p5_8) # label(negated_conjecture).
+p2(X1,X2) | -p2(X0,X1) | -p2(X0,X2) # label(p2_9) # label(negated_conjecture).
+p4(X9,X10) | -p4(X8,X9) | -p4(X8,X10) # label(p4_10) # label(negated_conjecture).
+p5(X11,X12,X13) | -p5(X11,X12,X14) | -p5(X11,X14,X13) # label(p5_11) # label(negated_conjecture).
+p6(X22,X23) | -p4(X25,X22) | -p6(X25,X24) | -p2(X24,X23) # label(p6_12) # label(negated_conjecture).
+p2(X3,X4) | -p6(c7,X4) | -p6(c7,X3) | -p5(c7,X5,X4) | -p5(c7,X5,X3) # label(p2_13) # label(negated_conjecture).
+p5(X15,X16,X17) | -p2(X18,X16) | -p2(X19,X17) | -p4(X20,X15) | -p5(X20,X18,X19) # label(p5_14) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

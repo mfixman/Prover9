@@ -1,0 +1,15 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+element_of_collection(U,top_of_basis(Vf)) | element_of_set(f11(Vf,U),U) # label(topology_generated_40) # label(axiom).
+-element_of_set(X,empty_set) # label(set_theory_6) # label(axiom).
+-element_of_collection(empty_set,top_of_basis(f)) # label(lemma_1b_2) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

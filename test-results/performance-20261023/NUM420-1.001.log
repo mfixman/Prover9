@@ -1,0 +1,387 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 79 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-less(X1,X2) | -less(X1,X3) | -less(X2,X3) | plus(X2,times(X4,X3)) != plus(X1,times(X5,X3)) # label(axiom_1) # label(axiom).
+X1 = X2 | less(X1,X2) | less(X2,X1) # label(axiom_2) # label(axiom).
+plus(X1,plus(X2,X3)) = plus(plus(X1,X2),X3) # label(axiom_3) # label(axiom).
+plus(X1,X2) != plus(X1,X3) | X2 = X3 # label(axiom_4) # label(axiom).
+plus(X1,X2) = plus(X2,X1) # label(axiom_5) # label(axiom).
+plus(plus(X1,X2),X3) = plus(X1,plus(X2,X3)) # label(axiom_6) # label(axiom).
+X1 != plus(X1,X2) | X2 = n0 # label(axiom_7) # label(axiom).
+X1 != plus(X2,X1) | X2 = n0 # label(axiom_8) # label(axiom).
+plus(X1,X2) != plus(X3,X2) | X1 = X3 # label(axiom_9) # label(axiom).
+plus(X1,X2) != X1 | X2 = n0 # label(axiom_10) # label(axiom).
+plus(X1,X2) != X2 | X1 = n0 # label(axiom_11) # label(axiom).
+plus(n0,X1) = X1 # label(axiom_12) # label(axiom).
+plus(X1,n0) = X1 # label(axiom_13) # label(axiom).
+plus(n1,plus(X1,n1)) != n1 # label(axiom_14) # label(axiom).
+X1 != X2 | plus(X3,X1) = plus(X3,X2) # label(axiom_15) # label(axiom).
+plus(X1,n1) != n0 # label(axiom_16) # label(axiom).
+times(X1,X2) = times(X2,X1) # label(axiom_17) # label(axiom).
+times(X1,times(X2,X3)) = times(times(X1,X2),X3) # label(axiom_18) # label(axiom).
+times(times(X1,X2),X3) = times(X1,times(X2,X3)) # label(axiom_19) # label(axiom).
+times(X1,n1) = X1 # label(axiom_20) # label(axiom).
+times(n1,X1) = X1 # label(axiom_21) # label(axiom).
+times(X1,plus(X2,X3)) = plus(times(X1,X2),times(X1,X3)) # label(axiom_22) # label(axiom).
+plus(times(X1,X2),times(X1,X3)) = times(X1,plus(X3,X2)) # label(axiom_23) # label(axiom).
+times(plus(X1,X2),X3) = plus(times(X1,X3),times(X2,X3)) # label(axiom_24) # label(axiom).
+times(plus(X1,X2),X3) = plus(times(X2,X3),times(X1,X3)) # label(axiom_25) # label(axiom).
+plus(times(X1,X2),times(X3,X2)) = times(plus(X1,X3),X2) # label(axiom_26) # label(axiom).
+plus(times(X1,X2),X1) = times(X1,plus(X2,n1)) # label(axiom_27) # label(axiom).
+n1 != times(X1,X2) | X1 = n1 # label(axiom_28) # label(axiom).
+n1 != times(X2,X1) | X1 = n1 # label(axiom_29) # label(axiom).
+-less(X1,X2) | -less(X1,X3) | -less(X2,X3) | plus(X1,times(X4,X3)) != plus(X2,times(X5,X3)) # label(axiom_30) # label(axiom).
+less(n0,plus(X1,n1)) # label(axiom_31) # label(axiom).
+-less(plus(X6,n1),X3) | less(X6,X3) # label(axiom_32) # label(axiom).
+-less(n1,X1) | X1 != n1 # label(axiom_33) # label(axiom).
+-less(n1,X1) | n1 != times(X2,X1) # label(axiom_34) # label(axiom).
+-less(n0,X7) | -less(n0,p__0) | -less(X7,p__0) | plus(X7,times(X8,p__0)) != plus(n0,times(X9,p__0)) # label(clause_1) # label(negated_conjecture).
+-less(n0,p__0) | less(s_5(p__0,X10),p__0) # label(clause_2) # label(negated_conjecture).
+X11 != n1 | X11 = n1 # label(clause_3) # label(negated_conjecture).
+plus(n1,plus(X12,n1)) != n1 # label(clause_4) # label(negated_conjecture).
+-element(plus(X13,plus(X14,n1)),X15) # label(clause_5) # label(negated_conjecture).
+plus(X13,plus(X14,n1)) != plus(X1,times(X16,plus(X12,n1))) | plus(X13,plus(X14,n1)) = plus(X1,times(X16,plus(X12,n1))) # label(clause_6) # label(negated_conjecture).
+X14 != plus(n0,times(X17,p__1)) | X14 = plus(n0,times(X17,p__1)) # label(clause_7) # label(negated_conjecture).
+X18 != plus(X19,times(X20,plus(X21,n1))) | X18 = plus(X19,times(X20,plus(X21,n1))) # label(clause_8) # label(negated_conjecture).
+X14 != plus(n0,times(X22,p__0)) | X14 = plus(n0,times(X22,p__0)) # label(clause_9) # label(negated_conjecture).
+-less(n0,p__0) | p__0 = plus(s_7(p__0),n1) # label(clause_10) # label(negated_conjecture).
+X14 != n1 | X14 = n1 # label(clause_11) # label(negated_conjecture).
+X23 != plus(n0,times(X24,p__0)) | X23 = plus(n0,times(X24,p__0)) # label(clause_12) # label(negated_conjecture).
+-element(X1,X15) # label(clause_13) # label(negated_conjecture).
+X25 != n1 | X25 = n1 # label(clause_14) # label(negated_conjecture).
+X19 != n1 | X19 = n1 # label(clause_15) # label(negated_conjecture).
+X26 != plus(X27,times(X28,plus(X29,n1))) | X26 = plus(X27,times(X28,plus(X29,n1))) # label(clause_16) # label(negated_conjecture).
+X27 != plus(n0,times(X30,p__0)) | X27 = plus(n0,times(X30,p__0)) # label(clause_17) # label(negated_conjecture).
+X14 != n1 | X14 = n1 # label(clause_18) # label(negated_conjecture).
+X18 != n1 | X18 = n1 # label(clause_19) # label(negated_conjecture).
+plus(plus(times(plus(X10,n1),X31),X10),n1) = times(plus(X10,n1),plus(X31,n1)) # label(clause_20) # label(negated_conjecture).
+-less(n0,p__0) | X13 != plus(X7,times(X8,p__0)) | X13 = plus(X7,times(X8,p__0)) # label(clause_21) # label(negated_conjecture).
+X14 != plus(n0,times(X32,p__1)) | X14 = plus(n0,times(X32,p__1)) # label(clause_22) # label(negated_conjecture).
+X33 != n1 | X33 = n1 # label(clause_23) # label(negated_conjecture).
+X23 != plus(n0,times(X34,p__1)) | X23 = plus(n0,times(X34,p__1)) # label(clause_24) # label(negated_conjecture).
+-less(n0,p__0) | plus(times(X8,p__0),times(X9,p__0)) = times(plus(X8,X9),p__0) # label(clause_25) # label(negated_conjecture).
+X13 != plus(n0,times(X35,p__1)) | X13 = plus(n0,times(X35,p__1)) # label(clause_26) # label(negated_conjecture).
+X13 != plus(X23,times(X9,times(plus(X10,n1),plus(X31,n1)))) | X13 = plus(X23,times(times(X9,plus(X31,n1)),plus(X10,n1))) # label(clause_27) # label(negated_conjecture).
+-less(n0,p__0) | X10 != plus(X7,times(plus(X8,X9),p__0)) | X10 = plus(X7,times(plus(X8,X9),p__0)) # label(clause_28) # label(negated_conjecture).
+-less(n0,p__0) | s_5(p__0,X10) != n0 | X10 = plus(n0,times(s_6(p__0,X10),p__0)) # label(clause_29) # label(negated_conjecture).
+plus(X36,plus(X37,n1)) != n1 | plus(X36,plus(X37,n1)) = n1 # label(clause_30) # label(negated_conjecture).
+-less(n0,p__0) | -less(X7,p__0) | less(X7,p__0) # label(clause_31) # label(negated_conjecture).
+X26 != plus(n0,times(X38,p__0)) | X26 = plus(n0,times(X38,p__0)) # label(clause_32) # label(negated_conjecture).
+X14 != plus(n0,times(X39,p__0)) | X14 = plus(n0,times(X39,p__0)) # label(clause_33) # label(negated_conjecture).
+-less(n0,p__0) | X7 != n0 | X7 = n0 # label(clause_34) # label(negated_conjecture).
+plus(X13,plus(plus(times(X1,plus(X12,plus(n1,n1))),times(X12,plus(X13,n1))),n1)) = plus(X1,times(plus(X1,plus(X13,n1)),plus(X12,n1))) # label(clause_35) # label(negated_conjecture).
+X13 != plus(X23,times(X9,times(plus(X10,n1),plus(X31,n1)))) | X13 = plus(X23,times(times(X9,plus(X10,n1)),plus(X31,n1))) # label(clause_36) # label(negated_conjecture).
+X13 != plus(n0,times(X40,p__0)) | X13 = plus(n0,times(X40,p__0)) # label(clause_37) # label(negated_conjecture).
+X33 != plus(X11,times(X41,plus(X42,n1))) | X33 = plus(X11,times(X41,plus(X42,n1))) # label(clause_38) # label(negated_conjecture).
+-less(n0,p__0) | X10 = plus(s_5(p__0,X10),times(s_6(p__0,X10),p__0)) # label(clause_39) # label(negated_conjecture).
+-less(n0,p__0) | plus(plus(X7,times(X8,p__0)),times(X9,p__0)) = plus(X7,plus(times(X8,p__0),times(X9,p__0))) # label(clause_40) # label(negated_conjecture).
+X10 != plus(X7,times(X8,p__0)) | X10 = plus(X7,times(X8,p__0)) # label(clause_41) # label(negated_conjecture).
+X7 = n0 | less(X7,n0) | less(n0,X7) # label(clause_42) # label(negated_conjecture).
+-less(X7,n0) | -less(n0,p__0) | -less(X7,p__0) | plus(X7,times(X8,p__0)) != plus(n0,times(X9,p__0)) # label(clause_43) # label(negated_conjecture).
+-less(plus(n0,n1),p__0) | less(n0,p__0) # label(clause_44) # label(negated_conjecture).
+-less(n1,p__0) | less(n1,p__0) # label(clause_45) # label(negated_conjecture).
+plus(n0,n1) = n1 # label(clause_46) # label(negated_conjecture).
+-less(n0,p__1) | X10 != plus(X7,times(plus(X8,X9),p__1)) | X10 = plus(X7,times(plus(X8,X9),p__1)) # label(clause_47) # label(negated_conjecture).
+-less(n0,p__1) | plus(times(X8,p__1),times(X9,p__1)) = times(plus(X8,X9),p__1) # label(clause_48) # label(negated_conjecture).
+-less(n0,p__1) | -less(X7,p__1) | less(X7,p__1) # label(clause_49) # label(negated_conjecture).
+-less(n0,p__1) | plus(plus(X7,times(X8,p__1)),times(X9,p__1)) = plus(X7,plus(times(X8,p__1),times(X9,p__1))) # label(clause_50) # label(negated_conjecture).
+-less(n0,p__1) | X13 != plus(X7,times(X8,p__1)) | X13 = plus(X7,times(X8,p__1)) # label(clause_51) # label(negated_conjecture).
+-less(n0,p__1) | X7 != n0 | X7 = n0 # label(clause_52) # label(negated_conjecture).
+-less(n0,p__1) | p__1 = plus(s_7(p__1),n1) # label(clause_53) # label(negated_conjecture).
+-less(n0,p__1) | X10 = plus(s_5(p__1,X10),times(s_6(p__1,X10),p__1)) # label(clause_54) # label(negated_conjecture).
+-less(n0,X7) | -less(n0,p__1) | -less(X7,p__1) | plus(X7,times(X8,p__1)) != plus(n0,times(X9,p__1)) # label(clause_55) # label(negated_conjecture).
+-less(n0,p__1) | s_5(p__1,X10) != n0 | X10 = plus(n0,times(s_6(p__1,X10),p__1)) # label(clause_56) # label(negated_conjecture).
+-less(n0,p__1) | less(s_5(p__1,X10),p__1) # label(clause_57) # label(negated_conjecture).
+X7 = n0 | less(X7,n0) | less(n0,X7) # label(clause_58) # label(negated_conjecture).
+-less(X7,n0) | -less(n0,p__1) | -less(X7,p__1) | plus(X7,times(X8,p__1)) != plus(n0,times(X9,p__1)) # label(clause_59) # label(negated_conjecture).
+X10 != plus(X7,times(X8,p__1)) | X10 = plus(X7,times(X8,p__1)) # label(clause_60) # label(negated_conjecture).
+-less(plus(n0,n1),p__1) | less(n0,p__1) # label(clause_61) # label(negated_conjecture).
+-less(n1,p__1) | less(n1,p__1) # label(clause_62) # label(negated_conjecture).
+plus(n0,n1) = n1 # label(clause_63) # label(negated_conjecture).
+X43 != p__1 | X43 = p__1 # label(clause_64) # label(negated_conjecture).
+X43 != n1 | X43 = n1 # label(clause_65) # label(negated_conjecture).
+times(X43,X44) != p__1 | times(X43,X44) = p__1 # label(clause_66) # label(negated_conjecture).
+X45 != p__0 | X45 = p__0 # label(clause_67) # label(negated_conjecture).
+-less(n1,p__1) | less(n1,p__1) # label(clause_68) # label(negated_conjecture).
+p__1 = p__1 # label(clause_69) # label(negated_conjecture).
+X45 != n1 | X45 = n1 # label(clause_70) # label(negated_conjecture).
+times(X45,X46) != p__0 | times(X45,X46) = p__0 # label(clause_71) # label(negated_conjecture).
+p__0 = p__0 # label(clause_72) # label(negated_conjecture).
+-less(n1,p__0) | less(n1,p__0) # label(clause_73) # label(negated_conjecture).
+X47 != X10 | X47 = X10 # label(clause_74) # label(negated_conjecture).
+X47 != n1 | X47 = n1 # label(clause_75) # label(negated_conjecture).
+times(X47,X48) != X10 | times(X47,X48) = X10 # label(clause_76) # label(negated_conjecture).
+X10 != p__1 | times(X49,X50) != X10 | X49 = n1 | X49 = X10 # label(clause_77) # label(negated_conjecture).
+-less(n1,X10) | less(n1,X10) # label(clause_78) # label(negated_conjecture).
+X10 != p__0 | X10 = p__0 # label(clause_79) # label(negated_conjecture).
+X13 != plus(n0,times(X51,X10)) | X13 = plus(n0,times(X51,X10)) # label(clause_80) # label(negated_conjecture).
+X10 != p__1 | less(n1,X10) # label(clause_81) # label(negated_conjecture).
+X10 != p__0 | times(X49,X50) != X10 | X49 = n1 | X49 = X10 # label(clause_82) # label(negated_conjecture).
+X10 != p__0 | less(n1,X10) # label(clause_83) # label(negated_conjecture).
+X13 != plus(n0,times(X52,X10)) | X13 = plus(n0,times(X52,X10)) # label(clause_84) # label(negated_conjecture).
+X10 != p__1 | X10 = p__1 # label(clause_85) # label(negated_conjecture).
+X13 = n1 | X13 = X13 # label(clause_86) # label(negated_conjecture).
+X10 != p__0 | X10 = p__0 # label(clause_87) # label(negated_conjecture).
+X13 = n1 | times(s_1(X13),s_4(X13)) = X13 # label(clause_88) # label(negated_conjecture).
+X13 = n1 | times(s_4(X13),s_1(X13)) = times(s_1(X13),s_4(X13)) # label(clause_89) # label(negated_conjecture).
+X13 != n1 | X13 = n1 # label(clause_90) # label(negated_conjecture).
+X13 != n1 | X13 = n1 # label(clause_91) # label(negated_conjecture).
+X13 = n1 | plus(n0,times(s_4(X13),s_1(X13))) = times(s_4(X13),s_1(X13)) # label(clause_92) # label(negated_conjecture).
+X13 = n1 | s_1(X13) = p__0 | s_1(X13) = p__1 # label(clause_93) # label(negated_conjecture).
+X10 != p__1 | plus(n0,times(X14,X10)) = times(X14,X10) # label(clause_94) # label(negated_conjecture).
+X10 != p__0 | n1 != times(X14,X10) # label(clause_95) # label(negated_conjecture).
+X10 != p__1 | n1 != times(X14,X10) # label(clause_96) # label(negated_conjecture).
+X10 != p__1 | X13 != n1 | X13 = n1 # label(clause_97) # label(negated_conjecture).
+X10 != p__0 | X13 != n1 | X13 = n1 # label(clause_98) # label(negated_conjecture).
+X10 != p__0 | plus(n0,times(X14,X10)) = times(X14,X10) # label(clause_99) # label(negated_conjecture).
+X13 != plus(n0,times(X53,p__1)) | X13 = plus(n0,times(X53,p__1)) # label(clause_100) # label(negated_conjecture).
+X13 != plus(n0,times(X54,X10)) | X13 = plus(n0,times(X54,X10)) # label(clause_101) # label(negated_conjecture).
+p__1 = p__1 # label(clause_102) # label(negated_conjecture).
+X13 != plus(n0,times(X55,p__0)) | X13 = plus(n0,times(X55,p__0)) # label(clause_103) # label(negated_conjecture).
+X10 != p__0 | X10 = p__0 # label(clause_104) # label(negated_conjecture).
+p__0 = p__0 # label(clause_105) # label(negated_conjecture).
+n1 = n1 # label(clause_106) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, less, element ]).
+Function symbol precedence:  function_order([ n1, n0, p__0, p__1, plus, times, s_5, s_6, s_1, s_4, s_7 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+% Operation plus is commutative; C redundancy checks enabled.
+
+% Operation times is commutative; C redundancy checks enabled.
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+% Operation plus is associative-commutative; CAC redundancy checks enabled.
+
+% Operation times is associative-commutative; CAC redundancy checks enabled.
+% back CAC tautology: 177 times(A,times(B,C)) = times(C,times(A,B)).  [para(22(a,1),20(a,1))].
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 87 (0.00 of 0.32 sec).
+
+given #500 (F,wt=9): 1036 -less(plus(A,plus(B,times(p__0,p__0))),n1).  [para(4(a,1),892(a,1))].
+
+Low Water (keep): wt=59.000, iters=6711
+
+given #1000 (T,wt=10): 9385 s_1(p__1) = p__1 | less(n0,times(p__1,s_1(p__1))).  [resolve(9279,b,204,a)].
+
+Low Water (keep): wt=56.000, iters=6759
+
+Low Water (keep): wt=54.000, iters=6736
+
+Low Water (keep): wt=52.000, iters=6752
+
+Low Water (keep): wt=50.000, iters=6987
+
+Low Water (keep): wt=48.000, iters=6689
+
+Low Water (keep): wt=47.000, iters=6672
+
+Low Water (keep): wt=46.000, iters=6752
+
+Low Water (keep): wt=45.000, iters=6709
+
+Low Water (keep): wt=44.000, iters=6727
+
+Low Water (keep): wt=42.000, iters=6734
+
+Low Water (keep): wt=41.000, iters=6721
+
+given #1500 (F,wt=10): 12856 plus(s_5(p__1,A),s_7(p__1)) != plus(p__1,A).  [para(352(a,1),12092(a,1,2)),flip(a)].
+
+Low Water (keep): wt=40.000, iters=6714
+
+Low Water (keep): wt=39.000, iters=6691
+
+Low Water (keep): wt=38.000, iters=6698
+
+Low Water (keep): wt=36.000, iters=6673
+
+Low Water (keep): wt=35.000, iters=6698
+
+Low Water (keep): wt=34.000, iters=6676
+
+============================== PROOF =================================
+
+% Proof 1 at 2.53 (+ 0.05) seconds.
+% Length of proof is 91.
+% Level of proof is 17.
+% Maximum clause weight is 18.000.
+% Given clauses 1890 (111.176 givens/level).
+
+3 plus(A,plus(B,C)) = plus(plus(A,B),C) # label(axiom_3) # label(axiom).  [assumption].
+4 plus(plus(A,B),C) = plus(A,plus(B,C)).  [copy(3),flip(a)].
+6 plus(A,B) = plus(B,A) # label(axiom_5) # label(axiom).  [assumption].
+10 A != plus(B,A) | B = n0 # label(axiom_8) # label(axiom).  [assumption].
+11 plus(A,B) != B | n0 = A.  [copy(10),flip(a),flip(b)].
+15 plus(n0,A) = A # label(axiom_12) # label(axiom).  [assumption].
+17 plus(n1,plus(A,n1)) != n1 # label(axiom_14) # label(axiom).  [assumption].
+19 plus(A,n1) != n0 # label(axiom_16) # label(axiom).  [assumption].
+20 times(A,B) = times(B,A) # label(axiom_17) # label(axiom).  [assumption].
+21 times(A,times(B,C)) = times(times(A,B),C) # label(axiom_18) # label(axiom).  [assumption].
+22 times(times(A,B),C) = times(A,times(B,C)).  [copy(21),flip(a)].
+24 times(A,n1) = A # label(axiom_20) # label(axiom).  [assumption].
+25 times(n1,A) = A # label(axiom_21) # label(axiom).  [assumption].
+26 times(A,plus(B,C)) = plus(times(A,B),times(A,C)) # label(axiom_22) # label(axiom).  [assumption].
+37 less(n0,plus(A,n1)) # label(axiom_31) # label(axiom).  [assumption].
+38 -less(plus(A,n1),B) | less(A,B) # label(axiom_32) # label(axiom).  [assumption].
+43 -less(n0,A) | -less(n0,p__0) | -less(A,p__0) | plus(A,times(B,p__0)) != plus(n0,times(C,p__0)) # label(clause_1) # label(negated_conjecture).  [assumption].
+44 -less(n0,A) | -less(n0,p__0) | -less(A,p__0) | plus(A,times(B,p__0)) != times(C,p__0).  [copy(43),rewrite([15(14)])].
+52 -less(n0,p__0) | p__0 = plus(s_7(p__0),n1) # label(clause_10) # label(negated_conjecture).  [assumption].
+53 -less(n0,p__0) | plus(n1,s_7(p__0)) = p__0.  [copy(52),rewrite([6(8)]),flip(b)].
+100 -less(n0,p__1) | p__1 = plus(s_7(p__1),n1) # label(clause_53) # label(negated_conjecture).  [assumption].
+101 -less(n0,p__1) | plus(n1,s_7(p__1)) = p__1.  [copy(100),rewrite([6(8)]),flip(b)].
+104 -less(n0,A) | -less(n0,p__1) | -less(A,p__1) | plus(A,times(B,p__1)) != plus(n0,times(C,p__1)) # label(clause_55) # label(negated_conjecture).  [assumption].
+105 -less(n0,A) | -less(n0,p__1) | -less(A,p__1) | plus(A,times(B,p__1)) != times(C,p__1).  [copy(104),rewrite([15(14)])].
+125 A != p__1 | less(n1,A) # label(clause_81) # label(negated_conjecture).  [assumption].
+126 p__1 != A | less(n1,A).  [copy(125),flip(a)].
+127 A != p__0 | times(B,C) != A | B = n1 | B = A # label(clause_82) # label(negated_conjecture).  [assumption].
+128 p__0 != A | times(B,C) != A | n1 = B | B = A.  [copy(127),flip(a),flip(c)].
+129 A != p__0 | less(n1,A) # label(clause_83) # label(negated_conjecture).  [assumption].
+130 p__0 != A | less(n1,A).  [copy(129),flip(a)].
+135 A = n1 | times(s_1(A),s_4(A)) = A # label(clause_88) # label(negated_conjecture).  [assumption].
+136 n1 = A | times(s_1(A),s_4(A)) = A.  [copy(135),flip(a)].
+141 A = n1 | s_1(A) = p__0 | s_1(A) = p__1 # label(clause_93) # label(negated_conjecture).  [assumption].
+142 n1 = A | s_1(A) = p__0 | s_1(A) = p__1.  [copy(141),flip(a)].
+144 A != p__0 | n1 != times(B,A) # label(clause_95) # label(negated_conjecture).  [assumption].
+145 p__0 != A | times(B,A) != n1.  [copy(144),flip(a),flip(b)].
+146 A != p__1 | n1 != times(B,A) # label(clause_96) # label(negated_conjecture).  [assumption].
+147 p__1 != A | times(B,A) != n1.  [copy(146),flip(a),flip(b)].
+169 plus(A,plus(B,C)) != C | plus(A,B) = n0.  [para(4(a,1),11(a,1)),flip(b)].
+172 plus(n1,plus(n1,A)) != n1.  [para(6(a,1),17(a,1,2))].
+175 plus(n1,A) != n0.  [para(6(a,1),19(a,1))].
+200 less(n0,n1).  [para(15(a,1),37(a,2))].
+204 -less(n1,A) | less(n0,A).  [para(15(a,1),38(a,1))].
+232 less(n1,p__1).  [resolve(126,a,25,a(flip)),rewrite([25(4)])].
+238 p__0 != A | times(B,C) != A | n1 = C | C = A.  [para(20(a,1),128(b,1))].
+242 less(n1,p__0).  [resolve(130,a,25,a(flip)),rewrite([25(4)])].
+243 n1 = A | p__0 != A | s_1(A) = n1 | s_1(A) = A.  [resolve(136,b,128,b),flip(c)].
+250 n1 = A | times(s_1(A),times(s_4(A),B)) = times(A,B).  [para(136(b,1),22(a,1,1)),flip(b)].
+262 n1 = A | s_1(A) = p__0 | times(p__1,s_4(A)) = A.  [para(142(c,1),136(b,1,1)),merge(c)].
+263 p__0 != n1.  [resolve(145,b,25,a)].
+271 p__1 != n1.  [resolve(147,b,25,a)].
+287 -less(n0,p__1) | plus(n1,times(A,p__1)) != times(B,p__1).  [resolve(200,a,105,a),unit_del(b,232)].
+288 -less(n0,p__0) | plus(n1,times(A,p__0)) != times(B,p__0).  [resolve(200,a,44,a),unit_del(b,242)].
+331 less(n0,p__0).  [resolve(204,a,242,a)].
+332 less(n0,p__1).  [resolve(204,a,232,a)].
+334 plus(n1,times(A,p__0)) != times(B,p__0).  [back_unit_del(288),unit_del(a,331)].
+341 plus(n1,s_7(p__0)) = p__0.  [back_unit_del(53),unit_del(a,331)].
+344 plus(n1,times(A,p__1)) != times(B,p__1).  [back_unit_del(287),unit_del(a,332)].
+353 plus(n1,s_7(p__1)) = p__1.  [back_unit_del(101),unit_del(a,332)].
+396 plus(n1,plus(s_7(p__0),A)) = plus(p__0,A).  [para(341(a,1),4(a,1,1)),flip(a)].
+403 plus(n1,plus(s_7(p__1),A)) = plus(p__1,A).  [para(353(a,1),4(a,1,1)),flip(a)].
+407 plus(A,times(A,s_7(p__1))) = times(A,p__1).  [para(353(a,1),26(a,1,2)),rewrite([24(4)]),flip(a)].
+409 p__1 != n0.  [para(353(a,1),175(a,1))].
+856 plus(n1,plus(p__0,A)) != n1.  [para(396(a,1),172(a,1,2))].
+1298 plus(p__1,A) != A.  [para(403(a,1),169(a,1)),rewrite([353(7)]),unit_del(b,409)].
+1338 plus(n1,times(p__0,p__1)) != n1.  [para(407(a,1),856(a,1,2))].
+1352 plus(A,p__1) != A.  [para(6(a,1),1298(a,1))].
+2640 plus(n1,times(p__0,A)) != times(B,p__0).  [para(20(a,1),334(a,1,2))].
+2781 plus(n1,times(A,p__1)) != times(p__1,B).  [para(20(a,1),344(a,2))].
+2784 times(A,p__1) != plus(n1,p__1).  [para(25(a,1),344(a,1,2)),flip(a)].
+2788 times(p__1,A) != plus(n1,p__1).  [para(20(a,1),2784(a,1))].
+3115 n1 = A | p__0 != B | A != B | s_4(A) = n1 | s_4(A) = B.  [para(136(b,1),238(b,1)),flip(d)].
+3117 p__0 != A | s_4(p__0) = n1 | s_4(p__0) = A.  [factor(3115,b,c),flip(a),unit_del(a,263)].
+3399 s_1(p__0) = n1 | s_1(p__0) = p__0.  [resolve(243,b,341,a(flip)),rewrite([341(5),341(7),341(11),341(13)]),flip(a),unit_del(a,263)].
+3793 s_1(p__0) = n1 | times(p__0,times(s_4(p__0),A)) = times(p__0,A).  [para(3399(b,1),250(b,1,1)),flip(b),unit_del(b,263)].
+4627 plus(n1,times(p__0,A)) != times(p__0,B).  [para(20(a,1),2640(a,2))].
+4666 s_1(plus(n1,p__1)) = p__0.  [resolve(262,c,2788,a),flip(a),unit_del(a,1352)].
+4692 n1 = A | s_1(A) = p__0 | p__0 != B | A != B | p__1 = B.  [para(262(c,1),128(b,1)),flip(e),unit_del(e,271)].
+4738 s_1(p__0) = p__0 | p__0 != A | p__1 = A.  [factor(4692,c,d),flip(a),unit_del(a,263)].
+4749 times(p__0,s_4(plus(n1,p__1))) = plus(n1,p__1).  [para(4666(a,1),136(b,1,1)),flip(a),unit_del(a,1352)].
+4806 plus(n1,times(A,times(B,p__1))) != times(p__1,C).  [para(22(a,1),2781(a,1,2))].
+7430 plus(n1,times(p__0,A)) != plus(n1,p__1).  [para(4749(a,1),4627(a,2))].
+10060 s_4(p__0) = n1 | s_4(p__0) = p__0.  [resolve(3117,a,4666,a(flip)),rewrite([4666(10)])].
+10174 s_4(p__0) = n1 | times(p__0,s_1(p__0)) = p__0.  [para(10060(b,1),136(b,1,2)),rewrite([20(11)]),flip(b),unit_del(b,263)].
+10235 times(p__0,s_1(p__0)) = p__0 | s_1(p__0) = p__0.  [para(10174(a,1),136(b,1,2)),rewrite([20(13),25(13)]),flip(b),unit_del(b,263)].
+10391 s_1(p__0) = p__0 | times(p__0,s_1(p__0)) = p__1.  [resolve(10235,a,4738,b(flip)),flip(c),merge(b)].
+10661 s_1(p__0) = p__0.  [para(10391(b,1),7430(a,1,2)),xx(b)].
+10733 times(p__0,times(s_4(p__0),A)) = times(p__0,A).  [back_rewrite(3793),rewrite([10661(2)]),unit_del(a,263)].
+17103 times(p__1,A) != plus(n1,times(p__0,p__1)).  [para(10733(a,1),4806(a,1,2)),flip(a)].
+17105 s_1(plus(n1,times(p__0,p__1))) = p__0.  [resolve(17103,a,262,c),flip(a),unit_del(a,1338)].
+17113 $F.  [para(17105(a,1),136(b,1,1)),flip(a),unit_del(a,1338),unit_del(b(flip),4627)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=1890. Generated=65567. Kept=17012. proofs=1.
+Usable=1820. Sos=14028. Demods=85. Limbo=0, Disabled=1304. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=39275. Back_subsumed=37.
+Sos_limit_deleted=9279. Sos_displaced=0. Sos_removed=0.
+New_demodulators=107 (5 lex), Back_demodulated=787. Back_unit_deleted=339.
+Demod_attempts=1605198. Demod_rewrites=156981.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=1295978. Nonunit_bsub_feature_tests=53332.
+Megabytes=35.94.
+User_CPU=2.53, System_CPU=0.05, Wall_clock=3.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 79 exit (max_proofs) Fri Oct 23 15:00:26 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 79 exit (max_proofs) ------
+

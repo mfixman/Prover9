@@ -1,0 +1,12 @@
+{
+  "problem": "GRP423-1",
+  "domain": "GRP",
+  "rating": 0.32,
+  "conversion_wall_seconds": 0.012073401987436228,
+  "exit_code": 0,
+  "search_wall_seconds": 3.205188364998321,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 3.0799999999999996,
+  "total_wall_seconds": 3.2186790100095095
+}

@@ -1,0 +1,12 @@
+{
+  "problem": "MGT015-1",
+  "domain": "MGT",
+  "rating": 0.0,
+  "conversion_wall_seconds": 0.019632818992249668,
+  "exit_code": 0,
+  "search_wall_seconds": 0.03970614699937869,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.02,
+  "total_wall_seconds": 0.06166165799368173
+}

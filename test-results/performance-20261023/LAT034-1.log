@@ -1,0 +1,117 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 151 was started by mfixman on bodoque,
+Fri Oct 23 15:00:48 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+meet(X,join(X,Y)) = X # label(absorption1) # label(axiom).
+join(X,meet(X,Y)) = X # label(absorption2) # label(axiom).
+meet(X,Y) = meet(Y,X) # label(commutativity_of_meet) # label(axiom).
+join(X,Y) = join(Y,X) # label(commutativity_of_join) # label(axiom).
+meet(meet(X,Y),Z) = meet(X,meet(Y,Z)) # label(associativity_of_meet) # label(axiom).
+join(join(X,Y),Z) = join(X,join(Y,Z)) # label(associativity_of_join) # label(axiom).
+meet(xx,xx) != xx # label(idempotence_of_meet) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label idempotence_of_meet to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ xx, join, meet ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+% Operation meet is commutative; C redundancy checks enabled.
+
+% Operation join is commutative; C redundancy checks enabled.
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds: idempotence_of_meet.
+% Length of proof is 5.
+% Level of proof is 2.
+% Maximum clause weight is 7.000.
+% Given clauses 2 (1.000 givens/level).
+
+1 meet(A,join(A,B)) = A # label(absorption1) # label(axiom).  [assumption].
+2 join(A,meet(A,B)) = A # label(absorption2) # label(axiom).  [assumption].
+7 meet(xx,xx) != xx # label(idempotence_of_meet) # label(negated_conjecture) # answer(idempotence_of_meet).  [assumption].
+8 meet(A,A) = A.  [para(2(a,1),1(a,1,2))].
+9 $F # answer(idempotence_of_meet).  [resolve(8,a,7,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=2. Generated=9. Kept=8. proofs=1.
+Usable=2. Sos=5. Demods=6. Limbo=0, Disabled=7. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=1. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=6 (2 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=51. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.04.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 151 exit (max_proofs) Fri Oct 23 15:00:48 2026
+-------- Proof 1 -------- idempotence_of_meet.
+
+THEOREM PROVED
+
+------ process 151 exit (max_proofs) ------
+

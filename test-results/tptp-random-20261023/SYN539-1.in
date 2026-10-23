@@ -1,0 +1,163 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+c5_0 # label(clause1) # label(negated_conjecture).
+ndr1_0 | c3_0 # label(clause2) # label(negated_conjecture).
+ndr1_0 | c4_0 # label(clause3) # label(negated_conjecture).
+ndr1_0 | ssSkC7 # label(clause4) # label(negated_conjecture).
+ndr1_0 | ssSkC4 # label(clause5) # label(negated_conjecture).
+ndr1_0 | ssSkC3 # label(clause6) # label(negated_conjecture).
+ndr1_0 | ssSkC1 # label(clause7) # label(negated_conjecture).
+ndr1_0 | ssSkC0 # label(clause8) # label(negated_conjecture).
+ndr1_1(a637) | c3_0 # label(clause9) # label(negated_conjecture).
+-c4_0 | ndr1_0 # label(clause10) # label(negated_conjecture).
+-ssSkC0 | -ssSkC1 | ndr1_0 # label(clause11) # label(negated_conjecture).
+c2_1(a587) | c4_0 # label(clause12) # label(negated_conjecture).
+c3_1(a587) | c4_0 # label(clause13) # label(negated_conjecture).
+c5_1(a587) | c4_0 # label(clause14) # label(negated_conjecture).
+ndr1_1(a624) | ssSkC4 # label(clause15) # label(negated_conjecture).
+ndr1_1(U) | ssSkP3(U) # label(clause16) # label(negated_conjecture).
+ndr1_1(a608) | ssSkC3 # label(clause17) # label(negated_conjecture).
+ndr1_1(U) | ssSkP2(U) # label(clause18) # label(negated_conjecture).
+ndr1_1(U) | ssSkP1(U) # label(clause19) # label(negated_conjecture).
+ndr1_1(U) | ssSkP0(U) # label(clause20) # label(negated_conjecture).
+c2_1(a593) | ssSkC1 # label(clause21) # label(negated_conjecture).
+c1_2(a637,a638) | c3_0 # label(clause22) # label(negated_conjecture).
+-c3_1(a637) | c3_0 # label(clause23) # label(negated_conjecture).
+-c2_1(a637) | c3_0 # label(clause24) # label(negated_conjecture).
+-c4_0 | c1_1(a631) # label(clause25) # label(negated_conjecture).
+-ssSkC5 | -c3_0 | ndr1_0 # label(clause26) # label(negated_conjecture).
+-c5_0 | ndr1_0 | c1_0 # label(clause27) # label(negated_conjecture).
+-ssSkC0 | -ssSkC1 | c1_1(a594) # label(clause28) # label(negated_conjecture).
+-ssSkC0 | -ssSkC1 | c4_1(a594) # label(clause29) # label(negated_conjecture).
+-c3_0 | c4_0 | c1_0 # label(clause30) # label(negated_conjecture).
+-c2_1(a634) | ssSkC7 # label(clause31) # label(negated_conjecture).
+c5_2(a624,a626) | ssSkC4 # label(clause32) # label(negated_conjecture).
+c4_2(a624,a626) | ssSkC4 # label(clause33) # label(negated_conjecture).
+c3_2(a624,a625) | ssSkC4 # label(clause34) # label(negated_conjecture).
+c1_2(U,a621) | ssSkP3(U) # label(clause35) # label(negated_conjecture).
+c4_2(U,a621) | ssSkP3(U) # label(clause36) # label(negated_conjecture).
+c5_2(a608,a609) | ssSkC3 # label(clause37) # label(negated_conjecture).
+c5_2(U,a603) | ssSkP2(U) # label(clause38) # label(negated_conjecture).
+c3_2(U,a603) | ssSkP2(U) # label(clause39) # label(negated_conjecture).
+c3_2(U,a602) | ssSkP1(U) # label(clause40) # label(negated_conjecture).
+c2_2(U,a599) | ssSkP0(U) # label(clause41) # label(negated_conjecture).
+-c5_1(a593) | ssSkC1 # label(clause42) # label(negated_conjecture).
+-c3_1(a592) | ssSkC0 # label(clause43) # label(negated_conjecture).
+-c4_1(a592) | ssSkC0 # label(clause44) # label(negated_conjecture).
+-c4_2(a637,a638) | c3_0 # label(clause45) # label(negated_conjecture).
+-ssSkC6 | -c3_1(a633) | c3_0 # label(clause46) # label(negated_conjecture).
+-ssSkC6 | -c1_1(a633) | c3_0 # label(clause47) # label(negated_conjecture).
+-c3_1(a631) | -c4_0 # label(clause48) # label(negated_conjecture).
+-ssSkC5 | -c3_0 | ndr1_1(a629) # label(clause49) # label(negated_conjecture).
+-ssSkC5 | -c3_0 | c3_1(a629) # label(clause50) # label(negated_conjecture).
+-c5_0 | -c1_0 | ndr1_0 # label(clause51) # label(negated_conjecture).
+-c5_0 | c4_1(a619) | c1_0 # label(clause52) # label(negated_conjecture).
+-c5_0 | c1_1(a619) | c1_0 # label(clause53) # label(negated_conjecture).
+-c5_0 | c5_1(a619) | c1_0 # label(clause54) # label(negated_conjecture).
+-c5_0 | c1_1(a616) | c4_0 # label(clause55) # label(negated_conjecture).
+-c1_0 | -c3_0 | ndr1_0 # label(clause56) # label(negated_conjecture).
+-c3_2(a624,a626) | ssSkC4 # label(clause57) # label(negated_conjecture).
+-c1_2(a624,a625) | ssSkC4 # label(clause58) # label(negated_conjecture).
+-c2_2(a624,a625) | ssSkC4 # label(clause59) # label(negated_conjecture).
+-c2_2(U,a621) | ssSkP3(U) # label(clause60) # label(negated_conjecture).
+-c4_2(a608,a609) | ssSkC3 # label(clause61) # label(negated_conjecture).
+-c4_2(U,a603) | ssSkP2(U) # label(clause62) # label(negated_conjecture).
+-c2_2(U,a602) | ssSkP1(U) # label(clause63) # label(negated_conjecture).
+-c3_2(U,a599) | ssSkP0(U) # label(clause64) # label(negated_conjecture).
+-c5_2(U,a599) | ssSkP0(U) # label(clause65) # label(negated_conjecture).
+-ssSkC5 | -c2_1(a629) | -c3_0 # label(clause66) # label(negated_conjecture).
+-c3_1(a616) | -c5_0 | c4_0 # label(clause67) # label(negated_conjecture).
+-c2_1(a616) | -c5_0 | c4_0 # label(clause68) # label(negated_conjecture).
+-c4_0 | -c2_0 | ndr1_1(a611) # label(clause69) # label(negated_conjecture).
+-c3_0 | -c1_0 | -c4_0 # label(clause70) # label(negated_conjecture).
+-ssSkC5 | -c2_2(a629,a630) | -c3_0 # label(clause71) # label(negated_conjecture).
+-ssSkC5 | -c5_2(a629,a630) | -c3_0 # label(clause72) # label(negated_conjecture).
+-c4_1(a620) | -c5_0 | -c1_0 # label(clause73) # label(negated_conjecture).
+-c1_1(a615) | -c1_0 | -c3_0 # label(clause74) # label(negated_conjecture).
+-c4_0 | -c2_0 | c5_2(a611,a612) # label(clause75) # label(negated_conjecture).
+-c1_1(a611) | -c4_0 | -c2_0 # label(clause76) # label(negated_conjecture).
+-c1_2(a611,a612) | -c4_0 | -c2_0 # label(clause77) # label(negated_conjecture).
+-ssSkP0(U) | -ndr1_0 | ndr1_1(U) | c2_1(U) | ssSkC2 # label(clause78) # label(negated_conjecture).
+-c5_1(U) | -ndr1_0 | ndr1_1(U) | c3_1(U) | c4_0 # label(clause79) # label(negated_conjecture).
+-ssSkP0(U) | -ndr1_0 | c1_2(U,a600) | c2_1(U) | ssSkC2 # label(clause80) # label(negated_conjecture).
+-ssSkP0(U) | -ndr1_0 | c2_2(U,a600) | c2_1(U) | ssSkC2 # label(clause81) # label(negated_conjecture).
+-c5_1(U) | -ndr1_0 | c5_2(U,a639) | c3_1(U) | c4_0 # label(clause82) # label(negated_conjecture).
+-c2_1(U) | -ndr1_0 | ndr1_1(U) | c1_1(U) | c2_0 | c4_0 # label(clause83) # label(negated_conjecture).
+-ssSkC2 | -c3_1(U) | -ndr1_0 | ndr1_1(U) | c2_1(U) | c2_0 # label(clause84) # label(negated_conjecture).
+-ssSkP3(U) | -ndr1_0 | -c2_1(U) | c2_1(V) | ndr1_1(U) | c2_0 # label(clause85) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c3_0 | c5_1(U) | ndr1_1(a613) # label(clause86) # label(negated_conjecture).
+-ssSkP0(U) | -c3_2(U,a600) | -ndr1_0 | c2_1(U) | ssSkC2 # label(clause87) # label(negated_conjecture).
+-c1_2(U,a639) | -c5_1(U) | -ndr1_0 | c3_1(U) | c4_0 # label(clause88) # label(negated_conjecture).
+-c2_2(U,a639) | -c5_1(U) | -ndr1_0 | c3_1(U) | c4_0 # label(clause89) # label(negated_conjecture).
+-ssSkC2 | -c3_1(U) | -ndr1_0 | c4_2(U,a601) | c2_1(U) | c2_0 # label(clause90) # label(negated_conjecture).
+-ssSkC2 | -c3_1(U) | -ndr1_0 | c2_2(U,a601) | c2_1(U) | c2_0 # label(clause91) # label(negated_conjecture).
+-ssSkC2 | -c3_1(U) | -ndr1_0 | c5_2(U,a601) | c2_1(U) | c2_0 # label(clause92) # label(negated_conjecture).
+-c3_2(a608,U) | -ndr1_1(a608) | c2_2(a608,U) | ssSkC3 # label(clause93) # label(negated_conjecture).
+-ssSkC6 | -c3_2(a633,U) | -ndr1_1(a633) | c1_2(a633,U) | c3_0 # label(clause94) # label(negated_conjecture).
+-ssSkP3(U) | -ndr1_0 | -c2_1(U) | c2_1(V) | c5_2(U,a622) | c2_0 # label(clause95) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c3_0 | c5_1(U) | c1_2(a613,a614) # label(clause96) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c3_1(a613) | -c3_0 | c5_1(U) # label(clause97) # label(negated_conjecture).
+-c4_2(U,a618) | -c2_1(U) | -ndr1_0 | c1_1(U) | c2_0 | c4_0 # label(clause98) # label(negated_conjecture).
+-c3_2(U,a618) | -c2_1(U) | -ndr1_0 | c1_1(U) | c2_0 | c4_0 # label(clause99) # label(negated_conjecture).
+-c2_2(U,a618) | -c2_1(U) | -ndr1_0 | c1_1(U) | c2_0 | c4_0 # label(clause100) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c2_0 | c2_1(U) | c5_1(U) | ndr1_1(a588) # label(clause101) # label(negated_conjecture).
+-c2_2(a608,U) | -c5_2(a608,U) | -ndr1_1(a608) | ssSkC3 # label(clause102) # label(negated_conjecture).
+-ssSkP3(U) | -ndr1_0 | -c1_2(U,a622) | -c2_1(U) | c2_1(V) | c2_0 # label(clause103) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c4_2(a613,a614) | -c3_0 | c5_1(U) # label(clause104) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c3_2(a613,a614) | -c3_0 | c5_1(U) # label(clause105) # label(negated_conjecture).
+-ndr1_1(a624) | c3_2(a624,U) | c2_2(a624,U) | c5_2(a624,U) | ssSkC4 # label(clause106) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c2_0 | c2_1(U) | c5_1(U) | c5_2(a588,a591) # label(clause107) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c2_0 | c2_1(U) | c5_1(U) | c2_2(a588,a590) # label(clause108) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c2_0 | c2_1(U) | c5_1(U) | c1_2(a588,a590) # label(clause109) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c2_0 | c2_1(U) | c5_1(U) | c2_2(a588,a589) # label(clause110) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c2_0 | c2_1(U) | c5_1(U) | c3_2(a588,a589) # label(clause111) # label(negated_conjecture).
+-c1_2(a592,U) | -ndr1_1(a592) | c5_2(a592,U) | c4_2(a592,U) | ssSkC0 # label(clause112) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c2_2(a588,a591) | -c2_0 | c2_1(U) | c5_1(U) # label(clause113) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c4_2(a588,a590) | -c2_0 | c2_1(U) | c5_1(U) # label(clause114) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c1_2(a588,a589) | -c2_0 | c2_1(U) | c5_1(U) # label(clause115) # label(negated_conjecture).
+-c4_2(a593,U) | -c1_2(a593,U) | -ndr1_1(a593) | c5_2(a593,U) | ssSkC1 # label(clause116) # label(negated_conjecture).
+-c2_2(a615,U) | -ndr1_1(a615) | -c1_0 | -c3_0 | c3_2(a615,U) | c1_2(a615,U) # label(clause117) # label(negated_conjecture).
+-c3_2(a611,U) | -ndr1_1(a611) | -c4_0 | -c2_0 | c5_2(a611,U) | c2_2(a611,U) # label(clause118) # label(negated_conjecture).
+-c2_2(U,V) | -ndr1_1(U) | -ndr1_0 | c3_2(U,V) | c2_1(U) | c1_1(U) | ndr1_1(a596) | c2_0 # label(clause119) # label(negated_conjecture).
+-c2_2(U,V) | -ndr1_1(U) | -ndr1_0 | c3_2(U,V) | c2_1(U) | c1_1(U) | c1_2(a596,a598) | c2_0 # label(clause120) # label(negated_conjecture).
+-c2_2(U,V) | -ndr1_1(U) | -ndr1_0 | c3_2(U,V) | c2_1(U) | c1_1(U) | c2_2(a596,a598) | c2_0 # label(clause121) # label(negated_conjecture).
+-c2_2(U,V) | -ndr1_1(U) | -ndr1_0 | c3_2(U,V) | c2_1(U) | c1_1(U) | c5_2(a596,a597) | c2_0 # label(clause122) # label(negated_conjecture).
+-c3_1(U) | -ndr1_0 | -c2_2(a613,V) | -ndr1_1(a613) | -c3_0 | c5_1(U) | c1_2(a613,V) # label(clause123) # label(negated_conjecture).
+-ssSkC7 | -c1_2(U,V) | -ndr1_1(U) | -c2_2(U,a635) | -c5_1(U) | -ndr1_0 | c2_2(U,V) | c1_0 # label(clause124) # label(negated_conjecture).
+-c5_2(a615,U) | -c2_2(a615,U) | -c3_2(a615,U) | -ndr1_1(a615) | -c1_0 | -c3_0 # label(clause125) # label(negated_conjecture).
+-c2_2(U,V) | -ndr1_1(U) | -ndr1_0 | -c4_2(a596,a598) | c3_2(U,V) | c2_1(U) | c1_1(U) | c2_0 # label(clause126) # label(negated_conjecture).
+-c2_2(U,V) | -ndr1_1(U) | -ndr1_0 | -c2_2(a596,a597) | c3_2(U,V) | c2_1(U) | c1_1(U) | c2_0 # label(clause127) # label(negated_conjecture).
+-c2_2(U,V) | -ndr1_1(U) | -ndr1_0 | -c1_2(a596,a597) | c3_2(U,V) | c2_1(U) | c1_1(U) | c2_0 # label(clause128) # label(negated_conjecture).
+-c5_2(U,V) | -ndr1_1(U) | -c4_2(U,a595) | -c1_1(U) | -ndr1_0 | -c5_0 | c2_2(U,V) # label(clause129) # label(negated_conjecture).
+-c5_2(U,V) | -ndr1_1(U) | -c1_2(U,a595) | -c1_1(U) | -ndr1_0 | -c5_0 | c2_2(U,V) # label(clause130) # label(negated_conjecture).
+-c1_2(U,V) | -ndr1_1(U) | -c2_2(U,a632) | -ndr1_0 | c3_2(U,V) | c5_2(U,V) | c2_1(U) | ssSkC6 # label(clause131) # label(negated_conjecture).
+-c1_2(U,V) | -ndr1_1(U) | -c3_2(U,a632) | -ndr1_0 | c3_2(U,V) | c5_2(U,V) | c2_1(U) | ssSkC6 # label(clause132) # label(negated_conjecture).
+-c1_2(U,V) | -ndr1_1(U) | -c4_1(U) | -ndr1_0 | c2_2(U,V) | c3_2(U,V) | c4_2(U,a628) | ssSkC5 # label(clause133) # label(negated_conjecture).
+-c5_2(U,V) | -c1_2(U,V) | -ndr1_1(U) | -ndr1_0 | -c2_0 | c2_2(U,V) | c4_2(U,a617) | c1_1(U) # label(clause134) # label(negated_conjecture).
+-ssSkC3 | -ndr1_1(U) | -c1_1(U) | -c3_1(U) | -ndr1_0 | c5_2(U,V) | c4_2(U,V) | ndr1_1(W) | c5_1(W) | c1_1(W) # label(clause135) # label(negated_conjecture).
+-c1_2(U,V) | -ndr1_1(U) | -c1_2(U,a628) | -c4_1(U) | -ndr1_0 | c2_2(U,V) | c3_2(U,V) | ssSkC5 # label(clause136) # label(negated_conjecture).
+-c1_2(U,V) | -ndr1_1(U) | -c5_2(U,a628) | -c4_1(U) | -ndr1_0 | c2_2(U,V) | c3_2(U,V) | ssSkC5 # label(clause137) # label(negated_conjecture).
+-c5_2(U,V) | -c1_2(U,V) | -ndr1_1(U) | -c1_2(U,a617) | -ndr1_0 | -c2_0 | c2_2(U,V) | c1_1(U) # label(clause138) # label(negated_conjecture).
+-ssSkP1(U) | -ssSkP2(U) | -c5_2(V,W) | -ndr1_1(V) | -c1_1(V) | -ndr1_0 | c4_2(V,W) | c1_2(V,W) | ndr1_1(U) | c1_0 # label(clause139) # label(negated_conjecture).
+-ssSkC3 | -ndr1_1(U) | -c1_1(U) | -c3_1(U) | -ndr1_0 | c5_2(U,V) | c4_2(U,V) | c2_2(W,a610) | c5_1(W) | c1_1(W) # label(clause140) # label(negated_conjecture).
+-ssSkC3 | -ndr1_1(U) | -c1_1(U) | -c3_1(U) | -ndr1_0 | c5_2(U,V) | c4_2(U,V) | c3_2(W,a610) | c5_1(W) | c1_1(W) # label(clause141) # label(negated_conjecture).
+-ssSkC4 | -c5_2(U,V) | -c1_2(U,V) | -c3_2(U,V) | -ndr1_1(U) | -c3_1(U) | -ndr1_0 | c1_2(U,a627) | c2_0 # label(clause142) # label(negated_conjecture).
+-ssSkP1(U) | -ssSkP2(U) | -c5_2(V,W) | -ndr1_1(V) | -c1_1(V) | -ndr1_0 | c4_2(V,W) | c1_2(V,W) | c4_2(U,a604) | c1_0 # label(clause143) # label(negated_conjecture).
+-ssSkP1(U) | -ssSkP2(U) | -c5_2(V,W) | -ndr1_1(V) | -c1_1(V) | -ndr1_0 | c4_2(V,W) | c1_2(V,W) | c3_2(U,a604) | c1_0 # label(clause144) # label(negated_conjecture).
+-c1_2(U,V) | -c4_2(U,V) | -ndr1_1(U) | -c2_1(U) | -ndr1_0 | -c4_0 | -c3_0 | c2_2(U,V) | c4_1(U) # label(clause145) # label(negated_conjecture).
+-c2_2(U,V) | -ndr1_1(U) | -c2_2(U,W) | -ndr1_0 | -c5_0 | -c2_0 | c4_2(U,V) | c1_2(U,W) | c2_2(U,a636) # label(clause146) # label(negated_conjecture).
+-ssSkC3 | -ndr1_1(U) | -c1_1(U) | -c3_1(U) | -ndr1_0 | -c1_2(V,a610) | c5_2(U,W) | c4_2(U,W) | c5_1(V) | c1_1(V) # label(clause147) # label(negated_conjecture).
+-ndr1_1(U) | -ndr1_0 | -c3_2(a605,V) | -ndr1_1(a605) | -c1_0 | c4_2(U,W) | c5_2(U,W) | c3_1(U) | c2_2(a605,V) # label(clause148) # label(negated_conjecture).
+-ssSkC4 | -c5_2(U,V) | -c1_2(U,V) | -c3_2(U,V) | -ndr1_1(U) | -c2_2(U,a627) | -c3_1(U) | -ndr1_0 | c2_0 # label(clause149) # label(negated_conjecture).
+-ssSkP1(U) | -ssSkP2(U) | -c5_2(V,W) | -ndr1_1(V) | -c1_1(V) | -ndr1_0 | -c1_2(U,a604) | c4_2(V,W) | c1_2(V,W) | c1_0 # label(clause150) # label(negated_conjecture).
+-c2_2(U,V) | -ndr1_1(U) | -c2_2(U,W) | -c3_2(U,a636) | -ndr1_0 | -c5_0 | -c2_0 | c4_2(U,V) | c1_2(U,W) # label(clause151) # label(negated_conjecture).
+-c4_2(U,V) | -c2_2(U,V) | -ndr1_1(U) | -c3_2(U,a623) | -c3_1(U) | -ndr1_0 | -c4_0 | -c1_0 | c1_2(U,V) # label(clause152) # label(negated_conjecture).
+-ndr1_1(U) | -ndr1_0 | -c1_2(a605,V) | -ndr1_1(a605) | -c1_0 | c4_2(U,W) | c5_2(U,W) | c3_1(U) | c5_2(a605,V) | c3_2(a605,V) # label(clause153) # label(negated_conjecture).
+-c2_2(U,V) | -ndr1_1(U) | -ndr1_0 | -c4_2(a596,W) | -c1_2(a596,W) | -ndr1_1(a596) | c3_2(U,V) | c2_1(U) | c1_1(U) | c3_2(a596,W) | c2_0 # label(clause154) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

@@ -1,0 +1,131 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 99 was started by mfixman on bodoque,
+Fri Oct 23 15:00:27 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+ifeq(A,A,B,C) = B # label(ifeq_axiom) # label(axiom).
+axiom(implies(or(A,A),A)) = true # label(axiom_1_2) # label(axiom).
+axiom(implies(A,or(B,A))) = true # label(axiom_1_3) # label(axiom).
+axiom(implies(or(A,B),or(B,A))) = true # label(axiom_1_4) # label(axiom).
+axiom(implies(or(A,or(B,C)),or(B,or(A,C)))) = true # label(axiom_1_5) # label(axiom).
+axiom(implies(implies(A,B),implies(or(C,A),or(C,B)))) = true # label(axiom_1_6) # label(axiom).
+implies(X,Y) = or(not(X),Y) # label(implies_definition) # label(axiom).
+ifeq(axiom(X),true,theorem(X),true) = true # label(rule_1) # label(axiom).
+ifeq(theorem(implies(Y,X)),true,ifeq(theorem(Y),true,theorem(X),true),true) = true # label(rule_2) # label(axiom).
+and(P,Q) = not(or(not(P),not(Q))) # label(and_defn) # label(axiom).
+equivalent(P,Q) = and(implies(P,Q),implies(Q,P)) # label(equivalent_defn) # label(axiom).
+theorem(equivalent(equivalent(p,q),equivalent(not(p),not(q)))) != true # label(prove_this) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_this to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ true, p, q, or, implies, and, equivalent, axiom, not, theorem, ifeq ]).
+After inverse_order:  (no changes).
+Unfolding symbols: and/2 implies/2 equivalent/2.
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 2547 (0.00 of 0.44 sec).
+
+given #500 (T,wt=13): 875 theorem(or(or(A,B),or(C,not(or(B,A))))) = true.  [para(76(a,1),45(a,1,1)),rewrite([1(10)])].
+
+Low Water (keep): wt=41.000, iters=6678
+
+Low Water (keep): wt=29.000, iters=6919
+
+Low Water (keep): wt=27.000, iters=6682
+
+Low Water (keep): wt=25.000, iters=6675
+
+Low Water (keep): wt=23.000, iters=6775
+
+Low Water (keep): wt=21.000, iters=6671
+
+Low Water (keep): wt=19.000, iters=6670
+
+given #1000 (T,wt=15): 482 theorem(or(or(A,or(B,C)),not(or(A,or(C,B))))) = true.  [para(57(a,1),35(a,1,1)),rewrite([1(11)])].
+
+Low Water (keep): wt=17.000, iters=6908
+
+given #1500 (T,wt=15): 942 ifeq(axiom(or(not(A),not(not(or(B,A))))),true,true,true) = true.  [para(915(a,1),8(a,1,3))].
+
+given #2000 (T,wt=15): 2112 theorem(or(or(A,or(or(B,not(C)),or(D,C))),E)) = true.  [para(404(a,1),490(a,1,1)),rewrite([1(11)])].
+
+given #2500 (T,wt=15): 3922 theorem(not(not(or(A,or(or(B,C),or(D,not(B))))))) = true.  [para(682(a,1),106(a,1,1)),rewrite([1(12)])].
+
+given #3000 (T,wt=15): 7924 theorem(not(not(or(A,or(or(not(or(B,A)),B),C))))) = true.  [para(4303(a,1),106(a,1,1)),rewrite([1(12)])].
+
+============================== STATISTICS ============================
+
+Given=3142. Generated=1871984. Kept=21128. proofs=0.
+Usable=3142. Sos=17969. Demods=21110. Limbo=0, Disabled=29. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=18.
+Forward_subsumed=1757437. Back_subsumed=2.
+Sos_limit_deleted=93401. Sos_displaced=0. Sos_removed=0.
+New_demodulators=21127 (0 lex), Back_demodulated=15. Back_unit_deleted=0.
+Demod_attempts=19498568. Demod_rewrites=1527743.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=40.48.
+User_CPU=20.00, System_CPU=1.09, Wall_clock=22.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 99 exit (max_seconds) Fri Oct 23 15:00:49 2026
+
+SEARCH FAILED
+
+------ process 99 exit (max_seconds) ------
+

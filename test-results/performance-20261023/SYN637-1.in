@@ -1,0 +1,53 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+p18(X0,X0) # label(p18_1) # label(negated_conjecture).
+p7(X67,X67) # label(p7_2) # label(negated_conjecture).
+p6(X52,X52) # label(p6_3) # label(negated_conjecture).
+p4(X36,X36) # label(p4_4) # label(negated_conjecture).
+p3(X33,X33) # label(p3_5) # label(negated_conjecture).
+p2(X5,X5) # label(p2_6) # label(negated_conjecture).
+p20(f12(c25),c28) # label(p20_7) # label(negated_conjecture).
+-p6(f10(c25),f13(c30)) # label(not_p6_8) # label(negated_conjecture).
+p21(f13(f14(f15(c30))),f10(c25)) # label(p21_9) # label(negated_conjecture).
+p6(f15(X65),f15(X66)) | -p6(X65,X66) # label(p6_10) # label(negated_conjecture).
+p18(f19(X3),f19(X4)) | -p2(X3,X4) # label(p18_11) # label(negated_conjecture).
+p4(f16(X39),f16(X40)) | -p4(X39,X40) # label(p4_12) # label(negated_conjecture).
+p6(f10(X55),f10(X56)) | -p2(X55,X56) # label(p6_13) # label(negated_conjecture).
+p6(f11(X57),f11(X58)) | -p2(X57,X58) # label(p6_14) # label(negated_conjecture).
+p6(f12(X59),f12(X60)) | -p2(X59,X60) # label(p6_15) # label(negated_conjecture).
+p6(f13(X61),f13(X62)) | -p6(X61,X62) # label(p6_16) # label(negated_conjecture).
+p6(f14(X63),f14(X64)) | -p6(X63,X64) # label(p6_17) # label(negated_conjecture).
+p22(f5(c25,c26,c27),f5(c25,c26,c29)) # label(p22_18) # label(negated_conjecture).
+p18(X1,X2) | -p18(X0,X1) | -p18(X0,X2) # label(p18_19) # label(negated_conjecture).
+p7(X68,X69) | -p7(X67,X68) | -p7(X67,X69) # label(p7_20) # label(negated_conjecture).
+p6(X53,X54) | -p6(X52,X53) | -p6(X52,X54) # label(p6_21) # label(negated_conjecture).
+p4(X37,X38) | -p4(X36,X37) | -p4(X36,X38) # label(p4_22) # label(negated_conjecture).
+p3(X34,X35) | -p3(X33,X34) | -p3(X33,X35) # label(p3_23) # label(negated_conjecture).
+p2(X6,X7) | -p2(X5,X6) | -p2(X5,X7) # label(p2_24) # label(negated_conjecture).
+p24(X29,X30) | -p24(X32,X31) | -p4(X32,X29) | -p18(X31,X30) # label(p24_25) # label(negated_conjecture).
+p20(X12,X13) | -p6(X14,X12) | -p6(X15,X13) | -p20(X14,X15) # label(p20_26) # label(negated_conjecture).
+p21(X16,X17) | -p6(X18,X16) | -p6(X19,X17) | -p21(X18,X19) # label(p21_27) # label(negated_conjecture).
+p22(X20,X21) | -p4(X22,X20) | -p4(X23,X21) | -p22(X22,X23) # label(p22_28) # label(negated_conjecture).
+p23(X24,X25) | -p4(X26,X24) | -p4(X27,X25) | -p23(X26,X27) # label(p23_29) # label(negated_conjecture).
+p2(f8(X8,X9),f8(X10,X11)) | -p6(X8,X10) | -p7(X9,X11) # label(p2_30) # label(negated_conjecture).
+p7(f9(X70,X71),f9(X72,X73)) | -p6(X70,X72) | -p6(X71,X73) # label(p7_31) # label(negated_conjecture).
+p4(f17(X41,X42),f17(X43,X44)) | -p4(X41,X43) | -p4(X42,X44) # label(p4_32) # label(negated_conjecture).
+-p4(f5(c25,c26,c27),f5(f8(f11(c25),f9(f10(c25),c28)),c26,c27)) # label(not_p4_33) # label(negated_conjecture).
+p23(X28,c27) | -p23(X28,c29) | -p24(X28,f19(f8(f11(c25),f9(f10(c25),c28)))) # label(p23_34) # label(negated_conjecture).
+p23(X28,c29) | -p23(X28,c27) | -p24(X28,f19(f8(f11(c25),f9(f10(c25),c28)))) # label(p23_35) # label(negated_conjecture).
+p23(c27,X28) | -p23(c29,X28) | -p24(X28,f19(f8(f11(c25),f9(f10(c25),c28)))) # label(p23_36) # label(negated_conjecture).
+p23(c29,X28) | -p23(c27,X28) | -p24(X28,f19(f8(f11(c25),f9(f10(c25),c28)))) # label(p23_37) # label(negated_conjecture).
+p4(f5(X45,X46,X47),f5(X48,X49,X50)) | -p3(X46,X49) | -p4(X47,X50) | -p2(X45,X48) # label(p4_38) # label(negated_conjecture).
+p4(f5(f8(f11(c25),f9(f10(c25),c28)),X51,c27),f5(f8(f11(c25),f9(f10(c25),c28)),X51,c29)) # label(p4_39) # label(negated_conjecture).
+p22(f16(f17(c27,f5(f8(f11(c25),f9(f10(c25),c28)),c26,c27))),f16(f17(c27,f5(c25,c26,c27)))) # label(p22_40) # label(negated_conjecture).
+-p22(f16(f17(c27,f5(f8(f11(c25),f9(f10(c25),c28)),c26,c29))),f16(f17(c27,f5(c25,c26,c27)))) # label(not_p22_41) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

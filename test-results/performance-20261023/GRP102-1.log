@@ -1,0 +1,173 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 70 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+double_divide(double_divide(X,double_divide(double_divide(double_divide(Y,X),Z),double_divide(Y,identity))),double_divide(identity,identity)) = Z # label(single_axiom) # label(axiom).
+multiply(X,Y) = double_divide(double_divide(Y,X),identity) # label(multiply) # label(axiom).
+inverse(X) = double_divide(X,identity) # label(inverse) # label(axiom).
+identity = double_divide(X,inverse(X)) # label(identity) # label(axiom).
+multiply(inverse(a1),a1) != identity | multiply(identity,a2) != a2 | multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | multiply(a4,b4) != multiply(b4,a4) # label(prove_these_axioms) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_these_axioms to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ identity, a1, a2, a3, a4, b3, b4, c3, double_divide, multiply, inverse ]).
+After inverse_order: Function symbol precedence:  function_order([ identity, a1, a2, a3, a4, b3, b4, c3, double_divide, inverse, multiply ]).
+Unfolding symbols: inverse/1 multiply/2.
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(hyper_resolution).  % (nonunit Horn with equality)
+    % set(hyper_resolution) -> set(pos_hyper_resolution).
+  % set(neg_ur_resolution).  % (nonunit Horn with equality)
+  % assign(para_lit_limit, 4).  % (nonunit Horn with equality)
+
+Auto_process settings:
+  % set(unit_deletion).  % (Horn set with negative nonunits)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+% Operation double_divide is commutative; C redundancy checks enabled.
+% back CAC tautology: 131 double_divide(identity,double_divide(A,B)) = double_divide(identity,double_divide(B,A)).  [back_rewrite(124),rewrite([127(5)])].
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds: prove_these_axioms.
+% Length of proof is 59.
+% Level of proof is 21.
+% Maximum clause weight is 42.000.
+% Given clauses 30 (1.429 givens/level).
+
+1 double_divide(double_divide(A,double_divide(double_divide(double_divide(B,A),C),double_divide(B,identity))),double_divide(identity,identity)) = C # label(single_axiom) # label(axiom).  [assumption].
+2 multiply(A,B) = double_divide(double_divide(B,A),identity) # label(multiply) # label(axiom).  [assumption].
+3 inverse(A) = double_divide(A,identity) # label(inverse) # label(axiom).  [assumption].
+4 identity = double_divide(A,inverse(A)) # label(identity) # label(axiom).  [assumption].
+5 double_divide(A,double_divide(A,identity)) = identity.  [copy(4),rewrite([3(2)]),flip(a)].
+6 multiply(inverse(a1),a1) != identity | multiply(identity,a2) != a2 | multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) | multiply(a4,b4) != multiply(b4,a4) # label(prove_these_axioms) # label(negated_conjecture) # answer(prove_these_axioms).  [assumption].
+7 double_divide(identity,identity) != identity | double_divide(double_divide(a2,identity),identity) != a2 | double_divide(double_divide(double_divide(double_divide(c3,b3),identity),a3),identity) != double_divide(double_divide(c3,double_divide(double_divide(b3,a3),identity)),identity) | double_divide(double_divide(b4,a4),identity) != double_divide(double_divide(a4,b4),identity) # answer(prove_these_axioms).  [copy(6),rewrite([3(2),2(5),5(5),2(8),2(15),2(19),2(25),2(28),2(34),2(39)]),flip(c)].
+8 double_divide(double_divide(double_divide(identity,identity),double_divide(double_divide(A,B),double_divide(double_divide(C,double_divide(double_divide(double_divide(D,C),A),double_divide(D,identity))),identity))),double_divide(identity,identity)) = B.  [para(1(a,1),1(a,1,1,2,1,1))].
+11 double_divide(double_divide(double_divide(A,identity),double_divide(double_divide(identity,B),double_divide(A,identity))),double_divide(identity,identity)) = B.  [para(5(a,1),1(a,1,1,2,1,1))].
+12 double_divide(double_divide(A,double_divide(identity,double_divide(B,identity))),double_divide(identity,identity)) = double_divide(double_divide(B,A),identity).  [para(5(a,1),1(a,1,1,2,1))].
+15 double_divide(double_divide(identity,A),double_divide(identity,identity)) = double_divide(double_divide(B,A),double_divide(double_divide(C,double_divide(double_divide(double_divide(D,C),B),double_divide(D,identity))),identity)).  [para(8(a,1),1(a,1,1,2))].
+18 double_divide(double_divide(double_divide(identity,identity),double_divide(identity,double_divide(double_divide(A,double_divide(double_divide(double_divide(B,A),C),double_divide(B,identity))),identity))),double_divide(identity,identity)) = double_divide(C,identity).  [para(5(a,1),8(a,1,1,2,1))].
+21 double_divide(double_divide(double_divide(identity,identity),identity),double_divide(identity,identity)) = double_divide(double_divide(double_divide(A,B),B),double_divide(A,identity)).  [para(5(a,1),8(a,1,1,2))].
+29 double_divide(double_divide(double_divide(double_divide(identity,A),identity),identity),double_divide(identity,identity)) = A.  [para(5(a,1),11(a,1,1,2))].
+35 double_divide(double_divide(double_divide(identity,identity),identity),double_divide(identity,identity)) = double_divide(identity,identity).  [para(5(a,1),29(a,1,1,1,1))].
+37 double_divide(double_divide(double_divide(identity,identity),double_divide(double_divide(A,B),double_divide(double_divide(double_divide(identity,identity),double_divide(double_divide(C,A),double_divide(double_divide(double_divide(double_divide(identity,C),identity),identity),identity))),identity))),double_divide(identity,identity)) = B.  [para(29(a,1),8(a,1,1,2,2,1,2,1,1))].
+39 double_divide(double_divide(double_divide(A,B),B),double_divide(A,identity)) = double_divide(identity,identity).  [back_rewrite(21),rewrite([35(9)]),flip(a)].
+40 double_divide(double_divide(double_divide(A,identity),double_divide(double_divide(double_divide(identity,identity),B),double_divide(double_divide(double_divide(A,C),C),identity))),double_divide(identity,identity)) = B.  [para(39(a,1),1(a,1,1,2,1,1))].
+42 double_divide(double_divide(A,double_divide(identity,identity)),double_divide(identity,identity)) = A.  [para(39(a,1),1(a,1,1,2))].
+45 double_divide(double_divide(double_divide(identity,identity),double_divide(double_divide(identity,identity),double_divide(double_divide(A,double_divide(double_divide(double_divide(B,A),double_divide(double_divide(C,D),D)),double_divide(B,identity))),identity))),double_divide(identity,identity)) = double_divide(C,identity).  [para(39(a,1),8(a,1,1,2,1))].
+55 double_divide(A,double_divide(double_divide(double_divide(B,A),C),double_divide(B,identity))) = double_divide(C,double_divide(identity,identity)).  [para(1(a,1),42(a,1,1)),flip(a)].
+56 double_divide(double_divide(double_divide(identity,identity),double_divide(double_divide(A,B),double_divide(double_divide(double_divide(identity,identity),double_divide(double_divide(C,A),double_divide(double_divide(C,double_divide(identity,identity)),identity))),identity))),double_divide(identity,identity)) = B.  [para(42(a,1),8(a,1,1,2,2,1,2,1,1))].
+59 double_divide(double_divide(A,identity),double_divide(double_divide(identity,B),double_divide(A,identity))) = double_divide(B,double_divide(identity,identity)).  [para(11(a,1),42(a,1,1)),flip(a)].
+61 double_divide(identity,identity) = identity.  [para(42(a,1),39(a,1,1,1)),rewrite([5(11)]),flip(a)].
+64 double_divide(double_divide(identity,double_divide(identity,double_divide(double_divide(double_divide(double_divide(A,B),B),identity),identity))),identity) = double_divide(A,identity).  [back_rewrite(45),rewrite([61(3),61(4),55(10),61(7),61(13)])].
+70 double_divide(double_divide(identity,double_divide(identity,double_divide(double_divide(A,identity),identity))),identity) = double_divide(A,identity).  [back_rewrite(18),rewrite([61(3),55(8),61(5),61(11)])].
+71 double_divide(double_divide(identity,A),identity) = double_divide(double_divide(B,A),double_divide(double_divide(B,identity),identity)).  [back_rewrite(15),rewrite([61(5),55(11),61(8)])].
+75 double_divide(double_divide(A,identity),identity) = A.  [back_rewrite(1),rewrite([55(6),61(3),61(5)])].
+76 double_divide(double_divide(identity,double_divide(double_divide(A,B),double_divide(double_divide(identity,double_divide(double_divide(C,A),C)),identity))),identity) = B.  [back_rewrite(56),rewrite([61(3),61(5),61(7),75(8),61(13)])].
+81 double_divide(double_divide(identity,double_divide(double_divide(A,B),double_divide(double_divide(identity,double_divide(double_divide(C,A),double_divide(double_divide(identity,C),identity))),identity))),identity) = B.  [back_rewrite(37),rewrite([61(3),61(5),75(10),61(17)])].
+84 double_divide(double_divide(identity,A),identity) = A.  [back_rewrite(29),rewrite([75(6),61(5)])].
+85 double_divide(double_divide(A,identity),double_divide(double_divide(identity,B),double_divide(A,identity))) = double_divide(B,identity).  [back_rewrite(59),rewrite([61(11)])].
+88 double_divide(A,double_divide(double_divide(double_divide(B,A),C),double_divide(B,identity))) = double_divide(C,identity).  [back_rewrite(55),rewrite([61(9)])].
+94 double_divide(double_divide(double_divide(A,identity),double_divide(double_divide(identity,B),double_divide(double_divide(double_divide(A,C),C),identity))),identity) = B.  [back_rewrite(40),rewrite([61(5),61(13)])].
+101 double_divide(double_divide(A,double_divide(identity,double_divide(B,identity))),identity) = double_divide(double_divide(B,A),identity).  [back_rewrite(12),rewrite([61(8)])].
+104 double_divide(double_divide(double_divide(double_divide(c3,b3),identity),a3),identity) != double_divide(double_divide(c3,double_divide(double_divide(b3,a3),identity)),identity) | double_divide(double_divide(b4,a4),identity) != double_divide(double_divide(a4,b4),identity) # answer(prove_these_axioms).  [back_rewrite(7),rewrite([61(3),75(8)]),xx(a),xx(b)].
+105 double_divide(identity,double_divide(double_divide(A,B),B)) = double_divide(A,identity).  [back_rewrite(64),rewrite([75(8),84(8)])].
+108 double_divide(double_divide(A,B),A) = B.  [back_rewrite(71),rewrite([84(4),75(5)]),flip(a)].
+109 double_divide(identity,A) = double_divide(A,identity).  [back_rewrite(70),rewrite([75(6),108(6)])].
+113 double_divide(identity,double_divide(identity,double_divide(double_divide(A,B),double_divide(identity,double_divide(identity,A))))) = B.  [back_rewrite(76),rewrite([108(5),109(6,R),109(10,R)])].
+115 double_divide(identity,double_divide(identity,A)) = A.  [back_rewrite(81),rewrite([109(8,R),109(12,R),113(12),108(3),109(4,R)])].
+121 double_divide(identity,double_divide(double_divide(identity,double_divide(c3,b3)),a3)) != double_divide(identity,double_divide(c3,double_divide(identity,double_divide(b3,a3)))) | double_divide(identity,double_divide(b4,a4)) != double_divide(identity,double_divide(a4,b4)) # answer(prove_these_axioms).  [back_rewrite(104),rewrite([109(5,R),109(9,R),109(15,R),109(18,R),109(24,R),109(29,R)])].
+124 double_divide(identity,double_divide(A,double_divide(identity,double_divide(B,identity)))) = double_divide(identity,double_divide(B,A)).  [back_rewrite(101),rewrite([109(7,R),109(10,R)])].
+127 double_divide(identity,double_divide(A,identity)) = A.  [back_rewrite(94),rewrite([109(8,R),105(8),85(8),109(4,R)])].
+131 double_divide(identity,double_divide(A,B)) = double_divide(identity,double_divide(B,A)).  [back_rewrite(124),rewrite([127(5)])].
+134 double_divide(identity,double_divide(c3,double_divide(identity,double_divide(a3,b3)))) != double_divide(identity,double_divide(a3,double_divide(identity,double_divide(b3,c3)))) # answer(prove_these_axioms).  [back_rewrite(121),rewrite([131(6),131(9),131(16),131(24)]),flip(a),xx(b)].
+135 double_divide(A,double_divide(B,A)) = B.  [para(108(a,1),108(a,1,1))].
+137 double_divide(A,B) = double_divide(B,A).  [para(5(a,1),88(a,1,2,1)),rewrite([135(4),109(4,R),109(6,R),115(6)])].
+138 double_divide(A,double_divide(identity,double_divide(double_divide(identity,A),B))) = double_divide(B,identity).  [para(61(a,1),88(a,1,2,2)),rewrite([137(5)])].
+141 double_divide(double_divide(A,identity),double_divide(double_divide(A,B),C)) = double_divide(double_divide(C,identity),B).  [para(88(a,1),108(a,1,1)),rewrite([137(8)]),flip(a)].
+159 double_divide(A,double_divide(A,B)) = B.  [back_rewrite(108),rewrite([137(2)])].
+171 double_divide(double_divide(identity,double_divide(double_divide(identity,A),B)),double_divide(B,identity)) = A.  [para(138(a,1),135(a,1,2))].
+178 double_divide(identity,double_divide(double_divide(identity,A),B)) = double_divide(A,double_divide(identity,B)).  [para(159(a,1),138(a,1,2,2)),rewrite([137(8)]),flip(a)].
+182 double_divide(double_divide(A,double_divide(identity,B)),double_divide(B,identity)) = A.  [back_rewrite(171),rewrite([178(5)])].
+198 double_divide(double_divide(A,identity),double_divide(B,C)) = double_divide(double_divide(C,identity),double_divide(A,B)).  [para(159(a,1),141(a,1,2,1))].
+216 double_divide(double_divide(A,identity),double_divide(double_divide(identity,A),B)) = B.  [para(137(a,1),182(a,1,1)),rewrite([137(6)])].
+221 double_divide(double_divide(A,identity),B) = double_divide(identity,double_divide(A,double_divide(identity,B))).  [para(216(a,1),141(a,1,2)),rewrite([137(8),178(8),137(8)])].
+239 double_divide(identity,double_divide(A,double_divide(identity,double_divide(B,C)))) = double_divide(identity,double_divide(C,double_divide(identity,double_divide(A,B)))).  [back_rewrite(198),rewrite([221(4),221(10)])].
+240 $F # answer(prove_these_axioms).  [resolve(239,a,134,a(flip))].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=30. Generated=658. Kept=237. proofs=1.
+Usable=12. Sos=40. Demods=39. Limbo=18, Disabled=171. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=421. Back_subsumed=12.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=171 (3 lex), Back_demodulated=153. Back_unit_deleted=0.
+Demod_attempts=8639. Demod_rewrites=1170.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=3.
+Megabytes=0.42.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 70 exit (max_proofs) Fri Oct 23 15:00:23 2026
+-------- Proof 1 -------- prove_these_axioms.
+
+THEOREM PROVED
+
+------ process 70 exit (max_proofs) ------
+

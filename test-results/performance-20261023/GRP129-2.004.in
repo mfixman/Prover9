@@ -1,0 +1,43 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+next(e_1,e_2) # label(e_1_then_e_2) # label(axiom).
+next(e_2,e_3) # label(e_2_then_e_3) # label(axiom).
+next(e_3,e_4) # label(e_3_then_e_4) # label(axiom).
+greater(e_2,e_1) # label(e_2_greater_e_1) # label(axiom).
+greater(e_3,e_1) # label(e_3_greater_e_1) # label(axiom).
+greater(e_4,e_1) # label(e_4_greater_e_1) # label(axiom).
+greater(e_3,e_2) # label(e_3_greater_e_2) # label(axiom).
+greater(e_4,e_2) # label(e_4_greater_e_2) # label(axiom).
+greater(e_4,e_3) # label(e_4_greater_e_3) # label(axiom).
+-product(X,e_1,Y) | -next(X,X1) | -greater(Y,X1) # label(no_redundancy) # label(axiom).
+group_element(e_1) # label(element_1) # label(axiom).
+group_element(e_2) # label(element_2) # label(axiom).
+group_element(e_3) # label(element_3) # label(axiom).
+group_element(e_4) # label(element_4) # label(axiom).
+-equalish(e_1,e_2) # label(e_1_is_not_e_2) # label(axiom).
+-equalish(e_1,e_3) # label(e_1_is_not_e_3) # label(axiom).
+-equalish(e_1,e_4) # label(e_1_is_not_e_4) # label(axiom).
+-equalish(e_2,e_1) # label(e_2_is_not_e_1) # label(axiom).
+-equalish(e_2,e_3) # label(e_2_is_not_e_3) # label(axiom).
+-equalish(e_2,e_4) # label(e_2_is_not_e_4) # label(axiom).
+-equalish(e_3,e_1) # label(e_3_is_not_e_1) # label(axiom).
+-equalish(e_3,e_2) # label(e_3_is_not_e_2) # label(axiom).
+-equalish(e_3,e_4) # label(e_3_is_not_e_4) # label(axiom).
+-equalish(e_4,e_1) # label(e_4_is_not_e_1) # label(axiom).
+-equalish(e_4,e_2) # label(e_4_is_not_e_2) # label(axiom).
+-equalish(e_4,e_3) # label(e_4_is_not_e_3) # label(axiom).
+-group_element(X) | -group_element(Y) | product(X,Y,e_1) | product(X,Y,e_2) | product(X,Y,e_3) | product(X,Y,e_4) # label(product_total_function1) # label(axiom).
+-product(X,Y,W) | -product(X,Y,Z) | equalish(W,Z) # label(product_total_function2) # label(axiom).
+-product(X,W,Y) | -product(X,Z,Y) | equalish(W,Z) # label(product_right_cancellation) # label(axiom).
+-product(W,Y,X) | -product(Z,Y,X) | equalish(W,Z) # label(product_left_cancellation) # label(axiom).
+-product(Y,X,Z1) | -product(X,Z1,Z2) | product(Z1,Y,Z2) # label(qg3) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

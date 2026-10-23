@@ -1,0 +1,11 @@
+{
+  "problem": "HWV051-2",
+  "domain": "HWV",
+  "rating": 0.44,
+  "conversion_wall_seconds": 0.05079034400114324,
+  "exit_code": "wall_timeout",
+  "search_wall_seconds": 25.009513942990452,
+  "outcome": "unsolved",
+  "reason": "wall_timeout",
+  "total_wall_seconds": 25.069597021007212
+}

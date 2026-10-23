@@ -1,0 +1,174 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 217 was started by mfixman on bodoque,
+Fri Oct 23 15:01:24 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+meet(X,Y) = meet(Y,X) # label(commutativity) # label(axiom).
+meet(X,meet(Y,Z)) = meet(meet(X,Y),Z) # label(associativity) # label(axiom).
+join(X,Y) = join(Y,X) # label(commutativity_001) # label(axiom).
+join(X,join(Y,Z)) = join(join(X,Y),Z) # label(associativity_002) # label(axiom).
+join(X,meet(X,Y)) = X # label(absorption) # label(axiom).
+meet(X,join(X,Y)) = X # label(absorption_003) # label(axiom).
+upme(X,Y,Z) = meet(X,join(Y,Z)) # label(definition_of_upme) # label(axiom).
+lome(X,Y,Z) = join(meet(X,Y),meet(X,Z)) # label(definition_of_lome) # label(axiom).
+join(upme(meet(a,X1),Y1,Z1),meet(Y1,Z1)) = meet(join(meet(meet(a,X1),Y1),Z1),join(meet(meet(a,X1),Z1),Y1)) # label(rh1) # label(axiom).
+upme(X,Y,Z) = join(upme(X,Y,meet(a,Z)),upme(X,Z,meet(a,Y))) # label(rh2) # label(axiom).
+lome(X,Y,Z) = upme(X,upme(Y,X,Z),upme(Z,X,Y)) # label(rl1) # label(axiom).
+upme(a,x2,y2) = upme(a,x2,z2) # label(conjecture) # label(negated_conjecture).
+upme(x2,y2,z2) != lome(x2,y2,z2) # label(conjecture_1) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label conjecture_1 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ a, x2, y2, z2, meet, join, upme, lome ]).
+After inverse_order:  (no changes).
+Unfolding symbols: upme/3 lome/3.
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+% Operation meet is commutative; C redundancy checks enabled.
+
+% Operation join is commutative; C redundancy checks enabled.
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+% Operation meet is associative-commutative; CAC redundancy checks enabled.
+% back CAC tautology: 21 meet(A,meet(B,C)) = meet(C,meet(A,B)).  [para(3(a,1),1(a,1))].
+
+% Operation join is associative-commutative; CAC redundancy checks enabled.
+% back CAC tautology: 23 join(A,join(B,C)) = join(C,join(A,B)).  [para(6(a,1),4(a,1))].
+
+Low Water (keep): wt=99.000, iters=6730
+
+Low Water (keep): wt=89.000, iters=6677
+
+Low Water (keep): wt=87.000, iters=6668
+
+Low Water (keep): wt=81.000, iters=6797
+
+Low Water (keep): wt=73.000, iters=6683
+
+Low Water (keep): wt=69.000, iters=6720
+
+Low Water (keep): wt=67.000, iters=6716
+
+Low Water (keep): wt=63.000, iters=6762
+
+Low Water (keep): wt=61.000, iters=6723
+
+Low Water (keep): wt=59.000, iters=6715
+
+Low Water (keep): wt=57.000, iters=6677
+
+Low Water (keep): wt=55.000, iters=6744
+
+Low Water (keep): wt=53.000, iters=6671
+
+Low Water (keep): wt=51.000, iters=6689
+
+Low Water (keep): wt=49.000, iters=6705
+
+Low Water (keep): wt=47.000, iters=6796
+
+Low Water (keep): wt=45.000, iters=6668
+
+Low Water (keep): wt=43.000, iters=6818
+
+Low Water (keep): wt=41.000, iters=6738
+
+Low Water (keep): wt=39.000, iters=6708
+
+Low Water (keep): wt=37.000, iters=6739
+
+Low Water (keep): wt=35.000, iters=6670
+
+Low Water (keep): wt=33.000, iters=6673
+
+Low Water (keep): wt=31.000, iters=6709
+
+Low Water (keep): wt=29.000, iters=6685
+
+Low Water (keep): wt=27.000, iters=6710
+
+Low Water (keep): wt=25.000, iters=6688
+
+Low Water (displace): id=30314, wt=23.000
+
+Low Water (displace): id=30323, wt=21.000
+
+Low Water (displace): id=31500, wt=19.000
+
+Low Water (displace): id=31830, wt=17.000
+
+============================== STATISTICS ============================
+
+Given=461. Generated=328569. Kept=35980. proofs=0.
+Usable=419. Sos=19999. Demods=17955. Limbo=3, Disabled=15572. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=1910.
+Forward_subsumed=231815. Back_subsumed=683.
+Sos_limit_deleted=58864. Sos_displaced=5131. Sos_removed=0.
+New_demodulators=29131 (6 lex), Back_demodulated=9743. Back_unit_deleted=0.
+Demod_attempts=8330937. Demod_rewrites=1157038.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=74.66.
+User_CPU=20.00, System_CPU=0.18, Wall_clock=21.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 217 exit (max_seconds) Fri Oct 23 15:01:45 2026
+
+SEARCH FAILED
+
+------ process 217 exit (max_seconds) ------
+

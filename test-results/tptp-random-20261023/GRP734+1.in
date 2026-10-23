@@ -1,0 +1,19 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all B all A mult(A,ld(A,B)) = B) # label(c01) # label(axiom).
+(all B all A ld(A,mult(A,B)) = B) # label(c02) # label(axiom).
+(all B all A mult(rd(A,B),B) = A) # label(c03) # label(axiom).
+(all B all A rd(mult(A,B),B) = A) # label(c04) # label(axiom).
+(all A mult(A,unit) = A) # label(c05) # label(axiom).
+(all A mult(unit,A) = A) # label(c06) # label(axiom).
+(all A mult(A,A) = unit) # label(c07) # label(axiom).
+mult(op_a,op_b) != mult(op_b,op_a) # label(c08) # label(axiom).
+(all X0 all X1 all X2 (mult(X0,X1) = X2 -> mult(X0,X2) = X1 & mult(X1,X2) = X0 | mult(X0,X2) = X1 & mult(X2,X1) = X0 | mult(X2,X0) = X1 & mult(X2,X1) = X0)) # label(c09) # label(axiom).
+(all X3 all X4 (mult(X3,X4) = mult(X4,X3) -> X3 = unit | X4 = unit | mult(X3,X4) = unit)) # label(c10) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.

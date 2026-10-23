@@ -1,0 +1,4 @@
+set(prolog_style_variables).
+formulas(goals).
+-(exists X p(X)).
+end_of_list.

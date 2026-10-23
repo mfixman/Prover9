@@ -1,0 +1,12 @@
+{
+  "problem": "SWV881-1",
+  "domain": "SWV",
+  "rating": 0.8,
+  "conversion_wall_seconds": 0.05454183599795215,
+  "exit_code": 4,
+  "search_wall_seconds": 20.766053861996625,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.46,
+  "total_wall_seconds": 20.821714681005687
+}

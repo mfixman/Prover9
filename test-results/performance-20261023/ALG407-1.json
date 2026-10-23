@@ -1,0 +1,12 @@
+{
+  "problem": "ALG407-1",
+  "domain": "ALG",
+  "rating": 0.3,
+  "conversion_wall_seconds": 0.10018558600859251,
+  "exit_code": 0,
+  "search_wall_seconds": 10.633441355006653,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 10.37,
+  "total_wall_seconds": 10.739666024004691
+}

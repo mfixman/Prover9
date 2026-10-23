@@ -1,0 +1,29 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+
+% Including file Axioms/LAT001-0.ax
+
+
+% Including file Axioms/LAT001-4.ax
+
+set(prolog_style_variables).
+
+formulas(assumptions).
+meet(X,X) = X # label(idempotence_of_meet) # label(axiom).
+join(X,X) = X # label(idempotence_of_join) # label(axiom).
+meet(X,join(X,Y)) = X # label(absorption1) # label(axiom).
+join(X,meet(X,Y)) = X # label(absorption2) # label(axiom).
+meet(X,Y) = meet(Y,X) # label(commutativity_of_meet) # label(axiom).
+join(X,Y) = join(Y,X) # label(commutativity_of_join) # label(axiom).
+meet(meet(X,Y),Z) = meet(X,meet(Y,Z)) # label(associativity_of_meet) # label(axiom).
+join(join(X,Y),Z) = join(X,join(Y,Z)) # label(associativity_of_join) # label(axiom).
+join(X,complement(X)) = one # label(complement_join) # label(axiom).
+meet(X,complement(X)) = zero # label(complement_meet) # label(axiom).
+meet(X,Y) != zero | join(X,Y) != one | complement(X) = Y # label(meet_join_complement) # label(axiom).
+meet(X,join(Y,meet(X,Z))) = meet(X,join(Y,meet(Z,join(X,meet(Y,Z))))) # label(equation_H10) # label(axiom).
+meet(b,a) = a # label(prove_distributivity_hypothesis) # label(hypothesis).
+join(complement(b),complement(a)) != complement(a) # label(prove_distributivity) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

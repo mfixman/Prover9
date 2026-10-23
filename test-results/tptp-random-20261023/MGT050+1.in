@@ -1,0 +1,26 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+
+% Including file Axioms/MGT001+0.ax
+
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all X all Y (smaller_or_equal(X,Y) <-> smaller(X,Y) | X = Y)) # label(definition_smaller_or_equal) # label(axiom).
+(all X all Y (greater_or_equal(X,Y) <-> greater(X,Y) | X = Y)) # label(definition_greater_or_equal) # label(axiom).
+(all X all Y (smaller(X,Y) <-> greater(Y,X))) # label(definition_smaller) # label(axiom).
+(all X all Y -(greater(X,Y) & greater(Y,X))) # label(meaning_postulate_greater_strict) # label(axiom).
+(all X all Y all Z (greater(X,Y) & greater(Y,Z) -> greater(X,Z))) # label(meaning_postulate_greater_transitive) # label(axiom).
+(all X all Y (smaller(X,Y) | X = Y | greater(X,Y))) # label(meaning_postulate_greater_comparable) # label(axiom).
+(all X all T (organization(X) & -has_endowment(X) -> -has_immunity(X,T))) # label(assumption_1) # label(axiom).
+(all X all T0 all T (organization(X) & -has_immunity(X,T0) & -has_immunity(X,T) -> (greater(capability(X,T),capability(X,T0)) & greater_or_equal(position(X,T),position(X,T0)) -> smaller(hazard_of_mortality(X,T),hazard_of_mortality(X,T0))) & (greater_or_equal(capability(X,T),capability(X,T0)) & greater(position(X,T),position(X,T0)) -> smaller(hazard_of_mortality(X,T),hazard_of_mortality(X,T0))) & (capability(X,T) = capability(X,T0) & position(X,T) = position(X,T0) -> hazard_of_mortality(X,T) = hazard_of_mortality(X,T0)))) # label(assumption_4) # label(axiom).
+(all X all T0 all T (organization(X) -> (greater(stock_of_knowledge(X,T),stock_of_knowledge(X,T0)) & smaller_or_equal(internal_friction(X,T),internal_friction(X,T0)) -> greater(capability(X,T),capability(X,T0))) & (smaller_or_equal(stock_of_knowledge(X,T),stock_of_knowledge(X,T0)) & greater(internal_friction(X,T),internal_friction(X,T0)) -> smaller(capability(X,T),capability(X,T0))) & (stock_of_knowledge(X,T) = stock_of_knowledge(X,T0) & internal_friction(X,T) = internal_friction(X,T0) -> capability(X,T) = capability(X,T0)))) # label(assumption_5) # label(axiom).
+(all X all T0 all T (organization(X) -> (greater(external_ties(X,T),external_ties(X,T0)) -> greater(position(X,T),position(X,T0))) & (external_ties(X,T) = external_ties(X,T0) -> position(X,T) = position(X,T0)))) # label(assumption_6) # label(axiom).
+(all X all T0 all T (organization(X) -> stock_of_knowledge(X,T) = stock_of_knowledge(X,T0))) # label(assumption_10) # label(axiom).
+(all X all T0 all T (organization(X) -> external_ties(X,T) = external_ties(X,T0))) # label(assumption_11) # label(axiom).
+(all X all T0 all T (organization(X) & greater(age(X,T),age(X,T0)) -> greater(internal_friction(X,T),internal_friction(X,T0)))) # label(assumption_12) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all X all T0 all T (organization(X) & -has_endowment(X) & greater(age(X,T),age(X,T0)) -> greater(hazard_of_mortality(X,T),hazard_of_mortality(X,T0)))) # label(theorem_3) # label(conjecture).
+end_of_list.

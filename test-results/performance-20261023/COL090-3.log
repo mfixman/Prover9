@@ -1,0 +1,332 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 237 was started by mfixman on bodoque,
+Fri Oct 23 15:01:26 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+combK != combS # label(k_s) # label(axiom).
+combK != comb_app(P,Q) # label(k_app) # label(axiom).
+combS != comb_app(P,Q) # label(s_app) # label(axiom).
+comb_app(P1,Q1) != comb_app(P2,Q2) | P1 = P2 # label(app_app1) # label(axiom).
+comb_app(P1,Q1) != comb_app(P2,Q2) | Q1 = Q2 # label(app_app2) # label(axiom).
+P1 != P2 | Q1 != Q2 | comb_app(P1,Q1) = comb_app(P2,Q2) # label(app_app3) # label(axiom).
+-member(pair(comb_app(P,Q),R),contract) | ap_contractE_c1(P,Q,R) | ap_contractE_c2(P,Q,R) | ap_contractE_c3(P,Q,R) | ap_contractE_c4(P,Q,R) # label(ap_contractE1) # label(axiom).
+-ap_contractE_c1(P,Q,R) | member(R,comb) # label(ap_contractE2) # label(axiom).
+-ap_contractE_c1(P,Q,R) | member(Q,comb) # label(ap_contractE3) # label(axiom).
+-ap_contractE_c1(P,Q,R) | P = comb_app(combK,R) # label(ap_contractE4) # label(axiom).
+-ap_contractE_c2(P,Q,R) | member(ap_contractE_sk1p(P,Q,R),comb) # label(ap_contractE5) # label(axiom).
+-ap_contractE_c2(P,Q,R) | member(ap_contractE_sk1q(P,Q,R),comb) # label(ap_contractE6) # label(axiom).
+-ap_contractE_c2(P,Q,R) | member(Q,comb) # label(ap_contractE7) # label(axiom).
+-ap_contractE_c2(P,Q,R) | R = comb_app(comb_app(ap_contractE_sk1p(P,Q,R),Q),comb_app(ap_contractE_sk1q(P,Q,R),Q)) # label(ap_contractE8) # label(axiom).
+-ap_contractE_c2(P,Q,R) | P = comb_app(comb_app(combS,ap_contractE_sk1p(P,Q,R)),ap_contractE_sk1q(P,Q,R)) # label(ap_contractE9) # label(axiom).
+-ap_contractE_c3(P,Q,R) | member(pair(P,ap_contractE_sk2q(P,Q,R)),contract) # label(ap_contractE10) # label(axiom).
+-ap_contractE_c3(P,Q,R) | member(Q,comb) # label(ap_contractE11) # label(axiom).
+-ap_contractE_c3(P,Q,R) | R = comb_app(ap_contractE_sk2q(P,Q,R),Q) # label(ap_contractE12) # label(axiom).
+-ap_contractE_c4(P,Q,R) | member(pair(Q,ap_contractE_sk3q(P,Q,R)),contract) # label(ap_contractE13) # label(axiom).
+-ap_contractE_c4(P,Q,R) | member(P,comb) # label(ap_contractE14) # label(axiom).
+-ap_contractE_c4(P,Q,R) | R = comb_app(P,ap_contractE_sk3q(P,Q,R)) # label(ap_contractE15) # label(axiom).
+-member(pair(combK,R),contract) # label(k_contractE) # label(axiom).
+-member(pair(combS,R),contract) # label(s_contractE) # label(axiom).
+member(pair(comb_app(comb_app(combS,combK),combK),r),contract) # label(i_contract_E) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating ap_contractE_c1/3
+1 -ap_contractE_c1(A,B,C) | member(C,comb) # label(ap_contractE2) # label(axiom).  [assumption].
+2 -member(pair(comb_app(A,B),C),contract) | ap_contractE_c1(A,B,C) | ap_contractE_c2(A,B,C) | ap_contractE_c3(A,B,C) | ap_contractE_c4(A,B,C) # label(ap_contractE1) # label(axiom).  [assumption].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c2(B,C,A) | ap_contractE_c3(B,C,A) | ap_contractE_c4(B,C,A).  [resolve(1,a,2,b)].
+3 -ap_contractE_c1(A,B,C) | member(B,comb) # label(ap_contractE3) # label(axiom).  [assumption].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c2(B,A,C) | ap_contractE_c3(B,A,C) | ap_contractE_c4(B,A,C).  [resolve(3,a,2,b)].
+4 -ap_contractE_c1(A,B,C) | A = comb_app(combK,C) # label(ap_contractE4) # label(axiom).  [assumption].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c2(A,C,B) | ap_contractE_c3(A,C,B) | ap_contractE_c4(A,C,B).  [resolve(4,a,2,b)].
+
+Eliminating ap_contractE_c2/3
+5 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c2(B,C,A) | ap_contractE_c3(B,C,A) | ap_contractE_c4(B,C,A).  [resolve(1,a,2,b)].
+6 -ap_contractE_c2(A,B,C) | member(ap_contractE_sk1p(A,B,C),comb) # label(ap_contractE5) # label(axiom).  [assumption].
+7 -ap_contractE_c2(A,B,C) | member(ap_contractE_sk1q(A,B,C),comb) # label(ap_contractE6) # label(axiom).  [assumption].
+8 -ap_contractE_c2(A,B,C) | member(B,comb) # label(ap_contractE7) # label(axiom).  [assumption].
+9 -ap_contractE_c2(A,B,C) | C = comb_app(comb_app(ap_contractE_sk1p(A,B,C),B),comb_app(ap_contractE_sk1q(A,B,C),B)) # label(ap_contractE8) # label(axiom).  [assumption].
+10 -ap_contractE_c2(A,B,C) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,B,C)),ap_contractE_sk1q(A,B,C)) # label(ap_contractE9) # label(axiom).  [assumption].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c3(B,C,A) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1p(B,C,A),comb).  [resolve(5,c,6,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c3(B,C,A) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1q(B,C,A),comb).  [resolve(5,c,7,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c3(B,C,A) | ap_contractE_c4(B,C,A) | member(C,comb).  [resolve(5,c,8,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c3(B,C,A) | ap_contractE_c4(B,C,A) | A = comb_app(comb_app(ap_contractE_sk1p(B,C,A),C),comb_app(ap_contractE_sk1q(B,C,A),C)).  [resolve(5,c,9,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c3(B,C,A) | ap_contractE_c4(B,C,A) | B = comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)).  [resolve(5,c,10,a)].
+11 member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c2(B,A,C) | ap_contractE_c3(B,A,C) | ap_contractE_c4(B,A,C).  [resolve(3,a,2,b)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c3(B,A,C) | ap_contractE_c4(B,A,C) | member(ap_contractE_sk1p(B,A,C),comb).  [resolve(11,c,6,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c3(B,A,C) | ap_contractE_c4(B,A,C) | member(ap_contractE_sk1q(B,A,C),comb).  [resolve(11,c,7,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c3(B,A,C) | ap_contractE_c4(B,A,C) | member(A,comb).  [resolve(11,c,8,a)].
+12 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c2(A,C,B) | ap_contractE_c3(A,C,B) | ap_contractE_c4(A,C,B).  [resolve(4,a,2,b)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c3(A,C,B) | ap_contractE_c4(A,C,B) | member(ap_contractE_sk1p(A,C,B),comb).  [resolve(12,c,6,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c3(A,C,B) | ap_contractE_c4(A,C,B) | member(ap_contractE_sk1q(A,C,B),comb).  [resolve(12,c,7,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c3(A,C,B) | ap_contractE_c4(A,C,B) | B = comb_app(comb_app(ap_contractE_sk1p(A,C,B),C),comb_app(ap_contractE_sk1q(A,C,B),C)).  [resolve(12,c,9,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c3(A,C,B) | ap_contractE_c4(A,C,B) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)).  [resolve(12,c,10,a)].
+
+Eliminating ap_contractE_c3/3
+13 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c3(B,C,A) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1p(B,C,A),comb).  [resolve(5,c,6,a)].
+14 -ap_contractE_c3(A,B,C) | member(pair(A,ap_contractE_sk2q(A,B,C)),contract) # label(ap_contractE10) # label(axiom).  [assumption].
+15 -ap_contractE_c3(A,B,C) | member(B,comb) # label(ap_contractE11) # label(axiom).  [assumption].
+16 -ap_contractE_c3(A,B,C) | C = comb_app(ap_contractE_sk2q(A,B,C),B) # label(ap_contractE12) # label(axiom).  [assumption].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1p(B,C,A),comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract).  [resolve(13,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1p(B,C,A),comb) | member(C,comb).  [resolve(13,c,15,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1p(B,C,A),comb) | A = comb_app(ap_contractE_sk2q(B,C,A),C).  [resolve(13,c,16,a)].
+17 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c3(B,C,A) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1q(B,C,A),comb).  [resolve(5,c,7,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1q(B,C,A),comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract).  [resolve(17,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1q(B,C,A),comb) | member(C,comb).  [resolve(17,c,15,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1q(B,C,A),comb) | A = comb_app(ap_contractE_sk2q(B,C,A),C).  [resolve(17,c,16,a)].
+18 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c3(B,C,A) | ap_contractE_c4(B,C,A) | member(C,comb).  [resolve(5,c,8,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(C,comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract).  [resolve(18,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(C,comb) | member(C,comb).  [resolve(18,c,15,a)].
+19 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c3(B,C,A) | ap_contractE_c4(B,C,A) | A = comb_app(comb_app(ap_contractE_sk1p(B,C,A),C),comb_app(ap_contractE_sk1q(B,C,A),C)).  [resolve(5,c,9,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | A = comb_app(comb_app(ap_contractE_sk1p(B,C,A),C),comb_app(ap_contractE_sk1q(B,C,A),C)) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract).  [resolve(19,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | A = comb_app(comb_app(ap_contractE_sk1p(B,C,A),C),comb_app(ap_contractE_sk1q(B,C,A),C)) | A = comb_app(ap_contractE_sk2q(B,C,A),C).  [resolve(19,c,16,a)].
+20 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c3(B,C,A) | ap_contractE_c4(B,C,A) | B = comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)).  [resolve(5,c,10,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | B = comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract).  [resolve(20,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | B = comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)) | A = comb_app(ap_contractE_sk2q(B,C,A),C).  [resolve(20,c,16,a)].
+21 member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c3(B,A,C) | ap_contractE_c4(B,A,C) | member(ap_contractE_sk1p(B,A,C),comb).  [resolve(11,c,6,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c4(B,A,C) | member(ap_contractE_sk1p(B,A,C),comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract).  [resolve(21,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c4(B,A,C) | member(ap_contractE_sk1p(B,A,C),comb) | member(A,comb).  [resolve(21,c,15,a)].
+22 member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c3(B,A,C) | ap_contractE_c4(B,A,C) | member(ap_contractE_sk1q(B,A,C),comb).  [resolve(11,c,7,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c4(B,A,C) | member(ap_contractE_sk1q(B,A,C),comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract).  [resolve(22,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c4(B,A,C) | member(ap_contractE_sk1q(B,A,C),comb) | member(A,comb).  [resolve(22,c,15,a)].
+23 member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c3(B,A,C) | ap_contractE_c4(B,A,C) | member(A,comb).  [resolve(11,c,8,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c4(B,A,C) | member(A,comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract).  [resolve(23,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c4(B,A,C) | member(A,comb) | member(A,comb).  [resolve(23,c,15,a)].
+24 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c3(A,C,B) | ap_contractE_c4(A,C,B) | member(ap_contractE_sk1p(A,C,B),comb).  [resolve(12,c,6,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | member(ap_contractE_sk1p(A,C,B),comb) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract).  [resolve(24,c,14,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | member(ap_contractE_sk1p(A,C,B),comb) | B = comb_app(ap_contractE_sk2q(A,C,B),C).  [resolve(24,c,16,a)].
+25 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c3(A,C,B) | ap_contractE_c4(A,C,B) | member(ap_contractE_sk1q(A,C,B),comb).  [resolve(12,c,7,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | member(ap_contractE_sk1q(A,C,B),comb) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract).  [resolve(25,c,14,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | member(ap_contractE_sk1q(A,C,B),comb) | B = comb_app(ap_contractE_sk2q(A,C,B),C).  [resolve(25,c,16,a)].
+26 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c3(A,C,B) | ap_contractE_c4(A,C,B) | B = comb_app(comb_app(ap_contractE_sk1p(A,C,B),C),comb_app(ap_contractE_sk1q(A,C,B),C)).  [resolve(12,c,9,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | B = comb_app(comb_app(ap_contractE_sk1p(A,C,B),C),comb_app(ap_contractE_sk1q(A,C,B),C)) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract).  [resolve(26,c,14,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | B = comb_app(comb_app(ap_contractE_sk1p(A,C,B),C),comb_app(ap_contractE_sk1q(A,C,B),C)) | B = comb_app(ap_contractE_sk2q(A,C,B),C).  [resolve(26,c,16,a)].
+27 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c3(A,C,B) | ap_contractE_c4(A,C,B) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)).  [resolve(12,c,10,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract).  [resolve(27,c,14,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)) | B = comb_app(ap_contractE_sk2q(A,C,B),C).  [resolve(27,c,16,a)].
+
+Eliminating ap_contractE_c4/3
+28 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1p(B,C,A),comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract).  [resolve(13,c,14,a)].
+29 -ap_contractE_c4(A,B,C) | member(pair(B,ap_contractE_sk3q(A,B,C)),contract) # label(ap_contractE13) # label(axiom).  [assumption].
+30 -ap_contractE_c4(A,B,C) | member(A,comb) # label(ap_contractE14) # label(axiom).  [assumption].
+31 -ap_contractE_c4(A,B,C) | C = comb_app(A,ap_contractE_sk3q(A,B,C)) # label(ap_contractE15) # label(axiom).  [assumption].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1p(B,C,A),comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [resolve(28,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1p(B,C,A),comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | member(B,comb).  [resolve(28,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1p(B,C,A),comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | A = comb_app(B,ap_contractE_sk3q(B,C,A)).  [resolve(28,c,31,a)].
+32 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1p(B,C,A),comb) | member(C,comb).  [resolve(13,c,15,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1p(B,C,A),comb) | member(C,comb) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [resolve(32,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1p(B,C,A),comb) | member(C,comb) | member(B,comb).  [resolve(32,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1p(B,C,A),comb) | member(C,comb) | A = comb_app(B,ap_contractE_sk3q(B,C,A)).  [resolve(32,c,31,a)].
+33 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1p(B,C,A),comb) | A = comb_app(ap_contractE_sk2q(B,C,A),C).  [resolve(13,c,16,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1p(B,C,A),comb) | A = comb_app(ap_contractE_sk2q(B,C,A),C) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [resolve(33,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1p(B,C,A),comb) | A = comb_app(ap_contractE_sk2q(B,C,A),C) | member(B,comb).  [resolve(33,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1p(B,C,A),comb) | A = comb_app(ap_contractE_sk2q(B,C,A),C) | A = comb_app(B,ap_contractE_sk3q(B,C,A)).  [resolve(33,c,31,a)].
+34 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1q(B,C,A),comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract).  [resolve(17,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1q(B,C,A),comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [resolve(34,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1q(B,C,A),comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | member(B,comb).  [resolve(34,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1q(B,C,A),comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | A = comb_app(B,ap_contractE_sk3q(B,C,A)).  [resolve(34,c,31,a)].
+35 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1q(B,C,A),comb) | member(C,comb).  [resolve(17,c,15,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1q(B,C,A),comb) | member(C,comb) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [resolve(35,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1q(B,C,A),comb) | member(C,comb) | member(B,comb).  [resolve(35,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1q(B,C,A),comb) | member(C,comb) | A = comb_app(B,ap_contractE_sk3q(B,C,A)).  [resolve(35,c,31,a)].
+36 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(ap_contractE_sk1q(B,C,A),comb) | A = comb_app(ap_contractE_sk2q(B,C,A),C).  [resolve(17,c,16,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1q(B,C,A),comb) | A = comb_app(ap_contractE_sk2q(B,C,A),C) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [resolve(36,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1q(B,C,A),comb) | A = comb_app(ap_contractE_sk2q(B,C,A),C) | member(B,comb).  [resolve(36,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(ap_contractE_sk1q(B,C,A),comb) | A = comb_app(ap_contractE_sk2q(B,C,A),C) | A = comb_app(B,ap_contractE_sk3q(B,C,A)).  [resolve(36,c,31,a)].
+37 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(C,comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract).  [resolve(18,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(C,comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [resolve(37,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(C,comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | member(B,comb).  [resolve(37,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(C,comb) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | A = comb_app(B,ap_contractE_sk3q(B,C,A)).  [resolve(37,c,31,a)].
+38 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | member(C,comb) | member(C,comb).  [resolve(18,c,15,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(C,comb) | member(C,comb) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [resolve(38,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(C,comb) | member(C,comb) | member(B,comb).  [resolve(38,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | member(C,comb) | member(C,comb) | A = comb_app(B,ap_contractE_sk3q(B,C,A)).  [resolve(38,c,31,a)].
+39 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | A = comb_app(comb_app(ap_contractE_sk1p(B,C,A),C),comb_app(ap_contractE_sk1q(B,C,A),C)) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract).  [resolve(19,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | A = comb_app(comb_app(ap_contractE_sk1p(B,C,A),C),comb_app(ap_contractE_sk1q(B,C,A),C)) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [resolve(39,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | A = comb_app(comb_app(ap_contractE_sk1p(B,C,A),C),comb_app(ap_contractE_sk1q(B,C,A),C)) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | member(B,comb).  [resolve(39,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | A = comb_app(comb_app(ap_contractE_sk1p(B,C,A),C),comb_app(ap_contractE_sk1q(B,C,A),C)) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | A = comb_app(B,ap_contractE_sk3q(B,C,A)).  [resolve(39,c,31,a)].
+40 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | A = comb_app(comb_app(ap_contractE_sk1p(B,C,A),C),comb_app(ap_contractE_sk1q(B,C,A),C)) | A = comb_app(ap_contractE_sk2q(B,C,A),C).  [resolve(19,c,16,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | A = comb_app(comb_app(ap_contractE_sk1p(B,C,A),C),comb_app(ap_contractE_sk1q(B,C,A),C)) | A = comb_app(ap_contractE_sk2q(B,C,A),C) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [resolve(40,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | A = comb_app(comb_app(ap_contractE_sk1p(B,C,A),C),comb_app(ap_contractE_sk1q(B,C,A),C)) | A = comb_app(ap_contractE_sk2q(B,C,A),C) | member(B,comb).  [resolve(40,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | A = comb_app(comb_app(ap_contractE_sk1p(B,C,A),C),comb_app(ap_contractE_sk1q(B,C,A),C)) | A = comb_app(ap_contractE_sk2q(B,C,A),C) | A = comb_app(B,ap_contractE_sk3q(B,C,A)).  [resolve(40,c,31,a)].
+41 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | B = comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract).  [resolve(20,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | B = comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [resolve(41,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | B = comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | member(B,comb).  [resolve(41,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | B = comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)) | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | A = comb_app(B,ap_contractE_sk3q(B,C,A)).  [resolve(41,c,31,a)].
+42 member(A,comb) | -member(pair(comb_app(B,C),A),contract) | ap_contractE_c4(B,C,A) | B = comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)) | A = comb_app(ap_contractE_sk2q(B,C,A),C).  [resolve(20,c,16,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | B = comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)) | A = comb_app(ap_contractE_sk2q(B,C,A),C) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [resolve(42,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | B = comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)) | A = comb_app(ap_contractE_sk2q(B,C,A),C) | member(B,comb).  [resolve(42,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,C),A),contract) | B = comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)) | A = comb_app(ap_contractE_sk2q(B,C,A),C) | A = comb_app(B,ap_contractE_sk3q(B,C,A)).  [resolve(42,c,31,a)].
+43 member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c4(B,A,C) | member(ap_contractE_sk1p(B,A,C),comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract).  [resolve(21,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(ap_contractE_sk1p(B,A,C),comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract) | member(pair(A,ap_contractE_sk3q(B,A,C)),contract).  [resolve(43,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(ap_contractE_sk1p(B,A,C),comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract) | member(B,comb).  [resolve(43,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(ap_contractE_sk1p(B,A,C),comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract) | C = comb_app(B,ap_contractE_sk3q(B,A,C)).  [resolve(43,c,31,a)].
+44 member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c4(B,A,C) | member(ap_contractE_sk1p(B,A,C),comb) | member(A,comb).  [resolve(21,c,15,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(ap_contractE_sk1p(B,A,C),comb) | member(A,comb) | member(pair(A,ap_contractE_sk3q(B,A,C)),contract).  [resolve(44,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(ap_contractE_sk1p(B,A,C),comb) | member(A,comb) | member(B,comb).  [resolve(44,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(ap_contractE_sk1p(B,A,C),comb) | member(A,comb) | C = comb_app(B,ap_contractE_sk3q(B,A,C)).  [resolve(44,c,31,a)].
+45 member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c4(B,A,C) | member(ap_contractE_sk1q(B,A,C),comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract).  [resolve(22,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(ap_contractE_sk1q(B,A,C),comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract) | member(pair(A,ap_contractE_sk3q(B,A,C)),contract).  [resolve(45,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(ap_contractE_sk1q(B,A,C),comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract) | member(B,comb).  [resolve(45,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(ap_contractE_sk1q(B,A,C),comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract) | C = comb_app(B,ap_contractE_sk3q(B,A,C)).  [resolve(45,c,31,a)].
+46 member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c4(B,A,C) | member(ap_contractE_sk1q(B,A,C),comb) | member(A,comb).  [resolve(22,c,15,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(ap_contractE_sk1q(B,A,C),comb) | member(A,comb) | member(pair(A,ap_contractE_sk3q(B,A,C)),contract).  [resolve(46,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(ap_contractE_sk1q(B,A,C),comb) | member(A,comb) | member(B,comb).  [resolve(46,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(ap_contractE_sk1q(B,A,C),comb) | member(A,comb) | C = comb_app(B,ap_contractE_sk3q(B,A,C)).  [resolve(46,c,31,a)].
+47 member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c4(B,A,C) | member(A,comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract).  [resolve(23,c,14,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(A,comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract) | member(pair(A,ap_contractE_sk3q(B,A,C)),contract).  [resolve(47,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(A,comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract) | member(B,comb).  [resolve(47,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(A,comb) | member(pair(B,ap_contractE_sk2q(B,A,C)),contract) | C = comb_app(B,ap_contractE_sk3q(B,A,C)).  [resolve(47,c,31,a)].
+48 member(A,comb) | -member(pair(comb_app(B,A),C),contract) | ap_contractE_c4(B,A,C) | member(A,comb) | member(A,comb).  [resolve(23,c,15,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(A,comb) | member(A,comb) | member(pair(A,ap_contractE_sk3q(B,A,C)),contract).  [resolve(48,c,29,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(A,comb) | member(A,comb) | member(B,comb).  [resolve(48,c,30,a)].
+Derived: member(A,comb) | -member(pair(comb_app(B,A),C),contract) | member(A,comb) | member(A,comb) | C = comb_app(B,ap_contractE_sk3q(B,A,C)).  [resolve(48,c,31,a)].
+49 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | member(ap_contractE_sk1p(A,C,B),comb) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract).  [resolve(24,c,14,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | member(ap_contractE_sk1p(A,C,B),comb) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | member(pair(C,ap_contractE_sk3q(A,C,B)),contract).  [resolve(49,c,29,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | member(ap_contractE_sk1p(A,C,B),comb) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | member(A,comb).  [resolve(49,c,30,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | member(ap_contractE_sk1p(A,C,B),comb) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | B = comb_app(A,ap_contractE_sk3q(A,C,B)).  [resolve(49,c,31,a)].
+50 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | member(ap_contractE_sk1p(A,C,B),comb) | B = comb_app(ap_contractE_sk2q(A,C,B),C).  [resolve(24,c,16,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | member(ap_contractE_sk1p(A,C,B),comb) | B = comb_app(ap_contractE_sk2q(A,C,B),C) | member(pair(C,ap_contractE_sk3q(A,C,B)),contract).  [resolve(50,c,29,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | member(ap_contractE_sk1p(A,C,B),comb) | B = comb_app(ap_contractE_sk2q(A,C,B),C) | member(A,comb).  [resolve(50,c,30,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | member(ap_contractE_sk1p(A,C,B),comb) | B = comb_app(ap_contractE_sk2q(A,C,B),C) | B = comb_app(A,ap_contractE_sk3q(A,C,B)).  [resolve(50,c,31,a)].
+51 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | member(ap_contractE_sk1q(A,C,B),comb) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract).  [resolve(25,c,14,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | member(ap_contractE_sk1q(A,C,B),comb) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | member(pair(C,ap_contractE_sk3q(A,C,B)),contract).  [resolve(51,c,29,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | member(ap_contractE_sk1q(A,C,B),comb) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | member(A,comb).  [resolve(51,c,30,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | member(ap_contractE_sk1q(A,C,B),comb) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | B = comb_app(A,ap_contractE_sk3q(A,C,B)).  [resolve(51,c,31,a)].
+52 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | member(ap_contractE_sk1q(A,C,B),comb) | B = comb_app(ap_contractE_sk2q(A,C,B),C).  [resolve(25,c,16,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | member(ap_contractE_sk1q(A,C,B),comb) | B = comb_app(ap_contractE_sk2q(A,C,B),C) | member(pair(C,ap_contractE_sk3q(A,C,B)),contract).  [resolve(52,c,29,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | member(ap_contractE_sk1q(A,C,B),comb) | B = comb_app(ap_contractE_sk2q(A,C,B),C) | member(A,comb).  [resolve(52,c,30,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | member(ap_contractE_sk1q(A,C,B),comb) | B = comb_app(ap_contractE_sk2q(A,C,B),C) | B = comb_app(A,ap_contractE_sk3q(A,C,B)).  [resolve(52,c,31,a)].
+53 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | B = comb_app(comb_app(ap_contractE_sk1p(A,C,B),C),comb_app(ap_contractE_sk1q(A,C,B),C)) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract).  [resolve(26,c,14,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | B = comb_app(comb_app(ap_contractE_sk1p(A,C,B),C),comb_app(ap_contractE_sk1q(A,C,B),C)) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | member(pair(C,ap_contractE_sk3q(A,C,B)),contract).  [resolve(53,c,29,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | B = comb_app(comb_app(ap_contractE_sk1p(A,C,B),C),comb_app(ap_contractE_sk1q(A,C,B),C)) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | member(A,comb).  [resolve(53,c,30,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | B = comb_app(comb_app(ap_contractE_sk1p(A,C,B),C),comb_app(ap_contractE_sk1q(A,C,B),C)) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | B = comb_app(A,ap_contractE_sk3q(A,C,B)).  [resolve(53,c,31,a)].
+54 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | B = comb_app(comb_app(ap_contractE_sk1p(A,C,B),C),comb_app(ap_contractE_sk1q(A,C,B),C)) | B = comb_app(ap_contractE_sk2q(A,C,B),C).  [resolve(26,c,16,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | B = comb_app(comb_app(ap_contractE_sk1p(A,C,B),C),comb_app(ap_contractE_sk1q(A,C,B),C)) | B = comb_app(ap_contractE_sk2q(A,C,B),C) | member(pair(C,ap_contractE_sk3q(A,C,B)),contract).  [resolve(54,c,29,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | B = comb_app(comb_app(ap_contractE_sk1p(A,C,B),C),comb_app(ap_contractE_sk1q(A,C,B),C)) | B = comb_app(ap_contractE_sk2q(A,C,B),C) | member(A,comb).  [resolve(54,c,30,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | B = comb_app(comb_app(ap_contractE_sk1p(A,C,B),C),comb_app(ap_contractE_sk1q(A,C,B),C)) | B = comb_app(ap_contractE_sk2q(A,C,B),C) | B = comb_app(A,ap_contractE_sk3q(A,C,B)).  [resolve(54,c,31,a)].
+55 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract).  [resolve(27,c,14,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | member(pair(C,ap_contractE_sk3q(A,C,B)),contract).  [resolve(55,c,29,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | member(A,comb).  [resolve(55,c,30,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | B = comb_app(A,ap_contractE_sk3q(A,C,B)).  [resolve(55,c,31,a)].
+56 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)) | B = comb_app(ap_contractE_sk2q(A,C,B),C).  [resolve(27,c,16,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)) | B = comb_app(ap_contractE_sk2q(A,C,B),C) | member(pair(C,ap_contractE_sk3q(A,C,B)),contract).  [resolve(56,c,29,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)) | B = comb_app(ap_contractE_sk2q(A,C,B),C) | member(A,comb).  [resolve(56,c,30,a)].
+Derived: A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)) | B = comb_app(ap_contractE_sk2q(A,C,B),C) | B = comb_app(A,ap_contractE_sk3q(A,C,B)).  [resolve(56,c,31,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, member ]).
+Function symbol precedence:  function_order([ comb, contract, combK, combS, r, comb_app, pair, ap_contractE_sk2q, ap_contractE_sk3q, ap_contractE_sk1p, ap_contractE_sk1q ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.02 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.02 (+ 0.00) seconds.
+% Length of proof is 23.
+% Level of proof is 7.
+% Maximum clause weight is 41.000.
+% Given clauses 55 (7.857 givens/level).
+
+2 -member(pair(comb_app(A,B),C),contract) | ap_contractE_c1(A,B,C) | ap_contractE_c2(A,B,C) | ap_contractE_c3(A,B,C) | ap_contractE_c4(A,B,C) # label(ap_contractE1) # label(axiom).  [assumption].
+4 -ap_contractE_c1(A,B,C) | A = comb_app(combK,C) # label(ap_contractE4) # label(axiom).  [assumption].
+10 -ap_contractE_c2(A,B,C) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,B,C)),ap_contractE_sk1q(A,B,C)) # label(ap_contractE9) # label(axiom).  [assumption].
+12 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c2(A,C,B) | ap_contractE_c3(A,C,B) | ap_contractE_c4(A,C,B).  [resolve(4,a,2,b)].
+14 -ap_contractE_c3(A,B,C) | member(pair(A,ap_contractE_sk2q(A,B,C)),contract) # label(ap_contractE10) # label(axiom).  [assumption].
+27 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c3(A,C,B) | ap_contractE_c4(A,C,B) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)).  [resolve(12,c,10,a)].
+29 -ap_contractE_c4(A,B,C) | member(pair(B,ap_contractE_sk3q(A,B,C)),contract) # label(ap_contractE13) # label(axiom).  [assumption].
+55 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | ap_contractE_c4(A,C,B) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract).  [resolve(27,c,14,a)].
+57 combK != combS # label(k_s) # label(axiom).  [assumption].
+58 combS != combK.  [copy(57),flip(a)].
+61 combS != comb_app(A,B) # label(s_app) # label(axiom).  [assumption].
+62 comb_app(A,B) != combS.  [copy(61),flip(a)].
+63 comb_app(A,B) != comb_app(C,D) | A = C # label(app_app1) # label(axiom).  [assumption].
+66 -member(pair(combK,A),contract) # label(k_contractE) # label(axiom).  [assumption].
+67 -member(pair(combS,A),contract) # label(s_contractE) # label(axiom).  [assumption].
+68 member(pair(comb_app(comb_app(combS,combK),combK),r),contract) # label(i_contract_E) # label(negated_conjecture).  [assumption].
+199 A = comb_app(combK,B) | -member(pair(comb_app(A,C),B),contract) | A = comb_app(comb_app(combS,ap_contractE_sk1p(A,C,B)),ap_contractE_sk1q(A,C,B)) | member(pair(A,ap_contractE_sk2q(A,C,B)),contract) | member(pair(C,ap_contractE_sk3q(A,C,B)),contract).  [resolve(55,c,29,a)].
+200 comb_app(combK,A) = B | -member(pair(comb_app(B,C),A),contract) | comb_app(comb_app(combS,ap_contractE_sk1p(B,C,A)),ap_contractE_sk1q(B,C,A)) = B | member(pair(B,ap_contractE_sk2q(B,C,A)),contract) | member(pair(C,ap_contractE_sk3q(B,C,A)),contract).  [copy(199),flip(a),flip(c)].
+222 comb_app(comb_app(A,B),C) != comb_app(combS,D).  [ur(63,b,62,a)].
+224 comb_app(combS,A) != comb_app(combK,B).  [ur(63,b,58,a)].
+257 member(pair(comb_app(combS,combK),ap_contractE_sk2q(comb_app(combS,combK),combK,r)),contract).  [resolve(200,b,68,a),flip(a),unit_del(a,224),unit_del(b,222),unit_del(d,66)].
+259 -member(pair(comb_app(combS,combK),A),contract).  [ur(200,a,62,a,c,62,a,d,67,a,e,66,a)].
+260 $F.  [resolve(259,a,257,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=55. Generated=210. Kept=136. proofs=1.
+Usable=55. Sos=36. Demods=0. Limbo=2, Disabled=185. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=74. Back_subsumed=42.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=158. Nonunit_bsub_feature_tests=507.
+Megabytes=0.48.
+User_CPU=0.02, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 237 exit (max_proofs) Fri Oct 23 15:01:26 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 237 exit (max_proofs) ------
+

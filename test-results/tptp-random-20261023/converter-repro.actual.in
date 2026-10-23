@@ -1,0 +1,8 @@
+set(prolog_style_variables).
+
+formulas(assumptions).
+end_of_list.
+
+formulas(goals).
+p(X) # label(g) # label(conjecture).
+end_of_list.

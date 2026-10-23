@@ -1,0 +1,114 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 203 was started by mfixman on bodoque,
+Fri Oct 23 15:01:09 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+apply(apply(apply(b,X),Y),Z) = apply(X,apply(Y,Z)) # label(b_definition) # label(axiom).
+apply(apply(w1,X),Y) = apply(apply(Y,X),X) # label(w1_definition) # label(axiom).
+strong_fixed_point = apply(apply(b,apply(apply(b,apply(w1,w1)),apply(apply(b,apply(b,w1)),b))),b) # label(strong_fixed_point) # label(axiom).
+apply(strong_fixed_point,fixed_pt) != apply(fixed_pt,apply(strong_fixed_point,fixed_pt)) # label(prove_strong_fixed_point) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_strong_fixed_point to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ b, w1, strong_fixed_point, fixed_pt, apply ]).
+After inverse_order:  (no changes).
+Unfolding symbols: strong_fixed_point/0.
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds: prove_strong_fixed_point.
+% Length of proof is 9.
+% Level of proof is 4.
+% Maximum clause weight is 29.000.
+% Given clauses 9 (2.250 givens/level).
+
+1 apply(apply(apply(b,A),B),C) = apply(A,apply(B,C)) # label(b_definition) # label(axiom).  [assumption].
+2 apply(apply(w1,A),B) = apply(apply(B,A),A) # label(w1_definition) # label(axiom).  [assumption].
+3 strong_fixed_point = apply(apply(b,apply(apply(b,apply(w1,w1)),apply(apply(b,apply(b,w1)),b))),b) # label(strong_fixed_point) # label(axiom).  [assumption].
+4 apply(strong_fixed_point,fixed_pt) != apply(fixed_pt,apply(strong_fixed_point,fixed_pt)) # label(prove_strong_fixed_point) # label(negated_conjecture) # answer(prove_strong_fixed_point).  [assumption].
+5 apply(fixed_pt,apply(apply(w1,w1),apply(apply(b,w1),apply(b,apply(b,fixed_pt))))) != apply(apply(w1,w1),apply(apply(b,w1),apply(b,apply(b,fixed_pt)))) # answer(prove_strong_fixed_point).  [copy(4),rewrite([3(1),1(19),1(17),1(14),3(15),1(33),1(31),1(28)]),flip(a)].
+10 apply(apply(w1,A),w1) = apply(apply(A,A),A).  [para(2(a,1),2(a,2))].
+12 apply(fixed_pt,apply(apply(w1,apply(apply(b,apply(b,fixed_pt)),w1)),w1)) != apply(apply(w1,w1),apply(apply(b,w1),apply(b,apply(b,fixed_pt)))) # answer(prove_strong_fixed_point).  [para(2(a,1),5(a,1,2)),rewrite([1(12)])].
+32 apply(fixed_pt,apply(apply(w1,apply(apply(b,apply(b,fixed_pt)),w1)),w1)) != apply(apply(w1,apply(apply(b,apply(b,fixed_pt)),w1)),w1) # answer(prove_strong_fixed_point).  [para(2(a,1),12(a,2)),rewrite([1(24)])].
+45 $F # answer(prove_strong_fixed_point).  [para(10(a,1),32(a,2)),rewrite([1(28),1(34),2(31,R)]),xx(a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=9. Generated=111. Kept=43. proofs=1.
+Usable=9. Sos=22. Demods=12. Limbo=12, Disabled=4. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=67. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=12 (2 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=1890. Demod_rewrites=78.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.15.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 203 exit (max_proofs) Fri Oct 23 15:01:09 2026
+-------- Proof 1 -------- prove_strong_fixed_point.
+
+THEOREM PROVED
+
+------ process 203 exit (max_proofs) ------
+

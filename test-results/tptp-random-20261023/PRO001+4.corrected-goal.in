@@ -1,0 +1,65 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all X0 all X1 (occurrence_of(X1,X0) & -atomic(X0) -> (exists X2 (root(X2,X0) & subactivity_occurrence(X2,X1))))) # label(sos) # label(axiom).
+(all X3 all X4 all X5 all X6 all X7 (occurrence_of(X4,X3) & root_occ(X6,X4) & leaf_occ(X7,X4) & subactivity_occurrence(X5,X4) & min_precedes(X6,X5,X3) & X5 != X7 -> min_precedes(X5,X7,X3))) # label(sos_01) # label(axiom).
+(all X8 all X9 all X10 all X11 (occurrence_of(X9,X8) & subactivity_occurrence(X10,X9) & leaf_occ(X11,X9) & arboreal(X10) & -min_precedes(X10,X11,X8) -> X11 = X10)) # label(sos_02) # label(axiom).
+(all X12 all X13 (occurrence_of(X13,X12) -> activity(X12) & activity_occurrence(X13))) # label(sos_03) # label(axiom).
+(all X14 all X15 all X16 all X17 (occurrence_of(X15,X14) & arboreal(X16) & arboreal(X17) & subactivity_occurrence(X16,X15) & subactivity_occurrence(X17,X15) -> min_precedes(X16,X17,X14) | min_precedes(X17,X16,X14) | X16 = X17)) # label(sos_04) # label(axiom).
+(all X18 all X19 (root(X19,X18) -> (exists X20 (subactivity(X20,X18) & atocc(X19,X20))))) # label(sos_05) # label(axiom).
+(all X21 all X22 all X23 (min_precedes(X22,X23,X21) -> (exists X24 (occurrence_of(X24,X21) & subactivity_occurrence(X22,X24) & subactivity_occurrence(X23,X24))))) # label(sos_06) # label(axiom).
+(all X25 all X26 (leaf(X25,X26) & -atomic(X26) -> (exists X27 (occurrence_of(X27,X26) & leaf_occ(X25,X27))))) # label(sos_07) # label(axiom).
+(all X28 all X29 all X30 (occurrence_of(X28,X29) & occurrence_of(X28,X30) -> X29 = X30)) # label(sos_08) # label(axiom).
+(all X31 all X32 all X33 (occurrence_of(X31,X33) & leaf_occ(X32,X31) -> min_precedes(X32,X34,X33))) # label(sos_09) # label(axiom).
+(all X35 all X36 all X37 (occurrence_of(X35,X37) & root_occ(X36,X35) -> min_precedes(X38,X36,X37))) # label(sos_10) # label(axiom).
+(all X39 all X40 (subactivity_occurrence(X39,X40) -> activity_occurrence(X39) & activity_occurrence(X40))) # label(sos_11) # label(axiom).
+(all X41 (activity_occurrence(X41) -> (exists X42 (activity(X42) & occurrence_of(X41,X42))))) # label(sos_12) # label(axiom).
+(all X43 (legal(X43) -> arboreal(X43))) # label(sos_13) # label(axiom).
+(all X44 all X45 (atocc(X44,X45) <-> (exists X46 (subactivity(X45,X46) & atomic(X46) & occurrence_of(X44,X46))))) # label(sos_14) # label(axiom).
+(all X47 all X48 (leaf(X47,X48) <-> (root(X47,X48) | (exists X49 min_precedes(X49,X47,X48))) & min_precedes(X47,X50,X48))) # label(sos_15) # label(axiom).
+(all X51 all X52 (occurrence_of(X51,X52) -> (arboreal(X51) <-> atomic(X52)))) # label(sos_16) # label(axiom).
+(all X53 all X54 (root(X53,X54) -> legal(X53))) # label(sos_17) # label(axiom).
+(all X55 all X56 (leaf_occ(X55,X56) <-> (exists X57 (occurrence_of(X56,X57) & subactivity_occurrence(X55,X56) & leaf(X55,X57))))) # label(sos_18) # label(axiom).
+(all X58 all X59 (root_occ(X58,X59) <-> (exists X60 (occurrence_of(X59,X60) & subactivity_occurrence(X58,X59) & root(X58,X60))))) # label(sos_19) # label(axiom).
+(all X61 all X62 (earlier(X61,X62) -> -earlier(X62,X61))) # label(sos_20) # label(axiom).
+(all X63 all X64 (precedes(X63,X64) <-> earlier(X63,X64) & legal(X64))) # label(sos_21) # label(axiom).
+(all X65 all X66 all X67 (min_precedes(X65,X66,X67) -> -root(X66,X67))) # label(sos_22) # label(axiom).
+(all X68 all X69 all X70 (min_precedes(X68,X69,X70) -> (exists X71 (root(X71,X70) & min_precedes(X71,X69,X70))))) # label(sos_23) # label(axiom).
+(all X72 all X73 all X74 (min_precedes(X72,X73,X74) -> precedes(X72,X73))) # label(sos_24) # label(axiom).
+(all X75 all X76 all X77 (next_subocc(X75,X76,X77) -> arboreal(X75) & arboreal(X76))) # label(sos_25) # label(axiom).
+(all X78 all X79 all X80 (next_subocc(X78,X79,X80) <-> min_precedes(X78,X79,X80) & min_precedes(X78,X81,X80) & min_precedes(X81,X79,X80))) # label(sos_26) # label(axiom).
+(all X82 all X83 all X84 all X85 (min_precedes(X82,X83,X84) & occurrence_of(X85,X84) & subactivity_occurrence(X83,X85) -> subactivity_occurrence(X82,X85))) # label(sos_27) # label(axiom).
+(all X86 all X87 all X88 all X89 (occurrence_of(X88,X89) & -atomic(X89) & leaf_occ(X86,X88) & leaf_occ(X87,X88) -> X86 = X87)) # label(sos_28) # label(axiom).
+(all X90 all X91 all X92 all X93 (occurrence_of(X92,X93) & root_occ(X90,X92) & root_occ(X91,X92) -> X90 = X91)) # label(sos_29) # label(axiom).
+(all X94 all X95 all X96 (earlier(X94,X95) & earlier(X95,X96) -> earlier(X94,X96))) # label(sos_30) # label(axiom).
+(all X97 all X98 all X99 all X100 (min_precedes(X97,X98,X100) & min_precedes(X97,X99,X100) & precedes(X98,X99) -> min_precedes(X98,X99,X100))) # label(sos_31) # label(axiom).
+(all X101 (occurrence_of(X101,tptp0) -> (exists X102 exists X103 (occurrence_of(X102,tptp4) & root_occ(X102,X101) & (occurrence_of(X103,tptp3) | occurrence_of(X103,tptp2)) & leaf_occ(X103,X101) & next_subocc(X102,X103,tptp0))))) # label(sos_32) # label(axiom).
+activity(tptp0) # label(sos_33) # label(axiom).
+-atomic(tptp0) # label(sos_34) # label(axiom).
+atomic(tptp4) # label(sos_35) # label(axiom).
+atomic(tptp3) # label(sos_36) # label(axiom).
+atomic(tptp2) # label(sos_37) # label(axiom).
+atomic(tptp5) # label(sos_38) # label(axiom).
+tptp4 != tptp5 # label(sos_39) # label(axiom).
+tptp4 != tptp3 # label(sos_40) # label(axiom).
+tptp4 != tptp2 # label(sos_41) # label(axiom).
+tptp5 != tptp3 # label(sos_42) # label(axiom).
+tptp5 != tptp2 # label(sos_43) # label(axiom).
+tptp3 != tptp2 # label(sos_44) # label(axiom).
+(all X104 all X105 all X106 all X107 all X108 (send_message(X104,X105,X106,X107,X108) -> activity(X104) & atomic(X104) & root(X105,X106) & root(X107,X108))) # label(sos_45) # label(axiom).
+(all X109 all X110 all X111 all X112 all X113 (send_message(X109,X110,X111,X112,X113) -> X109 != tptp4 & X109 != tptp3 & X109 != tptp2)) # label(sos_46) # label(axiom).
+(all X114 all X115 all X116 all X117 all X118 all X119 (send_message(X114,X115,X116,X117,X118) & occurrence_of(X119,X114) -> min_precedes(X117,X119,X118))) # label(sos_47) # label(axiom).
+(all X120 all X121 all X122 all X123 all X124 (transmit_message(X120,X121,X122,X123,X124) -> activity(X120) & -atomic(X120) & root(X121,X122) & root(X123,X124))) # label(sos_48) # label(axiom).
+(all X125 all X126 all X127 all X128 -transmit_message(tptp0,X125,X126,X127,X128)) # label(sos_49) # label(axiom).
+(all X129 all X130 all X131 all X132 all X133 all X134 all X135 (transmit_message(X129,X130,X131,X132,X133) -> -tptp1(X129,X134,X135))) # label(sos_50) # label(axiom).
+(all X136 all X137 all X138 all X139 all X140 all X141 (transmit_message(X136,X137,X138,X139,X140) & occurrence_of(X141,X136) -> (exists X142 exists X143 (send_message(X142,X137,X138,X139,X140) & occurrence_of(X143,X142) & root_occ(X143,X141))))) # label(sos_51) # label(axiom).
+(all X144 all X145 all X146 (tptp1(X144,X145,X146) -> activity(X144) & -atomic(X144) & -atomic(X145) & root(X146,X145))) # label(sos_52) # label(axiom).
+(all X147 all X148 all X149 all X150 (tptp1(X147,X148,X149) & occurrence_of(X150,X147) -> (exists X151 exists X152 exists X153 exists X154 (transmit_message(X151,X152,X153,X149,X148) & occurrence_of(X154,X151) & subactivity_occurrence(X154,X150))))) # label(sos_53) # label(axiom).
+(all X155 all X156 -tptp1(tptp0,X155,X156)) # label(sos_54) # label(axiom).
+end_of_list.
+
+formulas(goals).
+-(exists X157 exists X158 exists X159 (tptp1(X157,tptp0,X158) & occurrence_of(X159,X157))) # label(goals) # label(conjecture).
+end_of_list.

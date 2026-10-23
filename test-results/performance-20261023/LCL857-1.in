@@ -1,0 +1,58 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-class_Orderings_Opreorder(T_a) | -c_HOL_Oord__class_Oless(V_b,V_a,T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) # label(cls_order__less__asym_H_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | -c_HOL_Oord__class_Oless(V_y,V_x,T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_order__less__asym_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) | -c_HOL_Oord__class_Oless(V_y,V_x,T_a) # label(cls_not__less__iff__gr__or__eq_1) # label(axiom).
+-class_Orderings_Oorder(T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) | -c_HOL_Oord__class_Oless(V_b,V_a,T_a) # label(cls_xt1_I9_J_0) # label(axiom).
+c_Lambda_Osubst(c_Lambda_OdB_OApp(V_t,V_u),V_s,V_k) = c_Lambda_OdB_OApp(c_Lambda_Osubst(V_t,V_s,V_k),c_Lambda_Osubst(V_u,V_s,V_k)) # label(cls_subst__App_0) # label(axiom).
+c_Lambda_OdB_OApp(V_dB1,V_dB2) != c_Lambda_OdB_OAbs(V_dB_H) # label(cls_dB_Osimps_I8_J_0) # label(axiom).
+c_Lambda_OdB_OAbs(V_dB_H) != c_Lambda_OdB_OApp(V_dB1,V_dB2) # label(cls_dB_Osimps_I9_J_0) # label(axiom).
+c_Lambda_Osubst(c_Lambda_OdB_OVar(V_k),V_u,V_k) = V_u # label(cls_subst__eq_0) # label(axiom).
+c_Lambda_Osubst(c_Lambda_OdB_OVar(V_j),V_u,V_i) = c_Lambda_OdB_OVar(V_j) | -c_HOL_Oord__class_Oless(V_j,V_i,tc_nat) # label(cls_subst__lt_0) # label(axiom).
+c_Lambda_OdB_OApp(V_dB1,V_dB2) != c_Lambda_OdB_OApp(V_dB1_H,V_dB2_H) | V_dB1 = V_dB1_H # label(cls_dB_Osimps_I2_J_0) # label(axiom).
+c_Lambda_OdB_OApp(V_dB1,V_dB2) != c_Lambda_OdB_OApp(V_dB1_H,V_dB2_H) | V_dB2 = V_dB2_H # label(cls_dB_Osimps_I2_J_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | V_x = V_y | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) # label(cls_linorder__antisym__conv3_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | V_x = V_y | c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_linorder__less__linear_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | V_x = V_y # label(cls_linorder__neqE_0) # label(axiom).
+c_HOL_Oord__class_Oless(V_y,V_x,tc_nat) | c_HOL_Oord__class_Oless(V_x,V_y,tc_nat) | V_x = V_y # label(cls_linorder__neqE__nat_0) # label(axiom).
+c_HOL_Oord__class_Oless(V_n,V_m,tc_nat) | c_HOL_Oord__class_Oless(V_m,V_n,tc_nat) | V_m = V_n # label(cls_nat__neq__iff_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | V_x = V_y | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_not__less__iff__gr__or__eq_0) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | V_x = V_y # label(cls_linorder__neqE__ordered__idom_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_x,T_a) # label(cls_order__less__irrefl_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_x,T_a) # label(cls_linorder__neq__iff_1) # label(axiom).
+-class_Orderings_Oorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_x,T_a) # label(cls_order__less__le_1) # label(axiom).
+-c_HOL_Oord__class_Oless(V_n,V_n,tc_nat) # label(cls_less__not__refl_0) # label(axiom).
+-c_HOL_Oord__class_Oless(V_x,V_x,tc_nat) # label(cls_nat__less__le_1) # label(axiom).
+c_Lambda_OdB_OVar(V_nat) != c_Lambda_OdB_OApp(V_dB1_H,V_dB2_H) # label(cls_dB_Osimps_I4_J_0) # label(axiom).
+c_Lambda_Olift(c_Lambda_OdB_OApp(V_s,V_t),V_k) = c_Lambda_OdB_OApp(c_Lambda_Olift(V_s,V_k),c_Lambda_Olift(V_t,V_k)) # label(cls_lift_Osimps_I2_J_0) # label(axiom).
+c_Lambda_Osubst(c_Lambda_OdB_OVar(V_i),V_s,V_k) = c_Lambda_OdB_OVar(V_i) | V_i = V_k | c_HOL_Oord__class_Oless(V_k,V_i,tc_nat) # label(cls_subst__Var_2) # label(axiom).
+-class_Orderings_Opreorder(T_a) | c_HOL_Oord__class_Oless(V_x,V_z,T_a) | -c_HOL_Oord__class_Oless(V_y,V_z,T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_order__less__trans_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_HOL_Oord__class_Oless(V_z,V_x,T_a) | -c_HOL_Oord__class_Oless(V_z,V_y,T_a) | -c_HOL_Oord__class_Oless(V_y,V_x,T_a) # label(cls_xt1_I10_J_0) # label(axiom).
+c_HOL_Oord__class_Oless(V_x,V_x,tc_nat) | c_Lambda_Osubst(c_Lambda_OdB_OVar(V_x),V_s,V_x) = V_s # label(cls_subst__Var_1) # label(axiom).
+c_Lambda_Osubst(c_Lambda_Olift(V_t,V_k),V_s,V_k) = V_t # label(cls_subst__lift_0) # label(axiom).
+c_Lambda_OdB_OApp(V_dB1_H,V_dB2_H) != c_Lambda_OdB_OVar(V_nat) # label(cls_dB_Osimps_I5_J_0) # label(axiom).
+c_InductTermi_OIT(c_Lambda_OdB_OApp(V_t,c_Lambda_OdB_OVar(V_i))) | -c_InductTermi_OIT(V_t) # label(cls_app__Var__IT_0) # label(axiom).
+c_Lambda_Olift(c_Lambda_OdB_OVar(V_i),V_k) = c_Lambda_OdB_OVar(V_i) | -c_HOL_Oord__class_Oless(V_i,V_k,tc_nat) # label(cls_lift_Osimps_I1_J_0) # label(axiom).
+c_Lambda_OdB_OVar(V_nat) != c_Lambda_OdB_OAbs(V_dB_H) # label(cls_dB_Osimps_I6_J_0) # label(axiom).
+c_Lambda_OdB_OAbs(V_dB) != c_Lambda_OdB_OAbs(V_dB_H) | V_dB = V_dB_H # label(cls_dB_Osimps_I3_J_0) # label(axiom).
+c_InductTermi_OIT(c_Lambda_Osubst(V_r,c_Lambda_OdB_OVar(V_i),V_j)) | -c_InductTermi_OIT(V_r) # label(cls_subst__Var__IT_0) # label(axiom).
+c_Lambda_OdB_OVar(V_nat) != c_Lambda_OdB_OVar(V_nat_H) | V_nat = V_nat_H # label(cls_dB_Osimps_I1_J_0) # label(axiom).
+c_Lambda_OdB_OAbs(V_dB_H) != c_Lambda_OdB_OVar(V_nat) # label(cls_dB_Osimps_I7_J_0) # label(axiom).
+c_InductTermi_OIT(c_Lambda_Olift(V_t,V_i)) | -c_InductTermi_OIT(V_t) # label(cls_lift__IT_0) # label(axiom).
+c_InductTermi_OIT(c_Lambda_OdB_OVar(V_n)) # label(cls_Var__IT_0) # label(axiom).
+c_InductTermi_OIT(c_Lambda_OdB_OAbs(V_r)) | -c_InductTermi_OIT(V_r) # label(cls_Lambda_0) # label(axiom).
+c_Type_Otyping(v_e,v_t,v_T) # label(cls_CHAINED_0) # label(axiom).
+-c_InductTermi_OIT(v_t) # label(cls_conjecture_0) # label(negated_conjecture).
+class_Orderings_Opreorder(tc_nat) # label(clsarity_nat__Orderings_Opreorder) # label(axiom).
+class_Orderings_Olinorder(tc_nat) # label(clsarity_nat__Orderings_Olinorder) # label(axiom).
+class_Orderings_Oorder(tc_nat) # label(clsarity_nat__Orderings_Oorder) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.

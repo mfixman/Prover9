@@ -1,0 +1,35 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+ifeq3(A,A,B,C) = B # label(ifeq_axiom) # label(axiom).
+ifeq2(A,A,B,C) = B # label(ifeq_axiom_001) # label(axiom).
+ifeq(A,A,B,C) = B # label(ifeq_axiom_002) # label(axiom).
+addition(A,B) = addition(B,A) # label(additive_commutativity) # label(axiom).
+addition(A,addition(B,C)) = addition(addition(A,B),C) # label(additive_associativity) # label(axiom).
+addition(A,zero) = A # label(additive_identity) # label(axiom).
+addition(A,A) = A # label(idempotence) # label(axiom).
+multiplication(A,multiplication(B,C)) = multiplication(multiplication(A,B),C) # label(multiplicative_associativity) # label(axiom).
+multiplication(A,one) = A # label(multiplicative_right_identity) # label(axiom).
+multiplication(one,A) = A # label(multiplicative_left_identity) # label(axiom).
+multiplication(A,addition(B,C)) = addition(multiplication(A,B),multiplication(A,C)) # label(distributivity1) # label(axiom).
+multiplication(addition(A,B),C) = addition(multiplication(A,C),multiplication(B,C)) # label(distributivity2) # label(axiom).
+multiplication(zero,A) = zero # label(left_annihilation) # label(axiom).
+addition(one,multiplication(A,star(A))) = star(A) # label(star_unfold1) # label(axiom).
+addition(one,multiplication(star(A),A)) = star(A) # label(star_unfold2) # label(axiom).
+ifeq(leq(addition(multiplication(A,C),B),C),true,leq(multiplication(star(A),B),C),true) = true # label(star_induction1) # label(axiom).
+ifeq(leq(addition(multiplication(C,A),B),C),true,leq(multiplication(B,star(A)),C),true) = true # label(star_induction2) # label(axiom).
+strong_iteration(A) = addition(multiplication(A,strong_iteration(A)),one) # label(infty_unfold1) # label(axiom).
+ifeq(leq(C,addition(multiplication(A,C),B)),true,leq(C,multiplication(strong_iteration(A),B)),true) = true # label(infty_coinduction) # label(axiom).
+strong_iteration(A) = addition(star(A),multiplication(strong_iteration(A),zero)) # label(isolation) # label(axiom).
+ifeq2(leq(A,B),true,addition(A,B),B) = B # label(order_1) # label(axiom).
+ifeq3(addition(A,B),B,leq(A,B),true) = true # label(order) # label(axiom).
+leq(multiplication(sK2_goals_X0,strong_iteration(multiplication(sK1_goals_X1,sK2_goals_X0))),multiplication(strong_iteration(multiplication(sK2_goals_X0,sK1_goals_X1)),sK2_goals_X0)) != true # label(goals) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

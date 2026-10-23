@@ -1,0 +1,22 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+
+% Including file Axioms/LAT001-0.ax
+
+set(prolog_style_variables).
+
+formulas(assumptions).
+meet(X,X) = X # label(idempotence_of_meet) # label(axiom).
+join(X,X) = X # label(idempotence_of_join) # label(axiom).
+meet(X,join(X,Y)) = X # label(absorption1) # label(axiom).
+join(X,meet(X,Y)) = X # label(absorption2) # label(axiom).
+meet(X,Y) = meet(Y,X) # label(commutativity_of_meet) # label(axiom).
+join(X,Y) = join(Y,X) # label(commutativity_of_join) # label(axiom).
+meet(meet(X,Y),Z) = meet(X,meet(Y,Z)) # label(associativity_of_meet) # label(axiom).
+join(join(X,Y),Z) = join(X,join(Y,Z)) # label(associativity_of_join) # label(axiom).
+meet(X,join(Y,Z)) = meet(X,join(Y,meet(join(X,Y),join(Z,meet(X,Y))))) # label(equation_H58) # label(axiom).
+meet(a,meet(join(b,c),join(b,d))) != meet(a,join(b,meet(join(b,d),join(c,meet(a,b))))) # label(prove_H59) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

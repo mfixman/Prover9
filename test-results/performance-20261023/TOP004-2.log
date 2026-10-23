@@ -1,0 +1,133 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 251 was started by mfixman on bodoque,
+Fri Oct 23 15:01:30 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+element_of_set(U,union_of_members(Vf)) | -element_of_set(U,Uu1) | -element_of_collection(Uu1,Vf) # label(union_of_members_3) # label(axiom).
+-basis(X,Vf) | equal_sets(union_of_members(Vf),X) # label(basis_for_topology_28) # label(axiom).
+-basis(X,Vf) | -element_of_set(Y,X) | -element_of_collection(Vb1,Vf) | -element_of_collection(Vb2,Vf) | -element_of_set(Y,intersection_of_sets(Vb1,Vb2)) | element_of_set(Y,f6(X,Vf,Y,Vb1,Vb2)) # label(basis_for_topology_29) # label(axiom).
+-basis(X,Vf) | -element_of_set(Y,X) | -element_of_collection(Vb1,Vf) | -element_of_collection(Vb2,Vf) | -element_of_set(Y,intersection_of_sets(Vb1,Vb2)) | element_of_collection(f6(X,Vf,Y,Vb1,Vb2),Vf) # label(basis_for_topology_30) # label(axiom).
+-basis(X,Vf) | -element_of_set(Y,X) | -element_of_collection(Vb1,Vf) | -element_of_collection(Vb2,Vf) | -element_of_set(Y,intersection_of_sets(Vb1,Vb2)) | subset_sets(f6(X,Vf,Y,Vb1,Vb2),intersection_of_sets(Vb1,Vb2)) # label(basis_for_topology_31) # label(axiom).
+-element_of_collection(U,top_of_basis(Vf)) | -element_of_set(X,U) | element_of_set(X,f10(Vf,U,X)) # label(topology_generated_37) # label(axiom).
+-element_of_collection(U,top_of_basis(Vf)) | -element_of_set(X,U) | element_of_collection(f10(Vf,U,X),Vf) # label(topology_generated_38) # label(axiom).
+-element_of_collection(U,top_of_basis(Vf)) | -element_of_set(X,U) | subset_sets(f10(Vf,U,X),U) # label(topology_generated_39) # label(axiom).
+element_of_collection(U,top_of_basis(Vf)) | element_of_set(f11(Vf,U),U) # label(topology_generated_40) # label(axiom).
+element_of_collection(U,top_of_basis(Vf)) | -element_of_set(f11(Vf,U),Uu11) | -element_of_collection(Uu11,Vf) | -subset_sets(Uu11,U) # label(topology_generated_41) # label(axiom).
+-subset_sets(X,Y) | -subset_sets(Y,Z) | subset_sets(X,Z) # label(set_theory_12) # label(axiom).
+-element_of_set(Z,intersection_of_sets(X,Y)) | element_of_set(Z,X) # label(set_theory_13) # label(axiom).
+-element_of_set(Z,intersection_of_sets(X,Y)) | element_of_set(Z,Y) # label(set_theory_14) # label(axiom).
+element_of_set(Z,intersection_of_sets(X,Y)) | -element_of_set(Z,X) | -element_of_set(Z,Y) # label(set_theory_15) # label(axiom).
+-subset_sets(X,Y) | -subset_sets(U,V) | subset_sets(intersection_of_sets(X,U),intersection_of_sets(Y,V)) # label(set_theory_16) # label(axiom).
+-equal_sets(X,Y) | -element_of_set(Z,X) | element_of_set(Z,Y) # label(set_theory_17) # label(axiom).
+equal_sets(intersection_of_sets(X,Y),intersection_of_sets(Y,X)) # label(set_theory_18) # label(axiom).
+basis(cx,f) # label(lemma_1d_1) # label(negated_conjecture).
+element_of_collection(U,top_of_basis(f)) # label(lemma_1d_2) # label(negated_conjecture).
+element_of_collection(V,top_of_basis(f)) # label(lemma_1d_3) # label(negated_conjecture).
+-element_of_collection(intersection_of_sets(U,V),top_of_basis(f)) # label(lemma_1d_4) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating basis/2
+1 basis(cx,f) # label(lemma_1d_1) # label(negated_conjecture).  [assumption].
+2 -basis(A,B) | equal_sets(union_of_members(B),A) # label(basis_for_topology_28) # label(axiom).  [assumption].
+3 -basis(A,B) | -element_of_set(C,A) | -element_of_collection(D,B) | -element_of_collection(E,B) | -element_of_set(C,intersection_of_sets(D,E)) | element_of_set(C,f6(A,B,C,D,E)) # label(basis_for_topology_29) # label(axiom).  [assumption].
+4 -basis(A,B) | -element_of_set(C,A) | -element_of_collection(D,B) | -element_of_collection(E,B) | -element_of_set(C,intersection_of_sets(D,E)) | element_of_collection(f6(A,B,C,D,E),B) # label(basis_for_topology_30) # label(axiom).  [assumption].
+5 -basis(A,B) | -element_of_set(C,A) | -element_of_collection(D,B) | -element_of_collection(E,B) | -element_of_set(C,intersection_of_sets(D,E)) | subset_sets(f6(A,B,C,D,E),intersection_of_sets(D,E)) # label(basis_for_topology_31) # label(axiom).  [assumption].
+Derived: equal_sets(union_of_members(f),cx).  [resolve(1,a,2,a)].
+Derived: -element_of_set(A,cx) | -element_of_collection(B,f) | -element_of_collection(C,f) | -element_of_set(A,intersection_of_sets(B,C)) | element_of_set(A,f6(cx,f,A,B,C)).  [resolve(1,a,3,a)].
+Derived: -element_of_set(A,cx) | -element_of_collection(B,f) | -element_of_collection(C,f) | -element_of_set(A,intersection_of_sets(B,C)) | element_of_collection(f6(cx,f,A,B,C),f).  [resolve(1,a,4,a)].
+Derived: -element_of_set(A,cx) | -element_of_collection(B,f) | -element_of_collection(C,f) | -element_of_set(A,intersection_of_sets(B,C)) | subset_sets(f6(cx,f,A,B,C),intersection_of_sets(B,C)).  [resolve(1,a,5,a)].
+
+Eliminating equal_sets/2
+6 equal_sets(intersection_of_sets(A,B),intersection_of_sets(B,A)) # label(set_theory_18) # label(axiom).  [assumption].
+7 -equal_sets(A,B) | -element_of_set(C,A) | element_of_set(C,B) # label(set_theory_17) # label(axiom).  [assumption].
+Derived: -element_of_set(A,intersection_of_sets(B,C)) | element_of_set(A,intersection_of_sets(C,B)).  [resolve(6,a,7,a)].
+8 equal_sets(union_of_members(f),cx).  [resolve(1,a,2,a)].
+Derived: -element_of_set(A,union_of_members(f)) | element_of_set(A,cx).  [resolve(8,a,7,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ element_of_set, element_of_collection, subset_sets ]).
+Function symbol precedence:  function_order([ f, cx, intersection_of_sets, f11, top_of_basis, union_of_members, f10, f6 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds.
+% Length of proof is 3.
+% Level of proof is 1.
+% Maximum clause weight is 4.000.
+% Given clauses 0 (0.000 givens/level).
+
+20 element_of_collection(A,top_of_basis(f)) # label(lemma_1d_2) # label(negated_conjecture).  [assumption].
+21 -element_of_collection(intersection_of_sets(A,B),top_of_basis(f)) # label(lemma_1d_4) # label(negated_conjecture).  [assumption].
+22 $F.  [copy(21),unit_del(a,20)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=0. Generated=14. Kept=12. proofs=1.
+Usable=0. Sos=0. Demods=0. Limbo=12, Disabled=22. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=1. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=2. Nonunit_bsub_feature_tests=0.
+Megabytes=0.07.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 251 exit (max_proofs) Fri Oct 23 15:01:30 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 251 exit (max_proofs) ------
+

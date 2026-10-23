@@ -1,0 +1,12 @@
+{
+  "problem": "SWV711-1",
+  "domain": "SWV",
+  "rating": 1.0,
+  "conversion_wall_seconds": 0.07047583599342033,
+  "exit_code": 4,
+  "search_wall_seconds": 20.98942480199912,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.26,
+  "total_wall_seconds": 21.062753162012086
+}

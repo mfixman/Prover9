@@ -1,0 +1,497 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 24 was started by mfixman on bodoque,
+Fri Oct 23 14:55:26 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,10).
+assign(max_megs,256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all X all Y (smaller_or_equal(X,Y) <-> smaller(X,Y) | X = Y)) # label(definition_smaller_or_equal) # label(axiom).
+(all X all Y (greater_or_equal(X,Y) <-> greater(X,Y) | X = Y)) # label(definition_greater_or_equal) # label(axiom).
+(all X all Y (smaller(X,Y) <-> greater(Y,X))) # label(definition_smaller) # label(axiom).
+(all X all Y -(greater(X,Y) & greater(Y,X))) # label(meaning_postulate_greater_strict) # label(axiom).
+(all X all Y all Z (greater(X,Y) & greater(Y,Z) -> greater(X,Z))) # label(meaning_postulate_greater_transitive) # label(axiom).
+(all X all Y (smaller(X,Y) | X = Y | greater(X,Y))) # label(meaning_postulate_greater_comparable) # label(axiom).
+(all X all T (organization(X) & -has_endowment(X) -> -has_immunity(X,T))) # label(assumption_1) # label(axiom).
+(all X all T0 all T (organization(X) & -has_immunity(X,T0) & -has_immunity(X,T) -> (greater(capability(X,T),capability(X,T0)) & greater_or_equal(position(X,T),position(X,T0)) -> smaller(hazard_of_mortality(X,T),hazard_of_mortality(X,T0))) & (greater_or_equal(capability(X,T),capability(X,T0)) & greater(position(X,T),position(X,T0)) -> smaller(hazard_of_mortality(X,T),hazard_of_mortality(X,T0))) & (capability(X,T) = capability(X,T0) & position(X,T) = position(X,T0) -> hazard_of_mortality(X,T) = hazard_of_mortality(X,T0)))) # label(assumption_4) # label(axiom).
+(all X all T0 all T (organization(X) -> (greater(stock_of_knowledge(X,T),stock_of_knowledge(X,T0)) & smaller_or_equal(internal_friction(X,T),internal_friction(X,T0)) -> greater(capability(X,T),capability(X,T0))) & (smaller_or_equal(stock_of_knowledge(X,T),stock_of_knowledge(X,T0)) & greater(internal_friction(X,T),internal_friction(X,T0)) -> smaller(capability(X,T),capability(X,T0))) & (stock_of_knowledge(X,T) = stock_of_knowledge(X,T0) & internal_friction(X,T) = internal_friction(X,T0) -> capability(X,T) = capability(X,T0)))) # label(assumption_5) # label(axiom).
+(all X all T0 all T (organization(X) -> (greater(external_ties(X,T),external_ties(X,T0)) -> greater(position(X,T),position(X,T0))) & (external_ties(X,T) = external_ties(X,T0) -> position(X,T) = position(X,T0)))) # label(assumption_6) # label(axiom).
+(all X all T0 all T (organization(X) -> stock_of_knowledge(X,T) = stock_of_knowledge(X,T0))) # label(assumption_10) # label(axiom).
+(all X all T0 all T (organization(X) -> external_ties(X,T) = external_ties(X,T0))) # label(assumption_11) # label(axiom).
+(all X all T0 all T (organization(X) & greater(age(X,T),age(X,T0)) -> greater(internal_friction(X,T),internal_friction(X,T0)))) # label(assumption_12) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all X all T0 all T (organization(X) & -has_endowment(X) & greater(age(X,T),age(X,T0)) -> greater(hazard_of_mortality(X,T),hazard_of_mortality(X,T0)))) # label(theorem_3) # label(conjecture).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all X all Y (smaller_or_equal(X,Y) <-> smaller(X,Y) | X = Y)) # label(definition_smaller_or_equal) # label(axiom) # label(non_clause).  [assumption].
+2 (all X all Y (greater_or_equal(X,Y) <-> greater(X,Y) | X = Y)) # label(definition_greater_or_equal) # label(axiom) # label(non_clause).  [assumption].
+3 (all X all Y (smaller(X,Y) <-> greater(Y,X))) # label(definition_smaller) # label(axiom) # label(non_clause).  [assumption].
+4 (all X all Y -(greater(X,Y) & greater(Y,X))) # label(meaning_postulate_greater_strict) # label(axiom) # label(non_clause).  [assumption].
+5 (all X all Y all Z (greater(X,Y) & greater(Y,Z) -> greater(X,Z))) # label(meaning_postulate_greater_transitive) # label(axiom) # label(non_clause).  [assumption].
+6 (all X all Y (smaller(X,Y) | X = Y | greater(X,Y))) # label(meaning_postulate_greater_comparable) # label(axiom) # label(non_clause).  [assumption].
+7 (all X all T (organization(X) & -has_endowment(X) -> -has_immunity(X,T))) # label(assumption_1) # label(axiom) # label(non_clause).  [assumption].
+8 (all X all T0 all T (organization(X) & -has_immunity(X,T0) & -has_immunity(X,T) -> (greater(capability(X,T),capability(X,T0)) & greater_or_equal(position(X,T),position(X,T0)) -> smaller(hazard_of_mortality(X,T),hazard_of_mortality(X,T0))) & (greater_or_equal(capability(X,T),capability(X,T0)) & greater(position(X,T),position(X,T0)) -> smaller(hazard_of_mortality(X,T),hazard_of_mortality(X,T0))) & (capability(X,T) = capability(X,T0) & position(X,T) = position(X,T0) -> hazard_of_mortality(X,T) = hazard_of_mortality(X,T0)))) # label(assumption_4) # label(axiom) # label(non_clause).  [assumption].
+9 (all X all T0 all T (organization(X) -> (greater(stock_of_knowledge(X,T),stock_of_knowledge(X,T0)) & smaller_or_equal(internal_friction(X,T),internal_friction(X,T0)) -> greater(capability(X,T),capability(X,T0))) & (smaller_or_equal(stock_of_knowledge(X,T),stock_of_knowledge(X,T0)) & greater(internal_friction(X,T),internal_friction(X,T0)) -> smaller(capability(X,T),capability(X,T0))) & (stock_of_knowledge(X,T) = stock_of_knowledge(X,T0) & internal_friction(X,T) = internal_friction(X,T0) -> capability(X,T) = capability(X,T0)))) # label(assumption_5) # label(axiom) # label(non_clause).  [assumption].
+10 (all X all T0 all T (organization(X) -> (greater(external_ties(X,T),external_ties(X,T0)) -> greater(position(X,T),position(X,T0))) & (external_ties(X,T) = external_ties(X,T0) -> position(X,T) = position(X,T0)))) # label(assumption_6) # label(axiom) # label(non_clause).  [assumption].
+11 (all X all T0 all T (organization(X) -> stock_of_knowledge(X,T) = stock_of_knowledge(X,T0))) # label(assumption_10) # label(axiom) # label(non_clause).  [assumption].
+12 (all X all T0 all T (organization(X) -> external_ties(X,T) = external_ties(X,T0))) # label(assumption_11) # label(axiom) # label(non_clause).  [assumption].
+13 (all X all T0 all T (organization(X) & greater(age(X,T),age(X,T0)) -> greater(internal_friction(X,T),internal_friction(X,T0)))) # label(assumption_12) # label(axiom) # label(non_clause).  [assumption].
+14 (all X all T0 all T (organization(X) & -has_endowment(X) & greater(age(X,T),age(X,T0)) -> greater(hazard_of_mortality(X,T),hazard_of_mortality(X,T0)))) # label(theorem_3) # label(conjecture) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-smaller_or_equal(A,B) | smaller(A,B) | B = A # label(definition_smaller_or_equal) # label(axiom).  [clausify(1)].
+smaller_or_equal(A,B) | -smaller(A,B) # label(definition_smaller_or_equal) # label(axiom).  [clausify(1)].
+smaller_or_equal(A,B) | B != A # label(definition_smaller_or_equal) # label(axiom).  [clausify(1)].
+-greater_or_equal(A,B) | greater(A,B) | B = A # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+greater_or_equal(A,B) | -greater(A,B) # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+greater_or_equal(A,B) | B != A # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+-smaller(A,B) | greater(B,A) # label(definition_smaller) # label(axiom).  [clausify(3)].
+smaller(A,B) | -greater(B,A) # label(definition_smaller) # label(axiom).  [clausify(3)].
+-greater(A,B) | -greater(B,A) # label(meaning_postulate_greater_strict) # label(axiom).  [clausify(4)].
+-greater(A,B) | -greater(B,C) | greater(A,C) # label(meaning_postulate_greater_transitive) # label(axiom).  [clausify(5)].
+smaller(A,B) | B = A | greater(A,B) # label(meaning_postulate_greater_comparable) # label(axiom).  [clausify(6)].
+-organization(A) | has_endowment(A) | -has_immunity(A,B) # label(assumption_1) # label(axiom).  [clausify(7)].
+-organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater(capability(A,C),capability(A,B)) | -greater_or_equal(position(A,C),position(A,B)) | smaller(hazard_of_mortality(A,C),hazard_of_mortality(A,B)) # label(assumption_4) # label(axiom).  [clausify(8)].
+-organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater_or_equal(capability(A,C),capability(A,B)) | -greater(position(A,C),position(A,B)) | smaller(hazard_of_mortality(A,C),hazard_of_mortality(A,B)) # label(assumption_4) # label(axiom).  [clausify(8)].
+-organization(A) | has_immunity(A,B) | has_immunity(A,C) | capability(A,B) != capability(A,C) | position(A,B) != position(A,C) | hazard_of_mortality(A,B) = hazard_of_mortality(A,C) # label(assumption_4) # label(axiom).  [clausify(8)].
+-organization(A) | -greater(stock_of_knowledge(A,B),stock_of_knowledge(A,C)) | -smaller_or_equal(internal_friction(A,B),internal_friction(A,C)) | greater(capability(A,B),capability(A,C)) # label(assumption_5) # label(axiom).  [clausify(9)].
+-organization(A) | -smaller_or_equal(stock_of_knowledge(A,B),stock_of_knowledge(A,C)) | -greater(internal_friction(A,B),internal_friction(A,C)) | smaller(capability(A,B),capability(A,C)) # label(assumption_5) # label(axiom).  [clausify(9)].
+-organization(A) | stock_of_knowledge(A,B) != stock_of_knowledge(A,C) | internal_friction(A,B) != internal_friction(A,C) | capability(A,B) = capability(A,C) # label(assumption_5) # label(axiom).  [clausify(9)].
+-organization(A) | -greater(external_ties(A,B),external_ties(A,C)) | greater(position(A,B),position(A,C)) # label(assumption_6) # label(axiom).  [clausify(10)].
+-organization(A) | external_ties(A,B) != external_ties(A,C) | position(A,B) = position(A,C) # label(assumption_6) # label(axiom).  [clausify(10)].
+-organization(A) | stock_of_knowledge(A,B) = stock_of_knowledge(A,C) # label(assumption_10) # label(axiom).  [clausify(11)].
+-organization(A) | external_ties(A,B) = external_ties(A,C) # label(assumption_11) # label(axiom).  [clausify(12)].
+-organization(A) | -greater(age(A,B),age(A,C)) | greater(internal_friction(A,B),internal_friction(A,C)) # label(assumption_12) # label(axiom).  [clausify(13)].
+organization(c1) # label(theorem_3) # label(conjecture).  [deny(14)].
+-has_endowment(c1) # label(theorem_3) # label(conjecture).  [deny(14)].
+greater(age(c1,c3),age(c1,c2)) # label(theorem_3) # label(conjecture).  [deny(14)].
+-greater(hazard_of_mortality(c1,c3),hazard_of_mortality(c1,c2)) # label(theorem_3) # label(conjecture).  [deny(14)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating smaller/2
+15 smaller_or_equal(A,B) | -smaller(A,B) # label(definition_smaller_or_equal) # label(axiom).  [clausify(1)].
+16 -smaller_or_equal(A,B) | smaller(A,B) | B = A # label(definition_smaller_or_equal) # label(axiom).  [clausify(1)].
+17 -smaller(A,B) | greater(B,A) # label(definition_smaller) # label(axiom).  [clausify(3)].
+Derived: greater(A,B) | -smaller_or_equal(B,A) | A = B.  [resolve(17,a,16,b)].
+18 smaller(A,B) | -greater(B,A) # label(definition_smaller) # label(axiom).  [clausify(3)].
+Derived: -greater(A,B) | smaller_or_equal(B,A).  [resolve(18,a,15,b)].
+19 smaller(A,B) | B = A | greater(A,B) # label(meaning_postulate_greater_comparable) # label(axiom).  [clausify(6)].
+Derived: A = B | greater(B,A) | smaller_or_equal(B,A).  [resolve(19,a,15,b)].
+Derived: A = B | greater(B,A) | greater(A,B).  [resolve(19,a,17,a)].
+20 -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater(capability(A,C),capability(A,B)) | -greater_or_equal(position(A,C),position(A,B)) | smaller(hazard_of_mortality(A,C),hazard_of_mortality(A,B)) # label(assumption_4) # label(axiom).  [clausify(8)].
+Derived: -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater(capability(A,C),capability(A,B)) | -greater_or_equal(position(A,C),position(A,B)) | smaller_or_equal(hazard_of_mortality(A,C),hazard_of_mortality(A,B)).  [resolve(20,f,15,b)].
+Derived: -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater(capability(A,C),capability(A,B)) | -greater_or_equal(position(A,C),position(A,B)) | greater(hazard_of_mortality(A,B),hazard_of_mortality(A,C)).  [resolve(20,f,17,a)].
+21 -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater_or_equal(capability(A,C),capability(A,B)) | -greater(position(A,C),position(A,B)) | smaller(hazard_of_mortality(A,C),hazard_of_mortality(A,B)) # label(assumption_4) # label(axiom).  [clausify(8)].
+Derived: -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater_or_equal(capability(A,C),capability(A,B)) | -greater(position(A,C),position(A,B)) | smaller_or_equal(hazard_of_mortality(A,C),hazard_of_mortality(A,B)).  [resolve(21,f,15,b)].
+Derived: -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater_or_equal(capability(A,C),capability(A,B)) | -greater(position(A,C),position(A,B)) | greater(hazard_of_mortality(A,B),hazard_of_mortality(A,C)).  [resolve(21,f,17,a)].
+22 -organization(A) | -smaller_or_equal(stock_of_knowledge(A,B),stock_of_knowledge(A,C)) | -greater(internal_friction(A,B),internal_friction(A,C)) | smaller(capability(A,B),capability(A,C)) # label(assumption_5) # label(axiom).  [clausify(9)].
+Derived: -organization(A) | -smaller_or_equal(stock_of_knowledge(A,B),stock_of_knowledge(A,C)) | -greater(internal_friction(A,B),internal_friction(A,C)) | smaller_or_equal(capability(A,B),capability(A,C)).  [resolve(22,d,15,b)].
+Derived: -organization(A) | -smaller_or_equal(stock_of_knowledge(A,B),stock_of_knowledge(A,C)) | -greater(internal_friction(A,B),internal_friction(A,C)) | greater(capability(A,C),capability(A,B)).  [resolve(22,d,17,a)].
+
+Eliminating organization/1
+23 organization(c1) # label(theorem_3) # label(conjecture).  [deny(14)].
+24 -organization(A) | has_endowment(A) | -has_immunity(A,B) # label(assumption_1) # label(axiom).  [clausify(7)].
+25 -organization(A) | has_immunity(A,B) | has_immunity(A,C) | capability(A,B) != capability(A,C) | position(A,B) != position(A,C) | hazard_of_mortality(A,B) = hazard_of_mortality(A,C) # label(assumption_4) # label(axiom).  [clausify(8)].
+26 -organization(A) | -greater(stock_of_knowledge(A,B),stock_of_knowledge(A,C)) | -smaller_or_equal(internal_friction(A,B),internal_friction(A,C)) | greater(capability(A,B),capability(A,C)) # label(assumption_5) # label(axiom).  [clausify(9)].
+27 -organization(A) | stock_of_knowledge(A,B) != stock_of_knowledge(A,C) | internal_friction(A,B) != internal_friction(A,C) | capability(A,B) = capability(A,C) # label(assumption_5) # label(axiom).  [clausify(9)].
+28 -organization(A) | -greater(external_ties(A,B),external_ties(A,C)) | greater(position(A,B),position(A,C)) # label(assumption_6) # label(axiom).  [clausify(10)].
+29 -organization(A) | external_ties(A,B) != external_ties(A,C) | position(A,B) = position(A,C) # label(assumption_6) # label(axiom).  [clausify(10)].
+30 -organization(A) | stock_of_knowledge(A,B) = stock_of_knowledge(A,C) # label(assumption_10) # label(axiom).  [clausify(11)].
+31 -organization(A) | external_ties(A,B) = external_ties(A,C) # label(assumption_11) # label(axiom).  [clausify(12)].
+32 -organization(A) | -greater(age(A,B),age(A,C)) | greater(internal_friction(A,B),internal_friction(A,C)) # label(assumption_12) # label(axiom).  [clausify(13)].
+Derived: has_endowment(c1) | -has_immunity(c1,A).  [resolve(23,a,24,a)].
+Derived: has_immunity(c1,A) | has_immunity(c1,B) | capability(c1,A) != capability(c1,B) | position(c1,A) != position(c1,B) | hazard_of_mortality(c1,A) = hazard_of_mortality(c1,B).  [resolve(23,a,25,a)].
+Derived: -greater(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)) | -smaller_or_equal(internal_friction(c1,A),internal_friction(c1,B)) | greater(capability(c1,A),capability(c1,B)).  [resolve(23,a,26,a)].
+Derived: stock_of_knowledge(c1,A) != stock_of_knowledge(c1,B) | internal_friction(c1,A) != internal_friction(c1,B) | capability(c1,A) = capability(c1,B).  [resolve(23,a,27,a)].
+Derived: -greater(external_ties(c1,A),external_ties(c1,B)) | greater(position(c1,A),position(c1,B)).  [resolve(23,a,28,a)].
+Derived: external_ties(c1,A) != external_ties(c1,B) | position(c1,A) = position(c1,B).  [resolve(23,a,29,a)].
+Derived: stock_of_knowledge(c1,A) = stock_of_knowledge(c1,B).  [resolve(23,a,30,a)].
+Derived: external_ties(c1,A) = external_ties(c1,B).  [resolve(23,a,31,a)].
+Derived: -greater(age(c1,A),age(c1,B)) | greater(internal_friction(c1,A),internal_friction(c1,B)).  [resolve(23,a,32,a)].
+33 -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater(capability(A,C),capability(A,B)) | -greater_or_equal(position(A,C),position(A,B)) | smaller_or_equal(hazard_of_mortality(A,C),hazard_of_mortality(A,B)).  [resolve(20,f,15,b)].
+Derived: has_immunity(c1,A) | has_immunity(c1,B) | -greater(capability(c1,B),capability(c1,A)) | -greater_or_equal(position(c1,B),position(c1,A)) | smaller_or_equal(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [resolve(33,a,23,a)].
+34 -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater(capability(A,C),capability(A,B)) | -greater_or_equal(position(A,C),position(A,B)) | greater(hazard_of_mortality(A,B),hazard_of_mortality(A,C)).  [resolve(20,f,17,a)].
+Derived: has_immunity(c1,A) | has_immunity(c1,B) | -greater(capability(c1,B),capability(c1,A)) | -greater_or_equal(position(c1,B),position(c1,A)) | greater(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [resolve(34,a,23,a)].
+35 -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater_or_equal(capability(A,C),capability(A,B)) | -greater(position(A,C),position(A,B)) | smaller_or_equal(hazard_of_mortality(A,C),hazard_of_mortality(A,B)).  [resolve(21,f,15,b)].
+Derived: has_immunity(c1,A) | has_immunity(c1,B) | -greater_or_equal(capability(c1,B),capability(c1,A)) | -greater(position(c1,B),position(c1,A)) | smaller_or_equal(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [resolve(35,a,23,a)].
+36 -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater_or_equal(capability(A,C),capability(A,B)) | -greater(position(A,C),position(A,B)) | greater(hazard_of_mortality(A,B),hazard_of_mortality(A,C)).  [resolve(21,f,17,a)].
+Derived: has_immunity(c1,A) | has_immunity(c1,B) | -greater_or_equal(capability(c1,B),capability(c1,A)) | -greater(position(c1,B),position(c1,A)) | greater(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [resolve(36,a,23,a)].
+37 -organization(A) | -smaller_or_equal(stock_of_knowledge(A,B),stock_of_knowledge(A,C)) | -greater(internal_friction(A,B),internal_friction(A,C)) | smaller_or_equal(capability(A,B),capability(A,C)).  [resolve(22,d,15,b)].
+Derived: -smaller_or_equal(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)) | -greater(internal_friction(c1,A),internal_friction(c1,B)) | smaller_or_equal(capability(c1,A),capability(c1,B)).  [resolve(37,a,23,a)].
+38 -organization(A) | -smaller_or_equal(stock_of_knowledge(A,B),stock_of_knowledge(A,C)) | -greater(internal_friction(A,B),internal_friction(A,C)) | greater(capability(A,C),capability(A,B)).  [resolve(22,d,17,a)].
+Derived: -smaller_or_equal(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)) | -greater(internal_friction(c1,A),internal_friction(c1,B)) | greater(capability(c1,B),capability(c1,A)).  [resolve(38,a,23,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, has_endowment, greater, has_immunity, smaller_or_equal, greater_or_equal ]).
+Function symbol precedence:  function_order([ c1, c2, c3, capability, position, hazard_of_mortality, internal_friction, stock_of_knowledge, external_ties, age ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+kept:      39 smaller_or_equal(A,B) | B != A # label(definition_smaller_or_equal) # label(axiom).  [clausify(1)].
+kept:      40 -greater_or_equal(A,B) | greater(A,B) | B = A # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+kept:      41 greater_or_equal(A,B) | -greater(A,B) # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+kept:      42 greater_or_equal(A,B) | B != A # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+kept:      43 -greater(A,B) | -greater(B,A) # label(meaning_postulate_greater_strict) # label(axiom).  [clausify(4)].
+kept:      44 -greater(A,B) | -greater(B,C) | greater(A,C) # label(meaning_postulate_greater_transitive) # label(axiom).  [clausify(5)].
+kept:      45 -has_endowment(c1) # label(theorem_3) # label(conjecture).  [deny(14)].
+kept:      46 greater(age(c1,c3),age(c1,c2)) # label(theorem_3) # label(conjecture).  [deny(14)].
+kept:      47 -greater(hazard_of_mortality(c1,c3),hazard_of_mortality(c1,c2)) # label(theorem_3) # label(conjecture).  [deny(14)].
+kept:      48 greater(A,B) | -smaller_or_equal(B,A) | A = B.  [resolve(17,a,16,b)].
+kept:      49 -greater(A,B) | smaller_or_equal(B,A).  [resolve(18,a,15,b)].
+kept:      50 A = B | greater(B,A) | smaller_or_equal(B,A).  [resolve(19,a,15,b)].
+kept:      51 A = B | greater(B,A) | greater(A,B).  [resolve(19,a,17,a)].
+           52 has_endowment(c1) | -has_immunity(c1,A).  [resolve(23,a,24,a)].
+kept:      53 -has_immunity(c1,A).  [copy(52),unit_del(a,45)].
+           54 has_immunity(c1,A) | has_immunity(c1,B) | capability(c1,A) != capability(c1,B) | position(c1,A) != position(c1,B) | hazard_of_mortality(c1,A) = hazard_of_mortality(c1,B).  [resolve(23,a,25,a)].
+kept:      55 capability(c1,A) != capability(c1,B) | position(c1,A) != position(c1,B) | hazard_of_mortality(c1,A) = hazard_of_mortality(c1,B).  [copy(54),unit_del(a,53),unit_del(b,53)].
+kept:      56 -greater(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)) | -smaller_or_equal(internal_friction(c1,A),internal_friction(c1,B)) | greater(capability(c1,A),capability(c1,B)).  [resolve(23,a,26,a)].
+kept:      57 stock_of_knowledge(c1,A) != stock_of_knowledge(c1,B) | internal_friction(c1,A) != internal_friction(c1,B) | capability(c1,A) = capability(c1,B).  [resolve(23,a,27,a)].
+kept:      58 -greater(external_ties(c1,A),external_ties(c1,B)) | greater(position(c1,A),position(c1,B)).  [resolve(23,a,28,a)].
+kept:      59 external_ties(c1,A) != external_ties(c1,B) | position(c1,A) = position(c1,B).  [resolve(23,a,29,a)].
+kept:      60 stock_of_knowledge(c1,A) = stock_of_knowledge(c1,B).  [resolve(23,a,30,a)].
+kept:      61 external_ties(c1,A) = external_ties(c1,B).  [resolve(23,a,31,a)].
+kept:      62 -greater(age(c1,A),age(c1,B)) | greater(internal_friction(c1,A),internal_friction(c1,B)).  [resolve(23,a,32,a)].
+           63 has_immunity(c1,A) | has_immunity(c1,B) | -greater(capability(c1,B),capability(c1,A)) | -greater_or_equal(position(c1,B),position(c1,A)) | smaller_or_equal(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [resolve(33,a,23,a)].
+kept:      64 -greater(capability(c1,A),capability(c1,B)) | -greater_or_equal(position(c1,A),position(c1,B)) | smaller_or_equal(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [copy(63),unit_del(a,53),unit_del(b,53)].
+           65 has_immunity(c1,A) | has_immunity(c1,B) | -greater(capability(c1,B),capability(c1,A)) | -greater_or_equal(position(c1,B),position(c1,A)) | greater(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [resolve(34,a,23,a)].
+kept:      66 -greater(capability(c1,A),capability(c1,B)) | -greater_or_equal(position(c1,A),position(c1,B)) | greater(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [copy(65),unit_del(a,53),unit_del(b,53)].
+           67 has_immunity(c1,A) | has_immunity(c1,B) | -greater_or_equal(capability(c1,B),capability(c1,A)) | -greater(position(c1,B),position(c1,A)) | smaller_or_equal(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [resolve(35,a,23,a)].
+kept:      68 -greater_or_equal(capability(c1,A),capability(c1,B)) | -greater(position(c1,A),position(c1,B)) | smaller_or_equal(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [copy(67),unit_del(a,53),unit_del(b,53)].
+           69 has_immunity(c1,A) | has_immunity(c1,B) | -greater_or_equal(capability(c1,B),capability(c1,A)) | -greater(position(c1,B),position(c1,A)) | greater(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [resolve(36,a,23,a)].
+kept:      70 -greater_or_equal(capability(c1,A),capability(c1,B)) | -greater(position(c1,A),position(c1,B)) | greater(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [copy(69),unit_del(a,53),unit_del(b,53)].
+kept:      71 -smaller_or_equal(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)) | -greater(internal_friction(c1,A),internal_friction(c1,B)) | smaller_or_equal(capability(c1,A),capability(c1,B)).  [resolve(37,a,23,a)].
+kept:      72 -smaller_or_equal(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)) | -greater(internal_friction(c1,A),internal_friction(c1,B)) | greater(capability(c1,B),capability(c1,A)).  [resolve(38,a,23,a)].
+kept:      73 -greater(A,A).  [factor(43,a,b)].
+kept:      74 internal_friction(c1,A) != internal_friction(c1,B) | capability(c1,A) = capability(c1,B).  [back_unit_del(57),unit_del(a,60)].
+kept:      75 position(c1,A) = position(c1,B).  [back_unit_del(59),unit_del(a,61)].
+kept:      76 capability(c1,A) != capability(c1,B) | hazard_of_mortality(c1,A) = hazard_of_mortality(c1,B).  [back_unit_del(55),unit_del(b,75)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+39 smaller_or_equal(A,B) | B != A # label(definition_smaller_or_equal) # label(axiom).  [clausify(1)].
+40 -greater_or_equal(A,B) | greater(A,B) | B = A # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+41 greater_or_equal(A,B) | -greater(A,B) # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+42 greater_or_equal(A,B) | B != A # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+43 -greater(A,B) | -greater(B,A) # label(meaning_postulate_greater_strict) # label(axiom).  [clausify(4)].
+44 -greater(A,B) | -greater(B,C) | greater(A,C) # label(meaning_postulate_greater_transitive) # label(axiom).  [clausify(5)].
+45 -has_endowment(c1) # label(theorem_3) # label(conjecture).  [deny(14)].
+46 greater(age(c1,c3),age(c1,c2)) # label(theorem_3) # label(conjecture).  [deny(14)].
+47 -greater(hazard_of_mortality(c1,c3),hazard_of_mortality(c1,c2)) # label(theorem_3) # label(conjecture).  [deny(14)].
+48 greater(A,B) | -smaller_or_equal(B,A) | A = B.  [resolve(17,a,16,b)].
+49 -greater(A,B) | smaller_or_equal(B,A).  [resolve(18,a,15,b)].
+50 A = B | greater(B,A) | smaller_or_equal(B,A).  [resolve(19,a,15,b)].
+51 A = B | greater(B,A) | greater(A,B).  [resolve(19,a,17,a)].
+53 -has_immunity(c1,A).  [copy(52),unit_del(a,45)].
+56 -greater(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)) | -smaller_or_equal(internal_friction(c1,A),internal_friction(c1,B)) | greater(capability(c1,A),capability(c1,B)).  [resolve(23,a,26,a)].
+58 -greater(external_ties(c1,A),external_ties(c1,B)) | greater(position(c1,A),position(c1,B)).  [resolve(23,a,28,a)].
+60 stock_of_knowledge(c1,A) = stock_of_knowledge(c1,B).  [resolve(23,a,30,a)].
+61 external_ties(c1,A) = external_ties(c1,B).  [resolve(23,a,31,a)].
+62 -greater(age(c1,A),age(c1,B)) | greater(internal_friction(c1,A),internal_friction(c1,B)).  [resolve(23,a,32,a)].
+64 -greater(capability(c1,A),capability(c1,B)) | -greater_or_equal(position(c1,A),position(c1,B)) | smaller_or_equal(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [copy(63),unit_del(a,53),unit_del(b,53)].
+66 -greater(capability(c1,A),capability(c1,B)) | -greater_or_equal(position(c1,A),position(c1,B)) | greater(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [copy(65),unit_del(a,53),unit_del(b,53)].
+68 -greater_or_equal(capability(c1,A),capability(c1,B)) | -greater(position(c1,A),position(c1,B)) | smaller_or_equal(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [copy(67),unit_del(a,53),unit_del(b,53)].
+70 -greater_or_equal(capability(c1,A),capability(c1,B)) | -greater(position(c1,A),position(c1,B)) | greater(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [copy(69),unit_del(a,53),unit_del(b,53)].
+71 -smaller_or_equal(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)) | -greater(internal_friction(c1,A),internal_friction(c1,B)) | smaller_or_equal(capability(c1,A),capability(c1,B)).  [resolve(37,a,23,a)].
+72 -smaller_or_equal(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)) | -greater(internal_friction(c1,A),internal_friction(c1,B)) | greater(capability(c1,B),capability(c1,A)).  [resolve(38,a,23,a)].
+73 -greater(A,A).  [factor(43,a,b)].
+74 internal_friction(c1,A) != internal_friction(c1,B) | capability(c1,A) = capability(c1,B).  [back_unit_del(57),unit_del(a,60)].
+75 position(c1,A) = position(c1,B).  [back_unit_del(59),unit_del(a,61)].
+76 capability(c1,A) != capability(c1,B) | hazard_of_mortality(c1,A) = hazard_of_mortality(c1,B).  [back_unit_del(55),unit_del(b,75)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+given #1 (I,wt=6): 39 smaller_or_equal(A,B) | B != A # label(definition_smaller_or_equal) # label(axiom).  [clausify(1)].
+
+given #2 (I,wt=9): 40 -greater_or_equal(A,B) | greater(A,B) | B = A # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+
+given #3 (I,wt=6): 41 greater_or_equal(A,B) | -greater(A,B) # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+
+given #4 (I,wt=6): 42 greater_or_equal(A,B) | B != A # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+
+given #5 (I,wt=6): 43 -greater(A,B) | -greater(B,A) # label(meaning_postulate_greater_strict) # label(axiom).  [clausify(4)].
+
+given #6 (I,wt=9): 44 -greater(A,B) | -greater(B,C) | greater(A,C) # label(meaning_postulate_greater_transitive) # label(axiom).  [clausify(5)].
+
+given #7 (I,wt=2): 45 -has_endowment(c1) # label(theorem_3) # label(conjecture).  [deny(14)].
+
+given #8 (I,wt=7): 46 greater(age(c1,c3),age(c1,c2)) # label(theorem_3) # label(conjecture).  [deny(14)].
+
+given #9 (I,wt=7): 47 -greater(hazard_of_mortality(c1,c3),hazard_of_mortality(c1,c2)) # label(theorem_3) # label(conjecture).  [deny(14)].
+
+given #10 (I,wt=9): 48 greater(A,B) | -smaller_or_equal(B,A) | A = B.  [resolve(17,a,16,b)].
+
+given #11 (I,wt=6): 49 -greater(A,B) | smaller_or_equal(B,A).  [resolve(18,a,15,b)].
+
+given #12 (I,wt=9): 50 A = B | greater(B,A) | smaller_or_equal(B,A).  [resolve(19,a,15,b)].
+
+given #13 (I,wt=9): 51 A = B | greater(B,A) | greater(A,B).  [resolve(19,a,17,a)].
+
+given #14 (I,wt=3): 53 -has_immunity(c1,A).  [copy(52),unit_del(a,45)].
+
+given #15 (I,wt=21): 56 -greater(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)) | -smaller_or_equal(internal_friction(c1,A),internal_friction(c1,B)) | greater(capability(c1,A),capability(c1,B)).  [resolve(23,a,26,a)].
+
+given #16 (I,wt=14): 58 -greater(external_ties(c1,A),external_ties(c1,B)) | greater(position(c1,A),position(c1,B)).  [resolve(23,a,28,a)].
+
+given #17 (I,wt=7): 60 stock_of_knowledge(c1,A) = stock_of_knowledge(c1,B).  [resolve(23,a,30,a)].
+
+given #18 (I,wt=7): 61 external_ties(c1,A) = external_ties(c1,B).  [resolve(23,a,31,a)].
+
+given #19 (I,wt=14): 62 -greater(age(c1,A),age(c1,B)) | greater(internal_friction(c1,A),internal_friction(c1,B)).  [resolve(23,a,32,a)].
+
+given #20 (I,wt=21): 64 -greater(capability(c1,A),capability(c1,B)) | -greater_or_equal(position(c1,A),position(c1,B)) | smaller_or_equal(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [copy(63),unit_del(a,53),unit_del(b,53)].
+
+given #21 (I,wt=21): 66 -greater(capability(c1,A),capability(c1,B)) | -greater_or_equal(position(c1,A),position(c1,B)) | greater(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [copy(65),unit_del(a,53),unit_del(b,53)].
+
+given #22 (I,wt=21): 68 -greater_or_equal(capability(c1,A),capability(c1,B)) | -greater(position(c1,A),position(c1,B)) | smaller_or_equal(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [copy(67),unit_del(a,53),unit_del(b,53)].
+
+given #23 (I,wt=21): 70 -greater_or_equal(capability(c1,A),capability(c1,B)) | -greater(position(c1,A),position(c1,B)) | greater(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [copy(69),unit_del(a,53),unit_del(b,53)].
+
+given #24 (I,wt=3): 73 -greater(A,A).  [factor(43,a,b)].
+
+given #25 (I,wt=14): 74 internal_friction(c1,A) != internal_friction(c1,B) | capability(c1,A) = capability(c1,B).  [back_unit_del(57),unit_del(a,60)].
+
+given #26 (I,wt=7): 75 position(c1,A) = position(c1,B).  [back_unit_del(59),unit_del(a,61)].
+
+given #27 (I,wt=14): 76 capability(c1,A) != capability(c1,B) | hazard_of_mortality(c1,A) = hazard_of_mortality(c1,B).  [back_unit_del(55),unit_del(b,75)].
+
+given #28 (A,wt=3): 77 smaller_or_equal(A,A).  [xx_res(39,b)].
+
+given #29 (F,wt=7): 81 -greater(age(c1,c2),age(c1,c3)).  [resolve(46,a,43,b)].
+
+given #30 (T,wt=3): 78 greater_or_equal(A,A).  [xx_res(42,b)].
+
+given #31 (T,wt=7): 82 greater_or_equal(age(c1,c3),age(c1,c2)).  [resolve(46,a,41,b)].
+
+given #32 (T,wt=7): 83 smaller_or_equal(age(c1,c2),age(c1,c3)).  [resolve(49,a,46,a)].
+
+given #33 (T,wt=7): 93 greater_or_equal(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)).  [resolve(60,a,42,b)].
+
+given #34 (A,wt=10): 79 -greater(A,age(c1,c3)) | greater(A,age(c1,c2)).  [resolve(46,a,44,b)].
+
+given #35 (T,wt=7): 94 smaller_or_equal(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)).  [resolve(60,a,39,b)].
+
+given #36 (T,wt=7): 97 greater_or_equal(external_ties(c1,A),external_ties(c1,B)).  [resolve(61,a,42,b)].
+
+given #37 (T,wt=7): 98 smaller_or_equal(external_ties(c1,A),external_ties(c1,B)).  [resolve(61,a,39,b)].
+
+given #38 (T,wt=7): 103 greater(internal_friction(c1,c3),internal_friction(c1,c2)).  [resolve(62,a,46,a)].
+
+given #39 (A,wt=10): 80 -greater(age(c1,c2),A) | greater(age(c1,c3),A).  [resolve(46,a,44,a)].
+
+given #40 (F,wt=7): 112 -greater(internal_friction(c1,c2),internal_friction(c1,c3)).  [resolve(103,a,43,b)].
+
+given #41 (T,wt=7): 104 greater_or_equal(position(c1,A),position(c1,B)).  [resolve(75,a,42,b)].
+
+given #42 (T,wt=7): 105 smaller_or_equal(position(c1,A),position(c1,B)).  [resolve(75,a,39,b)].
+
+given #43 (T,wt=7): 109 smaller_or_equal(internal_friction(c1,c2),internal_friction(c1,c3)).  [resolve(103,a,49,a)].
+
+given #44 (T,wt=7): 113 greater_or_equal(internal_friction(c1,c3),internal_friction(c1,c2)).  [resolve(103,a,41,b)].
+
+given #45 (A,wt=9): 84 A = B | greater(A,B) | smaller_or_equal(A,B).  [resolve(51,b,49,a)].
+
+given #46 (T,wt=9): 88 A = B | greater(A,B) | greater_or_equal(B,A).  [resolve(51,b,41,b)].
+
+given #47 (T,wt=9): 91 A = B | greater(B,A) | greater_or_equal(A,B).  [resolve(51,c,41,b)].
+
+given #48 (T,wt=10): 110 -greater(A,internal_friction(c1,c3)) | greater(A,internal_friction(c1,c2)).  [resolve(103,a,44,b)].
+
+given #49 (T,wt=10): 111 -greater(internal_friction(c1,c2),A) | greater(internal_friction(c1,c3),A).  [resolve(103,a,44,a)].
+
+given #50 (A,wt=14): 85 hazard_of_mortality(c1,c3) = hazard_of_mortality(c1,c2) | greater(hazard_of_mortality(c1,c2),hazard_of_mortality(c1,c3)).  [resolve(51,b,47,a),flip(a)].
+
+given #51 (T,wt=12): 86 A = B | greater(A,B) | -greater(C,B) | greater(C,A).  [resolve(51,b,44,b)].
+
+given #52 (T,wt=12): 87 A = B | greater(A,B) | -greater(A,C) | greater(B,C).  [resolve(51,b,44,a)].
+
+given #53 (T,wt=12): 89 A = B | greater(B,A) | -greater(C,A) | greater(C,B).  [resolve(51,c,44,b)].
+
+given #54 (T,wt=12): 90 A = B | greater(B,A) | -greater(B,C) | greater(A,C).  [resolve(51,c,44,a)].
+
+given #55 (A,wt=28): 92 -greater(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)) | greater(capability(c1,A),capability(c1,B)) | internal_friction(c1,B) = internal_friction(c1,A) | greater(internal_friction(c1,A),internal_friction(c1,B)).  [resolve(56,b,50,c)].
+
+given #56 (T,wt=14): 95 -greater(internal_friction(c1,A),internal_friction(c1,B)) | greater(capability(c1,B),capability(c1,A)).  [back_unit_del(72),unit_del(a,94)].
+
+given #57 (T,wt=7): 135 greater(capability(c1,c2),capability(c1,c3)).  [resolve(95,a,103,a)].
+
+given #58 (T,wt=7): 140 smaller_or_equal(capability(c1,c3),capability(c1,c2)).  [resolve(135,a,49,a)].
+
+given #59 (T,wt=7): 144 greater_or_equal(capability(c1,c2),capability(c1,c3)).  [resolve(135,a,41,b)].
+
+given #60 (A,wt=14): 96 -greater(internal_friction(c1,A),internal_friction(c1,B)) | smaller_or_equal(capability(c1,A),capability(c1,B)).  [back_unit_del(71),unit_del(a,94)].
+
+given #61 (F,wt=7): 143 -greater(capability(c1,c3),capability(c1,c2)).  [resolve(135,a,43,b)].
+
+given #62 (F,wt=7): 145 -greater(position(c1,c2),position(c1,c3)).  [resolve(144,a,70,a),unit_del(b,47)].
+
+given #63 (F,wt=7): 148 -greater(position(c1,A),position(c1,c3)).  [para(75(a,1),145(a,1))].
+
+given #64 (F,wt=7): 150 -greater(position(c1,A),position(c1,B)).  [para(75(a,1),148(a,2))].
+
+given #65 (T,wt=10): 141 -greater(A,capability(c1,c2)) | greater(A,capability(c1,c3)).  [resolve(135,a,44,b)].
+
+given #66 (T,wt=10): 142 -greater(capability(c1,c3),A) | greater(capability(c1,c2),A).  [resolve(135,a,44,a)].
+
+given #67 (T,wt=14): 106 -greater(capability(c1,A),capability(c1,B)) | smaller_or_equal(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [para(75(a,1),64(b,1)),unit_del(b,104)].
+
+given #68 (T,wt=7): 152 smaller_or_equal(hazard_of_mortality(c1,c2),hazard_of_mortality(c1,c3)).  [resolve(106,a,135,a)].
+
+given #69 (A,wt=21): 101 greater(internal_friction(c1,A),internal_friction(c1,B)) | age(c1,A) = age(c1,B) | greater(age(c1,B),age(c1,A)).  [resolve(62,a,51,c)].
+
+given #70 (F,wt=7): 151 -greater(external_ties(c1,A),external_ties(c1,B)).  [back_unit_del(100),unit_del(b,150)].
+
+given #71 (T,wt=7): 155 hazard_of_mortality(c1,c3) = hazard_of_mortality(c1,c2).  [resolve(152,a,48,b),unit_del(a,47)].
+
+given #72 (T,wt=14): 107 -greater(capability(c1,A),capability(c1,B)) | greater(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [para(75(a,1),66(b,1)),unit_del(b,104)].
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 56.
+% Level of proof is 8.
+% Maximum clause weight is 21.000.
+% Given clauses 72 (9.000 givens/level).
+
+1 (all X all Y (smaller_or_equal(X,Y) <-> smaller(X,Y) | X = Y)) # label(definition_smaller_or_equal) # label(axiom) # label(non_clause).  [assumption].
+2 (all X all Y (greater_or_equal(X,Y) <-> greater(X,Y) | X = Y)) # label(definition_greater_or_equal) # label(axiom) # label(non_clause).  [assumption].
+3 (all X all Y (smaller(X,Y) <-> greater(Y,X))) # label(definition_smaller) # label(axiom) # label(non_clause).  [assumption].
+4 (all X all Y -(greater(X,Y) & greater(Y,X))) # label(meaning_postulate_greater_strict) # label(axiom) # label(non_clause).  [assumption].
+7 (all X all T (organization(X) & -has_endowment(X) -> -has_immunity(X,T))) # label(assumption_1) # label(axiom) # label(non_clause).  [assumption].
+8 (all X all T0 all T (organization(X) & -has_immunity(X,T0) & -has_immunity(X,T) -> (greater(capability(X,T),capability(X,T0)) & greater_or_equal(position(X,T),position(X,T0)) -> smaller(hazard_of_mortality(X,T),hazard_of_mortality(X,T0))) & (greater_or_equal(capability(X,T),capability(X,T0)) & greater(position(X,T),position(X,T0)) -> smaller(hazard_of_mortality(X,T),hazard_of_mortality(X,T0))) & (capability(X,T) = capability(X,T0) & position(X,T) = position(X,T0) -> hazard_of_mortality(X,T) = hazard_of_mortality(X,T0)))) # label(assumption_4) # label(axiom) # label(non_clause).  [assumption].
+9 (all X all T0 all T (organization(X) -> (greater(stock_of_knowledge(X,T),stock_of_knowledge(X,T0)) & smaller_or_equal(internal_friction(X,T),internal_friction(X,T0)) -> greater(capability(X,T),capability(X,T0))) & (smaller_or_equal(stock_of_knowledge(X,T),stock_of_knowledge(X,T0)) & greater(internal_friction(X,T),internal_friction(X,T0)) -> smaller(capability(X,T),capability(X,T0))) & (stock_of_knowledge(X,T) = stock_of_knowledge(X,T0) & internal_friction(X,T) = internal_friction(X,T0) -> capability(X,T) = capability(X,T0)))) # label(assumption_5) # label(axiom) # label(non_clause).  [assumption].
+10 (all X all T0 all T (organization(X) -> (greater(external_ties(X,T),external_ties(X,T0)) -> greater(position(X,T),position(X,T0))) & (external_ties(X,T) = external_ties(X,T0) -> position(X,T) = position(X,T0)))) # label(assumption_6) # label(axiom) # label(non_clause).  [assumption].
+11 (all X all T0 all T (organization(X) -> stock_of_knowledge(X,T) = stock_of_knowledge(X,T0))) # label(assumption_10) # label(axiom) # label(non_clause).  [assumption].
+12 (all X all T0 all T (organization(X) -> external_ties(X,T) = external_ties(X,T0))) # label(assumption_11) # label(axiom) # label(non_clause).  [assumption].
+13 (all X all T0 all T (organization(X) & greater(age(X,T),age(X,T0)) -> greater(internal_friction(X,T),internal_friction(X,T0)))) # label(assumption_12) # label(axiom) # label(non_clause).  [assumption].
+14 (all X all T0 all T (organization(X) & -has_endowment(X) & greater(age(X,T),age(X,T0)) -> greater(hazard_of_mortality(X,T),hazard_of_mortality(X,T0)))) # label(theorem_3) # label(conjecture) # label(non_clause) # label(goal).  [goal].
+15 smaller_or_equal(A,B) | -smaller(A,B) # label(definition_smaller_or_equal) # label(axiom).  [clausify(1)].
+16 -smaller_or_equal(A,B) | smaller(A,B) | B = A # label(definition_smaller_or_equal) # label(axiom).  [clausify(1)].
+17 -smaller(A,B) | greater(B,A) # label(definition_smaller) # label(axiom).  [clausify(3)].
+20 -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater(capability(A,C),capability(A,B)) | -greater_or_equal(position(A,C),position(A,B)) | smaller(hazard_of_mortality(A,C),hazard_of_mortality(A,B)) # label(assumption_4) # label(axiom).  [clausify(8)].
+22 -organization(A) | -smaller_or_equal(stock_of_knowledge(A,B),stock_of_knowledge(A,C)) | -greater(internal_friction(A,B),internal_friction(A,C)) | smaller(capability(A,B),capability(A,C)) # label(assumption_5) # label(axiom).  [clausify(9)].
+23 organization(c1) # label(theorem_3) # label(conjecture).  [deny(14)].
+24 -organization(A) | has_endowment(A) | -has_immunity(A,B) # label(assumption_1) # label(axiom).  [clausify(7)].
+29 -organization(A) | external_ties(A,B) != external_ties(A,C) | position(A,B) = position(A,C) # label(assumption_6) # label(axiom).  [clausify(10)].
+30 -organization(A) | stock_of_knowledge(A,B) = stock_of_knowledge(A,C) # label(assumption_10) # label(axiom).  [clausify(11)].
+31 -organization(A) | external_ties(A,B) = external_ties(A,C) # label(assumption_11) # label(axiom).  [clausify(12)].
+32 -organization(A) | -greater(age(A,B),age(A,C)) | greater(internal_friction(A,B),internal_friction(A,C)) # label(assumption_12) # label(axiom).  [clausify(13)].
+33 -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater(capability(A,C),capability(A,B)) | -greater_or_equal(position(A,C),position(A,B)) | smaller_or_equal(hazard_of_mortality(A,C),hazard_of_mortality(A,B)).  [resolve(20,f,15,b)].
+34 -organization(A) | has_immunity(A,B) | has_immunity(A,C) | -greater(capability(A,C),capability(A,B)) | -greater_or_equal(position(A,C),position(A,B)) | greater(hazard_of_mortality(A,B),hazard_of_mortality(A,C)).  [resolve(20,f,17,a)].
+38 -organization(A) | -smaller_or_equal(stock_of_knowledge(A,B),stock_of_knowledge(A,C)) | -greater(internal_friction(A,B),internal_friction(A,C)) | greater(capability(A,C),capability(A,B)).  [resolve(22,d,17,a)].
+39 smaller_or_equal(A,B) | B != A # label(definition_smaller_or_equal) # label(axiom).  [clausify(1)].
+42 greater_or_equal(A,B) | B != A # label(definition_greater_or_equal) # label(axiom).  [clausify(2)].
+43 -greater(A,B) | -greater(B,A) # label(meaning_postulate_greater_strict) # label(axiom).  [clausify(4)].
+45 -has_endowment(c1) # label(theorem_3) # label(conjecture).  [deny(14)].
+46 greater(age(c1,c3),age(c1,c2)) # label(theorem_3) # label(conjecture).  [deny(14)].
+47 -greater(hazard_of_mortality(c1,c3),hazard_of_mortality(c1,c2)) # label(theorem_3) # label(conjecture).  [deny(14)].
+48 greater(A,B) | -smaller_or_equal(B,A) | A = B.  [resolve(17,a,16,b)].
+52 has_endowment(c1) | -has_immunity(c1,A).  [resolve(23,a,24,a)].
+53 -has_immunity(c1,A).  [copy(52),unit_del(a,45)].
+59 external_ties(c1,A) != external_ties(c1,B) | position(c1,A) = position(c1,B).  [resolve(23,a,29,a)].
+60 stock_of_knowledge(c1,A) = stock_of_knowledge(c1,B).  [resolve(23,a,30,a)].
+61 external_ties(c1,A) = external_ties(c1,B).  [resolve(23,a,31,a)].
+62 -greater(age(c1,A),age(c1,B)) | greater(internal_friction(c1,A),internal_friction(c1,B)).  [resolve(23,a,32,a)].
+63 has_immunity(c1,A) | has_immunity(c1,B) | -greater(capability(c1,B),capability(c1,A)) | -greater_or_equal(position(c1,B),position(c1,A)) | smaller_or_equal(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [resolve(33,a,23,a)].
+64 -greater(capability(c1,A),capability(c1,B)) | -greater_or_equal(position(c1,A),position(c1,B)) | smaller_or_equal(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [copy(63),unit_del(a,53),unit_del(b,53)].
+65 has_immunity(c1,A) | has_immunity(c1,B) | -greater(capability(c1,B),capability(c1,A)) | -greater_or_equal(position(c1,B),position(c1,A)) | greater(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [resolve(34,a,23,a)].
+66 -greater(capability(c1,A),capability(c1,B)) | -greater_or_equal(position(c1,A),position(c1,B)) | greater(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [copy(65),unit_del(a,53),unit_del(b,53)].
+72 -smaller_or_equal(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)) | -greater(internal_friction(c1,A),internal_friction(c1,B)) | greater(capability(c1,B),capability(c1,A)).  [resolve(38,a,23,a)].
+73 -greater(A,A).  [factor(43,a,b)].
+75 position(c1,A) = position(c1,B).  [back_unit_del(59),unit_del(a,61)].
+94 smaller_or_equal(stock_of_knowledge(c1,A),stock_of_knowledge(c1,B)).  [resolve(60,a,39,b)].
+95 -greater(internal_friction(c1,A),internal_friction(c1,B)) | greater(capability(c1,B),capability(c1,A)).  [back_unit_del(72),unit_del(a,94)].
+103 greater(internal_friction(c1,c3),internal_friction(c1,c2)).  [resolve(62,a,46,a)].
+104 greater_or_equal(position(c1,A),position(c1,B)).  [resolve(75,a,42,b)].
+106 -greater(capability(c1,A),capability(c1,B)) | smaller_or_equal(hazard_of_mortality(c1,A),hazard_of_mortality(c1,B)).  [para(75(a,1),64(b,1)),unit_del(b,104)].
+107 -greater(capability(c1,A),capability(c1,B)) | greater(hazard_of_mortality(c1,B),hazard_of_mortality(c1,A)).  [para(75(a,1),66(b,1)),unit_del(b,104)].
+135 greater(capability(c1,c2),capability(c1,c3)).  [resolve(95,a,103,a)].
+152 smaller_or_equal(hazard_of_mortality(c1,c2),hazard_of_mortality(c1,c3)).  [resolve(106,a,135,a)].
+155 hazard_of_mortality(c1,c3) = hazard_of_mortality(c1,c2).  [resolve(152,a,48,b),unit_del(a,47)].
+176 $F.  [resolve(107,a,135,a),rewrite([155(3)]),unit_del(a,73)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=72. Generated=322. Kept=131. proofs=1.
+Usable=61. Sos=37. Demods=1. Limbo=0, Disabled=85. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=190. Back_subsumed=22.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=1 (0 lex), Back_demodulated=2. Back_unit_deleted=9.
+Demod_attempts=738. Demod_rewrites=7.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=299. Nonunit_bsub_feature_tests=207.
+Megabytes=0.38.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 24 exit (max_proofs) Fri Oct 23 14:55:26 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 24 exit (max_proofs) ------
+

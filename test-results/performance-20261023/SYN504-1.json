@@ -1,0 +1,12 @@
+{
+  "problem": "SYN504-1",
+  "domain": "SYN",
+  "rating": 0.0,
+  "conversion_wall_seconds": 0.017643387007410638,
+  "exit_code": 4,
+  "search_wall_seconds": 20.548457633005455,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.2,
+  "total_wall_seconds": 20.56795693800086
+}

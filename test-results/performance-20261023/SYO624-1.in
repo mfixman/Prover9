@@ -1,0 +1,22 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+le(A,A) # label(sos_01) # label(axiom).
+-le(max(A,B),C) | le(A,C) # label(sos_02) # label(axiom).
+-le(max(A,B),C) | le(B,C) # label(sos_03) # label(axiom).
+eq(f(A),a0) | eq(f(A),a1) | eq(f(A),a2) | eq(f(A),a3) | eq(f(A),a4) | eq(f(A),a5) # label(sos_04) # label(axiom).
+-eq(f(A0),a0) | -eq(f(A1),a0) | -eq(f(A2),a0) | -eq(f(A3),a0) | -eq(f(A4),a0) | -eq(f(A5),a0) | -eq(f(A6),a0) | -eq(f(A7),a0) | -le(s(A0),A1) | -le(s(A1),A2) | -le(s(A2),A3) | -le(s(A3),A4) | -le(s(A4),A5) | -le(s(A5),A6) | -le(s(A6),A7) # label(sos_05) # label(axiom).
+-eq(f(A0),a1) | -eq(f(A1),a1) | -eq(f(A2),a1) | -eq(f(A3),a1) | -eq(f(A4),a1) | -eq(f(A5),a1) | -eq(f(A6),a1) | -eq(f(A7),a1) | -le(s(A0),A1) | -le(s(A1),A2) | -le(s(A2),A3) | -le(s(A3),A4) | -le(s(A4),A5) | -le(s(A5),A6) | -le(s(A6),A7) # label(sos_06) # label(axiom).
+-eq(f(A0),a2) | -eq(f(A1),a2) | -eq(f(A2),a2) | -eq(f(A3),a2) | -eq(f(A4),a2) | -eq(f(A5),a2) | -eq(f(A6),a2) | -eq(f(A7),a2) | -le(s(A0),A1) | -le(s(A1),A2) | -le(s(A2),A3) | -le(s(A3),A4) | -le(s(A4),A5) | -le(s(A5),A6) | -le(s(A6),A7) # label(sos_07) # label(axiom).
+-eq(f(A0),a3) | -eq(f(A1),a3) | -eq(f(A2),a3) | -eq(f(A3),a3) | -eq(f(A4),a3) | -eq(f(A5),a3) | -eq(f(A6),a3) | -eq(f(A7),a3) | -le(s(A0),A1) | -le(s(A1),A2) | -le(s(A2),A3) | -le(s(A3),A4) | -le(s(A4),A5) | -le(s(A5),A6) | -le(s(A6),A7) # label(sos_08) # label(axiom).
+-eq(f(A0),a4) | -eq(f(A1),a4) | -eq(f(A2),a4) | -eq(f(A3),a4) | -eq(f(A4),a4) | -eq(f(A5),a4) | -eq(f(A6),a4) | -eq(f(A7),a4) | -le(s(A0),A1) | -le(s(A1),A2) | -le(s(A2),A3) | -le(s(A3),A4) | -le(s(A4),A5) | -le(s(A5),A6) | -le(s(A6),A7) # label(sos_09) # label(axiom).
+-eq(f(A0),a5) | -eq(f(A1),a5) | -eq(f(A2),a5) | -eq(f(A3),a5) | -eq(f(A4),a5) | -eq(f(A5),a5) | -eq(f(A6),a5) | -eq(f(A7),a5) | -le(s(A0),A1) | -le(s(A1),A2) | -le(s(A2),A3) | -le(s(A3),A4) | -le(s(A4),A5) | -le(s(A5),A6) | -le(s(A6),A7) # label(sos_10) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.

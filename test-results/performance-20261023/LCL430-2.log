@@ -1,0 +1,141 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 39 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-c_in(V_p,c_PropLog_Othms(c_minus(V_A,V_B,tc_set(tc_PropLog_Opl(T_a))),T_a),tc_PropLog_Opl(T_a)) | -c_lessequals(V_A,V_C,tc_set(tc_PropLog_Opl(T_a))) | c_in(V_p,c_PropLog_Othms(c_minus(V_C,V_B,tc_set(tc_PropLog_Opl(T_a))),T_a),tc_PropLog_Opl(T_a)) # label(cls_PropLog_ODiff__weaken__left_0) # label(axiom).
+c_lessequals(c_PropLog_Ohyps(V_p,c_insert(V_v,V_t,T_a),T_a),c_insert(c_PropLog_Opl_Ovar(V_v,T_a),c_minus(c_PropLog_Ohyps(V_p,V_t,T_a),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(V_v,T_a),c_PropLog_Opl_Ofalse,T_a),c_emptyset,tc_PropLog_Opl(T_a)),tc_set(tc_PropLog_Opl(T_a))),tc_PropLog_Opl(T_a)),tc_set(tc_PropLog_Opl(T_a))) # label(cls_PropLog_Ohyps__insert_0) # label(axiom).
+c_lessequals(c_minus(V_B,V_C,tc_set(T_a)),c_insert(V_a,c_minus(V_B,c_insert(V_a,V_C,T_a),tc_set(T_a)),T_a),tc_set(T_a)) # label(cls_PropLog_Oinsert__Diff__same_0) # label(axiom).
+c_lessequals(c_minus(c_insert(V_a,c_minus(V_B,c_insert(V_c,c_emptyset,T_a),tc_set(T_a)),T_a),V_D,tc_set(T_a)),c_insert(V_a,c_minus(V_B,c_insert(V_c,V_D,T_a),tc_set(T_a)),T_a),tc_set(T_a)) # label(cls_PropLog_Oinsert__Diff__subset2_0) # label(axiom).
+-c_in(V_q,c_PropLog_Othms(c_insert(V_p,V_H,tc_PropLog_Opl(T_a)),T_a),tc_PropLog_Opl(T_a)) | -c_in(V_q,c_PropLog_Othms(c_insert(c_PropLog_Opl_Oop_A_N_62(V_p,c_PropLog_Opl_Ofalse,T_a),V_H,tc_PropLog_Opl(T_a)),T_a),tc_PropLog_Opl(T_a)) | c_in(V_q,c_PropLog_Othms(V_H,T_a),tc_PropLog_Opl(T_a)) # label(cls_PropLog_Othms__excluded__middle__rule_0) # label(axiom).
+-c_in(V_p,c_PropLog_Othms(V_G,T_a),tc_PropLog_Opl(T_a)) | -c_lessequals(V_G,V_H,tc_set(tc_PropLog_Opl(T_a))) | c_in(V_p,c_PropLog_Othms(V_H,T_a),tc_PropLog_Opl(T_a)) # label(cls_PropLog_Oweaken__left_0) # label(axiom).
+c_in(v_p,c_PropLog_Othms(c_minus(c_PropLog_Ohyps(v_p,V_U,t_a),v_F,tc_set(tc_PropLog_Opl(t_a))),t_a),tc_PropLog_Opl(t_a)) # label(cls_conjecture_3) # label(negated_conjecture).
+-c_in(v_p,c_PropLog_Othms(c_minus(c_PropLog_Ohyps(v_p,v_t,t_a),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(v_v,t_a),c_PropLog_Opl_Ofalse,t_a),v_F,tc_PropLog_Opl(t_a)),tc_set(tc_PropLog_Opl(t_a))),t_a),tc_PropLog_Opl(t_a)) # label(cls_conjecture_5) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating c_lessequals/3
+1 c_lessequals(c_PropLog_Ohyps(A,c_insert(B,C,D),D),c_insert(c_PropLog_Opl_Ovar(B,D),c_minus(c_PropLog_Ohyps(A,C,D),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(B,D),c_PropLog_Opl_Ofalse,D),c_emptyset,tc_PropLog_Opl(D)),tc_set(tc_PropLog_Opl(D))),tc_PropLog_Opl(D)),tc_set(tc_PropLog_Opl(D))) # label(cls_PropLog_Ohyps__insert_0) # label(axiom).  [assumption].
+2 -c_in(A,c_PropLog_Othms(c_minus(B,C,tc_set(tc_PropLog_Opl(D))),D),tc_PropLog_Opl(D)) | -c_lessequals(B,E,tc_set(tc_PropLog_Opl(D))) | c_in(A,c_PropLog_Othms(c_minus(E,C,tc_set(tc_PropLog_Opl(D))),D),tc_PropLog_Opl(D)) # label(cls_PropLog_ODiff__weaken__left_0) # label(axiom).  [assumption].
+Derived: -c_in(A,c_PropLog_Othms(c_minus(c_PropLog_Ohyps(B,c_insert(C,D,E),E),F,tc_set(tc_PropLog_Opl(E))),E),tc_PropLog_Opl(E)) | c_in(A,c_PropLog_Othms(c_minus(c_insert(c_PropLog_Opl_Ovar(C,E),c_minus(c_PropLog_Ohyps(B,D,E),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(C,E),c_PropLog_Opl_Ofalse,E),c_emptyset,tc_PropLog_Opl(E)),tc_set(tc_PropLog_Opl(E))),tc_PropLog_Opl(E)),F,tc_set(tc_PropLog_Opl(E))),E),tc_PropLog_Opl(E)).  [resolve(1,a,2,b)].
+3 c_lessequals(c_minus(A,B,tc_set(C)),c_insert(D,c_minus(A,c_insert(D,B,C),tc_set(C)),C),tc_set(C)) # label(cls_PropLog_Oinsert__Diff__same_0) # label(axiom).  [assumption].
+Derived: -c_in(A,c_PropLog_Othms(c_minus(c_minus(B,C,tc_set(tc_PropLog_Opl(D))),E,tc_set(tc_PropLog_Opl(D))),D),tc_PropLog_Opl(D)) | c_in(A,c_PropLog_Othms(c_minus(c_insert(F,c_minus(B,c_insert(F,C,tc_PropLog_Opl(D)),tc_set(tc_PropLog_Opl(D))),tc_PropLog_Opl(D)),E,tc_set(tc_PropLog_Opl(D))),D),tc_PropLog_Opl(D)).  [resolve(3,a,2,b)].
+4 c_lessequals(c_minus(c_insert(A,c_minus(B,c_insert(C,c_emptyset,D),tc_set(D)),D),E,tc_set(D)),c_insert(A,c_minus(B,c_insert(C,E,D),tc_set(D)),D),tc_set(D)) # label(cls_PropLog_Oinsert__Diff__subset2_0) # label(axiom).  [assumption].
+Derived: -c_in(A,c_PropLog_Othms(c_minus(c_minus(c_insert(B,c_minus(C,c_insert(D,c_emptyset,tc_PropLog_Opl(E)),tc_set(tc_PropLog_Opl(E))),tc_PropLog_Opl(E)),F,tc_set(tc_PropLog_Opl(E))),V6,tc_set(tc_PropLog_Opl(E))),E),tc_PropLog_Opl(E)) | c_in(A,c_PropLog_Othms(c_minus(c_insert(B,c_minus(C,c_insert(D,F,tc_PropLog_Opl(E)),tc_set(tc_PropLog_Opl(E))),tc_PropLog_Opl(E)),V6,tc_set(tc_PropLog_Opl(E))),E),tc_PropLog_Opl(E)).  [resolve(4,a,2,b)].
+5 -c_in(A,c_PropLog_Othms(B,C),tc_PropLog_Opl(C)) | -c_lessequals(B,D,tc_set(tc_PropLog_Opl(C))) | c_in(A,c_PropLog_Othms(D,C),tc_PropLog_Opl(C)) # label(cls_PropLog_Oweaken__left_0) # label(axiom).  [assumption].
+Derived: -c_in(A,c_PropLog_Othms(c_PropLog_Ohyps(B,c_insert(C,D,E),E),E),tc_PropLog_Opl(E)) | c_in(A,c_PropLog_Othms(c_insert(c_PropLog_Opl_Ovar(C,E),c_minus(c_PropLog_Ohyps(B,D,E),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(C,E),c_PropLog_Opl_Ofalse,E),c_emptyset,tc_PropLog_Opl(E)),tc_set(tc_PropLog_Opl(E))),tc_PropLog_Opl(E)),E),tc_PropLog_Opl(E)).  [resolve(5,b,1,a)].
+Derived: -c_in(A,c_PropLog_Othms(c_minus(B,C,tc_set(tc_PropLog_Opl(D))),D),tc_PropLog_Opl(D)) | c_in(A,c_PropLog_Othms(c_insert(E,c_minus(B,c_insert(E,C,tc_PropLog_Opl(D)),tc_set(tc_PropLog_Opl(D))),tc_PropLog_Opl(D)),D),tc_PropLog_Opl(D)).  [resolve(5,b,3,a)].
+Derived: -c_in(A,c_PropLog_Othms(c_minus(c_insert(B,c_minus(C,c_insert(D,c_emptyset,tc_PropLog_Opl(E)),tc_set(tc_PropLog_Opl(E))),tc_PropLog_Opl(E)),F,tc_set(tc_PropLog_Opl(E))),E),tc_PropLog_Opl(E)) | c_in(A,c_PropLog_Othms(c_insert(B,c_minus(C,c_insert(D,F,tc_PropLog_Opl(E)),tc_set(tc_PropLog_Opl(E))),tc_PropLog_Opl(E)),E),tc_PropLog_Opl(E)).  [resolve(5,b,4,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label cls_conjecture_5 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ c_in ]).
+Function symbol precedence:  function_order([ c_emptyset, t_a, c_PropLog_Opl_Ofalse, v_p, v_F, v_t, v_v, c_PropLog_Othms, c_PropLog_Opl_Ovar, tc_PropLog_Opl, tc_set, c_insert, c_minus, c_PropLog_Ohyps, c_PropLog_Opl_Oop_A_N_62 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=-4)
+  % clear(ordered_res).  % (HNE depth_diff=-4)
+  % set(ur_resolution).  % (HNE depth_diff=-4)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds: cls_conjecture_5.
+% Length of proof is 17.
+% Level of proof is 5.
+% Maximum clause weight is 59.000.
+% Given clauses 12 (2.400 givens/level).
+
+1 c_lessequals(c_PropLog_Ohyps(A,c_insert(B,C,D),D),c_insert(c_PropLog_Opl_Ovar(B,D),c_minus(c_PropLog_Ohyps(A,C,D),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(B,D),c_PropLog_Opl_Ofalse,D),c_emptyset,tc_PropLog_Opl(D)),tc_set(tc_PropLog_Opl(D))),tc_PropLog_Opl(D)),tc_set(tc_PropLog_Opl(D))) # label(cls_PropLog_Ohyps__insert_0) # label(axiom).  [assumption].
+2 -c_in(A,c_PropLog_Othms(c_minus(B,C,tc_set(tc_PropLog_Opl(D))),D),tc_PropLog_Opl(D)) | -c_lessequals(B,E,tc_set(tc_PropLog_Opl(D))) | c_in(A,c_PropLog_Othms(c_minus(E,C,tc_set(tc_PropLog_Opl(D))),D),tc_PropLog_Opl(D)) # label(cls_PropLog_ODiff__weaken__left_0) # label(axiom).  [assumption].
+3 c_lessequals(c_minus(A,B,tc_set(C)),c_insert(D,c_minus(A,c_insert(D,B,C),tc_set(C)),C),tc_set(C)) # label(cls_PropLog_Oinsert__Diff__same_0) # label(axiom).  [assumption].
+4 c_lessequals(c_minus(c_insert(A,c_minus(B,c_insert(C,c_emptyset,D),tc_set(D)),D),E,tc_set(D)),c_insert(A,c_minus(B,c_insert(C,E,D),tc_set(D)),D),tc_set(D)) # label(cls_PropLog_Oinsert__Diff__subset2_0) # label(axiom).  [assumption].
+5 -c_in(A,c_PropLog_Othms(B,C),tc_PropLog_Opl(C)) | -c_lessequals(B,D,tc_set(tc_PropLog_Opl(C))) | c_in(A,c_PropLog_Othms(D,C),tc_PropLog_Opl(C)) # label(cls_PropLog_Oweaken__left_0) # label(axiom).  [assumption].
+6 -c_in(A,c_PropLog_Othms(c_insert(B,C,tc_PropLog_Opl(D)),D),tc_PropLog_Opl(D)) | -c_in(A,c_PropLog_Othms(c_insert(c_PropLog_Opl_Oop_A_N_62(B,c_PropLog_Opl_Ofalse,D),C,tc_PropLog_Opl(D)),D),tc_PropLog_Opl(D)) | c_in(A,c_PropLog_Othms(C,D),tc_PropLog_Opl(D)) # label(cls_PropLog_Othms__excluded__middle__rule_0) # label(axiom).  [assumption].
+7 c_in(v_p,c_PropLog_Othms(c_minus(c_PropLog_Ohyps(v_p,A,t_a),v_F,tc_set(tc_PropLog_Opl(t_a))),t_a),tc_PropLog_Opl(t_a)) # label(cls_conjecture_3) # label(negated_conjecture).  [assumption].
+8 -c_in(v_p,c_PropLog_Othms(c_minus(c_PropLog_Ohyps(v_p,v_t,t_a),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(v_v,t_a),c_PropLog_Opl_Ofalse,t_a),v_F,tc_PropLog_Opl(t_a)),tc_set(tc_PropLog_Opl(t_a))),t_a),tc_PropLog_Opl(t_a)) # label(cls_conjecture_5) # label(negated_conjecture) # answer(cls_conjecture_5).  [assumption].
+9 -c_in(A,c_PropLog_Othms(c_minus(c_PropLog_Ohyps(B,c_insert(C,D,E),E),F,tc_set(tc_PropLog_Opl(E))),E),tc_PropLog_Opl(E)) | c_in(A,c_PropLog_Othms(c_minus(c_insert(c_PropLog_Opl_Ovar(C,E),c_minus(c_PropLog_Ohyps(B,D,E),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(C,E),c_PropLog_Opl_Ofalse,E),c_emptyset,tc_PropLog_Opl(E)),tc_set(tc_PropLog_Opl(E))),tc_PropLog_Opl(E)),F,tc_set(tc_PropLog_Opl(E))),E),tc_PropLog_Opl(E)).  [resolve(1,a,2,b)].
+13 -c_in(A,c_PropLog_Othms(c_minus(B,C,tc_set(tc_PropLog_Opl(D))),D),tc_PropLog_Opl(D)) | c_in(A,c_PropLog_Othms(c_insert(E,c_minus(B,c_insert(E,C,tc_PropLog_Opl(D)),tc_set(tc_PropLog_Opl(D))),tc_PropLog_Opl(D)),D),tc_PropLog_Opl(D)).  [resolve(5,b,3,a)].
+14 -c_in(A,c_PropLog_Othms(c_minus(c_insert(B,c_minus(C,c_insert(D,c_emptyset,tc_PropLog_Opl(E)),tc_set(tc_PropLog_Opl(E))),tc_PropLog_Opl(E)),F,tc_set(tc_PropLog_Opl(E))),E),tc_PropLog_Opl(E)) | c_in(A,c_PropLog_Othms(c_insert(B,c_minus(C,c_insert(D,F,tc_PropLog_Opl(E)),tc_set(tc_PropLog_Opl(E))),tc_PropLog_Opl(E)),E),tc_PropLog_Opl(E)).  [resolve(5,b,4,a)].
+15 -c_in(v_p,c_PropLog_Othms(c_insert(A,c_minus(c_PropLog_Ohyps(v_p,v_t,t_a),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(v_v,t_a),c_PropLog_Opl_Ofalse,t_a),v_F,tc_PropLog_Opl(t_a)),tc_set(tc_PropLog_Opl(t_a))),tc_PropLog_Opl(t_a)),t_a),tc_PropLog_Opl(t_a)) | -c_in(v_p,c_PropLog_Othms(c_insert(c_PropLog_Opl_Oop_A_N_62(A,c_PropLog_Opl_Ofalse,t_a),c_minus(c_PropLog_Ohyps(v_p,v_t,t_a),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(v_v,t_a),c_PropLog_Opl_Ofalse,t_a),v_F,tc_PropLog_Opl(t_a)),tc_set(tc_PropLog_Opl(t_a))),tc_PropLog_Opl(t_a)),t_a),tc_PropLog_Opl(t_a)) # answer(cls_conjecture_5).  [resolve(8,a,6,c)].
+16 c_in(v_p,c_PropLog_Othms(c_minus(c_insert(c_PropLog_Opl_Ovar(A,t_a),c_minus(c_PropLog_Ohyps(v_p,B,t_a),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(A,t_a),c_PropLog_Opl_Ofalse,t_a),c_emptyset,tc_PropLog_Opl(t_a)),tc_set(tc_PropLog_Opl(t_a))),tc_PropLog_Opl(t_a)),v_F,tc_set(tc_PropLog_Opl(t_a))),t_a),tc_PropLog_Opl(t_a)).  [ur(9,a,7,a)].
+22 -c_in(v_p,c_PropLog_Othms(c_insert(c_PropLog_Opl_Ovar(v_v,t_a),c_minus(c_PropLog_Ohyps(v_p,v_t,t_a),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(v_v,t_a),c_PropLog_Opl_Ofalse,t_a),v_F,tc_PropLog_Opl(t_a)),tc_set(tc_PropLog_Opl(t_a))),tc_PropLog_Opl(t_a)),t_a),tc_PropLog_Opl(t_a)) | -c_in(v_p,c_PropLog_Othms(c_minus(c_PropLog_Ohyps(v_p,v_t,t_a),v_F,tc_set(tc_PropLog_Opl(t_a))),t_a),tc_PropLog_Opl(t_a)) # answer(cls_conjecture_5).  [resolve(15,b,13,b)].
+25 -c_in(v_p,c_PropLog_Othms(c_insert(c_PropLog_Opl_Ovar(v_v,t_a),c_minus(c_PropLog_Ohyps(v_p,v_t,t_a),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(v_v,t_a),c_PropLog_Opl_Ofalse,t_a),v_F,tc_PropLog_Opl(t_a)),tc_set(tc_PropLog_Opl(t_a))),tc_PropLog_Opl(t_a)),t_a),tc_PropLog_Opl(t_a)) # answer(cls_conjecture_5).  [resolve(22,b,7,a)].
+26 -c_in(v_p,c_PropLog_Othms(c_minus(c_insert(c_PropLog_Opl_Ovar(v_v,t_a),c_minus(c_PropLog_Ohyps(v_p,v_t,t_a),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(v_v,t_a),c_PropLog_Opl_Ofalse,t_a),c_emptyset,tc_PropLog_Opl(t_a)),tc_set(tc_PropLog_Opl(t_a))),tc_PropLog_Opl(t_a)),v_F,tc_set(tc_PropLog_Opl(t_a))),t_a),tc_PropLog_Opl(t_a)) # answer(cls_conjecture_5).  [resolve(25,a,14,b)].
+27 $F # answer(cls_conjecture_5).  [resolve(26,a,16,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=12. Generated=24. Kept=21. proofs=1.
+Usable=11. Sos=8. Demods=0. Limbo=0, Disabled=15. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=1.
+Forward_subsumed=2. Back_subsumed=1.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=11. Nonunit_bsub_feature_tests=42.
+Megabytes=0.26.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 39 exit (max_proofs) Fri Oct 23 15:00:23 2026
+-------- Proof 1 -------- cls_conjecture_5.
+
+THEOREM PROVED
+
+------ process 39 exit (max_proofs) ------
+

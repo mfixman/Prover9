@@ -1,0 +1,18 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-c_lessequals(c_Message_Oanalz(c_union(c_Message_Oanalz(v_G),v_H,tc_Message_Omsg)),c_Message_Oanalz(c_union(v_G,v_H,tc_Message_Omsg)),tc_set(tc_Message_Omsg)) # label(cls_conjecture_0) # label(negated_conjecture).
+-c_in(V_X,c_Message_Oanalz(c_Message_Oanalz(V_H)),tc_Message_Omsg) | c_in(V_X,c_Message_Oanalz(V_H),tc_Message_Omsg) # label(cls_Message_Oanalz__analzD__dest_0) # label(axiom).
+-c_lessequals(c_Message_Oanalz(V_H),c_Message_Oanalz(V_H_H),tc_set(tc_Message_Omsg)) | -c_lessequals(c_Message_Oanalz(V_G),c_Message_Oanalz(V_G_H),tc_set(tc_Message_Omsg)) | c_lessequals(c_Message_Oanalz(c_union(V_G,V_H,tc_Message_Omsg)),c_Message_Oanalz(c_union(V_G_H,V_H_H,tc_Message_Omsg)),tc_set(tc_Message_Omsg)) # label(cls_Message_Oanalz__subset__cong_0) # label(axiom).
+c_in(c_Main_OsubsetI__1(V_A,V_B,T_a),V_A,T_a) | c_lessequals(V_A,V_B,tc_set(T_a)) # label(cls_Set_OsubsetI_0) # label(axiom).
+-c_in(c_Main_OsubsetI__1(V_A,V_B,T_a),V_B,T_a) | c_lessequals(V_A,V_B,tc_set(T_a)) # label(cls_Set_OsubsetI_1) # label(axiom).
+c_lessequals(V_A,V_A,tc_set(T_a)) # label(cls_Set_Osubset__refl_0) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.

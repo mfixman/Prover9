@@ -1,0 +1,28 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+ifeq(A,A,B,C) = B # label(ifeq_axiom) # label(axiom).
+implies(truth,X) = X # label(wajsberg_1) # label(axiom).
+implies(implies(X,Y),implies(implies(Y,Z),implies(X,Z))) = truth # label(wajsberg_2) # label(axiom).
+implies(implies(X,Y),Y) = implies(implies(Y,X),X) # label(wajsberg_3) # label(axiom).
+implies(implies(not(X),not(Y)),implies(Y,X)) = truth # label(wajsberg_4) # label(axiom).
+implies(X,X) = truth # label(lemma_1) # label(axiom).
+ifeq(implies(X,Y),implies(Y,X),X,Y) = Y # label(lemma_2) # label(axiom).
+implies(X,truth) = truth # label(lemma_3) # label(axiom).
+implies(X,implies(Y,X)) = truth # label(lemma_4) # label(axiom).
+ifeq(implies(X,Y),implies(Y,Z),implies(X,Z),truth) = truth # label(lemma_5) # label(axiom).
+implies(implies(X,Y),implies(implies(Z,X),implies(Z,Y))) = truth # label(lemma_6) # label(axiom).
+implies(X,implies(Y,Z)) = implies(Y,implies(X,Z)) # label(lemma_7) # label(axiom).
+implies(X,not(truth)) = not(X) # label(lemma_8) # label(axiom).
+not(not(X)) = X # label(lemma_9) # label(axiom).
+implies(not(X),not(Y)) = implies(Y,X) # label(lemma_10) # label(axiom).
+implies(implies(implies(a,b),implies(b,a)),implies(b,a)) != truth # label(prove_wajsberg_mv_4) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

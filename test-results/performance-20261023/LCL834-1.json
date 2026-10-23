@@ -1,0 +1,12 @@
+{
+  "problem": "LCL834-1",
+  "domain": "LCL",
+  "rating": 0.1,
+  "conversion_wall_seconds": 0.036917675999575295,
+  "exit_code": 0,
+  "search_wall_seconds": 0.4348303299921099,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.41000000000000003,
+  "total_wall_seconds": 0.47326328299823217
+}

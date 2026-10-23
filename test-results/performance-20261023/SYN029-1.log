@@ -1,0 +1,117 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 165 was started by mfixman on bodoque,
+Fri Oct 23 15:00:59 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+q | p # label(clause1) # label(axiom).
+-p | q # label(clause2) # label(axiom).
+-r | -q | p # label(clause3) # label(axiom).
+r # label(clause4) # label(axiom).
+-p | -q # label(prove_something) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ p, q, r ]).
+Function symbol precedence:  function_order([ ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds.
+% Length of proof is 9.
+% Level of proof is 4.
+% Maximum clause weight is 3.000.
+% Given clauses 5 (1.250 givens/level).
+
+1 q | p # label(clause1) # label(axiom).  [assumption].
+2 -p | q # label(clause2) # label(axiom).  [assumption].
+3 -r | -q | p # label(clause3) # label(axiom).  [assumption].
+4 r # label(clause4) # label(axiom).  [assumption].
+5 -p | -q # label(prove_something) # label(negated_conjecture).  [assumption].
+6 -q | p.  [back_unit_del(3),unit_del(a,4)].
+7 p.  [resolve(6,a,1,a),merge(b)].
+8 -q.  [back_unit_del(5),unit_del(a,7)].
+9 $F.  [back_unit_del(2),unit_del(a,7),unit_del(b,8)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=5. Generated=10. Kept=8. proofs=1.
+Usable=1. Sos=0. Demods=0. Limbo=2, Disabled=10. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=1. Back_subsumed=2.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=3.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=7.
+Megabytes=0.03.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 165 exit (max_proofs) Fri Oct 23 15:00:59 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 165 exit (max_proofs) ------
+

@@ -1,0 +1,79 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+
+% Including file Axioms/SWV011+0.ax
+
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all Pid all Pid2 (elem(m_Ack(Pid,Pid2),queue(host(Pid))) -> setIn(Pid,pids) & setIn(Pid2,pids))) # label(axiom) # label(axiom).
+(all P all Q (s(host(P)) = host(Q) -> host(P) != host(Q))) # label(axiom_01) # label(axiom).
+(all P leq(s(zero),host(P))) # label(axiom_02) # label(axiom).
+leq(s(zero),nbr_proc) # label(axiom_03) # label(axiom).
+(all P leq(host(P),nbr_proc)) # label(axiom_04) # label(axiom).
+elec_1 != elec_2 # label(axiom_05) # label(axiom).
+elec_1 != wait # label(axiom_06) # label(axiom).
+elec_1 != norm # label(axiom_07) # label(axiom).
+elec_2 != wait # label(axiom_08) # label(axiom).
+elec_2 != norm # label(axiom_09) # label(axiom).
+norm != wait # label(axiom_10) # label(axiom).
+(all X all Y all Z m_Ack(X,Y) != m_Halt(Z)) # label(axiom_11) # label(axiom).
+(all X all Y all Z m_Ack(X,Y) != m_Down(Z)) # label(axiom_12) # label(axiom).
+(all X all Y all Z m_Ack(X,Y) != m_NotNorm(Z)) # label(axiom_13) # label(axiom).
+(all X all Y all Z m_Ack(X,Y) != m_Ldr(Z)) # label(axiom_14) # label(axiom).
+(all X all Y all Z m_Ack(X,Y) != m_NormQ(Z)) # label(axiom_15) # label(axiom).
+(all X all Y m_NotNorm(X) != m_Halt(Y)) # label(axiom_16) # label(axiom).
+(all X all Y m_Down(X) != m_Halt(Y)) # label(axiom_17) # label(axiom).
+(all X all Y m_Down(X) != m_Ldr(Y)) # label(axiom_18) # label(axiom).
+(all X all Y m_Down(X) != m_NotNorm(Y)) # label(axiom_19) # label(axiom).
+(all X all Y m_Down(X) != m_NormQ(Y)) # label(axiom_20) # label(axiom).
+(all X all Y m_NormQ(X) != m_Halt(Y)) # label(axiom_21) # label(axiom).
+(all X all Y m_Ldr(X) != m_Halt(Y)) # label(axiom_22) # label(axiom).
+(all X all Y m_Ldr(X) != m_NormQ(Y)) # label(axiom_23) # label(axiom).
+(all X all Y m_Ldr(X) != m_NotNorm(Y)) # label(axiom_24) # label(axiom).
+(all X all Y m_NormQ(X) != m_NotNorm(Y)) # label(axiom_25) # label(axiom).
+(all X all Y (X != Y <-> m_Halt(X) != m_Halt(Y))) # label(axiom_26) # label(axiom).
+(all X all Y (X != Y <-> m_NormQ(X) != m_NormQ(Y))) # label(axiom_27) # label(axiom).
+(all X all Y (X != Y <-> m_NotNorm(X) != m_NotNorm(Y))) # label(axiom_28) # label(axiom).
+(all X all Y (X != Y <-> m_Ldr(X) != m_Ldr(Y))) # label(axiom_29) # label(axiom).
+(all X all Y (X != Y <-> m_Down(X) != m_Down(Y))) # label(axiom_30) # label(axiom).
+(all X1 all X2 all Y1 all Y2 (X1 != X2 -> m_Ack(X1,Y1) != m_Ack(X2,Y2))) # label(axiom_31) # label(axiom).
+(all X1 all X2 all Y1 all Y2 (Y1 != Y2 -> m_Ack(X1,Y1) != m_Ack(X2,Y2))) # label(axiom_32) # label(axiom).
+(all Pid all Pid2 (host(Pid) != host(Pid2) -> Pid != Pid2)) # label(axiom_33) # label(axiom).
+-setIn(nil,alive) # label(axiom_34) # label(axiom).
+(all X all Q head(cons(X,Q)) = X) # label(axiom_35) # label(axiom).
+(all X all Q tail(cons(X,Q)) = Q) # label(axiom_36) # label(axiom).
+(all Y all Q last(snoc(Q,Y)) = Y) # label(axiom_37) # label(axiom).
+(all Y all Q init(snoc(Q,Y)) = Q) # label(axiom_38) # label(axiom).
+(all Q (Q = q_nil | Q = cons(head(Q),tail(Q)))) # label(axiom_39) # label(axiom).
+(all Q (Q = q_nil | Q = snoc(init(Q),last(Q)))) # label(axiom_40) # label(axiom).
+(all X all Q q_nil != cons(X,Q)) # label(axiom_41) # label(axiom).
+(all Y all Q q_nil != snoc(Q,Y)) # label(axiom_42) # label(axiom).
+(all X cons(X,q_nil) = snoc(q_nil,X)) # label(axiom_43) # label(axiom).
+(all X all Y all Q snoc(cons(X,Q),Y) = cons(X,snoc(Q,Y))) # label(axiom_44) # label(axiom).
+(all X -elem(X,q_nil)) # label(axiom_45) # label(axiom).
+(all X all Y all Q (elem(X,cons(Y,Q)) <-> X = Y | elem(X,Q))) # label(axiom_46) # label(axiom).
+(all X all Y all Q (elem(X,snoc(Q,Y)) <-> X = Y | elem(X,Q))) # label(axiom_47) # label(axiom).
+(all X (pidElem(X) <-> (exists Y (X = m_Halt(Y) | X = m_Down(Y))))) # label(axiom_48) # label(axiom).
+(all X pidMsg(m_Halt(X)) = X) # label(axiom_49) # label(axiom).
+(all X pidMsg(m_Down(X)) = X) # label(axiom_50) # label(axiom).
+ordered(q_nil) # label(axiom_51) # label(axiom).
+(all X (ordered(cons(X,q_nil)) & ordered(snoc(q_nil,X)))) # label(axiom_52) # label(axiom).
+(all X all Q (ordered(cons(X,Q)) <-> ordered(Q) & (all Y (elem(Y,Q) & pidElem(X) & pidElem(Y) & host(pidMsg(Y)) = host(pidMsg(X)) -> leq(pidMsg(X),pidMsg(Y)))))) # label(axiom_53) # label(axiom).
+(all X all Q (ordered(snoc(Q,X)) <-> ordered(Q) & (all Y (elem(Y,Q) & pidElem(X) & pidElem(Y) & host(pidMsg(Y)) = host(pidMsg(X)) -> leq(pidMsg(Y),pidMsg(X)))))) # label(axiom_54) # label(axiom).
+(all Q all X all Y (ordered(Q) -> ordered(snoc(Q,m_Ack(X,Y))))) # label(axiom_55) # label(axiom).
+(all Q all X (ordered(Q) -> ordered(snoc(Q,m_Ldr(X))))) # label(axiom_56) # label(axiom).
+(all Q all X all Y (ordered(cons(m_Halt(X),Q)) & host(X) = host(Y) & elem(m_Down(Y),Q) -> leq(X,Y))) # label(axiom_57) # label(axiom).
+(all X -leq(s(X),X)) # label(axiom_58) # label(axiom).
+(all X leq(X,X)) # label(axiom_59) # label(axiom).
+(all X all Y (leq(X,Y) | leq(Y,X))) # label(axiom_60) # label(axiom).
+(all X all Y (leq(X,Y) & leq(Y,X) <-> X = Y)) # label(axiom_61) # label(axiom).
+(all X all Y all Z (leq(X,Y) & leq(Y,Z) -> leq(X,Z))) # label(axiom_62) # label(axiom).
+(all X all Y (leq(X,Y) <-> leq(s(X),s(Y)))) # label(axiom_63) # label(axiom).
+(all X all Y (leq(X,s(Y)) <-> X = s(Y) | leq(X,Y))) # label(axiom_64) # label(axiom).
+(all X -setIn(X,setEmpty)) # label(axiom_65) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all V all W all X all Y ((all Z all Pid0 (elem(m_Down(Pid0),queue(host(Z))) -> -setIn(Pid0,alive))) & (all Z all Pid0 (elem(m_Down(Pid0),queue(host(Z))) -> host(Pid0) != host(Z))) & (all Z all Pid0 (elem(m_Halt(Pid0),queue(host(Z))) -> -leq(host(Z),host(Pid0)))) & (all Z all Pid20 all Pid0 (elem(m_Ack(Pid0,Z),queue(host(Pid20))) -> -leq(host(Z),host(Pid0)))) & (all Z all Pid0 (-setIn(Z,alive) & leq(Pid0,Z) & host(Pid0) = host(Z) -> -setIn(Pid0,alive))) & (all Z all Pid0 (Pid0 != Z & host(Pid0) = host(Z) -> -setIn(Z,alive) | -setIn(Pid0,alive))) & (all Z all Pid30 all Pid20 all Pid0 (host(Pid20) != host(Z) & setIn(Z,alive) & setIn(Pid20,alive) & host(Pid30) = host(Z) & host(Pid0) = host(Pid20) -> -(elem(m_Down(Pid0),queue(host(Z))) & elem(m_Down(Pid30),queue(host(Pid20)))))) & (all Z all Pid30 all Pid20 all Pid0 (host(Pid20) != host(Z) & setIn(Z,alive) & setIn(Pid20,alive) & host(Pid30) = host(Z) & host(Pid0) = host(Pid20) -> -(elem(m_Down(Pid0),queue(host(Z))) & setIn(host(Pid30),index(down,host(Pid20)))))) & queue(host(X)) = cons(m_Down(Y),V) -> (setIn(X,alive) -> (-leq(host(X),host(Y)) -> (index(ldr,host(X)) = host(Y) & index(status,host(X)) = norm | index(status,host(X)) = wait & host(Y) = host(index(elid,host(X))) -> ((all Z (host(X) = host(Z) -> leq(Z,W))) & -setIn(W,pids) & host(X) = host(W) -> (host(W) != s(zero) -> (all Z (host(X) = host(Z) -> (all X0 all Y0 (host(W) != host(Y0) -> (host(X) != host(Y0) -> (all Z0 ((Z != X & setIn(Z,alive) | Z = W) & (Y0 != X & setIn(Y0,alive) | Y0 = W) & host(Y0) != host(Z) & host(X0) = host(Z) & host(Z0) = host(Y0) -> -(elem(m_Down(Z0),V) & setIn(host(X0),index(down,host(Y0)))))))))))))))))) # label(conj) # label(conjecture).
+end_of_list.

@@ -1,0 +1,130 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 177 was started by mfixman on bodoque,
+Fri Oct 23 15:01:04 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+p2(X3,X3) # label(p2_1) # label(negated_conjecture).
+p4(X19,X19) # label(p4_2) # label(negated_conjecture).
+-p2(c6,f3(c8,f5(c9))) # label(not_p2_3) # label(negated_conjecture).
+p2(f3(X10,X11),f3(X11,X10)) # label(p2_4) # label(negated_conjecture).
+p2(f5(X15),f5(X16)) | -p4(X15,X16) # label(p2_5) # label(negated_conjecture).
+p2(X4,X5) | -p2(X3,X4) | -p2(X3,X5) # label(p2_6) # label(negated_conjecture).
+p4(X17,X18) | -p4(X19,X17) | -p4(X19,X18) # label(p4_7) # label(negated_conjecture).
+p2(X0,X1) | -p2(f3(X0,X2),f3(X1,X2)) # label(p2_8) # label(negated_conjecture).
+p2(f3(X0,X2),f3(X1,X2)) | -p2(X0,X1) # label(p2_9) # label(negated_conjecture).
+p2(f3(X12,f3(X13,X14)),f3(X13,f3(X12,X14))) # label(p2_10) # label(negated_conjecture).
+p2(f3(f3(X12,X13),X14),f3(X12,f3(X13,X14))) # label(p2_11) # label(negated_conjecture).
+p2(f3(c6,f5(c7)),f3(c8,f3(f5(c7),f5(c9)))) # label(p2_12) # label(negated_conjecture).
+p2(f3(X6,X7),f3(X8,X9)) | -p2(X6,X8) | -p2(X7,X9) # label(p2_13) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label not_p2_3 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ p2, p4 ]).
+Function symbol precedence:  function_order([ c7, c6, c8, c9, f3, f5 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=-2)
+  % clear(ordered_res).  % (HNE depth_diff=-2)
+  % set(ur_resolution).  % (HNE depth_diff=-2)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds: not_p2_3.
+% Length of proof is 12.
+% Level of proof is 3.
+% Maximum clause weight is 12.000.
+% Given clauses 23 (7.667 givens/level).
+
+1 p2(A,A) # label(p2_1) # label(negated_conjecture).  [assumption].
+3 -p2(c6,f3(c8,f5(c9))) # label(not_p2_3) # label(negated_conjecture) # answer(not_p2_3).  [assumption].
+4 p2(f3(A,B),f3(B,A)) # label(p2_4) # label(negated_conjecture).  [assumption].
+6 p2(A,B) | -p2(C,A) | -p2(C,B) # label(p2_6) # label(negated_conjecture).  [assumption].
+8 p2(A,B) | -p2(f3(A,C),f3(B,C)) # label(p2_8) # label(negated_conjecture).  [assumption].
+10 p2(f3(A,f3(B,C)),f3(B,f3(A,C))) # label(p2_10) # label(negated_conjecture).  [assumption].
+12 p2(f3(c6,f5(c7)),f3(c8,f3(f5(c7),f5(c9)))) # label(p2_12) # label(negated_conjecture).  [assumption].
+17 -p2(f3(c6,A),f3(f3(c8,f5(c9)),A)) # answer(not_p2_3).  [resolve(8,a,3,a)].
+21 p2(f3(A,f3(B,C)),f3(f3(A,C),B)).  [ur(6,b,10,a,c,4,a)].
+31 p2(f3(c8,f3(f5(c7),f5(c9))),f3(c6,f5(c7))).  [ur(6,b,12,a,c,1,a)].
+145 -p2(f3(c8,f3(A,f5(c9))),f3(c6,A)) # answer(not_p2_3).  [ur(6,a,17,a,c,21,a)].
+146 $F # answer(not_p2_3).  [resolve(145,a,31,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=23. Generated=245. Kept=145. proofs=1.
+Usable=23. Sos=118. Demods=0. Limbo=3, Disabled=13. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=100. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=33. Nonunit_bsub_feature_tests=58.
+Megabytes=0.27.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 177 exit (max_proofs) Fri Oct 23 15:01:04 2026
+-------- Proof 1 -------- not_p2_3.
+
+THEOREM PROVED
+
+------ process 177 exit (max_proofs) ------
+

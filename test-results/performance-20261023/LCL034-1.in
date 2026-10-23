@@ -1,0 +1,15 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-is_a_theorem(implies(X,Y)) | -is_a_theorem(X) | is_a_theorem(Y) # label(condensed_detachment) # label(axiom).
+is_a_theorem(implies(implies(implies(implies(implies(X,Y),implies(Z,falsehood)),U),V),implies(implies(V,X),implies(Z,X)))) # label(c0_CAMerideth) # label(axiom).
+-is_a_theorem(implies(implies(implies(a,b),a),a)) # label(prove_c0_3) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

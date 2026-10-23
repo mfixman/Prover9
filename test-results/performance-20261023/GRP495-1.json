@@ -1,0 +1,12 @@
+{
+  "problem": "GRP495-1",
+  "domain": "GRP",
+  "rating": 0.09,
+  "conversion_wall_seconds": 0.017156347996206023,
+  "exit_code": 0,
+  "search_wall_seconds": 0.08547002699924633,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.07,
+  "total_wall_seconds": 0.10465607600053772
+}

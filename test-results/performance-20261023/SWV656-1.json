@@ -1,0 +1,12 @@
+{
+  "problem": "SWV656-1",
+  "domain": "SWV",
+  "rating": 0.9,
+  "conversion_wall_seconds": 0.09072515700245276,
+  "exit_code": 4,
+  "search_wall_seconds": 20.750077529999544,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.26,
+  "total_wall_seconds": 20.847798905000673
+}

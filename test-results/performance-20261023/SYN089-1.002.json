@@ -1,0 +1,12 @@
+{
+  "problem": "SYN089-1.002",
+  "domain": "SYN",
+  "rating": 0.33,
+  "conversion_wall_seconds": 0.010125159009476192,
+  "exit_code": 0,
+  "search_wall_seconds": 0.013371648994507268,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.0,
+  "total_wall_seconds": 0.02441732100851368
+}

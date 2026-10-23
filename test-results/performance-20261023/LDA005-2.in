@@ -1,0 +1,30 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+f(X,f(Y,Z)) = f(f(X,Y),f(X,Z)) # label(a1) # label(axiom).
+a(X,a(Y,Z)) = a(f(X,Y),a(X,Z)) # label(a1a) # label(axiom).
+critical_point(f(U,V)) = a(U,critical_point(V)) # label(a2) # label(axiom).
+-less(X,X) # label(b1) # label(axiom).
+-less(X,Y) | less(a(U,X),a(U,Y)) # label(b4) # label(axiom).
+X = a(U,X) | less(X,a(U,X)) # label(c1) # label(axiom).
+-less(X,critical_point(U)) | a(U,X) = X # label(c2) # label(axiom).
+less(X,critical_point(U)) | less(X,a(U,X)) # label(c3) # label(axiom).
+a(U,X) != X | a(f(V,U),X) = X # label(d2) # label(axiom).
+tt = f(t,t) # label(clause_1) # label(axiom).
+st = f(s,t) # label(clause_2) # label(axiom).
+ts = f(t,s) # label(clause_3) # label(axiom).
+k = critical_point(t) # label(clause_4) # label(axiom).
+sk = f(s,k) # label(clause_5) # label(axiom).
+tk = f(t,k) # label(clause_6) # label(axiom).
+stk = f(st,k) # label(clause_7) # label(axiom).
+tsk = f(ts,k) # label(clause_8) # label(axiom).
+-less(f(tt,tsk),f(t,tsk)) # label(prove_equation) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

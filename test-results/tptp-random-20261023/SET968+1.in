@@ -1,0 +1,18 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all A all B set_union2(A,B) = set_union2(B,A)) # label(commutativity_k2_xboole_0) # label(axiom).
+(all A all B (-empty(A) -> -empty(set_union2(A,B)))) # label(fc2_xboole_0) # label(axiom).
+(all A all B (-empty(A) -> -empty(set_union2(B,A)))) # label(fc3_xboole_0) # label(axiom).
+(all A all B set_union2(A,A) = A) # label(idempotence_k2_xboole_0) # label(axiom).
+(exists A empty(A)) # label(rc1_xboole_0) # label(axiom).
+(exists A -empty(A)) # label(rc2_xboole_0) # label(axiom).
+(all A all B all C (cartesian_product2(set_union2(A,B),C) = set_union2(cartesian_product2(A,C),cartesian_product2(B,C)) & cartesian_product2(C,set_union2(A,B)) = set_union2(cartesian_product2(C,A),cartesian_product2(C,B)))) # label(t120_zfmisc_1) # label(axiom).
+(all A all B all C set_union2(set_union2(A,B),C) = set_union2(A,set_union2(B,C))) # label(t4_xboole_1) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all A all B all C all D cartesian_product2(set_union2(A,B),set_union2(C,D)) = set_union2(set_union2(set_union2(cartesian_product2(A,C),cartesian_product2(A,D)),cartesian_product2(B,C)),cartesian_product2(B,D))) # label(t121_zfmisc_1) # label(conjecture).
+end_of_list.

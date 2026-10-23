@@ -1,0 +1,212 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+
+% Including file Axioms/SWC001-0.ax
+
+set(prolog_style_variables).
+
+formulas(assumptions).
+equalelemsP(nil) # label(clause1) # label(axiom).
+duplicatefreeP(nil) # label(clause2) # label(axiom).
+strictorderedP(nil) # label(clause3) # label(axiom).
+totalorderedP(nil) # label(clause4) # label(axiom).
+strictorderP(nil) # label(clause5) # label(axiom).
+totalorderP(nil) # label(clause6) # label(axiom).
+cyclefreeP(nil) # label(clause7) # label(axiom).
+ssList(nil) # label(clause8) # label(axiom).
+ssItem(skac3) # label(clause9) # label(axiom).
+ssItem(skac2) # label(clause10) # label(axiom).
+-singletonP(nil) # label(clause11) # label(axiom).
+ssItem(skaf83(U)) # label(clause12) # label(axiom).
+ssList(skaf82(U)) # label(clause13) # label(axiom).
+ssList(skaf81(U)) # label(clause14) # label(axiom).
+ssList(skaf80(U)) # label(clause15) # label(axiom).
+ssItem(skaf79(U)) # label(clause16) # label(axiom).
+ssItem(skaf78(U)) # label(clause17) # label(axiom).
+ssList(skaf77(U)) # label(clause18) # label(axiom).
+ssList(skaf76(U)) # label(clause19) # label(axiom).
+ssList(skaf75(U)) # label(clause20) # label(axiom).
+ssItem(skaf74(U)) # label(clause21) # label(axiom).
+ssList(skaf73(U)) # label(clause22) # label(axiom).
+ssList(skaf72(U)) # label(clause23) # label(axiom).
+ssList(skaf71(U)) # label(clause24) # label(axiom).
+ssItem(skaf70(U)) # label(clause25) # label(axiom).
+ssItem(skaf69(U)) # label(clause26) # label(axiom).
+ssList(skaf68(U)) # label(clause27) # label(axiom).
+ssList(skaf67(U)) # label(clause28) # label(axiom).
+ssList(skaf66(U)) # label(clause29) # label(axiom).
+ssItem(skaf65(U)) # label(clause30) # label(axiom).
+ssItem(skaf64(U)) # label(clause31) # label(axiom).
+ssList(skaf63(U)) # label(clause32) # label(axiom).
+ssList(skaf62(U)) # label(clause33) # label(axiom).
+ssList(skaf61(U)) # label(clause34) # label(axiom).
+ssItem(skaf60(U)) # label(clause35) # label(axiom).
+ssItem(skaf59(U)) # label(clause36) # label(axiom).
+ssList(skaf58(U)) # label(clause37) # label(axiom).
+ssList(skaf57(U)) # label(clause38) # label(axiom).
+ssList(skaf56(U)) # label(clause39) # label(axiom).
+ssItem(skaf55(U)) # label(clause40) # label(axiom).
+ssItem(skaf54(U)) # label(clause41) # label(axiom).
+ssList(skaf53(U)) # label(clause42) # label(axiom).
+ssList(skaf52(U)) # label(clause43) # label(axiom).
+ssList(skaf51(U)) # label(clause44) # label(axiom).
+ssItem(skaf50(U)) # label(clause45) # label(axiom).
+ssItem(skaf49(U)) # label(clause46) # label(axiom).
+ssItem(skaf44(U)) # label(clause47) # label(axiom).
+ssList(skaf48(U,V)) # label(clause48) # label(axiom).
+ssList(skaf47(U,V)) # label(clause49) # label(axiom).
+ssList(skaf46(U,V)) # label(clause50) # label(axiom).
+ssList(skaf45(U,V)) # label(clause51) # label(axiom).
+ssList(skaf43(U,V)) # label(clause52) # label(axiom).
+ssList(skaf42(U,V)) # label(clause53) # label(axiom).
+skac3 != skac2 # label(clause54) # label(axiom).
+-ssItem(U) | geq(U,U) # label(clause55) # label(axiom).
+-ssList(U) | segmentP(U,nil) # label(clause56) # label(axiom).
+-ssList(U) | segmentP(U,U) # label(clause57) # label(axiom).
+-ssList(U) | rearsegP(U,nil) # label(clause58) # label(axiom).
+-ssList(U) | rearsegP(U,U) # label(clause59) # label(axiom).
+-ssList(U) | frontsegP(U,nil) # label(clause60) # label(axiom).
+-ssList(U) | frontsegP(U,U) # label(clause61) # label(axiom).
+-ssItem(U) | leq(U,U) # label(clause62) # label(axiom).
+-lt(U,U) | -ssItem(U) # label(clause63) # label(axiom).
+-ssItem(U) | equalelemsP(cons(U,nil)) # label(clause64) # label(axiom).
+-ssItem(U) | duplicatefreeP(cons(U,nil)) # label(clause65) # label(axiom).
+-ssItem(U) | strictorderedP(cons(U,nil)) # label(clause66) # label(axiom).
+-ssItem(U) | totalorderedP(cons(U,nil)) # label(clause67) # label(axiom).
+-ssItem(U) | strictorderP(cons(U,nil)) # label(clause68) # label(axiom).
+-ssItem(U) | totalorderP(cons(U,nil)) # label(clause69) # label(axiom).
+-ssItem(U) | cyclefreeP(cons(U,nil)) # label(clause70) # label(axiom).
+-memberP(nil,U) | -ssItem(U) # label(clause71) # label(axiom).
+-ssList(U) | duplicatefreeP(U) | ssItem(V) # label(clause72) # label(axiom).
+-ssList(U) | app(U,nil) = U # label(clause73) # label(axiom).
+-ssList(U) | app(nil,U) = U # label(clause74) # label(axiom).
+-ssList(U) | ssList(tl(U)) | nil = U # label(clause75) # label(axiom).
+-ssList(U) | ssItem(hd(U)) | nil = U # label(clause76) # label(axiom).
+-ssList(U) | ssList(tl(U)) | nil = U # label(clause77) # label(axiom).
+-ssList(U) | ssItem(hd(U)) | nil = U # label(clause78) # label(axiom).
+nil != U | -ssList(U) | segmentP(nil,U) # label(clause79) # label(axiom).
+-segmentP(nil,U) | -ssList(U) | nil = U # label(clause80) # label(axiom).
+nil != U | -ssList(U) | rearsegP(nil,U) # label(clause81) # label(axiom).
+-rearsegP(nil,U) | -ssList(U) | nil = U # label(clause82) # label(axiom).
+nil != U | -ssList(U) | frontsegP(nil,U) # label(clause83) # label(axiom).
+-frontsegP(nil,U) | -ssList(U) | nil = U # label(clause84) # label(axiom).
+-ssList(U) | -ssList(V) | ssList(app(V,U)) # label(clause85) # label(axiom).
+-ssItem(U) | -ssList(V) | ssList(cons(U,V)) # label(clause86) # label(axiom).
+-ssList(U) | cyclefreeP(U) | leq(skaf50(U),skaf49(U)) # label(clause87) # label(axiom).
+-ssList(U) | cyclefreeP(U) | leq(skaf49(U),skaf50(U)) # label(clause88) # label(axiom).
+skaf79(U) != skaf78(U) | -ssList(U) | equalelemsP(U) # label(clause89) # label(axiom).
+-lt(skaf69(U),skaf70(U)) | -ssList(U) | strictorderedP(U) # label(clause90) # label(axiom).
+-leq(skaf64(U),skaf65(U)) | -ssList(U) | totalorderedP(U) # label(clause91) # label(axiom).
+-lt(skaf60(U),skaf59(U)) | -ssList(U) | strictorderP(U) # label(clause92) # label(axiom).
+-lt(skaf59(U),skaf60(U)) | -ssList(U) | strictorderP(U) # label(clause93) # label(axiom).
+-leq(skaf55(U),skaf54(U)) | -ssList(U) | totalorderP(U) # label(clause94) # label(axiom).
+-leq(skaf54(U),skaf55(U)) | -ssList(U) | totalorderP(U) # label(clause95) # label(axiom).
+-ssItem(U) | -ssList(V) | tl(cons(U,V)) = V # label(clause96) # label(axiom).
+-ssItem(U) | -ssList(V) | hd(cons(U,V)) = U # label(clause97) # label(axiom).
+cons(U,V) != nil | -ssItem(U) | -ssList(V) # label(clause98) # label(axiom).
+cons(U,V) != V | -ssItem(U) | -ssList(V) # label(clause99) # label(axiom).
+-ssList(U) | -ssList(V) | neq(V,U) | V = U # label(clause100) # label(axiom).
+-singletonP(U) | -ssList(U) | cons(skaf44(U),nil) = U # label(clause101) # label(axiom).
+-ssItem(U) | -ssItem(V) | neq(V,U) | V = U # label(clause102) # label(axiom).
+-lt(U,V) | -ssItem(V) | -ssItem(U) | leq(U,V) # label(clause103) # label(axiom).
+-ssList(U) | cons(hd(U),tl(U)) = U | nil = U # label(clause104) # label(axiom).
+-gt(U,V) | -ssItem(V) | -ssItem(U) | lt(V,U) # label(clause105) # label(axiom).
+-lt(U,V) | -ssItem(U) | -ssItem(V) | gt(V,U) # label(clause106) # label(axiom).
+-geq(U,V) | -ssItem(V) | -ssItem(U) | leq(V,U) # label(clause107) # label(axiom).
+-leq(U,V) | -ssItem(U) | -ssItem(V) | geq(V,U) # label(clause108) # label(axiom).
+-ssList(U) | cons(skaf83(U),skaf82(U)) = U | nil = U # label(clause109) # label(axiom).
+-gt(U,V) | -gt(V,U) | -ssItem(U) | -ssItem(V) # label(clause110) # label(axiom).
+U != V | -lt(U,V) | -ssItem(V) | -ssItem(U) # label(clause111) # label(axiom).
+nil != U | -ssList(U) | -ssItem(V) | strictorderedP(cons(V,U)) # label(clause112) # label(axiom).
+nil != U | -ssList(U) | -ssItem(V) | totalorderedP(cons(V,U)) # label(clause113) # label(axiom).
+-lt(U,V) | -lt(V,U) | -ssItem(U) | -ssItem(V) # label(clause114) # label(axiom).
+U != V | -neq(U,V) | -ssList(V) | -ssList(U) # label(clause115) # label(axiom).
+cons(U,nil) != V | -ssItem(U) | -ssList(V) | singletonP(V) # label(clause116) # label(axiom).
+U != V | -neq(U,V) | -ssItem(V) | -ssItem(U) # label(clause117) # label(axiom).
+app(U,V) != nil | -ssList(V) | -ssList(U) | nil = U # label(clause118) # label(axiom).
+app(U,V) != nil | -ssList(V) | -ssList(U) | nil = V # label(clause119) # label(axiom).
+-ssItem(U) | -ssList(V) | app(cons(U,nil),V) = cons(U,V) # label(clause120) # label(axiom).
+-leq(U,V) | -ssItem(V) | -ssItem(U) | lt(U,V) | U = V # label(clause121) # label(axiom).
+-leq(U,V) | -ssItem(V) | -ssItem(U) | lt(U,V) | U = V # label(clause122) # label(axiom).
+-ssList(U) | -ssList(V) | nil = V | hd(app(V,U)) = hd(V) # label(clause123) # label(axiom).
+-strictorderedP(cons(U,V)) | -ssList(V) | -ssItem(U) | strictorderedP(V) | nil = V # label(clause124) # label(axiom).
+-totalorderedP(cons(U,V)) | -ssList(V) | -ssItem(U) | totalorderedP(V) | nil = V # label(clause125) # label(axiom).
+-geq(U,V) | -geq(V,U) | -ssItem(U) | -ssItem(V) | V = U # label(clause126) # label(axiom).
+-segmentP(U,V) | -segmentP(V,U) | -ssList(U) | -ssList(V) | V = U # label(clause127) # label(axiom).
+-rearsegP(U,V) | -rearsegP(V,U) | -ssList(U) | -ssList(V) | V = U # label(clause128) # label(axiom).
+-frontsegP(U,V) | -frontsegP(V,U) | -ssList(U) | -ssList(V) | V = U # label(clause129) # label(axiom).
+-leq(U,V) | -leq(V,U) | -ssItem(U) | -ssItem(V) | V = U # label(clause130) # label(axiom).
+-rearsegP(U,V) | -ssList(V) | -ssList(U) | app(skaf46(U,V),V) = U # label(clause131) # label(axiom).
+-frontsegP(U,V) | -ssList(V) | -ssList(U) | app(V,skaf45(U,V)) = U # label(clause132) # label(axiom).
+-ssList(U) | -ssList(V) | nil = V | tl(app(V,U)) = app(tl(V),U) # label(clause133) # label(axiom).
+-strictorderedP(cons(U,V)) | -ssList(V) | -ssItem(U) | lt(U,hd(V)) | nil = V # label(clause134) # label(axiom).
+-totalorderedP(cons(U,V)) | -ssList(V) | -ssItem(U) | leq(U,hd(V)) | nil = V # label(clause135) # label(axiom).
+-rearsegP(U,V) | -ssList(W) | -ssList(V) | -ssList(U) | rearsegP(app(W,U),V) # label(clause136) # label(axiom).
+-frontsegP(U,V) | -ssList(W) | -ssList(V) | -ssList(U) | frontsegP(app(U,W),V) # label(clause137) # label(axiom).
+U != V | -ssList(W) | -ssItem(V) | -ssItem(U) | memberP(cons(V,W),U) # label(clause138) # label(axiom).
+-memberP(U,V) | -ssList(U) | -ssItem(W) | -ssItem(V) | memberP(cons(W,U),V) # label(clause139) # label(axiom).
+-memberP(U,V) | -ssList(W) | -ssList(U) | -ssItem(V) | memberP(app(U,W),V) # label(clause140) # label(axiom).
+-memberP(U,V) | -ssList(U) | -ssList(W) | -ssItem(V) | memberP(app(W,U),V) # label(clause141) # label(axiom).
+-ssList(U) | equalelemsP(U) | app(skaf80(U),cons(skaf78(U),cons(skaf79(U),skaf81(U)))) = U # label(clause142) # label(axiom).
+app(U,V) != W | -ssList(U) | -ssList(V) | -ssList(W) | rearsegP(W,V) # label(clause143) # label(axiom).
+app(U,V) != W | -ssList(V) | -ssList(U) | -ssList(W) | frontsegP(W,U) # label(clause144) # label(axiom).
+nil != U | nil != V | -ssList(V) | -ssList(U) | app(U,V) = nil # label(clause145) # label(axiom).
+-gt(U,V) | -gt(V,W) | -ssItem(W) | -ssItem(V) | -ssItem(U) | gt(U,W) # label(clause146) # label(axiom).
+-leq(U,V) | -lt(V,W) | -ssItem(W) | -ssItem(V) | -ssItem(U) | lt(U,W) # label(clause147) # label(axiom).
+-geq(U,V) | -geq(V,W) | -ssItem(W) | -ssItem(V) | -ssItem(U) | geq(U,W) # label(clause148) # label(axiom).
+-ssList(U) | -ssList(V) | -ssList(W) | app(app(W,V),U) = app(W,app(V,U)) # label(clause149) # label(axiom).
+app(U,V) != app(U,W) | -ssList(V) | -ssList(U) | -ssList(W) | V = W # label(clause150) # label(axiom).
+app(U,V) != app(W,V) | -ssList(U) | -ssList(V) | -ssList(W) | U = W # label(clause151) # label(axiom).
+-segmentP(U,V) | -segmentP(V,W) | -ssList(W) | -ssList(V) | -ssList(U) | segmentP(U,W) # label(clause152) # label(axiom).
+-rearsegP(U,V) | -rearsegP(V,W) | -ssList(W) | -ssList(V) | -ssList(U) | rearsegP(U,W) # label(clause153) # label(axiom).
+-frontsegP(U,V) | -frontsegP(V,W) | -ssList(W) | -ssList(V) | -ssList(U) | frontsegP(U,W) # label(clause154) # label(axiom).
+-lt(U,V) | -lt(V,W) | -ssItem(W) | -ssItem(V) | -ssItem(U) | lt(U,W) # label(clause155) # label(axiom).
+-leq(U,V) | -leq(V,W) | -ssItem(W) | -ssItem(V) | -ssItem(U) | leq(U,W) # label(clause156) # label(axiom).
+-ssItem(U) | -ssList(V) | -ssList(W) | cons(U,app(V,W)) = app(cons(U,V),W) # label(clause157) # label(axiom).
+-memberP(app(U,V),W) | -ssList(V) | -ssList(U) | -ssItem(W) | memberP(V,W) | memberP(U,W) # label(clause158) # label(axiom).
+-leq(U,hd(V)) | -totalorderedP(V) | -ssList(V) | -ssItem(U) | totalorderedP(cons(U,V)) | nil = V # label(clause159) # label(axiom).
+-lt(U,hd(V)) | -strictorderedP(V) | -ssList(V) | -ssItem(U) | strictorderedP(cons(U,V)) | nil = V # label(clause160) # label(axiom).
+-memberP(cons(U,V),W) | -ssList(V) | -ssItem(U) | -ssItem(W) | memberP(V,W) | W = U # label(clause161) # label(axiom).
+-ssList(U) | duplicatefreeP(U) | app(app(skaf75(U),cons(skaf74(U),skaf76(U))),cons(skaf74(U),skaf77(U))) = U # label(clause162) # label(axiom).
+-ssList(U) | strictorderedP(U) | app(app(skaf71(U),cons(skaf69(U),skaf72(U))),cons(skaf70(U),skaf73(U))) = U # label(clause163) # label(axiom).
+-ssList(U) | totalorderedP(U) | app(app(skaf66(U),cons(skaf64(U),skaf67(U))),cons(skaf65(U),skaf68(U))) = U # label(clause164) # label(axiom).
+-ssList(U) | strictorderP(U) | app(app(skaf61(U),cons(skaf59(U),skaf62(U))),cons(skaf60(U),skaf63(U))) = U # label(clause165) # label(axiom).
+-ssList(U) | totalorderP(U) | app(app(skaf56(U),cons(skaf54(U),skaf57(U))),cons(skaf55(U),skaf58(U))) = U # label(clause166) # label(axiom).
+-ssList(U) | cyclefreeP(U) | app(app(skaf51(U),cons(skaf49(U),skaf52(U))),cons(skaf50(U),skaf53(U))) = U # label(clause167) # label(axiom).
+-segmentP(U,V) | -ssList(V) | -ssList(U) | app(app(skaf47(U,V),V),skaf48(V,U)) = U # label(clause168) # label(axiom).
+-memberP(U,V) | -ssItem(V) | -ssList(U) | app(skaf42(U,V),cons(V,skaf43(V,U))) = U # label(clause169) # label(axiom).
+cons(U,V) != cons(W,X) | -ssItem(W) | -ssItem(U) | -ssList(X) | -ssList(V) | U = W # label(clause170) # label(axiom).
+cons(U,V) != cons(W,X) | -ssItem(W) | -ssItem(U) | -ssList(X) | -ssList(V) | X = V # label(clause171) # label(axiom).
+-segmentP(U,V) | -ssList(W) | -ssList(X) | -ssList(V) | -ssList(U) | segmentP(app(app(X,U),W),V) # label(clause172) # label(axiom).
+app(app(U,V),W) != X | -ssList(W) | -ssList(U) | -ssList(V) | -ssList(X) | segmentP(X,V) # label(clause173) # label(axiom).
+-frontsegP(cons(U,V),cons(W,X)) | -ssList(X) | -ssList(V) | -ssItem(W) | -ssItem(U) | frontsegP(V,X) # label(clause174) # label(axiom).
+app(U,cons(V,W)) != X | -ssList(W) | -ssList(U) | -ssItem(V) | -ssList(X) | memberP(X,V) # label(clause175) # label(axiom).
+-frontsegP(cons(U,V),cons(W,X)) | -ssList(X) | -ssList(V) | -ssItem(W) | -ssItem(U) | U = W # label(clause176) # label(axiom).
+tl(U) != tl(V) | hd(U) != hd(V) | -ssList(U) | -ssList(V) | nil = V | U = V | nil = U # label(clause177) # label(axiom).
+-frontsegP(U,V) | W != X | -ssList(V) | -ssList(U) | -ssItem(X) | -ssItem(W) | frontsegP(cons(W,U),cons(X,V)) # label(clause178) # label(axiom).
+app(app(U,cons(V,W)),cons(V,X)) != Y | -ssList(X) | -ssList(W) | -ssList(U) | -ssItem(V) | -duplicatefreeP(Y) | -ssList(Y) # label(clause179) # label(axiom).
+app(U,cons(V,cons(W,X))) != Y | -ssList(X) | -ssList(U) | -ssItem(W) | -ssItem(V) | -equalelemsP(Y) | -ssList(Y) | V = W # label(clause180) # label(axiom).
+app(app(U,cons(V,W)),cons(X,Y)) != Z | -ssList(Y) | -ssList(W) | -ssList(U) | -ssItem(X) | -ssItem(V) | -strictorderedP(Z) | -ssList(Z) | lt(V,X) # label(clause181) # label(axiom).
+app(app(U,cons(V,W)),cons(X,Y)) != Z | -ssList(Y) | -ssList(W) | -ssList(U) | -ssItem(X) | -ssItem(V) | -totalorderedP(Z) | -ssList(Z) | leq(V,X) # label(clause182) # label(axiom).
+app(app(U,cons(V,W)),cons(X,Y)) != Z | -ssList(Y) | -ssList(W) | -ssList(U) | -ssItem(X) | -ssItem(V) | -strictorderP(Z) | -ssList(Z) | lt(V,X) | lt(X,V) # label(clause183) # label(axiom).
+app(app(U,cons(V,W)),cons(X,Y)) != Z | -ssList(Y) | -ssList(W) | -ssList(U) | -ssItem(X) | -ssItem(V) | -totalorderP(Z) | -ssList(Z) | leq(V,X) | leq(X,V) # label(clause184) # label(axiom).
+-leq(U,V) | -leq(V,U) | app(app(W,cons(U,X)),cons(V,Y)) != Z | -ssList(Y) | -ssList(X) | -ssList(W) | -ssItem(V) | -ssItem(U) | -cyclefreeP(Z) | -ssList(Z) # label(clause185) # label(axiom).
+ssList(sk1) # label(co1_1) # label(negated_conjecture).
+ssList(sk2) # label(co1_2) # label(negated_conjecture).
+ssList(sk3) # label(co1_3) # label(negated_conjecture).
+ssList(sk4) # label(co1_4) # label(negated_conjecture).
+sk2 = sk4 # label(co1_5) # label(negated_conjecture).
+sk1 = sk3 # label(co1_6) # label(negated_conjecture).
+nil = sk3 | nil != sk4 # label(co1_7) # label(negated_conjecture).
+ssItem(sk5) | -neq(sk4,nil) # label(co1_8) # label(negated_conjecture).
+ssList(sk6) | -neq(sk4,nil) # label(co1_9) # label(negated_conjecture).
+app(cons(sk5,nil),sk6) = sk4 | -neq(sk4,nil) # label(co1_10) # label(negated_conjecture).
+app(sk6,cons(sk5,nil)) = sk3 | -neq(sk4,nil) # label(co1_11) # label(negated_conjecture).
+nil = sk2 | neq(sk2,nil) # label(co1_12) # label(negated_conjecture).
+nil = sk2 | -ssItem(A) | -ssList(B) | app(cons(A,nil),B) != sk2 | app(B,cons(A,nil)) != sk1 # label(co1_13) # label(negated_conjecture).
+nil != sk1 | neq(sk2,nil) # label(co1_14) # label(negated_conjecture).
+nil != sk1 | -ssItem(A) | -ssList(B) | app(cons(A,nil),B) != sk2 | app(B,cons(A,nil)) != sk1 # label(co1_15) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

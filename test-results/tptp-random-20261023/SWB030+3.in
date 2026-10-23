@@ -1,0 +1,151 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+
+% Including file Axioms/SWB002+0.ax
+
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all Z all C (iext(uri_owl_complementOf,Z,C) -> ic(Z) & ic(C) & (all X (icext(Z,X) <-> -icext(C,X))))) # label(owl_bool_complementof_class) # label(axiom).
+(all Z (iext(uri_owl_intersectionOf,Z,uri_rdf_nil) <-> ic(Z) & (all X (icext(Z,X) <-> ir(X))))) # label(owl_bool_intersectionof_class_000) # label(axiom).
+(all Z all S1 all C1 (iext(uri_rdf_first,S1,C1) & iext(uri_rdf_rest,S1,uri_rdf_nil) -> (iext(uri_owl_intersectionOf,Z,S1) <-> ic(Z) & ic(C1) & (all X (icext(Z,X) <-> icext(C1,X)))))) # label(owl_bool_intersectionof_class_001) # label(axiom).
+(all Z all S1 all C1 all S2 all C2 (iext(uri_rdf_first,S1,C1) & iext(uri_rdf_rest,S1,S2) & iext(uri_rdf_first,S2,C2) & iext(uri_rdf_rest,S2,uri_rdf_nil) -> (iext(uri_owl_intersectionOf,Z,S1) <-> ic(Z) & ic(C1) & ic(C2) & (all X (icext(Z,X) <-> icext(C1,X) & icext(C2,X)))))) # label(owl_bool_intersectionof_class_002) # label(axiom).
+(all Z all S1 all C1 all S2 all C2 all S3 all C3 (iext(uri_rdf_first,S1,C1) & iext(uri_rdf_rest,S1,S2) & iext(uri_rdf_first,S2,C2) & iext(uri_rdf_rest,S2,S3) & iext(uri_rdf_first,S3,C3) & iext(uri_rdf_rest,S3,uri_rdf_nil) -> (iext(uri_owl_intersectionOf,Z,S1) <-> ic(Z) & ic(C1) & ic(C2) & ic(C3) & (all X (icext(Z,X) <-> icext(C1,X) & icext(C2,X) & icext(C3,X)))))) # label(owl_bool_intersectionof_class_003) # label(axiom).
+(all Z (iext(uri_owl_unionOf,Z,uri_rdf_nil) <-> ic(Z) & (all X -icext(Z,X)))) # label(owl_bool_unionof_class_000) # label(axiom).
+(all Z all S1 all C1 (iext(uri_rdf_first,S1,C1) & iext(uri_rdf_rest,S1,uri_rdf_nil) -> (iext(uri_owl_unionOf,Z,S1) <-> ic(Z) & ic(C1) & (all X (icext(Z,X) <-> icext(C1,X)))))) # label(owl_bool_unionof_class_001) # label(axiom).
+(all Z all S1 all C1 all S2 all C2 (iext(uri_rdf_first,S1,C1) & iext(uri_rdf_rest,S1,S2) & iext(uri_rdf_first,S2,C2) & iext(uri_rdf_rest,S2,uri_rdf_nil) -> (iext(uri_owl_unionOf,Z,S1) <-> ic(Z) & ic(C1) & ic(C2) & (all X (icext(Z,X) <-> icext(C1,X) | icext(C2,X)))))) # label(owl_bool_unionof_class_002) # label(axiom).
+(all Z all S1 all C1 all S2 all C2 all S3 all C3 (iext(uri_rdf_first,S1,C1) & iext(uri_rdf_rest,S1,S2) & iext(uri_rdf_first,S2,C2) & iext(uri_rdf_rest,S2,S3) & iext(uri_rdf_first,S3,C3) & iext(uri_rdf_rest,S3,uri_rdf_nil) -> (iext(uri_owl_unionOf,Z,S1) <-> ic(Z) & ic(C1) & ic(C2) & ic(C3) & (all X (icext(Z,X) <-> icext(C1,X) | icext(C2,X) | icext(C3,X)))))) # label(owl_bool_unionof_class_003) # label(axiom).
+(all X -icext(uri_owl_Nothing,X)) # label(owl_class_nothing_ext) # label(axiom).
+ic(uri_owl_Nothing) # label(owl_class_nothing_type) # label(axiom).
+(all X (icext(uri_owl_Thing,X) <-> ir(X))) # label(owl_class_thing_ext) # label(axiom).
+ic(uri_owl_Thing) # label(owl_class_thing_type) # label(axiom).
+(all X (ic(X) -> (all Y (icext(X,Y) -> ir(Y))))) # label(owl_parts_ic_cond_inst) # label(axiom).
+(all X (ic(X) -> ir(X))) # label(owl_parts_ic_cond_set) # label(axiom).
+(all X (ic(X) <-> iext(uri_rdf_type,X,uri_rdfs_Class))) # label(owl_parts_ic_def) # label(axiom).
+(all X (idc(X) -> (all Y (icext(X,Y) -> lv(Y))))) # label(owl_parts_idc_cond_inst) # label(axiom).
+(all X (idc(X) -> ic(X))) # label(owl_parts_idc_cond_set) # label(axiom).
+(all X (idc(X) <-> iext(uri_rdf_type,X,uri_rdfs_Datatype))) # label(owl_parts_idc_def) # label(axiom).
+(all X (ioap(X) -> (all Y all Z (iext(X,Y,Z) -> ir(Y) & ir(Z))))) # label(owl_parts_ioap_cond_inst) # label(axiom).
+(all X (ioap(X) -> ip(X))) # label(owl_parts_ioap_cond_set) # label(axiom).
+(all X (ioap(X) <-> iext(uri_rdf_type,X,uri_owl_AnnotationProperty))) # label(owl_parts_ioap_def) # label(axiom).
+(all X (iodp(X) -> (all Y all Z (iext(X,Y,Z) -> ir(Y) & lv(Z))))) # label(owl_parts_iodp_cond_inst) # label(axiom).
+(all X (iodp(X) -> ip(X))) # label(owl_parts_iodp_cond_set) # label(axiom).
+(all X (iodp(X) <-> iext(uri_rdf_type,X,uri_owl_DatatypeProperty))) # label(owl_parts_iodp_def) # label(axiom).
+(all X (ioxp(X) -> (all Y all Z (iext(X,Y,Z) -> ix(Y) & ix(Z))))) # label(owl_parts_ioxp_cond_inst) # label(axiom).
+(all X (ioxp(X) -> ip(X))) # label(owl_parts_ioxp_cond_set) # label(axiom).
+(all X (ioxp(X) <-> iext(uri_rdf_type,X,uri_owl_OntologyProperty))) # label(owl_parts_ioxp_def) # label(axiom).
+(all X (ip(X) -> (all Y all Z (iext(X,Y,Z) -> ir(Y) & ir(Z))))) # label(owl_parts_ip_cond_inst) # label(axiom).
+(all X (ip(X) -> ir(X))) # label(owl_parts_ip_cond_set) # label(axiom).
+(all X (ip(X) <-> iext(uri_rdf_type,X,uri_rdf_Property))) # label(owl_parts_ip_def) # label(axiom).
+(exists X ir(X)) # label(owl_parts_ir_cond_set) # label(axiom).
+(all X (ir(X) <-> iext(uri_rdf_type,X,uri_rdfs_Resource))) # label(owl_parts_ir_def) # label(axiom).
+(all X (ix(X) -> ir(X))) # label(owl_parts_ix_cond_set) # label(axiom).
+(all X (ix(X) <-> iext(uri_rdf_type,X,uri_owl_Ontology))) # label(owl_parts_ix_def) # label(axiom).
+(all X (lv(X) -> ir(X))) # label(owl_parts_lv_cond_set) # label(axiom).
+(all X (lv(X) <-> iext(uri_rdf_type,X,uri_rdfs_Literal))) # label(owl_parts_lv_def) # label(axiom).
+(all X all Y (iext(uri_owl_allValuesFrom,X,Y) -> icext(uri_owl_Restriction,X) & ic(Y))) # label(owl_prop_allvaluesfrom_ext) # label(axiom).
+ip(uri_owl_allValuesFrom) # label(owl_prop_allvaluesfrom_type) # label(axiom).
+(all X all Y (iext(uri_owl_complementOf,X,Y) -> ic(X) & ic(Y))) # label(owl_prop_complementof_ext) # label(axiom).
+ip(uri_owl_complementOf) # label(owl_prop_complementof_type) # label(axiom).
+(all X all Y (iext(uri_owl_hasValue,X,Y) -> icext(uri_owl_Restriction,X) & ir(Y))) # label(owl_prop_hasvalue_ext) # label(axiom).
+ip(uri_owl_hasValue) # label(owl_prop_hasvalue_type) # label(axiom).
+(all X all Y (iext(uri_owl_intersectionOf,X,Y) -> ic(X) & icext(uri_rdf_List,Y))) # label(owl_prop_intersectionof_ext) # label(axiom).
+ip(uri_owl_intersectionOf) # label(owl_prop_intersectionof_type) # label(axiom).
+(all X all Y (iext(uri_owl_onProperty,X,Y) -> icext(uri_owl_Restriction,X) & ip(Y))) # label(owl_prop_onproperty_ext) # label(axiom).
+ip(uri_owl_onProperty) # label(owl_prop_onproperty_type) # label(axiom).
+(all X all Y (iext(uri_owl_someValuesFrom,X,Y) -> icext(uri_owl_Restriction,X) & ic(Y))) # label(owl_prop_somevaluesfrom_ext) # label(axiom).
+ip(uri_owl_someValuesFrom) # label(owl_prop_somevaluesfrom_type) # label(axiom).
+(all X all Y (iext(uri_owl_unionOf,X,Y) -> ic(X) & icext(uri_rdf_List,Y))) # label(owl_prop_unionof_ext) # label(axiom).
+ip(uri_owl_unionOf) # label(owl_prop_unionof_type) # label(axiom).
+(all P all C (iext(uri_rdfs_domain,P,C) <-> ip(P) & ic(C) & (all X all Y (iext(P,X,Y) -> icext(C,X))))) # label(owl_rdfsext_domain) # label(axiom).
+(all P all C (iext(uri_rdfs_range,P,C) <-> ip(P) & ip(C) & (all X all Y (iext(P,X,Y) -> icext(C,Y))))) # label(owl_rdfsext_range) # label(axiom).
+(all C1 all C2 (iext(uri_rdfs_subClassOf,C1,C2) <-> ic(C1) & ic(C2) & (all X (icext(C1,X) -> icext(C2,X))))) # label(owl_rdfsext_subclassof) # label(axiom).
+(all P1 all P2 (iext(uri_rdfs_subPropertyOf,P1,P2) <-> ip(P1) & ip(P2) & (all X all Y (iext(P1,X,Y) -> iext(P2,X,Y))))) # label(owl_rdfsext_subpropertyof) # label(axiom).
+(all Z all P all C (iext(uri_owl_allValuesFrom,Z,C) & iext(uri_owl_onProperty,Z,P) -> (all X (icext(Z,X) <-> (all Y (iext(P,X,Y) -> icext(C,Y))))))) # label(owl_restrict_allvaluesfrom) # label(axiom).
+(all Z all P all A (iext(uri_owl_hasValue,Z,A) & iext(uri_owl_onProperty,Z,P) -> (all X (icext(Z,X) <-> iext(P,X,A))))) # label(owl_restrict_hasvalue) # label(axiom).
+(all Z all P all C (iext(uri_owl_someValuesFrom,Z,C) & iext(uri_owl_onProperty,Z,P) -> (all X (icext(Z,X) <-> (exists Y (iext(P,X,Y) & icext(C,Y))))))) # label(owl_restrict_somevaluesfrom) # label(axiom).
+iext(uri_rdf_type,uri_rdf_first,uri_rdf_Property) # label(rdf_collection_first_type) # label(axiom).
+iext(uri_rdf_type,uri_rdf_nil,uri_rdf_List) # label(rdf_collection_nil_type) # label(axiom).
+iext(uri_rdf_type,uri_rdf_rest,uri_rdf_Property) # label(rdf_collection_rest_type) # label(axiom).
+iext(uri_rdf_type,uri_rdf__1,uri_rdf_Property) # label(rdf_container_n_type_001) # label(axiom).
+iext(uri_rdf_type,uri_rdf__2,uri_rdf_Property) # label(rdf_container_n_type_002) # label(axiom).
+iext(uri_rdf_type,uri_rdf__3,uri_rdf_Property) # label(rdf_container_n_type_003) # label(axiom).
+iext(uri_rdf_type,uri_rdf_object,uri_rdf_Property) # label(rdf_reification_object_type) # label(axiom).
+iext(uri_rdf_type,uri_rdf_value,uri_rdf_Property) # label(rdf_reification_predicate_type) # label(axiom).
+iext(uri_rdf_type,uri_rdf_subject,uri_rdf_Property) # label(rdf_reification_subject_type) # label(axiom).
+(all P (iext(uri_rdf_type,P,uri_rdf_Property) <-> ip(P))) # label(rdf_type_ip) # label(axiom).
+iext(uri_rdf_type,uri_rdf_type,uri_rdf_Property) # label(rdf_type_type) # label(axiom).
+iext(uri_rdf_type,uri_rdf_type,uri_rdf_Property) # label(rdf_value_type) # label(axiom).
+iext(uri_rdfs_domain,uri_rdfs_comment,uri_rdfs_Resource) # label(rdfs_annotation_comment_domain) # label(axiom).
+iext(uri_rdfs_range,uri_rdfs_comment,uri_rdfs_Literal) # label(rdfs_annotation_comment_range) # label(axiom).
+iext(uri_rdfs_domain,uri_rdfs_isDefinedBy,uri_rdfs_Resource) # label(rdfs_annotation_isdefinedby_domain) # label(axiom).
+iext(uri_rdfs_range,uri_rdfs_isDefinedBy,uri_rdfs_Resource) # label(rdfs_annotation_isdefinedby_range) # label(axiom).
+iext(uri_rdfs_subPropertyOf,uri_rdfs_isDefinedBy,uri_rdfs_seeAlso) # label(rdfs_annotation_isdefinedby_sub) # label(axiom).
+iext(uri_rdfs_domain,uri_rdfs_label,uri_rdfs_Resource) # label(rdfs_annotation_label_domain) # label(axiom).
+iext(uri_rdfs_range,uri_rdfs_label,uri_rdfs_Literal) # label(rdfs_annotation_label_range) # label(axiom).
+iext(uri_rdfs_domain,uri_rdfs_seeAlso,uri_rdfs_Resource) # label(rdfs_annotation_seealso_domain) # label(axiom).
+iext(uri_rdfs_range,uri_rdfs_seeAlso,uri_rdfs_Resource) # label(rdfs_annotation_seealso_range) # label(axiom).
+(all X all C (iext(uri_rdf_type,X,C) <-> icext(C,X))) # label(rdfs_cext_def) # label(axiom).
+(all C (ic(C) -> iext(uri_rdfs_subClassOf,C,uri_rdfs_Resource))) # label(rdfs_class_instsub_resource) # label(axiom).
+iext(uri_rdfs_domain,uri_rdf_first,uri_rdf_List) # label(rdfs_collection_first_domain) # label(axiom).
+iext(uri_rdfs_range,uri_rdf_first,uri_rdfs_Resource) # label(rdfs_collection_first_range) # label(axiom).
+iext(uri_rdfs_domain,uri_rdf_rest,uri_rdf_List) # label(rdfs_collection_rest_domain) # label(axiom).
+iext(uri_rdfs_range,uri_rdf_rest,uri_rdf_List) # label(rdfs_collection_rest_range) # label(axiom).
+iext(uri_rdfs_subClassOf,uri_rdf_Alt,uri_rdfs_Container) # label(rdfs_container_alt_sub) # label(axiom).
+iext(uri_rdfs_subClassOf,uri_rdf_Bag,uri_rdfs_Container) # label(rdfs_container_bag_sub) # label(axiom).
+(all P (icext(uri_rdfs_ContainerMembershipProperty,P) -> iext(uri_rdfs_subPropertyOf,P,uri_rdfs_member))) # label(rdfs_container_containermembershipproperty_instsub_member) # label(axiom).
+iext(uri_rdfs_subClassOf,uri_rdfs_ContainerMembershipProperty,uri_rdf_Property) # label(rdfs_container_containermembershipproperty_sub) # label(axiom).
+iext(uri_rdfs_domain,uri_rdfs_member,uri_rdfs_Resource) # label(rdfs_container_member_domain) # label(axiom).
+iext(uri_rdfs_range,uri_rdfs_member,uri_rdfs_Resource) # label(rdfs_container_member_range) # label(axiom).
+iext(uri_rdfs_domain,uri_rdf__1,uri_rdfs_Resource) # label(rdfs_container_n_domain_001) # label(axiom).
+iext(uri_rdfs_domain,uri_rdf__2,uri_rdfs_Resource) # label(rdfs_container_n_domain_002) # label(axiom).
+iext(uri_rdfs_domain,uri_rdf__3,uri_rdfs_Resource) # label(rdfs_container_n_domain_003) # label(axiom).
+iext(uri_rdfs_range,uri_rdf__1,uri_rdfs_Resource) # label(rdfs_container_n_range_001) # label(axiom).
+iext(uri_rdfs_range,uri_rdf__2,uri_rdfs_Resource) # label(rdfs_container_n_range_002) # label(axiom).
+iext(uri_rdfs_range,uri_rdf__3,uri_rdfs_Resource) # label(rdfs_container_n_range_003) # label(axiom).
+iext(uri_rdf_type,uri_rdf__1,uri_rdfs_ContainerMembershipProperty) # label(rdfs_container_n_type_001) # label(axiom).
+iext(uri_rdf_type,uri_rdf__2,uri_rdfs_ContainerMembershipProperty) # label(rdfs_container_n_type_002) # label(axiom).
+iext(uri_rdf_type,uri_rdf__3,uri_rdfs_ContainerMembershipProperty) # label(rdfs_container_n_type_003) # label(axiom).
+iext(uri_rdfs_subClassOf,uri_rdfs_Seq,uri_rdfs_Container) # label(rdfs_container_seq_sub) # label(axiom).
+iext(uri_rdfs_subClassOf,uri_rdf_XMLLiteral,uri_rdfs_Literal) # label(rdfs_dat_xmlliteral_sub) # label(axiom).
+iext(uri_rdf_type,uri_rdf_XMLLiteral,uri_rdfs_Datatype) # label(rdfs_dat_xmlliteral_type) # label(axiom).
+(all D (icext(uri_rdfs_Datatype,D) -> iext(uri_rdfs_subClassOf,D,uri_rdfs_Literal))) # label(rdfs_datatype_instsub_literal) # label(axiom).
+iext(uri_rdfs_subClassOf,uri_rdfs_Datatype,uri_rdfs_Class) # label(rdfs_datatype_sub) # label(axiom).
+iext(uri_rdfs_domain,uri_rdfs_domain,uri_rdf_Property) # label(rdfs_domain_domain) # label(axiom).
+(all P all C all X all Y (iext(uri_rdfs_domain,P,C) & iext(P,X,Y) -> icext(C,X))) # label(rdfs_domain_main) # label(axiom).
+iext(uri_rdfs_range,uri_rdfs_domain,uri_rdfs_Class) # label(rdfs_domain_range) # label(axiom).
+(all X (ic(X) <-> icext(uri_rdfs_Class,X))) # label(rdfs_ic_def) # label(axiom).
+(all X (ir(X) <-> icext(uri_rdfs_Resource,X))) # label(rdfs_ir_def) # label(axiom).
+(all X (lv(X) <-> icext(uri_rdfs_Literal,X))) # label(rdfs_lv_def) # label(axiom).
+iext(uri_rdf_type,uri_rdf_Property,uri_rdfs_Class) # label(rdfs_property_type) # label(axiom).
+iext(uri_rdfs_domain,uri_rdfs_range,uri_rdf_Property) # label(rdfs_range_domain) # label(axiom).
+(all P all C all X all Y (iext(uri_rdfs_range,P,C) & iext(P,X,Y) -> icext(C,Y))) # label(rdfs_range_main) # label(axiom).
+iext(uri_rdfs_range,uri_rdfs_range,uri_rdfs_Class) # label(rdfs_range_range) # label(axiom).
+iext(uri_rdfs_domain,uri_rdf_object,uri_rdfs_Statement) # label(rdfs_reification_object_domain) # label(axiom).
+iext(uri_rdfs_range,uri_rdf_predicate,uri_rdfs_Resource) # label(rdfs_reification_object_range) # label(axiom).
+iext(uri_rdfs_domain,uri_rdf_predicate,uri_rdfs_Statement) # label(rdfs_reification_predicate_domain) # label(axiom).
+iext(uri_rdfs_range,uri_rdf_predicate,uri_rdfs_Resource) # label(rdfs_reification_predicate_range) # label(axiom).
+iext(uri_rdfs_domain,uri_rdf_subject,uri_rdfs_Statement) # label(rdfs_reification_subject_domain) # label(axiom).
+iext(uri_rdfs_range,uri_rdf_subject,uri_rdfs_Resource) # label(rdfs_reification_subject_range) # label(axiom).
+iext(uri_rdfs_domain,uri_rdfs_subClassOf,uri_rdfs_Class) # label(rdfs_subclassof_domain) # label(axiom).
+(all C all D (iext(uri_rdfs_subClassOf,C,D) -> ic(C) & ic(D) & (all X (icext(C,X) -> icext(D,X))))) # label(rdfs_subclassof_main) # label(axiom).
+iext(uri_rdfs_range,uri_rdfs_subClassOf,uri_rdfs_Class) # label(rdfs_subclassof_range) # label(axiom).
+(all C (ic(C) -> iext(uri_rdfs_subClassOf,C,C))) # label(rdfs_subclassof_reflex) # label(axiom).
+(all C all D all E (iext(uri_rdfs_subClassOf,C,D) & iext(uri_rdfs_subClassOf,D,E) -> iext(uri_rdfs_subClassOf,C,E))) # label(rdfs_subclassof_trans) # label(axiom).
+iext(uri_rdfs_domain,uri_rdfs_subPropertyOf,uri_rdf_Property) # label(rdfs_subpropertyof_domain) # label(axiom).
+(all P all Q (iext(uri_rdfs_subPropertyOf,P,Q) -> ip(P) & ip(Q) & (all X all Y (iext(P,X,Y) -> iext(Q,X,Y))))) # label(rdfs_subpropertyof_main) # label(axiom).
+iext(uri_rdfs_range,uri_rdfs_subPropertyOf,uri_rdf_Property) # label(rdfs_subpropertyof_range) # label(axiom).
+(all P (ip(P) -> iext(uri_rdfs_subPropertyOf,P,P))) # label(rdfs_subpropertyof_reflex) # label(axiom).
+(all P all Q all R (iext(uri_rdfs_subPropertyOf,P,Q) & iext(uri_rdfs_subPropertyOf,Q,R) -> iext(uri_rdfs_subPropertyOf,P,R))) # label(rdfs_subpropertyof_trans) # label(axiom).
+iext(uri_rdfs_domain,uri_rdf_type,uri_rdfs_Resource) # label(rdfs_type_domain) # label(axiom).
+iext(uri_rdfs_range,uri_rdf_type,uri_rdfs_Class) # label(rdfs_type_range) # label(axiom).
+iext(uri_rdfs_domain,uri_rdf_value,uri_rdfs_Resource) # label(rdfs_value_domain) # label(axiom).
+iext(uri_rdfs_range,uri_rdf_value,uri_rdfs_Resource) # label(rdfs_value_range) # label(axiom).
+(all S all P all O (iext(P,S,O) -> ip(P))) # label(simple_iext_property) # label(axiom).
+(all X ir(X)) # label(simple_ir) # label(axiom).
+(all X (lv(X) -> ir(X))) # label(simple_lv) # label(axiom).
+(exists BNODE_x (iext(uri_rdf_type,uri_ex_c,uri_owl_Class) & iext(uri_owl_complementOf,uri_ex_c,BNODE_x) & iext(uri_rdf_type,BNODE_x,uri_owl_Restriction) & iext(uri_owl_onProperty,BNODE_x,uri_rdf_type) & iext(uri_owl_hasSelf,BNODE_x,literal_typed(dat_str_true,uri_xsd_boolean)))) # label(testcase_premise_fullish_030_Bad_Class) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.

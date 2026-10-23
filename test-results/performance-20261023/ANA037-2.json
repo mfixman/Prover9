@@ -1,0 +1,12 @@
+{
+  "problem": "ANA037-2",
+  "domain": "ANA",
+  "rating": 0.0,
+  "conversion_wall_seconds": 0.014498700998956338,
+  "exit_code": 0,
+  "search_wall_seconds": 0.011561185005120933,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.01,
+  "total_wall_seconds": 0.028391760992235504
+}

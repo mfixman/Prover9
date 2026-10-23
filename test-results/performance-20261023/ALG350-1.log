@@ -1,0 +1,1078 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 249 was started by mfixman on bodoque,
+Fri Oct 23 15:01:30 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-class_RealVector_Oreal__normed__vector(T_a) | c_RealVector_Onorm__class_Onorm(c_HOL_Ouminus__class_Ouminus(V_x,T_a),T_a) = c_RealVector_Onorm__class_Onorm(V_x,T_a) # label(cls_norm__minus__cancel_0) # label(axiom).
+-class_RealVector_Oreal__normed__vector(T_a) | c_HOL_Oabs__class_Oabs(c_RealVector_Onorm__class_Onorm(V_a,T_a),tc_RealDef_Oreal) = c_RealVector_Onorm__class_Onorm(V_a,T_a) # label(cls_abs__norm__cancel_0) # label(axiom).
+-class_RealVector_Oreal__normed__vector(T_a) | c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(V_a,V_b,T_a),T_a) = c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(V_b,V_a,T_a),T_a) # label(cls_norm__minus__commute_0) # label(axiom).
+-class_RealVector_Oreal__normed__vector(T_a) | c_lessequals(c_RealVector_Onorm__class_Onorm(c_HOL_Oplus__class_Oplus(V_x,V_y,T_a),T_a),c_HOL_Oplus__class_Oplus(c_RealVector_Onorm__class_Onorm(V_x,T_a),c_RealVector_Onorm__class_Onorm(V_y,T_a),tc_RealDef_Oreal),tc_RealDef_Oreal) # label(cls_norm__triangle__ineq_0) # label(axiom).
+-class_RealVector_Oreal__normed__vector(T_a) | c_HOL_Oord__class_Oless(c_RealVector_Onorm__class_Onorm(c_HOL_Oplus__class_Oplus(V_x,V_y,T_a),T_a),c_HOL_Oplus__class_Oplus(V_r,V_s,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_RealVector_Onorm__class_Onorm(V_y,T_a),V_s,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_RealVector_Onorm__class_Onorm(V_x,T_a),V_r,tc_RealDef_Oreal) # label(cls_norm__add__less_0) # label(axiom).
+-class_RealVector_Oreal__normed__vector(T_a) | c_lessequals(c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(V_a,V_b,T_a),T_a),c_HOL_Oplus__class_Oplus(c_RealVector_Onorm__class_Onorm(V_a,T_a),c_RealVector_Onorm__class_Onorm(V_b,T_a),tc_RealDef_Oreal),tc_RealDef_Oreal) # label(cls_norm__triangle__ineq4_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | c_HOL_Oord__class_Oless(V_x,V_z,T_a) | -c_HOL_Oord__class_Oless(V_y,V_z,T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_order__less__trans_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_HOL_Oord__class_Oless(V_z,V_x,T_a) | -c_HOL_Oord__class_Oless(V_z,V_y,T_a) | -c_HOL_Oord__class_Oless(V_y,V_x,T_a) # label(cls_xt1_I10_J_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_x,T_a) = V_x # label(cls_sup__idem_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | c_HOL_Oplus__class_Oplus(c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),V_c,T_a) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) # label(cls_lordered__ab__group__add__class_Oadd__sup__inf__distribs_I3_J_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | c_HOL_Oplus__class_Oplus(V_a,c_Lattices_Oupper__semilattice__class_Osup(V_b,V_c,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),T_a) # label(cls_lordered__ab__group__add__class_Oadd__sup__inf__distribs_I4_J_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add__join(T_a) | c_HOL_Oplus__class_Oplus(V_a,c_Lattices_Oupper__semilattice__class_Osup(V_b,V_c,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),T_a) # label(cls_add__sup__distrib__left_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add__join(T_a) | c_HOL_Oplus__class_Oplus(c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),V_c,T_a) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) # label(cls_add__sup__distrib__right_0) # label(axiom).
+-class_Lattices_Odistrib__lattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a),c_Lattices_Olower__semilattice__class_Oinf(V_x,V_z,T_a),T_a) # label(cls_inf__sup__distrib1_0) # label(axiom).
+-class_Lattices_Odistrib__lattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),V_x,T_a) = c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Olower__semilattice__class_Oinf(V_y,V_x,T_a),c_Lattices_Olower__semilattice__class_Oinf(V_z,V_x,T_a),T_a) # label(cls_inf__sup__distrib2_0) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | c_HOL_Oplus__class_Oplus(c_HOL_Ominus__class_Ominus(V_a,V_b,T_a),V_b,T_a) = V_a # label(cls_diff__add__cancel_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omin(V_x,c_Orderings_Oord__class_Omin(V_x,V_y,T_a),T_a) = c_Orderings_Oord__class_Omin(V_x,V_y,T_a) # label(cls_min__max_Oinf__left__idem_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_lessequals(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(c_HOL_Oabs__class_Oabs(V_a,T_a),c_HOL_Oabs__class_Oabs(V_b,T_a),T_a),T_a),c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(V_a,V_b,T_a),T_a),T_a) # label(cls_abs__triangle__ineq3_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_z,c_Orderings_Oord__class_Omin(V_x,V_y,T_a),T_a) | -c_HOL_Oord__class_Oless(V_z,V_y,T_a) | -c_HOL_Oord__class_Oless(V_z,V_x,T_a) # label(cls_min__less__iff__conj_2) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omax(V_x,V_y,T_a),V_z,T_a) | -c_HOL_Oord__class_Oless(V_y,V_z,T_a) | -c_HOL_Oord__class_Oless(V_x,V_z,T_a) # label(cls_max__less__iff__conj_2) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omin(V_x,c_Orderings_Oord__class_Omax(V_y,V_z,T_a),T_a) = c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),c_Orderings_Oord__class_Omin(V_x,V_z,T_a),T_a) # label(cls_min__max_Oinf__sup__distrib1_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omax(V_y,V_z,T_a),V_x,T_a) = c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omin(V_y,V_x,T_a),c_Orderings_Oord__class_Omin(V_z,V_x,T_a),T_a) # label(cls_min__max_Oinf__sup__distrib2_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | c_HOL_Oplus__class_Oplus(V_a,V_b,T_a) = c_HOL_Oplus__class_Oplus(c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),c_Lattices_Olower__semilattice__class_Oinf(V_a,V_b,T_a),T_a) # label(cls_add__eq__inf__sup_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(c_Orderings_Obot__class_Obot(T_a),V_x,T_a) = c_Orderings_Obot__class_Obot(T_a) # label(cls_inf__bot__left_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,c_Orderings_Obot__class_Obot(T_a),T_a) = c_Orderings_Obot__class_Obot(T_a) # label(cls_inf__bot__right_0) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T_a) | c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(V_a,T_a),V_b,T_a) | -c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(V_a,T_a),V_b,T_a) # label(cls_abs__less__iff_1) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a),V_z,T_a) = c_Lattices_Olower__semilattice__class_Oinf(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_y,V_z,T_a),T_a) # label(cls_inf__sup__aci_I2_J_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_y,V_z,T_a),T_a) = c_Lattices_Olower__semilattice__class_Oinf(V_y,c_Lattices_Olower__semilattice__class_Oinf(V_x,V_z,T_a),T_a) # label(cls_inf__sup__aci_I3_J_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a),V_z,T_a) = c_Lattices_Olower__semilattice__class_Oinf(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_y,V_z,T_a),T_a) # label(cls_inf__assoc_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_y,V_z,T_a),T_a) = c_Lattices_Olower__semilattice__class_Oinf(V_y,c_Lattices_Olower__semilattice__class_Oinf(V_x,V_z,T_a),T_a) # label(cls_inf__left__commute_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(c_Orderings_Obot__class_Obot(T_a),V_x,T_a) = V_x # label(cls_sup__bot__left_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Orderings_Obot__class_Obot(T_a),T_a) = V_x # label(cls_sup__bot__right_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Oord__class_Oless(V_a,V_b,T_a) | -c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(V_b,T_a),c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) # label(cls_neg__less__iff__less_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(V_b,T_a),c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) # label(cls_neg__less__iff__less_1) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add__abs(T_a) | c_HOL_Oabs__class_Oabs(V_a,T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_a,c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) # label(cls_abs__lattice_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(c_Orderings_Otop__class_Otop(T_a),V_x,T_a) = V_x # label(cls_inf__top__left_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,c_Orderings_Otop__class_Otop(T_a),T_a) = V_x # label(cls_inf__top__right_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_y,V_z,T_a),T_a),c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),c_Lattices_Oupper__semilattice__class_Osup(V_x,V_z,T_a),T_a),T_a) # label(cls_distrib__sup__le_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omin(V_x,V_x,T_a) = V_x # label(cls_min__max_Oinf__idem_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add__abs(T_a) | c_lessequals(V_a,c_HOL_Oplus__class_Oplus(V_c,c_HOL_Oabs__class_Oabs(V_b,T_a),T_a),T_a) | -c_lessequals(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),V_c,T_a) # label(cls_estimate__by__abs_0) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | c_HOL_Ouminus__class_Ouminus(V_a,T_a) != c_HOL_Ouminus__class_Ouminus(V_b,T_a) | V_a = V_b # label(cls_neg__equal__iff__equal_0) # label(axiom).
+-class_Lattices_Oboolean__algebra(T_a) | c_HOL_Ouminus__class_Ouminus(V_x,T_a) != c_HOL_Ouminus__class_Ouminus(V_y,T_a) | V_x = V_y # label(cls_compl__eq__compl__iff_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | V_x = V_y # label(cls_linorder__neqE_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | V_x = V_y | c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_linorder__less__linear_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | V_x = V_y | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) # label(cls_linorder__antisym__conv3_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | V_x = V_y | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_not__less__iff__gr__or__eq_0) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | V_x = V_y # label(cls_linorder__neqE__ordered__idom_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omax(V_x,V_x,T_a) = V_x # label(cls_min__max_Osup__idem_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) = V_x # label(cls_inf__sup__absorb_0) # label(axiom).
+-class_RealVector_Oreal__normed__vector(T_a) | c_lessequals(c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),c_HOL_Oplus__class_Oplus(V_c,V_d,T_a),T_a),T_a),c_HOL_Oplus__class_Oplus(c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(V_a,V_c,T_a),T_a),c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(V_b,V_d,T_a),T_a),tc_RealDef_Oreal),tc_RealDef_Oreal) # label(cls_norm__diff__triangle__ineq_0) # label(axiom).
+-class_OrderedGroup_Ocomm__monoid__add(T_a) | c_HOL_Oplus__class_Oplus(V_a,c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) = c_HOL_Oplus__class_Oplus(V_b,c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),T_a) # label(cls_comm__monoid__add_Omult__left__commute_0) # label(axiom).
+-class_OrderedGroup_Ocomm__monoid__add(T_a) | c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),V_c,T_a) = c_HOL_Oplus__class_Oplus(V_a,c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) # label(cls_comm__monoid__add_Omult__assoc_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | c_HOL_Oplus__class_Oplus(V_x,c_HOL_Oplus__class_Oplus(V_y,V_z,T_a),T_a) = c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(V_x,V_y,T_a),V_z,T_a) # label(cls_class__semiring_Oadd__a_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Oplus__class_Oplus(V_x,c_HOL_Oplus__class_Oplus(V_y,V_z,T_a),T_a) = c_HOL_Oplus__class_Oplus(V_y,c_HOL_Oplus__class_Oplus(V_x,V_z,T_a),T_a) # label(cls_add__cancel__21_1) # label(axiom).
+-class_OrderedGroup_Oab__semigroup__add(T_a) | c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),V_c,T_a) = c_HOL_Oplus__class_Oplus(V_a,c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) # label(cls_ab__semigroup__add__class_Oadd__ac_I1_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | c_HOL_Oplus__class_Oplus(V_a,c_HOL_Oplus__class_Oplus(V_c,V_d,T_a),T_a) = c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),V_d,T_a) # label(cls_class__semiring_Osemiring__rules_I25_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),V_c,T_a) = c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),V_b,T_a) # label(cls_class__semiring_Osemiring__rules_I23_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | c_HOL_Oplus__class_Oplus(V_a,c_HOL_Oplus__class_Oplus(V_c,V_d,T_a),T_a) = c_HOL_Oplus__class_Oplus(V_c,c_HOL_Oplus__class_Oplus(V_a,V_d,T_a),T_a) # label(cls_class__semiring_Osemiring__rules_I22_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),V_c,T_a) = c_HOL_Oplus__class_Oplus(V_a,c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) # label(cls_class__semiring_Osemiring__rules_I21_J_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_lessequals(c_HOL_Oabs__class_Oabs(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),T_a),c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(V_a,T_a),c_HOL_Oabs__class_Oabs(V_b,T_a),T_a),T_a) # label(cls_abs__triangle__ineq_0) # label(axiom).
+c_COMBI(V_P,T_a) = V_P # label(cls_COMBI__def_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Ominus__class_Ominus(V_x,V_x,T_a) != c_HOL_Ominus__class_Ominus(V_x_H,V_y_H,T_a) | V_x_H = V_y_H # label(cls_eq__eqI_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Ominus__class_Ominus(V_xa,V_y,T_a) != c_HOL_Ominus__class_Ominus(V_x,V_x,T_a) | V_xa = V_y # label(cls_eq__eqI_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omin(V_x,c_Orderings_Oord__class_Omax(V_x,V_y,T_a),T_a) = V_x # label(cls_min__max_Oinf__sup__absorb_0) # label(axiom).
+-class_Lattices_Oboolean__algebra(T_a) | c_HOL_Ominus__class_Ominus(V_x,V_y,T_a) = c_Lattices_Olower__semilattice__class_Oinf(V_x,c_HOL_Ouminus__class_Ouminus(V_y,T_a),T_a) # label(cls_diff__eq_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_y,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_z,T_a),T_a) # label(cls_sup__left__commute_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),V_z,T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),T_a) # label(cls_sup__assoc_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_y,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_z,T_a),T_a) # label(cls_inf__sup__aci_I7_J_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),V_z,T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),T_a) # label(cls_inf__sup__aci_I6_J_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_y,V_z,T_a) | -c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omax(V_x,V_y,T_a),V_z,T_a) # label(cls_max__less__iff__conj_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_x,V_z,T_a) | -c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omax(V_x,V_y,T_a),V_z,T_a) # label(cls_max__less__iff__conj_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_z,c_Orderings_Oord__class_Omax(V_x,V_y,T_a),T_a) | -c_HOL_Oord__class_Oless(V_z,V_y,T_a) # label(cls_less__max__iff__disj_2) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_z,c_Orderings_Oord__class_Omax(V_x,V_y,T_a),T_a) | -c_HOL_Oord__class_Oless(V_z,V_x,T_a) # label(cls_less__max__iff__disj_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_x,c_Orderings_Oord__class_Omax(V_a,V_b,T_a),T_a) | -c_HOL_Oord__class_Oless(V_x,V_b,T_a) # label(cls_min__max_Oless__supI2_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_x,c_Orderings_Oord__class_Omax(V_a,V_b,T_a),T_a) | -c_HOL_Oord__class_Oless(V_x,V_a,T_a) # label(cls_min__max_Oless__supI1_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a) = c_Lattices_Olower__semilattice__class_Oinf(V_y,V_x,T_a) # label(cls_inf__commute_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a) = c_Lattices_Olower__semilattice__class_Oinf(V_y,V_x,T_a) # label(cls_inf__sup__aci_I1_J_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omin(V_x,V_y,T_a) = c_Orderings_Oord__class_Omin(V_y,V_x,T_a) # label(cls_min__max_Oinf__commute_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Ominus__class_Ominus(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_d,T_a),T_a) = c_HOL_Oplus__class_Oplus(c_HOL_Ominus__class_Ominus(V_a,V_b,T_a),c_HOL_Ominus__class_Ominus(V_c,V_d,T_a),T_a) # label(cls_Deriv_Oadd__diff__add_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),V_z,T_a) | -c_HOL_Oord__class_Oless(V_y,V_z,T_a) # label(cls_min__less__iff__disj_2) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),V_z,T_a) | -c_HOL_Oord__class_Oless(V_x,V_z,T_a) # label(cls_min__less__iff__disj_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_z,V_y,T_a) | -c_HOL_Oord__class_Oless(V_z,c_Orderings_Oord__class_Omin(V_x,V_y,T_a),T_a) # label(cls_min__less__iff__conj_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_z,V_x,T_a) | -c_HOL_Oord__class_Oless(V_z,c_Orderings_Oord__class_Omin(V_x,V_y,T_a),T_a) # label(cls_min__less__iff__conj_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(V_a,V_b,T_a),V_x,T_a) | -c_HOL_Oord__class_Oless(V_b,V_x,T_a) # label(cls_min__max_Oless__infI2_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(V_a,V_b,T_a),V_x,T_a) | -c_HOL_Oord__class_Oless(V_a,V_x,T_a) # label(cls_min__max_Oless__infI1_0) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T_a) | c_HOL_Oord__class_Oless(c_HOL_Ominus__class_Ominus(V_a,V_r,T_a),V_x,T_a) | -c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(V_x,V_a,T_a),T_a),V_r,T_a) # label(cls_abs__diff__less__iff_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,T_a) != c_Orderings_Obot__class_Obot(T_a) | V_B = c_Orderings_Obot__class_Obot(T_a) # label(cls_sup__eq__bot__eq2_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_A,V_B,T_a) != c_Orderings_Obot__class_Obot(T_a) | V_A = c_Orderings_Obot__class_Obot(T_a) # label(cls_sup__eq__bot__eq1_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_a,V_b,T_a) = c_HOL_Ouminus__class_Ouminus(c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ouminus__class_Ouminus(V_a,T_a),c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a),T_a) # label(cls_inf__eq__neg__sup_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_y,V_x,T_a) # label(cls_sup__commute_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_y,V_x,T_a) # label(cls_inf__sup__aci_I5_J_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | c_HOL_Ouminus__class_Ouminus(c_Lattices_Olower__semilattice__class_Oinf(V_a,V_b,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ouminus__class_Ouminus(V_a,T_a),c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) # label(cls_neg__inf__eq__sup_0) # label(axiom).
+-class_Lattices_Oboolean__algebra(T_a) | c_HOL_Ouminus__class_Ouminus(c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ouminus__class_Ouminus(V_x,T_a),c_HOL_Ouminus__class_Ouminus(V_y,T_a),T_a) # label(cls_compl__inf_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Oplus__class_Oplus(V_x,c_HOL_Oplus__class_Oplus(V_y,V_z,T_a),T_a) != V_y | V_x = c_HOL_Ouminus__class_Ouminus(V_z,T_a) # label(cls_add__cancel__end_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) # label(cls_sup__left__idem_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) = c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) # label(cls_inf__sup__aci_I8_J_0) # label(axiom).
+c_HOL_Oord__class_Oless(V_x,V_y,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_NthRoot_Osqrt(V_x),c_NthRoot_Osqrt(V_y),tc_RealDef_Oreal) # label(cls_real__sqrt__less__iff_0) # label(axiom).
+c_HOL_Oord__class_Oless(c_NthRoot_Osqrt(V_x),c_NthRoot_Osqrt(V_y),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(V_x,V_y,tc_RealDef_Oreal) # label(cls_real__sqrt__less__iff_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omax(V_x,c_Orderings_Oord__class_Omax(V_y,V_z,T_a),T_a) = c_Orderings_Oord__class_Omax(V_y,c_Orderings_Oord__class_Omax(V_x,V_z,T_a),T_a) # label(cls_min__max_Osup__left__commute_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omax(V_x,V_y,T_a),V_z,T_a) = c_Orderings_Oord__class_Omax(V_x,c_Orderings_Oord__class_Omax(V_y,V_z,T_a),T_a) # label(cls_min__max_Osup__assoc_0) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | c_HOL_Ominus__class_Ominus(V_a,c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) = c_HOL_Oplus__class_Oplus(V_a,V_b,T_a) # label(cls_diff__minus__eq__add_0) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | c_HOL_Ominus__class_Ominus(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),V_b,T_a) = V_a # label(cls_add__diff__cancel_0) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T_a) | c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(V_x,V_a,T_a),T_a),V_r,T_a) | -c_HOL_Oord__class_Oless(V_x,c_HOL_Oplus__class_Oplus(V_a,V_r,T_a),T_a) | -c_HOL_Oord__class_Oless(c_HOL_Ominus__class_Ominus(V_a,V_r,T_a),V_x,T_a) # label(cls_abs__diff__less__iff_2) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | c_HOL_Ouminus__class_Ouminus(c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) = V_b # label(cls_minus__equation__iff_1) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | V_a = c_HOL_Ouminus__class_Ouminus(c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) # label(cls_equation__minus__iff_1) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | V_b = c_HOL_Ouminus__class_Ouminus(c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) # label(cls_equation__minus__iff_0) # label(axiom).
+-class_Lattices_Oboolean__algebra(T_a) | c_HOL_Ouminus__class_Ouminus(c_HOL_Ouminus__class_Ouminus(V_x,T_a),T_a) = V_x # label(cls_double__compl_0) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | c_HOL_Ouminus__class_Ouminus(c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) = V_a # label(cls_minus__minus_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Ouminus__class_Ouminus(c_HOL_Ominus__class_Ominus(V_a,V_b,T_a),T_a) = c_HOL_Ominus__class_Ominus(V_b,V_a,T_a) # label(cls_minus__diff__eq_0) # label(axiom).
+-class_OrderedGroup_Opordered__cancel__ab__semigroup__add(T_a) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_d,T_a),T_a) | -c_lessequals(V_c,V_d,T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) # label(cls_add__less__le__mono_0) # label(axiom).
+-class_OrderedGroup_Opordered__cancel__ab__semigroup__add(T_a) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_d,T_a),T_a) | -c_HOL_Oord__class_Oless(V_c,V_d,T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_add__le__less__mono_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(V_a,T_a),V_b,T_a) | -c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(V_b,T_a),V_a,T_a) # label(cls_minus__less__iff_1) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(V_b,T_a),V_a,T_a) | -c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(V_a,T_a),V_b,T_a) # label(cls_minus__less__iff_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Oord__class_Oless(V_a,c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) | -c_HOL_Oord__class_Oless(V_b,c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) # label(cls_less__minus__iff_1) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Oord__class_Oless(V_b,c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) | -c_HOL_Oord__class_Oless(V_a,c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) # label(cls_less__minus__iff_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_HOL_Oord__class_Oless(V_z,V_x,T_a) | -c_lessequals(V_z,V_y,T_a) | -c_HOL_Oord__class_Oless(V_y,V_x,T_a) # label(cls_xt1_I7_J_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_HOL_Oord__class_Oless(V_z,V_x,T_a) | -c_HOL_Oord__class_Oless(V_z,V_y,T_a) | -c_lessequals(V_y,V_x,T_a) # label(cls_xt1_I8_J_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_lessequals(V_a,c_HOL_Oplus__class_Oplus(V_b,V_d,T_a),T_a) | -c_lessequals(V_c,V_d,T_a) | -c_lessequals(V_a,c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) # label(cls_le__add__right__mono_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | c_HOL_Oord__class_Oless(V_x,V_z,T_a) | -c_lessequals(V_y,V_z,T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_order__less__le__trans_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | c_HOL_Oord__class_Oless(V_x,V_z,T_a) | -c_HOL_Oord__class_Oless(V_y,V_z,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_order__le__less__trans_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) = V_x | -c_lessequals(V_y,V_x,T_a) # label(cls_sup__absorb1_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) != V_y | c_lessequals(V_x,V_y,T_a) # label(cls_le__iff__sup_1) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) = V_y | -c_lessequals(V_x,V_y,T_a) # label(cls_le__iff__sup_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | c_lessequals(V_x,V_y,T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_order__less__imp__le_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_lessequals(V_x,V_y,T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_order__le__less_1) # label(axiom).
+-class_Orderings_Opreorder(T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | c_lessequals(V_y,V_x,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_less__le__not__le_2) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_y,V_z,T_a) | -c_lessequals(c_Orderings_Oord__class_Omax(V_x,V_y,T_a),V_z,T_a) # label(cls_min__max_Ole__sup__iff_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_x,V_z,T_a) | -c_lessequals(c_Orderings_Oord__class_Omax(V_x,V_y,T_a),V_z,T_a) # label(cls_min__max_Ole__sup__iff_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_z,c_Orderings_Oord__class_Omax(V_x,V_y,T_a),T_a) | -c_lessequals(V_z,V_y,T_a) # label(cls_le__max__iff__disj_2) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_z,c_Orderings_Oord__class_Omax(V_x,V_y,T_a),T_a) | -c_lessequals(V_z,V_x,T_a) # label(cls_le__max__iff__disj_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_x,c_Orderings_Oord__class_Omax(V_a,V_b,T_a),T_a) | -c_lessequals(V_x,V_b,T_a) # label(cls_min__max_Ole__supI2_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_x,c_Orderings_Oord__class_Omax(V_a,V_b,T_a),T_a) | -c_lessequals(V_x,V_a,T_a) # label(cls_min__max_Ole__supI1_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_b,V_x,T_a) | -c_lessequals(c_Orderings_Oord__class_Omax(V_a,V_b,T_a),V_x,T_a) # label(cls_min__max_Ole__supE_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_a,V_x,T_a) | -c_lessequals(c_Orderings_Oord__class_Omax(V_a,V_b,T_a),V_x,T_a) # label(cls_min__max_Ole__supE_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_y,V_z,T_a) | c_lessequals(V_x,V_z,T_a) | -c_lessequals(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),V_z,T_a) # label(cls_min__le__iff__disj_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_lessequals(V_a,c_HOL_Oabs__class_Oabs(V_a,T_a),T_a) # label(cls_abs__ge__self_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_x,V_z,T_a) | -c_lessequals(V_x,c_Orderings_Oord__class_Omin(V_y,V_z,T_a),T_a) # label(cls_min__max_Ole__inf__iff_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_x,V_y,T_a) | -c_lessequals(V_x,c_Orderings_Oord__class_Omin(V_y,V_z,T_a),T_a) # label(cls_min__max_Ole__inf__iff_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),V_z,T_a) | -c_lessequals(V_y,V_z,T_a) # label(cls_min__le__iff__disj_2) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),V_z,T_a) | -c_lessequals(V_x,V_z,T_a) # label(cls_min__le__iff__disj_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Orderings_Oord__class_Omin(V_a,V_b,T_a),V_x,T_a) | -c_lessequals(V_b,V_x,T_a) # label(cls_min__max_Ole__infI2_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Orderings_Oord__class_Omin(V_a,V_b,T_a),V_x,T_a) | -c_lessequals(V_a,V_x,T_a) # label(cls_min__max_Ole__infI1_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_x,V_b,T_a) | -c_lessequals(V_x,c_Orderings_Oord__class_Omin(V_a,V_b,T_a),T_a) # label(cls_min__max_Ole__infE_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_x,V_a,T_a) | -c_lessequals(V_x,c_Orderings_Oord__class_Omin(V_a,V_b,T_a),T_a) # label(cls_min__max_Ole__infE_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_z,V_y,T_a) | c_lessequals(V_z,V_x,T_a) | -c_lessequals(V_z,c_Orderings_Oord__class_Omax(V_x,V_y,T_a),T_a) # label(cls_le__max__iff__disj_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add(T_a) | c_lessequals(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_d,T_a),T_a) | -c_lessequals(V_c,V_d,T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_add__mono_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omax(V_x,V_y,T_a) = V_x | -c_lessequals(V_y,V_x,T_a) # label(cls_min__max_Osup__absorb1_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omax(V_x,V_y,T_a) != V_y | c_lessequals(V_x,V_y,T_a) # label(cls_min__max_Ole__iff__sup_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omax(V_x,V_y,T_a) = V_y | -c_lessequals(V_x,V_y,T_a) # label(cls_min__max_Ole__iff__sup_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omin(V_x,V_y,T_a) = V_y | -c_lessequals(V_y,V_x,T_a) # label(cls_min__max_Oinf__absorb2_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_HOL_Oord__class_Oless(c_Lattices_Olower__semilattice__class_Oinf(V_a,V_b,T_a),V_x,T_a) | -c_HOL_Oord__class_Oless(V_a,V_x,T_a) # label(cls_less__infI1_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_HOL_Oord__class_Oless(c_Lattices_Olower__semilattice__class_Oinf(V_a,V_b,T_a),V_x,T_a) | -c_HOL_Oord__class_Oless(V_b,V_x,T_a) # label(cls_less__infI2_0) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T_a) | c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(V_a,T_a),V_b,T_a) | -c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(V_a,T_a),V_b,T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) # label(cls_abs__less__iff_2) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_lessequals(c_HOL_Ouminus__class_Ouminus(V_a,T_a),V_b,T_a) | -c_lessequals(c_HOL_Oabs__class_Oabs(V_a,T_a),V_b,T_a) # label(cls_abs__le__D2_0) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | c_HOL_Oplus__class_Oplus(V_a,c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(V_a,T_a),V_b,T_a),T_a) = V_b # label(cls_add__minus__cancel_0) # label(axiom).
+-class_Lattices_Odistrib__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_y,V_z,T_a),T_a) = c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),c_Lattices_Oupper__semilattice__class_Osup(V_x,V_z,T_a),T_a) # label(cls_sup__inf__distrib1_0) # label(axiom).
+-class_Lattices_Odistrib__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Olower__semilattice__class_Oinf(V_y,V_z,T_a),V_x,T_a) = c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Oupper__semilattice__class_Osup(V_y,V_x,T_a),c_Lattices_Oupper__semilattice__class_Osup(V_z,V_x,T_a),T_a) # label(cls_sup__inf__distrib2_0) # label(axiom).
+-class_Lattices_Oboolean__algebra(T_a) | c_HOL_Ouminus__class_Ouminus(c_Orderings_Obot__class_Obot(T_a),T_a) = c_Orderings_Otop__class_Otop(T_a) # label(cls_compl__bot__eq_0) # label(axiom).
+c_NthRoot_Osqrt(V_x) != c_NthRoot_Osqrt(V_y) | V_x = V_y # label(cls_real__sqrt__eq__iff_0) # label(axiom).
+c_Transcendental_Oexp(V_x,tc_RealDef_Oreal) != c_Transcendental_Oexp(V_y,tc_RealDef_Oreal) | V_x = V_y # label(cls_exp__inj__iff_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Ominus__class_Ominus(V_x,V_y,T_a) != c_HOL_Ominus__class_Ominus(V_x_H,V_y_H,T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | -c_HOL_Oord__class_Oless(V_x_H,V_y_H,T_a) # label(cls_less__eqI_1) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Ominus__class_Ominus(V_x,V_y,T_a) != c_HOL_Ominus__class_Ominus(V_x_H,V_y_H,T_a) | c_HOL_Oord__class_Oless(V_x_H,V_y_H,T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_less__eqI_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omax(V_x,c_Orderings_Oord__class_Omin(V_y,V_z,T_a),T_a) = c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omax(V_x,V_y,T_a),c_Orderings_Oord__class_Omax(V_x,V_z,T_a),T_a) # label(cls_min__max_Osup__inf__distrib1_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omin(V_y,V_z,T_a),V_x,T_a) = c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omax(V_y,V_x,T_a),c_Orderings_Oord__class_Omax(V_z,V_x,T_a),T_a) # label(cls_min__max_Osup__inf__distrib2_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_lessequals(c_HOL_Ominus__class_Ominus(c_HOL_Oabs__class_Oabs(V_a,T_a),c_HOL_Oabs__class_Oabs(V_b,T_a),T_a),c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(V_a,V_b,T_a),T_a),T_a) # label(cls_abs__triangle__ineq2_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_HOL_Oord__class_Oless(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),T_a) | -c_HOL_Oord__class_Oless(V_x,V_a,T_a) # label(cls_less__supI1_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_HOL_Oord__class_Oless(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),T_a) | -c_HOL_Oord__class_Oless(V_x,V_b,T_a) # label(cls_less__supI2_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(V_a,V_b,T_a),T_a) = c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(V_b,V_a,T_a),T_a) # label(cls_abs__minus__commute_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omax(V_x,c_Orderings_Oord__class_Omax(V_x,V_y,T_a),T_a) = c_Orderings_Oord__class_Omax(V_x,V_y,T_a) # label(cls_min__max_Osup__left__idem_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_HOL_Oplus__class_Oplus(c_Orderings_Oord__class_Omax(V_x,V_y,T_a),V_z,T_a) = c_Orderings_Oord__class_Omax(c_HOL_Oplus__class_Oplus(V_x,V_z,T_a),c_HOL_Oplus__class_Oplus(V_y,V_z,T_a),T_a) # label(cls_max__add__distrib__left_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omax(V_x,c_Orderings_Oord__class_Omin(V_x,V_y,T_a),T_a) = V_x # label(cls_min__max_Osup__inf__absorb_0) # label(axiom).
+-class_Lattices_Oboolean__algebra(T_a) | c_HOL_Ouminus__class_Ouminus(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Ouminus__class_Ouminus(V_x,T_a),c_HOL_Ouminus__class_Ouminus(V_y,T_a),T_a) # label(cls_compl__sup_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | c_HOL_Ouminus__class_Ouminus(c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),T_a) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Ouminus__class_Ouminus(V_a,T_a),c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) # label(cls_neg__sup__eq__inf_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),c_Orderings_Oord__class_Omin(V_x,V_z,T_a),T_a),c_Orderings_Oord__class_Omin(V_x,c_Orderings_Oord__class_Omax(V_y,V_z,T_a),T_a),T_a) # label(cls_min__max_Odistrib__inf__le_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omax(V_x,V_y,T_a) = c_Orderings_Oord__class_Omax(V_y,V_x,T_a) # label(cls_min__max_Osup__commute_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),c_HOL_Oplus__class_Oplus(V_c,V_d,T_a),T_a) = c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_d,T_a),T_a) # label(cls_class__semiring_Osemiring__rules_I20_J_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Ominus__class_Ominus(V_x,V_y,T_a) = c_HOL_Oplus__class_Oplus(V_x,c_HOL_Ouminus__class_Ouminus(V_y,T_a),T_a) # label(cls_diff__def_0) # label(axiom).
+-class_Int_Onumber__ring(T_a) | c_HOL_Ominus__class_Ominus(V_x,V_y,T_a) = c_HOL_Oplus__class_Oplus(V_x,c_HOL_Ouminus__class_Ouminus(V_y,T_a),T_a) # label(cls_class__ring_Osub__add_0) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | c_HOL_Ominus__class_Ominus(V_a,V_b,T_a) = c_HOL_Oplus__class_Oplus(V_a,c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) # label(cls_diff__minus_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Ominus__class_Ominus(V_a,V_b,T_a) = c_HOL_Oplus__class_Oplus(V_a,c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) # label(cls_ab__diff__minus_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_HOL_Oplus__class_Oplus(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),V_z,T_a) = c_Orderings_Oord__class_Omin(c_HOL_Oplus__class_Oplus(V_x,V_z,T_a),c_HOL_Oplus__class_Oplus(V_y,V_z,T_a),T_a) # label(cls_min__add__distrib__left_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_lessequals(c_HOL_Oabs__class_Oabs(V_a,T_a),V_b,T_a) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(V_a,T_a),V_b,T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_abs__leI_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_lessequals(c_HOL_Oabs__class_Oabs(V_a,T_a),V_b,T_a) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(V_a,T_a),V_b,T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_abs__le__iff_2) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_HOL_Oabs__class_Oabs(c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) = c_HOL_Oabs__class_Oabs(V_a,T_a) # label(cls_abs__minus__cancel_0) # label(axiom).
+-class_Ring__and__Field_Oidom(T_a) | -class_Int_Onumber__ring(T_a) | c_HOL_Oplus__class_Oplus(V_x,V_y,T_a) != c_HOL_Oplus__class_Oplus(V_x,V_z,T_a) | V_y = V_z # label(cls_class__ringb_Oadd__cancel_0) # label(axiom).
+-class_OrderedGroup_Ocancel__ab__semigroup__add(T_a) | c_HOL_Oplus__class_Oplus(V_a,V_b,T_a) != c_HOL_Oplus__class_Oplus(V_a,V_c,T_a) | V_b = V_c # label(cls_add__imp__eq_0) # label(axiom).
+-class_OrderedGroup_Ocancel__semigroup__add(T_a) | c_HOL_Oplus__class_Oplus(V_a,V_b,T_a) != c_HOL_Oplus__class_Oplus(V_a,V_c,T_a) | V_b = V_c # label(cls_add__left__cancel_0) # label(axiom).
+-class_OrderedGroup_Ocancel__semigroup__add(T_a) | c_HOL_Oplus__class_Oplus(V_b,V_a,T_a) != c_HOL_Oplus__class_Oplus(V_c,V_a,T_a) | V_b = V_c # label(cls_add__right__cancel_0) # label(axiom).
+c_HOL_Oord__class_Oless(c_Transcendental_Oexp(V_x,tc_RealDef_Oreal),c_Transcendental_Oexp(V_y,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(V_x,V_y,tc_RealDef_Oreal) # label(cls_exp__less__mono_0) # label(axiom).
+c_HOL_Oord__class_Oless(V_x,V_y,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_Transcendental_Oexp(V_x,tc_RealDef_Oreal),c_Transcendental_Oexp(V_y,tc_RealDef_Oreal),tc_RealDef_Oreal) # label(cls_exp__less__cancel_0) # label(axiom).
+-class_Lattices_Oboolean__algebra(T_a) | c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ouminus__class_Ouminus(V_x,T_a),V_x,T_a) = c_Orderings_Otop__class_Otop(T_a) # label(cls_compl__sup__top_0) # label(axiom).
+-class_Lattices_Oboolean__algebra(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_HOL_Ouminus__class_Ouminus(V_x,T_a),T_a) = c_Orderings_Otop__class_Otop(T_a) # label(cls_sup__compl__top_0) # label(axiom).
+-class_Lattices_Oboolean__algebra(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a) != c_Orderings_Otop__class_Otop(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a) != c_Orderings_Obot__class_Obot(T_a) | c_HOL_Ouminus__class_Ouminus(V_x,T_a) = V_y # label(cls_compl__unique_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a),c_Lattices_Olower__semilattice__class_Oinf(V_x,V_z,T_a),T_a),c_Lattices_Olower__semilattice__class_Oinf(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),T_a),T_a) # label(cls_distrib__inf__le_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),V_z,T_a) = c_Orderings_Oord__class_Omin(V_x,c_Orderings_Oord__class_Omin(V_y,V_z,T_a),T_a) # label(cls_min__max_Oinf__assoc_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omin(V_x,c_Orderings_Oord__class_Omin(V_y,V_z,T_a),T_a) = c_Orderings_Oord__class_Omin(V_y,c_Orderings_Oord__class_Omin(V_x,V_z,T_a),T_a) # label(cls_min__max_Oinf__left__commute_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | c_HOL_Oplus__class_Oplus(c_Lattices_Olower__semilattice__class_Oinf(V_a,V_b,T_a),V_c,T_a) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) # label(cls_lordered__ab__group__add__class_Oadd__sup__inf__distribs_I1_J_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | c_HOL_Oplus__class_Oplus(V_a,c_Lattices_Olower__semilattice__class_Oinf(V_b,V_c,T_a),T_a) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),T_a) # label(cls_lordered__ab__group__add__class_Oadd__sup__inf__distribs_I2_J_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add__meet(T_a) | c_HOL_Oplus__class_Oplus(V_a,c_Lattices_Olower__semilattice__class_Oinf(V_b,V_c,T_a),T_a) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),T_a) # label(cls_add__inf__distrib__left_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add__meet(T_a) | c_HOL_Oplus__class_Oplus(c_Lattices_Olower__semilattice__class_Oinf(V_a,V_b,T_a),V_c,T_a) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) # label(cls_add__inf__distrib__right_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Ominus__class_Ominus(c_Orderings_Oord__class_Omax(V_x,V_y,T_a),V_z,T_a) = c_Orderings_Oord__class_Omax(c_HOL_Ominus__class_Ominus(V_x,V_z,T_a),c_HOL_Ominus__class_Ominus(V_y,V_z,T_a),T_a) # label(cls_max__diff__distrib__left_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Oplus__class_Oplus(V_x,c_HOL_Oplus__class_Oplus(V_y,V_z,T_a),T_a) != c_HOL_Oplus__class_Oplus(V_y,V_u,T_a) | c_HOL_Oplus__class_Oplus(V_x,V_z,T_a) = V_u # label(cls_add__cancel__21_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_lessequals(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),c_HOL_Oplus__class_Oplus(V_c,V_d,T_a),T_a),T_a),c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(V_a,V_c,T_a),T_a),c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(V_b,V_d,T_a),T_a),T_a),T_a) # label(cls_abs__diff__triangle__ineq_0) # label(axiom).
+c_HOL_Oord__class_Oless(c_Transcendental_Oarctan(V_x),c_Transcendental_Oarctan(V_y),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(V_x,V_y,tc_RealDef_Oreal) # label(cls_arctan__monotone_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Ominus__class_Ominus(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),V_z,T_a) = c_Orderings_Oord__class_Omin(c_HOL_Ominus__class_Ominus(V_x,V_z,T_a),c_HOL_Ominus__class_Ominus(V_y,V_z,T_a),T_a) # label(cls_min__diff__distrib__left_0) # label(axiom).
+-class_Lattices_Oboolean__algebra(T_a) | c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Ouminus__class_Ouminus(V_x,T_a),V_x,T_a) = c_Orderings_Obot__class_Obot(T_a) # label(cls_compl__inf__bot_0) # label(axiom).
+-class_Lattices_Oboolean__algebra(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,c_HOL_Ouminus__class_Ouminus(V_x,T_a),T_a) = c_Orderings_Obot__class_Obot(T_a) # label(cls_inf__compl__bot_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_HOL_Oabs__class_Oabs(c_HOL_Oabs__class_Oabs(V_a,T_a),T_a) = c_HOL_Oabs__class_Oabs(V_a,T_a) # label(cls_abs__idempotent_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(c_Orderings_Otop__class_Otop(T_a),V_x,T_a) = c_Orderings_Otop__class_Otop(T_a) # label(cls_sup__top__left_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Orderings_Otop__class_Otop(T_a),T_a) = c_Orderings_Otop__class_Otop(T_a) # label(cls_sup__top__right_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | c_HOL_Oplus__class_Oplus(V_a,V_c,T_a) = c_HOL_Oplus__class_Oplus(V_c,V_a,T_a) # label(cls_class__semiring_Osemiring__rules_I24_J_0) # label(axiom).
+-class_Ring__and__Field_Ocomm__semiring__1(T_a) | c_HOL_Oplus__class_Oplus(V_x,V_y,T_a) = c_HOL_Oplus__class_Oplus(V_y,V_x,T_a) # label(cls_class__semiring_Oadd__c_0) # label(axiom).
+-class_OrderedGroup_Ocomm__monoid__add(T_a) | c_HOL_Oplus__class_Oplus(V_a,V_b,T_a) = c_HOL_Oplus__class_Oplus(V_b,V_a,T_a) # label(cls_comm__monoid__add_Omult__commute_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_lessequals(c_HOL_Ouminus__class_Ouminus(V_a,T_a),c_HOL_Oabs__class_Oabs(V_a,T_a),T_a) # label(cls_abs__ge__minus__self_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_z,V_y,T_a) | c_HOL_Oord__class_Oless(V_z,V_x,T_a) | -c_HOL_Oord__class_Oless(V_z,c_Orderings_Oord__class_Omax(V_x,V_y,T_a),T_a) # label(cls_less__max__iff__disj_0) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T_a) | c_HOL_Oord__class_Oless(V_a,V_b,T_a) | -c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(V_a,T_a),V_b,T_a) # label(cls_abs__less__iff_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_y,V_z,T_a) | c_HOL_Oord__class_Oless(V_x,V_z,T_a) | -c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),V_z,T_a) # label(cls_min__less__iff__disj_0) # label(axiom).
+c_HOL_Oabs__class_Oabs(c_Transcendental_Oexp(V_x,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Transcendental_Oexp(V_x,tc_RealDef_Oreal) # label(cls_abs__exp__cancel_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_A,V_B,T_a) != c_Orderings_Otop__class_Otop(T_a) | V_A = c_Orderings_Otop__class_Otop(T_a) # label(cls_inf__eq__top__eq1_0) # label(axiom).
+-class_Lattices_Obounded__lattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_A,V_B,T_a) != c_Orderings_Otop__class_Otop(T_a) | V_B = c_Orderings_Otop__class_Otop(T_a) # label(cls_inf__eq__top__eq2_0) # label(axiom).
+-class_Lattices_Oboolean__algebra(T_a) | c_HOL_Ouminus__class_Ouminus(c_Orderings_Otop__class_Otop(T_a),T_a) = c_Orderings_Obot__class_Obot(T_a) # label(cls_compl__top__eq_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_x,T_a) # label(cls_linorder__neq__iff_1) # label(axiom).
+-class_Orderings_Oorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_x,T_a) # label(cls_order__less__le_1) # label(axiom).
+-c_HOL_Oord__class_Oless(V_x,V_x,tc_RealDef_Oreal) # label(cls_real__less__def_1) # label(axiom).
+-class_Orderings_Opreorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_x,T_a) # label(cls_order__less__irrefl_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a),T_a) = V_x # label(cls_sup__inf__absorb_0) # label(axiom).
+-class_OrderedGroup_Opordered__cancel__ab__semigroup__add(T_a) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_d,T_a),T_a) | -c_HOL_Oord__class_Oless(V_c,V_d,T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) # label(cls_add__strict__mono_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(V_z,T_a),c_HOL_Oplus__class_Oplus(V_y,V_z,T_a),T_a) = V_y # label(cls_add__cancel__end_1) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(V_a,T_a),c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),T_a) = V_b # label(cls_minus__add__cancel_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_lessequals(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(V_a,V_b,T_a),T_a),c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(V_a,T_a),c_HOL_Oabs__class_Oabs(V_b,T_a),T_a),T_a) # label(cls_abs__triangle__ineq4_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a),T_a) = c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a) # label(cls_inf__sup__aci_I4_J_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a),T_a) = c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a) # label(cls_inf__left__idem_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Ominus__class_Ominus(c_HOL_Ouminus__class_Ouminus(V_a,T_a),c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) = c_HOL_Ouminus__class_Ouminus(c_HOL_Ominus__class_Ominus(V_a,V_b,T_a),T_a) # label(cls_Lim_Ominus__diff__minus_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_HOL_Oabs__class_Oabs(c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(V_a,T_a),c_HOL_Oabs__class_Oabs(V_b,T_a),T_a),T_a) = c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(V_a,T_a),c_HOL_Oabs__class_Oabs(V_b,T_a),T_a) # label(cls_abs__add__abs_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,V_x,T_a) = V_x # label(cls_inf__idem_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_HOL_Oord__class_Oless(V_a,V_b,T_a) | -c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(V_c,V_a,T_a),c_HOL_Oplus__class_Oplus(V_c,V_b,T_a),T_a) # label(cls_add__less__cancel__left_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(V_c,V_a,T_a),c_HOL_Oplus__class_Oplus(V_c,V_b,T_a),T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) # label(cls_add__less__cancel__left_1) # label(axiom).
+-class_OrderedGroup_Opordered__cancel__ab__semigroup__add(T_a) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(V_c,V_a,T_a),c_HOL_Oplus__class_Oplus(V_c,V_b,T_a),T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) # label(cls_add__strict__left__mono_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_HOL_Oord__class_Oless(V_a,V_b,T_a) | -c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) # label(cls_add__less__cancel__right_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) # label(cls_add__less__cancel__right_1) # label(axiom).
+-class_OrderedGroup_Opordered__cancel__ab__semigroup__add(T_a) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) # label(cls_add__strict__right__mono_0) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T_a) | c_HOL_Oord__class_Oless(V_x,c_HOL_Oplus__class_Oplus(V_a,V_r,T_a),T_a) | -c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(V_x,V_a,T_a),T_a),V_r,T_a) # label(cls_abs__diff__less__iff_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Orderings_Oord__class_Omax(V_x,c_Orderings_Oord__class_Omin(V_y,V_z,T_a),T_a),c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omax(V_x,V_y,T_a),c_Orderings_Oord__class_Omax(V_x,V_z,T_a),T_a),T_a) # label(cls_min__max_Odistrib__sup__le_0) # label(axiom).
+-class_OrderedGroup_Olordered__ab__group__add(T_a) | c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a) = c_HOL_Ouminus__class_Ouminus(c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Ouminus__class_Ouminus(V_a,T_a),c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a),T_a) # label(cls_sup__eq__neg__inf_0) # label(axiom).
+-class_OrderedGroup_Ogroup__add(T_a) | c_HOL_Ouminus__class_Ouminus(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),T_a) = c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(V_b,T_a),c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) # label(cls_minus__add_0) # label(axiom).
+-class_OrderedGroup_Oab__group__add(T_a) | c_HOL_Ouminus__class_Ouminus(c_HOL_Oplus__class_Oplus(V_a,V_b,T_a),T_a) = c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(V_a,T_a),c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) # label(cls_minus__add__distrib_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | -c_HOL_Oord__class_Oless(V_b,V_a,T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) # label(cls_order__less__asym_H_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | -c_HOL_Oord__class_Oless(V_y,V_x,T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_order__less__asym_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) | -c_HOL_Oord__class_Oless(V_y,V_x,T_a) # label(cls_not__less__iff__gr__or__eq_1) # label(axiom).
+-class_Orderings_Oorder(T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) | -c_HOL_Oord__class_Oless(V_b,V_a,T_a) # label(cls_xt1_I9_J_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omin(V_x,V_y,T_a) != V_x | c_lessequals(V_x,V_y,T_a) # label(cls_min__max_Ole__iff__inf_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_Orderings_Oord__class_Omin(V_x,V_y,T_a) = V_x | -c_lessequals(V_x,V_y,T_a) # label(cls_min__max_Ole__iff__inf_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),V_z,T_a) | -c_lessequals(V_y,V_z,T_a) | -c_lessequals(V_x,V_z,T_a) # label(cls_le__sup__iff_2) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_y,V_z,T_a),V_x,T_a) | -c_lessequals(V_z,V_x,T_a) | -c_lessequals(V_y,V_x,T_a) # label(cls_sup__least_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_y,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) # label(cls_sup__ge2_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) # label(cls_sup__ge1_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),V_x,T_a) | -c_lessequals(V_b,V_x,T_a) | -c_lessequals(V_a,V_x,T_a) # label(cls_le__supI_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_lessequals(V_y,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) # label(cls_inf__sup__ord_I4_J_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_lessequals(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),T_a) # label(cls_inf__sup__ord_I3_J_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,V_z,T_a) | -c_lessequals(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_y,V_z,T_a),T_a) # label(cls_le__inf__iff_1) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,V_y,T_a) | -c_lessequals(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_y,V_z,T_a),T_a) # label(cls_le__inf__iff_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(V_a,V_b,T_a),V_x,T_a) | -c_lessequals(V_b,V_x,T_a) # label(cls_le__infI2_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(V_a,V_b,T_a),V_x,T_a) | -c_lessequals(V_a,V_x,T_a) # label(cls_le__infI1_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,V_b,T_a) | -c_lessequals(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_a,V_b,T_a),T_a) # label(cls_le__infE_1) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,V_a,T_a) | -c_lessequals(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_a,V_b,T_a),T_a) # label(cls_le__infE_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_HOL_Oord__class_Oless(V_b,V_a,T_a) | V_a = V_b | -c_lessequals(V_b,V_a,T_a) # label(cls_xt1_I11_J_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_HOL_Oord__class_Oless(V_b,V_a,T_a) | -c_lessequals(V_b,V_a,T_a) | V_a = V_b # label(cls_xt1_I12_J_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | V_x = V_y | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_linorder__antisym__conv2_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | V_x = V_y | -c_lessequals(V_x,V_y,T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_linorder__antisym__conv1_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_HOL_Oord__class_Oless(V_a,V_b,T_a) | -c_lessequals(V_a,V_b,T_a) | V_a = V_b # label(cls_order__neq__le__trans_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_HOL_Oord__class_Oless(V_a,V_b,T_a) | V_a = V_b | -c_lessequals(V_a,V_b,T_a) # label(cls_order__le__neq__trans_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | V_x = V_y | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_order__le__less_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | V_x = V_y | -c_lessequals(V_x,V_y,T_a) # label(cls_order__less__le_2) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Ominus__class_Ominus(V_x,V_y,T_a) != c_HOL_Ominus__class_Ominus(V_x_H,V_y_H,T_a) | c_lessequals(V_y_H,V_x_H,T_a) | -c_lessequals(V_y,V_x,T_a) # label(cls_le__eqI_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_HOL_Ominus__class_Ominus(V_x,V_y,T_a) != c_HOL_Ominus__class_Ominus(V_x_H,V_y_H,T_a) | c_lessequals(V_y,V_x,T_a) | -c_lessequals(V_y_H,V_x_H,T_a) # label(cls_le__eqI_1) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_y,V_z,T_a) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),V_z,T_a) # label(cls_le__sup__iff_1) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_x,V_z,T_a) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_x,V_y,T_a),V_z,T_a) # label(cls_le__sup__iff_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),T_a) | -c_lessequals(V_x,V_b,T_a) # label(cls_le__supI2_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_x,c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),T_a) | -c_lessequals(V_x,V_a,T_a) # label(cls_le__supI1_0) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_b,V_x,T_a) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),V_x,T_a) # label(cls_le__supE_1) # label(axiom).
+-class_Lattices_Oupper__semilattice(T_a) | c_lessequals(V_a,V_x,T_a) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(V_a,V_b,T_a),V_x,T_a) # label(cls_le__supE_0) # label(axiom).
+-class_Orderings_Otop(T_a) | c_lessequals(V_x,c_Orderings_Otop__class_Otop(T_a),T_a) # label(cls_top__greatest_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_y,V_z,T_a),T_a) | -c_lessequals(V_x,V_z,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_inf__greatest_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_y,V_z,T_a),T_a) | -c_lessequals(V_x,V_z,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_le__inf__iff_2) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(V_x,c_Lattices_Olower__semilattice__class_Oinf(V_a,V_b,T_a),T_a) | -c_lessequals(V_x,V_b,T_a) | -c_lessequals(V_x,V_a,T_a) # label(cls_le__infI_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a),V_y,T_a) # label(cls_inf__le2_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a),V_x,T_a) # label(cls_inf__le1_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a),V_y,T_a) # label(cls_inf__sup__ord_I2_J_0) # label(axiom).
+-class_Lattices_Olattice(T_a) | c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a),V_x,T_a) # label(cls_inf__sup__ord_I1_J_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_lessequals(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_add__le__cancel__right_1) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_lessequals(V_a,V_b,T_a) | -c_lessequals(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) # label(cls_add__le__cancel__right_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_lessequals(c_HOL_Oplus__class_Oplus(V_c,V_a,T_a),c_HOL_Oplus__class_Oplus(V_c,V_b,T_a),T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_add__le__cancel__left_1) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(T_a) | c_lessequals(V_a,V_b,T_a) | -c_lessequals(c_HOL_Oplus__class_Oplus(V_c,V_a,T_a),c_HOL_Oplus__class_Oplus(V_c,V_b,T_a),T_a) # label(cls_add__le__cancel__left_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add(T_a) | c_lessequals(c_HOL_Oplus__class_Oplus(V_a,V_c,T_a),c_HOL_Oplus__class_Oplus(V_b,V_c,T_a),T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_add__right__mono_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__semigroup__add(T_a) | c_lessequals(c_HOL_Oplus__class_Oplus(V_c,V_a,T_a),c_HOL_Oplus__class_Oplus(V_c,V_b,T_a),T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_add__left__mono_0) # label(axiom).
+-class_Orderings_Obot(T_a) | c_lessequals(c_Orderings_Obot__class_Obot(T_a),V_x,T_a) # label(cls_bot__least_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Orderings_Oord__class_Omax(V_x,V_y,T_a),V_z,T_a) | -c_lessequals(V_y,V_z,T_a) | -c_lessequals(V_x,V_z,T_a) # label(cls_min__max_Ole__sup__iff_2) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Orderings_Oord__class_Omax(V_y,V_z,T_a),V_x,T_a) | -c_lessequals(V_z,V_x,T_a) | -c_lessequals(V_y,V_x,T_a) # label(cls_min__max_Osup__least_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Orderings_Oord__class_Omax(V_a,V_b,T_a),V_x,T_a) | -c_lessequals(V_b,V_x,T_a) | -c_lessequals(V_a,V_x,T_a) # label(cls_min__max_Ole__supI_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_x,c_Orderings_Oord__class_Omax(V_x,V_y,T_a),T_a) # label(cls_le__maxI1_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_y,c_Orderings_Oord__class_Omax(V_x,V_y,T_a),T_a) # label(cls_le__maxI2_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_lessequals(V_a,V_b,T_a) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(V_b,T_a),c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) # label(cls_neg__le__iff__le_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_lessequals(c_HOL_Ouminus__class_Ouminus(V_b,T_a),c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) | -c_lessequals(V_a,V_b,T_a) # label(cls_le__imp__neg__le_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add__abs(T_a) | c_lessequals(V_a,V_b,T_a) | -c_lessequals(c_HOL_Oabs__class_Oabs(V_a,T_a),V_b,T_a) # label(cls_abs__le__D1_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_x,c_Orderings_Oord__class_Omin(V_y,V_z,T_a),T_a) | -c_lessequals(V_x,V_z,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_min__max_Oinf__greatest_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_x,c_Orderings_Oord__class_Omin(V_y,V_z,T_a),T_a) | -c_lessequals(V_x,V_z,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_min__max_Ole__inf__iff_2) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_x,c_Orderings_Oord__class_Omin(V_a,V_b,T_a),T_a) | -c_lessequals(V_x,V_b,T_a) | -c_lessequals(V_x,V_a,T_a) # label(cls_min__max_Ole__infI_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),V_y,T_a) # label(cls_min__max_Oinf__le2_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(c_Orderings_Oord__class_Omin(V_x,V_y,T_a),V_x,T_a) # label(cls_min__max_Oinf__le1_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | -c_lessequals(V_y,V_x,T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_less__le__not__le_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | c_lessequals(V_y,V_x,T_a) # label(cls_not__leE_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | -c_lessequals(V_x,V_x,T_a) | -c_HOL_Oord__class_Oless(V_x,V_x,T_a) # label(cls_linorder__antisym__conv2_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_x,V_x,T_a) | c_lessequals(V_x,V_x,T_a) # label(cls_linorder__antisym__conv1_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) | -c_lessequals(V_y,V_x,T_a) # label(cls_linorder__not__less_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_y,V_x,T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_linorder__not__less_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | c_lessequals(V_x,V_y,T_a) # label(cls_linorder__not__le_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | -c_lessequals(V_x,V_y,T_a) | -c_HOL_Oord__class_Oless(V_y,V_x,T_a) # label(cls_linorder__not__le_1) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a) = V_y | -c_lessequals(V_y,V_x,T_a) # label(cls_inf__absorb2_0) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a) != V_x | c_lessequals(V_x,V_y,T_a) # label(cls_le__iff__inf_1) # label(axiom).
+-class_Lattices_Olower__semilattice(T_a) | c_Lattices_Olower__semilattice__class_Oinf(V_x,V_y,T_a) = V_x | -c_lessequals(V_x,V_y,T_a) # label(cls_le__iff__inf_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_lessequals(c_HOL_Ouminus__class_Ouminus(V_a,T_a),V_b,T_a) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(V_b,T_a),V_a,T_a) # label(cls_minus__le__iff_1) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_lessequals(c_HOL_Ouminus__class_Ouminus(V_b,T_a),V_a,T_a) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(V_a,T_a),V_b,T_a) # label(cls_minus__le__iff_0) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_lessequals(V_a,c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) | -c_lessequals(V_b,c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) # label(cls_le__minus__iff_1) # label(axiom).
+-class_OrderedGroup_Opordered__ab__group__add(T_a) | c_lessequals(V_b,c_HOL_Ouminus__class_Ouminus(V_a,T_a),T_a) | -c_lessequals(V_a,c_HOL_Ouminus__class_Ouminus(V_b,T_a),T_a) # label(cls_le__minus__iff_0) # label(axiom).
+c_lessequals(V_x,V_y,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(V_x,V_y,tc_RealDef_Oreal) # label(cls_real__less__def_0) # label(axiom).
+c_lessequals(V_x,V_y,tc_RealDef_Oreal) | -c_lessequals(c_NthRoot_Osqrt(V_x),c_NthRoot_Osqrt(V_y),tc_RealDef_Oreal) # label(cls_real__sqrt__le__iff_0) # label(axiom).
+c_lessequals(c_NthRoot_Osqrt(V_x),c_NthRoot_Osqrt(V_y),tc_RealDef_Oreal) | -c_lessequals(V_x,V_y,tc_RealDef_Oreal) # label(cls_real__sqrt__le__iff_1) # label(axiom).
+c_HOL_Oord__class_Oless(V_x,V_y,tc_RealDef_Oreal) | V_x = V_y | -c_lessequals(V_x,V_y,tc_RealDef_Oreal) # label(cls_real__less__def_2) # label(axiom).
+c_lessequals(c_HOL_Oplus__class_Oplus(V_z,V_x,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(V_z,V_y,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(V_x,V_y,tc_RealDef_Oreal) # label(cls_real__add__left__mono_0) # label(axiom).
+c_lessequals(c_Transcendental_Oexp(V_x,tc_RealDef_Oreal),c_Transcendental_Oexp(V_y,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(V_x,V_y,tc_RealDef_Oreal) # label(cls_exp__le__cancel__iff_1) # label(axiom).
+c_lessequals(V_x,V_y,tc_RealDef_Oreal) | -c_lessequals(c_Transcendental_Oexp(V_x,tc_RealDef_Oreal),c_Transcendental_Oexp(V_y,tc_RealDef_Oreal),tc_RealDef_Oreal) # label(cls_exp__le__cancel__iff_0) # label(axiom).
+c_lessequals(c_Transcendental_Oarctan(V_x),c_Transcendental_Oarctan(V_y),tc_RealDef_Oreal) | -c_lessequals(V_x,V_y,tc_RealDef_Oreal) # label(cls_arctan__monotone_H_0) # label(axiom).
+c_lessequals(V_x,V_r,tc_RealDef_Oreal) | -c_lessequals(c_HOL_Oabs__class_Oabs(V_x,tc_RealDef_Oreal),V_r,tc_RealDef_Oreal) # label(cls_abs__le__interval__iff_1) # label(axiom).
+c_HOL_Oord__class_Oless(v_x____,v_Y____,tc_RealDef_Oreal) # label(cls_xY_0) # label(axiom).
+hBOOL(hAPP(v_P,v_x____)) # label(cls_x_0) # label(axiom).
+c_COMBI(v_P,t_a) = v_P # label(cls_COMBI__def__raw_0) # label(axiom).
+c_lessequals(V_x,v_L____,tc_RealDef_Oreal) | -hBOOL(hAPP(v_P,V_x)) # label(cls_L_H_0) # label(axiom).
+c_HOL_Oord__class_Oless(V_x,v_Y____,tc_RealDef_Oreal) | -hBOOL(hAPP(v_P,V_x)) # label(cls_Y_0) # label(axiom).
+c_lessequals(V_w,V_z,tc_RealDef_Oreal) | c_lessequals(V_z,V_w,tc_RealDef_Oreal) # label(cls_real__le__linear_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_lessequals(V_y,V_x,T_a) | c_lessequals(V_x,V_y,T_a) # label(cls_linorder__linear_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_lessequals(V_z,V_x,T_a) | -c_lessequals(V_z,V_y,T_a) | -c_lessequals(V_y,V_x,T_a) # label(cls_xt1_I6_J_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | c_lessequals(V_x,V_z,T_a) | -c_lessequals(V_y,V_z,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_order__trans_0) # label(axiom).
+c_lessequals(V_w,V_w,tc_RealDef_Oreal) # label(cls_real__le__refl_0) # label(axiom).
+c_lessequals(V_i,V_k,tc_RealDef_Oreal) | -c_lessequals(V_j,V_k,tc_RealDef_Oreal) | -c_lessequals(V_i,V_j,tc_RealDef_Oreal) # label(cls_real__le__trans_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_lessequals(V_x,V_x,T_a) # label(cls_order__eq__iff_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | c_lessequals(V_x,V_x,T_a) # label(cls_order__eq__refl_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | V_x = V_y | -c_lessequals(V_x,V_y,T_a) | -c_lessequals(V_y,V_x,T_a) # label(cls_order__antisym__conv_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | V_x = V_y | -c_lessequals(V_y,V_x,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_order__eq__iff_2) # label(axiom).
+-class_Orderings_Oorder(T_a) | V_x = V_y | -c_lessequals(V_y,V_x,T_a) | -c_lessequals(V_x,V_y,T_a) # label(cls_order__antisym_0) # label(axiom).
+V_z = V_w | -c_lessequals(V_w,V_z,tc_RealDef_Oreal) | -c_lessequals(V_z,V_w,tc_RealDef_Oreal) # label(cls_real__le__antisym_0) # label(axiom).
+c_HOL_Oord__class_Oless(V_x,v_Y____,tc_RealDef_Oreal) | -hBOOL(hAPP(v_P,V_x)) # label(cls_CHAINED_0) # label(axiom).
+hBOOL(hAPP(v_P,v_xa)) # label(cls_conjecture_0) # label(negated_conjecture).
+-c_lessequals(v_xa,v_Y____,tc_RealDef_Oreal) # label(cls_conjecture_1) # label(negated_conjecture).
+class_OrderedGroup_Opordered__cancel__ab__semigroup__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Opordered__cancel__ab__semigroup__add) # label(axiom).
+class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Opordered__ab__semigroup__add__imp__le) # label(axiom).
+class_OrderedGroup_Olordered__ab__group__add__meet(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Olordered__ab__group__add__meet) # label(axiom).
+class_OrderedGroup_Olordered__ab__group__add__join(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Olordered__ab__group__add__join) # label(axiom).
+class_OrderedGroup_Opordered__ab__semigroup__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Opordered__ab__semigroup__add) # label(axiom).
+class_OrderedGroup_Opordered__ab__group__add__abs(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Opordered__ab__group__add__abs) # label(axiom).
+class_OrderedGroup_Olordered__ab__group__add__abs(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Olordered__ab__group__add__abs) # label(axiom).
+class_OrderedGroup_Ocancel__ab__semigroup__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Ocancel__ab__semigroup__add) # label(axiom).
+class_OrderedGroup_Opordered__ab__group__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Opordered__ab__group__add) # label(axiom).
+class_OrderedGroup_Olordered__ab__group__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Olordered__ab__group__add) # label(axiom).
+class_OrderedGroup_Ocancel__semigroup__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Ocancel__semigroup__add) # label(axiom).
+class_Ring__and__Field_Ocomm__semiring__1(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Ring__and__Field_Ocomm__semiring__1) # label(axiom).
+class_RealVector_Oreal__normed__vector(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__RealVector_Oreal__normed__vector) # label(axiom).
+class_OrderedGroup_Oab__semigroup__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Oab__semigroup__add) # label(axiom).
+class_OrderedGroup_Ocomm__monoid__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Ocomm__monoid__add) # label(axiom).
+class_Ring__and__Field_Oordered__idom(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Ring__and__Field_Oordered__idom) # label(axiom).
+class_Lattices_Oupper__semilattice(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Lattices_Oupper__semilattice) # label(axiom).
+class_Lattices_Olower__semilattice(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Lattices_Olower__semilattice) # label(axiom).
+class_OrderedGroup_Oab__group__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Oab__group__add) # label(axiom).
+class_Lattices_Odistrib__lattice(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Lattices_Odistrib__lattice) # label(axiom).
+class_OrderedGroup_Ogroup__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Ogroup__add) # label(axiom).
+class_Ring__and__Field_Oidom(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Ring__and__Field_Oidom) # label(axiom).
+class_Orderings_Opreorder(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Orderings_Opreorder) # label(axiom).
+class_Orderings_Olinorder(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Orderings_Olinorder) # label(axiom).
+class_Lattices_Olattice(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Lattices_Olattice) # label(axiom).
+class_Orderings_Oorder(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Orderings_Oorder) # label(axiom).
+class_Int_Onumber__ring(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Int_Onumber__ring) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating class_RealVector_Oreal__normed__vector/1
+1 class_RealVector_Oreal__normed__vector(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__RealVector_Oreal__normed__vector) # label(axiom).  [assumption].
+2 -class_RealVector_Oreal__normed__vector(A) | c_RealVector_Onorm__class_Onorm(c_HOL_Ouminus__class_Ouminus(B,A),A) = c_RealVector_Onorm__class_Onorm(B,A) # label(cls_norm__minus__cancel_0) # label(axiom).  [assumption].
+3 -class_RealVector_Oreal__normed__vector(A) | c_HOL_Oabs__class_Oabs(c_RealVector_Onorm__class_Onorm(B,A),tc_RealDef_Oreal) = c_RealVector_Onorm__class_Onorm(B,A) # label(cls_abs__norm__cancel_0) # label(axiom).  [assumption].
+4 -class_RealVector_Oreal__normed__vector(A) | c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(B,C,A),A) = c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(C,B,A),A) # label(cls_norm__minus__commute_0) # label(axiom).  [assumption].
+5 -class_RealVector_Oreal__normed__vector(A) | c_lessequals(c_RealVector_Onorm__class_Onorm(c_HOL_Oplus__class_Oplus(B,C,A),A),c_HOL_Oplus__class_Oplus(c_RealVector_Onorm__class_Onorm(B,A),c_RealVector_Onorm__class_Onorm(C,A),tc_RealDef_Oreal),tc_RealDef_Oreal) # label(cls_norm__triangle__ineq_0) # label(axiom).  [assumption].
+6 -class_RealVector_Oreal__normed__vector(A) | c_HOL_Oord__class_Oless(c_RealVector_Onorm__class_Onorm(c_HOL_Oplus__class_Oplus(B,C,A),A),c_HOL_Oplus__class_Oplus(D,E,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_RealVector_Onorm__class_Onorm(C,A),E,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_RealVector_Onorm__class_Onorm(B,A),D,tc_RealDef_Oreal) # label(cls_norm__add__less_0) # label(axiom).  [assumption].
+7 -class_RealVector_Oreal__normed__vector(A) | c_lessequals(c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(B,C,A),A),c_HOL_Oplus__class_Oplus(c_RealVector_Onorm__class_Onorm(B,A),c_RealVector_Onorm__class_Onorm(C,A),tc_RealDef_Oreal),tc_RealDef_Oreal) # label(cls_norm__triangle__ineq4_0) # label(axiom).  [assumption].
+8 -class_RealVector_Oreal__normed__vector(A) | c_lessequals(c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(D,E,A),A),A),c_HOL_Oplus__class_Oplus(c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(B,D,A),A),c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(C,E,A),A),tc_RealDef_Oreal),tc_RealDef_Oreal) # label(cls_norm__diff__triangle__ineq_0) # label(axiom).  [assumption].
+Derived: c_RealVector_Onorm__class_Onorm(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_RealVector_Onorm__class_Onorm(A,tc_RealDef_Oreal).  [resolve(1,a,2,a)].
+Derived: c_HOL_Oabs__class_Oabs(c_RealVector_Onorm__class_Onorm(A,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_RealVector_Onorm__class_Onorm(A,tc_RealDef_Oreal).  [resolve(1,a,3,a)].
+Derived: c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(B,A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(1,a,4,a)].
+Derived: c_lessequals(c_RealVector_Onorm__class_Onorm(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(c_RealVector_Onorm__class_Onorm(A,tc_RealDef_Oreal),c_RealVector_Onorm__class_Onorm(B,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(1,a,5,a)].
+Derived: c_HOL_Oord__class_Oless(c_RealVector_Onorm__class_Onorm(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,D,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_RealVector_Onorm__class_Onorm(B,tc_RealDef_Oreal),D,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_RealVector_Onorm__class_Onorm(A,tc_RealDef_Oreal),C,tc_RealDef_Oreal).  [resolve(1,a,6,a)].
+Derived: c_lessequals(c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(c_RealVector_Onorm__class_Onorm(A,tc_RealDef_Oreal),c_RealVector_Onorm__class_Onorm(B,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(1,a,7,a)].
+Derived: c_lessequals(c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,D,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal),c_RealVector_Onorm__class_Onorm(c_HOL_Ominus__class_Ominus(B,D,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(1,a,8,a)].
+
+Eliminating class_Orderings_Opreorder/1
+9 class_Orderings_Opreorder(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Orderings_Opreorder) # label(axiom).  [assumption].
+10 -class_Orderings_Opreorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(D,C,A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_order__less__trans_0) # label(axiom).  [assumption].
+11 -class_Orderings_Opreorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_lessequals(D,C,A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_order__less__le__trans_0) # label(axiom).  [assumption].
+12 -class_Orderings_Opreorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(D,C,A) | -c_lessequals(B,D,A) # label(cls_order__le__less__trans_0) # label(axiom).  [assumption].
+13 -class_Orderings_Opreorder(A) | c_lessequals(B,C,A) | -c_HOL_Oord__class_Oless(B,C,A) # label(cls_order__less__imp__le_0) # label(axiom).  [assumption].
+14 -class_Orderings_Opreorder(A) | c_HOL_Oord__class_Oless(B,C,A) | c_lessequals(C,B,A) | -c_lessequals(B,C,A) # label(cls_less__le__not__le_2) # label(axiom).  [assumption].
+15 -class_Orderings_Opreorder(A) | -c_HOL_Oord__class_Oless(B,B,A) # label(cls_order__less__irrefl_0) # label(axiom).  [assumption].
+16 -class_Orderings_Opreorder(A) | -c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(C,B,A) # label(cls_order__less__asym_H_0) # label(axiom).  [assumption].
+17 -class_Orderings_Opreorder(A) | -c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(C,B,A) # label(cls_order__less__asym_0) # label(axiom).  [assumption].
+18 -class_Orderings_Opreorder(A) | -c_lessequals(B,C,A) | -c_HOL_Oord__class_Oless(C,B,A) # label(cls_less__le__not__le_1) # label(axiom).  [assumption].
+19 -class_Orderings_Opreorder(A) | c_lessequals(B,C,A) | -c_lessequals(D,C,A) | -c_lessequals(B,D,A) # label(cls_order__trans_0) # label(axiom).  [assumption].
+20 -class_Orderings_Opreorder(A) | c_lessequals(B,B,A) # label(cls_order__eq__refl_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(C,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,C,tc_RealDef_Oreal).  [resolve(9,a,10,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_lessequals(C,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,C,tc_RealDef_Oreal).  [resolve(9,a,11,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(C,B,tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal).  [resolve(9,a,12,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal).  [resolve(9,a,13,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | c_lessequals(B,A,tc_RealDef_Oreal) | -c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(9,a,14,a)].
+Derived: -c_HOL_Oord__class_Oless(A,A,tc_RealDef_Oreal).  [resolve(9,a,15,a)].
+Derived: -c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(B,A,tc_RealDef_Oreal).  [resolve(9,a,16,a)].
+Derived: -c_lessequals(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(B,A,tc_RealDef_Oreal).  [resolve(9,a,18,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(C,B,tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal).  [resolve(9,a,19,a)].
+Derived: c_lessequals(A,A,tc_RealDef_Oreal).  [resolve(9,a,20,a)].
+
+Eliminating class_Orderings_Oorder/1
+21 class_Orderings_Oorder(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Orderings_Oorder) # label(axiom).  [assumption].
+22 -class_Orderings_Oorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(B,D,A) | -c_HOL_Oord__class_Oless(D,C,A) # label(cls_xt1_I10_J_0) # label(axiom).  [assumption].
+23 -class_Orderings_Oorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_lessequals(B,D,A) | -c_HOL_Oord__class_Oless(D,C,A) # label(cls_xt1_I7_J_0) # label(axiom).  [assumption].
+24 -class_Orderings_Oorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(B,D,A) | -c_lessequals(D,C,A) # label(cls_xt1_I8_J_0) # label(axiom).  [assumption].
+25 -class_Orderings_Oorder(A) | c_lessequals(B,C,A) | -c_HOL_Oord__class_Oless(B,C,A) # label(cls_order__le__less_1) # label(axiom).  [assumption].
+26 -class_Orderings_Oorder(A) | -c_HOL_Oord__class_Oless(B,B,A) # label(cls_order__less__le_1) # label(axiom).  [assumption].
+27 -class_Orderings_Oorder(A) | -c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(C,B,A) # label(cls_xt1_I9_J_0) # label(axiom).  [assumption].
+28 -class_Orderings_Oorder(A) | c_HOL_Oord__class_Oless(B,C,A) | C = B | -c_lessequals(B,C,A) # label(cls_xt1_I11_J_0) # label(axiom).  [assumption].
+29 -class_Orderings_Oorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_lessequals(B,C,A) | C = B # label(cls_xt1_I12_J_0) # label(axiom).  [assumption].
+30 -class_Orderings_Oorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_lessequals(B,C,A) | B = C # label(cls_order__neq__le__trans_0) # label(axiom).  [assumption].
+31 -class_Orderings_Oorder(A) | c_HOL_Oord__class_Oless(B,C,A) | B = C | -c_lessequals(B,C,A) # label(cls_order__le__neq__trans_0) # label(axiom).  [assumption].
+32 -class_Orderings_Oorder(A) | B = C | c_HOL_Oord__class_Oless(B,C,A) | -c_lessequals(B,C,A) # label(cls_order__le__less_0) # label(axiom).  [assumption].
+33 -class_Orderings_Oorder(A) | c_HOL_Oord__class_Oless(B,C,A) | B = C | -c_lessequals(B,C,A) # label(cls_order__less__le_2) # label(axiom).  [assumption].
+34 -class_Orderings_Oorder(A) | c_lessequals(B,C,A) | -c_lessequals(B,D,A) | -c_lessequals(D,C,A) # label(cls_xt1_I6_J_0) # label(axiom).  [assumption].
+35 -class_Orderings_Oorder(A) | c_lessequals(B,B,A) # label(cls_order__eq__iff_0) # label(axiom).  [assumption].
+36 -class_Orderings_Oorder(A) | B = C | -c_lessequals(B,C,A) | -c_lessequals(C,B,A) # label(cls_order__antisym__conv_0) # label(axiom).  [assumption].
+37 -class_Orderings_Oorder(A) | B = C | -c_lessequals(C,B,A) | -c_lessequals(B,C,A) # label(cls_order__eq__iff_2) # label(axiom).  [assumption].
+38 -class_Orderings_Oorder(A) | B = C | -c_lessequals(C,B,A) | -c_lessequals(B,C,A) # label(cls_order__antisym_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | B = A | -c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(21,a,28,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_lessequals(A,B,tc_RealDef_Oreal) | A = B.  [resolve(21,a,30,a)].
+Derived: A = B | -c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(B,A,tc_RealDef_Oreal).  [resolve(21,a,36,a)].
+
+Eliminating class_Lattices_Oupper__semilattice/1
+39 class_Lattices_Oupper__semilattice(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Lattices_Oupper__semilattice) # label(axiom).  [assumption].
+40 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,B,A) = B # label(cls_sup__idem_0) # label(axiom).  [assumption].
+41 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) = c_Lattices_Oupper__semilattice__class_Osup(C,c_Lattices_Oupper__semilattice__class_Osup(B,D,A),A) # label(cls_sup__left__commute_0) # label(axiom).  [assumption].
+42 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),D,A) = c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) # label(cls_sup__assoc_0) # label(axiom).  [assumption].
+43 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,A) = c_Lattices_Oupper__semilattice__class_Osup(C,B,A) # label(cls_sup__commute_0) # label(axiom).  [assumption].
+44 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(B,C,A),A) = c_Lattices_Oupper__semilattice__class_Osup(B,C,A) # label(cls_sup__left__idem_0) # label(axiom).  [assumption].
+45 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,A) = B | -c_lessequals(C,B,A) # label(cls_sup__absorb1_0) # label(axiom).  [assumption].
+46 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,A) != C | c_lessequals(B,C,A) # label(cls_le__iff__sup_1) # label(axiom).  [assumption].
+47 -class_Lattices_Oupper__semilattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,A) = C | -c_lessequals(B,C,A) # label(cls_le__iff__sup_0) # label(axiom).  [assumption].
+48 -class_Lattices_Oupper__semilattice(A) | c_HOL_Oord__class_Oless(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) | -c_HOL_Oord__class_Oless(B,C,A) # label(cls_less__supI1_0) # label(axiom).  [assumption].
+49 -class_Lattices_Oupper__semilattice(A) | c_HOL_Oord__class_Oless(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_less__supI2_0) # label(axiom).  [assumption].
+50 -class_Lattices_Oupper__semilattice(A) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),D,A) | -c_lessequals(C,D,A) | -c_lessequals(B,D,A) # label(cls_le__sup__iff_2) # label(axiom).  [assumption].
+51 -class_Lattices_Oupper__semilattice(A) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),D,A) | -c_lessequals(C,D,A) | -c_lessequals(B,D,A) # label(cls_sup__least_0) # label(axiom).  [assumption].
+52 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(C,B,A),A) # label(cls_sup__ge2_0) # label(axiom).  [assumption].
+53 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(B,C,A),A) # label(cls_sup__ge1_0) # label(axiom).  [assumption].
+54 -class_Lattices_Oupper__semilattice(A) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),D,A) | -c_lessequals(C,D,A) | -c_lessequals(B,D,A) # label(cls_le__supI_0) # label(axiom).  [assumption].
+55 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(D,B,A),C,A) # label(cls_le__sup__iff_1) # label(axiom).  [assumption].
+56 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,D,A),C,A) # label(cls_le__sup__iff_0) # label(axiom).  [assumption].
+57 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) | -c_lessequals(B,D,A) # label(cls_le__supI2_0) # label(axiom).  [assumption].
+58 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) | -c_lessequals(B,C,A) # label(cls_le__supI1_0) # label(axiom).  [assumption].
+59 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(D,B,A),C,A) # label(cls_le__supE_1) # label(axiom).  [assumption].
+60 -class_Lattices_Oupper__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,D,A),C,A) # label(cls_le__supE_0) # label(axiom).  [assumption].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,A,tc_RealDef_Oreal) = A.  [resolve(39,a,40,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(39,a,41,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Lattices_Oupper__semilattice__class_Osup(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(39,a,42,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal) = c_Lattices_Oupper__semilattice__class_Osup(B,A,tc_RealDef_Oreal).  [resolve(39,a,43,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal).  [resolve(39,a,44,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal) = A | -c_lessequals(B,A,tc_RealDef_Oreal).  [resolve(39,a,45,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal) != B | c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(39,a,46,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal) = B | -c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(39,a,47,a)].
+Derived: c_HOL_Oord__class_Oless(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal).  [resolve(39,a,48,a)].
+Derived: c_HOL_Oord__class_Oless(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,C,tc_RealDef_Oreal).  [resolve(39,a,49,a)].
+Derived: c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_lessequals(B,C,tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal).  [resolve(39,a,50,a)].
+Derived: c_lessequals(A,c_Lattices_Oupper__semilattice__class_Osup(B,A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(39,a,52,a)].
+Derived: c_lessequals(A,c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(39,a,53,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(C,A,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(39,a,55,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(A,C,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(39,a,56,a)].
+Derived: c_lessequals(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal).  [resolve(39,a,57,a)].
+Derived: c_lessequals(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(39,a,58,a)].
+
+Eliminating class_OrderedGroup_Olordered__ab__group__add/1
+61 class_OrderedGroup_Olordered__ab__group__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Olordered__ab__group__add) # label(axiom).  [assumption].
+62 -class_OrderedGroup_Olordered__ab__group__add(A) | c_HOL_Oplus__class_Oplus(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),D,A) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Oplus__class_Oplus(B,D,A),c_HOL_Oplus__class_Oplus(C,D,A),A) # label(cls_lordered__ab__group__add__class_Oadd__sup__inf__distribs_I3_J_0) # label(axiom).  [assumption].
+63 -class_OrderedGroup_Olordered__ab__group__add(A) | c_HOL_Oplus__class_Oplus(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(B,D,A),A) # label(cls_lordered__ab__group__add__class_Oadd__sup__inf__distribs_I4_J_0) # label(axiom).  [assumption].
+64 -class_OrderedGroup_Olordered__ab__group__add(A) | c_HOL_Oplus__class_Oplus(B,C,A) = c_HOL_Oplus__class_Oplus(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),c_Lattices_Olower__semilattice__class_Oinf(B,C,A),A) # label(cls_add__eq__inf__sup_0) # label(axiom).  [assumption].
+65 -class_OrderedGroup_Olordered__ab__group__add(A) | c_Lattices_Olower__semilattice__class_Oinf(B,C,A) = c_HOL_Ouminus__class_Ouminus(c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ouminus__class_Ouminus(B,A),c_HOL_Ouminus__class_Ouminus(C,A),A),A) # label(cls_inf__eq__neg__sup_0) # label(axiom).  [assumption].
+66 -class_OrderedGroup_Olordered__ab__group__add(A) | c_HOL_Ouminus__class_Ouminus(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),A) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ouminus__class_Ouminus(B,A),c_HOL_Ouminus__class_Ouminus(C,A),A) # label(cls_neg__inf__eq__sup_0) # label(axiom).  [assumption].
+67 -class_OrderedGroup_Olordered__ab__group__add(A) | c_HOL_Ouminus__class_Ouminus(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),A) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Ouminus__class_Ouminus(B,A),c_HOL_Ouminus__class_Ouminus(C,A),A) # label(cls_neg__sup__eq__inf_0) # label(axiom).  [assumption].
+68 -class_OrderedGroup_Olordered__ab__group__add(A) | c_HOL_Oplus__class_Oplus(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),D,A) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Oplus__class_Oplus(B,D,A),c_HOL_Oplus__class_Oplus(C,D,A),A) # label(cls_lordered__ab__group__add__class_Oadd__sup__inf__distribs_I1_J_0) # label(axiom).  [assumption].
+69 -class_OrderedGroup_Olordered__ab__group__add(A) | c_HOL_Oplus__class_Oplus(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(B,D,A),A) # label(cls_lordered__ab__group__add__class_Oadd__sup__inf__distribs_I2_J_0) # label(axiom).  [assumption].
+70 -class_OrderedGroup_Olordered__ab__group__add(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,A) = c_HOL_Ouminus__class_Ouminus(c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Ouminus__class_Ouminus(B,A),c_HOL_Ouminus__class_Ouminus(C,A),A),A) # label(cls_sup__eq__neg__inf_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oplus__class_Oplus(c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(61,a,62,a)].
+Derived: c_HOL_Oplus__class_Oplus(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(61,a,63,a)].
+Derived: c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal),c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(61,a,64,a)].
+Derived: c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal) = c_HOL_Ouminus__class_Ouminus(c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(61,a,65,a)].
+Derived: c_HOL_Ouminus__class_Ouminus(c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(61,a,66,a)].
+Derived: c_HOL_Ouminus__class_Ouminus(c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(61,a,67,a)].
+Derived: c_HOL_Oplus__class_Oplus(c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(61,a,68,a)].
+Derived: c_HOL_Oplus__class_Oplus(A,c_Lattices_Olower__semilattice__class_Oinf(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(61,a,69,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal) = c_HOL_Ouminus__class_Ouminus(c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(61,a,70,a)].
+
+Eliminating class_OrderedGroup_Olordered__ab__group__add__join/1
+71 class_OrderedGroup_Olordered__ab__group__add__join(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Olordered__ab__group__add__join) # label(axiom).  [assumption].
+72 -class_OrderedGroup_Olordered__ab__group__add__join(A) | c_HOL_Oplus__class_Oplus(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(B,D,A),A) # label(cls_add__sup__distrib__left_0) # label(axiom).  [assumption].
+73 -class_OrderedGroup_Olordered__ab__group__add__join(A) | c_HOL_Oplus__class_Oplus(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),D,A) = c_Lattices_Oupper__semilattice__class_Osup(c_HOL_Oplus__class_Oplus(B,D,A),c_HOL_Oplus__class_Oplus(C,D,A),A) # label(cls_add__sup__distrib__right_0) # label(axiom).  [assumption].
+
+Eliminating class_Lattices_Odistrib__lattice/1
+74 class_Lattices_Odistrib__lattice(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Lattices_Odistrib__lattice) # label(axiom).  [assumption].
+75 -class_Lattices_Odistrib__lattice(A) | c_Lattices_Olower__semilattice__class_Oinf(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) = c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),c_Lattices_Olower__semilattice__class_Oinf(B,D,A),A) # label(cls_inf__sup__distrib1_0) # label(axiom).  [assumption].
+76 -class_Lattices_Odistrib__lattice(A) | c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),D,A) = c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Olower__semilattice__class_Oinf(B,D,A),c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) # label(cls_inf__sup__distrib2_0) # label(axiom).  [assumption].
+77 -class_Lattices_Odistrib__lattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) = c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),c_Lattices_Oupper__semilattice__class_Osup(B,D,A),A) # label(cls_sup__inf__distrib1_0) # label(axiom).  [assumption].
+78 -class_Lattices_Odistrib__lattice(A) | c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),D,A) = c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Oupper__semilattice__class_Osup(B,D,A),c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) # label(cls_sup__inf__distrib2_0) # label(axiom).  [assumption].
+Derived: c_Lattices_Olower__semilattice__class_Oinf(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),c_Lattices_Olower__semilattice__class_Oinf(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(74,a,75,a)].
+Derived: c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Olower__semilattice__class_Oinf(A,C,tc_RealDef_Oreal),c_Lattices_Olower__semilattice__class_Oinf(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(74,a,76,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,c_Lattices_Olower__semilattice__class_Oinf(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal),c_Lattices_Oupper__semilattice__class_Osup(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(74,a,77,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Oupper__semilattice__class_Osup(A,C,tc_RealDef_Oreal),c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(74,a,78,a)].
+
+Eliminating class_OrderedGroup_Ogroup__add/1
+79 class_OrderedGroup_Ogroup__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Ogroup__add) # label(axiom).  [assumption].
+80 -class_OrderedGroup_Ogroup__add(A) | c_HOL_Oplus__class_Oplus(c_HOL_Ominus__class_Ominus(B,C,A),C,A) = B # label(cls_diff__add__cancel_0) # label(axiom).  [assumption].
+81 -class_OrderedGroup_Ogroup__add(A) | c_HOL_Ouminus__class_Ouminus(B,A) != c_HOL_Ouminus__class_Ouminus(C,A) | B = C # label(cls_neg__equal__iff__equal_0) # label(axiom).  [assumption].
+82 -class_OrderedGroup_Ogroup__add(A) | c_HOL_Ominus__class_Ominus(B,c_HOL_Ouminus__class_Ouminus(C,A),A) = c_HOL_Oplus__class_Oplus(B,C,A) # label(cls_diff__minus__eq__add_0) # label(axiom).  [assumption].
+83 -class_OrderedGroup_Ogroup__add(A) | c_HOL_Ominus__class_Ominus(c_HOL_Oplus__class_Oplus(B,C,A),C,A) = B # label(cls_add__diff__cancel_0) # label(axiom).  [assumption].
+84 -class_OrderedGroup_Ogroup__add(A) | c_HOL_Ouminus__class_Ouminus(c_HOL_Ouminus__class_Ouminus(B,A),A) = B # label(cls_minus__equation__iff_1) # label(axiom).  [assumption].
+85 -class_OrderedGroup_Ogroup__add(A) | B = c_HOL_Ouminus__class_Ouminus(c_HOL_Ouminus__class_Ouminus(B,A),A) # label(cls_equation__minus__iff_1) # label(axiom).  [assumption].
+86 -class_OrderedGroup_Ogroup__add(A) | B = c_HOL_Ouminus__class_Ouminus(c_HOL_Ouminus__class_Ouminus(B,A),A) # label(cls_equation__minus__iff_0) # label(axiom).  [assumption].
+87 -class_OrderedGroup_Ogroup__add(A) | c_HOL_Ouminus__class_Ouminus(c_HOL_Ouminus__class_Ouminus(B,A),A) = B # label(cls_minus__minus_0) # label(axiom).  [assumption].
+88 -class_OrderedGroup_Ogroup__add(A) | c_HOL_Oplus__class_Oplus(B,c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(B,A),C,A),A) = C # label(cls_add__minus__cancel_0) # label(axiom).  [assumption].
+89 -class_OrderedGroup_Ogroup__add(A) | c_HOL_Ominus__class_Ominus(B,C,A) = c_HOL_Oplus__class_Oplus(B,c_HOL_Ouminus__class_Ouminus(C,A),A) # label(cls_diff__minus_0) # label(axiom).  [assumption].
+90 -class_OrderedGroup_Ogroup__add(A) | c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(B,A),c_HOL_Oplus__class_Oplus(B,C,A),A) = C # label(cls_minus__add__cancel_0) # label(axiom).  [assumption].
+91 -class_OrderedGroup_Ogroup__add(A) | c_HOL_Ouminus__class_Ouminus(c_HOL_Oplus__class_Oplus(B,C,A),A) = c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(C,A),c_HOL_Ouminus__class_Ouminus(B,A),A) # label(cls_minus__add_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oplus__class_Oplus(c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal),B,tc_RealDef_Oreal) = A.  [resolve(79,a,80,a)].
+Derived: c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal) != c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal) | A = B.  [resolve(79,a,81,a)].
+Derived: c_HOL_Ominus__class_Ominus(A,c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal).  [resolve(79,a,82,a)].
+Derived: c_HOL_Ominus__class_Ominus(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),B,tc_RealDef_Oreal) = A.  [resolve(79,a,83,a)].
+Derived: c_HOL_Ouminus__class_Ouminus(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),tc_RealDef_Oreal) = A.  [resolve(79,a,84,a)].
+Derived: A = c_HOL_Ouminus__class_Ouminus(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(79,a,85,a)].
+Derived: c_HOL_Oplus__class_Oplus(A,c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal),tc_RealDef_Oreal) = B.  [resolve(79,a,88,a)].
+Derived: c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(A,c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(79,a,89,a)].
+Derived: c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = B.  [resolve(79,a,90,a)].
+Derived: c_HOL_Ouminus__class_Ouminus(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(79,a,91,a)].
+
+Eliminating class_Orderings_Olinorder/1
+92 class_Orderings_Olinorder(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Orderings_Olinorder) # label(axiom).  [assumption].
+93 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omin(B,c_Orderings_Oord__class_Omin(B,C,A),A) = c_Orderings_Oord__class_Omin(B,C,A) # label(cls_min__max_Oinf__left__idem_0) # label(axiom).  [assumption].
+94 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,c_Orderings_Oord__class_Omin(C,D,A),A) | -c_HOL_Oord__class_Oless(B,D,A) | -c_HOL_Oord__class_Oless(B,C,A) # label(cls_min__less__iff__conj_2) # label(axiom).  [assumption].
+95 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omax(B,C,A),D,A) | -c_HOL_Oord__class_Oless(C,D,A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_max__less__iff__conj_2) # label(axiom).  [assumption].
+96 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omin(B,c_Orderings_Oord__class_Omax(C,D,A),A) = c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omin(B,C,A),c_Orderings_Oord__class_Omin(B,D,A),A) # label(cls_min__max_Oinf__sup__distrib1_0) # label(axiom).  [assumption].
+97 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omax(B,C,A),D,A) = c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omin(B,D,A),c_Orderings_Oord__class_Omin(C,D,A),A) # label(cls_min__max_Oinf__sup__distrib2_0) # label(axiom).  [assumption].
+98 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omin(B,B,A) = B # label(cls_min__max_Oinf__idem_0) # label(axiom).  [assumption].
+99 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,C,A) | c_HOL_Oord__class_Oless(C,B,A) | C = B # label(cls_linorder__neqE_0) # label(axiom).  [assumption].
+100 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,C,A) | C = B | c_HOL_Oord__class_Oless(C,B,A) # label(cls_linorder__less__linear_0) # label(axiom).  [assumption].
+101 -class_Orderings_Olinorder(A) | B = C | c_HOL_Oord__class_Oless(B,C,A) | c_HOL_Oord__class_Oless(C,B,A) # label(cls_linorder__antisym__conv3_0) # label(axiom).  [assumption].
+102 -class_Orderings_Olinorder(A) | B = C | c_HOL_Oord__class_Oless(C,B,A) | c_HOL_Oord__class_Oless(B,C,A) # label(cls_not__less__iff__gr__or__eq_0) # label(axiom).  [assumption].
+103 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omax(B,B,A) = B # label(cls_min__max_Osup__idem_0) # label(axiom).  [assumption].
+104 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omin(B,c_Orderings_Oord__class_Omax(B,C,A),A) = B # label(cls_min__max_Oinf__sup__absorb_0) # label(axiom).  [assumption].
+105 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omax(D,B,A),C,A) # label(cls_max__less__iff__conj_1) # label(axiom).  [assumption].
+106 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omax(B,D,A),C,A) # label(cls_max__less__iff__conj_0) # label(axiom).  [assumption].
+107 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,c_Orderings_Oord__class_Omax(C,D,A),A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_less__max__iff__disj_2) # label(axiom).  [assumption].
+108 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,c_Orderings_Oord__class_Omax(C,D,A),A) | -c_HOL_Oord__class_Oless(B,C,A) # label(cls_less__max__iff__disj_1) # label(axiom).  [assumption].
+109 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,c_Orderings_Oord__class_Omax(C,D,A),A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_min__max_Oless__supI2_0) # label(axiom).  [assumption].
+110 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,c_Orderings_Oord__class_Omax(C,D,A),A) | -c_HOL_Oord__class_Oless(B,C,A) # label(cls_min__max_Oless__supI1_0) # label(axiom).  [assumption].
+111 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omin(B,C,A) = c_Orderings_Oord__class_Omin(C,B,A) # label(cls_min__max_Oinf__commute_0) # label(axiom).  [assumption].
+112 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(B,C,A),D,A) | -c_HOL_Oord__class_Oless(C,D,A) # label(cls_min__less__iff__disj_2) # label(axiom).  [assumption].
+113 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(B,C,A),D,A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_min__less__iff__disj_1) # label(axiom).  [assumption].
+114 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(B,c_Orderings_Oord__class_Omin(D,C,A),A) # label(cls_min__less__iff__conj_1) # label(axiom).  [assumption].
+115 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(B,c_Orderings_Oord__class_Omin(C,D,A),A) # label(cls_min__less__iff__conj_0) # label(axiom).  [assumption].
+116 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(B,C,A),D,A) | -c_HOL_Oord__class_Oless(C,D,A) # label(cls_min__max_Oless__infI2_0) # label(axiom).  [assumption].
+117 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(B,C,A),D,A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_min__max_Oless__infI1_0) # label(axiom).  [assumption].
+118 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omax(B,c_Orderings_Oord__class_Omax(C,D,A),A) = c_Orderings_Oord__class_Omax(C,c_Orderings_Oord__class_Omax(B,D,A),A) # label(cls_min__max_Osup__left__commute_0) # label(axiom).  [assumption].
+119 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omax(B,C,A),D,A) = c_Orderings_Oord__class_Omax(B,c_Orderings_Oord__class_Omax(C,D,A),A) # label(cls_min__max_Osup__assoc_0) # label(axiom).  [assumption].
+120 -class_Orderings_Olinorder(A) | c_lessequals(B,C,A) | -c_lessequals(c_Orderings_Oord__class_Omax(D,B,A),C,A) # label(cls_min__max_Ole__sup__iff_1) # label(axiom).  [assumption].
+121 -class_Orderings_Olinorder(A) | c_lessequals(B,C,A) | -c_lessequals(c_Orderings_Oord__class_Omax(B,D,A),C,A) # label(cls_min__max_Ole__sup__iff_0) # label(axiom).  [assumption].
+122 -class_Orderings_Olinorder(A) | c_lessequals(B,c_Orderings_Oord__class_Omax(C,D,A),A) | -c_lessequals(B,D,A) # label(cls_le__max__iff__disj_2) # label(axiom).  [assumption].
+123 -class_Orderings_Olinorder(A) | c_lessequals(B,c_Orderings_Oord__class_Omax(C,D,A),A) | -c_lessequals(B,C,A) # label(cls_le__max__iff__disj_1) # label(axiom).  [assumption].
+124 -class_Orderings_Olinorder(A) | c_lessequals(B,c_Orderings_Oord__class_Omax(C,D,A),A) | -c_lessequals(B,D,A) # label(cls_min__max_Ole__supI2_0) # label(axiom).  [assumption].
+125 -class_Orderings_Olinorder(A) | c_lessequals(B,c_Orderings_Oord__class_Omax(C,D,A),A) | -c_lessequals(B,C,A) # label(cls_min__max_Ole__supI1_0) # label(axiom).  [assumption].
+126 -class_Orderings_Olinorder(A) | c_lessequals(B,C,A) | -c_lessequals(c_Orderings_Oord__class_Omax(D,B,A),C,A) # label(cls_min__max_Ole__supE_1) # label(axiom).  [assumption].
+127 -class_Orderings_Olinorder(A) | c_lessequals(B,C,A) | -c_lessequals(c_Orderings_Oord__class_Omax(B,D,A),C,A) # label(cls_min__max_Ole__supE_0) # label(axiom).  [assumption].
+128 -class_Orderings_Olinorder(A) | c_lessequals(B,C,A) | c_lessequals(D,C,A) | -c_lessequals(c_Orderings_Oord__class_Omin(D,B,A),C,A) # label(cls_min__le__iff__disj_0) # label(axiom).  [assumption].
+129 -class_Orderings_Olinorder(A) | c_lessequals(B,C,A) | -c_lessequals(B,c_Orderings_Oord__class_Omin(D,C,A),A) # label(cls_min__max_Ole__inf__iff_1) # label(axiom).  [assumption].
+130 -class_Orderings_Olinorder(A) | c_lessequals(B,C,A) | -c_lessequals(B,c_Orderings_Oord__class_Omin(C,D,A),A) # label(cls_min__max_Ole__inf__iff_0) # label(axiom).  [assumption].
+131 -class_Orderings_Olinorder(A) | c_lessequals(c_Orderings_Oord__class_Omin(B,C,A),D,A) | -c_lessequals(C,D,A) # label(cls_min__le__iff__disj_2) # label(axiom).  [assumption].
+132 -class_Orderings_Olinorder(A) | c_lessequals(c_Orderings_Oord__class_Omin(B,C,A),D,A) | -c_lessequals(B,D,A) # label(cls_min__le__iff__disj_1) # label(axiom).  [assumption].
+133 -class_Orderings_Olinorder(A) | c_lessequals(c_Orderings_Oord__class_Omin(B,C,A),D,A) | -c_lessequals(C,D,A) # label(cls_min__max_Ole__infI2_0) # label(axiom).  [assumption].
+134 -class_Orderings_Olinorder(A) | c_lessequals(c_Orderings_Oord__class_Omin(B,C,A),D,A) | -c_lessequals(B,D,A) # label(cls_min__max_Ole__infI1_0) # label(axiom).  [assumption].
+135 -class_Orderings_Olinorder(A) | c_lessequals(B,C,A) | -c_lessequals(B,c_Orderings_Oord__class_Omin(D,C,A),A) # label(cls_min__max_Ole__infE_1) # label(axiom).  [assumption].
+136 -class_Orderings_Olinorder(A) | c_lessequals(B,C,A) | -c_lessequals(B,c_Orderings_Oord__class_Omin(C,D,A),A) # label(cls_min__max_Ole__infE_0) # label(axiom).  [assumption].
+137 -class_Orderings_Olinorder(A) | c_lessequals(B,C,A) | c_lessequals(B,D,A) | -c_lessequals(B,c_Orderings_Oord__class_Omax(D,C,A),A) # label(cls_le__max__iff__disj_0) # label(axiom).  [assumption].
+138 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omax(B,C,A) = B | -c_lessequals(C,B,A) # label(cls_min__max_Osup__absorb1_0) # label(axiom).  [assumption].
+139 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omax(B,C,A) != C | c_lessequals(B,C,A) # label(cls_min__max_Ole__iff__sup_1) # label(axiom).  [assumption].
+140 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omax(B,C,A) = C | -c_lessequals(B,C,A) # label(cls_min__max_Ole__iff__sup_0) # label(axiom).  [assumption].
+141 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omin(B,C,A) = C | -c_lessequals(C,B,A) # label(cls_min__max_Oinf__absorb2_0) # label(axiom).  [assumption].
+142 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omax(B,c_Orderings_Oord__class_Omin(C,D,A),A) = c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omax(B,C,A),c_Orderings_Oord__class_Omax(B,D,A),A) # label(cls_min__max_Osup__inf__distrib1_0) # label(axiom).  [assumption].
+143 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omin(B,C,A),D,A) = c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omax(B,D,A),c_Orderings_Oord__class_Omax(C,D,A),A) # label(cls_min__max_Osup__inf__distrib2_0) # label(axiom).  [assumption].
+144 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omax(B,c_Orderings_Oord__class_Omax(B,C,A),A) = c_Orderings_Oord__class_Omax(B,C,A) # label(cls_min__max_Osup__left__idem_0) # label(axiom).  [assumption].
+145 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omax(B,c_Orderings_Oord__class_Omin(B,C,A),A) = B # label(cls_min__max_Osup__inf__absorb_0) # label(axiom).  [assumption].
+146 -class_Orderings_Olinorder(A) | c_lessequals(c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omin(B,C,A),c_Orderings_Oord__class_Omin(B,D,A),A),c_Orderings_Oord__class_Omin(B,c_Orderings_Oord__class_Omax(C,D,A),A),A) # label(cls_min__max_Odistrib__inf__le_0) # label(axiom).  [assumption].
+147 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omax(B,C,A) = c_Orderings_Oord__class_Omax(C,B,A) # label(cls_min__max_Osup__commute_0) # label(axiom).  [assumption].
+148 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omin(B,C,A),D,A) = c_Orderings_Oord__class_Omin(B,c_Orderings_Oord__class_Omin(C,D,A),A) # label(cls_min__max_Oinf__assoc_0) # label(axiom).  [assumption].
+149 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omin(B,c_Orderings_Oord__class_Omin(C,D,A),A) = c_Orderings_Oord__class_Omin(C,c_Orderings_Oord__class_Omin(B,D,A),A) # label(cls_min__max_Oinf__left__commute_0) # label(axiom).  [assumption].
+150 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,C,A) | c_HOL_Oord__class_Oless(B,D,A) | -c_HOL_Oord__class_Oless(B,c_Orderings_Oord__class_Omax(D,C,A),A) # label(cls_less__max__iff__disj_0) # label(axiom).  [assumption].
+151 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,C,A) | c_HOL_Oord__class_Oless(D,C,A) | -c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(D,B,A),C,A) # label(cls_min__less__iff__disj_0) # label(axiom).  [assumption].
+152 -class_Orderings_Olinorder(A) | -c_HOL_Oord__class_Oless(B,B,A) # label(cls_linorder__neq__iff_1) # label(axiom).  [assumption].
+153 -class_Orderings_Olinorder(A) | c_lessequals(c_Orderings_Oord__class_Omax(B,c_Orderings_Oord__class_Omin(C,D,A),A),c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omax(B,C,A),c_Orderings_Oord__class_Omax(B,D,A),A),A) # label(cls_min__max_Odistrib__sup__le_0) # label(axiom).  [assumption].
+154 -class_Orderings_Olinorder(A) | -c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(C,B,A) # label(cls_not__less__iff__gr__or__eq_1) # label(axiom).  [assumption].
+155 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omin(B,C,A) != B | c_lessequals(B,C,A) # label(cls_min__max_Ole__iff__inf_1) # label(axiom).  [assumption].
+156 -class_Orderings_Olinorder(A) | c_Orderings_Oord__class_Omin(B,C,A) = B | -c_lessequals(B,C,A) # label(cls_min__max_Ole__iff__inf_0) # label(axiom).  [assumption].
+157 -class_Orderings_Olinorder(A) | B = C | c_HOL_Oord__class_Oless(B,C,A) | -c_lessequals(B,C,A) # label(cls_linorder__antisym__conv2_0) # label(axiom).  [assumption].
+158 -class_Orderings_Olinorder(A) | B = C | -c_lessequals(B,C,A) | c_HOL_Oord__class_Oless(B,C,A) # label(cls_linorder__antisym__conv1_0) # label(axiom).  [assumption].
+159 -class_Orderings_Olinorder(A) | c_lessequals(c_Orderings_Oord__class_Omax(B,C,A),D,A) | -c_lessequals(C,D,A) | -c_lessequals(B,D,A) # label(cls_min__max_Ole__sup__iff_2) # label(axiom).  [assumption].
+160 -class_Orderings_Olinorder(A) | c_lessequals(c_Orderings_Oord__class_Omax(B,C,A),D,A) | -c_lessequals(C,D,A) | -c_lessequals(B,D,A) # label(cls_min__max_Osup__least_0) # label(axiom).  [assumption].
+161 -class_Orderings_Olinorder(A) | c_lessequals(c_Orderings_Oord__class_Omax(B,C,A),D,A) | -c_lessequals(C,D,A) | -c_lessequals(B,D,A) # label(cls_min__max_Ole__supI_0) # label(axiom).  [assumption].
+162 -class_Orderings_Olinorder(A) | c_lessequals(B,c_Orderings_Oord__class_Omax(B,C,A),A) # label(cls_le__maxI1_0) # label(axiom).  [assumption].
+163 -class_Orderings_Olinorder(A) | c_lessequals(B,c_Orderings_Oord__class_Omax(C,B,A),A) # label(cls_le__maxI2_0) # label(axiom).  [assumption].
+164 -class_Orderings_Olinorder(A) | c_lessequals(B,c_Orderings_Oord__class_Omin(C,D,A),A) | -c_lessequals(B,D,A) | -c_lessequals(B,C,A) # label(cls_min__max_Oinf__greatest_0) # label(axiom).  [assumption].
+165 -class_Orderings_Olinorder(A) | c_lessequals(B,c_Orderings_Oord__class_Omin(C,D,A),A) | -c_lessequals(B,D,A) | -c_lessequals(B,C,A) # label(cls_min__max_Ole__inf__iff_2) # label(axiom).  [assumption].
+166 -class_Orderings_Olinorder(A) | c_lessequals(B,c_Orderings_Oord__class_Omin(C,D,A),A) | -c_lessequals(B,D,A) | -c_lessequals(B,C,A) # label(cls_min__max_Ole__infI_0) # label(axiom).  [assumption].
+167 -class_Orderings_Olinorder(A) | c_lessequals(c_Orderings_Oord__class_Omin(B,C,A),C,A) # label(cls_min__max_Oinf__le2_0) # label(axiom).  [assumption].
+168 -class_Orderings_Olinorder(A) | c_lessequals(c_Orderings_Oord__class_Omin(B,C,A),B,A) # label(cls_min__max_Oinf__le1_0) # label(axiom).  [assumption].
+169 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,C,A) | c_lessequals(C,B,A) # label(cls_not__leE_0) # label(axiom).  [assumption].
+170 -class_Orderings_Olinorder(A) | -c_lessequals(B,B,A) | -c_HOL_Oord__class_Oless(B,B,A) # label(cls_linorder__antisym__conv2_1) # label(axiom).  [assumption].
+171 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,B,A) | c_lessequals(B,B,A) # label(cls_linorder__antisym__conv1_1) # label(axiom).  [assumption].
+172 -class_Orderings_Olinorder(A) | -c_HOL_Oord__class_Oless(B,C,A) | -c_lessequals(C,B,A) # label(cls_linorder__not__less_1) # label(axiom).  [assumption].
+173 -class_Orderings_Olinorder(A) | c_lessequals(B,C,A) | c_HOL_Oord__class_Oless(C,B,A) # label(cls_linorder__not__less_0) # label(axiom).  [assumption].
+174 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,C,A) | c_lessequals(C,B,A) # label(cls_linorder__not__le_0) # label(axiom).  [assumption].
+175 -class_Orderings_Olinorder(A) | -c_lessequals(B,C,A) | -c_HOL_Oord__class_Oless(C,B,A) # label(cls_linorder__not__le_1) # label(axiom).  [assumption].
+176 -class_Orderings_Olinorder(A) | c_lessequals(B,C,A) | c_lessequals(C,B,A) # label(cls_linorder__linear_0) # label(axiom).  [assumption].
+Derived: c_Orderings_Oord__class_Omin(A,c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal).  [resolve(92,a,93,a)].
+Derived: c_HOL_Oord__class_Oless(A,c_Orderings_Oord__class_Omin(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,C,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal).  [resolve(92,a,94,a)].
+Derived: c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(B,C,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,C,tc_RealDef_Oreal).  [resolve(92,a,95,a)].
+Derived: c_Orderings_Oord__class_Omin(A,c_Orderings_Oord__class_Omax(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),c_Orderings_Oord__class_Omin(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,96,a)].
+Derived: c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omin(A,C,tc_RealDef_Oreal),c_Orderings_Oord__class_Omin(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,97,a)].
+Derived: c_Orderings_Oord__class_Omin(A,A,tc_RealDef_Oreal) = A.  [resolve(92,a,98,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | c_HOL_Oord__class_Oless(B,A,tc_RealDef_Oreal) | B = A.  [resolve(92,a,99,a)].
+Derived: c_Orderings_Oord__class_Omax(A,A,tc_RealDef_Oreal) = A.  [resolve(92,a,103,a)].
+Derived: c_Orderings_Oord__class_Omin(A,c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = A.  [resolve(92,a,104,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omax(C,A,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(92,a,105,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omax(A,C,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(92,a,106,a)].
+Derived: c_HOL_Oord__class_Oless(A,c_Orderings_Oord__class_Omax(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,C,tc_RealDef_Oreal).  [resolve(92,a,107,a)].
+Derived: c_HOL_Oord__class_Oless(A,c_Orderings_Oord__class_Omax(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal).  [resolve(92,a,108,a)].
+Derived: c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal) = c_Orderings_Oord__class_Omin(B,A,tc_RealDef_Oreal).  [resolve(92,a,111,a)].
+Derived: c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(B,C,tc_RealDef_Oreal).  [resolve(92,a,112,a)].
+Derived: c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,C,tc_RealDef_Oreal).  [resolve(92,a,113,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,c_Orderings_Oord__class_Omin(C,B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,114,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,c_Orderings_Oord__class_Omin(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,115,a)].
+Derived: c_Orderings_Oord__class_Omax(A,c_Orderings_Oord__class_Omax(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Orderings_Oord__class_Omax(B,c_Orderings_Oord__class_Omax(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,118,a)].
+Derived: c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Orderings_Oord__class_Omax(A,c_Orderings_Oord__class_Omax(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,119,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(c_Orderings_Oord__class_Omax(C,A,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(92,a,120,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(c_Orderings_Oord__class_Omax(A,C,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(92,a,121,a)].
+Derived: c_lessequals(A,c_Orderings_Oord__class_Omax(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal).  [resolve(92,a,122,a)].
+Derived: c_lessequals(A,c_Orderings_Oord__class_Omax(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(92,a,123,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | c_lessequals(C,B,tc_RealDef_Oreal) | -c_lessequals(c_Orderings_Oord__class_Omin(C,A,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(92,a,128,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(A,c_Orderings_Oord__class_Omin(C,B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,129,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(A,c_Orderings_Oord__class_Omin(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,130,a)].
+Derived: c_lessequals(c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_lessequals(B,C,tc_RealDef_Oreal).  [resolve(92,a,131,a)].
+Derived: c_lessequals(c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal).  [resolve(92,a,132,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | c_lessequals(A,C,tc_RealDef_Oreal) | -c_lessequals(A,c_Orderings_Oord__class_Omax(C,B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,137,a)].
+Derived: c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal) = A | -c_lessequals(B,A,tc_RealDef_Oreal).  [resolve(92,a,138,a)].
+Derived: c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal) != B | c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(92,a,139,a)].
+Derived: c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal) = B | -c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(92,a,140,a)].
+Derived: c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal) = B | -c_lessequals(B,A,tc_RealDef_Oreal).  [resolve(92,a,141,a)].
+Derived: c_Orderings_Oord__class_Omax(A,c_Orderings_Oord__class_Omin(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal),c_Orderings_Oord__class_Omax(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,142,a)].
+Derived: c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omax(A,C,tc_RealDef_Oreal),c_Orderings_Oord__class_Omax(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,143,a)].
+Derived: c_Orderings_Oord__class_Omax(A,c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal).  [resolve(92,a,144,a)].
+Derived: c_Orderings_Oord__class_Omax(A,c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = A.  [resolve(92,a,145,a)].
+Derived: c_lessequals(c_Orderings_Oord__class_Omax(c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),c_Orderings_Oord__class_Omin(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal),c_Orderings_Oord__class_Omin(A,c_Orderings_Oord__class_Omax(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,146,a)].
+Derived: c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal) = c_Orderings_Oord__class_Omax(B,A,tc_RealDef_Oreal).  [resolve(92,a,147,a)].
+Derived: c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Orderings_Oord__class_Omin(A,c_Orderings_Oord__class_Omin(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,148,a)].
+Derived: c_Orderings_Oord__class_Omin(A,c_Orderings_Oord__class_Omin(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Orderings_Oord__class_Omin(B,c_Orderings_Oord__class_Omin(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,149,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | c_HOL_Oord__class_Oless(A,C,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,c_Orderings_Oord__class_Omax(C,B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,150,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | c_HOL_Oord__class_Oless(C,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_Orderings_Oord__class_Omin(C,A,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(92,a,151,a)].
+Derived: c_lessequals(c_Orderings_Oord__class_Omax(A,c_Orderings_Oord__class_Omin(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal),c_Orderings_Oord__class_Omin(c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal),c_Orderings_Oord__class_Omax(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,153,a)].
+Derived: c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal) != A | c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(92,a,155,a)].
+Derived: c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal) = A | -c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(92,a,156,a)].
+Derived: c_lessequals(c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_lessequals(B,C,tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal).  [resolve(92,a,159,a)].
+Derived: c_lessequals(A,c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,162,a)].
+Derived: c_lessequals(A,c_Orderings_Oord__class_Omax(B,A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(92,a,163,a)].
+Derived: c_lessequals(A,c_Orderings_Oord__class_Omin(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal) | -c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(92,a,164,a)].
+Derived: c_lessequals(c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(92,a,167,a)].
+Derived: c_lessequals(c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),A,tc_RealDef_Oreal).  [resolve(92,a,168,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | c_lessequals(B,A,tc_RealDef_Oreal).  [resolve(92,a,169,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | c_lessequals(B,A,tc_RealDef_Oreal).  [resolve(92,a,176,a)].
+
+Eliminating class_OrderedGroup_Opordered__ab__group__add__abs/1
+177 class_OrderedGroup_Opordered__ab__group__add__abs(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Opordered__ab__group__add__abs) # label(axiom).  [assumption].
+178 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_lessequals(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(c_HOL_Oabs__class_Oabs(B,A),c_HOL_Oabs__class_Oabs(C,A),A),A),c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(B,C,A),A),A) # label(cls_abs__triangle__ineq3_0) # label(axiom).  [assumption].
+179 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_lessequals(c_HOL_Oabs__class_Oabs(c_HOL_Oplus__class_Oplus(B,C,A),A),c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(B,A),c_HOL_Oabs__class_Oabs(C,A),A),A) # label(cls_abs__triangle__ineq_0) # label(axiom).  [assumption].
+180 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_lessequals(B,c_HOL_Oabs__class_Oabs(B,A),A) # label(cls_abs__ge__self_0) # label(axiom).  [assumption].
+181 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_lessequals(c_HOL_Ouminus__class_Ouminus(B,A),C,A) | -c_lessequals(c_HOL_Oabs__class_Oabs(B,A),C,A) # label(cls_abs__le__D2_0) # label(axiom).  [assumption].
+182 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_lessequals(c_HOL_Ominus__class_Ominus(c_HOL_Oabs__class_Oabs(B,A),c_HOL_Oabs__class_Oabs(C,A),A),c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(B,C,A),A),A) # label(cls_abs__triangle__ineq2_0) # label(axiom).  [assumption].
+183 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(B,C,A),A) = c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(C,B,A),A) # label(cls_abs__minus__commute_0) # label(axiom).  [assumption].
+184 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_lessequals(c_HOL_Oabs__class_Oabs(B,A),C,A) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(B,A),C,A) | -c_lessequals(B,C,A) # label(cls_abs__leI_0) # label(axiom).  [assumption].
+185 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_lessequals(c_HOL_Oabs__class_Oabs(B,A),C,A) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(B,A),C,A) | -c_lessequals(B,C,A) # label(cls_abs__le__iff_2) # label(axiom).  [assumption].
+186 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_HOL_Oabs__class_Oabs(c_HOL_Ouminus__class_Ouminus(B,A),A) = c_HOL_Oabs__class_Oabs(B,A) # label(cls_abs__minus__cancel_0) # label(axiom).  [assumption].
+187 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_lessequals(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(D,E,A),A),A),c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(B,D,A),A),c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(C,E,A),A),A),A) # label(cls_abs__diff__triangle__ineq_0) # label(axiom).  [assumption].
+188 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_HOL_Oabs__class_Oabs(c_HOL_Oabs__class_Oabs(B,A),A) = c_HOL_Oabs__class_Oabs(B,A) # label(cls_abs__idempotent_0) # label(axiom).  [assumption].
+189 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_lessequals(c_HOL_Ouminus__class_Ouminus(B,A),c_HOL_Oabs__class_Oabs(B,A),A) # label(cls_abs__ge__minus__self_0) # label(axiom).  [assumption].
+190 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_lessequals(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(B,C,A),A),c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(B,A),c_HOL_Oabs__class_Oabs(C,A),A),A) # label(cls_abs__triangle__ineq4_0) # label(axiom).  [assumption].
+191 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_HOL_Oabs__class_Oabs(c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(B,A),c_HOL_Oabs__class_Oabs(C,A),A),A) = c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(B,A),c_HOL_Oabs__class_Oabs(C,A),A) # label(cls_abs__add__abs_0) # label(axiom).  [assumption].
+192 -class_OrderedGroup_Opordered__ab__group__add__abs(A) | c_lessequals(B,C,A) | -c_lessequals(c_HOL_Oabs__class_Oabs(B,A),C,A) # label(cls_abs__le__D1_0) # label(axiom).  [assumption].
+Derived: c_lessequals(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),c_HOL_Oabs__class_Oabs(B,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal),c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(177,a,178,a)].
+Derived: c_lessequals(c_HOL_Oabs__class_Oabs(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),c_HOL_Oabs__class_Oabs(B,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(177,a,179,a)].
+Derived: c_lessequals(A,c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(177,a,180,a)].
+Derived: c_lessequals(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal) | -c_lessequals(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(177,a,181,a)].
+Derived: c_lessequals(c_HOL_Ominus__class_Ominus(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),c_HOL_Oabs__class_Oabs(B,tc_RealDef_Oreal),tc_RealDef_Oreal),c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(177,a,182,a)].
+Derived: c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(B,A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(177,a,183,a)].
+Derived: c_lessequals(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal) | -c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(177,a,184,a)].
+Derived: c_HOL_Oabs__class_Oabs(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal).  [resolve(177,a,186,a)].
+Derived: c_lessequals(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,D,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal),c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(B,D,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(177,a,187,a)].
+Derived: c_HOL_Oabs__class_Oabs(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal).  [resolve(177,a,188,a)].
+Derived: c_lessequals(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(177,a,189,a)].
+Derived: c_lessequals(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),c_HOL_Oabs__class_Oabs(B,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(177,a,190,a)].
+Derived: c_HOL_Oabs__class_Oabs(c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),c_HOL_Oabs__class_Oabs(B,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),c_HOL_Oabs__class_Oabs(B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(177,a,191,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(177,a,192,a)].
+
+Eliminating class_Lattices_Obounded__lattice/1
+
+Eliminating class_Ring__and__Field_Oordered__idom/1
+193 class_Ring__and__Field_Oordered__idom(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Ring__and__Field_Oordered__idom) # label(axiom).  [assumption].
+194 -class_Ring__and__Field_Oordered__idom(A) | c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(B,A),C,A) | -c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(B,A),C,A) # label(cls_abs__less__iff_1) # label(axiom).  [assumption].
+195 -class_Ring__and__Field_Oordered__idom(A) | c_HOL_Oord__class_Oless(B,C,A) | c_HOL_Oord__class_Oless(C,B,A) | C = B # label(cls_linorder__neqE__ordered__idom_0) # label(axiom).  [assumption].
+196 -class_Ring__and__Field_Oordered__idom(A) | c_HOL_Oord__class_Oless(c_HOL_Ominus__class_Ominus(B,C,A),D,A) | -c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(D,B,A),A),C,A) # label(cls_abs__diff__less__iff_0) # label(axiom).  [assumption].
+197 -class_Ring__and__Field_Oordered__idom(A) | c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(B,C,A),A),D,A) | -c_HOL_Oord__class_Oless(B,c_HOL_Oplus__class_Oplus(C,D,A),A) | -c_HOL_Oord__class_Oless(c_HOL_Ominus__class_Ominus(C,D,A),B,A) # label(cls_abs__diff__less__iff_2) # label(axiom).  [assumption].
+198 -class_Ring__and__Field_Oordered__idom(A) | c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(B,A),C,A) | -c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(B,A),C,A) | -c_HOL_Oord__class_Oless(B,C,A) # label(cls_abs__less__iff_2) # label(axiom).  [assumption].
+199 -class_Ring__and__Field_Oordered__idom(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(B,A),C,A) # label(cls_abs__less__iff_0) # label(axiom).  [assumption].
+200 -class_Ring__and__Field_Oordered__idom(A) | c_HOL_Oord__class_Oless(B,c_HOL_Oplus__class_Oplus(C,D,A),A) | -c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(B,C,A),A),D,A) # label(cls_abs__diff__less__iff_1) # label(axiom).  [assumption].
+Derived: c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(193,a,194,a)].
+Derived: c_HOL_Oord__class_Oless(c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(C,A,tc_RealDef_Oreal),tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(193,a,196,a)].
+Derived: c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_HOL_Ominus__class_Ominus(B,C,tc_RealDef_Oreal),A,tc_RealDef_Oreal).  [resolve(193,a,197,a)].
+Derived: c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal).  [resolve(193,a,198,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(193,a,199,a)].
+Derived: c_HOL_Oord__class_Oless(A,c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_HOL_Oabs__class_Oabs(c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal),C,tc_RealDef_Oreal).  [resolve(193,a,200,a)].
+
+Eliminating class_Lattices_Olattice/1
+201 class_Lattices_Olattice(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Lattices_Olattice) # label(axiom).  [assumption].
+202 -class_Lattices_Olattice(A) | c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),D,A) = c_Lattices_Olower__semilattice__class_Oinf(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) # label(cls_inf__sup__aci_I2_J_0) # label(axiom).  [assumption].
+203 -class_Lattices_Olattice(A) | c_Lattices_Olower__semilattice__class_Oinf(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) = c_Lattices_Olower__semilattice__class_Oinf(C,c_Lattices_Olower__semilattice__class_Oinf(B,D,A),A) # label(cls_inf__sup__aci_I3_J_0) # label(axiom).  [assumption].
+204 -class_Lattices_Olattice(A) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A),c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),c_Lattices_Oupper__semilattice__class_Osup(B,D,A),A),A) # label(cls_distrib__sup__le_0) # label(axiom).  [assumption].
+205 -class_Lattices_Olattice(A) | c_Lattices_Olower__semilattice__class_Oinf(B,c_Lattices_Oupper__semilattice__class_Osup(B,C,A),A) = B # label(cls_inf__sup__absorb_0) # label(axiom).  [assumption].
+206 -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) = c_Lattices_Oupper__semilattice__class_Osup(C,c_Lattices_Oupper__semilattice__class_Osup(B,D,A),A) # label(cls_inf__sup__aci_I7_J_0) # label(axiom).  [assumption].
+207 -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Oupper__semilattice__class_Osup(B,C,A),D,A) = c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A) # label(cls_inf__sup__aci_I6_J_0) # label(axiom).  [assumption].
+208 -class_Lattices_Olattice(A) | c_Lattices_Olower__semilattice__class_Oinf(B,C,A) = c_Lattices_Olower__semilattice__class_Oinf(C,B,A) # label(cls_inf__sup__aci_I1_J_0) # label(axiom).  [assumption].
+209 -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,C,A) = c_Lattices_Oupper__semilattice__class_Osup(C,B,A) # label(cls_inf__sup__aci_I5_J_0) # label(axiom).  [assumption].
+210 -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Oupper__semilattice__class_Osup(B,C,A),A) = c_Lattices_Oupper__semilattice__class_Osup(B,C,A) # label(cls_inf__sup__aci_I8_J_0) # label(axiom).  [assumption].
+211 -class_Lattices_Olattice(A) | c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),c_Lattices_Olower__semilattice__class_Oinf(B,D,A),A),c_Lattices_Olower__semilattice__class_Oinf(B,c_Lattices_Oupper__semilattice__class_Osup(C,D,A),A),A) # label(cls_distrib__inf__le_0) # label(axiom).  [assumption].
+212 -class_Lattices_Olattice(A) | c_Lattices_Oupper__semilattice__class_Osup(B,c_Lattices_Olower__semilattice__class_Oinf(B,C,A),A) = B # label(cls_sup__inf__absorb_0) # label(axiom).  [assumption].
+213 -class_Lattices_Olattice(A) | c_Lattices_Olower__semilattice__class_Oinf(B,c_Lattices_Olower__semilattice__class_Oinf(B,C,A),A) = c_Lattices_Olower__semilattice__class_Oinf(B,C,A) # label(cls_inf__sup__aci_I4_J_0) # label(axiom).  [assumption].
+214 -class_Lattices_Olattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(C,B,A),A) # label(cls_inf__sup__ord_I4_J_0) # label(axiom).  [assumption].
+215 -class_Lattices_Olattice(A) | c_lessequals(B,c_Lattices_Oupper__semilattice__class_Osup(B,C,A),A) # label(cls_inf__sup__ord_I3_J_0) # label(axiom).  [assumption].
+216 -class_Lattices_Olattice(A) | c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),C,A) # label(cls_inf__sup__ord_I2_J_0) # label(axiom).  [assumption].
+217 -class_Lattices_Olattice(A) | c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),B,A) # label(cls_inf__sup__ord_I1_J_0) # label(axiom).  [assumption].
+Derived: c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Lattices_Olower__semilattice__class_Oinf(A,c_Lattices_Olower__semilattice__class_Oinf(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(201,a,202,a)].
+Derived: c_Lattices_Olower__semilattice__class_Oinf(A,c_Lattices_Olower__semilattice__class_Oinf(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Lattices_Olower__semilattice__class_Oinf(B,c_Lattices_Olower__semilattice__class_Oinf(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(201,a,203,a)].
+Derived: c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(A,c_Lattices_Olower__semilattice__class_Oinf(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal),c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal),c_Lattices_Oupper__semilattice__class_Osup(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(201,a,204,a)].
+Derived: c_Lattices_Olower__semilattice__class_Oinf(A,c_Lattices_Oupper__semilattice__class_Osup(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = A.  [resolve(201,a,205,a)].
+Derived: c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal) = c_Lattices_Olower__semilattice__class_Oinf(B,A,tc_RealDef_Oreal).  [resolve(201,a,208,a)].
+Derived: c_lessequals(c_Lattices_Oupper__semilattice__class_Osup(c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),c_Lattices_Olower__semilattice__class_Oinf(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal),c_Lattices_Olower__semilattice__class_Oinf(A,c_Lattices_Oupper__semilattice__class_Osup(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(201,a,211,a)].
+Derived: c_Lattices_Oupper__semilattice__class_Osup(A,c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = A.  [resolve(201,a,212,a)].
+Derived: c_Lattices_Olower__semilattice__class_Oinf(A,c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal).  [resolve(201,a,213,a)].
+Derived: c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(201,a,216,a)].
+Derived: c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),A,tc_RealDef_Oreal).  [resolve(201,a,217,a)].
+
+Eliminating class_Lattices_Olower__semilattice/1
+218 class_Lattices_Olower__semilattice(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Lattices_Olower__semilattice) # label(axiom).  [assumption].
+219 -class_Lattices_Olower__semilattice(A) | c_Lattices_Olower__semilattice__class_Oinf(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),D,A) = c_Lattices_Olower__semilattice__class_Oinf(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) # label(cls_inf__assoc_0) # label(axiom).  [assumption].
+220 -class_Lattices_Olower__semilattice(A) | c_Lattices_Olower__semilattice__class_Oinf(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) = c_Lattices_Olower__semilattice__class_Oinf(C,c_Lattices_Olower__semilattice__class_Oinf(B,D,A),A) # label(cls_inf__left__commute_0) # label(axiom).  [assumption].
+221 -class_Lattices_Olower__semilattice(A) | c_Lattices_Olower__semilattice__class_Oinf(B,C,A) = c_Lattices_Olower__semilattice__class_Oinf(C,B,A) # label(cls_inf__commute_0) # label(axiom).  [assumption].
+222 -class_Lattices_Olower__semilattice(A) | c_HOL_Oord__class_Oless(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),D,A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_less__infI1_0) # label(axiom).  [assumption].
+223 -class_Lattices_Olower__semilattice(A) | c_HOL_Oord__class_Oless(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),D,A) | -c_HOL_Oord__class_Oless(C,D,A) # label(cls_less__infI2_0) # label(axiom).  [assumption].
+224 -class_Lattices_Olower__semilattice(A) | c_Lattices_Olower__semilattice__class_Oinf(B,c_Lattices_Olower__semilattice__class_Oinf(B,C,A),A) = c_Lattices_Olower__semilattice__class_Oinf(B,C,A) # label(cls_inf__left__idem_0) # label(axiom).  [assumption].
+225 -class_Lattices_Olower__semilattice(A) | c_Lattices_Olower__semilattice__class_Oinf(B,B,A) = B # label(cls_inf__idem_0) # label(axiom).  [assumption].
+226 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(B,c_Lattices_Olower__semilattice__class_Oinf(D,C,A),A) # label(cls_le__inf__iff_1) # label(axiom).  [assumption].
+227 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) # label(cls_le__inf__iff_0) # label(axiom).  [assumption].
+228 -class_Lattices_Olower__semilattice(A) | c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),D,A) | -c_lessequals(C,D,A) # label(cls_le__infI2_0) # label(axiom).  [assumption].
+229 -class_Lattices_Olower__semilattice(A) | c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),D,A) | -c_lessequals(B,D,A) # label(cls_le__infI1_0) # label(axiom).  [assumption].
+230 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(B,c_Lattices_Olower__semilattice__class_Oinf(D,C,A),A) # label(cls_le__infE_1) # label(axiom).  [assumption].
+231 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,C,A) | -c_lessequals(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) # label(cls_le__infE_0) # label(axiom).  [assumption].
+232 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) | -c_lessequals(B,D,A) | -c_lessequals(B,C,A) # label(cls_inf__greatest_0) # label(axiom).  [assumption].
+233 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) | -c_lessequals(B,D,A) | -c_lessequals(B,C,A) # label(cls_le__inf__iff_2) # label(axiom).  [assumption].
+234 -class_Lattices_Olower__semilattice(A) | c_lessequals(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) | -c_lessequals(B,D,A) | -c_lessequals(B,C,A) # label(cls_le__infI_0) # label(axiom).  [assumption].
+235 -class_Lattices_Olower__semilattice(A) | c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),C,A) # label(cls_inf__le2_0) # label(axiom).  [assumption].
+236 -class_Lattices_Olower__semilattice(A) | c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),B,A) # label(cls_inf__le1_0) # label(axiom).  [assumption].
+237 -class_Lattices_Olower__semilattice(A) | c_Lattices_Olower__semilattice__class_Oinf(B,C,A) = C | -c_lessequals(C,B,A) # label(cls_inf__absorb2_0) # label(axiom).  [assumption].
+238 -class_Lattices_Olower__semilattice(A) | c_Lattices_Olower__semilattice__class_Oinf(B,C,A) != B | c_lessequals(B,C,A) # label(cls_le__iff__inf_1) # label(axiom).  [assumption].
+239 -class_Lattices_Olower__semilattice(A) | c_Lattices_Olower__semilattice__class_Oinf(B,C,A) = B | -c_lessequals(B,C,A) # label(cls_le__iff__inf_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oord__class_Oless(c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,C,tc_RealDef_Oreal).  [resolve(218,a,222,a)].
+Derived: c_HOL_Oord__class_Oless(c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(B,C,tc_RealDef_Oreal).  [resolve(218,a,223,a)].
+Derived: c_Lattices_Olower__semilattice__class_Oinf(A,A,tc_RealDef_Oreal) = A.  [resolve(218,a,225,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(A,c_Lattices_Olower__semilattice__class_Oinf(C,B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(218,a,226,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(A,c_Lattices_Olower__semilattice__class_Oinf(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(218,a,227,a)].
+Derived: c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_lessequals(B,C,tc_RealDef_Oreal).  [resolve(218,a,228,a)].
+Derived: c_lessequals(c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal).  [resolve(218,a,229,a)].
+Derived: c_lessequals(A,c_Lattices_Olower__semilattice__class_Oinf(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal) | -c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(218,a,232,a)].
+Derived: c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal) = B | -c_lessequals(B,A,tc_RealDef_Oreal).  [resolve(218,a,237,a)].
+Derived: c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal) != A | c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(218,a,238,a)].
+Derived: c_Lattices_Olower__semilattice__class_Oinf(A,B,tc_RealDef_Oreal) = A | -c_lessequals(A,B,tc_RealDef_Oreal).  [resolve(218,a,239,a)].
+
+Eliminating class_OrderedGroup_Opordered__ab__group__add/1
+240 class_OrderedGroup_Opordered__ab__group__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Opordered__ab__group__add) # label(axiom).  [assumption].
+241 -class_OrderedGroup_Opordered__ab__group__add(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(C,A),c_HOL_Ouminus__class_Ouminus(B,A),A) # label(cls_neg__less__iff__less_0) # label(axiom).  [assumption].
+242 -class_OrderedGroup_Opordered__ab__group__add(A) | c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(B,A),c_HOL_Ouminus__class_Ouminus(C,A),A) | -c_HOL_Oord__class_Oless(C,B,A) # label(cls_neg__less__iff__less_1) # label(axiom).  [assumption].
+243 -class_OrderedGroup_Opordered__ab__group__add(A) | c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(B,A),C,A) | -c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(C,A),B,A) # label(cls_minus__less__iff_1) # label(axiom).  [assumption].
+244 -class_OrderedGroup_Opordered__ab__group__add(A) | c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(B,A),C,A) | -c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(C,A),B,A) # label(cls_minus__less__iff_0) # label(axiom).  [assumption].
+245 -class_OrderedGroup_Opordered__ab__group__add(A) | c_HOL_Oord__class_Oless(B,c_HOL_Ouminus__class_Ouminus(C,A),A) | -c_HOL_Oord__class_Oless(C,c_HOL_Ouminus__class_Ouminus(B,A),A) # label(cls_less__minus__iff_1) # label(axiom).  [assumption].
+246 -class_OrderedGroup_Opordered__ab__group__add(A) | c_HOL_Oord__class_Oless(B,c_HOL_Ouminus__class_Ouminus(C,A),A) | -c_HOL_Oord__class_Oless(C,c_HOL_Ouminus__class_Ouminus(B,A),A) # label(cls_less__minus__iff_0) # label(axiom).  [assumption].
+247 -class_OrderedGroup_Opordered__ab__group__add(A) | c_lessequals(B,c_HOL_Oplus__class_Oplus(C,D,A),A) | -c_lessequals(E,D,A) | -c_lessequals(B,c_HOL_Oplus__class_Oplus(C,E,A),A) # label(cls_le__add__right__mono_0) # label(axiom).  [assumption].
+248 -class_OrderedGroup_Opordered__ab__group__add(A) | c_HOL_Ominus__class_Ominus(B,C,A) != c_HOL_Ominus__class_Ominus(D,E,A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(D,E,A) # label(cls_less__eqI_1) # label(axiom).  [assumption].
+249 -class_OrderedGroup_Opordered__ab__group__add(A) | c_HOL_Ominus__class_Ominus(B,C,A) != c_HOL_Ominus__class_Ominus(D,E,A) | c_HOL_Oord__class_Oless(D,E,A) | -c_HOL_Oord__class_Oless(B,C,A) # label(cls_less__eqI_0) # label(axiom).  [assumption].
+250 -class_OrderedGroup_Opordered__ab__group__add(A) | c_HOL_Ominus__class_Ominus(c_Orderings_Oord__class_Omax(B,C,A),D,A) = c_Orderings_Oord__class_Omax(c_HOL_Ominus__class_Ominus(B,D,A),c_HOL_Ominus__class_Ominus(C,D,A),A) # label(cls_max__diff__distrib__left_0) # label(axiom).  [assumption].
+251 -class_OrderedGroup_Opordered__ab__group__add(A) | c_HOL_Ominus__class_Ominus(c_Orderings_Oord__class_Omin(B,C,A),D,A) = c_Orderings_Oord__class_Omin(c_HOL_Ominus__class_Ominus(B,D,A),c_HOL_Ominus__class_Ominus(C,D,A),A) # label(cls_min__diff__distrib__left_0) # label(axiom).  [assumption].
+252 -class_OrderedGroup_Opordered__ab__group__add(A) | c_HOL_Ominus__class_Ominus(B,C,A) != c_HOL_Ominus__class_Ominus(D,E,A) | c_lessequals(E,D,A) | -c_lessequals(C,B,A) # label(cls_le__eqI_0) # label(axiom).  [assumption].
+253 -class_OrderedGroup_Opordered__ab__group__add(A) | c_HOL_Ominus__class_Ominus(B,C,A) != c_HOL_Ominus__class_Ominus(D,E,A) | c_lessequals(C,B,A) | -c_lessequals(E,D,A) # label(cls_le__eqI_1) # label(axiom).  [assumption].
+254 -class_OrderedGroup_Opordered__ab__group__add(A) | c_lessequals(B,C,A) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(C,A),c_HOL_Ouminus__class_Ouminus(B,A),A) # label(cls_neg__le__iff__le_0) # label(axiom).  [assumption].
+255 -class_OrderedGroup_Opordered__ab__group__add(A) | c_lessequals(c_HOL_Ouminus__class_Ouminus(B,A),c_HOL_Ouminus__class_Ouminus(C,A),A) | -c_lessequals(C,B,A) # label(cls_le__imp__neg__le_0) # label(axiom).  [assumption].
+256 -class_OrderedGroup_Opordered__ab__group__add(A) | c_lessequals(c_HOL_Ouminus__class_Ouminus(B,A),C,A) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(C,A),B,A) # label(cls_minus__le__iff_1) # label(axiom).  [assumption].
+257 -class_OrderedGroup_Opordered__ab__group__add(A) | c_lessequals(c_HOL_Ouminus__class_Ouminus(B,A),C,A) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(C,A),B,A) # label(cls_minus__le__iff_0) # label(axiom).  [assumption].
+258 -class_OrderedGroup_Opordered__ab__group__add(A) | c_lessequals(B,c_HOL_Ouminus__class_Ouminus(C,A),A) | -c_lessequals(C,c_HOL_Ouminus__class_Ouminus(B,A),A) # label(cls_le__minus__iff_1) # label(axiom).  [assumption].
+259 -class_OrderedGroup_Opordered__ab__group__add(A) | c_lessequals(B,c_HOL_Ouminus__class_Ouminus(C,A),A) | -c_lessequals(C,c_HOL_Ouminus__class_Ouminus(B,A),A) # label(cls_le__minus__iff_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(240,a,241,a)].
+Derived: c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(B,A,tc_RealDef_Oreal).  [resolve(240,a,242,a)].
+Derived: c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),A,tc_RealDef_Oreal).  [resolve(240,a,243,a)].
+Derived: c_HOL_Oord__class_Oless(A,c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(B,c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(240,a,245,a)].
+Derived: c_lessequals(A,c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(D,C,tc_RealDef_Oreal) | -c_lessequals(A,c_HOL_Oplus__class_Oplus(B,D,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(240,a,247,a)].
+Derived: c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal) != c_HOL_Ominus__class_Ominus(C,D,tc_RealDef_Oreal) | c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(C,D,tc_RealDef_Oreal).  [resolve(240,a,248,a)].
+Derived: c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal) != c_HOL_Ominus__class_Ominus(C,D,tc_RealDef_Oreal) | c_HOL_Oord__class_Oless(C,D,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal).  [resolve(240,a,249,a)].
+Derived: c_HOL_Ominus__class_Ominus(c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Orderings_Oord__class_Omax(c_HOL_Ominus__class_Ominus(A,C,tc_RealDef_Oreal),c_HOL_Ominus__class_Ominus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(240,a,250,a)].
+Derived: c_HOL_Ominus__class_Ominus(c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Orderings_Oord__class_Omin(c_HOL_Ominus__class_Ominus(A,C,tc_RealDef_Oreal),c_HOL_Ominus__class_Ominus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(240,a,251,a)].
+Derived: c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal) != c_HOL_Ominus__class_Ominus(C,D,tc_RealDef_Oreal) | c_lessequals(D,C,tc_RealDef_Oreal) | -c_lessequals(B,A,tc_RealDef_Oreal).  [resolve(240,a,252,a)].
+Derived: c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal) != c_HOL_Ominus__class_Ominus(C,D,tc_RealDef_Oreal) | c_lessequals(B,A,tc_RealDef_Oreal) | -c_lessequals(D,C,tc_RealDef_Oreal).  [resolve(240,a,253,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(240,a,254,a)].
+Derived: c_lessequals(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(B,A,tc_RealDef_Oreal).  [resolve(240,a,255,a)].
+Derived: c_lessequals(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),B,tc_RealDef_Oreal) | -c_lessequals(c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),A,tc_RealDef_Oreal).  [resolve(240,a,256,a)].
+Derived: c_lessequals(A,c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(B,c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(240,a,258,a)].
+
+Eliminating class_OrderedGroup_Olordered__ab__group__add__abs/1
+260 class_OrderedGroup_Olordered__ab__group__add__abs(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Olordered__ab__group__add__abs) # label(axiom).  [assumption].
+261 -class_OrderedGroup_Olordered__ab__group__add__abs(A) | c_HOL_Oabs__class_Oabs(B,A) = c_Lattices_Oupper__semilattice__class_Osup(B,c_HOL_Ouminus__class_Ouminus(B,A),A) # label(cls_abs__lattice_0) # label(axiom).  [assumption].
+262 -class_OrderedGroup_Olordered__ab__group__add__abs(A) | c_lessequals(B,c_HOL_Oplus__class_Oplus(C,c_HOL_Oabs__class_Oabs(D,A),A),A) | -c_lessequals(c_HOL_Oplus__class_Oplus(B,D,A),C,A) # label(cls_estimate__by__abs_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oabs__class_Oabs(A,tc_RealDef_Oreal) = c_Lattices_Oupper__semilattice__class_Osup(A,c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(260,a,261,a)].
+Derived: c_lessequals(A,c_HOL_Oplus__class_Oplus(B,c_HOL_Oabs__class_Oabs(C,tc_RealDef_Oreal),tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(260,a,262,a)].
+
+Eliminating class_Lattices_Oboolean__algebra/1
+
+Eliminating class_OrderedGroup_Ocomm__monoid__add/1
+263 class_OrderedGroup_Ocomm__monoid__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Ocomm__monoid__add) # label(axiom).  [assumption].
+264 -class_OrderedGroup_Ocomm__monoid__add(A) | c_HOL_Oplus__class_Oplus(B,c_HOL_Oplus__class_Oplus(C,D,A),A) = c_HOL_Oplus__class_Oplus(C,c_HOL_Oplus__class_Oplus(B,D,A),A) # label(cls_comm__monoid__add_Omult__left__commute_0) # label(axiom).  [assumption].
+265 -class_OrderedGroup_Ocomm__monoid__add(A) | c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(B,C,A),D,A) = c_HOL_Oplus__class_Oplus(B,c_HOL_Oplus__class_Oplus(C,D,A),A) # label(cls_comm__monoid__add_Omult__assoc_0) # label(axiom).  [assumption].
+266 -class_OrderedGroup_Ocomm__monoid__add(A) | c_HOL_Oplus__class_Oplus(B,C,A) = c_HOL_Oplus__class_Oplus(C,B,A) # label(cls_comm__monoid__add_Omult__commute_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oplus__class_Oplus(A,c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(B,c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(263,a,264,a)].
+Derived: c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(A,c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(263,a,265,a)].
+Derived: c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(B,A,tc_RealDef_Oreal).  [resolve(263,a,266,a)].
+
+Eliminating class_Ring__and__Field_Ocomm__semiring__1/1
+267 class_Ring__and__Field_Ocomm__semiring__1(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Ring__and__Field_Ocomm__semiring__1) # label(axiom).  [assumption].
+268 -class_Ring__and__Field_Ocomm__semiring__1(A) | c_HOL_Oplus__class_Oplus(B,c_HOL_Oplus__class_Oplus(C,D,A),A) = c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(B,C,A),D,A) # label(cls_class__semiring_Oadd__a_0) # label(axiom).  [assumption].
+269 -class_Ring__and__Field_Ocomm__semiring__1(A) | c_HOL_Oplus__class_Oplus(B,c_HOL_Oplus__class_Oplus(C,D,A),A) = c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(B,C,A),D,A) # label(cls_class__semiring_Osemiring__rules_I25_J_0) # label(axiom).  [assumption].
+270 -class_Ring__and__Field_Ocomm__semiring__1(A) | c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(B,C,A),D,A) = c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(B,D,A),C,A) # label(cls_class__semiring_Osemiring__rules_I23_J_0) # label(axiom).  [assumption].
+271 -class_Ring__and__Field_Ocomm__semiring__1(A) | c_HOL_Oplus__class_Oplus(B,c_HOL_Oplus__class_Oplus(C,D,A),A) = c_HOL_Oplus__class_Oplus(C,c_HOL_Oplus__class_Oplus(B,D,A),A) # label(cls_class__semiring_Osemiring__rules_I22_J_0) # label(axiom).  [assumption].
+272 -class_Ring__and__Field_Ocomm__semiring__1(A) | c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(B,C,A),D,A) = c_HOL_Oplus__class_Oplus(B,c_HOL_Oplus__class_Oplus(C,D,A),A) # label(cls_class__semiring_Osemiring__rules_I21_J_0) # label(axiom).  [assumption].
+273 -class_Ring__and__Field_Ocomm__semiring__1(A) | c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(D,E,A),A) = c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(B,D,A),c_HOL_Oplus__class_Oplus(C,E,A),A) # label(cls_class__semiring_Osemiring__rules_I20_J_0) # label(axiom).  [assumption].
+274 -class_Ring__and__Field_Ocomm__semiring__1(A) | c_HOL_Oplus__class_Oplus(B,C,A) = c_HOL_Oplus__class_Oplus(C,B,A) # label(cls_class__semiring_Osemiring__rules_I24_J_0) # label(axiom).  [assumption].
+275 -class_Ring__and__Field_Ocomm__semiring__1(A) | c_HOL_Oplus__class_Oplus(B,C,A) = c_HOL_Oplus__class_Oplus(C,B,A) # label(cls_class__semiring_Oadd__c_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oplus__class_Oplus(A,c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal).  [resolve(267,a,268,a)].
+Derived: c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),B,tc_RealDef_Oreal).  [resolve(267,a,270,a)].
+Derived: c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,D,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(B,D,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(267,a,273,a)].
+
+Eliminating class_OrderedGroup_Oab__group__add/1
+276 class_OrderedGroup_Oab__group__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Oab__group__add) # label(axiom).  [assumption].
+277 -class_OrderedGroup_Oab__group__add(A) | c_HOL_Oplus__class_Oplus(B,c_HOL_Oplus__class_Oplus(C,D,A),A) = c_HOL_Oplus__class_Oplus(C,c_HOL_Oplus__class_Oplus(B,D,A),A) # label(cls_add__cancel__21_1) # label(axiom).  [assumption].
+278 -class_OrderedGroup_Oab__group__add(A) | c_HOL_Ominus__class_Ominus(B,B,A) != c_HOL_Ominus__class_Ominus(C,D,A) | C = D # label(cls_eq__eqI_0) # label(axiom).  [assumption].
+279 -class_OrderedGroup_Oab__group__add(A) | c_HOL_Ominus__class_Ominus(B,C,A) != c_HOL_Ominus__class_Ominus(D,D,A) | B = C # label(cls_eq__eqI_1) # label(axiom).  [assumption].
+280 -class_OrderedGroup_Oab__group__add(A) | c_HOL_Ominus__class_Ominus(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(D,E,A),A) = c_HOL_Oplus__class_Oplus(c_HOL_Ominus__class_Ominus(B,D,A),c_HOL_Ominus__class_Ominus(C,E,A),A) # label(cls_Deriv_Oadd__diff__add_0) # label(axiom).  [assumption].
+281 -class_OrderedGroup_Oab__group__add(A) | c_HOL_Oplus__class_Oplus(B,c_HOL_Oplus__class_Oplus(C,D,A),A) != C | B = c_HOL_Ouminus__class_Ouminus(D,A) # label(cls_add__cancel__end_0) # label(axiom).  [assumption].
+282 -class_OrderedGroup_Oab__group__add(A) | c_HOL_Ouminus__class_Ouminus(c_HOL_Ominus__class_Ominus(B,C,A),A) = c_HOL_Ominus__class_Ominus(C,B,A) # label(cls_minus__diff__eq_0) # label(axiom).  [assumption].
+283 -class_OrderedGroup_Oab__group__add(A) | c_HOL_Ominus__class_Ominus(B,C,A) = c_HOL_Oplus__class_Oplus(B,c_HOL_Ouminus__class_Ouminus(C,A),A) # label(cls_diff__def_0) # label(axiom).  [assumption].
+284 -class_OrderedGroup_Oab__group__add(A) | c_HOL_Ominus__class_Ominus(B,C,A) = c_HOL_Oplus__class_Oplus(B,c_HOL_Ouminus__class_Ouminus(C,A),A) # label(cls_ab__diff__minus_0) # label(axiom).  [assumption].
+285 -class_OrderedGroup_Oab__group__add(A) | c_HOL_Oplus__class_Oplus(B,c_HOL_Oplus__class_Oplus(C,D,A),A) != c_HOL_Oplus__class_Oplus(C,E,A) | c_HOL_Oplus__class_Oplus(B,D,A) = E # label(cls_add__cancel__21_0) # label(axiom).  [assumption].
+286 -class_OrderedGroup_Oab__group__add(A) | c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(B,A),c_HOL_Oplus__class_Oplus(C,B,A),A) = C # label(cls_add__cancel__end_1) # label(axiom).  [assumption].
+287 -class_OrderedGroup_Oab__group__add(A) | c_HOL_Ominus__class_Ominus(c_HOL_Ouminus__class_Ouminus(B,A),c_HOL_Ouminus__class_Ouminus(C,A),A) = c_HOL_Ouminus__class_Ouminus(c_HOL_Ominus__class_Ominus(B,C,A),A) # label(cls_Lim_Ominus__diff__minus_0) # label(axiom).  [assumption].
+288 -class_OrderedGroup_Oab__group__add(A) | c_HOL_Ouminus__class_Ouminus(c_HOL_Oplus__class_Oplus(B,C,A),A) = c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(B,A),c_HOL_Ouminus__class_Ouminus(C,A),A) # label(cls_minus__add__distrib_0) # label(axiom).  [assumption].
+Derived: c_HOL_Ominus__class_Ominus(A,A,tc_RealDef_Oreal) != c_HOL_Ominus__class_Ominus(B,C,tc_RealDef_Oreal) | B = C.  [resolve(276,a,278,a)].
+Derived: c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal) != c_HOL_Ominus__class_Ominus(C,C,tc_RealDef_Oreal) | A = B.  [resolve(276,a,279,a)].
+Derived: c_HOL_Ominus__class_Ominus(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,D,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(c_HOL_Ominus__class_Ominus(A,C,tc_RealDef_Oreal),c_HOL_Ominus__class_Ominus(B,D,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(276,a,280,a)].
+Derived: c_HOL_Oplus__class_Oplus(A,c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) != B | A = c_HOL_Ouminus__class_Ouminus(C,tc_RealDef_Oreal).  [resolve(276,a,281,a)].
+Derived: c_HOL_Ouminus__class_Ouminus(c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Ominus__class_Ominus(B,A,tc_RealDef_Oreal).  [resolve(276,a,282,a)].
+Derived: c_HOL_Oplus__class_Oplus(A,c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal) != c_HOL_Oplus__class_Oplus(B,D,tc_RealDef_Oreal) | c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal) = D.  [resolve(276,a,285,a)].
+Derived: c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(B,A,tc_RealDef_Oreal),tc_RealDef_Oreal) = B.  [resolve(276,a,286,a)].
+Derived: c_HOL_Ominus__class_Ominus(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Ouminus__class_Ouminus(c_HOL_Ominus__class_Ominus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(276,a,287,a)].
+Derived: c_HOL_Ouminus__class_Ouminus(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),tc_RealDef_Oreal) = c_HOL_Oplus__class_Oplus(c_HOL_Ouminus__class_Ouminus(A,tc_RealDef_Oreal),c_HOL_Ouminus__class_Ouminus(B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(276,a,288,a)].
+
+Eliminating class_OrderedGroup_Oab__semigroup__add/1
+289 class_OrderedGroup_Oab__semigroup__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Oab__semigroup__add) # label(axiom).  [assumption].
+290 -class_OrderedGroup_Oab__semigroup__add(A) | c_HOL_Oplus__class_Oplus(c_HOL_Oplus__class_Oplus(B,C,A),D,A) = c_HOL_Oplus__class_Oplus(B,c_HOL_Oplus__class_Oplus(C,D,A),A) # label(cls_ab__semigroup__add__class_Oadd__ac_I1_J_0) # label(axiom).  [assumption].
+
+Eliminating class_OrderedGroup_Opordered__cancel__ab__semigroup__add/1
+291 class_OrderedGroup_Opordered__cancel__ab__semigroup__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Opordered__cancel__ab__semigroup__add) # label(axiom).  [assumption].
+292 -class_OrderedGroup_Opordered__cancel__ab__semigroup__add(A) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(D,E,A),A) | -c_lessequals(C,E,A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_add__less__le__mono_0) # label(axiom).  [assumption].
+293 -class_OrderedGroup_Opordered__cancel__ab__semigroup__add(A) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(D,E,A),A) | -c_HOL_Oord__class_Oless(C,E,A) | -c_lessequals(B,D,A) # label(cls_add__le__less__mono_0) # label(axiom).  [assumption].
+294 -class_OrderedGroup_Opordered__cancel__ab__semigroup__add(A) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(D,E,A),A) | -c_HOL_Oord__class_Oless(C,E,A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_add__strict__mono_0) # label(axiom).  [assumption].
+295 -class_OrderedGroup_Opordered__cancel__ab__semigroup__add(A) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(B,D,A),A) | -c_HOL_Oord__class_Oless(C,D,A) # label(cls_add__strict__left__mono_0) # label(axiom).  [assumption].
+296 -class_OrderedGroup_Opordered__cancel__ab__semigroup__add(A) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(D,C,A),A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_add__strict__right__mono_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,D,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(B,D,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,C,tc_RealDef_Oreal).  [resolve(291,a,292,a)].
+Derived: c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,D,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(B,D,tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal).  [resolve(291,a,293,a)].
+Derived: c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,D,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(B,D,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,C,tc_RealDef_Oreal).  [resolve(291,a,294,a)].
+Derived: c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(B,C,tc_RealDef_Oreal).  [resolve(291,a,295,a)].
+Derived: c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,B,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(A,C,tc_RealDef_Oreal).  [resolve(291,a,296,a)].
+
+Eliminating class_OrderedGroup_Opordered__ab__semigroup__add/1
+297 class_OrderedGroup_Opordered__ab__semigroup__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Opordered__ab__semigroup__add) # label(axiom).  [assumption].
+298 -class_OrderedGroup_Opordered__ab__semigroup__add(A) | c_lessequals(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(D,E,A),A) | -c_lessequals(C,E,A) | -c_lessequals(B,D,A) # label(cls_add__mono_0) # label(axiom).  [assumption].
+299 -class_OrderedGroup_Opordered__ab__semigroup__add(A) | c_lessequals(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(D,C,A),A) | -c_lessequals(B,D,A) # label(cls_add__right__mono_0) # label(axiom).  [assumption].
+300 -class_OrderedGroup_Opordered__ab__semigroup__add(A) | c_lessequals(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(B,D,A),A) | -c_lessequals(C,D,A) # label(cls_add__left__mono_0) # label(axiom).  [assumption].
+Derived: c_lessequals(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,D,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(B,D,tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal).  [resolve(297,a,298,a)].
+Derived: c_lessequals(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,B,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(A,C,tc_RealDef_Oreal).  [resolve(297,a,299,a)].
+Derived: c_lessequals(c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),tc_RealDef_Oreal) | -c_lessequals(B,C,tc_RealDef_Oreal).  [resolve(297,a,300,a)].
+
+Eliminating class_OrderedGroup_Opordered__ab__semigroup__add__imp__le/1
+301 class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Opordered__ab__semigroup__add__imp__le) # label(axiom).  [assumption].
+302 -class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(A) | c_HOL_Oplus__class_Oplus(c_Orderings_Oord__class_Omax(B,C,A),D,A) = c_Orderings_Oord__class_Omax(c_HOL_Oplus__class_Oplus(B,D,A),c_HOL_Oplus__class_Oplus(C,D,A),A) # label(cls_max__add__distrib__left_0) # label(axiom).  [assumption].
+303 -class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(A) | c_HOL_Oplus__class_Oplus(c_Orderings_Oord__class_Omin(B,C,A),D,A) = c_Orderings_Oord__class_Omin(c_HOL_Oplus__class_Oplus(B,D,A),c_HOL_Oplus__class_Oplus(C,D,A),A) # label(cls_min__add__distrib__left_0) # label(axiom).  [assumption].
+304 -class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(D,B,A),c_HOL_Oplus__class_Oplus(D,C,A),A) # label(cls_add__less__cancel__left_0) # label(axiom).  [assumption].
+305 -class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(A) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(B,D,A),A) | -c_HOL_Oord__class_Oless(C,D,A) # label(cls_add__less__cancel__left_1) # label(axiom).  [assumption].
+306 -class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(B,D,A),c_HOL_Oplus__class_Oplus(C,D,A),A) # label(cls_add__less__cancel__right_0) # label(axiom).  [assumption].
+307 -class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(A) | c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(D,C,A),A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_add__less__cancel__right_1) # label(axiom).  [assumption].
+308 -class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(A) | c_lessequals(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(D,C,A),A) | -c_lessequals(B,D,A) # label(cls_add__le__cancel__right_1) # label(axiom).  [assumption].
+309 -class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(A) | c_lessequals(B,C,A) | -c_lessequals(c_HOL_Oplus__class_Oplus(B,D,A),c_HOL_Oplus__class_Oplus(C,D,A),A) # label(cls_add__le__cancel__right_0) # label(axiom).  [assumption].
+310 -class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(A) | c_lessequals(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(B,D,A),A) | -c_lessequals(C,D,A) # label(cls_add__le__cancel__left_1) # label(axiom).  [assumption].
+311 -class_OrderedGroup_Opordered__ab__semigroup__add__imp__le(A) | c_lessequals(B,C,A) | -c_lessequals(c_HOL_Oplus__class_Oplus(D,B,A),c_HOL_Oplus__class_Oplus(D,C,A),A) # label(cls_add__le__cancel__left_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oplus__class_Oplus(c_Orderings_Oord__class_Omax(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Orderings_Oord__class_Omax(c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(301,a,302,a)].
+Derived: c_HOL_Oplus__class_Oplus(c_Orderings_Oord__class_Omin(A,B,tc_RealDef_Oreal),C,tc_RealDef_Oreal) = c_Orderings_Oord__class_Omin(c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(301,a,303,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(C,A,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(301,a,304,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(301,a,306,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(B,C,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(301,a,309,a)].
+Derived: c_lessequals(A,B,tc_RealDef_Oreal) | -c_lessequals(c_HOL_Oplus__class_Oplus(C,A,tc_RealDef_Oreal),c_HOL_Oplus__class_Oplus(C,B,tc_RealDef_Oreal),tc_RealDef_Oreal).  [resolve(301,a,311,a)].
+
+Eliminating class_Int_Onumber__ring/1
+312 class_Int_Onumber__ring(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Int_Onumber__ring) # label(axiom).  [assumption].
+313 -class_Int_Onumber__ring(A) | c_HOL_Ominus__class_Ominus(B,C,A) = c_HOL_Oplus__class_Oplus(B,c_HOL_Ouminus__class_Ouminus(C,A),A) # label(cls_class__ring_Osub__add_0) # label(axiom).  [assumption].
+314 -class_Ring__and__Field_Oidom(A) | -class_Int_Onumber__ring(A) | c_HOL_Oplus__class_Oplus(B,C,A) != c_HOL_Oplus__class_Oplus(B,D,A) | C = D # label(cls_class__ringb_Oadd__cancel_0) # label(axiom).  [assumption].
+Derived: -class_Ring__and__Field_Oidom(tc_RealDef_Oreal) | c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal) != c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal) | B = C.  [resolve(312,a,314,b)].
+
+Eliminating class_OrderedGroup_Ocancel__ab__semigroup__add/1
+315 class_OrderedGroup_Ocancel__ab__semigroup__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Ocancel__ab__semigroup__add) # label(axiom).  [assumption].
+316 -class_OrderedGroup_Ocancel__ab__semigroup__add(A) | c_HOL_Oplus__class_Oplus(B,C,A) != c_HOL_Oplus__class_Oplus(B,D,A) | C = D # label(cls_add__imp__eq_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal) != c_HOL_Oplus__class_Oplus(A,C,tc_RealDef_Oreal) | B = C.  [resolve(315,a,316,a)].
+
+Eliminating class_OrderedGroup_Ocancel__semigroup__add/1
+317 class_OrderedGroup_Ocancel__semigroup__add(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Ocancel__semigroup__add) # label(axiom).  [assumption].
+318 -class_OrderedGroup_Ocancel__semigroup__add(A) | c_HOL_Oplus__class_Oplus(B,C,A) != c_HOL_Oplus__class_Oplus(B,D,A) | C = D # label(cls_add__left__cancel_0) # label(axiom).  [assumption].
+319 -class_OrderedGroup_Ocancel__semigroup__add(A) | c_HOL_Oplus__class_Oplus(B,C,A) != c_HOL_Oplus__class_Oplus(D,C,A) | B = D # label(cls_add__right__cancel_0) # label(axiom).  [assumption].
+Derived: c_HOL_Oplus__class_Oplus(A,B,tc_RealDef_Oreal) != c_HOL_Oplus__class_Oplus(C,B,tc_RealDef_Oreal) | A = C.  [resolve(317,a,319,a)].
+
+Eliminating class_OrderedGroup_Olordered__ab__group__add__meet/1
+320 class_OrderedGroup_Olordered__ab__group__add__meet(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__OrderedGroup_Olordered__ab__group__add__meet) # label(axiom).  [assumption].
+321 -class_OrderedGroup_Olordered__ab__group__add__meet(A) | c_HOL_Oplus__class_Oplus(B,c_Lattices_Olower__semilattice__class_Oinf(C,D,A),A) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Oplus__class_Oplus(B,C,A),c_HOL_Oplus__class_Oplus(B,D,A),A) # label(cls_add__inf__distrib__left_0) # label(axiom).  [assumption].
+322 -class_OrderedGroup_Olordered__ab__group__add__meet(A) | c_HOL_Oplus__class_Oplus(c_Lattices_Olower__semilattice__class_Oinf(B,C,A),D,A) = c_Lattices_Olower__semilattice__class_Oinf(c_HOL_Oplus__class_Oplus(B,D,A),c_HOL_Oplus__class_Oplus(C,D,A),A) # label(cls_add__inf__distrib__right_0) # label(axiom).  [assumption].
+
+Eliminating class_Orderings_Otop/1
+
+Eliminating class_Orderings_Obot/1
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, hBOOL, class_Ring__and__Field_Oidom, c_lessequals, c_HOL_Oord__class_Oless ]).
+Function symbol precedence:  function_order([ tc_RealDef_Oreal, v_P, v_Y____, v_x____, t_a, v_L____, v_xa, c_HOL_Ouminus__class_Ouminus, c_HOL_Oabs__class_Oabs, c_RealVector_Onorm__class_Onorm, c_Transcendental_Oexp, hAPP, c_COMBI, c_NthRoot_Osqrt, c_Transcendental_Oarctan, c_HOL_Oplus__class_Oplus, c_Lattices_Oupper__semilattice__class_Osup, c_Lattices_Olower__semilattice__class_Oinf, c_Orderings_Oord__class_Omax, c_Orderings_Oord__class_Omin, c_HOL_Ominus__class_Ominus ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.10 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.36 (+ 0.01) seconds.
+% Length of proof is 10.
+% Level of proof is 2.
+% Maximum clause weight is 8.000.
+% Given clauses 209 (104.500 givens/level).
+
+9 class_Orderings_Opreorder(tc_RealDef_Oreal) # label(clsarity_RealDef__Oreal__Orderings_Opreorder) # label(axiom).  [assumption].
+18 -class_Orderings_Opreorder(A) | -c_lessequals(B,C,A) | -c_HOL_Oord__class_Oless(C,B,A) # label(cls_less__le__not__le_1) # label(axiom).  [assumption].
+346 c_HOL_Oord__class_Oless(A,v_Y____,tc_RealDef_Oreal) | -hBOOL(hAPP(v_P,A)) # label(cls_Y_0) # label(axiom).  [assumption].
+347 c_lessequals(A,B,tc_RealDef_Oreal) | c_lessequals(B,A,tc_RealDef_Oreal) # label(cls_real__le__linear_0) # label(axiom).  [assumption].
+351 hBOOL(hAPP(v_P,v_xa)) # label(cls_conjecture_0) # label(negated_conjecture).  [assumption].
+352 -c_lessequals(v_xa,v_Y____,tc_RealDef_Oreal) # label(cls_conjecture_1) # label(negated_conjecture).  [assumption].
+366 -c_lessequals(A,B,tc_RealDef_Oreal) | -c_HOL_Oord__class_Oless(B,A,tc_RealDef_Oreal).  [resolve(9,a,18,a)].
+633 c_HOL_Oord__class_Oless(v_xa,v_Y____,tc_RealDef_Oreal).  [resolve(351,a,346,b)].
+635 c_lessequals(v_Y____,v_xa,tc_RealDef_Oreal).  [resolve(352,a,347,b)].
+2864 $F.  [resolve(633,a,366,b),unit_del(a,635)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=209. Generated=4523. Kept=2471. proofs=1.
+Usable=183. Sos=1778. Demods=226. Limbo=19, Disabled=1076. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=12.
+Forward_subsumed=2039. Back_subsumed=24.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=396 (4 lex), Back_demodulated=467. Back_unit_deleted=0.
+Demod_attempts=102305. Demod_rewrites=5484.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=13364. Nonunit_bsub_feature_tests=8348.
+Megabytes=8.82.
+User_CPU=0.36, System_CPU=0.01, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 249 exit (max_proofs) Fri Oct 23 15:01:30 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 249 exit (max_proofs) ------
+

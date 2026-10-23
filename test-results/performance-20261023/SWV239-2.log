@@ -1,0 +1,119 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 61 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-c_lessequals(c_Message_Oanalz(c_union(c_Message_Oanalz(v_G),v_H,tc_Message_Omsg)),c_Message_Oanalz(c_union(v_G,v_H,tc_Message_Omsg)),tc_set(tc_Message_Omsg)) # label(cls_conjecture_0) # label(negated_conjecture).
+-c_in(V_X,c_Message_Oanalz(c_Message_Oanalz(V_H)),tc_Message_Omsg) | c_in(V_X,c_Message_Oanalz(V_H),tc_Message_Omsg) # label(cls_Message_Oanalz__analzD__dest_0) # label(axiom).
+-c_lessequals(c_Message_Oanalz(V_H),c_Message_Oanalz(V_H_H),tc_set(tc_Message_Omsg)) | -c_lessequals(c_Message_Oanalz(V_G),c_Message_Oanalz(V_G_H),tc_set(tc_Message_Omsg)) | c_lessequals(c_Message_Oanalz(c_union(V_G,V_H,tc_Message_Omsg)),c_Message_Oanalz(c_union(V_G_H,V_H_H,tc_Message_Omsg)),tc_set(tc_Message_Omsg)) # label(cls_Message_Oanalz__subset__cong_0) # label(axiom).
+c_in(c_Main_OsubsetI__1(V_A,V_B,T_a),V_A,T_a) | c_lessequals(V_A,V_B,tc_set(T_a)) # label(cls_Set_OsubsetI_0) # label(axiom).
+-c_in(c_Main_OsubsetI__1(V_A,V_B,T_a),V_B,T_a) | c_lessequals(V_A,V_B,tc_set(T_a)) # label(cls_Set_OsubsetI_1) # label(axiom).
+c_lessequals(V_A,V_A,tc_set(T_a)) # label(cls_Set_Osubset__refl_0) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ c_lessequals, c_in ]).
+Function symbol precedence:  function_order([ tc_Message_Omsg, v_G, v_H, c_Message_Oanalz, tc_set, c_Main_OsubsetI__1, c_union ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds.
+% Length of proof is 10.
+% Level of proof is 3.
+% Maximum clause weight is 27.000.
+% Given clauses 8 (2.667 givens/level).
+
+1 -c_lessequals(c_Message_Oanalz(c_union(c_Message_Oanalz(v_G),v_H,tc_Message_Omsg)),c_Message_Oanalz(c_union(v_G,v_H,tc_Message_Omsg)),tc_set(tc_Message_Omsg)) # label(cls_conjecture_0) # label(negated_conjecture).  [assumption].
+2 -c_in(A,c_Message_Oanalz(c_Message_Oanalz(B)),tc_Message_Omsg) | c_in(A,c_Message_Oanalz(B),tc_Message_Omsg) # label(cls_Message_Oanalz__analzD__dest_0) # label(axiom).  [assumption].
+3 -c_lessequals(c_Message_Oanalz(A),c_Message_Oanalz(B),tc_set(tc_Message_Omsg)) | -c_lessequals(c_Message_Oanalz(C),c_Message_Oanalz(D),tc_set(tc_Message_Omsg)) | c_lessequals(c_Message_Oanalz(c_union(C,A,tc_Message_Omsg)),c_Message_Oanalz(c_union(D,B,tc_Message_Omsg)),tc_set(tc_Message_Omsg)) # label(cls_Message_Oanalz__subset__cong_0) # label(axiom).  [assumption].
+4 c_in(c_Main_OsubsetI__1(A,B,C),A,C) | c_lessequals(A,B,tc_set(C)) # label(cls_Set_OsubsetI_0) # label(axiom).  [assumption].
+5 -c_in(c_Main_OsubsetI__1(A,B,C),B,C) | c_lessequals(A,B,tc_set(C)) # label(cls_Set_OsubsetI_1) # label(axiom).  [assumption].
+6 c_lessequals(A,A,tc_set(B)) # label(cls_Set_Osubset__refl_0) # label(axiom).  [assumption].
+8 c_lessequals(c_Message_Oanalz(c_Message_Oanalz(A)),B,tc_set(tc_Message_Omsg)) | c_in(c_Main_OsubsetI__1(c_Message_Oanalz(c_Message_Oanalz(A)),B,tc_Message_Omsg),c_Message_Oanalz(A),tc_Message_Omsg).  [resolve(4,a,2,a)].
+12 -c_lessequals(c_Message_Oanalz(c_Message_Oanalz(v_G)),c_Message_Oanalz(v_G),tc_set(tc_Message_Omsg)).  [ur(3,a,6,a,c,1,a)].
+13 c_lessequals(c_Message_Oanalz(c_Message_Oanalz(A)),c_Message_Oanalz(A),tc_set(tc_Message_Omsg)).  [resolve(8,b,5,a),merge(b)].
+14 $F.  [resolve(13,a,12,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=8. Generated=15. Kept=13. proofs=1.
+Usable=8. Sos=4. Demods=0. Limbo=0, Disabled=6. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=2. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=4. Nonunit_bsub_feature_tests=19.
+Megabytes=0.08.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 61 exit (max_proofs) Fri Oct 23 15:00:23 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 61 exit (max_proofs) ------
+

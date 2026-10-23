@@ -1,0 +1,307 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 179 was started by mfixman on bodoque,
+Fri Oct 23 15:01:04 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-class_Orderings_Opreorder(T_a) | -c_HOL_Oord__class_Oless(V_b,V_a,T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) # label(cls_order__less__asym_H_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | -c_HOL_Oord__class_Oless(V_y,V_x,T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_order__less__asym_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) | -c_HOL_Oord__class_Oless(V_y,V_x,T_a) # label(cls_not__less__iff__gr__or__eq_1) # label(axiom).
+-class_Orderings_Oorder(T_a) | -c_HOL_Oord__class_Oless(V_a,V_b,T_a) | -c_HOL_Oord__class_Oless(V_b,V_a,T_a) # label(cls_xt1_I9_J_0) # label(axiom).
+c_Lambda_Osubst(c_Lambda_OdB_OApp(V_t,V_u),V_s,V_k) = c_Lambda_OdB_OApp(c_Lambda_Osubst(V_t,V_s,V_k),c_Lambda_Osubst(V_u,V_s,V_k)) # label(cls_subst__App_0) # label(axiom).
+c_Lambda_OdB_OApp(V_dB1,V_dB2) != c_Lambda_OdB_OAbs(V_dB_H) # label(cls_dB_Osimps_I8_J_0) # label(axiom).
+c_Lambda_OdB_OAbs(V_dB_H) != c_Lambda_OdB_OApp(V_dB1,V_dB2) # label(cls_dB_Osimps_I9_J_0) # label(axiom).
+c_Lambda_Osubst(c_Lambda_OdB_OVar(V_k),V_u,V_k) = V_u # label(cls_subst__eq_0) # label(axiom).
+c_Lambda_Osubst(c_Lambda_OdB_OVar(V_j),V_u,V_i) = c_Lambda_OdB_OVar(V_j) | -c_HOL_Oord__class_Oless(V_j,V_i,tc_nat) # label(cls_subst__lt_0) # label(axiom).
+c_Lambda_OdB_OApp(V_dB1,V_dB2) != c_Lambda_OdB_OApp(V_dB1_H,V_dB2_H) | V_dB1 = V_dB1_H # label(cls_dB_Osimps_I2_J_0) # label(axiom).
+c_Lambda_OdB_OApp(V_dB1,V_dB2) != c_Lambda_OdB_OApp(V_dB1_H,V_dB2_H) | V_dB2 = V_dB2_H # label(cls_dB_Osimps_I2_J_1) # label(axiom).
+-class_Orderings_Olinorder(T_a) | V_x = V_y | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) # label(cls_linorder__antisym__conv3_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | V_x = V_y | c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_linorder__less__linear_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | V_x = V_y # label(cls_linorder__neqE_0) # label(axiom).
+c_HOL_Oord__class_Oless(V_y,V_x,tc_nat) | c_HOL_Oord__class_Oless(V_x,V_y,tc_nat) | V_x = V_y # label(cls_linorder__neqE__nat_0) # label(axiom).
+c_HOL_Oord__class_Oless(V_n,V_m,tc_nat) | c_HOL_Oord__class_Oless(V_m,V_n,tc_nat) | V_m = V_n # label(cls_nat__neq__iff_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | V_x = V_y | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_not__less__iff__gr__or__eq_0) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T_a) | c_HOL_Oord__class_Oless(V_y,V_x,T_a) | c_HOL_Oord__class_Oless(V_x,V_y,T_a) | V_x = V_y # label(cls_linorder__neqE__ordered__idom_0) # label(axiom).
+-class_Orderings_Opreorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_x,T_a) # label(cls_order__less__irrefl_0) # label(axiom).
+-class_Orderings_Olinorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_x,T_a) # label(cls_linorder__neq__iff_1) # label(axiom).
+-class_Orderings_Oorder(T_a) | -c_HOL_Oord__class_Oless(V_x,V_x,T_a) # label(cls_order__less__le_1) # label(axiom).
+-c_HOL_Oord__class_Oless(V_n,V_n,tc_nat) # label(cls_less__not__refl_0) # label(axiom).
+-c_HOL_Oord__class_Oless(V_x,V_x,tc_nat) # label(cls_nat__less__le_1) # label(axiom).
+c_Lambda_OdB_OVar(V_nat) != c_Lambda_OdB_OApp(V_dB1_H,V_dB2_H) # label(cls_dB_Osimps_I4_J_0) # label(axiom).
+c_Lambda_Olift(c_Lambda_OdB_OApp(V_s,V_t),V_k) = c_Lambda_OdB_OApp(c_Lambda_Olift(V_s,V_k),c_Lambda_Olift(V_t,V_k)) # label(cls_lift_Osimps_I2_J_0) # label(axiom).
+c_Lambda_Osubst(c_Lambda_OdB_OVar(V_i),V_s,V_k) = c_Lambda_OdB_OVar(V_i) | V_i = V_k | c_HOL_Oord__class_Oless(V_k,V_i,tc_nat) # label(cls_subst__Var_2) # label(axiom).
+-class_Orderings_Opreorder(T_a) | c_HOL_Oord__class_Oless(V_x,V_z,T_a) | -c_HOL_Oord__class_Oless(V_y,V_z,T_a) | -c_HOL_Oord__class_Oless(V_x,V_y,T_a) # label(cls_order__less__trans_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | c_HOL_Oord__class_Oless(V_z,V_x,T_a) | -c_HOL_Oord__class_Oless(V_z,V_y,T_a) | -c_HOL_Oord__class_Oless(V_y,V_x,T_a) # label(cls_xt1_I10_J_0) # label(axiom).
+c_HOL_Oord__class_Oless(V_x,V_x,tc_nat) | c_Lambda_Osubst(c_Lambda_OdB_OVar(V_x),V_s,V_x) = V_s # label(cls_subst__Var_1) # label(axiom).
+c_Lambda_Osubst(c_Lambda_Olift(V_t,V_k),V_s,V_k) = V_t # label(cls_subst__lift_0) # label(axiom).
+c_Lambda_OdB_OApp(V_dB1_H,V_dB2_H) != c_Lambda_OdB_OVar(V_nat) # label(cls_dB_Osimps_I5_J_0) # label(axiom).
+c_InductTermi_OIT(c_Lambda_OdB_OApp(V_t,c_Lambda_OdB_OVar(V_i))) | -c_InductTermi_OIT(V_t) # label(cls_app__Var__IT_0) # label(axiom).
+c_Lambda_Olift(c_Lambda_OdB_OVar(V_i),V_k) = c_Lambda_OdB_OVar(V_i) | -c_HOL_Oord__class_Oless(V_i,V_k,tc_nat) # label(cls_lift_Osimps_I1_J_0) # label(axiom).
+c_Lambda_OdB_OVar(V_nat) != c_Lambda_OdB_OAbs(V_dB_H) # label(cls_dB_Osimps_I6_J_0) # label(axiom).
+c_Lambda_OdB_OAbs(V_dB) != c_Lambda_OdB_OAbs(V_dB_H) | V_dB = V_dB_H # label(cls_dB_Osimps_I3_J_0) # label(axiom).
+c_InductTermi_OIT(c_Lambda_Osubst(V_r,c_Lambda_OdB_OVar(V_i),V_j)) | -c_InductTermi_OIT(V_r) # label(cls_subst__Var__IT_0) # label(axiom).
+c_Lambda_OdB_OVar(V_nat) != c_Lambda_OdB_OVar(V_nat_H) | V_nat = V_nat_H # label(cls_dB_Osimps_I1_J_0) # label(axiom).
+c_Lambda_OdB_OAbs(V_dB_H) != c_Lambda_OdB_OVar(V_nat) # label(cls_dB_Osimps_I7_J_0) # label(axiom).
+c_InductTermi_OIT(c_Lambda_Olift(V_t,V_i)) | -c_InductTermi_OIT(V_t) # label(cls_lift__IT_0) # label(axiom).
+c_InductTermi_OIT(c_Lambda_OdB_OVar(V_n)) # label(cls_Var__IT_0) # label(axiom).
+c_InductTermi_OIT(c_Lambda_OdB_OAbs(V_r)) | -c_InductTermi_OIT(V_r) # label(cls_Lambda_0) # label(axiom).
+c_Type_Otyping(v_e,v_t,v_T) # label(cls_CHAINED_0) # label(axiom).
+-c_InductTermi_OIT(v_t) # label(cls_conjecture_0) # label(negated_conjecture).
+class_Orderings_Opreorder(tc_nat) # label(clsarity_nat__Orderings_Opreorder) # label(axiom).
+class_Orderings_Olinorder(tc_nat) # label(clsarity_nat__Orderings_Olinorder) # label(axiom).
+class_Orderings_Oorder(tc_nat) # label(clsarity_nat__Orderings_Oorder) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating class_Orderings_Opreorder/1
+1 class_Orderings_Opreorder(tc_nat) # label(clsarity_nat__Orderings_Opreorder) # label(axiom).  [assumption].
+2 -class_Orderings_Opreorder(A) | -c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(C,B,A) # label(cls_order__less__asym_H_0) # label(axiom).  [assumption].
+3 -class_Orderings_Opreorder(A) | -c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(C,B,A) # label(cls_order__less__asym_0) # label(axiom).  [assumption].
+4 -class_Orderings_Opreorder(A) | -c_HOL_Oord__class_Oless(B,B,A) # label(cls_order__less__irrefl_0) # label(axiom).  [assumption].
+5 -class_Orderings_Opreorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(D,C,A) | -c_HOL_Oord__class_Oless(B,D,A) # label(cls_order__less__trans_0) # label(axiom).  [assumption].
+Derived: -c_HOL_Oord__class_Oless(A,B,tc_nat) | -c_HOL_Oord__class_Oless(B,A,tc_nat).  [resolve(1,a,2,a)].
+Derived: c_HOL_Oord__class_Oless(A,B,tc_nat) | -c_HOL_Oord__class_Oless(C,B,tc_nat) | -c_HOL_Oord__class_Oless(A,C,tc_nat).  [resolve(1,a,5,a)].
+
+Eliminating class_Orderings_Olinorder/1
+6 class_Orderings_Olinorder(tc_nat) # label(clsarity_nat__Orderings_Olinorder) # label(axiom).  [assumption].
+7 -class_Orderings_Olinorder(A) | -c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(C,B,A) # label(cls_not__less__iff__gr__or__eq_1) # label(axiom).  [assumption].
+8 -class_Orderings_Olinorder(A) | B = C | c_HOL_Oord__class_Oless(B,C,A) | c_HOL_Oord__class_Oless(C,B,A) # label(cls_linorder__antisym__conv3_0) # label(axiom).  [assumption].
+9 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,C,A) | C = B | c_HOL_Oord__class_Oless(C,B,A) # label(cls_linorder__less__linear_0) # label(axiom).  [assumption].
+10 -class_Orderings_Olinorder(A) | c_HOL_Oord__class_Oless(B,C,A) | c_HOL_Oord__class_Oless(C,B,A) | C = B # label(cls_linorder__neqE_0) # label(axiom).  [assumption].
+11 -class_Orderings_Olinorder(A) | B = C | c_HOL_Oord__class_Oless(C,B,A) | c_HOL_Oord__class_Oless(B,C,A) # label(cls_not__less__iff__gr__or__eq_0) # label(axiom).  [assumption].
+12 -class_Orderings_Olinorder(A) | -c_HOL_Oord__class_Oless(B,B,A) # label(cls_linorder__neq__iff_1) # label(axiom).  [assumption].
+Derived: A = B | c_HOL_Oord__class_Oless(A,B,tc_nat) | c_HOL_Oord__class_Oless(B,A,tc_nat).  [resolve(6,a,8,a)].
+
+Eliminating class_Orderings_Oorder/1
+13 class_Orderings_Oorder(tc_nat) # label(clsarity_nat__Orderings_Oorder) # label(axiom).  [assumption].
+14 -class_Orderings_Oorder(A) | -c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(C,B,A) # label(cls_xt1_I9_J_0) # label(axiom).  [assumption].
+15 -class_Orderings_Oorder(A) | -c_HOL_Oord__class_Oless(B,B,A) # label(cls_order__less__le_1) # label(axiom).  [assumption].
+16 -class_Orderings_Oorder(A) | c_HOL_Oord__class_Oless(B,C,A) | -c_HOL_Oord__class_Oless(B,D,A) | -c_HOL_Oord__class_Oless(D,C,A) # label(cls_xt1_I10_J_0) # label(axiom).  [assumption].
+
+Eliminating class_Ring__and__Field_Oordered__idom/1
+
+Eliminating c_Type_Otyping/3
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, c_InductTermi_OIT, c_HOL_Oord__class_Oless ]).
+Function symbol precedence:  function_order([ tc_nat, v_t, c_Lambda_OdB_OApp, c_Lambda_Olift, c_Lambda_OdB_OVar, c_Lambda_OdB_OAbs, c_Lambda_Osubst ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 61 (0.00 of 0.15 sec).
+
+given #500 (T,wt=12): 353 c_InductTermi_OIT(c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(c_Lambda_OdB_OVar(A),c_Lambda_OdB_OVar(B)),c_Lambda_OdB_OVar(C)),c_Lambda_OdB_OVar(D))).  [resolve(107,a,32,b)].
+
+given #1000 (F,wt=16): 1348 c_Lambda_OdB_OAbs(c_Lambda_OdB_OVar(c_Lambda_OdB_OApp(c_Lambda_OdB_OAbs(c_Lambda_OdB_OVar(A)),B))) != c_Lambda_OdB_OAbs(c_Lambda_OdB_OVar(c_Lambda_OdB_OApp(c_Lambda_OdB_OAbs(c_Lambda_OdB_OApp(C,D)),E))).  [ur(35,b,439,a)].
+
+given #1500 (T,wt=13): 3545 c_InductTermi_OIT(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_Osubst(c_Lambda_OdB_OAbs(c_Lambda_Olift(c_Lambda_OdB_OVar(A),B)),c_Lambda_OdB_OVar(C),D))))).  [resolve(1493,a,41,b)].
+
+given #2000 (F,wt=18): 1165 c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(A))),B),C) != c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OApp(D,E))),F),V6).  [ur(22,b,222,a)].
+
+Low Water (keep): wt=93.000, iters=6666
+
+Low Water (keep): wt=87.000, iters=6691
+
+Low Water (keep): wt=80.000, iters=6702
+
+Low Water (keep): wt=70.000, iters=6678
+
+Low Water (keep): wt=69.000, iters=6691
+
+Low Water (keep): wt=45.000, iters=7098
+
+Low Water (keep): wt=43.000, iters=6771
+
+Low Water (keep): wt=42.000, iters=6736
+
+Low Water (keep): wt=41.000, iters=6762
+
+Low Water (keep): wt=40.000, iters=6674
+
+Low Water (keep): wt=39.000, iters=6684
+
+given #2500 (A,wt=15): 1316 c_InductTermi_OIT(c_Lambda_Osubst(c_Lambda_Olift(c_Lambda_Olift(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_Olift(c_Lambda_OdB_OVar(A),B))),C),D),c_Lambda_OdB_OVar(E),F)).  [resolve(456,a,36,b)].
+
+Low Water (keep): wt=38.000, iters=6745
+
+Low Water (keep): wt=37.000, iters=7313
+
+Low Water (keep): wt=34.000, iters=6861
+
+Low Water (keep): wt=33.000, iters=6804
+
+Low Water (keep): wt=32.000, iters=6674
+
+Low Water (keep): wt=31.000, iters=6666
+
+Low Water (keep): wt=30.000, iters=6666
+
+given #3000 (T,wt=14): 8720 c_InductTermi_OIT(c_Lambda_OdB_OAbs(c_Lambda_OdB_OApp(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OVar(A)))),c_Lambda_Osubst(c_Lambda_OdB_OVar(B),c_Lambda_OdB_OVar(C),D)))).  [resolve(8703,a,41,b)].
+
+Low Water (keep): wt=29.000, iters=6672
+
+Low Water (keep): wt=28.000, iters=6687
+
+given #3500 (F,wt=19): 2121 c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OVar(c_Lambda_OdB_OVar(A)))),B),C) != c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OVar(c_Lambda_OdB_OAbs(D)))),E),F).  [ur(22,b,404,a)].
+
+Low Water (keep): wt=27.000, iters=6690
+
+Low Water (keep): wt=26.000, iters=6678
+
+Low Water (keep): wt=25.000, iters=6673
+
+Low Water (keep): wt=24.000, iters=6678
+
+given #4000 (T,wt=15): 6283 c_InductTermi_OIT(c_Lambda_Olift(c_Lambda_OdB_OAbs(c_Lambda_Olift(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OApp(c_Lambda_OdB_OVar(A),c_Lambda_OdB_OVar(B)))))),C)),D)).  [resolve(2870,a,39,b)].
+
+Low Water (keep): wt=23.000, iters=6670
+
+Low Water (keep): wt=22.000, iters=6690
+
+Low Water (keep): wt=21.000, iters=6679
+
+Low Water (keep): wt=19.000, iters=6667
+
+given #4500 (F,wt=19): 6990 c_Lambda_OdB_OVar(c_Lambda_OdB_OVar(c_Lambda_OdB_OApp(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OVar(A)))),B))) != c_Lambda_OdB_OVar(c_Lambda_OdB_OVar(c_Lambda_OdB_OApp(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(C)))),D))).  [ur(37,b,2053,a)].
+
+given #5000 (T,wt=15): 13929 c_InductTermi_OIT(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_OdB_OApp(c_Lambda_OdB_OAbs(c_Lambda_Olift(c_Lambda_OdB_OAbs(c_Lambda_OdB_OAbs(c_Lambda_Olift(c_Lambda_OdB_OVar(A),B))),C)),c_Lambda_OdB_OVar(D))))).  [resolve(4639,a,41,b)].
+
+Low Water (keep): wt=18.000, iters=6667
+
+Low Water (displace): id=9672, wt=100.000
+
+Low Water (displace): id=12981, wt=99.000
+
+Low Water (displace): id=9804, wt=96.000
+
+Low Water (displace): id=12982, wt=93.000
+
+Low Water (displace): id=9671, wt=88.000
+
+given #5500 (F,wt=20): 3640 c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(A,c_Lambda_OdB_OVar(c_Lambda_OdB_OApp(c_Lambda_OdB_OVar(B),C))),D) != c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(E,c_Lambda_OdB_OVar(c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(F,V6),V7))),V8).  [ur(22,b,524,a)].
+
+Low Water (displace): id=12433, wt=86.000
+
+Low Water (displace): id=10418, wt=80.000
+
+Low Water (displace): id=9719, wt=79.000
+
+Low Water (displace): id=9717, wt=76.000
+
+Low Water (displace): id=9669, wt=75.000
+
+Low Water (displace): id=9661, wt=73.000
+
+Low Water (displace): id=9802, wt=72.000
+
+Low Water (displace): id=12432, wt=71.000
+
+Low Water (displace): id=9722, wt=70.000
+
+Low Water (displace): id=11315, wt=69.000
+
+Low Water (displace): id=13017, wt=68.000
+
+Low Water (displace): id=11330, wt=67.000
+
+Low Water (displace): id=9796, wt=65.000
+
+Low Water (displace): id=9803, wt=64.000
+
+Low Water (displace): id=9713, wt=63.000
+
+Low Water (displace): id=13052, wt=61.000
+
+Low Water (displace): id=11322, wt=60.000
+
+Low Water (displace): id=9658, wt=59.000
+
+Low Water (displace): id=11006, wt=58.000
+
+Low Water (displace): id=13050, wt=57.000
+
+Low Water (displace): id=12288, wt=56.000
+
+given #6000 (T,wt=16): 4321 c_InductTermi_OIT(c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(c_Lambda_OdB_OAbs(c_Lambda_OdB_OVar(A)),c_Lambda_OdB_OVar(B)),c_Lambda_OdB_OVar(C)),c_Lambda_OdB_OVar(D)),c_Lambda_OdB_OVar(E))).  [resolve(640,a,32,b)].
+
+Low Water (displace): id=11872, wt=55.000
+
+Low Water (displace): id=13016, wt=54.000
+
+given #6500 (F,wt=20): 7818 c_Lambda_OdB_OVar(c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(A,c_Lambda_OdB_OVar(B)),C),D)) != c_Lambda_OdB_OVar(c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(c_Lambda_OdB_OApp(E,c_Lambda_OdB_OApp(F,V6)),V7),V8)).  [ur(37,b,1093,a)].
+
+============================== STATISTICS ============================
+
+Given=6751. Generated=408551. Kept=27036. proofs=0.
+Usable=6744. Sos=19938. Demods=4. Limbo=0, Disabled=403. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=735.
+Forward_subsumed=54386. Back_subsumed=33.
+Sos_limit_deleted=326394. Sos_displaced=321. Sos_removed=0.
+New_demodulators=4 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=9710278. Demod_rewrites=5038.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=580573. Nonunit_bsub_feature_tests=1294.
+Megabytes=58.34.
+User_CPU=20.00, System_CPU=0.25, Wall_clock=21.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 179 exit (max_seconds) Fri Oct 23 15:01:25 2026
+
+SEARCH FAILED
+
+------ process 179 exit (max_seconds) ------
+

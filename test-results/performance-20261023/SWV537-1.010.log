@@ -1,0 +1,190 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 68 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+select(store(A,I,E),I) = E # label(a1) # label(axiom).
+I = J | select(store(A,I,E),J) = select(A,J) # label(a2) # label(axiom).
+a_1296 = store(a1,i8,e_1295) # label(hyp0) # label(hypothesis).
+a_1298 = store(a_1296,i7,e_1297) # label(hyp1) # label(hypothesis).
+a_1300 = store(a_1298,i6,e_1299) # label(hyp2) # label(hypothesis).
+a_1302 = store(a_1300,i8,e_1301) # label(hyp3) # label(hypothesis).
+a_1304 = store(a_1302,i8,e_1303) # label(hyp4) # label(hypothesis).
+a_1306 = store(a_1304,i5,e_1305) # label(hyp5) # label(hypothesis).
+a_1308 = store(a_1306,i4,e_1307) # label(hyp6) # label(hypothesis).
+a_1310 = store(a_1308,i9,e_1309) # label(hyp7) # label(hypothesis).
+a_1312 = store(a_1310,i7,e_1311) # label(hyp8) # label(hypothesis).
+a_1314 = store(a_1312,i1,e_1313) # label(hyp9) # label(hypothesis).
+a_1316 = store(a_1314,i4,e_1315) # label(hyp10) # label(hypothesis).
+a_1318 = store(a_1316,i5,e_1317) # label(hyp11) # label(hypothesis).
+a_1320 = store(a_1318,i0,e_1319) # label(hyp12) # label(hypothesis).
+a_1321 = store(a_1320,i0,e_1319) # label(hyp13) # label(hypothesis).
+a_1323 = store(a_1321,i1,e_1322) # label(hyp14) # label(hypothesis).
+a_1325 = store(a_1323,i2,e_1324) # label(hyp15) # label(hypothesis).
+a_1327 = store(a_1325,i3,e_1326) # label(hyp16) # label(hypothesis).
+a_1329 = store(a_1327,i0,e_1328) # label(hyp17) # label(hypothesis).
+a_1331 = store(a_1329,i9,e_1330) # label(hyp18) # label(hypothesis).
+a_1333 = store(a_1331,i5,e_1332) # label(hyp19) # label(hypothesis).
+a_1334 = store(a1,i7,e_1297) # label(hyp20) # label(hypothesis).
+a_1335 = store(a_1334,i8,e_1295) # label(hyp21) # label(hypothesis).
+a_1337 = store(a_1335,i6,e_1336) # label(hyp22) # label(hypothesis).
+a_1339 = store(a_1337,i8,e_1338) # label(hyp23) # label(hypothesis).
+a_1341 = store(a_1339,i5,e_1340) # label(hyp24) # label(hypothesis).
+a_1343 = store(a_1341,i8,e_1342) # label(hyp25) # label(hypothesis).
+a_1345 = store(a_1343,i4,e_1344) # label(hyp26) # label(hypothesis).
+a_1347 = store(a_1345,i9,e_1346) # label(hyp27) # label(hypothesis).
+a_1349 = store(a_1347,i1,e_1348) # label(hyp28) # label(hypothesis).
+a_1351 = store(a_1349,i7,e_1350) # label(hyp29) # label(hypothesis).
+a_1353 = store(a_1351,i4,e_1352) # label(hyp30) # label(hypothesis).
+a_1355 = store(a_1353,i5,e_1354) # label(hyp31) # label(hypothesis).
+a_1357 = store(a_1355,i0,e_1356) # label(hyp32) # label(hypothesis).
+a_1358 = store(a_1357,i0,e_1356) # label(hyp33) # label(hypothesis).
+a_1360 = store(a_1358,i2,e_1359) # label(hyp34) # label(hypothesis).
+a_1362 = store(a_1360,i1,e_1361) # label(hyp35) # label(hypothesis).
+a_1364 = store(a_1362,i3,e_1363) # label(hyp36) # label(hypothesis).
+a_1366 = store(a_1364,i0,e_1365) # label(hyp37) # label(hypothesis).
+a_1368 = store(a_1366,i5,e_1367) # label(hyp38) # label(hypothesis).
+a_1370 = store(a_1368,i9,e_1369) # label(hyp39) # label(hypothesis).
+e_1295 = select(a1,i7) # label(hyp40) # label(hypothesis).
+e_1297 = select(a1,i8) # label(hyp41) # label(hypothesis).
+e_1299 = select(a_1298,i8) # label(hyp42) # label(hypothesis).
+e_1301 = select(a_1298,i6) # label(hyp43) # label(hypothesis).
+e_1303 = select(a_1302,i5) # label(hyp44) # label(hypothesis).
+e_1305 = select(a_1302,i8) # label(hyp45) # label(hypothesis).
+e_1307 = select(a_1306,i9) # label(hyp46) # label(hypothesis).
+e_1309 = select(a_1306,i4) # label(hyp47) # label(hypothesis).
+e_1311 = select(a_1310,i1) # label(hyp48) # label(hypothesis).
+e_1313 = select(a_1310,i7) # label(hyp49) # label(hypothesis).
+e_1315 = select(a_1314,i5) # label(hyp50) # label(hypothesis).
+e_1317 = select(a_1314,i4) # label(hyp51) # label(hypothesis).
+e_1319 = select(a_1318,i0) # label(hyp52) # label(hypothesis).
+e_1322 = select(a_1321,i2) # label(hyp53) # label(hypothesis).
+e_1324 = select(a_1321,i1) # label(hyp54) # label(hypothesis).
+e_1326 = select(a_1325,i0) # label(hyp55) # label(hypothesis).
+e_1328 = select(a_1325,i3) # label(hyp56) # label(hypothesis).
+e_1330 = select(a_1329,i5) # label(hyp57) # label(hypothesis).
+e_1332 = select(a_1329,i9) # label(hyp58) # label(hypothesis).
+e_1336 = select(a_1335,i8) # label(hyp59) # label(hypothesis).
+e_1338 = select(a_1335,i6) # label(hyp60) # label(hypothesis).
+e_1340 = select(a_1339,i8) # label(hyp61) # label(hypothesis).
+e_1342 = select(a_1339,i5) # label(hyp62) # label(hypothesis).
+e_1344 = select(a_1343,i9) # label(hyp63) # label(hypothesis).
+e_1346 = select(a_1343,i4) # label(hyp64) # label(hypothesis).
+e_1348 = select(a_1347,i7) # label(hyp65) # label(hypothesis).
+e_1350 = select(a_1347,i1) # label(hyp66) # label(hypothesis).
+e_1352 = select(a_1351,i5) # label(hyp67) # label(hypothesis).
+e_1354 = select(a_1351,i4) # label(hyp68) # label(hypothesis).
+e_1356 = select(a_1355,i0) # label(hyp69) # label(hypothesis).
+e_1359 = select(a_1358,i1) # label(hyp70) # label(hypothesis).
+e_1361 = select(a_1358,i2) # label(hyp71) # label(hypothesis).
+e_1363 = select(a_1362,i0) # label(hyp72) # label(hypothesis).
+e_1365 = select(a_1362,i3) # label(hyp73) # label(hypothesis).
+e_1367 = select(a_1366,i9) # label(hyp74) # label(hypothesis).
+e_1369 = select(a_1366,i5) # label(hyp75) # label(hypothesis).
+e_1372 = select(a_1333,i_1371) # label(hyp76) # label(hypothesis).
+e_1373 = select(a_1370,i_1371) # label(hyp77) # label(hypothesis).
+i_1371 = sk(a_1333,a_1370) # label(hyp78) # label(hypothesis).
+e_1372 != e_1373 # label(goal) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ i5, i8, i0, i1, i4, i9, i7, a1, a_1298, a_1302, a_1306, a_1310, a_1314, a_1321, a_1325, a_1329, a_1335, a_1339, a_1343, a_1347, a_1351, a_1358, a_1362, a_1366, i2, i3, i6, a_1318, a_1333, a_1355, a_1370, e_1295, e_1297, e_1319, e_1356, i_1371, a_1296, a_1300, a_1304, a_1308, a_1312, a_1316, a_1320, a_1323, a_1327, a_1331, a_1334, a_1337, a_1341, a_1345, a_1349, a_1353, a_1357, a_1360, a_1364, a_1368, e_1299, e_1301, e_1303, e_1305, e_1307, e_1309, e_1311, e_1313, e_1315, e_1317, e_1322, e_1324, e_1326, e_1328, e_1330, e_1332, e_1336, e_1338, e_1340, e_1342, e_1344, e_1346, e_1348, e_1350, e_1352, e_1354, e_1359, e_1361, e_1363, e_1365, e_1367, e_1369, e_1372, e_1373, select, sk, store ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.52 seconds.
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 2147483647 (0.00 of 10.21 sec).
+
+given #500 (T,wt=13): 400 i7 = A | select(store(a_1298,i7,B),A) = select(a_1296,A).  [factor(322,a,b)].
+
+Low Water (keep): wt=35.000, iters=6681
+
+Low Water (keep): wt=31.000, iters=6668
+
+Low Water (keep): wt=29.000, iters=6694
+
+Low Water (keep): wt=28.000, iters=6865
+
+Low Water (keep): wt=26.000, iters=6693
+
+given #1000 (T,wt=14): 5469 i7 = i1 | i7 = i4 | select(store(a_1316,i4,A),i7) = e_1311.  [factor(5463,b,c)].
+
+============================== STATISTICS ============================
+
+Given=1458. Generated=72789. Kept=15501. proofs=0.
+Usable=1458. Sos=14035. Demods=120. Limbo=2, Disabled=88. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=32804. Back_subsumed=0.
+Sos_limit_deleted=24484. Sos_displaced=0. Sos_removed=0.
+New_demodulators=126 (0 lex), Back_demodulated=6. Back_unit_deleted=0.
+Demod_attempts=1123489. Demod_rewrites=2529.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=813114. Nonunit_bsub_feature_tests=102075.
+Megabytes=87.65.
+User_CPU=20.00, System_CPU=0.14, Wall_clock=21.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 68 exit (max_seconds) Fri Oct 23 15:00:44 2026
+
+SEARCH FAILED
+
+------ process 68 exit (max_seconds) ------
+

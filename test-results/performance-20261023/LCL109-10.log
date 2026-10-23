@@ -1,0 +1,143 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 125 was started by mfixman on bodoque,
+Fri Oct 23 15:00:44 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+ifeq(A,A,B,C) = B # label(ifeq_axiom) # label(axiom).
+implies(truth,X) = X # label(wajsberg_1) # label(axiom).
+implies(implies(X,Y),implies(implies(Y,Z),implies(X,Z))) = truth # label(wajsberg_2) # label(axiom).
+implies(implies(X,Y),Y) = implies(implies(Y,X),X) # label(wajsberg_3) # label(axiom).
+implies(implies(not(X),not(Y)),implies(Y,X)) = truth # label(wajsberg_4) # label(axiom).
+implies(X,X) = truth # label(lemma_1) # label(axiom).
+ifeq(implies(X,Y),implies(Y,X),X,Y) = Y # label(lemma_2) # label(axiom).
+implies(X,truth) = truth # label(lemma_3) # label(axiom).
+implies(X,implies(Y,X)) = truth # label(lemma_4) # label(axiom).
+ifeq(implies(X,Y),implies(Y,Z),implies(X,Z),truth) = truth # label(lemma_5) # label(axiom).
+implies(implies(X,Y),implies(implies(Z,X),implies(Z,Y))) = truth # label(lemma_6) # label(axiom).
+implies(X,implies(Y,Z)) = implies(Y,implies(X,Z)) # label(lemma_7) # label(axiom).
+implies(X,not(truth)) = not(X) # label(lemma_8) # label(axiom).
+not(not(X)) = X # label(lemma_9) # label(axiom).
+implies(not(X),not(Y)) = implies(Y,X) # label(lemma_10) # label(axiom).
+implies(implies(implies(a,b),implies(b,a)),implies(b,a)) != truth # label(prove_wajsberg_mv_4) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_wajsberg_mv_4 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ truth, a, b, implies, not, ifeq ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.23 (+ 0.01) seconds: prove_wajsberg_mv_4.
+% Length of proof is 26.
+% Level of proof is 7.
+% Maximum clause weight is 21.000.
+% Given clauses 127 (18.143 givens/level).
+
+2 implies(truth,A) = A # label(wajsberg_1) # label(axiom).  [assumption].
+4 implies(implies(A,B),B) = implies(implies(B,A),A) # label(wajsberg_3) # label(axiom).  [assumption].
+8 implies(A,truth) = truth # label(lemma_3) # label(axiom).  [assumption].
+9 implies(A,implies(B,A)) = truth # label(lemma_4) # label(axiom).  [assumption].
+12 implies(A,implies(B,C)) = implies(B,implies(A,C)) # label(lemma_7) # label(axiom).  [assumption].
+13 implies(A,not(truth)) = not(A) # label(lemma_8) # label(axiom).  [assumption].
+14 not(A) = implies(A,not(truth)).  [copy(13),flip(a)].
+15 not(not(A)) = A # label(lemma_9) # label(axiom).  [assumption].
+16 implies(not(A),not(B)) = implies(B,A) # label(lemma_10) # label(axiom).  [assumption].
+17 implies(implies(implies(a,b),implies(b,a)),implies(b,a)) != truth # label(prove_wajsberg_mv_4) # label(negated_conjecture) # answer(prove_wajsberg_mv_4).  [assumption].
+18 implies(b,implies(implies(b,implies(implies(a,b),a)),a)) != truth # answer(prove_wajsberg_mv_4).  [copy(17),rewrite([12(7),12(11)])].
+63 implies(A,implies(B,implies(C,A))) = truth.  [para(9(a,1),12(a,1,2)),rewrite([8(2)]),flip(a)].
+75 implies(not(truth),not(A)) = truth.  [para(14(a,2),9(a,1,2))].
+109 implies(implies(A,not(truth)),not(B)) = implies(B,A).  [para(14(a,1),16(a,1,1))].
+110 implies(not(A),implies(B,not(truth))) = implies(B,A).  [para(14(a,1),16(a,1,2))].
+111 implies(A,not(B)) = implies(B,not(A)).  [para(15(a,1),16(a,1,1))].
+116 implies(b,implies(not(a),not(implies(b,implies(implies(a,b),a))))) != truth # answer(prove_wajsberg_mv_4).  [para(16(a,2),18(a,1,2))].
+157 implies(implies(b,implies(implies(a,b),a)),implies(not(a),not(b))) != truth # answer(prove_wajsberg_mv_4).  [para(12(a,1),116(a,1)),rewrite([111(12),12(13)])].
+167 implies(not(truth),A) = truth.  [para(15(a,1),75(a,1,2))].
+174 implies(implies(A,not(truth)),not(truth)) = A.  [para(167(a,1),4(a,1,1)),rewrite([2(2)]),flip(a)].
+222 implies(implies(b,implies(implies(a,b),a)),implies(implies(a,not(truth)),not(b))) != truth # answer(prove_wajsberg_mv_4).  [para(14(a,1),157(a,1,2,1))].
+376 implies(A,implies(B,implies(C,implies(D,A)))) = truth.  [para(63(a,1),12(a,1,2)),rewrite([8(2)]),flip(a)].
+1280 implies(implies(a,not(truth)),implies(implies(implies(implies(implies(a,b),a),not(truth)),not(b)),not(b))) != truth # answer(prove_wajsberg_mv_4).  [para(109(a,2),222(a,1,1)),rewrite([12(19)])].
+1443 implies(implies(implies(A,not(truth)),not(B)),not(B)) = implies(A,implies(implies(A,B),not(truth))).  [para(110(a,1),4(a,1,1)),rewrite([12(5)]),flip(a)].
+1579 implies(implies(implies(a,b),a),implies(implies(implies(implies(a,b),a),b),a)) != truth # answer(prove_wajsberg_mv_4).  [back_rewrite(1280),rewrite([1443(18),12(21),12(20),174(19)])].
+1936 $F # answer(prove_wajsberg_mv_4).  [para(12(a,1),1579(a,1)),rewrite([4(14),12(16),12(17),12(16),4(15),12(19),12(20),376(21)]),xx(a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=127. Generated=7233. Kept=1933. proofs=1.
+Usable=126. Sos=1746. Demods=1597. Limbo=0, Disabled=77. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=5299. Back_subsumed=28.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=1654 (4 lex), Back_demodulated=33. Back_unit_deleted=0.
+Demod_attempts=112400. Demod_rewrites=15104.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=4.55.
+User_CPU=0.23, System_CPU=0.01, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 125 exit (max_proofs) Fri Oct 23 15:00:44 2026
+-------- Proof 1 -------- prove_wajsberg_mv_4.
+
+THEOREM PROVED
+
+------ process 125 exit (max_proofs) ------
+

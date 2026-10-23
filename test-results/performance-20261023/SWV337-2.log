@@ -1,0 +1,132 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 253 was started by mfixman on bodoque,
+Fri Oct 23 15:01:30 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+c_in(v_evs4,c_Yahalom_Oyahalom,tc_List_Olist(tc_Event_Oevent)) # label(cls_conjecture_0) # label(negated_conjecture).
+c_in(c_Event_Oevent_OGets(v_A,c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_B),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(v_K),c_Message_Omsg_OMPair(c_Message_Omsg_ONonce(v_NA),c_Message_Omsg_ONonce(v_NB))))),v_X)),c_List_Oset(v_evs4,tc_Event_Oevent),tc_Event_Oevent) # label(cls_conjecture_3) # label(negated_conjecture).
+-c_in(c_Message_Omsg_ONonce(v_NB),c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,v_evs4)),tc_Message_Omsg) # label(cls_conjecture_6) # label(negated_conjecture).
+-c_in(c_Event_Oevent_OSays(c_Message_Oagent_OServer,V_U,c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(V_U),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(V_V),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(v_K),c_Message_Omsg_OMPair(c_Message_Omsg_ONonce(V_W),c_Message_Omsg_ONonce(v_NB))))),c_Message_Omsg_OCrypt(c_Public_OshrK(V_V),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(V_U),c_Message_Omsg_OKey(v_K))))),c_List_Oset(v_evs4,tc_Event_Oevent),tc_Event_Oevent) # label(cls_conjecture_8) # label(negated_conjecture).
+-c_in(c_Message_Omsg_OMPair(V_X,V_Y),c_Message_Oanalz(V_H),tc_Message_Omsg) | c_in(V_Y,c_Message_Oanalz(V_H),tc_Message_Omsg) # label(cls_Message_OMPair__analz_0) # label(axiom).
+-c_in(c_Message_Omsg_OMPair(V_X,V_Y),c_Message_Oanalz(V_H),tc_Message_Omsg) | c_in(V_X,c_Message_Oanalz(V_H),tc_Message_Omsg) # label(cls_Message_OMPair__analz_1) # label(axiom).
+-c_in(V_c,c_Message_Oanalz(V_H),tc_Message_Omsg) | c_in(V_c,c_Message_Oparts(V_H),tc_Message_Omsg) # label(cls_Message_Oanalz__into__parts__dest_0) # label(axiom).
+-c_in(V_A,c_Event_Obad,tc_Message_Oagent) | -c_in(c_Message_Omsg_OCrypt(c_Public_OshrK(V_A),V_X),c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,V_evs)),tc_Message_Omsg) | c_in(V_X,c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,V_evs)),tc_Message_Omsg) # label(cls_Public_OCrypt__Spy__analz__bad_0) # label(axiom).
+-c_in(V_evs,c_Yahalom_Oyahalom,tc_List_Olist(tc_Event_Oevent)) | -c_in(c_Message_Omsg_OCrypt(c_Public_OshrK(V_A),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(V_B),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(V_K),c_Message_Omsg_OMPair(V_na,V_nb)))),c_Message_Oparts(c_Event_Oknows(c_Message_Oagent_OSpy,V_evs)),tc_Message_Omsg) | c_in(V_A,c_Event_Obad,tc_Message_Oagent) | c_in(c_Event_Oevent_OSays(c_Message_Oagent_OServer,V_A,c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(V_A),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(V_B),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(V_K),c_Message_Omsg_OMPair(V_na,V_nb)))),c_Message_Omsg_OCrypt(c_Public_OshrK(V_B),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(V_A),c_Message_Omsg_OKey(V_K))))),c_List_Oset(V_evs,tc_Event_Oevent),tc_Event_Oevent) # label(cls_Yahalom_OA__trusts__YM3_0) # label(axiom).
+-c_in(V_evs,c_Yahalom_Oyahalom,tc_List_Olist(tc_Event_Oevent)) | -c_in(c_Event_Oevent_OGets(V_B,V_X),c_List_Oset(V_evs,tc_Event_Oevent),tc_Event_Oevent) | c_in(V_X,c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,V_evs)),tc_Message_Omsg) # label(cls_Yahalom_OGets__imp__analz__Spy__dest_0) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ c_in ]).
+Function symbol precedence:  function_order([ tc_Message_Omsg, tc_Event_Oevent, c_Message_Oagent_OSpy, c_Yahalom_Oyahalom, c_Event_Obad, tc_Message_Oagent, v_A, v_evs4, c_Message_Oagent_OServer, v_B, v_K, v_NA, v_NB, v_X, c_Message_Omsg_OMPair, c_Message_Omsg_OCrypt, c_Event_Oknows, c_List_Oset, c_Event_Oevent_OGets, c_Message_Oanalz, c_Public_OshrK, c_Message_Omsg_OAgent, c_Message_Omsg_OKey, tc_List_Olist, c_Message_Omsg_ONonce, c_Message_Oparts, c_Event_Oevent_OSays ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 19.
+% Level of proof is 5.
+% Maximum clause weight is 56.000.
+% Given clauses 26 (5.200 givens/level).
+
+1 c_in(v_evs4,c_Yahalom_Oyahalom,tc_List_Olist(tc_Event_Oevent)) # label(cls_conjecture_0) # label(negated_conjecture).  [assumption].
+2 c_in(c_Event_Oevent_OGets(v_A,c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_B),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(v_K),c_Message_Omsg_OMPair(c_Message_Omsg_ONonce(v_NA),c_Message_Omsg_ONonce(v_NB))))),v_X)),c_List_Oset(v_evs4,tc_Event_Oevent),tc_Event_Oevent) # label(cls_conjecture_3) # label(negated_conjecture).  [assumption].
+3 -c_in(c_Message_Omsg_ONonce(v_NB),c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,v_evs4)),tc_Message_Omsg) # label(cls_conjecture_6) # label(negated_conjecture).  [assumption].
+4 -c_in(c_Event_Oevent_OSays(c_Message_Oagent_OServer,A,c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(A),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(B),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(v_K),c_Message_Omsg_OMPair(c_Message_Omsg_ONonce(C),c_Message_Omsg_ONonce(v_NB))))),c_Message_Omsg_OCrypt(c_Public_OshrK(B),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(A),c_Message_Omsg_OKey(v_K))))),c_List_Oset(v_evs4,tc_Event_Oevent),tc_Event_Oevent) # label(cls_conjecture_8) # label(negated_conjecture).  [assumption].
+5 -c_in(c_Message_Omsg_OMPair(A,B),c_Message_Oanalz(C),tc_Message_Omsg) | c_in(B,c_Message_Oanalz(C),tc_Message_Omsg) # label(cls_Message_OMPair__analz_0) # label(axiom).  [assumption].
+6 -c_in(c_Message_Omsg_OMPair(A,B),c_Message_Oanalz(C),tc_Message_Omsg) | c_in(A,c_Message_Oanalz(C),tc_Message_Omsg) # label(cls_Message_OMPair__analz_1) # label(axiom).  [assumption].
+7 -c_in(A,c_Message_Oanalz(B),tc_Message_Omsg) | c_in(A,c_Message_Oparts(B),tc_Message_Omsg) # label(cls_Message_Oanalz__into__parts__dest_0) # label(axiom).  [assumption].
+8 -c_in(A,c_Event_Obad,tc_Message_Oagent) | -c_in(c_Message_Omsg_OCrypt(c_Public_OshrK(A),B),c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,C)),tc_Message_Omsg) | c_in(B,c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,C)),tc_Message_Omsg) # label(cls_Public_OCrypt__Spy__analz__bad_0) # label(axiom).  [assumption].
+9 -c_in(A,c_Yahalom_Oyahalom,tc_List_Olist(tc_Event_Oevent)) | -c_in(c_Message_Omsg_OCrypt(c_Public_OshrK(B),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(C),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(D),c_Message_Omsg_OMPair(E,F)))),c_Message_Oparts(c_Event_Oknows(c_Message_Oagent_OSpy,A)),tc_Message_Omsg) | c_in(B,c_Event_Obad,tc_Message_Oagent) | c_in(c_Event_Oevent_OSays(c_Message_Oagent_OServer,B,c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(B),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(C),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(D),c_Message_Omsg_OMPair(E,F)))),c_Message_Omsg_OCrypt(c_Public_OshrK(C),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(B),c_Message_Omsg_OKey(D))))),c_List_Oset(A,tc_Event_Oevent),tc_Event_Oevent) # label(cls_Yahalom_OA__trusts__YM3_0) # label(axiom).  [assumption].
+10 -c_in(A,c_Yahalom_Oyahalom,tc_List_Olist(tc_Event_Oevent)) | -c_in(c_Event_Oevent_OGets(B,C),c_List_Oset(A,tc_Event_Oevent),tc_Event_Oevent) | c_in(C,c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,A)),tc_Message_Omsg) # label(cls_Yahalom_OGets__imp__analz__Spy__dest_0) # label(axiom).  [assumption].
+11 -c_in(c_Message_Omsg_OMPair(A,c_Message_Omsg_ONonce(v_NB)),c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,v_evs4)),tc_Message_Omsg).  [ur(5,b,3,a)].
+13 -c_in(c_Message_Omsg_OCrypt(c_Public_OshrK(A),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(B),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(C),c_Message_Omsg_OMPair(D,E)))),c_Message_Oparts(c_Event_Oknows(c_Message_Oagent_OSpy,v_evs4)),tc_Message_Omsg) | c_in(A,c_Event_Obad,tc_Message_Oagent) | c_in(c_Event_Oevent_OSays(c_Message_Oagent_OServer,A,c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(A),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(B),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(C),c_Message_Omsg_OMPair(D,E)))),c_Message_Omsg_OCrypt(c_Public_OshrK(B),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(A),c_Message_Omsg_OKey(C))))),c_List_Oset(v_evs4,tc_Event_Oevent),tc_Event_Oevent).  [resolve(9,a,1,a)].
+15 c_in(c_Message_Omsg_OMPair(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_B),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(v_K),c_Message_Omsg_OMPair(c_Message_Omsg_ONonce(v_NA),c_Message_Omsg_ONonce(v_NB))))),v_X),c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,v_evs4)),tc_Message_Omsg).  [resolve(10,b,2,a),unit_del(a,1)].
+19 -c_in(c_Message_Omsg_OMPair(A,c_Message_Omsg_OMPair(B,c_Message_Omsg_ONonce(v_NB))),c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,v_evs4)),tc_Message_Omsg).  [ur(5,b,11,a)].
+24 c_in(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_B),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(v_K),c_Message_Omsg_OMPair(c_Message_Omsg_ONonce(v_NA),c_Message_Omsg_ONonce(v_NB))))),c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,v_evs4)),tc_Message_Omsg).  [resolve(15,a,6,a)].
+32 -c_in(c_Message_Omsg_OMPair(A,c_Message_Omsg_OMPair(B,c_Message_Omsg_OMPair(C,c_Message_Omsg_ONonce(v_NB)))),c_Message_Oanalz(c_Event_Oknows(c_Message_Oagent_OSpy,v_evs4)),tc_Message_Omsg).  [ur(5,b,19,a)].
+39 -c_in(v_A,c_Event_Obad,tc_Message_Oagent).  [resolve(24,a,8,b),unit_del(b,32)].
+40 c_in(c_Message_Omsg_OCrypt(c_Public_OshrK(v_A),c_Message_Omsg_OMPair(c_Message_Omsg_OAgent(v_B),c_Message_Omsg_OMPair(c_Message_Omsg_OKey(v_K),c_Message_Omsg_OMPair(c_Message_Omsg_ONonce(v_NA),c_Message_Omsg_ONonce(v_NB))))),c_Message_Oparts(c_Event_Oknows(c_Message_Oagent_OSpy,v_evs4)),tc_Message_Omsg).  [resolve(24,a,7,a)].
+41 $F.  [resolve(40,a,13,a),unit_del(a,39),unit_del(b,4)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=26. Generated=49. Kept=40. proofs=1.
+Usable=26. Sos=14. Demods=0. Limbo=0, Disabled=10. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=8. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=1. Nonunit_bsub_feature_tests=10.
+Megabytes=0.20.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 253 exit (max_proofs) Fri Oct 23 15:01:30 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 253 exit (max_proofs) ------
+

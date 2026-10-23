@@ -1,0 +1,190 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 42 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+ifeq3(A,A,B,C) = B # label(ifeq_axiom) # label(axiom).
+ifeq2(A,A,B,C) = B # label(ifeq_axiom_001) # label(axiom).
+ifeq(A,A,B,C) = B # label(ifeq_axiom_002) # label(axiom).
+genls(c_aspatialinformationstore,c_aspatialthing) = true # label(just1) # label(axiom).
+ifeq3(aspatialinformationstore(OBJ),true,aspatialthing(OBJ),true) = true # label(just2) # label(axiom).
+genls(c_microtheory,c_aspatialinformationstore) = true # label(just3) # label(axiom).
+ifeq3(microtheory(OBJ),true,aspatialinformationstore(OBJ),true) = true # label(just4) # label(axiom).
+genlmt(c_calendarsmt,c_calendarsvocabularymt) = true # label(just5) # label(axiom).
+transitivebinarypredicate(c_genlmt) = true # label(just6) # label(axiom).
+microtheory(f_contentmtofcdafromeventfn(f_urlreferentfn(f_urlfn(s_http_wwwinformationblastcomtechnical_university_of_munichhtml)),c_translation_3)) = true # label(just7) # label(axiom).
+genlmt(c_basekb,c_universalvocabularymt) = true # label(just8) # label(axiom).
+genlmt(c_cyclistsmt,c_calendarsmt) = true # label(just9) # label(axiom).
+genlmt(c_calendarsvocabularymt,c_basekb) = true # label(just10) # label(axiom).
+genlmt(c_tptp_spindleheadmt,c_cyclistsmt) = true # label(just11) # label(axiom).
+genlmt(c_tptp_member2831_mt,c_tptp_spindleheadmt) = true # label(just12) # label(axiom).
+ifeq3(genlinverse(PRED,GENLPRED),true,ifeq3(genlinverse(SPECPRED,PRED),true,genlpreds(SPECPRED,GENLPRED),true),true) = true # label(just14) # label(axiom).
+ifeq3(genlpreds(ARG1,INS),true,predicate(INS),true) = true # label(just15) # label(axiom).
+ifeq3(genlpreds(ARG1,INS),true,predicate(INS),true) = true # label(just16) # label(axiom).
+ifeq3(genlpreds(INS,ARG2),true,predicate(INS),true) = true # label(just17) # label(axiom).
+ifeq3(genlpreds(INS,ARG2),true,predicate(INS),true) = true # label(just18) # label(axiom).
+ifeq3(genlpreds(Y,Z),true,ifeq3(genlpreds(X,Y),true,genlpreds(X,Z),true),true) = true # label(just19) # label(axiom).
+ifeq3(predicate(X),true,genlpreds(X,X),true) = true # label(just20) # label(axiom).
+ifeq3(predicate(X),true,genlpreds(X,X),true) = true # label(just21) # label(axiom).
+ifeq3(genlinverse(ARG1,INS),true,binarypredicate(INS),true) = true # label(just22) # label(axiom).
+ifeq3(genlinverse(INS,ARG2),true,binarypredicate(INS),true) = true # label(just23) # label(axiom).
+ifeq3(genlpreds(NEW,OLD),true,ifeq3(genlinverse(OLD,ARG2),true,genlinverse(NEW,ARG2),true),true) = true # label(just24) # label(axiom).
+ifeq3(genlpreds(OLD,NEW),true,ifeq3(genlinverse(ARG1,OLD),true,genlinverse(ARG1,NEW),true),true) = true # label(just25) # label(axiom).
+ifeq3(disjointwith(ARG1,INS),true,collection(INS),true) = true # label(just26) # label(axiom).
+ifeq3(disjointwith(INS,ARG2),true,collection(INS),true) = true # label(just27) # label(axiom).
+ifeq3(disjointwith(X,Y),true,disjointwith(Y,X),true) = true # label(just28) # label(axiom).
+ifeq3(genls(NEW,OLD),true,ifeq3(disjointwith(ARG1,OLD),true,disjointwith(ARG1,NEW),true),true) = true # label(just29) # label(axiom).
+ifeq3(genls(NEW,OLD),true,ifeq3(disjointwith(OLD,ARG2),true,disjointwith(NEW,ARG2),true),true) = true # label(just30) # label(axiom).
+mtvisible(c_basekb) = true # label(just31) # label(axiom).
+natfunction(f_urlfn(ARG1),c_urlfn) = true # label(just32) # label(axiom).
+natargument(f_urlfn(ARG1),n_1,ARG1) = true # label(just33) # label(axiom).
+uniformresourcelocator(f_urlfn(ARG1)) = true # label(just34) # label(axiom).
+natfunction(f_urlreferentfn(ARG1),c_urlreferentfn) = true # label(just35) # label(axiom).
+natargument(f_urlreferentfn(ARG1),n_1,ARG1) = true # label(just36) # label(axiom).
+computerdataartifact(f_urlreferentfn(ARG1)) = true # label(just37) # label(axiom).
+natfunction(f_contentmtofcdafromeventfn(ARG1,ARG2),c_contentmtofcdafromeventfn) = true # label(just38) # label(axiom).
+natargument(f_contentmtofcdafromeventfn(ARG1,ARG2),n_1,ARG1) = true # label(just39) # label(axiom).
+natargument(f_contentmtofcdafromeventfn(ARG1,ARG2),n_2,ARG2) = true # label(just40) # label(axiom).
+microtheory(f_contentmtofcdafromeventfn(ARG1,ARG2)) = true # label(just41) # label(axiom).
+ifeq3(isa(X,c_transitivebinarypredicate),true,transitivebinarypredicate(X),true) = true # label(just42) # label(axiom).
+ifeq3(transitivebinarypredicate(X),true,isa(X,c_transitivebinarypredicate),true) = true # label(just43) # label(axiom).
+ifeq3(isa(ARG1,INS),true,collection(INS),true) = true # label(just44) # label(axiom).
+ifeq3(isa(ARG1,INS),true,collection(INS),true) = true # label(just45) # label(axiom).
+ifeq3(isa(INS,ARG2),true,thing(INS),true) = true # label(just46) # label(axiom).
+ifeq3(isa(INS,ARG2),true,thing(INS),true) = true # label(just47) # label(axiom).
+ifeq3(genls(OLD,NEW),true,ifeq3(isa(ARG1,OLD),true,isa(ARG1,NEW),true),true) = true # label(just48) # label(axiom).
+ifeq3(mtvisible(SPECMT),true,ifeq3(genlmt(SPECMT,GENLMT),true,mtvisible(GENLMT),true),true) = true # label(just49) # label(axiom).
+ifeq3(genlmt(ARG1,INS),true,microtheory(INS),true) = true # label(just50) # label(axiom).
+ifeq3(genlmt(ARG1,INS),true,microtheory(INS),true) = true # label(just51) # label(axiom).
+ifeq3(genlmt(INS,ARG2),true,microtheory(INS),true) = true # label(just52) # label(axiom).
+ifeq3(genlmt(INS,ARG2),true,microtheory(INS),true) = true # label(just53) # label(axiom).
+ifeq3(genlmt(Y,Z),true,ifeq3(genlmt(X,Y),true,genlmt(X,Z),true),true) = true # label(just54) # label(axiom).
+ifeq3(microtheory(X),true,genlmt(X,X),true) = true # label(just55) # label(axiom).
+ifeq3(microtheory(X),true,genlmt(X,X),true) = true # label(just56) # label(axiom).
+ifeq3(isa(X,c_microtheory),true,microtheory(X),true) = true # label(just57) # label(axiom).
+ifeq3(microtheory(X),true,isa(X,c_microtheory),true) = true # label(just58) # label(axiom).
+ifeq3(isa(X,c_aspatialthing),true,aspatialthing(X),true) = true # label(just59) # label(axiom).
+ifeq3(aspatialthing(X),true,isa(X,c_aspatialthing),true) = true # label(just60) # label(axiom).
+ifeq3(isa(X,c_aspatialinformationstore),true,aspatialinformationstore(X),true) = true # label(just61) # label(axiom).
+ifeq3(aspatialinformationstore(X),true,isa(X,c_aspatialinformationstore),true) = true # label(just62) # label(axiom).
+ifeq3(genls(ARG1,INS),true,collection(INS),true) = true # label(just63) # label(axiom).
+ifeq3(genls(ARG1,INS),true,collection(INS),true) = true # label(just64) # label(axiom).
+ifeq3(genls(INS,ARG2),true,collection(INS),true) = true # label(just65) # label(axiom).
+ifeq3(genls(INS,ARG2),true,collection(INS),true) = true # label(just66) # label(axiom).
+ifeq3(genls(Y,Z),true,ifeq3(genls(X,Y),true,genls(X,Z),true),true) = true # label(just67) # label(axiom).
+ifeq3(collection(X),true,genls(X,X),true) = true # label(just68) # label(axiom).
+ifeq3(collection(X),true,genls(X,X),true) = true # label(just69) # label(axiom).
+ifeq3(genls(NEW,OLD),true,ifeq3(genls(OLD,ARG2),true,genls(NEW,ARG2),true),true) = true # label(just70) # label(axiom).
+ifeq3(genls(OLD,NEW),true,ifeq3(genls(ARG1,OLD),true,genls(ARG1,NEW),true),true) = true # label(just71) # label(axiom).
+mtvisible(c_universalvocabularymt) = true # label(just72) # label(axiom).
+mtvisible(c_tptp_member2831_mt) = true # label(query41) # label(negated_conjecture).
+ifeq(tuple(isa(OBJ,COL1),isa(OBJ,COL2),disjointwith(COL1,COL2)),tuple(true,true,true),a,b) = b # label(just13) # label(axiom).
+ifeq2(aspatialthing(f_contentmtofcdafromeventfn(f_urlreferentfn(f_urlfn(s_http_wwwinformationblastcomtechnical_university_of_munichhtml)),c_translation_3)),true,a,b) = b # label(query41_1) # label(negated_conjecture).
+a != b # label(goal) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label goal to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ true, b, c_aspatialinformationstore, c_aspatialthing, c_basekb, c_microtheory, n_1, a, c_calendarsmt, c_calendarsvocabularymt, c_cyclistsmt, c_tptp_member2831_mt, c_tptp_spindleheadmt, c_transitivebinarypredicate, c_translation_3, c_universalvocabularymt, s_http_wwwinformationblastcomtechnical_university_of_munichhtml, c_contentmtofcdafromeventfn, c_genlmt, c_urlfn, c_urlreferentfn, n_2, genls, genlmt, isa, genlpreds, disjointwith, genlinverse, f_contentmtofcdafromeventfn, natfunction, microtheory, collection, predicate, f_urlfn, f_urlreferentfn, mtvisible, aspatialinformationstore, aspatialthing, transitivebinarypredicate, binarypredicate, thing, computerdataartifact, uniformresourcelocator, natargument, tuple, ifeq3, ifeq, ifeq2 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds: goal.
+% Length of proof is 11.
+% Level of proof is 4.
+% Maximum clause weight is 12.000.
+% Given clauses 91 (22.750 givens/level).
+
+1 ifeq3(A,A,B,C) = B # label(ifeq_axiom) # label(axiom).  [assumption].
+2 ifeq2(A,A,B,C) = B # label(ifeq_axiom_001) # label(axiom).  [assumption].
+5 ifeq3(aspatialinformationstore(A),true,aspatialthing(A),true) = true # label(just2) # label(axiom).  [assumption].
+7 ifeq3(microtheory(A),true,aspatialinformationstore(A),true) = true # label(just4) # label(axiom).  [assumption].
+43 microtheory(f_contentmtofcdafromeventfn(A,B)) = true # label(just41) # label(axiom).  [assumption].
+77 ifeq2(aspatialthing(f_contentmtofcdafromeventfn(f_urlreferentfn(f_urlfn(s_http_wwwinformationblastcomtechnical_university_of_munichhtml)),c_translation_3)),true,a,b) = b # label(query41_1) # label(negated_conjecture).  [assumption].
+78 a != b # label(goal) # label(negated_conjecture) # answer(goal).  [assumption].
+84 aspatialinformationstore(f_contentmtofcdafromeventfn(A,B)) = true.  [para(43(a,1),7(a,1,1)),rewrite([1(6)])].
+225 aspatialthing(f_contentmtofcdafromeventfn(A,B)) = true.  [para(84(a,1),5(a,1,1)),rewrite([1(6)])].
+227 a = b.  [back_rewrite(77),rewrite([225(6),2(5)])].
+228 $F # answer(goal).  [resolve(227,a,78,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=91. Generated=381. Kept=215. proofs=1.
+Usable=90. Sos=90. Demods=181. Limbo=2, Disabled=110. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=166. Back_subsumed=1.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=213 (0 lex), Back_demodulated=31. Back_unit_deleted=0.
+Demod_attempts=3433. Demod_rewrites=216.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.39.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 42 exit (max_proofs) Fri Oct 23 15:00:23 2026
+-------- Proof 1 -------- goal.
+
+THEOREM PROVED
+
+------ process 42 exit (max_proofs) ------
+

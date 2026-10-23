@@ -1,0 +1,12 @@
+{
+  "problem": "COL030-1",
+  "domain": "COL",
+  "rating": 0.14,
+  "conversion_wall_seconds": 0.012428140005795285,
+  "exit_code": 0,
+  "search_wall_seconds": 0.008854580999468453,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.0,
+  "total_wall_seconds": 0.02212764200521633
+}

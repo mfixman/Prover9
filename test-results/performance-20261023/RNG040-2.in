@@ -1,0 +1,37 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+sum(additive_identity,X,X) # label(additive_identity1) # label(axiom).
+sum(X,additive_identity,X) # label(additive_identity2) # label(axiom).
+product(X,Y,multiply(X,Y)) # label(closure_of_multiplication) # label(axiom).
+sum(X,Y,add(X,Y)) # label(closure_of_addition) # label(axiom).
+sum(additive_inverse(X),X,additive_identity) # label(additive_inverse1) # label(axiom).
+sum(X,additive_inverse(X),additive_identity) # label(additive_inverse2) # label(axiom).
+-sum(X,Y,U) | -sum(Y,Z,V) | -sum(U,Z,W) | sum(X,V,W) # label(associativity_of_addition1) # label(axiom).
+-sum(X,Y,U) | -sum(Y,Z,V) | -sum(X,V,W) | sum(U,Z,W) # label(associativity_of_addition2) # label(axiom).
+-sum(X,Y,Z) | sum(Y,X,Z) # label(commutativity_of_addition) # label(axiom).
+-product(X,Y,U) | -product(Y,Z,V) | -product(U,Z,W) | product(X,V,W) # label(associativity_of_multiplication1) # label(axiom).
+-product(X,Y,U) | -product(Y,Z,V) | -product(X,V,W) | product(U,Z,W) # label(associativity_of_multiplication2) # label(axiom).
+-product(X,Y,V1) | -product(X,Z,V2) | -sum(Y,Z,V3) | -product(X,V3,V4) | sum(V1,V2,V4) # label(distributivity1) # label(axiom).
+-product(X,Y,V1) | -product(X,Z,V2) | -sum(Y,Z,V3) | -sum(V1,V2,V4) | product(X,V3,V4) # label(distributivity2) # label(axiom).
+-sum(X,Y,U) | -sum(X,Y,V) | U = V # label(addition_is_well_defined) # label(axiom).
+-product(X,Y,U) | -product(X,Y,V) | U = V # label(multiplication_is_well_defined) # label(axiom).
+product(A,multiplicative_identity,A) # label(right_multiplicative_identity) # label(hypothesis).
+product(multiplicative_identity,A,A) # label(left_multiplicative_identity) # label(hypothesis).
+product(A,h(A),multiplicative_identity) | A = additive_identity # label(clause30) # label(hypothesis).
+product(h(A),A,multiplicative_identity) | A = additive_identity # label(clause31) # label(hypothesis).
+-product(A,B,C) | product(B,A,C) # label(product_symmetry) # label(hypothesis).
+sum(b,c,d) # label(b_plus_c) # label(negated_conjecture).
+product(d,a,additive_identity) # label(d_plus_a) # label(negated_conjecture).
+product(b,a,l) # label(b_plus_a) # label(negated_conjecture).
+product(c,a,n) # label(c_plus_a) # label(negated_conjecture).
+-sum(l,n,additive_identity) # label(prove_equation) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

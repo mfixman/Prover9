@@ -1,0 +1,12 @@
+{
+  "problem": "SWV672-1",
+  "domain": "SWV",
+  "rating": 1.0,
+  "conversion_wall_seconds": 0.18876585400721524,
+  "exit_code": 4,
+  "search_wall_seconds": 21.07482357500703,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.39,
+  "total_wall_seconds": 21.267453622000176
+}

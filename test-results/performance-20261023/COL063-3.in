@@ -1,0 +1,15 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+apply(apply(apply(b,X),Y),Z) = apply(X,apply(Y,Z)) # label(b_definition) # label(axiom).
+apply(apply(t,X),Y) = apply(Y,X) # label(t_definition) # label(axiom).
+apply(apply(apply(apply(apply(b,apply(apply(b,apply(t,t)),b)),apply(apply(b,b),t)),x),y),z) != apply(apply(z,y),x) # label(prove_f_combinator) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

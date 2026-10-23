@@ -1,0 +1,296 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all X (cowlThing(X) & -cowlNothing(X))) # label(axiom_0) # label(axiom).
+(all X (xsd_string(X) <-> -xsd_integer(X))) # label(axiom_1) # label(axiom).
+(all X (cC10(X) <-> cC8(X) & cC6(X))) # label(axiom_2) # label(axiom).
+(all X (cC10(X) <-> ra_Px73(X,Y))) # label(axiom_3) # label(axiom).
+(all X (cC10xcomp(X) <-> (exists Y0 ra_Px73(X,Y0)))) # label(axiom_4) # label(axiom).
+(all X (cC100(X) <-> (exists Y (rR1(X,Y) & cC98xcomp(Y))))) # label(axiom_5) # label(axiom).
+(all X (cC100(X) <-> ra_Px37(X,Y))) # label(axiom_6) # label(axiom).
+(all X (cC100xcomp(X) <-> (exists Y0 ra_Px37(X,Y0)))) # label(axiom_7) # label(axiom).
+(all X (cC102(X) <-> (exists Y0 ra_Px36(X,Y0)))) # label(axiom_8) # label(axiom).
+(all X (cC102xcomp(X) <-> ra_Px36(X,Y))) # label(axiom_9) # label(axiom).
+(all X (cC104(X) <-> (exists Y (rR1(X,Y) & cC102xcomp(Y))))) # label(axiom_10) # label(axiom).
+(all X (cC106(X) <-> cC104(X) & cC100xcomp(X))) # label(axiom_11) # label(axiom).
+(all X (cC108(X) <-> cC28(X) & cC106(X))) # label(axiom_12) # label(axiom).
+(all X (cC110(X) <-> cC4xcomp(X) & cC12xcomp(X))) # label(axiom_13) # label(axiom).
+(all X (cC112(X) <-> cC110(X) & cC102xcomp(X))) # label(axiom_14) # label(axiom).
+(all X (cC114(X) <-> (exists Y0 ra_Px41(X,Y0)))) # label(axiom_15) # label(axiom).
+(all X (cC114xcomp(X) <-> ra_Px41(X,Y))) # label(axiom_16) # label(axiom).
+(all X (cC116(X) <-> cC112(X) & cC114xcomp(X))) # label(axiom_17) # label(axiom).
+(all X (cC118(X) <-> (exists Y0 ra_Px42(X,Y0)))) # label(axiom_18) # label(axiom).
+(all X (cC118xcomp(X) <-> ra_Px42(X,Y))) # label(axiom_19) # label(axiom).
+(all X (cC12(X) <-> (exists Y0 ra_Px18(X,Y0)))) # label(axiom_20) # label(axiom).
+(all X (cC12xcomp(X) <-> ra_Px18(X,Y))) # label(axiom_21) # label(axiom).
+(all X (cC120(X) <-> cC116(X) & cC118xcomp(X))) # label(axiom_22) # label(axiom).
+(all X (cC120(X) <-> ra_Px43(X,Y))) # label(axiom_23) # label(axiom).
+(all X (cC120xcomp(X) <-> (exists Y0 ra_Px43(X,Y0)))) # label(axiom_24) # label(axiom).
+(all X (cC122(X) <-> (exists Y (rR1(X,Y) & cC120xcomp(Y))))) # label(axiom_25) # label(axiom).
+(all X (cC124(X) <-> (exists Y (rR1(X,Y) & cC122(Y))))) # label(axiom_26) # label(axiom).
+(all X (cC126(X) <-> (exists Y (rR1(X,Y) & cC124(Y))))) # label(axiom_27) # label(axiom).
+(all X (cC128(X) <-> (exists Y (rR1(X,Y) & cC126(Y))))) # label(axiom_28) # label(axiom).
+(all X (cC130(X) <-> (exists Y (rR1(X,Y) & cC128(Y))))) # label(axiom_29) # label(axiom).
+(all X (cC14(X) <-> (exists Y0 ra_Px74(X,Y0)))) # label(axiom_30) # label(axiom).
+(all X (cC14(X) <-> cC10(X) & cC12(X))) # label(axiom_31) # label(axiom).
+(all X (cC14xcomp(X) <-> ra_Px74(X,Y))) # label(axiom_32) # label(axiom).
+(all X (cC16(X) <-> (exists Y0 ra_Px27(X,Y0)))) # label(axiom_33) # label(axiom).
+(all X (cC16xcomp(X) <-> ra_Px27(X,Y))) # label(axiom_34) # label(axiom).
+(all X (cC18(X) <-> ra_Px1(X,Y))) # label(axiom_35) # label(axiom).
+(all X (cC18(X) <-> cC14(X) & cC16(X))) # label(axiom_36) # label(axiom).
+(all X (cC18xcomp(X) <-> (exists Y0 ra_Px1(X,Y0)))) # label(axiom_37) # label(axiom).
+(all X (cC2(X) <-> (exists Y0 ra_Px2(X,Y0)))) # label(axiom_38) # label(axiom).
+(all X (cC2xcomp(X) <-> ra_Px2(X,Y))) # label(axiom_39) # label(axiom).
+(all X (cC20(X) <-> (exists Y (rR1(X,Y) & cC18xcomp(Y))))) # label(axiom_40) # label(axiom).
+(all X (cC22(X) <-> (exists Y (rR1(X,Y) & cC20(Y))))) # label(axiom_41) # label(axiom).
+(all X (cC24(X) <-> (exists Y (rR1(X,Y) & cC22(Y))))) # label(axiom_42) # label(axiom).
+(all X (cC26(X) <-> (exists Y (rR1(X,Y) & cC24(Y))))) # label(axiom_43) # label(axiom).
+(all X (cC28(X) <-> (exists Y (rR1(X,Y) & cC26(Y))))) # label(axiom_44) # label(axiom).
+(all X (cC30(X) <-> ra_Px4(X,Y))) # label(axiom_45) # label(axiom).
+(all X (cC30(X) <-> cC2(X) & cC4(X))) # label(axiom_46) # label(axiom).
+(all X (cC30xcomp(X) <-> (exists Y0 ra_Px4(X,Y0)))) # label(axiom_47) # label(axiom).
+(all X (cC32(X) <-> (exists Y0 ra_Px5(X,Y0)))) # label(axiom_48) # label(axiom).
+(all X (cC32(X) <-> cC4xcomp(X) & cC2xcomp(X))) # label(axiom_49) # label(axiom).
+(all X (cC32xcomp(X) <-> ra_Px5(X,Y))) # label(axiom_50) # label(axiom).
+(all X (cC34(X) <-> (exists Y0 ra_Px6(X,Y0)))) # label(axiom_51) # label(axiom).
+(all X (cC34(X) <-> cC30xcomp(X) & cC32xcomp(X))) # label(axiom_52) # label(axiom).
+(all X (cC34xcomp(X) <-> ra_Px6(X,Y))) # label(axiom_53) # label(axiom).
+(all X (cC36(X) <-> ra_Px7(X,Y))) # label(axiom_54) # label(axiom).
+(all X (cC36(X) <-> (exists Y (rR1(X,Y) & cC34xcomp(Y))))) # label(axiom_55) # label(axiom).
+(all X (cC36xcomp(X) <-> (exists Y0 ra_Px7(X,Y0)))) # label(axiom_56) # label(axiom).
+(all X (cC38(X) <-> cTOP(X) & cC36xcomp(X))) # label(axiom_57) # label(axiom).
+(all X (cC38(X) <-> (exists Y0 ra_Px8(X,Y0)))) # label(axiom_58) # label(axiom).
+(all X (cC38xcomp(X) <-> ra_Px8(X,Y))) # label(axiom_59) # label(axiom).
+(all X (cC4(X) <-> (exists Y0 ra_Px3(X,Y0)))) # label(axiom_60) # label(axiom).
+(all X (cC4xcomp(X) <-> ra_Px3(X,Y))) # label(axiom_61) # label(axiom).
+(all X (cC40(X) <-> ra_Px10(X,Y))) # label(axiom_62) # label(axiom).
+(all X (cC40(X) <-> (exists Y (rR1(X,Y) & cC38xcomp(Y))))) # label(axiom_63) # label(axiom).
+(all X (cC40xcomp(X) <-> (exists Y0 ra_Px10(X,Y0)))) # label(axiom_64) # label(axiom).
+(all X (cC42(X) <-> (exists Y (rR1(X,Y) & cC8xcomp(Y))))) # label(axiom_65) # label(axiom).
+(all X (cC44(X) <-> cC40xcomp(X) & cC42(X))) # label(axiom_66) # label(axiom).
+(all X (cC46(X) <-> ra_Px13(X,Y))) # label(axiom_67) # label(axiom).
+(all X (cC46(X) <-> cC8(X) & cC4(X))) # label(axiom_68) # label(axiom).
+(all X (cC46xcomp(X) <-> (exists Y0 ra_Px13(X,Y0)))) # label(axiom_69) # label(axiom).
+(all X (cC48(X) <-> cC4xcomp(X) & cC8xcomp(X))) # label(axiom_70) # label(axiom).
+(all X (cC48(X) <-> (exists Y0 ra_Px14(X,Y0)))) # label(axiom_71) # label(axiom).
+(all X (cC48xcomp(X) <-> ra_Px14(X,Y))) # label(axiom_72) # label(axiom).
+(all X (cC50(X) <-> cC46xcomp(X) & cC48xcomp(X))) # label(axiom_73) # label(axiom).
+(all X (cC50(X) <-> (exists Y0 ra_Px15(X,Y0)))) # label(axiom_74) # label(axiom).
+(all X (cC50xcomp(X) <-> ra_Px15(X,Y))) # label(axiom_75) # label(axiom).
+(all X (cC52(X) <-> ra_Px49(X,Y))) # label(axiom_76) # label(axiom).
+(all X (cC52(X) <-> (exists Y (rR1(X,Y) & cC50xcomp(Y))))) # label(axiom_77) # label(axiom).
+(all X (cC52xcomp(X) <-> (exists Y0 ra_Px49(X,Y0)))) # label(axiom_78) # label(axiom).
+(all X (cC54(X) <-> ra_Px16(X,Y))) # label(axiom_79) # label(axiom).
+(all X (cC54(X) <-> (exists Y (rR1(X,Y) & cC52(Y))))) # label(axiom_80) # label(axiom).
+(all X (cC54xcomp(X) <-> (exists Y0 ra_Px16(X,Y0)))) # label(axiom_81) # label(axiom).
+(all X (cC56(X) <-> cC54xcomp(X) & cC44(X))) # label(axiom_82) # label(axiom).
+(all X (cC56(X) <-> (exists Y0 ra_Px17(X,Y0)))) # label(axiom_83) # label(axiom).
+(all X (cC56xcomp(X) <-> ra_Px17(X,Y))) # label(axiom_84) # label(axiom).
+(all X (cC58(X) <-> (exists Y (rR1(X,Y) & cC56xcomp(Y))))) # label(axiom_85) # label(axiom).
+(all X (cC58(X) <-> ra_Px19(X,Y))) # label(axiom_86) # label(axiom).
+(all X (cC58xcomp(X) <-> (exists Y0 ra_Px19(X,Y0)))) # label(axiom_87) # label(axiom).
+(all X (cC6(X) <-> cC2(X) & cC4(X))) # label(axiom_88) # label(axiom).
+(all X (cC6(X) <-> (exists Y0 ra_Px72(X,Y0)))) # label(axiom_89) # label(axiom).
+(all X (cC6xcomp(X) <-> ra_Px72(X,Y))) # label(axiom_90) # label(axiom).
+(all X (cC60(X) <-> (exists Y (rR1(X,Y) & cC12xcomp(Y))))) # label(axiom_91) # label(axiom).
+(all X (cC62(X) <-> cC60(X) & cC58xcomp(X))) # label(axiom_92) # label(axiom).
+(all X (cC64(X) <-> cC8(X) & cC12(X))) # label(axiom_93) # label(axiom).
+(all X (cC64(X) <-> ra_Px22(X,Y))) # label(axiom_94) # label(axiom).
+(all X (cC64xcomp(X) <-> (exists Y0 ra_Px22(X,Y0)))) # label(axiom_95) # label(axiom).
+(all X (cC66(X) <-> cC12xcomp(X) & cC8xcomp(X))) # label(axiom_96) # label(axiom).
+(all X (cC66(X) <-> (exists Y0 ra_Px23(X,Y0)))) # label(axiom_97) # label(axiom).
+(all X (cC66xcomp(X) <-> ra_Px23(X,Y))) # label(axiom_98) # label(axiom).
+(all X (cC68(X) <-> (exists Y0 ra_Px24(X,Y0)))) # label(axiom_99) # label(axiom).
+(all X (cC68(X) <-> cC64xcomp(X) & cC66xcomp(X))) # label(axiom_100) # label(axiom).
+(all X (cC68xcomp(X) <-> ra_Px24(X,Y))) # label(axiom_101) # label(axiom).
+(all X (cC70(X) <-> (exists Y (rR1(X,Y) & cC68xcomp(Y))))) # label(axiom_102) # label(axiom).
+(all X (cC70(X) <-> (exists Y0 ra_Px51(X,Y0)))) # label(axiom_103) # label(axiom).
+(all X (cC70xcomp(X) <-> ra_Px51(X,Y))) # label(axiom_104) # label(axiom).
+(all X (cC72(X) <-> (exists Y (rR1(X,Y) & cC70(Y))))) # label(axiom_105) # label(axiom).
+(all X (cC72(X) <-> ra_Px58(X,Y))) # label(axiom_106) # label(axiom).
+(all X (cC72xcomp(X) <-> (exists Y0 ra_Px58(X,Y0)))) # label(axiom_107) # label(axiom).
+(all X (cC74(X) <-> (exists Y (rR1(X,Y) & cC72(Y))))) # label(axiom_108) # label(axiom).
+(all X (cC74(X) <-> ra_Px25(X,Y))) # label(axiom_109) # label(axiom).
+(all X (cC74xcomp(X) <-> (exists Y0 ra_Px25(X,Y0)))) # label(axiom_110) # label(axiom).
+(all X (cC76(X) <-> (exists Y0 ra_Px26(X,Y0)))) # label(axiom_111) # label(axiom).
+(all X (cC76(X) <-> cC74xcomp(X) & cC62(X))) # label(axiom_112) # label(axiom).
+(all X (cC76xcomp(X) <-> ra_Px26(X,Y))) # label(axiom_113) # label(axiom).
+(all X (cC78(X) <-> (exists Y (rR1(X,Y) & cC76xcomp(Y))))) # label(axiom_114) # label(axiom).
+(all X (cC78(X) <-> ra_Px28(X,Y))) # label(axiom_115) # label(axiom).
+(all X (cC78xcomp(X) <-> (exists Y0 ra_Px28(X,Y0)))) # label(axiom_116) # label(axiom).
+(all X (cC8(X) <-> (exists Y0 ra_Px9(X,Y0)))) # label(axiom_117) # label(axiom).
+(all X (cC8xcomp(X) <-> ra_Px9(X,Y))) # label(axiom_118) # label(axiom).
+(all X (cC80(X) <-> (exists Y (rR1(X,Y) & cC16xcomp(Y))))) # label(axiom_119) # label(axiom).
+(all X (cC82(X) <-> cC80(X) & cC78xcomp(X))) # label(axiom_120) # label(axiom).
+(all X (cC84(X) <-> ra_Px31(X,Y))) # label(axiom_121) # label(axiom).
+(all X (cC84(X) <-> cC2(X) & cC12(X))) # label(axiom_122) # label(axiom).
+(all X (cC84xcomp(X) <-> (exists Y0 ra_Px31(X,Y0)))) # label(axiom_123) # label(axiom).
+(all X (cC86(X) <-> cC12xcomp(X) & cC2xcomp(X))) # label(axiom_124) # label(axiom).
+(all X (cC86(X) <-> (exists Y0 ra_Px32(X,Y0)))) # label(axiom_125) # label(axiom).
+(all X (cC86xcomp(X) <-> ra_Px32(X,Y))) # label(axiom_126) # label(axiom).
+(all X (cC88(X) <-> (exists Y0 ra_Px33(X,Y0)))) # label(axiom_127) # label(axiom).
+(all X (cC88(X) <-> cC84xcomp(X) & cC86xcomp(X))) # label(axiom_128) # label(axiom).
+(all X (cC88xcomp(X) <-> ra_Px33(X,Y))) # label(axiom_129) # label(axiom).
+(all X (cC90(X) <-> (exists Y0 ra_Px50(X,Y0)))) # label(axiom_130) # label(axiom).
+(all X (cC90(X) <-> (exists Y (rR1(X,Y) & cC88xcomp(Y))))) # label(axiom_131) # label(axiom).
+(all X (cC90xcomp(X) <-> ra_Px50(X,Y))) # label(axiom_132) # label(axiom).
+(all X (cC92(X) <-> (exists Y0 ra_Px57(X,Y0)))) # label(axiom_133) # label(axiom).
+(all X (cC92(X) <-> (exists Y (rR1(X,Y) & cC90(Y))))) # label(axiom_134) # label(axiom).
+(all X (cC92xcomp(X) <-> ra_Px57(X,Y))) # label(axiom_135) # label(axiom).
+(all X (cC94(X) <-> (exists Y (rR1(X,Y) & cC92(Y))))) # label(axiom_136) # label(axiom).
+(all X (cC94(X) <-> (exists Y0 ra_Px48(X,Y0)))) # label(axiom_137) # label(axiom).
+(all X (cC94xcomp(X) <-> ra_Px48(X,Y))) # label(axiom_138) # label(axiom).
+(all X (cC96(X) <-> (exists Y (rR1(X,Y) & cC94(Y))))) # label(axiom_139) # label(axiom).
+(all X (cC96(X) <-> ra_Px34(X,Y))) # label(axiom_140) # label(axiom).
+(all X (cC96xcomp(X) <-> (exists Y0 ra_Px34(X,Y0)))) # label(axiom_141) # label(axiom).
+(all X (cC98(X) <-> (exists Y0 ra_Px35(X,Y0)))) # label(axiom_142) # label(axiom).
+(all X (cC98(X) <-> cC96xcomp(X) & cC82(X))) # label(axiom_143) # label(axiom).
+(all X (cC98xcomp(X) <-> ra_Px35(X,Y))) # label(axiom_144) # label(axiom).
+(all X (cTEST(X) <-> cC108(X) & cC130(X))) # label(axiom_145) # label(axiom).
+(all X (rR1(iV16439,X) -> cC98(X))) # label(axiom_146) # label(axiom).
+cowlThing(iV16439) # label(axiom_147) # label(axiom).
+cC100xcomp(iV16439) # label(axiom_148) # label(axiom).
+cTEST(iV16439) # label(axiom_149) # label(axiom).
+rR1(iV16439,iV16440) # label(axiom_150) # label(axiom).
+rR1(iV16439,iV16442) # label(axiom_151) # label(axiom).
+rR1(iV16439,iV16441) # label(axiom_152) # label(axiom).
+cowlThing(iV16440) # label(axiom_153) # label(axiom).
+cC96xcomp(iV16440) # label(axiom_154) # label(axiom).
+(all X (rR1(iV16440,X) -> cC94xcomp(X))) # label(axiom_155) # label(axiom).
+(all X (rR1(iV16440,X) -> cC76(X))) # label(axiom_156) # label(axiom).
+cC102xcomp(iV16440) # label(axiom_157) # label(axiom).
+cC78xcomp(iV16440) # label(axiom_158) # label(axiom).
+rR1(iV16440,iV16463) # label(axiom_159) # label(axiom).
+cowlThing(iV16441) # label(axiom_160) # label(axiom).
+cowlThing(iV16442) # label(axiom_161) # label(axiom).
+cowlThing(iV16448) # label(axiom_162) # label(axiom).
+cTOP(iV16448) # label(axiom_163) # label(axiom).
+cC52xcomp(iV16448) # label(axiom_164) # label(axiom).
+(all X (rR1(iV16448,X) -> cC50(X))) # label(axiom_165) # label(axiom).
+(all X (rR1(iV16448,X) -> cC68(X))) # label(axiom_166) # label(axiom).
+(all X (rR1(iV16448,X) -> cC34(X))) # label(axiom_167) # label(axiom).
+cC36xcomp(iV16448) # label(axiom_168) # label(axiom).
+cC90xcomp(iV16448) # label(axiom_169) # label(axiom).
+(all X (rR1(iV16448,X) -> cC88(X))) # label(axiom_170) # label(axiom).
+cC70xcomp(iV16448) # label(axiom_171) # label(axiom).
+rR1(iV16448,iV16449) # label(axiom_172) # label(axiom).
+cowlThing(iV16449) # label(axiom_173) # label(axiom).
+cC74xcomp(iV16453) # label(axiom_174) # label(axiom).
+cowlThing(iV16453) # label(axiom_175) # label(axiom).
+(all X (rR1(iV16453,X) -> cC72xcomp(X))) # label(axiom_176) # label(axiom).
+cC16xcomp(iV16453) # label(axiom_177) # label(axiom).
+(all X (rR1(iV16453,X) -> cC56(X))) # label(axiom_178) # label(axiom).
+(all X (rR1(iV16453,X) -> cC92xcomp(X))) # label(axiom_179) # label(axiom).
+cC94xcomp(iV16453) # label(axiom_180) # label(axiom).
+cC58xcomp(iV16453) # label(axiom_181) # label(axiom).
+rR1(iV16453,iV16461) # label(axiom_182) # label(axiom).
+(all X (rR1(iV16455,X) -> cC52xcomp(X))) # label(axiom_183) # label(axiom).
+cowlThing(iV16455) # label(axiom_184) # label(axiom).
+cC40xcomp(iV16455) # label(axiom_185) # label(axiom).
+(all X (rR1(iV16455,X) -> cC90xcomp(X))) # label(axiom_186) # label(axiom).
+cC12xcomp(iV16455) # label(axiom_187) # label(axiom).
+(all X (rR1(iV16455,X) -> cC38(X))) # label(axiom_188) # label(axiom).
+cC92xcomp(iV16455) # label(axiom_189) # label(axiom).
+cC54xcomp(iV16455) # label(axiom_190) # label(axiom).
+(all X (rR1(iV16455,X) -> cC70xcomp(X))) # label(axiom_191) # label(axiom).
+cC72xcomp(iV16455) # label(axiom_192) # label(axiom).
+rR1(iV16455,iV16460) # label(axiom_193) # label(axiom).
+(all X (rR1(iV16457,X) -> cC68(X))) # label(axiom_194) # label(axiom).
+cowlThing(iV16457) # label(axiom_195) # label(axiom).
+(all X (rR1(iV16457,X) -> cC34(X))) # label(axiom_196) # label(axiom).
+cTOP(iV16457) # label(axiom_197) # label(axiom).
+cC52xcomp(iV16457) # label(axiom_198) # label(axiom).
+cC8xcomp(iV16457) # label(axiom_199) # label(axiom).
+(all X (rR1(iV16457,X) -> cC88(X))) # label(axiom_200) # label(axiom).
+cC36xcomp(iV16457) # label(axiom_201) # label(axiom).
+cC90xcomp(iV16457) # label(axiom_202) # label(axiom).
+(all X (rR1(iV16457,X) -> cC50(X))) # label(axiom_203) # label(axiom).
+cC70xcomp(iV16457) # label(axiom_204) # label(axiom).
+cowlThing(iV16459) # label(axiom_205) # label(axiom).
+cC14xcomp(iV16459) # label(axiom_206) # label(axiom).
+cC8xcomp(iV16459) # label(axiom_207) # label(axiom).
+cC10xcomp(iV16459) # label(axiom_208) # label(axiom).
+cC30xcomp(iV16459) # label(axiom_209) # label(axiom).
+cC84xcomp(iV16459) # label(axiom_210) # label(axiom).
+cC12(iV16459) # label(axiom_211) # label(axiom).
+cC46xcomp(iV16459) # label(axiom_212) # label(axiom).
+cC64xcomp(iV16459) # label(axiom_213) # label(axiom).
+cC4(iV16459) # label(axiom_214) # label(axiom).
+cC86xcomp(iV16459) # label(axiom_215) # label(axiom).
+cC32xcomp(iV16459) # label(axiom_216) # label(axiom).
+cC48xcomp(iV16459) # label(axiom_217) # label(axiom).
+cC18xcomp(iV16459) # label(axiom_218) # label(axiom).
+cC2xcomp(iV16459) # label(axiom_219) # label(axiom).
+cC6xcomp(iV16459) # label(axiom_220) # label(axiom).
+cC66xcomp(iV16459) # label(axiom_221) # label(axiom).
+(all X (rR1(iV16460,X) -> cC68(X))) # label(axiom_222) # label(axiom).
+cowlThing(iV16460) # label(axiom_223) # label(axiom).
+(all X (rR1(iV16460,X) -> cC34(X))) # label(axiom_224) # label(axiom).
+cTOP(iV16460) # label(axiom_225) # label(axiom).
+cC52xcomp(iV16460) # label(axiom_226) # label(axiom).
+cC8xcomp(iV16460) # label(axiom_227) # label(axiom).
+cC36xcomp(iV16460) # label(axiom_228) # label(axiom).
+(all X (rR1(iV16460,X) -> cC50(X))) # label(axiom_229) # label(axiom).
+(all X (rR1(iV16460,X) -> cC88(X))) # label(axiom_230) # label(axiom).
+cC90xcomp(iV16460) # label(axiom_231) # label(axiom).
+cC70xcomp(iV16460) # label(axiom_232) # label(axiom).
+cowlThing(iV16461) # label(axiom_233) # label(axiom).
+cC40xcomp(iV16461) # label(axiom_234) # label(axiom).
+(all X (rR1(iV16461,X) -> cC90xcomp(X))) # label(axiom_235) # label(axiom).
+(all X (rR1(iV16461,X) -> cC70xcomp(X))) # label(axiom_236) # label(axiom).
+cC12xcomp(iV16461) # label(axiom_237) # label(axiom).
+(all X (rR1(iV16461,X) -> cC52xcomp(X))) # label(axiom_238) # label(axiom).
+cC92xcomp(iV16461) # label(axiom_239) # label(axiom).
+cC54xcomp(iV16461) # label(axiom_240) # label(axiom).
+(all X (rR1(iV16461,X) -> cC38(X))) # label(axiom_241) # label(axiom).
+cC72xcomp(iV16461) # label(axiom_242) # label(axiom).
+rR1(iV16461,iV16462) # label(axiom_243) # label(axiom).
+(all X (rR1(iV16462,X) -> cC50(X))) # label(axiom_244) # label(axiom).
+(all X (rR1(iV16462,X) -> cC68(X))) # label(axiom_245) # label(axiom).
+cowlThing(iV16462) # label(axiom_246) # label(axiom).
+cTOP(iV16462) # label(axiom_247) # label(axiom).
+cC52xcomp(iV16462) # label(axiom_248) # label(axiom).
+cC8xcomp(iV16462) # label(axiom_249) # label(axiom).
+(all X (rR1(iV16462,X) -> cC34(X))) # label(axiom_250) # label(axiom).
+(all X (rR1(iV16462,X) -> cC88(X))) # label(axiom_251) # label(axiom).
+cC36xcomp(iV16462) # label(axiom_252) # label(axiom).
+cC90xcomp(iV16462) # label(axiom_253) # label(axiom).
+cC70xcomp(iV16462) # label(axiom_254) # label(axiom).
+cC74xcomp(iV16463) # label(axiom_255) # label(axiom).
+cowlThing(iV16463) # label(axiom_256) # label(axiom).
+cC16xcomp(iV16463) # label(axiom_257) # label(axiom).
+(all X (rR1(iV16463,X) -> cC92xcomp(X))) # label(axiom_258) # label(axiom).
+(all X (rR1(iV16463,X) -> cC72xcomp(X))) # label(axiom_259) # label(axiom).
+cC94xcomp(iV16463) # label(axiom_260) # label(axiom).
+(all X (rR1(iV16463,X) -> cC56(X))) # label(axiom_261) # label(axiom).
+cC58xcomp(iV16463) # label(axiom_262) # label(axiom).
+rR1(iV16463,iV16464) # label(axiom_263) # label(axiom).
+cowlThing(iV16464) # label(axiom_264) # label(axiom).
+(all X (rR1(iV16464,X) -> cC38(X))) # label(axiom_265) # label(axiom).
+cC40xcomp(iV16464) # label(axiom_266) # label(axiom).
+cC12xcomp(iV16464) # label(axiom_267) # label(axiom).
+(all X (rR1(iV16464,X) -> cC52xcomp(X))) # label(axiom_268) # label(axiom).
+cC92xcomp(iV16464) # label(axiom_269) # label(axiom).
+cC54xcomp(iV16464) # label(axiom_270) # label(axiom).
+(all X (rR1(iV16464,X) -> cC90xcomp(X))) # label(axiom_271) # label(axiom).
+(all X (rR1(iV16464,X) -> cC70xcomp(X))) # label(axiom_272) # label(axiom).
+cC72xcomp(iV16464) # label(axiom_273) # label(axiom).
+rR1(iV16464,iV16465) # label(axiom_274) # label(axiom).
+(all X (rR1(iV16465,X) -> cC34(X))) # label(axiom_275) # label(axiom).
+cowlThing(iV16465) # label(axiom_276) # label(axiom).
+cTOP(iV16465) # label(axiom_277) # label(axiom).
+(all X (rR1(iV16465,X) -> cC88(X))) # label(axiom_278) # label(axiom).
+cC52xcomp(iV16465) # label(axiom_279) # label(axiom).
+cC8xcomp(iV16465) # label(axiom_280) # label(axiom).
+(all X (rR1(iV16465,X) -> cC68(X))) # label(axiom_281) # label(axiom).
+cC36xcomp(iV16465) # label(axiom_282) # label(axiom).
+cC90xcomp(iV16465) # label(axiom_283) # label(axiom).
+(all X (rR1(iV16465,X) -> cC50(X))) # label(axiom_284) # label(axiom).
+cC70xcomp(iV16465) # label(axiom_285) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all X (cowlThing(X) & -cowlNothing(X))) & (all X (xsd_string(X) <-> -xsd_integer(X))) & cC130(iV16439) & cC108(iV16439) & cC104(iV16439) & cC106(iV16439) & cC28(iV16439) & cowlThing(iV16439) & cC98(iV16440) & cC80(iV16440) & cC82(iV16440) & cowlThing(iV16440) & cC38(iV16448) & cowlThing(iV16448) & cC76(iV16453) & cC62(iV16453) & cowlThing(iV16453) & cC60(iV16453) & cC56(iV16455) & cC44(iV16455) & cC42(iV16455) & cowlThing(iV16455) & cC38(iV16457) & cowlThing(iV16457) & cC50(iV16459) & cC88(iV16459) & cC34(iV16459) & cC68(iV16459) & cowlThing(iV16459) & cC38(iV16460) & cowlThing(iV16460) & cC42(iV16461) & cC56(iV16461) & cC44(iV16461) & cowlThing(iV16461) & cC38(iV16462) & cowlThing(iV16462) & cC76(iV16463) & cC62(iV16463) & cowlThing(iV16463) & cC60(iV16463) & cC56(iV16464) & cC42(iV16464) & cC44(iV16464) & cowlThing(iV16464) & cC38(iV16465) & cowlThing(iV16465) # label(the_axiom) # label(conjecture).
+end_of_list.

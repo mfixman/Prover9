@@ -1,0 +1,125 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 225 was started by mfixman on bodoque,
+Fri Oct 23 15:01:25 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-p_1_2 # label(s2_goal_1) # label(negated_conjecture).
+p_1_2 | -p_2_2 | -p_1_1 # label(s2_type11_1) # label(axiom).
+p_1_2 | -q_2_2 | -q_1_1 # label(s2_type11_2) # label(axiom).
+q_1_2 | -p_2_2 | -q_1_1 # label(s2_type12_1) # label(axiom).
+q_1_2 | -q_2_2 | -p_1_1 # label(s2_type12_2) # label(axiom).
+p_1_1 | -p_1_2 # label(s2_type21_1) # label(axiom).
+q_1_1 | -q_1_2 # label(s2_type21_2) # label(axiom).
+p_2_2 | -p_1_2 # label(s2_type22_1) # label(axiom).
+q_2_2 | -q_1_2 # label(s2_type22_2) # label(axiom).
+p_1_1 # label(t2_1) # label(axiom).
+q_1_1 # label(t2_2) # label(axiom).
+p_2_2 # label(t2_3) # label(axiom).
+q_2_2 # label(t2_4) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label s2_goal_1 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ p_1_1, p_1_2, p_2_2, q_1_1, q_1_2, q_2_2 ]).
+Function symbol precedence:  function_order([ ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds: s2_goal_1.
+% Length of proof is 7.
+% Level of proof is 3.
+% Maximum clause weight is 3.000.
+% Given clauses 10 (3.333 givens/level).
+
+1 -p_1_2 # label(s2_goal_1) # label(negated_conjecture) # answer(s2_goal_1).  [assumption].
+2 p_1_2 | -p_2_2 | -p_1_1 # label(s2_type11_1) # label(axiom).  [assumption].
+8 p_1_1 # label(t2_1) # label(axiom).  [assumption].
+10 p_2_2 # label(t2_3) # label(axiom).  [assumption].
+12 -p_2_2 | -p_1_1 # answer(s2_goal_1).  [resolve(2,a,1,a)].
+15 -p_1_1 # answer(s2_goal_1).  [resolve(12,a,10,a)].
+16 $F # answer(s2_goal_1).  [resolve(15,a,8,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=10. Generated=17. Kept=15. proofs=1.
+Usable=6. Sos=2. Demods=0. Limbo=0, Disabled=19. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=2. Back_subsumed=6.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=14.
+Megabytes=0.04.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 225 exit (max_proofs) Fri Oct 23 15:01:25 2026
+-------- Proof 1 -------- s2_goal_1.
+
+THEOREM PROVED
+
+------ process 225 exit (max_proofs) ------
+

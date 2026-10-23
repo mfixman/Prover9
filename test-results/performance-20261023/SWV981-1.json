@@ -1,0 +1,12 @@
+{
+  "problem": "SWV981-1",
+  "domain": "SWV",
+  "rating": 1.0,
+  "conversion_wall_seconds": 0.0710768840071978,
+  "exit_code": 4,
+  "search_wall_seconds": 20.859916393004823,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.08,
+  "total_wall_seconds": 20.934110144007718
+}

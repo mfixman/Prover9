@@ -1,0 +1,12 @@
+{
+  "problem": "ALG244-1",
+  "domain": "ALG",
+  "rating": 1.0,
+  "conversion_wall_seconds": 0.009722390997922048,
+  "exit_code": 4,
+  "search_wall_seconds": 20.260608657001285,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.09,
+  "total_wall_seconds": 20.2719910099986
+}

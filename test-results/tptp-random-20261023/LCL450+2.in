@@ -1,0 +1,64 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+
+% Including file Axioms/LCL006+0.ax
+
+
+% Including file Axioms/LCL006+1.ax
+
+set(prolog_style_variables).
+
+formulas(assumptions).
+modus_ponens <-> (all X all Y (is_a_theorem(X) & is_a_theorem(implies(X,Y)) -> is_a_theorem(Y))) # label(modus_ponens) # label(axiom).
+substitution_of_equivalents <-> (all X all Y (is_a_theorem(equiv(X,Y)) -> X = Y)) # label(substitution_of_equivalents) # label(axiom).
+modus_tollens <-> (all X all Y is_a_theorem(implies(implies(not(Y),not(X)),implies(X,Y)))) # label(modus_tollens) # label(axiom).
+implies_1 <-> (all X all Y is_a_theorem(implies(X,implies(Y,X)))) # label(implies_1) # label(axiom).
+implies_2 <-> (all X all Y is_a_theorem(implies(implies(X,implies(X,Y)),implies(X,Y)))) # label(implies_2) # label(axiom).
+implies_3 <-> (all X all Y all Z is_a_theorem(implies(implies(X,Y),implies(implies(Y,Z),implies(X,Z))))) # label(implies_3) # label(axiom).
+and_1 <-> (all X all Y is_a_theorem(implies(and(X,Y),X))) # label(and_1) # label(axiom).
+and_2 <-> (all X all Y is_a_theorem(implies(and(X,Y),Y))) # label(and_2) # label(axiom).
+and_3 <-> (all X all Y is_a_theorem(implies(X,implies(Y,and(X,Y))))) # label(and_3) # label(axiom).
+or_1 <-> (all X all Y is_a_theorem(implies(X,or(X,Y)))) # label(or_1) # label(axiom).
+or_2 <-> (all X all Y is_a_theorem(implies(Y,or(X,Y)))) # label(or_2) # label(axiom).
+or_3 <-> (all X all Y all Z is_a_theorem(implies(implies(X,Z),implies(implies(Y,Z),implies(or(X,Y),Z))))) # label(or_3) # label(axiom).
+equivalence_1 <-> (all X all Y is_a_theorem(implies(equiv(X,Y),implies(X,Y)))) # label(equivalence_1) # label(axiom).
+equivalence_2 <-> (all X all Y is_a_theorem(implies(equiv(X,Y),implies(Y,X)))) # label(equivalence_2) # label(axiom).
+equivalence_3 <-> (all X all Y is_a_theorem(implies(implies(X,Y),implies(implies(Y,X),equiv(X,Y))))) # label(equivalence_3) # label(axiom).
+kn1 <-> (all P is_a_theorem(implies(P,and(P,P)))) # label(kn1) # label(axiom).
+kn2 <-> (all P all Q is_a_theorem(implies(and(P,Q),P))) # label(kn2) # label(axiom).
+kn3 <-> (all P all Q all R is_a_theorem(implies(implies(P,Q),implies(not(and(Q,R)),not(and(R,P)))))) # label(kn3) # label(axiom).
+cn1 <-> (all P all Q all R is_a_theorem(implies(implies(P,Q),implies(implies(Q,R),implies(P,R))))) # label(cn1) # label(axiom).
+cn2 <-> (all P all Q is_a_theorem(implies(P,implies(not(P),Q)))) # label(cn2) # label(axiom).
+cn3 <-> (all P is_a_theorem(implies(implies(not(P),P),P))) # label(cn3) # label(axiom).
+r1 <-> (all P is_a_theorem(implies(or(P,P),P))) # label(r1) # label(axiom).
+r2 <-> (all P all Q is_a_theorem(implies(Q,or(P,Q)))) # label(r2) # label(axiom).
+r3 <-> (all P all Q is_a_theorem(implies(or(P,Q),or(Q,P)))) # label(r3) # label(axiom).
+r4 <-> (all P all Q all R is_a_theorem(implies(or(P,or(Q,R)),or(Q,or(P,R))))) # label(r4) # label(axiom).
+r5 <-> (all P all Q all R is_a_theorem(implies(implies(Q,R),implies(or(P,Q),or(P,R))))) # label(r5) # label(axiom).
+op_or -> (all X all Y or(X,Y) = not(and(not(X),not(Y)))) # label(op_or) # label(axiom).
+op_and -> (all X all Y and(X,Y) = not(or(not(X),not(Y)))) # label(op_and) # label(axiom).
+op_implies_and -> (all X all Y implies(X,Y) = not(and(X,not(Y)))) # label(op_implies_and) # label(axiom).
+op_implies_or -> (all X all Y implies(X,Y) = or(not(X),Y)) # label(op_implies_or) # label(axiom).
+op_equiv -> (all X all Y equiv(X,Y) = and(implies(X,Y),implies(Y,X))) # label(op_equiv) # label(axiom).
+op_or # label(hilbert_op_or) # label(axiom).
+op_implies_and # label(hilbert_op_implies_and) # label(axiom).
+op_equiv # label(hilbert_op_equiv) # label(axiom).
+modus_ponens # label(hilbert_modus_ponens) # label(axiom).
+modus_tollens # label(hilbert_modus_tollens) # label(axiom).
+implies_1 # label(hilbert_implies_1) # label(axiom).
+implies_2 # label(hilbert_implies_2) # label(axiom).
+implies_3 # label(hilbert_implies_3) # label(axiom).
+and_1 # label(hilbert_and_1) # label(axiom).
+and_2 # label(hilbert_and_2) # label(axiom).
+and_3 # label(hilbert_and_3) # label(axiom).
+or_1 # label(hilbert_or_1) # label(axiom).
+or_2 # label(hilbert_or_2) # label(axiom).
+or_3 # label(hilbert_or_3) # label(axiom).
+equivalence_1 # label(hilbert_equivalence_1) # label(axiom).
+equivalence_2 # label(hilbert_equivalence_2) # label(axiom).
+equivalence_3 # label(hilbert_equivalence_3) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all X is_a_theorem(equiv(X,X))) & (all X all Y (is_a_theorem(equiv(X,Y)) -> is_a_theorem(equiv(not(X),not(Y))))) & (all X1 all X2 all Y (is_a_theorem(equiv(X1,X2)) -> is_a_theorem(equiv(and(X1,Y),and(X2,Y))))) & (all X1 all X2 all Y (is_a_theorem(equiv(X1,X2)) -> is_a_theorem(equiv(and(Y,X1),and(Y,X2))))) & (all X all Y (is_a_theorem(X) & is_a_theorem(equiv(X,Y)) -> is_a_theorem(Y))) # label(equiv_congruence) # label(conjecture).
+end_of_list.

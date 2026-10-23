@@ -1,0 +1,12 @@
+{
+  "problem": "SYN588-1",
+  "domain": "SYN",
+  "rating": 0.07,
+  "conversion_wall_seconds": 0.01121075999981258,
+  "exit_code": 4,
+  "search_wall_seconds": 21.872902960007195,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 21.3,
+  "total_wall_seconds": 21.88611243700143
+}

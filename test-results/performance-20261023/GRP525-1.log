@@ -1,0 +1,120 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 255 was started by mfixman on bodoque,
+Fri Oct 23 15:01:30 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+divide(A,divide(divide(A,B),divide(C,B))) = C # label(single_axiom) # label(axiom).
+multiply(A,B) = divide(A,divide(divide(C,C),B)) # label(multiply) # label(axiom).
+inverse(A) = divide(divide(B,B),A) # label(inverse) # label(axiom).
+multiply(inverse(a1),a1) != multiply(inverse(b1),b1) # label(prove_these_axioms_1) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_these_axioms_1 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ a1, b1, divide, multiply, inverse ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds: prove_these_axioms_1.
+% Length of proof is 15.
+% Level of proof is 5.
+% Maximum clause weight is 15.000.
+% Given clauses 11 (2.200 givens/level).
+
+1 divide(A,divide(divide(A,B),divide(C,B))) = C # label(single_axiom) # label(axiom).  [assumption].
+2 multiply(A,B) = divide(A,divide(divide(C,C),B)) # label(multiply) # label(axiom).  [assumption].
+3 inverse(A) = divide(divide(B,B),A) # label(inverse) # label(axiom).  [assumption].
+4 multiply(inverse(a1),a1) != multiply(inverse(b1),b1) # label(prove_these_axioms_1) # label(negated_conjecture) # answer(prove_these_axioms_1).  [assumption].
+5 multiply(inverse(b1),b1) != multiply(inverse(a1),a1) # answer(prove_these_axioms_1).  [copy(4),flip(a)].
+6 divide(A,divide(B,divide(C,divide(divide(A,D),divide(B,D))))) = C.  [para(1(a,1),1(a,1,2,1))].
+12 multiply(A,divide(B,A)) = B.  [para(2(a,2),1(a,1))].
+27 divide(inverse(b1),divide(divide(A,A),b1)) != multiply(inverse(a1),a1) # answer(prove_these_axioms_1).  [para(2(a,1),5(a,1))].
+34 divide(A,divide(B,B)) = A.  [para(1(a,1),6(a,1,2,2))].
+63 divide(inverse(b1),inverse(b1)) != multiply(inverse(a1),a1) # answer(prove_these_axioms_1).  [para(3(a,2),27(a,1,2))].
+66 multiply(divide(divide(A,A),a1),a1) != divide(inverse(b1),inverse(b1)) # answer(prove_these_axioms_1).  [para(3(a,1),63(a,2,1)),flip(a)].
+67 multiply(divide(divide(A,B),divide(C,B)),C) = A.  [para(1(a,1),12(a,1,2))].
+78 divide(divide(A,B),divide(C,B)) = divide(A,C).  [para(34(a,1),6(a,1,2)),flip(a)].
+81 multiply(divide(A,B),B) = A.  [back_rewrite(67),rewrite([78(3)])].
+82 $F # answer(prove_these_axioms_1).  [resolve(81,a,66,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=11. Generated=118. Kept=80. proofs=1.
+Usable=11. Sos=62. Demods=38. Limbo=3, Disabled=7. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=38. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=40 (0 lex), Back_demodulated=3. Back_unit_deleted=0.
+Demod_attempts=861. Demod_rewrites=25.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.21.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 255 exit (max_proofs) Fri Oct 23 15:01:30 2026
+-------- Proof 1 -------- prove_these_axioms_1.
+
+THEOREM PROVED
+
+------ process 255 exit (max_proofs) ------
+

@@ -1,0 +1,18 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-c_lessequals(v_S,c_insert(V_U,c_emptyset,tc_set(t_a)),tc_set(tc_set(t_a))) # label(cls_conjecture_0) # label(negated_conjecture).
+c_lessequals(V_U,V_V,tc_set(t_a)) | -c_in(V_V,v_S,tc_set(t_a)) | -c_in(V_U,v_S,tc_set(t_a)) # label(cls_conjecture_1) # label(negated_conjecture).
+c_in(V_x,c_insert(V_x,V_B,T_a),T_a) # label(cls_Set_OinsertCI_1) # label(axiom).
+c_in(c_Main_OsubsetI__1(V_A,V_B,T_a),V_A,T_a) | c_lessequals(V_A,V_B,tc_set(T_a)) # label(cls_Set_OsubsetI_0) # label(axiom).
+-c_in(c_Main_OsubsetI__1(V_A,V_B,T_a),V_B,T_a) | c_lessequals(V_A,V_B,tc_set(T_a)) # label(cls_Set_OsubsetI_1) # label(axiom).
+-c_lessequals(V_B,V_A,tc_set(T_a)) | -c_lessequals(V_A,V_B,tc_set(T_a)) | V_A = V_B # label(cls_Set_Osubset__antisym_0) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.

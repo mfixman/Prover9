@@ -1,0 +1,445 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 121 was started by mfixman on bodoque,
+Fri Oct 23 15:00:44 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+select(store(A,I,E),I) = E # label(a1) # label(axiom).
+I = J | select(store(A,I,E),J) = select(A,J) # label(a2) # label(axiom).
+rselect_seq(rstore_seq(A,E)) = E # label(a1_seq) # label(axiom).
+rselect_head(rstore_head(A,E)) = E # label(a1_head) # label(axiom).
+rselect_tail(rstore_tail(A,E)) = E # label(a1_tail) # label(axiom).
+rselect_seq(rstore_head(A,E)) = rselect_seq(A) # label(a2_seq_head) # label(axiom).
+rselect_seq(rstore_tail(A,E)) = rselect_seq(A) # label(a2_seq_tail) # label(axiom).
+rselect_head(rstore_tail(A,E)) = rselect_head(A) # label(a2_head_tail) # label(axiom).
+rselect_head(rstore_seq(A,E)) = rselect_head(A) # label(a2_head_seq) # label(axiom).
+rselect_tail(rstore_seq(A,E)) = rselect_tail(A) # label(a2_tail_seq) # label(axiom).
+rselect_tail(rstore_head(A,E)) = rselect_tail(A) # label(a2_tail_head) # label(axiom).
+p(s(X)) = X # label(ps) # label(axiom).
+s(p(X)) = X # label(sp) # label(axiom).
+s(s(X)) != X # label(as2) # label(axiom).
+s(X) != X # label(as1) # label(axiom).
+s(s(s(X))) = X # label(circular) # label(axiom).
+earray_10 = store(earray_8,index_9,e9) # label(hyp0) # label(hypothesis).
+earray_100 = store(earray_98,index_99,e23) # label(hyp1) # label(hypothesis).
+earray_104 = rselect_seq(q24) # label(hyp2) # label(hypothesis).
+earray_106 = store(earray_104,index_105,e24) # label(hyp3) # label(hypothesis).
+earray_110 = rselect_seq(q25) # label(hyp4) # label(hypothesis).
+earray_112 = store(earray_110,index_111,e25) # label(hyp5) # label(hypothesis).
+earray_116 = rselect_seq(q26) # label(hyp6) # label(hypothesis).
+earray_118 = store(earray_116,index_117,e26) # label(hyp7) # label(hypothesis).
+earray_122 = rselect_seq(q27) # label(hyp8) # label(hypothesis).
+earray_124 = store(earray_122,index_123,e27) # label(hyp9) # label(hypothesis).
+earray_128 = rselect_seq(q28) # label(hyp10) # label(hypothesis).
+earray_130 = store(earray_128,index_129,e28) # label(hyp11) # label(hypothesis).
+earray_134 = rselect_seq(q2) # label(hyp12) # label(hypothesis).
+earray_136 = store(earray_134,index_135,e2) # label(hyp13) # label(hypothesis).
+earray_14 = rselect_seq(q10) # label(hyp14) # label(hypothesis).
+earray_140 = rselect_seq(q29) # label(hyp15) # label(hypothesis).
+earray_142 = store(earray_140,index_141,e29) # label(hyp16) # label(hypothesis).
+earray_146 = rselect_seq(q30) # label(hyp17) # label(hypothesis).
+earray_148 = store(earray_146,index_147,e30) # label(hyp18) # label(hypothesis).
+earray_152 = rselect_seq(q31) # label(hyp19) # label(hypothesis).
+earray_154 = store(earray_152,index_153,e31) # label(hyp20) # label(hypothesis).
+earray_158 = rselect_seq(q32) # label(hyp21) # label(hypothesis).
+earray_16 = store(earray_14,index_15,e10) # label(hyp22) # label(hypothesis).
+earray_160 = store(earray_158,index_159,e32) # label(hyp23) # label(hypothesis).
+earray_164 = rselect_seq(q33) # label(hyp24) # label(hypothesis).
+earray_166 = store(earray_164,index_165,e33) # label(hyp25) # label(hypothesis).
+earray_170 = rselect_seq(q34) # label(hyp26) # label(hypothesis).
+earray_172 = store(earray_170,index_171,e34) # label(hyp27) # label(hypothesis).
+earray_176 = rselect_seq(q35) # label(hyp28) # label(hypothesis).
+earray_178 = store(earray_176,index_177,e35) # label(hyp29) # label(hypothesis).
+earray_182 = rselect_seq(q36) # label(hyp30) # label(hypothesis).
+earray_184 = store(earray_182,index_183,e36) # label(hyp31) # label(hypothesis).
+earray_188 = rselect_seq(q37) # label(hyp32) # label(hypothesis).
+earray_190 = store(earray_188,index_189,e37) # label(hyp33) # label(hypothesis).
+earray_194 = rselect_seq(q38) # label(hyp34) # label(hypothesis).
+earray_196 = store(earray_194,index_195,e38) # label(hyp35) # label(hypothesis).
+earray_2 = rselect_seq(q0) # label(hyp36) # label(hypothesis).
+earray_20 = rselect_seq(q11) # label(hyp37) # label(hypothesis).
+earray_200 = rselect_seq(q3) # label(hyp38) # label(hypothesis).
+earray_202 = store(earray_200,index_201,e3) # label(hyp39) # label(hypothesis).
+earray_206 = rselect_seq(q39) # label(hyp40) # label(hypothesis).
+earray_208 = store(earray_206,index_207,e39) # label(hyp41) # label(hypothesis).
+earray_212 = rselect_seq(q40) # label(hyp42) # label(hypothesis).
+earray_214 = store(earray_212,index_213,e40) # label(hyp43) # label(hypothesis).
+earray_218 = rselect_seq(q41) # label(hyp44) # label(hypothesis).
+earray_22 = store(earray_20,index_21,e11) # label(hyp45) # label(hypothesis).
+earray_220 = store(earray_218,index_219,e41) # label(hyp46) # label(hypothesis).
+earray_224 = rselect_seq(q42) # label(hyp47) # label(hypothesis).
+earray_226 = store(earray_224,index_225,e42) # label(hyp48) # label(hypothesis).
+earray_230 = rselect_seq(q43) # label(hyp49) # label(hypothesis).
+earray_232 = store(earray_230,index_231,e43) # label(hyp50) # label(hypothesis).
+earray_236 = rselect_seq(q44) # label(hyp51) # label(hypothesis).
+earray_238 = store(earray_236,index_237,e44) # label(hyp52) # label(hypothesis).
+earray_242 = rselect_seq(q45) # label(hyp53) # label(hypothesis).
+earray_244 = store(earray_242,index_243,e45) # label(hyp54) # label(hypothesis).
+earray_248 = rselect_seq(q4) # label(hyp55) # label(hypothesis).
+earray_250 = store(earray_248,index_249,e4) # label(hyp56) # label(hypothesis).
+earray_254 = rselect_seq(q5) # label(hyp57) # label(hypothesis).
+earray_256 = store(earray_254,index_255,e5) # label(hyp58) # label(hypothesis).
+earray_26 = rselect_seq(q12) # label(hyp59) # label(hypothesis).
+earray_260 = rselect_seq(q6) # label(hyp60) # label(hypothesis).
+earray_262 = store(earray_260,index_261,e6) # label(hyp61) # label(hypothesis).
+earray_266 = rselect_seq(q7) # label(hyp62) # label(hypothesis).
+earray_268 = store(earray_266,index_267,e7) # label(hyp63) # label(hypothesis).
+earray_272 = rselect_seq(q8) # label(hyp64) # label(hypothesis).
+earray_274 = store(earray_272,index_273,e8) # label(hyp65) # label(hypothesis).
+earray_278 = rselect_seq(q46) # label(hyp66) # label(hypothesis).
+earray_28 = store(earray_26,index_27,e12) # label(hyp67) # label(hypothesis).
+earray_32 = rselect_seq(q13) # label(hyp68) # label(hypothesis).
+earray_34 = store(earray_32,index_33,e13) # label(hyp69) # label(hypothesis).
+earray_38 = rselect_seq(q14) # label(hyp70) # label(hypothesis).
+earray_4 = store(earray_2,index_3,e0) # label(hyp71) # label(hypothesis).
+earray_40 = store(earray_38,index_39,e14) # label(hyp72) # label(hypothesis).
+earray_44 = rselect_seq(q15) # label(hyp73) # label(hypothesis).
+earray_46 = store(earray_44,index_45,e15) # label(hyp74) # label(hypothesis).
+earray_50 = rselect_seq(q16) # label(hyp75) # label(hypothesis).
+earray_52 = store(earray_50,index_51,e16) # label(hyp76) # label(hypothesis).
+earray_56 = rselect_seq(q17) # label(hyp77) # label(hypothesis).
+earray_58 = store(earray_56,index_57,e17) # label(hyp78) # label(hypothesis).
+earray_62 = rselect_seq(q18) # label(hyp79) # label(hypothesis).
+earray_64 = store(earray_62,index_63,e18) # label(hyp80) # label(hypothesis).
+earray_68 = rselect_seq(q1) # label(hyp81) # label(hypothesis).
+earray_70 = store(earray_68,index_69,e1) # label(hyp82) # label(hypothesis).
+earray_74 = rselect_seq(q19) # label(hyp83) # label(hypothesis).
+earray_76 = store(earray_74,index_75,e19) # label(hyp84) # label(hypothesis).
+earray_8 = rselect_seq(q9) # label(hyp85) # label(hypothesis).
+earray_80 = rselect_seq(q20) # label(hyp86) # label(hypothesis).
+earray_82 = store(earray_80,index_81,e20) # label(hyp87) # label(hypothesis).
+earray_86 = rselect_seq(q21) # label(hyp88) # label(hypothesis).
+earray_88 = store(earray_86,index_87,e21) # label(hyp89) # label(hypothesis).
+earray_92 = rselect_seq(q22) # label(hyp90) # label(hypothesis).
+earray_94 = store(earray_92,index_93,e22) # label(hyp91) # label(hypothesis).
+earray_98 = rselect_seq(q23) # label(hyp92) # label(hypothesis).
+elem_280 = select(earray_278,index_279) # label(hyp93) # label(hypothesis).
+elem_283 = select(earray_278,index_282) # label(hyp94) # label(hypothesis).
+index_0 = rselect_tail(q) # label(hyp95) # label(hypothesis).
+index_102 = s(index_99) # label(hyp96) # label(hypothesis).
+index_105 = rselect_tail(q24) # label(hyp97) # label(hypothesis).
+index_108 = s(index_105) # label(hyp98) # label(hypothesis).
+index_111 = rselect_tail(q25) # label(hyp99) # label(hypothesis).
+index_114 = s(index_111) # label(hyp100) # label(hypothesis).
+index_117 = rselect_tail(q26) # label(hyp101) # label(hypothesis).
+index_12 = s(index_9) # label(hyp102) # label(hypothesis).
+index_120 = s(index_117) # label(hyp103) # label(hypothesis).
+index_123 = rselect_tail(q27) # label(hyp104) # label(hypothesis).
+index_126 = s(index_123) # label(hyp105) # label(hypothesis).
+index_129 = rselect_tail(q28) # label(hyp106) # label(hypothesis).
+index_132 = s(index_129) # label(hyp107) # label(hypothesis).
+index_135 = rselect_tail(q2) # label(hyp108) # label(hypothesis).
+index_138 = s(index_135) # label(hyp109) # label(hypothesis).
+index_141 = rselect_tail(q29) # label(hyp110) # label(hypothesis).
+index_144 = s(index_141) # label(hyp111) # label(hypothesis).
+index_147 = rselect_tail(q30) # label(hyp112) # label(hypothesis).
+index_15 = rselect_tail(q10) # label(hyp113) # label(hypothesis).
+index_150 = s(index_147) # label(hyp114) # label(hypothesis).
+index_153 = rselect_tail(q31) # label(hyp115) # label(hypothesis).
+index_156 = s(index_153) # label(hyp116) # label(hypothesis).
+index_159 = rselect_tail(q32) # label(hyp117) # label(hypothesis).
+index_162 = s(index_159) # label(hyp118) # label(hypothesis).
+index_165 = rselect_tail(q33) # label(hyp119) # label(hypothesis).
+index_168 = s(index_165) # label(hyp120) # label(hypothesis).
+index_171 = rselect_tail(q34) # label(hyp121) # label(hypothesis).
+index_174 = s(index_171) # label(hyp122) # label(hypothesis).
+index_177 = rselect_tail(q35) # label(hyp123) # label(hypothesis).
+index_18 = s(index_15) # label(hyp124) # label(hypothesis).
+index_180 = s(index_177) # label(hyp125) # label(hypothesis).
+index_183 = rselect_tail(q36) # label(hyp126) # label(hypothesis).
+index_186 = s(index_183) # label(hyp127) # label(hypothesis).
+index_189 = rselect_tail(q37) # label(hyp128) # label(hypothesis).
+index_192 = s(index_189) # label(hyp129) # label(hypothesis).
+index_195 = rselect_tail(q38) # label(hyp130) # label(hypothesis).
+index_198 = s(index_195) # label(hyp131) # label(hypothesis).
+index_201 = rselect_tail(q3) # label(hyp132) # label(hypothesis).
+index_204 = s(index_201) # label(hyp133) # label(hypothesis).
+index_207 = rselect_tail(q39) # label(hyp134) # label(hypothesis).
+index_21 = rselect_tail(q11) # label(hyp135) # label(hypothesis).
+index_210 = s(index_207) # label(hyp136) # label(hypothesis).
+index_213 = rselect_tail(q40) # label(hyp137) # label(hypothesis).
+index_216 = s(index_213) # label(hyp138) # label(hypothesis).
+index_219 = rselect_tail(q41) # label(hyp139) # label(hypothesis).
+index_222 = s(index_219) # label(hyp140) # label(hypothesis).
+index_225 = rselect_tail(q42) # label(hyp141) # label(hypothesis).
+index_228 = s(index_225) # label(hyp142) # label(hypothesis).
+index_231 = rselect_tail(q43) # label(hyp143) # label(hypothesis).
+index_234 = s(index_231) # label(hyp144) # label(hypothesis).
+index_237 = rselect_tail(q44) # label(hyp145) # label(hypothesis).
+index_24 = s(index_21) # label(hyp146) # label(hypothesis).
+index_240 = s(index_237) # label(hyp147) # label(hypothesis).
+index_243 = rselect_tail(q45) # label(hyp148) # label(hypothesis).
+index_246 = s(index_243) # label(hyp149) # label(hypothesis).
+index_249 = rselect_tail(q4) # label(hyp150) # label(hypothesis).
+index_252 = s(index_249) # label(hyp151) # label(hypothesis).
+index_255 = rselect_tail(q5) # label(hyp152) # label(hypothesis).
+index_258 = s(index_255) # label(hyp153) # label(hypothesis).
+index_261 = rselect_tail(q6) # label(hyp154) # label(hypothesis).
+index_264 = s(index_261) # label(hyp155) # label(hypothesis).
+index_267 = rselect_tail(q7) # label(hyp156) # label(hypothesis).
+index_27 = rselect_tail(q12) # label(hyp157) # label(hypothesis).
+index_270 = s(index_267) # label(hyp158) # label(hypothesis).
+index_273 = rselect_tail(q8) # label(hyp159) # label(hypothesis).
+index_276 = s(index_273) # label(hyp160) # label(hypothesis).
+index_279 = rselect_head(q46) # label(hyp161) # label(hypothesis).
+index_281 = rselect_tail(q46) # label(hyp162) # label(hypothesis).
+s(index_282) = index_281 # label(hyp163) # label(hypothesis).
+index_3 = rselect_tail(q0) # label(hyp164) # label(hypothesis).
+index_30 = s(index_27) # label(hyp165) # label(hypothesis).
+index_33 = rselect_tail(q13) # label(hyp166) # label(hypothesis).
+index_36 = s(index_33) # label(hyp167) # label(hypothesis).
+index_39 = rselect_tail(q14) # label(hyp168) # label(hypothesis).
+index_42 = s(index_39) # label(hyp169) # label(hypothesis).
+index_45 = rselect_tail(q15) # label(hyp170) # label(hypothesis).
+index_48 = s(index_45) # label(hyp171) # label(hypothesis).
+index_51 = rselect_tail(q16) # label(hyp172) # label(hypothesis).
+index_54 = s(index_51) # label(hyp173) # label(hypothesis).
+index_57 = rselect_tail(q17) # label(hyp174) # label(hypothesis).
+index_6 = s(index_3) # label(hyp175) # label(hypothesis).
+index_60 = s(index_57) # label(hyp176) # label(hypothesis).
+index_63 = rselect_tail(q18) # label(hyp177) # label(hypothesis).
+index_66 = s(index_63) # label(hyp178) # label(hypothesis).
+index_69 = rselect_tail(q1) # label(hyp179) # label(hypothesis).
+index_72 = s(index_69) # label(hyp180) # label(hypothesis).
+index_75 = rselect_tail(q19) # label(hyp181) # label(hypothesis).
+index_78 = s(index_75) # label(hyp182) # label(hypothesis).
+index_81 = rselect_tail(q20) # label(hyp183) # label(hypothesis).
+index_84 = s(index_81) # label(hyp184) # label(hypothesis).
+index_87 = rselect_tail(q21) # label(hyp185) # label(hypothesis).
+index_9 = rselect_tail(q9) # label(hyp186) # label(hypothesis).
+index_90 = s(index_87) # label(hyp187) # label(hypothesis).
+index_93 = rselect_tail(q22) # label(hyp188) # label(hypothesis).
+index_96 = s(index_93) # label(hyp189) # label(hypothesis).
+index_99 = rselect_tail(q23) # label(hyp190) # label(hypothesis).
+queue_1 = rstore_head(q,index_0) # label(hyp191) # label(hypothesis).
+queue_101 = rstore_seq(q23,earray_100) # label(hyp192) # label(hypothesis).
+queue_103 = rstore_tail(queue_101,index_102) # label(hyp193) # label(hypothesis).
+queue_107 = rstore_seq(q24,earray_106) # label(hyp194) # label(hypothesis).
+queue_109 = rstore_tail(queue_107,index_108) # label(hyp195) # label(hypothesis).
+queue_11 = rstore_seq(q9,earray_10) # label(hyp196) # label(hypothesis).
+queue_113 = rstore_seq(q25,earray_112) # label(hyp197) # label(hypothesis).
+queue_115 = rstore_tail(queue_113,index_114) # label(hyp198) # label(hypothesis).
+queue_119 = rstore_seq(q26,earray_118) # label(hyp199) # label(hypothesis).
+queue_121 = rstore_tail(queue_119,index_120) # label(hyp200) # label(hypothesis).
+queue_125 = rstore_seq(q27,earray_124) # label(hyp201) # label(hypothesis).
+queue_127 = rstore_tail(queue_125,index_126) # label(hyp202) # label(hypothesis).
+queue_13 = rstore_tail(queue_11,index_12) # label(hyp203) # label(hypothesis).
+queue_131 = rstore_seq(q28,earray_130) # label(hyp204) # label(hypothesis).
+queue_133 = rstore_tail(queue_131,index_132) # label(hyp205) # label(hypothesis).
+queue_137 = rstore_seq(q2,earray_136) # label(hyp206) # label(hypothesis).
+queue_139 = rstore_tail(queue_137,index_138) # label(hyp207) # label(hypothesis).
+queue_143 = rstore_seq(q29,earray_142) # label(hyp208) # label(hypothesis).
+queue_145 = rstore_tail(queue_143,index_144) # label(hyp209) # label(hypothesis).
+queue_149 = rstore_seq(q30,earray_148) # label(hyp210) # label(hypothesis).
+queue_151 = rstore_tail(queue_149,index_150) # label(hyp211) # label(hypothesis).
+queue_155 = rstore_seq(q31,earray_154) # label(hyp212) # label(hypothesis).
+queue_157 = rstore_tail(queue_155,index_156) # label(hyp213) # label(hypothesis).
+queue_161 = rstore_seq(q32,earray_160) # label(hyp214) # label(hypothesis).
+queue_163 = rstore_tail(queue_161,index_162) # label(hyp215) # label(hypothesis).
+queue_167 = rstore_seq(q33,earray_166) # label(hyp216) # label(hypothesis).
+queue_169 = rstore_tail(queue_167,index_168) # label(hyp217) # label(hypothesis).
+queue_17 = rstore_seq(q10,earray_16) # label(hyp218) # label(hypothesis).
+queue_173 = rstore_seq(q34,earray_172) # label(hyp219) # label(hypothesis).
+queue_175 = rstore_tail(queue_173,index_174) # label(hyp220) # label(hypothesis).
+queue_179 = rstore_seq(q35,earray_178) # label(hyp221) # label(hypothesis).
+queue_181 = rstore_tail(queue_179,index_180) # label(hyp222) # label(hypothesis).
+queue_185 = rstore_seq(q36,earray_184) # label(hyp223) # label(hypothesis).
+queue_187 = rstore_tail(queue_185,index_186) # label(hyp224) # label(hypothesis).
+queue_19 = rstore_tail(queue_17,index_18) # label(hyp225) # label(hypothesis).
+queue_191 = rstore_seq(q37,earray_190) # label(hyp226) # label(hypothesis).
+queue_193 = rstore_tail(queue_191,index_192) # label(hyp227) # label(hypothesis).
+queue_197 = rstore_seq(q38,earray_196) # label(hyp228) # label(hypothesis).
+queue_199 = rstore_tail(queue_197,index_198) # label(hyp229) # label(hypothesis).
+queue_203 = rstore_seq(q3,earray_202) # label(hyp230) # label(hypothesis).
+queue_205 = rstore_tail(queue_203,index_204) # label(hyp231) # label(hypothesis).
+queue_209 = rstore_seq(q39,earray_208) # label(hyp232) # label(hypothesis).
+queue_211 = rstore_tail(queue_209,index_210) # label(hyp233) # label(hypothesis).
+queue_215 = rstore_seq(q40,earray_214) # label(hyp234) # label(hypothesis).
+queue_217 = rstore_tail(queue_215,index_216) # label(hyp235) # label(hypothesis).
+queue_221 = rstore_seq(q41,earray_220) # label(hyp236) # label(hypothesis).
+queue_223 = rstore_tail(queue_221,index_222) # label(hyp237) # label(hypothesis).
+queue_227 = rstore_seq(q42,earray_226) # label(hyp238) # label(hypothesis).
+queue_229 = rstore_tail(queue_227,index_228) # label(hyp239) # label(hypothesis).
+queue_23 = rstore_seq(q11,earray_22) # label(hyp240) # label(hypothesis).
+queue_233 = rstore_seq(q43,earray_232) # label(hyp241) # label(hypothesis).
+queue_235 = rstore_tail(queue_233,index_234) # label(hyp242) # label(hypothesis).
+queue_239 = rstore_seq(q44,earray_238) # label(hyp243) # label(hypothesis).
+queue_241 = rstore_tail(queue_239,index_240) # label(hyp244) # label(hypothesis).
+queue_245 = rstore_seq(q45,earray_244) # label(hyp245) # label(hypothesis).
+queue_247 = rstore_tail(queue_245,index_246) # label(hyp246) # label(hypothesis).
+queue_25 = rstore_tail(queue_23,index_24) # label(hyp247) # label(hypothesis).
+queue_251 = rstore_seq(q4,earray_250) # label(hyp248) # label(hypothesis).
+queue_253 = rstore_tail(queue_251,index_252) # label(hyp249) # label(hypothesis).
+queue_257 = rstore_seq(q5,earray_256) # label(hyp250) # label(hypothesis).
+queue_259 = rstore_tail(queue_257,index_258) # label(hyp251) # label(hypothesis).
+queue_263 = rstore_seq(q6,earray_262) # label(hyp252) # label(hypothesis).
+queue_265 = rstore_tail(queue_263,index_264) # label(hyp253) # label(hypothesis).
+queue_269 = rstore_seq(q7,earray_268) # label(hyp254) # label(hypothesis).
+queue_271 = rstore_tail(queue_269,index_270) # label(hyp255) # label(hypothesis).
+queue_275 = rstore_seq(q8,earray_274) # label(hyp256) # label(hypothesis).
+queue_277 = rstore_tail(queue_275,index_276) # label(hyp257) # label(hypothesis).
+queue_29 = rstore_seq(q12,earray_28) # label(hyp258) # label(hypothesis).
+queue_31 = rstore_tail(queue_29,index_30) # label(hyp259) # label(hypothesis).
+queue_35 = rstore_seq(q13,earray_34) # label(hyp260) # label(hypothesis).
+queue_37 = rstore_tail(queue_35,index_36) # label(hyp261) # label(hypothesis).
+queue_41 = rstore_seq(q14,earray_40) # label(hyp262) # label(hypothesis).
+queue_43 = rstore_tail(queue_41,index_42) # label(hyp263) # label(hypothesis).
+queue_47 = rstore_seq(q15,earray_46) # label(hyp264) # label(hypothesis).
+queue_49 = rstore_tail(queue_47,index_48) # label(hyp265) # label(hypothesis).
+queue_5 = rstore_seq(q0,earray_4) # label(hyp266) # label(hypothesis).
+queue_53 = rstore_seq(q16,earray_52) # label(hyp267) # label(hypothesis).
+queue_55 = rstore_tail(queue_53,index_54) # label(hyp268) # label(hypothesis).
+queue_59 = rstore_seq(q17,earray_58) # label(hyp269) # label(hypothesis).
+queue_61 = rstore_tail(queue_59,index_60) # label(hyp270) # label(hypothesis).
+queue_65 = rstore_seq(q18,earray_64) # label(hyp271) # label(hypothesis).
+queue_67 = rstore_tail(queue_65,index_66) # label(hyp272) # label(hypothesis).
+queue_7 = rstore_tail(queue_5,index_6) # label(hyp273) # label(hypothesis).
+queue_71 = rstore_seq(q1,earray_70) # label(hyp274) # label(hypothesis).
+queue_73 = rstore_tail(queue_71,index_72) # label(hyp275) # label(hypothesis).
+queue_77 = rstore_seq(q19,earray_76) # label(hyp276) # label(hypothesis).
+queue_79 = rstore_tail(queue_77,index_78) # label(hyp277) # label(hypothesis).
+queue_83 = rstore_seq(q20,earray_82) # label(hyp278) # label(hypothesis).
+queue_85 = rstore_tail(queue_83,index_84) # label(hyp279) # label(hypothesis).
+queue_89 = rstore_seq(q21,earray_88) # label(hyp280) # label(hypothesis).
+queue_91 = rstore_tail(queue_89,index_90) # label(hyp281) # label(hypothesis).
+queue_95 = rstore_seq(q22,earray_94) # label(hyp282) # label(hypothesis).
+queue_97 = rstore_tail(queue_95,index_96) # label(hyp283) # label(hypothesis).
+q0 = queue_1 # label(hyp284) # label(hypothesis).
+q1 = queue_7 # label(hyp285) # label(hypothesis).
+q10 = queue_13 # label(hyp286) # label(hypothesis).
+q11 = queue_19 # label(hyp287) # label(hypothesis).
+q12 = queue_25 # label(hyp288) # label(hypothesis).
+q13 = queue_31 # label(hyp289) # label(hypothesis).
+q14 = queue_37 # label(hyp290) # label(hypothesis).
+q15 = queue_43 # label(hyp291) # label(hypothesis).
+q16 = queue_49 # label(hyp292) # label(hypothesis).
+q17 = queue_55 # label(hyp293) # label(hypothesis).
+q18 = queue_61 # label(hyp294) # label(hypothesis).
+q19 = queue_67 # label(hyp295) # label(hypothesis).
+q2 = queue_73 # label(hyp296) # label(hypothesis).
+q20 = queue_79 # label(hyp297) # label(hypothesis).
+q21 = queue_85 # label(hyp298) # label(hypothesis).
+q22 = queue_91 # label(hyp299) # label(hypothesis).
+q23 = queue_97 # label(hyp300) # label(hypothesis).
+q24 = queue_103 # label(hyp301) # label(hypothesis).
+q25 = queue_109 # label(hyp302) # label(hypothesis).
+q26 = queue_115 # label(hyp303) # label(hypothesis).
+q27 = queue_121 # label(hyp304) # label(hypothesis).
+q28 = queue_127 # label(hyp305) # label(hypothesis).
+q29 = queue_133 # label(hyp306) # label(hypothesis).
+q3 = queue_139 # label(hyp307) # label(hypothesis).
+q30 = queue_145 # label(hyp308) # label(hypothesis).
+q31 = queue_151 # label(hyp309) # label(hypothesis).
+q32 = queue_157 # label(hyp310) # label(hypothesis).
+q33 = queue_163 # label(hyp311) # label(hypothesis).
+q34 = queue_169 # label(hyp312) # label(hypothesis).
+q35 = queue_175 # label(hyp313) # label(hypothesis).
+q36 = queue_181 # label(hyp314) # label(hypothesis).
+q37 = queue_187 # label(hyp315) # label(hypothesis).
+q38 = queue_193 # label(hyp316) # label(hypothesis).
+q39 = queue_199 # label(hyp317) # label(hypothesis).
+q4 = queue_205 # label(hyp318) # label(hypothesis).
+q40 = queue_211 # label(hyp319) # label(hypothesis).
+q41 = queue_217 # label(hyp320) # label(hypothesis).
+q42 = queue_223 # label(hyp321) # label(hypothesis).
+q43 = queue_229 # label(hyp322) # label(hypothesis).
+q44 = queue_235 # label(hyp323) # label(hypothesis).
+q45 = queue_241 # label(hyp324) # label(hypothesis).
+q46 = queue_247 # label(hyp325) # label(hypothesis).
+q5 = queue_253 # label(hyp326) # label(hypothesis).
+q6 = queue_259 # label(hyp327) # label(hypothesis).
+q7 = queue_265 # label(hyp328) # label(hypothesis).
+q8 = queue_271 # label(hyp329) # label(hypothesis).
+q9 = queue_277 # label(hyp330) # label(hypothesis).
+elem_280 != elem_283 # label(goal) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ q0, q1, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q2, q20, q21, q22, q23, q24, q25, q26, q27, q28, q29, q3, q30, q31, q32, q33, q34, q35, q36, q37, q38, q39, q4, q40, q41, q42, q43, q44, q45, q46, q5, q6, q7, q8, q9, earray_278, index_105, index_111, index_117, index_123, index_129, index_135, index_141, index_147, index_15, index_153, index_159, index_165, index_171, index_177, index_183, index_189, index_195, index_201, index_207, index_21, index_213, index_219, index_225, index_231, index_237, index_243, index_249, index_255, index_261, index_267, index_27, index_273, index_3, index_33, index_39, index_45, index_51, index_57, index_63, index_69, index_75, index_81, index_87, index_9, index_93, index_99, earray_10, earray_100, earray_104, earray_106, earray_110, earray_112, earray_116, earray_118, earray_122, earray_124, earray_128, earray_130, earray_134, earray_136, earray_14, earray_140, earray_142, earray_146, earray_148, earray_152, earray_154, earray_158, earray_16, earray_160, earray_164, earray_166, earray_170, earray_172, earray_176, earray_178, earray_182, earray_184, earray_188, earray_190, earray_194, earray_196, earray_2, earray_20, earray_200, earray_202, earray_206, earray_208, earray_212, earray_214, earray_218, earray_22, earray_220, earray_224, earray_226, earray_230, earray_232, earray_236, earray_238, earray_242, earray_244, earray_248, earray_250, earray_254, earray_256, earray_26, earray_260, earray_262, earray_266, earray_268, earray_272, earray_274, earray_28, earray_32, earray_34, earray_38, earray_4, earray_40, earray_44, earray_46, earray_50, earray_52, earray_56, earray_58, earray_62, earray_64, earray_68, earray_70, earray_74, earray_76, earray_8, earray_80, earray_82, earray_86, earray_88, earray_92, earray_94, earray_98, index_0, index_102, index_108, index_114, index_12, index_120, index_126, index_132, index_138, index_144, index_150, index_156, index_162, index_168, index_174, index_18, index_180, index_186, index_192, index_198, index_204, index_210, index_216, index_222, index_228, index_234, index_24, index_240, index_246, index_252, index_258, index_264, index_270, index_276, index_279, index_281, index_282, index_30, index_36, index_42, index_48, index_54, index_6, index_60, index_66, index_72, index_78, index_84, index_90, index_96, q, queue_1, queue_101, queue_103, queue_107, queue_109, queue_11, queue_113, queue_115, queue_119, queue_121, queue_125, queue_127, queue_13, queue_131, queue_133, queue_137, queue_139, queue_143, queue_145, queue_149, queue_151, queue_155, queue_157, queue_161, queue_163, queue_167, queue_169, queue_17, queue_173, queue_175, queue_179, queue_181, queue_185, queue_187, queue_19, queue_191, queue_193, queue_197, queue_199, queue_203, queue_205, queue_209, queue_211, queue_215, queue_217, queue_221, queue_223, queue_227, queue_229, queue_23, queue_233, queue_235, queue_239, queue_241, queue_245, queue_247, queue_25, queue_251, queue_253, queue_257, queue_259, queue_263, queue_265, queue_269, queue_271, queue_275, queue_277, queue_29, queue_31, queue_35, queue_37, queue_41, queue_43, queue_47, queue_49, queue_5, queue_53, queue_55, queue_59, queue_61, queue_65, queue_67, queue_7, queue_71, queue_73, queue_77, queue_79, queue_83, queue_85, queue_89, queue_91, queue_95, queue_97, e0, e1, e10, e11, e12, e13, e14, e15, e16, e17, e18, e19, e2, e20, e21, e22, e23, e24, e25, e26, e27, e28, e29, e3, e30, e31, e32, e33, e34, e35, e36, e37, e38, e39, e4, e40, e41, e42, e43, e44, e45, e5, e6, e7, e8, e9, elem_280, elem_283, rstore_seq, rstore_tail, select, rstore_head, rselect_tail, rselect_seq, s, rselect_head, p, store ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.12 seconds.
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 2147483647 (0.00 of 0.67 sec).
+
+given #500 (T,wt=4): 989 rselect_seq(queue_137) = earray_136.  [para(429(a,1),3(a,1,1))].
+
+given #1000 (T,wt=4): 2492 rselect_tail(queue_95) = index_15.  [back_rewrite(2061),rewrite([2471(3)])].
+
+============================== STATISTICS ============================
+
+Given=1021. Generated=9224. Kept=3700. proofs=0.
+Usable=616. Sos=1869. Demods=674. Limbo=185, Disabled=1378. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=5524. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=1291 (0 lex), Back_demodulated=1030. Back_unit_deleted=0.
+Demod_attempts=87255. Demod_rewrites=3718.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=250538. Nonunit_bsub_feature_tests=533.
+Megabytes=33.75.
+User_CPU=20.00, System_CPU=0.03, Wall_clock=20.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 121 exit (max_seconds) Fri Oct 23 15:01:04 2026
+
+SEARCH FAILED
+
+------ process 121 exit (max_seconds) ------
+

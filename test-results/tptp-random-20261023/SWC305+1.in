@@ -1,0 +1,108 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+
+% Including file Axioms/SWC001+0.ax
+
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (neq(U,V) <-> U != V))))) # label(ax1) # label(axiom).
+(exists U (ssItem(U) & (exists V (ssItem(V) & U != V)))) # label(ax2) # label(axiom).
+(all U (ssList(U) -> (all V (ssItem(V) -> (memberP(U,V) <-> (exists W (ssList(W) & (exists X (ssList(X) & app(W,cons(V,X)) = U))))))))) # label(ax3) # label(axiom).
+(all U (ssList(U) -> (singletonP(U) <-> (exists V (ssItem(V) & cons(V,nil) = U))))) # label(ax4) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (frontsegP(U,V) <-> (exists W (ssList(W) & app(V,W) = U))))))) # label(ax5) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (rearsegP(U,V) <-> (exists W (ssList(W) & app(W,V) = U))))))) # label(ax6) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (segmentP(U,V) <-> (exists W (ssList(W) & (exists X (ssList(X) & app(app(W,V),X) = U))))))))) # label(ax7) # label(axiom).
+(all U (ssList(U) -> (cyclefreeP(U) <-> (all V (ssItem(V) -> (all W (ssItem(W) -> (all X (ssList(X) -> (all Y (ssList(Y) -> (all Z (ssList(Z) -> (app(app(X,cons(V,Y)),cons(W,Z)) = U -> -(leq(V,W) & leq(W,V)))))))))))))))) # label(ax8) # label(axiom).
+(all U (ssList(U) -> (totalorderP(U) <-> (all V (ssItem(V) -> (all W (ssItem(W) -> (all X (ssList(X) -> (all Y (ssList(Y) -> (all Z (ssList(Z) -> (app(app(X,cons(V,Y)),cons(W,Z)) = U -> leq(V,W) | leq(W,V))))))))))))))) # label(ax9) # label(axiom).
+(all U (ssList(U) -> (strictorderP(U) <-> (all V (ssItem(V) -> (all W (ssItem(W) -> (all X (ssList(X) -> (all Y (ssList(Y) -> (all Z (ssList(Z) -> (app(app(X,cons(V,Y)),cons(W,Z)) = U -> lt(V,W) | lt(W,V))))))))))))))) # label(ax10) # label(axiom).
+(all U (ssList(U) -> (totalorderedP(U) <-> (all V (ssItem(V) -> (all W (ssItem(W) -> (all X (ssList(X) -> (all Y (ssList(Y) -> (all Z (ssList(Z) -> (app(app(X,cons(V,Y)),cons(W,Z)) = U -> leq(V,W))))))))))))))) # label(ax11) # label(axiom).
+(all U (ssList(U) -> (strictorderedP(U) <-> (all V (ssItem(V) -> (all W (ssItem(W) -> (all X (ssList(X) -> (all Y (ssList(Y) -> (all Z (ssList(Z) -> (app(app(X,cons(V,Y)),cons(W,Z)) = U -> lt(V,W))))))))))))))) # label(ax12) # label(axiom).
+(all U (ssList(U) -> (duplicatefreeP(U) <-> (all V (ssItem(V) -> (all W (ssItem(W) -> (all X (ssList(X) -> (all Y (ssList(Y) -> (all Z (ssList(Z) -> (app(app(X,cons(V,Y)),cons(W,Z)) = U -> V != W)))))))))))))) # label(ax13) # label(axiom).
+(all U (ssList(U) -> (equalelemsP(U) <-> (all V (ssItem(V) -> (all W (ssItem(W) -> (all X (ssList(X) -> (all Y (ssList(Y) -> (app(X,cons(V,cons(W,Y))) = U -> V = W)))))))))))) # label(ax14) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (neq(U,V) <-> U != V))))) # label(ax15) # label(axiom).
+(all U (ssList(U) -> (all V (ssItem(V) -> ssList(cons(V,U)))))) # label(ax16) # label(axiom).
+ssList(nil) # label(ax17) # label(axiom).
+(all U (ssList(U) -> (all V (ssItem(V) -> cons(V,U) != U)))) # label(ax18) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (all W (ssItem(W) -> (all X (ssItem(X) -> (cons(W,U) = cons(X,V) -> W = X & V = U))))))))) # label(ax19) # label(axiom).
+(all U (ssList(U) -> nil = U | (exists V (ssList(V) & (exists W (ssItem(W) & cons(W,V) = U)))))) # label(ax20) # label(axiom).
+(all U (ssList(U) -> (all V (ssItem(V) -> nil != cons(V,U))))) # label(ax21) # label(axiom).
+(all U (ssList(U) -> (nil != U -> ssItem(hd(U))))) # label(ax22) # label(axiom).
+(all U (ssList(U) -> (all V (ssItem(V) -> hd(cons(V,U)) = V)))) # label(ax23) # label(axiom).
+(all U (ssList(U) -> (nil != U -> ssList(tl(U))))) # label(ax24) # label(axiom).
+(all U (ssList(U) -> (all V (ssItem(V) -> tl(cons(V,U)) = U)))) # label(ax25) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> ssList(app(U,V)))))) # label(ax26) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (all W (ssItem(W) -> cons(W,app(V,U)) = app(cons(W,V),U))))))) # label(ax27) # label(axiom).
+(all U (ssList(U) -> app(nil,U) = U)) # label(ax28) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (leq(U,V) & leq(V,U) -> U = V))))) # label(ax29) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (all W (ssItem(W) -> (leq(U,V) & leq(V,W) -> leq(U,W)))))))) # label(ax30) # label(axiom).
+(all U (ssItem(U) -> leq(U,U))) # label(ax31) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (geq(U,V) <-> leq(V,U)))))) # label(ax32) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (lt(U,V) -> -lt(V,U)))))) # label(ax33) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (all W (ssItem(W) -> (lt(U,V) & lt(V,W) -> lt(U,W)))))))) # label(ax34) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (gt(U,V) <-> lt(V,U)))))) # label(ax35) # label(axiom).
+(all U (ssItem(U) -> (all V (ssList(V) -> (all W (ssList(W) -> (memberP(app(V,W),U) <-> memberP(V,U) | memberP(W,U)))))))) # label(ax36) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (all W (ssList(W) -> (memberP(cons(V,W),U) <-> U = V | memberP(W,U)))))))) # label(ax37) # label(axiom).
+(all U (ssItem(U) -> -memberP(nil,U))) # label(ax38) # label(axiom).
+-singletonP(nil) # label(ax39) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (all W (ssList(W) -> (frontsegP(U,V) & frontsegP(V,W) -> frontsegP(U,W)))))))) # label(ax40) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (frontsegP(U,V) & frontsegP(V,U) -> U = V))))) # label(ax41) # label(axiom).
+(all U (ssList(U) -> frontsegP(U,U))) # label(ax42) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (all W (ssList(W) -> (frontsegP(U,V) -> frontsegP(app(U,W),V)))))))) # label(ax43) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (all W (ssList(W) -> (all X (ssList(X) -> (frontsegP(cons(U,W),cons(V,X)) <-> U = V & frontsegP(W,X)))))))))) # label(ax44) # label(axiom).
+(all U (ssList(U) -> frontsegP(U,nil))) # label(ax45) # label(axiom).
+(all U (ssList(U) -> (frontsegP(nil,U) <-> nil = U))) # label(ax46) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (all W (ssList(W) -> (rearsegP(U,V) & rearsegP(V,W) -> rearsegP(U,W)))))))) # label(ax47) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (rearsegP(U,V) & rearsegP(V,U) -> U = V))))) # label(ax48) # label(axiom).
+(all U (ssList(U) -> rearsegP(U,U))) # label(ax49) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (all W (ssList(W) -> (rearsegP(U,V) -> rearsegP(app(W,U),V)))))))) # label(ax50) # label(axiom).
+(all U (ssList(U) -> rearsegP(U,nil))) # label(ax51) # label(axiom).
+(all U (ssList(U) -> (rearsegP(nil,U) <-> nil = U))) # label(ax52) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (all W (ssList(W) -> (segmentP(U,V) & segmentP(V,W) -> segmentP(U,W)))))))) # label(ax53) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (segmentP(U,V) & segmentP(V,U) -> U = V))))) # label(ax54) # label(axiom).
+(all U (ssList(U) -> segmentP(U,U))) # label(ax55) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (all W (ssList(W) -> (all X (ssList(X) -> (segmentP(U,V) -> segmentP(app(app(W,U),X),V)))))))))) # label(ax56) # label(axiom).
+(all U (ssList(U) -> segmentP(U,nil))) # label(ax57) # label(axiom).
+(all U (ssList(U) -> (segmentP(nil,U) <-> nil = U))) # label(ax58) # label(axiom).
+(all U (ssItem(U) -> cyclefreeP(cons(U,nil)))) # label(ax59) # label(axiom).
+cyclefreeP(nil) # label(ax60) # label(axiom).
+(all U (ssItem(U) -> totalorderP(cons(U,nil)))) # label(ax61) # label(axiom).
+totalorderP(nil) # label(ax62) # label(axiom).
+(all U (ssItem(U) -> strictorderP(cons(U,nil)))) # label(ax63) # label(axiom).
+strictorderP(nil) # label(ax64) # label(axiom).
+(all U (ssItem(U) -> totalorderedP(cons(U,nil)))) # label(ax65) # label(axiom).
+totalorderedP(nil) # label(ax66) # label(axiom).
+(all U (ssItem(U) -> (all V (ssList(V) -> (totalorderedP(cons(U,V)) <-> nil = V | nil != V & totalorderedP(V) & leq(U,hd(V))))))) # label(ax67) # label(axiom).
+(all U (ssItem(U) -> strictorderedP(cons(U,nil)))) # label(ax68) # label(axiom).
+strictorderedP(nil) # label(ax69) # label(axiom).
+(all U (ssItem(U) -> (all V (ssList(V) -> (strictorderedP(cons(U,V)) <-> nil = V | nil != V & strictorderedP(V) & lt(U,hd(V))))))) # label(ax70) # label(axiom).
+(all U (ssItem(U) -> duplicatefreeP(cons(U,nil)))) # label(ax71) # label(axiom).
+duplicatefreeP(nil) # label(ax72) # label(axiom).
+(all U (ssItem(U) -> equalelemsP(cons(U,nil)))) # label(ax73) # label(axiom).
+equalelemsP(nil) # label(ax74) # label(axiom).
+(all U (ssList(U) -> (nil != U -> (exists V (ssItem(V) & hd(U) = V))))) # label(ax75) # label(axiom).
+(all U (ssList(U) -> (nil != U -> (exists V (ssList(V) & tl(U) = V))))) # label(ax76) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (nil != V & nil != U & hd(V) = hd(U) & tl(V) = tl(U) -> V = U))))) # label(ax77) # label(axiom).
+(all U (ssList(U) -> (nil != U -> cons(hd(U),tl(U)) = U))) # label(ax78) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (all W (ssList(W) -> (app(W,V) = app(U,V) -> W = U))))))) # label(ax79) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (all W (ssList(W) -> (app(V,W) = app(V,U) -> W = U))))))) # label(ax80) # label(axiom).
+(all U (ssList(U) -> (all V (ssItem(V) -> cons(V,U) = app(cons(V,nil),U))))) # label(ax81) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (all W (ssList(W) -> app(app(U,V),W) = app(U,app(V,W)))))))) # label(ax82) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (nil = app(U,V) <-> nil = V & nil = U))))) # label(ax83) # label(axiom).
+(all U (ssList(U) -> app(U,nil) = U)) # label(ax84) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (nil != U -> hd(app(U,V)) = hd(U)))))) # label(ax85) # label(axiom).
+(all U (ssList(U) -> (all V (ssList(V) -> (nil != U -> tl(app(U,V)) = app(tl(U),V)))))) # label(ax86) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (geq(U,V) & geq(V,U) -> U = V))))) # label(ax87) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (all W (ssItem(W) -> (geq(U,V) & geq(V,W) -> geq(U,W)))))))) # label(ax88) # label(axiom).
+(all U (ssItem(U) -> geq(U,U))) # label(ax89) # label(axiom).
+(all U (ssItem(U) -> -lt(U,U))) # label(ax90) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (all W (ssItem(W) -> (leq(U,V) & lt(V,W) -> lt(U,W)))))))) # label(ax91) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (leq(U,V) -> U = V | lt(U,V)))))) # label(ax92) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (lt(U,V) <-> U != V & leq(U,V)))))) # label(ax93) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (gt(U,V) -> -gt(V,U)))))) # label(ax94) # label(axiom).
+(all U (ssItem(U) -> (all V (ssItem(V) -> (all W (ssItem(W) -> (gt(U,V) & gt(V,W) -> gt(U,W)))))))) # label(ax95) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all U (ssList(U) -> (all V (ssList(V) -> (all W (ssList(W) -> (all X (ssList(X) -> V != X | U != W | -frontsegP(X,W) | -strictorderedP(W) | (exists Y (ssList(Y) & neq(W,Y) & frontsegP(X,Y) & segmentP(Y,W) & strictorderedP(Y))) | (all Z (ssItem(Z) -> (all X1 (ssItem(X1) -> (all X2 (ssList(X2) -> (all X3 (ssList(X3) -> (all X4 (ssList(X4) -> app(app(app(app(X2,cons(Z,nil)),X3),cons(X1,nil)),X4) != U | -lt(X1,Z))))))))))))))))))) # label(co1) # label(conjecture).
+end_of_list.

@@ -1,0 +1,12 @@
+{
+  "problem": "SWV337-2",
+  "domain": "SWV",
+  "rating": 0.09,
+  "conversion_wall_seconds": 0.011035054005333222,
+  "exit_code": 0,
+  "search_wall_seconds": 0.011919923999812454,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.01,
+  "total_wall_seconds": 0.02452709800854791
+}

@@ -1,0 +1,22 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+mult(A,ld(A,B)) = B # label(f01) # label(axiom).
+ld(A,mult(A,B)) = B # label(f02) # label(axiom).
+mult(rd(A,B),B) = A # label(f03) # label(axiom).
+rd(mult(A,B),B) = A # label(f04) # label(axiom).
+mult(A,unit) = A # label(f05) # label(axiom).
+mult(unit,A) = A # label(f06) # label(axiom).
+mult(A,mult(B,C)) = mult(rd(mult(A,B),A),mult(A,C)) # label(f07) # label(axiom).
+mult(mult(A,B),C) = mult(mult(A,C),ld(C,mult(B,C))) # label(f08) # label(axiom).
+mult(x0,x1) = unit # label(goal1) # label(negated_conjecture).
+mult(mult(x2,x3),mult(x1,x0)) != mult(x2,mult(x3,mult(x1,x0))) # label(goal2) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

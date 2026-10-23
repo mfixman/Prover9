@@ -1,0 +1,12 @@
+{
+  "problem": "SET839-2",
+  "domain": "SET",
+  "rating": 0.1,
+  "conversion_wall_seconds": 0.013747849996434525,
+  "exit_code": 0,
+  "search_wall_seconds": 0.012564039003336802,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.0,
+  "total_wall_seconds": 0.02700772999378387
+}

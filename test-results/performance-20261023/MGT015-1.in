@@ -1,0 +1,28 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-organization(A,B) | inertia(A,sk1(B,A),B) # label(mp5_1) # label(axiom).
+-organization(A,B) | -organization(C,D) | -class(A,E,B) | -class(C,E,D) | -complexity(A,F,B) | -complexity(C,G,D) | -inertia(A,H,B) | -inertia(C,I,D) | -greater(G,F) | greater(I,H) # label(a12_FOL_2) # label(hypothesis).
+-organization(A,B) | -organization(C,B) | -organization(C,D) | -class(A,E,B) | -class(C,E,B) | -reorganization(A,B,F) | -reorganization(C,B,D) | -reorganization_type(A,G,B) | -reorganization_type(C,G,B) | -inertia(A,H,B) | -inertia(C,I,B) | -greater(I,H) | greater(D,F) # label(a13_FOL_3) # label(hypothesis).
+organization(sk2,sk8) # label(t15_FOL_4) # label(negated_conjecture).
+organization(sk3,sk8) # label(t15_FOL_5) # label(negated_conjecture).
+organization(sk3,sk10) # label(t15_FOL_6) # label(negated_conjecture).
+class(sk2,sk5,sk8) # label(t15_FOL_7) # label(negated_conjecture).
+class(sk3,sk5,sk8) # label(t15_FOL_8) # label(negated_conjecture).
+reorganization(sk2,sk8,sk9) # label(t15_FOL_9) # label(negated_conjecture).
+reorganization(sk3,sk8,sk10) # label(t15_FOL_10) # label(negated_conjecture).
+reorganization_type(sk2,sk4,sk8) # label(t15_FOL_11) # label(negated_conjecture).
+reorganization_type(sk3,sk4,sk8) # label(t15_FOL_12) # label(negated_conjecture).
+complexity(sk2,sk6,sk8) # label(t15_FOL_13) # label(negated_conjecture).
+complexity(sk3,sk7,sk8) # label(t15_FOL_14) # label(negated_conjecture).
+greater(sk7,sk6) # label(t15_FOL_15) # label(negated_conjecture).
+-greater(sk10,sk9) # label(t15_FOL_16) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

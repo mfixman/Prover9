@@ -1,0 +1,19 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+top(f(f(f(f(f(Z,a),a),a),Y),f(X,a)),f(f(X,f(f(f(f(Y,a),a),a),a)),Z)) # label(rule_1) # label(axiom).
+-seq(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(succ(zero))))))))))))))))),X,X) # label(prove) # label(negated_conjecture).
+-top(X,Y) | step(X,Y) # label(rewrite_top) # label(axiom).
+-step(X,Y) | step(f(X,Z),f(Y,Z)) # label(rewrite_left) # label(axiom).
+-step(Y,Z) | step(f(X,Y),f(X,Z)) # label(rewrite_right) # label(axiom).
+seq(zero,X,X) # label(rewrite_sequence_zero) # label(axiom).
+-seq(N,X,Y) | -step(Y,Z) | seq(succ(N),X,Z) # label(rewrite_sequence_succ) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.

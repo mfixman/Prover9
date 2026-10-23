@@ -1,0 +1,17 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+q | p # label(clause1) # label(axiom).
+-p | q # label(clause2) # label(axiom).
+-r | -q | p # label(clause3) # label(axiom).
+r # label(clause4) # label(axiom).
+-p | -q # label(prove_something) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

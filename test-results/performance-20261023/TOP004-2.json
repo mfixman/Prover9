@@ -1,0 +1,12 @@
+{
+  "problem": "TOP004-2",
+  "domain": "TOP",
+  "rating": 0.0,
+  "conversion_wall_seconds": 0.011668070990708657,
+  "exit_code": 0,
+  "search_wall_seconds": 0.008593674006988294,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.0,
+  "total_wall_seconds": 0.021176719994400628
+}

@@ -1,0 +1,2752 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 20 was started by mfixman on bodoque,
+Fri Oct 23 14:55:26 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,10).
+assign(max_megs,256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+meet(X,X) = X # label(idempotence_of_meet) # label(axiom).
+join(X,X) = X # label(idempotence_of_join) # label(axiom).
+meet(X,join(X,Y)) = X # label(absorption1) # label(axiom).
+join(X,meet(X,Y)) = X # label(absorption2) # label(axiom).
+meet(X,Y) = meet(Y,X) # label(commutativity_of_meet) # label(axiom).
+join(X,Y) = join(Y,X) # label(commutativity_of_join) # label(axiom).
+meet(meet(X,Y),Z) = meet(X,meet(Y,Z)) # label(associativity_of_meet) # label(axiom).
+join(join(X,Y),Z) = join(X,join(Y,Z)) # label(associativity_of_join) # label(axiom).
+join(X,complement(X)) = one # label(complement_join) # label(axiom).
+meet(X,complement(X)) = zero # label(complement_meet) # label(axiom).
+meet(X,Y) != zero | join(X,Y) != one | complement(X) = Y # label(meet_join_complement) # label(axiom).
+meet(X,join(Y,meet(X,Z))) = meet(X,join(Y,meet(Z,join(X,meet(Y,Z))))) # label(equation_H10) # label(axiom).
+meet(b,a) = a # label(prove_distributivity_hypothesis) # label(hypothesis).
+join(complement(b),complement(a)) != complement(a) # label(prove_distributivity) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+meet(A,A) = A # label(idempotence_of_meet) # label(axiom).  [assumption].
+join(A,A) = A # label(idempotence_of_join) # label(axiom).  [assumption].
+meet(A,join(A,B)) = A # label(absorption1) # label(axiom).  [assumption].
+join(A,meet(A,B)) = A # label(absorption2) # label(axiom).  [assumption].
+meet(A,B) = meet(B,A) # label(commutativity_of_meet) # label(axiom).  [assumption].
+join(A,B) = join(B,A) # label(commutativity_of_join) # label(axiom).  [assumption].
+meet(meet(A,B),C) = meet(A,meet(B,C)) # label(associativity_of_meet) # label(axiom).  [assumption].
+join(join(A,B),C) = join(A,join(B,C)) # label(associativity_of_join) # label(axiom).  [assumption].
+join(A,complement(A)) = one # label(complement_join) # label(axiom).  [assumption].
+meet(A,complement(A)) = zero # label(complement_meet) # label(axiom).  [assumption].
+meet(A,B) != zero | join(A,B) != one | complement(A) = B # label(meet_join_complement) # label(axiom).  [assumption].
+meet(A,join(B,meet(A,C))) = meet(A,join(B,meet(C,join(A,meet(B,C))))) # label(equation_H10) # label(axiom).  [assumption].
+meet(b,a) = a # label(prove_distributivity_hypothesis) # label(hypothesis).  [assumption].
+join(complement(b),complement(a)) != complement(a) # label(prove_distributivity) # label(negated_conjecture).  [assumption].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_distributivity to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ a, one, zero, b, meet, join, complement ]).
+After inverse_order: Function symbol precedence:  function_order([ a, one, zero, b, meet, join, complement ]).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(hyper_resolution).  % (nonunit Horn with equality)
+    % set(hyper_resolution) -> set(pos_hyper_resolution).
+  % set(neg_ur_resolution).  % (nonunit Horn with equality)
+  % assign(para_lit_limit, 3).  % (nonunit Horn with equality)
+
+Auto_process settings:  (no changes).
+
+kept:      1 meet(A,A) = A # label(idempotence_of_meet) # label(axiom).  [assumption].
+kept:      2 join(A,A) = A # label(idempotence_of_join) # label(axiom).  [assumption].
+kept:      3 meet(A,join(A,B)) = A # label(absorption1) # label(axiom).  [assumption].
+kept:      4 join(A,meet(A,B)) = A # label(absorption2) # label(axiom).  [assumption].
+
+% Operation meet is commutative; C redundancy checks enabled.
+kept:      5 meet(A,B) = meet(B,A) # label(commutativity_of_meet) # label(axiom).  [assumption].
+
+% Operation join is commutative; C redundancy checks enabled.
+kept:      6 join(A,B) = join(B,A) # label(commutativity_of_join) # label(axiom).  [assumption].
+kept:      7 meet(meet(A,B),C) = meet(A,meet(B,C)) # label(associativity_of_meet) # label(axiom).  [assumption].
+kept:      8 join(join(A,B),C) = join(A,join(B,C)) # label(associativity_of_join) # label(axiom).  [assumption].
+kept:      9 join(A,complement(A)) = one # label(complement_join) # label(axiom).  [assumption].
+kept:      10 meet(A,complement(A)) = zero # label(complement_meet) # label(axiom).  [assumption].
+kept:      11 meet(A,B) != zero | join(A,B) != one | complement(A) = B # label(meet_join_complement) # label(axiom).  [assumption].
+           12 meet(A,join(B,meet(A,C))) = meet(A,join(B,meet(C,join(A,meet(B,C))))) # label(equation_H10) # label(axiom).  [assumption].
+kept:      13 meet(A,join(B,meet(C,join(A,meet(B,C))))) = meet(A,join(B,meet(A,C))).  [copy(12),flip(a)].
+           14 meet(b,a) = a # label(prove_distributivity_hypothesis) # label(hypothesis).  [assumption].
+kept:      15 meet(a,b) = a.  [copy(14),rewrite([5(3)])].
+           16 join(complement(b),complement(a)) != complement(a) # label(prove_distributivity) # label(negated_conjecture) # answer(prove_distributivity).  [assumption].
+kept:      17 join(complement(a),complement(b)) != complement(a) # answer(prove_distributivity).  [copy(16),rewrite([6(5)])].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+1 meet(A,A) = A # label(idempotence_of_meet) # label(axiom).  [assumption].
+2 join(A,A) = A # label(idempotence_of_join) # label(axiom).  [assumption].
+3 meet(A,join(A,B)) = A # label(absorption1) # label(axiom).  [assumption].
+4 join(A,meet(A,B)) = A # label(absorption2) # label(axiom).  [assumption].
+5 meet(A,B) = meet(B,A) # label(commutativity_of_meet) # label(axiom).  [assumption].
+6 join(A,B) = join(B,A) # label(commutativity_of_join) # label(axiom).  [assumption].
+7 meet(meet(A,B),C) = meet(A,meet(B,C)) # label(associativity_of_meet) # label(axiom).  [assumption].
+8 join(join(A,B),C) = join(A,join(B,C)) # label(associativity_of_join) # label(axiom).  [assumption].
+9 join(A,complement(A)) = one # label(complement_join) # label(axiom).  [assumption].
+10 meet(A,complement(A)) = zero # label(complement_meet) # label(axiom).  [assumption].
+11 meet(A,B) != zero | join(A,B) != one | complement(A) = B # label(meet_join_complement) # label(axiom).  [assumption].
+13 meet(A,join(B,meet(C,join(A,meet(B,C))))) = meet(A,join(B,meet(A,C))).  [copy(12),flip(a)].
+15 meet(a,b) = a.  [copy(14),rewrite([5(3)])].
+17 join(complement(a),complement(b)) != complement(a) # answer(prove_distributivity).  [copy(16),rewrite([6(5)])].
+end_of_list.
+
+formulas(demodulators).
+1 meet(A,A) = A # label(idempotence_of_meet) # label(axiom).  [assumption].
+2 join(A,A) = A # label(idempotence_of_join) # label(axiom).  [assumption].
+3 meet(A,join(A,B)) = A # label(absorption1) # label(axiom).  [assumption].
+4 join(A,meet(A,B)) = A # label(absorption2) # label(axiom).  [assumption].
+5 meet(A,B) = meet(B,A) # label(commutativity_of_meet) # label(axiom).  [assumption].
+        % (lex-dep)
+6 join(A,B) = join(B,A) # label(commutativity_of_join) # label(axiom).  [assumption].
+        % (lex-dep)
+7 meet(meet(A,B),C) = meet(A,meet(B,C)) # label(associativity_of_meet) # label(axiom).  [assumption].
+8 join(join(A,B),C) = join(A,join(B,C)) # label(associativity_of_join) # label(axiom).  [assumption].
+9 join(A,complement(A)) = one # label(complement_join) # label(axiom).  [assumption].
+10 meet(A,complement(A)) = zero # label(complement_meet) # label(axiom).  [assumption].
+13 meet(A,join(B,meet(C,join(A,meet(B,C))))) = meet(A,join(B,meet(A,C))).  [copy(12),flip(a)].
+15 meet(a,b) = a.  [copy(14),rewrite([5(3)])].
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+given #1 (I,wt=5): 1 meet(A,A) = A # label(idempotence_of_meet) # label(axiom).  [assumption].
+
+given #2 (I,wt=5): 2 join(A,A) = A # label(idempotence_of_join) # label(axiom).  [assumption].
+
+given #3 (I,wt=7): 3 meet(A,join(A,B)) = A # label(absorption1) # label(axiom).  [assumption].
+
+given #4 (I,wt=7): 4 join(A,meet(A,B)) = A # label(absorption2) # label(axiom).  [assumption].
+
+given #5 (I,wt=7): 5 meet(A,B) = meet(B,A) # label(commutativity_of_meet) # label(axiom).  [assumption].
+
+given #6 (I,wt=7): 6 join(A,B) = join(B,A) # label(commutativity_of_join) # label(axiom).  [assumption].
+
+given #7 (I,wt=11): 7 meet(meet(A,B),C) = meet(A,meet(B,C)) # label(associativity_of_meet) # label(axiom).  [assumption].
+
+% Operation meet is associative-commutative; CAC redundancy checks enabled.
+% back CAC tautology: 26 meet(A,meet(B,C)) = meet(C,meet(A,B)).  [para(7(a,1),5(a,1))].
+
+given #8 (I,wt=11): 8 join(join(A,B),C) = join(A,join(B,C)) # label(associativity_of_join) # label(axiom).  [assumption].
+
+% Operation join is associative-commutative; CAC redundancy checks enabled.
+% back CAC tautology: 34 join(A,join(B,C)) = join(C,join(A,B)).  [para(8(a,1),6(a,1))].
+
+given #9 (I,wt=6): 9 join(A,complement(A)) = one # label(complement_join) # label(axiom).  [assumption].
+
+given #10 (I,wt=6): 10 meet(A,complement(A)) = zero # label(complement_meet) # label(axiom).  [assumption].
+
+given #11 (I,wt=14): 11 meet(A,B) != zero | join(A,B) != one | complement(A) = B # label(meet_join_complement) # label(axiom).  [assumption].
+
+given #12 (I,wt=19): 13 meet(A,join(B,meet(C,join(A,meet(B,C))))) = meet(A,join(B,meet(A,C))).  [copy(12),flip(a)].
+
+given #13 (I,wt=5): 15 meet(a,b) = a.  [copy(14),rewrite([5(3)])].
+
+given #14 (I,wt=8): 17 join(complement(a),complement(b)) != complement(a) # answer(prove_distributivity).  [copy(16),rewrite([6(5)])].
+
+given #15 (A,wt=7): 18 join(A,meet(B,A)) = A.  [para(5(a,1),4(a,1,2))].
+
+given #16 (T,wt=5): 36 meet(A,one) = A.  [para(9(a,1),3(a,1,2))].
+
+given #17 (T,wt=5): 39 join(A,zero) = A.  [para(10(a,1),4(a,1,2))].
+
+given #18 (T,wt=5): 66 join(a,b) = b.  [para(15(a,1),18(a,1,2)),rewrite([6(3)])].
+
+given #19 (T,wt=5): 67 meet(one,A) = A.  [para(36(a,1),5(a,1)),flip(a)].
+
+given #20 (A,wt=7): 19 meet(A,join(B,A)) = A.  [para(6(a,1),3(a,1,2))].
+
+given #21 (T,wt=4): 75 complement(one) = zero.  [hyper(11,a,67,a,b,39,a)].
+
+given #22 (T,wt=5): 68 join(one,A) = one.  [para(36(a,1),18(a,1,2))].
+
+given #23 (T,wt=5): 70 join(zero,A) = A.  [para(39(a,1),6(a,1)),flip(a)].
+
+given #24 (T,wt=4): 83 complement(zero) = one.  [hyper(11,a,36,a,b,70,a)].
+
+given #25 (A,wt=9): 21 meet(A,meet(A,B)) = meet(A,B).  [para(1(a,1),7(a,1,1)),flip(a)].
+
+given #26 (T,wt=5): 80 meet(zero,A) = zero.  [para(39(a,1),19(a,1,2))].
+
+given #27 (T,wt=5): 81 join(A,one) = one.  [para(19(a,1),67(a,1)),flip(a)].
+
+given #28 (T,wt=5): 84 meet(A,zero) = zero.  [para(70(a,1),18(a,1))].
+
+given #29 (T,wt=7): 85 one != A | complement(A) = zero.  [back_rewrite(71),rewrite([84(2)]),xx(a)].
+
+given #30 (A,wt=9): 22 meet(A,meet(B,A)) = meet(B,A).  [para(1(a,1),7(a,2,2)),rewrite([5(2)])].
+
+given #31 (T,wt=7): 89 zero != A | complement(A) = one.  [para(81(a,1),11(b,1)),rewrite([36(2)]),flip(a),xx(b)].
+
+given #32 (T,wt=8): 69 join(A,join(complement(A),B)) = one.  [back_rewrite(37),rewrite([68(5)])].
+
+given #33 (T,wt=8): 82 meet(A,meet(complement(A),B)) = zero.  [back_rewrite(40),rewrite([80(5)])].
+
+given #34 (T,wt=8): 94 join(A,join(B,complement(A))) = one.  [para(6(a,1),69(a,1,2))].
+
+given #35 (A,wt=13): 23 meet(A,meet(B,join(meet(A,B),C))) = meet(A,B).  [para(7(a,1),3(a,1))].
+
+given #36 (F,wt=9): 93 meet(a,join(complement(a),complement(b))) != zero # answer(prove_distributivity).  [ur(11,b,69,a,c,17,a(flip))].
+
+given #37 (T,wt=8): 97 meet(A,meet(B,complement(A))) = zero.  [para(5(a,1),82(a,1,2))].
+
+given #38 (T,wt=9): 29 join(A,join(A,B)) = join(A,B).  [para(2(a,1),8(a,1,1)),flip(a)].
+
+given #39 (T,wt=9): 30 join(A,join(B,A)) = join(B,A).  [para(2(a,1),8(a,2,2)),rewrite([6(2)])].
+
+given #40 (T,wt=9): 57 meet(a,meet(b,A)) = meet(a,A).  [para(15(a,1),7(a,1,1)),flip(a)].
+
+given #41 (A,wt=11): 24 meet(A,meet(join(A,B),C)) = meet(A,C).  [para(3(a,1),7(a,1,1)),flip(a)].
+
+given #42 (T,wt=6): 120 meet(a,complement(b)) = zero.  [para(10(a,1),57(a,1,2)),rewrite([84(3)]),flip(a)].
+
+given #43 (T,wt=7): 117 meet(a,join(b,A)) = a.  [para(3(a,1),57(a,1,2)),rewrite([15(3)]),flip(a)].
+
+given #44 (T,wt=7): 124 meet(a,join(A,b)) = a.  [para(19(a,1),57(a,1,2)),rewrite([15(3)]),flip(a)].
+
+given #45 (T,wt=8): 125 meet(a,meet(complement(b),A)) = zero.  [para(82(a,1),57(a,1,2)),rewrite([84(3)]),flip(a)].
+
+given #46 (A,wt=13): 25 join(meet(A,B),meet(A,meet(B,C))) = meet(A,B).  [para(7(a,1),4(a,1,2))].
+
+given #47 (T,wt=8): 127 meet(a,meet(A,complement(b))) = zero.  [para(97(a,1),57(a,1,2)),rewrite([84(3)]),flip(a)].
+
+given #48 (T,wt=8): 130 meet(A,complement(join(A,B))) = zero.  [para(10(a,1),24(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #49 (T,wt=8): 154 meet(A,complement(join(B,A))) = zero.  [para(6(a,1),130(a,1,2,1))].
+
+given #50 (T,wt=8): 157 meet(a,complement(join(b,A))) = zero.  [para(130(a,1),57(a,1,2)),rewrite([84(3)]),flip(a)].
+
+given #51 (A,wt=11): 27 meet(A,meet(B,C)) = meet(B,meet(A,C)).  [para(5(a,1),7(a,1,1)),rewrite([7(2)])].
+
+given #52 (T,wt=8): 161 meet(a,complement(join(A,b))) = zero.  [para(154(a,1),57(a,1,2)),rewrite([84(3)]),flip(a)].
+
+given #53 (T,wt=9): 58 meet(b,meet(A,a)) = meet(A,a).  [para(15(a,1),7(a,2,2)),rewrite([5(4)])].
+
+given #54 (T,wt=7): 181 join(b,meet(A,a)) = b.  [para(58(a,1),4(a,1,2))].
+
+given #55 (T,wt=7): 186 join(b,meet(a,A)) = b.  [para(5(a,1),181(a,1,2))].
+
+given #56 (A,wt=13): 31 meet(join(A,B),join(A,join(B,C))) = join(A,B).  [para(8(a,1),3(a,1,2))].
+
+given #57 (T,wt=9): 60 join(A,meet(B,meet(C,A))) = A.  [para(7(a,1),18(a,1,2))].
+
+given #58 (T,wt=9): 72 join(a,join(b,A)) = join(b,A).  [para(66(a,1),8(a,1,1)),flip(a)].
+
+given #59 (T,wt=6): 215 join(b,complement(a)) = one.  [para(72(a,1),94(a,1))].
+
+given #60 (T,wt=8): 217 join(b,join(complement(a),A)) = one.  [para(215(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #61 (A,wt=13): 32 join(A,join(B,meet(join(A,B),C))) = join(A,B).  [para(8(a,1),4(a,1))].
+
+given #62 (T,wt=8): 219 join(b,join(A,complement(a))) = one.  [para(6(a,1),217(a,1,2))].
+
+given #63 (T,wt=9): 73 join(b,join(A,a)) = join(A,b).  [para(66(a,1),8(a,2,2)),rewrite([6(4)])].
+
+given #64 (T,wt=9): 78 meet(A,join(B,join(C,A))) = A.  [para(8(a,1),19(a,1,2))].
+
+given #65 (T,wt=9): 118 meet(a,meet(A,b)) = meet(a,A).  [para(5(a,1),57(a,1,2))].
+
+given #66 (A,wt=11): 33 join(A,join(meet(A,B),C)) = join(A,C).  [para(4(a,1),8(a,1,1)),flip(a)].
+
+given #67 (T,wt=8): 250 join(A,complement(meet(A,B))) = one.  [para(9(a,1),33(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #68 (T,wt=8): 261 join(A,complement(meet(B,A))) = one.  [para(5(a,1),250(a,1,2,1))].
+
+given #69 (T,wt=8): 266 join(b,complement(meet(A,a))) = one.  [para(58(a,1),250(a,1,2,1))].
+
+given #70 (T,wt=8): 277 join(b,complement(meet(a,A))) = one.  [para(5(a,1),266(a,1,2,1))].
+
+given #71 (A,wt=11): 35 join(A,join(B,C)) = join(B,join(A,C)).  [para(6(a,1),8(a,1,1)),rewrite([8(2)])].
+
+given #72 (T,wt=9): 134 meet(A,join(B,join(A,C))) = A.  [para(19(a,1),24(a,1,2)),rewrite([3(2)]),flip(a)].
+
+given #73 (T,wt=9): 142 meet(a,join(A,join(B,b))) = a.  [para(8(a,1),124(a,1,2))].
+
+given #74 (T,wt=9): 144 join(a,join(A,b)) = join(A,b).  [para(124(a,1),18(a,1,2)),rewrite([6(4)])].
+
+given #75 (T,wt=9): 164 join(A,meet(B,meet(A,C))) = A.  [para(27(a,1),4(a,1,2))].
+
+given #76 (A,wt=10): 38 join(A,join(B,complement(join(A,B)))) = one.  [para(9(a,1),8(a,1)),flip(a)].
+
+given #77 (T,wt=9): 187 join(b,meet(A,meet(B,a))) = b.  [para(7(a,1),181(a,1,2))].
+
+given #78 (T,wt=9): 192 join(b,meet(A,meet(a,B))) = b.  [para(27(a,1),186(a,1,2))].
+
+given #79 (T,wt=9): 231 join(b,join(A,a)) = join(b,A).  [para(73(a,2),6(a,1))].
+
+given #80 (T,wt=9): 287 meet(a,join(A,join(b,B))) = a.  [para(35(a,1),117(a,1,2))].
+
+given #81 (A,wt=10): 41 meet(A,meet(B,complement(meet(A,B)))) = zero.  [para(10(a,1),7(a,1)),flip(a)].
+
+given #82 (T,wt=10): 42 zero != A | one != A | complement(A) = A.  [para(2(a,1),11(b,1)),rewrite([1(1)]),flip(a),flip(b)].
+
+given #83 (T,wt=10): 74 zero != a | b != one | complement(a) = b.  [para(66(a,1),11(b,1)),rewrite([15(3)]),flip(a)].
+
+given #84 (T,wt=10): 99 join(A,join(B,join(complement(A),C))) = one.  [para(94(a,1),8(a,1,1)),rewrite([68(2),8(4)]),flip(a)].
+
+given #85 (T,wt=10): 101 join(A,join(B,join(C,complement(A)))) = one.  [para(8(a,1),94(a,1,2))].
+
+given #86 (A,wt=14): 43 meet(A,B) != zero | one != A | complement(A) = meet(A,B).  [para(4(a,1),11(b,1)),rewrite([21(2)]),flip(b)].
+
+given #87 (T,wt=10): 108 meet(A,meet(B,meet(complement(A),C))) = zero.  [para(97(a,1),7(a,1,1)),rewrite([80(2),7(4)]),flip(a)].
+
+given #88 (T,wt=10): 110 meet(A,meet(B,meet(C,complement(A)))) = zero.  [para(7(a,1),97(a,1,2))].
+
+given #89 (T,wt=10): 136 meet(A,meet(complement(join(A,B)),C)) = zero.  [para(82(a,1),24(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #90 (T,wt=10): 138 meet(A,meet(B,complement(join(A,C)))) = zero.  [para(97(a,1),24(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #91 (A,wt=14): 44 meet(A,B) != zero | join(B,A) != one | complement(A) = B.  [para(6(a,1),11(b,1))].
+
+given #92 (T,wt=5): 374 complement(complement(A)) = A.  [para(9(a,1),44(b,1)),rewrite([5(2),10(2)]),xx(a),xx(b)].
+
+given #93 (T,wt=8): 404 join(complement(A),join(B,A)) = one.  [para(374(a,1),94(a,1,2,2))].
+
+given #94 (T,wt=8): 405 meet(complement(A),meet(B,A)) = zero.  [para(374(a,1),97(a,1,2,2))].
+
+given #95 (T,wt=7): 419 complement(A) != one | zero = A.  [para(405(a,1),43(a,1)),rewrite([374(8),405(9)]),flip(b),flip(c),xx(a)].
+
+given #96 (A,wt=20): 45 meet(join(A,B),C) != zero | join(A,join(B,C)) != one | complement(join(A,B)) = C.  [para(8(a,1),11(b,1))].
+
+given #97 (F,wt=10): 420 complement(meet(a,join(complement(a),complement(b)))) != one # answer(prove_distributivity).  [ur(419,b,93,a(flip))].
+
+given #98 (T,wt=9): 386 meet(b,complement(a)) != zero | b = a.  [para(215(a,1),44(b,1)),rewrite([5(4),374(12)]),flip(c),xx(b)].
+
+given #99 (T,wt=10): 152 meet(a,meet(A,meet(complement(b),B))) = zero.  [para(127(a,1),7(a,1,1)),rewrite([80(2),7(6)]),flip(a)].
+
+given #100 (T,wt=10): 153 meet(a,meet(A,meet(B,complement(b)))) = zero.  [para(7(a,1),127(a,1,2))].
+
+given #101 (T,wt=10): 158 meet(A,meet(complement(join(B,A)),C)) = zero.  [para(154(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #102 (A,wt=21): 47 meet(A,join(B,meet(join(B,C),join(A,B)))) = meet(A,join(B,meet(A,join(B,C)))).  [para(3(a,1),13(a,1,2,2,2,2))].
+
+given #103 (T,wt=10): 160 meet(A,complement(join(B,join(C,A)))) = zero.  [para(8(a,1),154(a,1,2,1))].
+
+given #104 (T,wt=10): 162 meet(A,complement(join(B,join(A,C)))) = zero.  [para(154(a,1),24(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #105 (T,wt=10): 163 meet(a,meet(complement(join(b,A)),B)) = zero.  [para(157(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #106 (T,wt=10): 176 meet(A,meet(B,complement(join(C,A)))) = zero.  [para(154(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #107 (A,wt=19): 48 meet(A,join(B,meet(C,join(A,meet(C,B))))) = meet(A,join(B,meet(A,C))).  [para(5(a,1),13(a,1,2,2,2,2))].
+
+given #108 (T,wt=10): 177 meet(a,meet(A,complement(join(b,B)))) = zero.  [para(157(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #109 (T,wt=10): 178 meet(a,meet(complement(join(A,b)),B)) = zero.  [para(161(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #110 (T,wt=10): 179 meet(a,complement(join(A,join(B,b)))) = zero.  [para(8(a,1),161(a,1,2,1))].
+
+given #111 (T,wt=10): 180 meet(a,meet(A,complement(join(B,b)))) = zero.  [para(161(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #112 (A,wt=19): 49 meet(A,join(B,meet(C,join(meet(B,C),A)))) = meet(A,join(B,meet(A,C))).  [para(6(a,1),13(a,1,2,2,2))].
+
+given #113 (T,wt=10): 228 join(b,join(A,join(complement(a),B))) = one.  [para(219(a,1),8(a,1,1)),rewrite([68(2),8(6)]),flip(a)].
+
+given #114 (T,wt=10): 229 join(b,join(A,join(B,complement(a)))) = one.  [para(8(a,1),219(a,1,2))].
+
+given #115 (T,wt=10): 234 meet(join(A,a),complement(join(A,b))) = zero.  [para(73(a,1),154(a,1,2,1))].
+
+given #116 (T,wt=10): 253 join(A,join(complement(meet(A,B)),C)) = one.  [para(69(a,1),33(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #117 (A,wt=23): 50 meet(A,meet(join(B,meet(C,join(A,meet(B,C)))),D)) = meet(A,meet(join(B,meet(A,C)),D)).  [para(13(a,1),7(a,1,1)),rewrite([7(4)]),flip(a)].
+
+given #118 (T,wt=10): 254 join(A,join(B,complement(meet(A,C)))) = one.  [para(94(a,1),33(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #119 (T,wt=10): 265 join(A,complement(meet(B,meet(A,C)))) = one.  [para(27(a,1),250(a,1,2,1))].
+
+given #120 (T,wt=10): 267 join(A,complement(meet(B,meet(C,A)))) = one.  [para(7(a,1),261(a,1,2,1))].
+
+given #121 (T,wt=10): 268 join(A,join(complement(meet(B,A)),C)) = one.  [para(261(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #122 (A,wt=27): 51 meet(A,meet(B,join(C,meet(D,join(meet(A,B),meet(C,D)))))) = meet(A,meet(B,join(C,meet(A,meet(B,D))))).  [para(13(a,1),7(a,1)),rewrite([7(3),7(5)]),flip(a)].
+
+given #123 (T,wt=10): 273 join(meet(b,A),complement(meet(a,A))) = one.  [para(57(a,1),261(a,1,2,1))].
+
+given #124 (T,wt=10): 276 join(meet(A,b),complement(meet(a,A))) = one.  [para(118(a,1),261(a,1,2,1))].
+
+given #125 (T,wt=10): 278 join(b,complement(meet(A,meet(B,a)))) = one.  [para(7(a,1),266(a,1,2,1))].
+
+given #126 (T,wt=10): 279 join(b,join(complement(meet(A,a)),B)) = one.  [para(266(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #127 (A,wt=25): 52 meet(A,join(meet(B,C),meet(D,join(A,meet(B,meet(C,D)))))) = meet(A,join(meet(B,C),meet(A,D))).  [para(7(a,1),13(a,1,2,2,2,2))].
+
+given #128 (T,wt=10): 281 join(b,join(complement(meet(a,A)),B)) = one.  [para(277(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #129 (T,wt=10): 283 join(b,complement(meet(A,meet(a,B)))) = one.  [para(27(a,1),277(a,1,2,1))].
+
+given #130 (T,wt=10): 290 meet(a,complement(join(A,join(b,B)))) = zero.  [para(35(a,1),157(a,1,2,1))].
+
+given #131 (T,wt=10): 301 join(A,join(B,complement(meet(C,A)))) = one.  [para(261(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #132 (A,wt=25): 53 meet(A,join(B,meet(C,meet(D,join(A,meet(B,meet(C,D))))))) = meet(A,join(B,meet(A,meet(C,D)))).  [para(7(a,1),13(a,1,2,2))].
+
+given #133 (T,wt=10): 302 join(b,join(A,complement(meet(B,a)))) = one.  [para(266(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #134 (T,wt=10): 303 join(b,join(A,complement(meet(a,B)))) = one.  [para(277(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #135 (T,wt=10): 318 join(A,join(B,complement(join(B,A)))) = one.  [para(6(a,1),38(a,1,2,2,1))].
+
+given #136 (T,wt=10): 335 meet(join(A,a),complement(join(b,A))) = zero.  [para(231(a,1),154(a,1,2,1))].
+
+given #137 (A,wt=27): 54 meet(join(A,B),join(C,meet(D,join(A,join(B,meet(C,D)))))) = meet(join(A,B),join(C,meet(join(A,B),D))).  [para(8(a,1),13(a,1,2,2,2))].
+
+given #138 (T,wt=10): 341 meet(A,meet(B,complement(meet(B,A)))) = zero.  [para(5(a,1),41(a,1,2,2,1))].
+
+given #139 (T,wt=10): 343 meet(a,meet(A,complement(meet(b,A)))) = zero.  [para(41(a,1),57(a,1,2)),rewrite([84(3)]),flip(a)].
+
+given #140 (T,wt=10): 376 zero != a | b != one | complement(b) = a.  [para(66(a,1),44(b,1)),rewrite([5(3),15(3)]),flip(a)].
+
+given #141 (T,wt=10): 406 join(complement(A),join(B,join(A,C))) = one.  [para(374(a,1),99(a,1,2,2,1))].
+
+given #142 (A,wt=25): 55 meet(A,join(B,join(C,meet(D,join(A,meet(join(B,C),D)))))) = meet(A,join(B,join(C,meet(A,D)))).  [para(8(a,1),13(a,1,2)),rewrite([8(10)])].
+
+given #143 (T,wt=8): 1046 join(complement(a),join(A,b)) = one.  [para(66(a,1),406(a,1,2,2))].
+
+given #144 (T,wt=10): 407 join(complement(A),join(B,join(C,A))) = one.  [para(374(a,1),101(a,1,2,2,2))].
+
+given #145 (T,wt=10): 408 meet(complement(A),meet(B,meet(A,C))) = zero.  [para(374(a,1),108(a,1,2,2,1))].
+
+given #146 (T,wt=10): 409 meet(complement(A),meet(B,meet(C,A))) = zero.  [para(374(a,1),110(a,1,2,2,2))].
+
+given #147 (A,wt=39): 56 meet(A,join(B,meet(join(C,meet(D,join(B,meet(C,D)))),join(A,meet(B,join(C,meet(B,D))))))) = meet(A,join(B,meet(A,join(C,meet(D,join(B,meet(C,D))))))).  [para(13(a,1),13(a,1,2,2,2,2))].
+
+given #148 (T,wt=8): 1128 meet(complement(b),meet(A,a)) = zero.  [para(15(a,1),409(a,1,2,2))].
+
+given #149 (T,wt=7): 1348 complement(b) != one | b = zero.  [para(1128(a,1),43(a,1)),rewrite([374(10),1128(13)]),flip(b),xx(a)].
+
+given #150 (T,wt=10): 413 join(b,join(A,complement(join(A,a)))) = one.  [para(231(a,1),404(a,1,2)),rewrite([6(6),8(6)])].
+
+given #151 (T,wt=10): 418 meet(a,meet(A,complement(meet(A,b)))) = zero.  [para(118(a,1),405(a,1,2)),rewrite([5(6),7(6)])].
+
+given #152 (A,wt=17): 59 meet(A,join(a,meet(b,join(A,a)))) = meet(A,join(a,meet(A,b))).  [para(15(a,1),13(a,1,2,2,2,2))].
+
+given #153 (T,wt=10): 635 meet(join(a,A),complement(join(A,b))) = zero.  [para(6(a,1),234(a,1,1))].
+
+given #154 (T,wt=10): 806 join(meet(b,join(a,A)),complement(a)) = one.  [para(3(a,1),273(a,1,2,1))].
+
+given #155 (T,wt=10): 807 join(meet(b,A),complement(meet(A,a))) = one.  [para(5(a,1),273(a,1,2,1))].
+
+given #156 (T,wt=10): 810 join(meet(b,join(A,a)),complement(a)) = one.  [para(19(a,1),273(a,1,2,1))].
+
+given #157 (A,wt=11): 61 join(A,join(meet(B,A),C)) = join(A,C).  [para(18(a,1),8(a,1,1)),flip(a)].
+
+given #158 (T,wt=10): 824 join(meet(A,b),complement(meet(A,a))) = one.  [para(5(a,1),276(a,1,2,1))].
+
+given #159 (T,wt=10): 969 meet(join(a,meet(b,A)),complement(b)) = zero.  [para(4(a,1),335(a,1,2,1)),rewrite([6(4)])].
+
+given #160 (T,wt=10): 970 meet(join(a,A),complement(join(b,A))) = zero.  [para(6(a,1),335(a,1,1))].
+
+given #161 (T,wt=10): 971 meet(join(a,meet(A,b)),complement(b)) = zero.  [para(18(a,1),335(a,1,2,1)),rewrite([6(4)])].
+
+given #162 (A,wt=13): 62 join(A,join(B,meet(C,join(A,B)))) = join(A,B).  [para(18(a,1),8(a,1)),flip(a)].
+
+given #163 (T,wt=10): 1034 meet(a,complement(meet(b,join(a,A)))) = zero.  [para(343(a,1),24(a,1)),flip(a)].
+
+given #164 (T,wt=10): 1036 meet(A,meet(a,complement(meet(b,A)))) = zero.  [para(343(a,1),27(a,1)),flip(a)].
+
+given #165 (T,wt=10): 1047 join(complement(a),join(A,join(b,B))) = one.  [para(72(a,1),406(a,1,2,2))].
+
+given #166 (T,wt=10): 1048 join(complement(a),join(A,join(B,b))) = one.  [para(144(a,1),406(a,1,2,2))].
+
+given #167 (A,wt=14): 64 meet(A,B) != zero | one != B | complement(B) = meet(A,B).  [para(18(a,1),11(b,1)),rewrite([22(2)]),flip(b)].
+
+given #168 (T,wt=10): 1098 join(complement(meet(A,B)),join(C,A)) = one.  [para(4(a,1),407(a,1,2,2))].
+
+given #169 (T,wt=10): 1101 join(complement(meet(A,B)),join(C,B)) = one.  [para(18(a,1),407(a,1,2,2))].
+
+given #170 (T,wt=10): 1103 join(complement(meet(A,a)),join(B,b)) = one.  [para(181(a,1),407(a,1,2,2))].
+
+given #171 (T,wt=10): 1104 join(complement(meet(a,A)),join(B,b)) = one.  [para(186(a,1),407(a,1,2,2))].
+
+given #172 (A,wt=27): 65 join(A,join(meet(B,join(A,meet(B,C))),meet(C,join(B,meet(A,C))))) = join(A,meet(C,join(B,meet(A,C)))).  [para(13(a,1),18(a,1,2)),rewrite([6(8),35(8)])].
+
+given #173 (T,wt=10): 1118 meet(complement(b),meet(A,meet(B,a))) = zero.  [para(58(a,1),408(a,1,2,2))].
+
+given #174 (T,wt=10): 1125 meet(complement(join(A,B)),meet(C,A)) = zero.  [para(3(a,1),409(a,1,2,2))].
+
+given #175 (T,wt=10): 1129 meet(complement(join(A,B)),meet(C,B)) = zero.  [para(19(a,1),409(a,1,2,2))].
+
+given #176 (T,wt=10): 1133 meet(complement(join(b,A)),meet(B,a)) = zero.  [para(117(a,1),409(a,1,2,2))].
+
+given #177 (A,wt=11): 76 meet(A,meet(join(B,A),C)) = meet(A,C).  [para(19(a,1),7(a,1,1)),flip(a)].
+
+given #178 (T,wt=10): 1134 meet(complement(join(A,b)),meet(B,a)) = zero.  [para(124(a,1),409(a,1,2,2))].
+
+given #179 (T,wt=10): 1347 meet(complement(b),meet(A,meet(a,B))) = zero.  [para(1128(a,1),7(a,1,1)),rewrite([80(2),7(6)]),flip(a)].
+
+given #180 (T,wt=10): 1349 join(b,join(A,complement(join(a,A)))) = one.  [para(6(a,1),413(a,1,2,2,1))].
+
+given #181 (T,wt=10): 1354 join(b,complement(join(a,meet(b,A)))) = one.  [para(413(a,1),33(a,1)),rewrite([6(6)]),flip(a)].
+
+given #182 (A,wt=13): 77 meet(A,meet(B,join(C,meet(A,B)))) = meet(A,B).  [para(19(a,1),7(a,1)),flip(a)].
+
+given #183 (T,wt=10): 1356 join(A,join(b,complement(join(A,a)))) = one.  [para(413(a,1),35(a,1)),flip(a)].
+
+given #184 (T,wt=10): 1363 meet(A,meet(a,complement(meet(A,b)))) = zero.  [para(418(a,1),27(a,1)),flip(a)].
+
+given #185 (T,wt=10): 1388 join(complement(a),meet(b,join(a,A))) = one.  [para(806(a,1),6(a,1)),flip(a)].
+
+given #186 (T,wt=10): 1402 join(complement(a),meet(b,join(A,a))) = one.  [para(810(a,1),6(a,1)),flip(a)].
+
+given #187 (A,wt=21): 79 meet(A,join(B,meet(join(C,B),join(A,B)))) = meet(A,join(B,meet(A,join(C,B)))).  [para(19(a,1),13(a,1,2,2,2,2))].
+
+given #188 (T,wt=10): 1443 join(b,complement(join(a,meet(A,b)))) = one.  [para(61(a,1),413(a,1)),rewrite([6(5)])].
+
+given #189 (T,wt=10): 1453 meet(complement(b),join(a,meet(b,A))) = zero.  [para(969(a,1),5(a,1)),flip(a)].
+
+given #190 (T,wt=10): 1458 meet(complement(b),join(a,meet(A,b))) = zero.  [para(971(a,1),5(a,1)),flip(a)].
+
+given #191 (T,wt=10): 1489 meet(a,complement(meet(b,join(A,a)))) = zero.  [para(6(a,1),1034(a,1,2,1,2))].
+
+given #192 (A,wt=13): 87 meet(A,meet(B,meet(A,C))) = meet(B,meet(A,C)).  [para(21(a,1),7(a,2,2)),rewrite([27(3),7(2)])].
+
+given #193 (T,wt=10): 1812 join(A,join(b,complement(join(a,A)))) = one.  [para(1349(a,1),35(a,1)),flip(a)].
+
+given #194 (T,wt=11): 123 join(meet(a,A),meet(b,A)) = meet(b,A).  [para(57(a,1),18(a,1,2)),rewrite([6(5)])].
+
+given #195 (T,wt=11): 128 meet(A,meet(B,join(A,C))) = meet(A,B).  [para(5(a,1),24(a,1,2))].
+
+given #196 (T,wt=11): 135 meet(join(A,B),meet(C,A)) = meet(C,A).  [para(22(a,1),24(a,2)),rewrite([91(4)])].
+
+given #197 (A,wt=13): 91 meet(A,meet(B,meet(C,A))) = meet(B,meet(C,A)).  [para(7(a,1),22(a,1,2)),rewrite([7(5)])].
+
+given #198 (T,wt=11): 139 meet(a,meet(join(b,A),B)) = meet(a,B).  [para(24(a,1),57(a,1,2)),rewrite([57(4)]),flip(a)].
+
+given #199 (T,wt=11): 141 meet(a,meet(join(A,b),B)) = meet(a,B).  [para(124(a,1),7(a,1,1)),flip(a)].
+
+given #200 (T,wt=11): 151 join(meet(A,B),meet(B,A)) = meet(A,B).  [para(22(a,1),25(a,1,2))].
+
+given #201 (T,wt=10): 2299 join(meet(A,B),complement(meet(B,A))) = one.  [para(151(a,1),404(a,1,2)),rewrite([6(4)])].
+
+given #202 (A,wt=12): 95 join(A,join(B,join(complement(join(A,B)),C))) = one.  [para(69(a,1),8(a,1)),flip(a)].
+
+given #203 (T,wt=11): 167 meet(A,meet(B,join(C,A))) = meet(B,A).  [para(19(a,1),27(a,1,2)),flip(a)].
+
+given #204 (T,wt=11): 172 meet(a,meet(A,join(b,B))) = meet(A,a).  [para(117(a,1),27(a,1,2)),flip(a)].
+
+given #205 (T,wt=11): 173 meet(a,meet(A,join(B,b))) = meet(A,a).  [para(124(a,1),27(a,1,2)),flip(a)].
+
+given #206 (T,wt=11): 185 join(meet(b,A),meet(A,a)) = meet(b,A).  [para(58(a,1),25(a,1,2))].
+
+given #207 (A,wt=15): 96 meet(A,join(complement(A),B)) != zero | join(complement(A),B) = complement(A).  [para(69(a,1),11(b,1)),flip(c),xx(b)].
+
+given #208 (T,wt=11): 188 join(b,join(meet(A,a),B)) = join(b,B).  [para(181(a,1),8(a,1,1)),flip(a)].
+
+given #209 (T,wt=11): 190 join(b,join(meet(a,A),B)) = join(b,B).  [para(186(a,1),8(a,1,1)),flip(a)].
+
+given #210 (T,wt=11): 198 meet(join(A,a),join(A,b)) = join(A,a).  [para(66(a,1),31(a,1,2,2))].
+
+given #211 (T,wt=11): 199 meet(join(A,B),join(B,A)) = join(A,B).  [para(30(a,1),31(a,1,2))].
+
+given #212 (A,wt=12): 98 meet(A,meet(B,meet(complement(meet(A,B)),C))) = zero.  [para(82(a,1),7(a,1)),flip(a)].
+
+given #213 (T,wt=10): 2513 meet(join(A,B),complement(join(B,A))) = zero.  [para(199(a,1),405(a,1,2)),rewrite([5(4)])].
+
+given #214 (T,wt=11): 201 join(A,join(B,meet(C,A))) = join(A,B).  [para(3(a,1),60(a,1,2,2)),rewrite([8(3)])].
+
+given #215 (T,wt=11): 202 join(A,meet(B,meet(C,meet(D,A)))) = A.  [para(7(a,1),60(a,1,2,2))].
+
+given #216 (T,wt=11): 210 join(b,join(A,meet(B,a))) = join(b,A).  [para(117(a,1),60(a,1,2,2)),rewrite([8(5)])].
+
+given #217 (A,wt=12): 100 join(A,join(B,join(C,complement(join(A,B))))) = one.  [para(94(a,1),8(a,1)),flip(a)].
+
+given #218 (T,wt=11): 218 meet(b,complement(a)) != zero | complement(b) = complement(a).  [para(215(a,1),11(b,1)),xx(b)].
+
+given #219 (T,wt=11): 239 meet(A,join(B,join(C,join(D,A)))) = A.  [para(8(a,1),78(a,1,2,2))].
+
+given #220 (T,wt=11): 241 meet(A,join(B,join(C,join(A,D)))) = A.  [para(78(a,1),24(a,1,2)),rewrite([3(2)]),flip(a)].
+
+given #221 (T,wt=11): 247 join(meet(A,b),meet(a,A)) = meet(A,b).  [para(118(a,1),18(a,1,2))].
+
+given #222 (A,wt=15): 102 meet(A,join(B,complement(A))) != zero | join(B,complement(A)) = complement(A).  [para(94(a,1),11(b,1)),flip(c),xx(b)].
+
+given #223 (T,wt=11): 249 join(A,join(B,meet(A,C))) = join(A,B).  [para(6(a,1),33(a,1,2))].
+
+given #224 (T,wt=11): 255 join(meet(A,B),join(C,A)) = join(C,A).  [para(30(a,1),33(a,2)),rewrite([115(4)])].
+
+given #225 (T,wt=11): 258 join(A,meet(B,meet(C,meet(A,D)))) = A.  [para(60(a,1),33(a,1,2)),rewrite([4(2)]),flip(a)].
+
+given #226 (T,wt=11): 291 join(b,join(A,meet(a,B))) = join(A,b).  [para(186(a,1),35(a,1,2)),flip(a)].
+
+given #227 (A,wt=13): 103 meet(A,meet(B,join(meet(B,A),C))) = meet(A,B).  [para(5(a,1),23(a,1,2,2,1))].
+
+given #228 (T,wt=11): 308 meet(a,join(A,join(B,join(C,b)))) = a.  [para(8(a,1),142(a,1,2,2))].
+
+given #229 (T,wt=11): 314 meet(join(a,A),join(A,b)) = join(a,A).  [para(144(a,1),31(a,1,2))].
+
+given #230 (T,wt=11): 324 join(b,meet(A,meet(B,meet(C,a)))) = b.  [para(7(a,1),187(a,1,2,2))].
+
+given #231 (T,wt=11): 328 join(b,meet(A,meet(B,meet(a,C)))) = b.  [para(7(a,1),192(a,1,2))].
+
+given #232 (A,wt=17): 104 meet(A,meet(B,meet(join(meet(A,B),C),D))) = meet(A,meet(B,D)).  [para(23(a,1),7(a,1,1)),rewrite([7(2),7(6)]),flip(a)].
+
+given #233 (T,wt=11): 334 meet(join(A,a),join(b,A)) = join(A,a).  [para(231(a,1),19(a,1,2))].
+
+given #234 (T,wt=11): 338 meet(a,join(A,join(B,join(b,C)))) = a.  [para(8(a,1),287(a,1,2))].
+
+given #235 (T,wt=11): 425 join(A,B) != one | complement(join(A,B)) = zero.  [para(39(a,1),45(b,1,2)),rewrite([5(3),80(3)]),xx(a)].
+
+given #236 (T,wt=7): 3052 b != one | complement(b) = zero.  [para(66(a,1),425(a,1)),rewrite([66(6)])].
+
+given #237 (A,wt=19): 105 meet(A,meet(B,meet(C,join(meet(A,meet(B,C)),D)))) = meet(A,meet(B,C)).  [para(23(a,1),7(a,1)),rewrite([7(2),7(4)]),flip(a)].
+
+given #238 (T,wt=11): 427 join(A,B) != zero | complement(join(A,B)) = one.  [para(81(a,1),45(b,1,2)),rewrite([5(3),67(3),81(5)]),xx(b)].
+
+given #239 (T,wt=7): 3106 b != zero | complement(b) = one.  [para(66(a,1),427(a,1)),rewrite([66(6)])].
+
+given #240 (T,wt=11): 1414 join(meet(A,B),join(C,B)) = join(C,B).  [para(30(a,1),61(a,2)),rewrite([115(4)])].
+
+given #241 (T,wt=11): 1516 complement(join(A,B)) != one | join(A,B) = zero.  [para(130(a,1),64(a,1)),rewrite([374(10),130(11)]),flip(b),xx(a)].
+
+given #242 (A,wt=31): 106 meet(A,join(B,meet(C,meet(join(meet(B,C),D),join(A,meet(B,C)))))) = meet(A,join(B,meet(A,meet(C,join(meet(B,C),D))))).  [para(23(a,1),13(a,1,2,2,2,2)),rewrite([7(6)])].
+
+given #243 (T,wt=11): 1526 meet(A,B) != one | complement(meet(A,B)) = zero.  [para(405(a,1),64(a,1)),rewrite([405(11)]),flip(b),xx(a)].
+
+given #244 (T,wt=11): 1752 meet(join(A,B),meet(C,B)) = meet(C,B).  [para(22(a,1),76(a,2)),rewrite([91(4)])].
+
+given #245 (T,wt=11): 2075 join(meet(A,a),meet(b,A)) = meet(b,A).  [para(5(a,1),123(a,1,1))].
+
+given #246 (T,wt=11): 2076 join(meet(a,A),meet(A,b)) = meet(b,A).  [para(5(a,1),123(a,1,2))].
+
+given #247 (A,wt=19): 107 join(meet(A,B),meet(B,join(meet(A,B),C))) = meet(B,join(meet(A,B),C)).  [para(23(a,1),18(a,1,2)),rewrite([6(5)])].
+
+given #248 (T,wt=11): 2107 meet(A,join(a,meet(A,b))) = meet(b,A).  [back_rewrite(590),rewrite([2074(6),167(5)]),flip(a)].
+
+given #249 (T,wt=11): 2171 meet(join(b,A),meet(B,a)) = meet(B,a).  [para(72(a,1),135(a,1,1))].
+
+given #250 (T,wt=11): 2174 meet(join(A,b),meet(B,a)) = meet(B,a).  [para(144(a,1),135(a,1,1))].
+
+given #251 (T,wt=11): 2360 join(meet(A,a),meet(A,b)) = meet(A,b).  [para(167(a,1),123(a,1,2)),rewrite([173(5),167(10)])].
+
+given #252 (A,wt=12): 109 meet(A,meet(B,meet(C,complement(meet(A,B))))) = zero.  [para(97(a,1),7(a,1)),flip(a)].
+
+given #253 (T,wt=11): 2437 meet(A,B) != zero | complement(meet(A,B)) = one.  [para(1098(a,1),96(a,1,2)),rewrite([5(3),67(3),1098(7)]),flip(b)].
+
+given #254 (T,wt=11): 2440 join(meet(A,a),join(B,b)) = join(B,b).  [para(30(a,1),188(a,2)),rewrite([115(7)])].
+
+given #255 (T,wt=11): 2463 join(meet(a,A),join(B,b)) = join(B,b).  [para(30(a,1),190(a,2)),rewrite([115(7)])].
+
+given #256 (T,wt=11): 2871 meet(join(A,b),join(a,A)) = join(a,A).  [para(314(a,1),5(a,1)),flip(a)].
+
+given #257 (A,wt=13): 112 join(A,join(B,join(A,C))) = join(B,join(A,C)).  [para(29(a,1),8(a,2,2)),rewrite([35(3),8(2)])].
+
+given #258 (T,wt=11): 2872 meet(join(a,A),join(b,A)) = join(a,A).  [para(6(a,1),314(a,1,2))].
+
+given #259 (T,wt=11): 3006 meet(join(b,A),join(A,a)) = join(A,a).  [para(334(a,1),5(a,1)),flip(a)].
+
+given #260 (T,wt=11): 3051 join(A,B) != one | complement(join(B,A)) = zero.  [para(6(a,1),425(a,1))].
+
+given #261 (T,wt=11): 3105 join(A,B) != zero | complement(join(B,A)) = one.  [para(6(a,1),427(a,1))].
+
+given #262 (A,wt=14): 113 zero != A | join(A,B) != one | complement(A) = join(A,B).  [para(29(a,1),11(b,1)),rewrite([3(2)]),flip(a)].
+
+given #263 (T,wt=7): 3729 complement(A) != zero | one = A.  [para(404(a,1),113(b,1)),rewrite([374(8),404(9)]),flip(a),flip(c),xx(b)].
+
+given #264 (T,wt=10): 3726 b != zero | b != one | complement(b) = b.  [para(181(a,1),113(b,1)),rewrite([181(12)]),flip(a)].
+
+given #265 (T,wt=11): 3162 complement(join(A,B)) != one | join(B,A) = zero.  [para(6(a,1),1516(a,1,1))].
+
+given #266 (T,wt=11): 3163 complement(meet(A,B)) != one | meet(A,B) = zero.  [para(25(a,1),1516(a,1,1)),rewrite([25(8)])].
+
+given #267 (A,wt=13): 115 join(A,join(B,join(C,A))) = join(B,join(C,A)).  [para(8(a,1),30(a,1,2)),rewrite([8(5)])].
+
+given #268 (T,wt=11): 3341 meet(A,B) != one | complement(meet(B,A)) = zero.  [para(5(a,1),1526(a,1))].
+
+given #269 (T,wt=11): 3394 meet(A,join(a,meet(b,A))) = meet(A,b).  [para(2076(a,1),49(a,1,2,2,2)),rewrite([22(6),7(7),3005(6),5(11),21(11),19(12)])].
+
+given #270 (T,wt=11): 3659 meet(A,B) != zero | complement(meet(B,A)) = one.  [para(5(a,1),2437(a,1))].
+
+given #271 (T,wt=11): 3730 complement(meet(A,B)) != zero | meet(A,B) = one.  [para(1098(a,1),113(b,1)),rewrite([374(10),1098(12)]),flip(a),xx(b)].
+
+given #272 (A,wt=14): 116 zero != A | join(B,A) != one | complement(A) = join(B,A).  [para(30(a,1),11(b,1)),rewrite([19(2)]),flip(a)].
+
+given #273 (T,wt=11): 3736 complement(meet(A,B)) != one | meet(B,A) = zero.  [para(151(a,1),3162(a,1,1)),rewrite([151(7)])].
+
+given #274 (T,wt=11): 3776 complement(meet(A,B)) != zero | meet(B,A) = one.  [para(5(a,1),3730(a,1,1))].
+
+given #275 (T,wt=11): 3778 complement(join(A,B)) != zero | join(A,B) = one.  [para(31(a,1),3730(a,1,1)),rewrite([31(8)])].
+
+given #276 (T,wt=7): 3799 complement(b) != zero | b = one.  [para(66(a,1),3778(a,1,1)),rewrite([66(7)])].
+
+given #277 (A,wt=13): 119 meet(b,meet(A,meet(a,B))) = meet(A,meet(a,B)).  [para(57(a,1),7(a,2,2)),rewrite([27(5),7(4)])].
+
+given #278 (T,wt=11): 3798 complement(join(A,B)) != zero | join(B,A) = one.  [para(199(a,1),3776(a,1,1)),rewrite([199(7)])].
+
+given #279 (T,wt=12): 155 meet(A,meet(B,complement(join(meet(A,B),C)))) = zero.  [para(130(a,1),7(a,1)),flip(a)].
+
+given #280 (T,wt=12): 156 meet(join(A,B),complement(join(A,join(B,C)))) = zero.  [para(8(a,1),130(a,1,2,1))].
+
+given #281 (T,wt=12): 159 meet(A,meet(B,complement(join(C,meet(A,B))))) = zero.  [para(154(a,1),7(a,1)),flip(a)].
+
+given #282 (A,wt=23): 121 meet(A,join(a,meet(b,meet(B,join(A,meet(a,B)))))) = meet(A,join(a,meet(A,meet(b,B)))).  [para(57(a,1),13(a,1,2,2,2,2)),rewrite([7(7)])].
+
+given #283 (T,wt=12): 256 meet(join(meet(A,B),C),complement(join(A,C))) = zero.  [para(33(a,1),154(a,1,2,1))].
+
+given #284 (T,wt=12): 262 join(meet(A,B),complement(meet(A,meet(B,C)))) = one.  [para(7(a,1),250(a,1,2,1))].
+
+given #285 (T,wt=12): 263 join(A,join(B,complement(meet(join(A,B),C)))) = one.  [para(250(a,1),8(a,1)),flip(a)].
+
+given #286 (T,wt=12): 269 join(A,join(B,complement(meet(C,join(A,B))))) = one.  [para(261(a,1),8(a,1)),flip(a)].
+
+given #287 (A,wt=19): 122 meet(a,join(A,meet(B,join(b,meet(A,B))))) = meet(a,join(A,meet(b,B))).  [para(13(a,1),57(a,1,2)),rewrite([57(7)]),flip(a)].
+
+given #288 (T,wt=12): 274 join(meet(join(A,B),C),complement(meet(A,C))) = one.  [para(24(a,1),261(a,1,2,1))].
+
+given #289 (T,wt=12): 275 join(meet(A,B),complement(meet(A,meet(C,B)))) = one.  [para(27(a,1),261(a,1,2,1))].
+
+given #290 (T,wt=12): 289 meet(join(A,B),complement(join(A,join(C,B)))) = zero.  [para(35(a,1),154(a,1,2,1))].
+
+given #291 (T,wt=12): 321 join(A,join(B,complement(join(meet(A,C),B)))) = one.  [para(38(a,1),33(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #292 (A,wt=13): 126 meet(a,meet(A,join(meet(b,A),B))) = meet(a,A).  [para(23(a,1),57(a,1,2)),rewrite([57(4)]),flip(a)].
+
+given #293 (T,wt=11): 4215 meet(a,join(meet(b,join(a,A)),B)) = a.  [para(3(a,1),126(a,2)),rewrite([24(10)])].
+
+given #294 (T,wt=11): 4219 meet(a,join(meet(b,join(A,a)),B)) = a.  [para(19(a,1),126(a,2)),rewrite([76(10)])].
+
+given #295 (T,wt=11): 4287 meet(a,join(A,meet(b,join(a,B)))) = a.  [para(6(a,1),4215(a,1,2))].
+
+given #296 (T,wt=11): 4326 meet(a,join(A,meet(b,join(B,a)))) = a.  [para(6(a,1),4219(a,1,2))].
+
+given #297 (A,wt=17): 129 meet(join(A,B),meet(join(A,join(B,C)),D)) = meet(join(A,B),D).  [para(8(a,1),24(a,1,2,1))].
+
+given #298 (T,wt=12): 322 join(A,join(B,join(C,complement(join(A,C))))) = one.  [para(38(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #299 (T,wt=12): 344 meet(A,meet(B,complement(meet(join(A,C),B)))) = zero.  [para(41(a,1),24(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #300 (T,wt=12): 345 meet(A,meet(B,meet(C,complement(meet(A,C))))) = zero.  [para(41(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #301 (T,wt=12): 348 join(A,join(B,join(C,join(complement(A),D)))) = one.  [para(8(a,1),99(a,1,2))].
+
+given #302 (A,wt=27): 131 meet(A,join(B,meet(join(B,C),meet(D,join(A,meet(B,D)))))) = meet(A,join(B,meet(A,meet(join(B,C),D)))).  [para(24(a,1),13(a,1,2,2,2,2)),rewrite([7(5)])].
+
+given #303 (T,wt=12): 350 join(A,join(B,join(complement(meet(A,C)),D))) = one.  [para(99(a,1),33(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #304 (T,wt=12): 352 join(A,join(B,join(C,join(D,complement(A))))) = one.  [para(8(a,1),101(a,1,2,2))].
+
+given #305 (T,wt=12): 354 join(A,join(B,join(C,complement(meet(A,D))))) = one.  [para(101(a,1),33(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #306 (T,wt=12): 359 meet(A,meet(B,meet(C,meet(complement(A),D)))) = zero.  [para(7(a,1),108(a,1,2))].
+
+given #307 (A,wt=23): 132 meet(A,join(B,meet(C,join(A,join(D,meet(B,C)))))) = meet(A,join(B,meet(join(A,D),C))).  [para(13(a,1),24(a,1,2)),rewrite([24(6),8(7)]),flip(a)].
+
+given #308 (T,wt=12): 361 meet(A,meet(B,meet(complement(join(A,C)),D))) = zero.  [para(108(a,1),24(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #309 (T,wt=12): 363 meet(A,meet(B,meet(C,meet(D,complement(A))))) = zero.  [para(7(a,1),110(a,1,2,2))].
+
+given #310 (T,wt=12): 365 meet(A,meet(B,meet(C,complement(join(A,D))))) = zero.  [para(110(a,1),24(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #311 (T,wt=12): 368 meet(A,meet(complement(join(B,join(A,C))),D)) = zero.  [para(35(a,1),136(a,1,2,1,1))].
+
+given #312 (A,wt=15): 133 join(meet(A,B),meet(join(A,C),B)) = meet(join(A,C),B).  [para(24(a,1),18(a,1,2)),rewrite([6(4)])].
+
+given #313 (T,wt=12): 371 meet(A,meet(B,complement(join(C,join(A,D))))) = zero.  [para(35(a,1),138(a,1,2,2,1))].
+
+given #314 (T,wt=12): 412 join(A,join(complement(join(A,B)),join(C,B))) = one.  [para(35(a,1),404(a,1,2)),rewrite([35(5)])].
+
+given #315 (T,wt=12): 417 meet(A,meet(complement(meet(A,B)),meet(C,B))) = zero.  [para(27(a,1),405(a,1,2)),rewrite([27(5)])].
+
+given #316 (T,wt=12): 464 meet(a,meet(A,meet(B,meet(complement(b),C)))) = zero.  [para(7(a,1),152(a,1,2))].
+
+given #317 (A,wt=15): 137 meet(A,meet(B,join(meet(join(A,C),B),D))) = meet(A,B).  [para(23(a,1),24(a,1,2)),rewrite([24(3)]),flip(a)].
+
+given #318 (T,wt=12): 466 meet(a,meet(A,meet(B,meet(C,complement(b))))) = zero.  [para(7(a,1),153(a,1,2,2))].
+
+given #319 (T,wt=12): 469 meet(A,meet(complement(join(B,join(C,A))),D)) = zero.  [para(8(a,1),158(a,1,2,1,1))].
+
+given #320 (T,wt=12): 470 meet(A,meet(B,meet(complement(join(C,A)),D))) = zero.  [para(158(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #321 (T,wt=12): 474 meet(join(A,a),meet(complement(join(b,A)),B)) = zero.  [para(231(a,1),158(a,1,2,1,1))].
+
+given #322 (A,wt=13): 145 join(meet(A,B),meet(B,meet(A,C))) = meet(B,A).  [para(5(a,1),25(a,1,1))].
+
+given #323 (T,wt=12): 528 meet(A,complement(join(B,join(C,join(D,A))))) = zero.  [para(8(a,1),160(a,1,2,1,2))].
+
+given #324 (T,wt=12): 529 meet(A,complement(join(B,join(C,join(A,D))))) = zero.  [para(160(a,1),24(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #325 (T,wt=12): 531 meet(A,meet(B,complement(join(C,join(D,A))))) = zero.  [para(160(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #326 (T,wt=12): 535 meet(join(A,a),complement(join(B,join(b,A)))) = zero.  [para(231(a,1),160(a,1,2,1,2))].
+
+given #327 (A,wt=13): 146 join(meet(A,B),meet(A,meet(C,B))) = meet(A,B).  [para(5(a,1),25(a,1,2,2))].
+
+given #328 (T,wt=12): 538 meet(a,meet(A,meet(complement(join(b,B)),C))) = zero.  [para(163(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #329 (T,wt=12): 539 meet(a,meet(complement(join(A,join(b,B))),C)) = zero.  [para(35(a,1),163(a,1,2,1,1))].
+
+given #330 (T,wt=12): 540 meet(A,meet(B,meet(C,complement(join(D,A))))) = zero.  [para(7(a,1),176(a,1,2))].
+
+given #331 (T,wt=12): 544 meet(join(A,a),meet(B,complement(join(b,A)))) = zero.  [para(231(a,1),176(a,1,2,2,1))].
+
+given #332 (A,wt=13): 147 join(meet(A,B),meet(B,meet(C,A))) = meet(A,B).  [para(5(a,1),25(a,1,2)),rewrite([7(3)])].
+
+given #333 (T,wt=12): 574 meet(a,meet(A,meet(B,complement(join(b,C))))) = zero.  [para(7(a,1),177(a,1,2))].
+
+given #334 (T,wt=12): 575 meet(a,meet(A,complement(join(B,join(b,C))))) = zero.  [para(35(a,1),177(a,1,2,2,1))].
+
+given #335 (T,wt=12): 576 meet(a,meet(complement(join(A,join(B,b))),C)) = zero.  [para(8(a,1),178(a,1,2,1,1))].
+
+given #336 (T,wt=12): 577 meet(a,meet(A,meet(complement(join(B,b)),C))) = zero.  [para(178(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #337 (A,wt=19): 148 join(meet(A,meet(B,C)),meet(A,meet(B,meet(C,D)))) = meet(A,meet(B,C)).  [para(7(a,1),25(a,1,1)),rewrite([7(5),7(8)])].
+
+given #338 (T,wt=12): 578 meet(a,complement(join(A,join(B,join(C,b))))) = zero.  [para(8(a,1),179(a,1,2,1,2))].
+
+given #339 (T,wt=12): 579 meet(a,meet(A,complement(join(B,join(C,b))))) = zero.  [para(179(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #340 (T,wt=12): 580 meet(a,meet(A,meet(B,complement(join(C,b))))) = zero.  [para(7(a,1),180(a,1,2))].
+
+given #341 (T,wt=12): 625 join(b,join(A,join(B,join(complement(a),C)))) = one.  [para(8(a,1),228(a,1,2))].
+
+given #342 (A,wt=17): 149 join(meet(A,B),join(meet(A,meet(B,C)),D)) = join(meet(A,B),D).  [para(25(a,1),8(a,1,1)),flip(a)].
+
+given #343 (T,wt=12): 630 join(b,join(A,join(B,join(C,complement(a))))) = one.  [para(8(a,1),229(a,1,2,2))].
+
+given #344 (T,wt=12): 636 meet(join(A,a),meet(complement(join(A,b)),B)) = zero.  [para(234(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #345 (T,wt=12): 639 meet(join(A,a),meet(B,complement(join(A,b)))) = zero.  [para(234(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #346 (T,wt=12): 643 join(A,join(complement(meet(B,meet(A,C))),D)) = one.  [para(27(a,1),253(a,1,2,1,1))].
+
+given #347 (A,wt=22): 150 meet(A,meet(B,C)) != zero | meet(A,B) != one | complement(meet(A,B)) = meet(A,meet(B,C)).  [para(25(a,1),11(b,1)),rewrite([27(4),27(3),7(2),87(3),21(3)])].
+
+given #348 (T,wt=12): 712 join(A,join(B,complement(meet(C,meet(A,D))))) = one.  [para(27(a,1),254(a,1,2,2,1))].
+
+given #349 (T,wt=12): 718 join(A,complement(meet(B,meet(C,meet(A,D))))) = one.  [para(7(a,1),265(a,1,2,1))].
+
+given #350 (T,wt=12): 725 join(A,complement(meet(B,meet(C,meet(D,A))))) = one.  [para(7(a,1),267(a,1,2,1,2))].
+
+given #351 (T,wt=12): 726 join(A,join(complement(meet(B,meet(C,A))),D)) = one.  [para(267(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #352 (A,wt=25): 165 meet(A,join(B,meet(C,meet(D,join(A,meet(C,meet(B,D))))))) = meet(A,join(B,meet(A,meet(C,D)))).  [para(27(a,1),13(a,1,2,2,2,2)),rewrite([7(5)])].
+
+given #353 (T,wt=12): 731 join(meet(b,A),complement(meet(B,meet(a,A)))) = one.  [para(57(a,1),267(a,1,2,1,2))].
+
+given #354 (T,wt=12): 735 join(meet(A,b),complement(meet(B,meet(a,A)))) = one.  [para(118(a,1),267(a,1,2,1,2))].
+
+given #355 (T,wt=12): 736 join(A,join(B,complement(meet(C,meet(D,A))))) = one.  [para(267(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #356 (T,wt=12): 747 join(meet(b,A),join(complement(meet(a,A)),B)) = one.  [para(57(a,1),268(a,1,2,1,1))].
+
+given #357 (A,wt=23): 166 meet(A,meet(B,join(C,meet(D,join(A,meet(C,D)))))) = meet(B,meet(A,join(C,meet(A,D)))).  [para(13(a,1),27(a,1,2)),flip(a)].
+
+given #358 (T,wt=12): 750 join(meet(A,b),join(complement(meet(a,A)),B)) = one.  [para(118(a,1),268(a,1,2,1,1))].
+
+given #359 (T,wt=12): 751 join(A,join(B,join(complement(meet(C,A)),D))) = one.  [para(268(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #360 (T,wt=12): 815 join(meet(b,join(A,join(B,a))),complement(a)) = one.  [para(78(a,1),273(a,1,2,1))].
+
+given #361 (T,wt=12): 816 join(meet(b,A),join(B,complement(meet(a,A)))) = one.  [para(273(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #362 (A,wt=19): 168 meet(A,meet(B,meet(C,join(meet(B,meet(A,C)),D)))) = meet(A,meet(B,C)).  [para(27(a,1),23(a,1,2,2,1)),rewrite([7(5)])].
+
+given #363 (T,wt=12): 817 join(meet(b,join(A,join(a,B))),complement(a)) = one.  [para(134(a,1),273(a,1,2,1))].
+
+given #364 (T,wt=12): 827 join(meet(A,b),join(B,complement(meet(a,A)))) = one.  [para(276(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #365 (T,wt=12): 831 join(b,complement(meet(A,meet(B,meet(C,a))))) = one.  [para(7(a,1),278(a,1,2,1,2))].
+
+given #366 (T,wt=12): 832 join(b,join(complement(meet(A,meet(B,a))),C)) = one.  [para(278(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #367 (A,wt=17): 169 meet(A,meet(B,meet(C,join(meet(A,C),D)))) = meet(B,meet(A,C)).  [para(23(a,1),27(a,1,2)),flip(a)].
+
+given #368 (T,wt=12): 834 join(b,join(A,complement(meet(B,meet(C,a))))) = one.  [para(278(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #369 (T,wt=12): 838 join(b,join(A,join(complement(meet(B,a)),C))) = one.  [para(279(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #370 (T,wt=12): 897 join(b,join(complement(meet(A,meet(a,B))),C)) = one.  [para(27(a,1),281(a,1,2,1,1))].
+
+given #371 (T,wt=12): 898 join(b,join(A,join(complement(meet(a,B)),C))) = one.  [para(281(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #372 (A,wt=13): 170 meet(a,meet(A,meet(b,B))) = meet(a,meet(A,B)).  [para(27(a,1),57(a,1,2))].
+
+given #373 (T,wt=12): 901 join(b,complement(meet(A,meet(B,meet(a,C))))) = one.  [para(7(a,1),283(a,1,2,1))].
+
+given #374 (T,wt=12): 903 join(b,join(A,complement(meet(B,meet(a,C))))) = one.  [para(283(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #375 (T,wt=12): 906 meet(a,complement(join(A,join(B,join(b,C))))) = zero.  [para(8(a,1),290(a,1,2,1))].
+
+given #376 (T,wt=12): 907 join(A,join(B,join(C,complement(meet(D,A))))) = one.  [para(8(a,1),301(a,1,2))].
+
+given #377 (A,wt=15): 171 meet(A,meet(B,meet(join(A,C),D))) = meet(A,meet(B,D)).  [para(27(a,1),24(a,1,2))].
+
+given #378 (T,wt=12): 949 join(b,join(A,join(B,complement(meet(C,a))))) = one.  [para(8(a,1),302(a,1,2))].
+
+given #379 (T,wt=12): 954 join(b,join(A,join(B,complement(meet(a,C))))) = one.  [para(8(a,1),303(a,1,2))].
+
+given #380 (T,wt=12): 959 join(A,join(B,join(complement(join(B,A)),C))) = one.  [para(318(a,1),8(a,1,1)),rewrite([68(2),8(5)]),flip(a)].
+
+given #381 (T,wt=12): 963 join(A,join(B,complement(join(B,meet(A,C))))) = one.  [para(318(a,1),33(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #382 (A,wt=19): 174 join(meet(A,meet(B,C)),meet(B,meet(A,meet(C,D)))) = meet(B,meet(A,C)).  [para(27(a,1),25(a,1,1)),rewrite([7(4)])].
+
+given #383 (T,wt=12): 964 join(A,join(B,join(C,complement(join(C,A))))) = one.  [para(318(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #384 (T,wt=12): 972 meet(join(a,meet(A,meet(B,b))),complement(b)) = zero.  [para(60(a,1),335(a,1,2,1)),rewrite([6(5)])].
+
+given #385 (T,wt=12): 976 meet(join(a,meet(A,meet(b,B))),complement(b)) = zero.  [para(164(a,1),335(a,1,2,1)),rewrite([6(5)])].
+
+given #386 (T,wt=12): 1024 meet(A,meet(B,meet(complement(meet(B,A)),C))) = zero.  [para(341(a,1),7(a,1,1)),rewrite([80(2),7(5)]),flip(a)].
+
+given #387 (A,wt=15): 175 join(meet(A,B),meet(A,meet(C,meet(B,D)))) = meet(A,B).  [para(27(a,1),25(a,1,2,2))].
+
+given #388 (T,wt=12): 1027 meet(A,meet(B,complement(meet(B,join(A,C))))) = zero.  [para(341(a,1),24(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #389 (T,wt=12): 1028 meet(A,meet(B,meet(C,complement(meet(C,A))))) = zero.  [para(341(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #390 (T,wt=12): 1031 meet(a,meet(A,meet(complement(meet(b,A)),B))) = zero.  [para(343(a,1),7(a,1,1)),rewrite([80(2),7(7)]),flip(a)].
+
+given #391 (T,wt=12): 1035 meet(a,meet(A,meet(B,complement(meet(b,B))))) = zero.  [para(343(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #392 (A,wt=13): 182 meet(b,meet(A,meet(B,a))) = meet(a,meet(A,B)).  [para(7(a,1),58(a,1,2)),rewrite([5(8)])].
+
+given #393 (T,wt=12): 1044 join(complement(A),join(B,join(C,join(A,D)))) = one.  [para(8(a,1),406(a,1,2))].
+
+given #394 (T,wt=12): 1099 join(complement(A),join(B,join(C,join(D,A)))) = one.  [para(8(a,1),407(a,1,2,2))].
+
+given #395 (T,wt=12): 1105 join(complement(meet(A,meet(B,C))),join(D,C)) = one.  [para(60(a,1),407(a,1,2,2))].
+
+given #396 (T,wt=12): 1109 join(complement(meet(A,meet(B,C))),join(D,B)) = one.  [para(164(a,1),407(a,1,2,2))].
+
+given #397 (A,wt=13): 184 join(meet(A,b),meet(A,meet(B,a))) = meet(A,b).  [para(58(a,1),25(a,1,2,2))].
+
+given #398 (T,wt=12): 1110 join(complement(meet(A,meet(B,a))),join(C,b)) = one.  [para(187(a,1),407(a,1,2,2))].
+
+given #399 (T,wt=12): 1111 join(complement(meet(A,meet(a,B))),join(C,b)) = one.  [para(192(a,1),407(a,1,2,2))].
+
+given #400 (T,wt=12): 1112 join(complement(join(A,a)),join(B,join(b,A))) = one.  [para(231(a,1),407(a,1,2,2))].
+
+given #401 (T,wt=12): 1117 meet(complement(A),meet(B,meet(C,meet(A,D)))) = zero.  [para(7(a,1),408(a,1,2))].
+
+given #402 (A,wt=14): 189 meet(A,a) != zero | b != one | complement(b) = meet(A,a).  [para(181(a,1),11(b,1)),rewrite([58(4)])].
+
+given #403 (T,wt=12): 1126 meet(complement(A),meet(B,meet(C,meet(D,A)))) = zero.  [para(7(a,1),409(a,1,2,2))].
+
+given #404 (T,wt=12): 1131 meet(complement(meet(b,A)),meet(B,meet(a,A))) = zero.  [para(57(a,1),409(a,1,2,2))].
+
+given #405 (T,wt=12): 1137 meet(complement(join(A,join(B,C))),meet(D,C)) = zero.  [para(78(a,1),409(a,1,2,2))].
+
+given #406 (T,wt=12): 1138 meet(complement(meet(A,b)),meet(B,meet(a,A))) = zero.  [para(118(a,1),409(a,1,2,2))].
+
+given #407 (A,wt=14): 191 meet(a,A) != zero | b != one | complement(b) = meet(a,A).  [para(186(a,1),11(b,1)),rewrite([27(4),57(4)])].
+
+given #408 (T,wt=12): 1139 meet(complement(join(A,join(B,C))),meet(D,B)) = zero.  [para(134(a,1),409(a,1,2,2))].
+
+given #409 (T,wt=12): 1140 meet(complement(join(A,join(B,b))),meet(C,a)) = zero.  [para(142(a,1),409(a,1,2,2))].
+
+given #410 (T,wt=12): 1141 meet(complement(join(A,join(b,B))),meet(C,a)) = zero.  [para(287(a,1),409(a,1,2,2))].
+
+given #411 (T,wt=12): 1350 join(b,join(A,join(complement(join(A,a)),B))) = one.  [para(413(a,1),8(a,1,1)),rewrite([68(2),8(7)]),flip(a)].
+
+given #412 (A,wt=13): 193 meet(join(A,B),join(B,join(A,C))) = join(B,A).  [para(6(a,1),31(a,1,1))].
+
+given #413 (T,wt=12): 1355 join(b,join(A,join(B,complement(join(B,a))))) = one.  [para(413(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #414 (T,wt=12): 1360 meet(a,meet(A,meet(complement(meet(A,b)),B))) = zero.  [para(418(a,1),7(a,1,1)),rewrite([80(2),7(7)]),flip(a)].
+
+given #415 (T,wt=12): 1362 meet(a,meet(A,meet(B,complement(meet(B,b))))) = zero.  [para(418(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #416 (T,wt=12): 1383 meet(join(a,A),meet(complement(join(A,b)),B)) = zero.  [para(635(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #417 (A,wt=13): 194 meet(join(A,B),join(A,join(C,B))) = join(A,B).  [para(6(a,1),31(a,1,2,2))].
+
+given #418 (T,wt=12): 1384 meet(join(a,A),meet(B,complement(join(A,b)))) = zero.  [para(635(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #419 (T,wt=12): 1389 join(meet(b,join(a,A)),join(complement(a),B)) = one.  [para(806(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #420 (T,wt=12): 1391 join(meet(b,join(a,A)),join(B,complement(a))) = one.  [para(806(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #421 (T,wt=12): 1396 join(meet(b,A),join(complement(meet(A,a)),B)) = one.  [para(807(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #422 (A,wt=13): 195 meet(join(A,B),join(B,join(C,A))) = join(A,B).  [para(6(a,1),31(a,1,2)),rewrite([8(3)])].
+
+given #423 (T,wt=12): 1398 join(meet(b,A),join(B,complement(meet(A,a)))) = one.  [para(807(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #424 (T,wt=12): 1403 join(meet(b,join(A,a)),join(complement(a),B)) = one.  [para(810(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #425 (T,wt=12): 1405 join(meet(b,join(A,a)),join(B,complement(a))) = one.  [para(810(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #426 (T,wt=12): 1417 meet(join(meet(A,B),C),complement(join(B,C))) = zero.  [para(61(a,1),154(a,1,2,1))].
+
+given #427 (A,wt=19): 196 meet(join(A,join(B,C)),join(A,join(B,join(C,D)))) = join(A,join(B,C)).  [para(8(a,1),31(a,1,1)),rewrite([8(5),8(8)])].
+
+given #428 (T,wt=12): 1425 join(A,join(B,complement(join(meet(C,A),B)))) = one.  [para(38(a,1),61(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #429 (T,wt=12): 1438 join(A,join(B,complement(join(B,meet(C,A))))) = one.  [para(318(a,1),61(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #430 (T,wt=12): 1447 join(meet(A,b),join(complement(meet(A,a)),B)) = one.  [para(824(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #431 (T,wt=12): 1449 join(meet(A,b),join(B,complement(meet(A,a)))) = one.  [para(824(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #432 (A,wt=17): 200 meet(join(A,B),meet(C,join(A,join(B,D)))) = meet(C,join(A,B)).  [para(31(a,1),27(a,1,2)),flip(a)].
+
+given #433 (T,wt=12): 1454 meet(join(a,meet(b,A)),meet(complement(b),B)) = zero.  [para(969(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #434 (T,wt=12): 1455 meet(join(a,meet(b,A)),meet(B,complement(b))) = zero.  [para(969(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #435 (T,wt=12): 1456 meet(join(a,A),meet(complement(join(b,A)),B)) = zero.  [para(970(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #436 (T,wt=12): 1457 meet(join(a,A),meet(B,complement(join(b,A)))) = zero.  [para(970(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #437 (A,wt=13): 203 join(A,join(meet(B,meet(C,A)),D)) = join(A,D).  [para(60(a,1),8(a,1,1)),flip(a)].
+
+given #438 (T,wt=12): 1459 meet(join(a,meet(A,b)),meet(complement(b),B)) = zero.  [para(971(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #439 (T,wt=12): 1460 meet(join(a,meet(A,b)),meet(B,complement(b))) = zero.  [para(971(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #440 (T,wt=12): 1490 meet(a,meet(complement(meet(b,join(a,A))),B)) = zero.  [para(1034(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #441 (T,wt=12): 1491 meet(a,meet(A,complement(meet(b,join(a,B))))) = zero.  [para(1034(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #442 (A,wt=15): 204 join(A,join(B,meet(C,meet(D,join(A,B))))) = join(A,B).  [para(60(a,1),8(a,1)),flip(a)].
+
+given #443 (T,wt=12): 1492 meet(a,complement(meet(b,join(A,join(a,B))))) = zero.  [para(35(a,1),1034(a,1,2,1,2))].
+
+given #444 (T,wt=12): 1493 meet(A,meet(a,meet(complement(meet(b,A)),B))) = zero.  [para(1036(a,1),7(a,1,1)),rewrite([80(2),7(7)]),flip(a)].
+
+given #445 (T,wt=12): 1495 meet(A,meet(a,complement(meet(b,join(A,B))))) = zero.  [para(1036(a,1),24(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #446 (T,wt=12): 1496 meet(A,meet(B,meet(a,complement(meet(b,A))))) = zero.  [para(1036(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #447 (A,wt=18): 205 meet(A,meet(B,C)) != zero | one != C | complement(C) = meet(A,meet(B,C)).  [para(60(a,1),11(b,1)),rewrite([91(3)]),flip(b)].
+
+given #448 (T,wt=12): 1498 join(complement(a),join(A,join(B,join(b,C)))) = one.  [para(8(a,1),1047(a,1,2))].
+
+given #449 (T,wt=12): 1503 join(complement(a),join(A,join(B,join(C,b)))) = one.  [para(8(a,1),1048(a,1,2,2))].
+
+given #450 (T,wt=12): 1537 join(complement(meet(A,B)),join(C,join(A,D))) = one.  [para(1098(a,1),8(a,1,1)),rewrite([68(2),8(5)]),flip(a)].
+
+given #451 (T,wt=12): 1538 join(complement(meet(A,B)),join(C,join(D,A))) = one.  [para(8(a,1),1098(a,1,2))].
+
+given #452 (A,wt=29): 206 join(A,join(meet(B,join(C,meet(A,B))),meet(D,meet(C,join(A,meet(C,B)))))) = join(A,meet(B,join(C,meet(A,B)))).  [para(13(a,1),60(a,1,2,2)),rewrite([8(9)])].
+
+given #453 (T,wt=12): 1543 join(b,join(A,complement(meet(join(A,a),B)))) = one.  [para(231(a,1),1098(a,1,2)),rewrite([6(7),8(7)])].
+
+given #454 (T,wt=12): 1547 join(complement(meet(A,B)),join(C,join(B,D))) = one.  [para(1101(a,1),8(a,1,1)),rewrite([68(2),8(5)]),flip(a)].
+
+given #455 (T,wt=12): 1548 join(complement(meet(A,B)),join(C,join(D,B))) = one.  [para(8(a,1),1101(a,1,2))].
+
+given #456 (T,wt=12): 1552 join(complement(meet(a,A)),join(B,meet(b,A))) = one.  [para(57(a,1),1101(a,1,1,1))].
+
+given #457 (A,wt=21): 207 join(meet(A,join(meet(B,A),C)),meet(D,meet(B,A))) = meet(A,join(meet(B,A),C)).  [para(23(a,1),60(a,1,2,2))].
+
+given #458 (T,wt=12): 1556 join(complement(meet(a,A)),join(B,meet(A,b))) = one.  [para(118(a,1),1101(a,1,1,1))].
+
+given #459 (T,wt=12): 1559 join(b,join(A,complement(meet(B,join(A,a))))) = one.  [para(231(a,1),1101(a,1,2)),rewrite([6(7),8(7)])].
+
+given #460 (T,wt=12): 1572 join(complement(meet(A,a)),join(B,join(b,C))) = one.  [para(1103(a,1),8(a,1,1)),rewrite([68(2),8(7)]),flip(a)].
+
+given #461 (T,wt=12): 1573 join(complement(meet(A,a)),join(B,join(C,b))) = one.  [para(8(a,1),1103(a,1,2))].
+
+given #462 (A,wt=13): 208 join(meet(b,A),meet(B,meet(a,A))) = meet(b,A).  [para(57(a,1),60(a,1,2,2))].
+
+given #463 (T,wt=12): 1576 join(complement(meet(a,A)),join(B,join(b,C))) = one.  [para(1104(a,1),8(a,1,1)),rewrite([68(2),8(7)]),flip(a)].
+
+given #464 (T,wt=12): 1577 join(complement(meet(a,A)),join(B,join(C,b))) = one.  [para(8(a,1),1104(a,1,2))].
+
+given #465 (T,wt=12): 1695 meet(complement(b),meet(A,meet(B,meet(a,C)))) = zero.  [para(1118(a,1),7(a,1,1)),rewrite([80(2),7(7),7(6)]),flip(a)].
+
+given #466 (T,wt=12): 1696 meet(complement(b),meet(A,meet(B,meet(C,a)))) = zero.  [para(7(a,1),1118(a,1,2,2))].
+
+given #467 (A,wt=17): 209 join(meet(join(A,B),C),meet(D,meet(A,C))) = meet(join(A,B),C).  [para(24(a,1),60(a,1,2,2))].
+
+given #468 (T,wt=12): 1704 meet(complement(join(A,B)),meet(C,meet(A,D))) = zero.  [para(1125(a,1),7(a,1,1)),rewrite([80(2),7(5)]),flip(a)].
+
+given #469 (T,wt=12): 1705 meet(complement(join(A,B)),meet(C,meet(D,A))) = zero.  [para(7(a,1),1125(a,1,2))].
+
+given #470 (T,wt=12): 1707 meet(a,meet(A,complement(join(meet(b,A),B)))) = zero.  [para(57(a,1),1125(a,1,2)),rewrite([5(7),7(7)])].
+
+given #471 (T,wt=12): 1710 meet(a,meet(A,complement(join(meet(A,b),B)))) = zero.  [para(118(a,1),1125(a,1,2)),rewrite([5(7),7(7)])].
+
+given #472 (A,wt=15): 211 join(meet(A,B),meet(C,meet(A,meet(D,B)))) = meet(A,B).  [para(27(a,1),60(a,1,2,2))].
+
+given #473 (T,wt=12): 1721 meet(complement(join(A,B)),meet(C,meet(B,D))) = zero.  [para(1129(a,1),7(a,1,1)),rewrite([80(2),7(5)]),flip(a)].
+
+given #474 (T,wt=12): 1722 meet(complement(join(A,B)),meet(C,meet(D,B))) = zero.  [para(7(a,1),1129(a,1,2))].
+
+given #475 (T,wt=12): 1724 meet(a,meet(A,complement(join(B,meet(b,A))))) = zero.  [para(57(a,1),1129(a,1,2)),rewrite([5(7),7(7)])].
+
+given #476 (T,wt=12): 1728 meet(a,meet(A,complement(join(B,meet(A,b))))) = zero.  [para(118(a,1),1129(a,1,2)),rewrite([5(7),7(7)])].
+
+given #477 (A,wt=17): 212 join(A,join(B,join(C,meet(D,join(A,B))))) = join(A,join(B,C)).  [para(31(a,1),60(a,1,2,2)),rewrite([8(5),8(4)])].
+
+given #478 (T,wt=12): 1731 meet(complement(join(b,A)),meet(B,join(A,a))) = zero.  [para(231(a,1),1129(a,1,1,1))].
+
+given #479 (T,wt=12): 1745 meet(complement(join(b,A)),meet(B,meet(a,C))) = zero.  [para(1133(a,1),7(a,1,1)),rewrite([80(2),7(7)]),flip(a)].
+
+given #480 (T,wt=12): 1746 meet(complement(join(b,A)),meet(B,meet(C,a))) = zero.  [para(7(a,1),1133(a,1,2))].
+
+given #481 (T,wt=12): 1758 join(meet(join(A,B),C),complement(meet(B,C))) = one.  [para(76(a,1),261(a,1,2,1))].
+
+given #482 (A,wt=14): 214 zero != a | join(b,A) != one | complement(a) = join(b,A).  [para(72(a,1),11(b,1)),rewrite([117(4)]),flip(a)].
+
+given #483 (T,wt=12): 1762 meet(A,meet(B,complement(meet(join(C,A),B)))) = zero.  [para(41(a,1),76(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #484 (T,wt=12): 1780 meet(A,meet(B,complement(meet(B,join(C,A))))) = zero.  [para(341(a,1),76(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #485 (T,wt=12): 1788 meet(A,meet(a,complement(meet(b,join(B,A))))) = zero.  [para(1036(a,1),76(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #486 (T,wt=12): 1798 meet(complement(join(A,b)),meet(B,meet(a,C))) = zero.  [para(1134(a,1),7(a,1,1)),rewrite([80(2),7(7)]),flip(a)].
+
+given #487 (A,wt=13): 216 meet(join(A,a),join(A,join(b,B))) = join(A,a).  [para(72(a,1),31(a,1,2,2))].
+
+given #488 (T,wt=12): 1799 meet(complement(join(A,b)),meet(B,meet(C,a))) = zero.  [para(7(a,1),1134(a,1,2))].
+
+given #489 (T,wt=12): 1808 join(b,join(A,join(complement(join(a,A)),B))) = one.  [para(1349(a,1),8(a,1,1)),rewrite([68(2),8(7)]),flip(a)].
+
+given #490 (T,wt=12): 1811 join(b,join(A,join(B,complement(join(a,B))))) = one.  [para(1349(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #491 (T,wt=12): 1818 join(b,join(complement(join(a,meet(b,A))),B)) = one.  [para(1354(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #492 (A,wt=15): 220 meet(b,join(complement(a),A)) != zero | complement(b) = join(complement(a),A).  [para(217(a,1),11(b,1)),xx(b)].
+
+given #493 (T,wt=12): 1820 join(b,complement(join(a,meet(A,meet(b,B))))) = one.  [para(27(a,1),1354(a,1,2,1,2))].
+
+given #494 (T,wt=12): 1821 join(b,join(A,complement(join(a,meet(b,B))))) = one.  [para(1354(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #495 (T,wt=12): 1859 join(A,join(b,join(complement(join(A,a)),B))) = one.  [para(1356(a,1),8(a,1,1)),rewrite([68(2),8(7)]),flip(a)].
+
+given #496 (T,wt=12): 1862 join(A,join(b,complement(join(a,meet(A,B))))) = one.  [para(1356(a,1),33(a,1,2)),rewrite([81(2),6(5)]),flip(a)].
+
+given #497 (A,wt=13): 221 join(A,join(B,meet(join(B,A),C))) = join(A,B).  [para(6(a,1),32(a,1,2,2,1))].
+
+given #498 (T,wt=12): 1863 join(A,join(B,join(b,complement(join(A,a))))) = one.  [para(1356(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #499 (T,wt=12): 1868 join(A,join(b,complement(join(a,meet(B,A))))) = one.  [para(1356(a,1),61(a,1,2)),rewrite([81(2),6(5)]),flip(a)].
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 117 (0.00 of 1.41 sec).
+
+given #500 (T,wt=12): 1869 meet(A,meet(a,meet(complement(meet(A,b)),B))) = zero.  [para(1363(a,1),7(a,1,1)),rewrite([80(2),7(7)]),flip(a)].
+
+given #501 (T,wt=12): 1870 meet(A,meet(B,meet(a,complement(meet(A,b))))) = zero.  [para(1363(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #502 (A,wt=17): 222 join(A,join(B,join(meet(join(A,B),C),D))) = join(A,join(B,D)).  [para(32(a,1),8(a,1,1)),rewrite([8(2),8(6)]),flip(a)].
+
+given #503 (T,wt=12): 1872 join(complement(a),join(meet(b,join(a,A)),B)) = one.  [para(1388(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #504 (T,wt=12): 1873 join(complement(a),join(A,meet(b,join(a,B)))) = one.  [para(1388(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #505 (T,wt=12): 1874 join(complement(a),meet(b,join(A,join(a,B)))) = one.  [para(35(a,1),1388(a,1,2,2))].
+
+given #506 (T,wt=12): 1880 join(complement(a),join(meet(b,join(A,a)),B)) = one.  [para(1402(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #507 (A,wt=19): 223 join(A,join(B,join(C,meet(join(A,join(B,C)),D)))) = join(A,join(B,C)).  [para(32(a,1),8(a,1)),rewrite([8(2),8(4)]),flip(a)].
+
+given #508 (T,wt=12): 1881 join(complement(a),meet(b,join(A,join(B,a)))) = one.  [para(8(a,1),1402(a,1,2,2))].
+
+given #509 (T,wt=12): 1882 join(complement(a),join(A,meet(b,join(B,a)))) = one.  [para(1402(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #510 (T,wt=12): 2043 join(b,complement(join(a,meet(A,meet(B,b))))) = one.  [para(7(a,1),1443(a,1,2,1,2))].
+
+given #511 (T,wt=12): 2044 join(b,join(complement(join(a,meet(A,b))),B)) = one.  [para(1443(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #512 (A,wt=26): 224 meet(A,join(B,meet(join(A,B),C))) != zero | join(A,B) != one | complement(A) = join(B,meet(join(A,B),C)).  [para(32(a,1),11(b,1))].
+
+given #513 (T,wt=12): 2046 join(b,join(A,complement(join(a,meet(B,b))))) = one.  [para(1443(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #514 (T,wt=12): 2049 meet(complement(b),meet(join(a,meet(b,A)),B)) = zero.  [para(1453(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #515 (T,wt=12): 2050 meet(complement(b),meet(A,join(a,meet(b,B)))) = zero.  [para(1453(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #516 (T,wt=12): 2051 meet(complement(b),join(a,meet(A,meet(b,B)))) = zero.  [para(27(a,1),1453(a,1,2,2))].
+
+given #517 (A,wt=19): 225 meet(join(A,B),join(B,meet(join(A,B),C))) = join(B,meet(join(A,B),C)).  [para(32(a,1),19(a,1,2)),rewrite([5(5)])].
+
+given #518 (T,wt=12): 2052 meet(complement(b),meet(join(a,meet(A,b)),B)) = zero.  [para(1458(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #519 (T,wt=12): 2053 meet(complement(b),join(a,meet(A,meet(B,b)))) = zero.  [para(7(a,1),1458(a,1,2,2))].
+
+given #520 (T,wt=12): 2054 meet(complement(b),meet(A,join(a,meet(B,b)))) = zero.  [para(1458(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #521 (T,wt=12): 2055 meet(a,meet(complement(meet(b,join(A,a))),B)) = zero.  [para(1489(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #522 (A,wt=14): 226 meet(join(A,meet(join(B,A),C)),complement(join(B,A))) = zero.  [para(32(a,1),154(a,1,2,1))].
+
+given #523 (T,wt=12): 2056 meet(a,complement(meet(b,join(A,join(B,a))))) = zero.  [para(8(a,1),1489(a,1,2,1,2))].
+
+given #524 (T,wt=12): 2057 meet(a,meet(A,complement(meet(b,join(B,a))))) = zero.  [para(1489(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+given #525 (T,wt=12): 2068 join(A,join(b,join(complement(join(a,A)),B))) = one.  [para(1812(a,1),8(a,1,1)),rewrite([68(2),8(7)]),flip(a)].
+
+given #526 (T,wt=12): 2070 join(A,join(B,join(b,complement(join(a,A))))) = one.  [para(1812(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #527 (A,wt=15): 227 join(A,join(B,meet(C,meet(join(A,B),D)))) = join(A,B).  [para(27(a,1),32(a,1,2,2))].
+
+given #528 (T,wt=12): 2089 meet(a,meet(A,meet(B,complement(meet(b,A))))) = zero.  [para(123(a,1),138(a,1,2,2,1)),rewrite([7(7)])].
+
+given #529 (T,wt=12): 2142 join(meet(A,join(B,C)),complement(meet(B,A))) = one.  [para(128(a,1),261(a,1,2,1))].
+
+given #530 (T,wt=12): 2223 join(meet(join(b,A),B),complement(meet(a,B))) = one.  [para(139(a,1),261(a,1,2,1))].
+
+given #531 (T,wt=12): 2224 meet(a,meet(A,complement(meet(join(b,B),A)))) = zero.  [para(41(a,1),139(a,1,2)),rewrite([84(3)]),flip(a)].
+
+given #532 (A,wt=15): 230 meet(b,join(A,complement(a))) != zero | complement(b) = join(A,complement(a)).  [para(219(a,1),11(b,1)),xx(b)].
+
+given #533 (T,wt=12): 2240 meet(a,meet(A,complement(meet(A,join(b,B))))) = zero.  [para(341(a,1),139(a,1,2)),rewrite([84(3)]),flip(a)].
+
+given #534 (T,wt=12): 2259 join(meet(join(A,b),B),complement(meet(a,B))) = one.  [para(141(a,1),261(a,1,2,1))].
+
+given #535 (T,wt=12): 2260 meet(a,meet(A,complement(meet(join(B,b),A)))) = zero.  [para(41(a,1),141(a,1,2)),rewrite([84(3)]),flip(a)].
+
+given #536 (T,wt=12): 2276 meet(a,meet(A,complement(meet(A,join(B,b))))) = zero.  [para(341(a,1),141(a,1,2)),rewrite([84(3)]),flip(a)].
+
+given #537 (A,wt=13): 232 join(b,join(A,join(B,a))) = join(b,join(A,B)).  [para(8(a,1),73(a,1,2)),rewrite([6(8)])].
+
+given #538 (T,wt=12): 2301 meet(A,meet(B,complement(join(C,meet(B,A))))) = zero.  [para(151(a,1),160(a,1,2,1,2)),rewrite([7(5)])].
+
+given #539 (T,wt=12): 2302 meet(A,meet(B,meet(C,complement(meet(B,A))))) = zero.  [para(151(a,1),176(a,1,2,2,1)),rewrite([7(5)])].
+
+given #540 (T,wt=12): 2303 join(complement(meet(A,B)),join(C,meet(B,A))) = one.  [para(151(a,1),407(a,1,2,2))].
+
+given #541 (T,wt=12): 2304 join(meet(A,B),complement(meet(B,meet(A,C)))) = one.  [para(151(a,1),1098(a,1,2)),rewrite([7(2),6(5)])].
+
+given #542 (A,wt=18): 233 meet(b,join(A,a)) != zero | join(A,b) != one | complement(b) = join(A,a).  [para(73(a,1),11(b,1))].
+
+given #543 (T,wt=12): 2305 join(meet(A,B),complement(meet(C,meet(B,A)))) = one.  [para(151(a,1),1101(a,1,2)),rewrite([6(5)])].
+
+given #544 (T,wt=12): 2306 meet(complement(meet(A,B)),meet(C,meet(B,A))) = zero.  [para(151(a,1),1129(a,1,1,1))].
+
+given #545 (T,wt=12): 2309 join(meet(A,B),join(complement(meet(B,A)),C)) = one.  [para(2299(a,1),8(a,1,1)),rewrite([68(2)]),flip(a)].
+
+given #546 (T,wt=12): 2311 join(meet(A,B),join(C,complement(meet(B,A)))) = one.  [para(2299(a,1),35(a,1,2)),rewrite([81(2)]),flip(a)].
+
+given #547 (A,wt=13): 237 meet(A,meet(join(B,join(C,A)),D)) = meet(A,D).  [para(78(a,1),7(a,1,1)),flip(a)].
+
+given #548 (T,wt=12): 2329 join(meet(A,join(B,C)),complement(meet(A,C))) = one.  [para(167(a,1),261(a,1,2,1))].
+
+given #549 (T,wt=12): 2332 meet(A,meet(B,complement(meet(A,join(C,B))))) = zero.  [para(167(a,1),405(a,1,2)),rewrite([5(5),7(5)])].
+
+given #550 (T,wt=12): 2366 join(meet(A,join(b,B)),complement(meet(A,a))) = one.  [para(172(a,1),261(a,1,2,1))].
+
+given #551 (T,wt=12): 2367 meet(A,meet(a,complement(meet(A,join(b,B))))) = zero.  [para(172(a,1),405(a,1,2)),rewrite([5(7),7(7)])].
+
+given #552 (A,wt=15): 238 meet(A,meet(B,join(C,join(D,meet(A,B))))) = meet(A,B).  [para(78(a,1),7(a,1)),flip(a)].
+
+Low Water (keep): wt=59.000, iters=6943
+
+Low Water (keep): wt=51.000, iters=6811
+
+given #553 (T,wt=12): 2391 join(meet(A,join(B,b)),complement(meet(A,a))) = one.  [para(173(a,1),261(a,1,2,1))].
+
+given #554 (T,wt=12): 2392 meet(A,meet(a,complement(meet(A,join(B,b))))) = zero.  [para(173(a,1),405(a,1,2)),rewrite([5(7),7(7)])].
+
+given #555 (T,wt=12): 2421 meet(A,meet(a,complement(join(B,meet(b,A))))) = zero.  [para(185(a,1),160(a,1,2,1,2)),rewrite([7(7)])].
+
+given #556 (T,wt=12): 2422 meet(A,meet(a,meet(B,complement(meet(b,A))))) = zero.  [para(185(a,1),176(a,1,2,2,1)),rewrite([7(7)])].
+
+given #557 (A,wt=17): 242 meet(A,meet(B,meet(C,join(D,meet(A,B))))) = meet(A,meet(B,C)).  [para(25(a,1),78(a,1,2,2)),rewrite([7(5),7(4)])].
+
+Low Water (keep): wt=45.000, iters=6740
+
+Low Water (keep): wt=43.000, iters=6669
+
+given #558 (T,wt=12): 2423 join(complement(meet(A,a)),join(B,meet(b,A))) = one.  [para(185(a,1),407(a,1,2,2))].
+
+given #559 (T,wt=12): 2424 join(meet(b,A),complement(meet(A,meet(a,B)))) = one.  [para(185(a,1),1098(a,1,2)),rewrite([7(3),6(7)])].
+
+given #560 (T,wt=12): 2425 join(meet(b,A),complement(meet(B,meet(A,a)))) = one.  [para(185(a,1),1101(a,1,2)),rewrite([6(7)])].
+
+given #561 (T,wt=12): 2426 meet(complement(meet(b,A)),meet(B,meet(A,a))) = zero.  [para(185(a,1),1129(a,1,1,1))].
+
+Low Water (keep): wt=42.000, iters=6701
+
+given #562 (A,wt=13): 243 meet(A,meet(B,join(C,join(D,A)))) = meet(B,A).  [para(78(a,1),27(a,1,2)),flip(a)].
+
+given #563 (T,wt=12): 2441 meet(join(meet(A,a),B),complement(join(b,B))) = zero.  [para(188(a,1),154(a,1,2,1))].
+
+given #564 (T,wt=12): 2445 join(b,join(A,complement(join(meet(B,a),A)))) = one.  [para(38(a,1),188(a,1,2)),rewrite([6(3),68(3)]),flip(a)].
+
+given #565 (T,wt=12): 2451 join(b,join(A,complement(join(A,meet(B,a))))) = one.  [para(318(a,1),188(a,1,2)),rewrite([6(3),68(3)]),flip(a)].
+
+given #566 (T,wt=12): 2464 meet(join(meet(a,A),B),complement(join(b,B))) = zero.  [para(190(a,1),154(a,1,2,1))].
+
+given #567 (A,wt=21): 244 meet(join(A,meet(join(B,A),C)),join(D,join(B,A))) = join(A,meet(join(B,A),C)).  [para(32(a,1),78(a,1,2,2))].
+
+Low Water (keep): wt=41.000, iters=6758
+
+given #568 (T,wt=12): 2468 join(b,join(A,complement(join(meet(a,B),A)))) = one.  [para(38(a,1),190(a,1,2)),rewrite([6(3),68(3)]),flip(a)].
+
+given #569 (T,wt=12): 2474 join(b,join(A,complement(join(A,meet(a,B))))) = one.  [para(318(a,1),190(a,1,2)),rewrite([6(3),68(3)]),flip(a)].
+
+given #570 (T,wt=12): 2493 join(A,join(b,complement(meet(B,join(A,a))))) = one.  [para(198(a,1),267(a,1,2,1,2)),rewrite([8(7)])].
+
+Low Water (keep): wt=40.000, iters=6713
+
+given #571 (T,wt=12): 2496 join(A,join(b,join(B,complement(join(A,a))))) = one.  [para(198(a,1),301(a,1,2,2,1)),rewrite([8(7)])].
+
+given #572 (A,wt=13): 245 meet(a,meet(A,meet(B,b))) = meet(a,meet(A,B)).  [para(7(a,1),118(a,1,2))].
+
+given #573 (T,wt=12): 2498 meet(complement(join(A,b)),meet(B,join(A,a))) = zero.  [para(198(a,1),409(a,1,2,2))].
+
+given #574 (T,wt=12): 2500 join(complement(join(A,a)),join(B,join(A,b))) = one.  [para(198(a,1),1101(a,1,1,1))].
+
+given #575 (T,wt=12): 2503 meet(join(A,a),complement(join(A,join(b,B)))) = zero.  [para(198(a,1),1125(a,1,2)),rewrite([8(3),5(7)])].
+
+given #576 (T,wt=12): 2504 meet(join(A,a),complement(join(B,join(A,b)))) = zero.  [para(198(a,1),1129(a,1,2)),rewrite([5(7)])].
+
+given #577 (A,wt=23): 246 meet(A,join(a,meet(B,meet(b,join(A,meet(a,B)))))) = meet(A,join(a,meet(A,meet(B,b)))).  [para(118(a,1),13(a,1,2,2,2,2)),rewrite([7(7)])].
+
+Low Water (keep): wt=39.000, iters=6698
+
+given #578 (T,wt=12): 2515 join(A,join(B,complement(meet(C,join(B,A))))) = one.  [para(199(a,1),267(a,1,2,1,2)),rewrite([8(5)])].
+
+given #579 (T,wt=12): 2518 join(A,join(B,join(C,complement(join(B,A))))) = one.  [para(199(a,1),301(a,1,2,2,1)),rewrite([8(5)])].
+
+given #580 (T,wt=12): 2520 meet(complement(join(A,B)),meet(C,join(B,A))) = zero.  [para(199(a,1),409(a,1,2,2))].
+
+given #581 (T,wt=12): 2522 join(complement(join(A,B)),join(C,join(B,A))) = one.  [para(199(a,1),1101(a,1,1,1))].
+
+given #582 (A,wt=13): 248 join(meet(A,b),meet(B,meet(a,A))) = meet(A,b).  [para(118(a,1),60(a,1,2,2))].
+
+given #583 (T,wt=12): 2523 meet(join(A,B),complement(join(B,join(A,C)))) = zero.  [para(199(a,1),1125(a,1,2)),rewrite([8(2),5(5)])].
+
+given #584 (T,wt=12): 2524 meet(join(A,B),complement(join(C,join(B,A)))) = zero.  [para(199(a,1),1129(a,1,2)),rewrite([5(5)])].
+
+given #585 (T,wt=12): 2540 meet(A,meet(B,complement(meet(A,join(B,C))))) = zero.  [para(135(a,1),98(a,1,2)),rewrite([5(4)])].
+
+given #586 (T,wt=12): 2543 meet(join(A,B),meet(complement(join(B,A)),C)) = zero.  [para(2513(a,1),7(a,1,1)),rewrite([80(2)]),flip(a)].
+
+given #587 (A,wt=22): 251 meet(A,join(meet(A,B),C)) != zero | join(A,C) != one | complement(A) = join(meet(A,B),C).  [para(33(a,1),11(b,1))].
+
+Low Water (keep): wt=38.000, iters=6698
+
+given #588 (T,wt=12): 2546 meet(join(A,B),meet(C,complement(join(B,A)))) = zero.  [para(2513(a,1),27(a,1,2)),rewrite([84(2)]),flip(a)].
+
+Low Water (keep): wt=37.000, iters=6680
+
+given #589 (T,wt=12): 2556 meet(join(A,meet(B,C)),complement(join(C,A))) = zero.  [para(201(a,1),154(a,1,2,1))].
+
+given #590 (T,wt=12): 2636 meet(join(A,meet(B,a)),complement(join(b,A))) = zero.  [para(210(a,1),154(a,1,2,1))].
+
+given #591 (T,wt=12): 2660 join(b,join(A,join(B,complement(join(a,A))))) = one.  [para(100(a,1),1349(a,1,2,2,1)),rewrite([75(8),6(8),70(8)])].
+
+given #592 (A,wt=15): 252 meet(join(A,B),join(meet(A,C),B)) = join(meet(A,C),B).  [para(33(a,1),19(a,1,2)),rewrite([5(4)])].
+
+given #593 (T,wt=12): 2730 meet(a,meet(A,meet(B,complement(meet(A,b))))) = zero.  [para(247(a,1),176(a,1,2,2,1)),rewrite([7(7)])].
+
+given #594 (T,wt=12): 2733 join(meet(A,b),complement(meet(a,meet(A,B)))) = one.  [para(247(a,1),1098(a,1,2)),rewrite([7(3),6(7)])].
+
+given #595 (T,wt=12): 2741 meet(join(A,meet(B,C)),complement(join(B,A))) = zero.  [para(249(a,1),154(a,1,2,1))].
+
+given #596 (T,wt=12): 2774 join(A,join(B,complement(join(A,meet(B,C))))) = one.  [para(255(a,1),95(a,1,2)),rewrite([6(4)])].
+
+given #597 (A,wt=13): 257 join(A,join(meet(B,meet(A,C)),D)) = join(A,D).  [para(27(a,1),33(a,1,2,1))].
+
+given #598 (T,wt=12): 2794 meet(join(A,meet(a,B)),complement(join(A,b))) = zero.  [para(291(a,1),154(a,1,2,1))].
+
+given #599 (T,wt=12): 2797 join(A,join(b,complement(join(A,meet(a,B))))) = one.  [para(291(a,1),404(a,1,2)),rewrite([6(7),8(7)])].
+
+given #600 (T,wt=12): 2836 meet(A,meet(B,complement(join(meet(B,A),C)))) = zero.  [para(103(a,1),409(a,1,2)),rewrite([5(5),7(5)])].
+
+given #601 (T,wt=12): 2882 join(A,join(b,complement(meet(B,join(a,A))))) = one.  [para(314(a,1),267(a,1,2,1,2)),rewrite([8(7)])].
+
+given #602 (A,wt=15): 259 join(A,join(B,meet(join(meet(A,C),B),D))) = join(A,B).  [para(32(a,1),33(a,1,2)),rewrite([33(3)]),flip(a)].
+
+Low Water (keep): wt=36.000, iters=6809
+
+Low Water (keep): wt=35.000, iters=6751
+
+given #603 (T,wt=12): 2886 join(A,join(b,join(B,complement(join(a,A))))) = one.  [para(314(a,1),301(a,1,2,2,1)),rewrite([8(7)])].
+
+given #604 (T,wt=12): 2888 meet(complement(join(A,b)),meet(B,join(a,A))) = zero.  [para(314(a,1),409(a,1,2,2))].
+
+given #605 (T,wt=12): 2891 join(complement(join(a,A)),join(B,join(A,b))) = one.  [para(314(a,1),1101(a,1,1,1))].
+
+given #606 (T,wt=12): 2895 meet(join(a,A),complement(join(A,join(b,B)))) = zero.  [para(314(a,1),1125(a,1,2)),rewrite([8(3),5(7)])].
+
+given #607 (A,wt=17): 260 meet(join(meet(A,B),C),join(D,join(A,C))) = join(meet(A,B),C).  [para(33(a,1),78(a,1,2,2))].
+
+given #608 (T,wt=12): 2896 meet(join(a,A),complement(join(B,join(A,b)))) = zero.  [para(314(a,1),1129(a,1,2)),rewrite([5(7)])].
+
+given #609 (T,wt=12): 3019 join(b,join(A,join(B,complement(join(A,a))))) = one.  [para(334(a,1),301(a,1,2,2,1)),rewrite([8(7)])].
+
+given #610 (T,wt=12): 3027 meet(join(A,a),complement(join(b,join(A,B)))) = zero.  [para(334(a,1),1125(a,1,2)),rewrite([8(3),5(7)])].
+
+given #611 (T,wt=12): 3136 join(A,join(B,complement(join(A,meet(C,B))))) = one.  [para(1414(a,1),95(a,1,2)),rewrite([6(4)])].
+
+given #612 (A,wt=15): 264 meet(A,complement(meet(A,B))) != zero | complement(meet(A,B)) = complement(A).  [para(250(a,1),11(b,1)),flip(c),xx(b)].
+
+given #613 (T,wt=12): 3635 meet(A,meet(a,meet(B,complement(meet(A,b))))) = zero.  [para(2360(a,1),138(a,1,2,2,1)),rewrite([7(7)])].
+
+given #614 (T,wt=12): 3638 meet(A,meet(a,complement(join(B,meet(A,b))))) = zero.  [para(2360(a,1),162(a,1,2,1,2)),rewrite([7(7)])].
+
+given #615 (T,wt=12): 3640 join(complement(meet(A,a)),join(B,meet(A,b))) = one.  [para(2360(a,1),406(a,1,2,2))].
+
+given #616 (T,wt=12): 3641 meet(complement(meet(A,b)),meet(B,meet(A,a))) = zero.  [para(2360(a,1),1125(a,1,1,1))].
+
+given #617 (A,wt=15): 270 meet(A,complement(meet(B,A))) != zero | complement(meet(B,A)) = complement(A).  [para(261(a,1),11(b,1)),flip(c),xx(b)].
+
+given #618 (T,wt=12): 3667 join(A,join(b,complement(join(A,meet(B,a))))) = one.  [para(2440(a,1),95(a,1,2)),rewrite([6(6)])].
+
+given #619 (T,wt=12): 3692 join(b,join(A,complement(meet(B,join(a,A))))) = one.  [para(2872(a,1),267(a,1,2,1,2)),rewrite([8(7)])].
+
+given #620 (T,wt=12): 3696 meet(complement(join(b,A)),meet(B,join(a,A))) = zero.  [para(2872(a,1),409(a,1,2,2))].
+
+given #621 (T,wt=12): 3698 join(complement(join(a,A)),join(B,join(b,A))) = one.  [para(2872(a,1),1101(a,1,1,1))].
+
+given #622 (A,wt=20): 271 join(A,join(meet(B,join(C,meet(A,B))),complement(meet(C,join(A,meet(C,B)))))) = one.  [para(13(a,1),261(a,1,2,1)),rewrite([8(9)])].
+
+Low Water (keep): wt=34.000, iters=6773
+
+given #623 (T,wt=12): 3700 meet(join(a,A),complement(join(b,join(A,B)))) = zero.  [para(2872(a,1),1125(a,1,2)),rewrite([8(3),5(7)])].
+
+given #624 (T,wt=12): 3701 meet(join(a,A),complement(join(B,join(b,A)))) = zero.  [para(2872(a,1),1129(a,1,2)),rewrite([5(7)])].
+
+given #625 (T,wt=12): 3815 meet(join(A,B),complement(join(B,join(C,A)))) = zero.  [para(6(a,1),156(a,1,2,1)),rewrite([8(3)])].
+
+given #626 (T,wt=12): 3819 meet(join(A,a),complement(join(A,join(B,b)))) = zero.  [para(144(a,1),156(a,1,2,1,2))].
+
+given #627 (A,wt=14): 272 join(meet(A,join(meet(B,A),C)),complement(meet(B,A))) = one.  [para(23(a,1),261(a,1,2,1))].
+
+given #628 (T,wt=12): 3824 meet(join(meet(A,B),C),complement(join(C,A))) = zero.  [para(255(a,1),156(a,1,2,1))].
+
+Low Water (keep): wt=32.000, iters=6681
+
+given #629 (T,wt=12): 3826 meet(join(meet(A,B),C),complement(join(C,B))) = zero.  [para(1414(a,1),156(a,1,2,1))].
+
+given #630 (T,wt=12): 3832 meet(join(meet(A,a),B),complement(join(B,b))) = zero.  [para(2440(a,1),156(a,1,2,1))].
+
+given #631 (T,wt=12): 3834 meet(join(meet(a,A),B),complement(join(B,b))) = zero.  [para(2463(a,1),156(a,1,2,1))].
+
+given #632 (A,wt=15): 280 meet(b,complement(meet(A,a))) != zero | complement(meet(A,a)) = complement(b).  [para(266(a,1),11(b,1)),flip(c),xx(b)].
+
+given #633 (T,wt=12): 3906 meet(join(meet(A,B),meet(A,C)),complement(A)) = zero.  [para(4(a,1),256(a,1,2,1))].
+
+given #634 (T,wt=12): 3907 meet(complement(join(A,B)),join(meet(A,C),B)) = zero.  [para(256(a,1),5(a,1)),flip(a)].
+
+given #635 (T,wt=12): 3910 meet(join(meet(A,B),meet(C,A)),complement(A)) = zero.  [para(18(a,1),256(a,1,2,1))].
+
+given #636 (T,wt=12): 3913 meet(join(meet(b,A),meet(B,a)),complement(b)) = zero.  [para(181(a,1),256(a,1,2,1))].
+
+given #637 (A,wt=15): 282 meet(b,complement(meet(a,A))) != zero | complement(meet(a,A)) = complement(b).  [para(277(a,1),11(b,1)),flip(c),xx(b)].
+
+Low Water (keep): wt=31.000, iters=6746
+
+given #638 (T,wt=12): 3914 meet(join(meet(b,A),meet(a,B)),complement(b)) = zero.  [para(186(a,1),256(a,1,2,1))].
+
+given #639 (T,wt=12): 3949 join(meet(A,B),complement(meet(B,meet(C,A)))) = one.  [para(5(a,1),262(a,1,2,1)),rewrite([7(3)])].
+
+given #640 (T,wt=12): 3954 join(meet(A,b),complement(meet(A,meet(B,a)))) = one.  [para(58(a,1),262(a,1,2,1,2))].
+
+given #641 (T,wt=12): 3958 join(meet(join(A,B),C),complement(meet(C,A))) = one.  [para(135(a,1),262(a,1,2,1))].
+
+given #642 (A,wt=20): 284 meet(A,join(B,C)) != zero | join(B,join(A,C)) != one | complement(A) = join(B,C).  [para(35(a,1),11(b,1))].
+
+Low Water (keep): wt=30.000, iters=6672
+
+given #643 (T,wt=12): 3961 join(meet(join(A,B),C),complement(meet(C,B))) = one.  [para(1752(a,1),262(a,1,2,1))].
+
+given #644 (T,wt=12): 3963 join(meet(join(b,A),B),complement(meet(B,a))) = one.  [para(2171(a,1),262(a,1,2,1))].
+
+given #645 (T,wt=12): 3965 join(meet(join(A,b),B),complement(meet(B,a))) = one.  [para(2174(a,1),262(a,1,2,1))].
+
+given #646 (T,wt=12): 3970 join(A,join(B,complement(meet(join(B,A),C)))) = one.  [para(6(a,1),263(a,1,2,2,1,1))].
+
+given #647 (A,wt=15): 285 meet(A,meet(B,join(C,join(meet(A,B),D)))) = meet(A,B).  [para(35(a,1),23(a,1,2,2))].
+
+given #648 (T,wt=12): 3978 join(b,join(A,complement(meet(join(a,A),B)))) = one.  [para(263(a,1),1349(a,1,2,2,1)),rewrite([75(8),6(8),70(8)])].
+
+given #649 (T,wt=12): 4050 join(meet(join(A,B),join(A,C)),complement(A)) = one.  [para(3(a,1),274(a,1,2,1))].
+
+given #650 (T,wt=12): 4051 join(complement(meet(A,B)),meet(join(A,C),B)) = one.  [para(274(a,1),6(a,1)),flip(a)].
+
+given #651 (T,wt=12): 4055 join(meet(join(A,B),join(C,A)),complement(A)) = one.  [para(19(a,1),274(a,1,2,1))].
+
+given #652 (A,wt=13): 286 meet(A,meet(join(B,join(A,C)),D)) = meet(A,D).  [para(35(a,1),24(a,1,2,1))].
+
+Low Water (keep): wt=29.000, iters=6672
+
+given #653 (T,wt=12): 4058 join(meet(join(a,A),join(b,B)),complement(a)) = one.  [para(117(a,1),274(a,1,2,1))].
+
+given #654 (T,wt=12): 4059 join(meet(join(a,A),join(B,b)),complement(a)) = one.  [para(124(a,1),274(a,1,2,1))].
+
+given #655 (T,wt=12): 4086 join(meet(A,join(B,C)),complement(meet(A,B))) = one.  [para(167(a,1),274(a,1,1)),rewrite([306(6)])].
+
+given #656 (T,wt=12): 4160 meet(join(A,meet(B,C)),complement(join(A,B))) = zero.  [para(4(a,1),289(a,1,2,1,2))].
+
+given #657 (A,wt=17): 288 join(meet(A,B),join(C,meet(A,meet(B,D)))) = join(C,meet(A,B)).  [para(25(a,1),35(a,1,2)),flip(a)].
+
+given #658 (T,wt=12): 4162 meet(join(A,meet(B,C)),complement(join(A,C))) = zero.  [para(18(a,1),289(a,1,2,1,2))].
+
+given #659 (T,wt=12): 4164 meet(join(A,meet(B,a)),complement(join(A,b))) = zero.  [para(181(a,1),289(a,1,2,1,2))].
+
+given #660 (T,wt=12): 4199 join(A,complement(join(meet(A,B),meet(A,C)))) = one.  [para(321(a,1),33(a,1)),flip(a)].
+
+given #661 (T,wt=12): 4201 join(A,join(B,complement(join(meet(B,C),A)))) = one.  [para(321(a,1),35(a,1)),flip(a)].
+
+given #662 (A,wt=19): 292 meet(join(A,join(B,C)),join(B,join(A,join(C,D)))) = join(B,join(A,C)).  [para(35(a,1),31(a,1,1)),rewrite([8(4)])].
+
+given #663 (T,wt=12): 4207 join(A,complement(join(meet(A,B),meet(C,A)))) = one.  [para(321(a,1),61(a,1)),flip(a)].
+
+Low Water (keep): wt=28.000, iters=6786
+
+given #664 (T,wt=12): 4211 join(b,complement(join(meet(b,A),meet(B,a)))) = one.  [para(321(a,1),188(a,1)),flip(a)].
+
+given #665 (T,wt=12): 4212 join(b,complement(join(meet(b,A),meet(a,B)))) = one.  [para(321(a,1),190(a,1)),flip(a)].
+
+given #666 (T,wt=12): 4294 meet(a,complement(join(meet(b,join(a,A)),B))) = zero.  [para(4215(a,1),405(a,1,2)),rewrite([5(8)])].
+
+given #667 (A,wt=15): 293 meet(join(A,B),join(A,join(C,join(B,D)))) = join(A,B).  [para(35(a,1),31(a,1,2,2))].
+
+given #668 (T,wt=12): 4333 meet(a,complement(join(meet(b,join(A,a)),B))) = zero.  [para(4219(a,1),405(a,1,2)),rewrite([5(8)])].
+
+given #669 (T,wt=12): 4377 meet(a,complement(join(A,meet(b,join(a,B))))) = zero.  [para(4287(a,1),405(a,1,2)),rewrite([5(8)])].
+
+given #670 (T,wt=12): 4410 meet(a,complement(join(A,meet(b,join(B,a))))) = zero.  [para(4326(a,1),405(a,1,2)),rewrite([5(8)])].
+
+given #671 (T,wt=12): 4537 meet(A,complement(meet(join(A,B),join(A,C)))) = zero.  [para(344(a,1),24(a,1)),flip(a)].
+
+given #672 (A,wt=13): 294 join(A,join(B,meet(C,meet(D,A)))) = join(B,A).  [para(60(a,1),35(a,1,2)),flip(a)].
+
+Low Water (keep): wt=27.000, iters=6668
+
+given #673 (T,wt=12): 4539 meet(A,meet(B,complement(meet(join(B,C),A)))) = zero.  [para(344(a,1),27(a,1)),flip(a)].
+
+given #674 (T,wt=12): 4551 meet(A,complement(meet(join(A,B),join(C,A)))) = zero.  [para(344(a,1),76(a,1)),flip(a)].
+
+given #675 (T,wt=12): 4552 meet(a,complement(meet(join(a,A),join(b,B)))) = zero.  [para(344(a,1),139(a,1)),flip(a)].
+
+given #676 (T,wt=12): 4554 meet(a,complement(meet(join(a,A),join(B,b)))) = zero.  [para(344(a,1),141(a,1)),flip(a)].
+
+given #677 (A,wt=13): 296 join(a,join(A,join(b,B))) = join(A,join(b,B)).  [para(72(a,1),35(a,1,2)),flip(a)].
+
+given #678 (T,wt=12): 5236 join(A,join(complement(join(B,A)),join(C,B))) = one.  [para(6(a,1),412(a,1,2,1,1))].
+
+given #679 (T,wt=12): 5260 join(b,join(complement(join(a,A)),join(B,A))) = one.  [para(412(a,1),1349(a,1,2,2,1)),rewrite([75(8),6(8),70(8)])].
+
+given #680 (T,wt=12): 5282 meet(A,meet(complement(meet(B,A)),meet(C,B))) = zero.  [para(5(a,1),417(a,1,2,1,1))].
+
+given #681 (T,wt=12): 5288 meet(a,meet(complement(meet(b,A)),meet(B,A))) = zero.  [para(417(a,1),57(a,1,2)),rewrite([84(3)]),flip(a)].
+
+given #682 (A,wt=19): 297 join(A,join(B,join(C,meet(join(B,join(A,C)),D)))) = join(A,join(B,C)).  [para(35(a,1),32(a,1,2,2,1)),rewrite([8(5)])].
+
+given #683 (T,wt=12): 5616 meet(join(a,meet(b,A)),complement(join(B,b))) = zero.  [para(4(a,1),535(a,1,2,1,2)),rewrite([6(4)])].
+
+given #684 (T,wt=12): 5618 meet(join(a,meet(A,b)),complement(join(B,b))) = zero.  [para(18(a,1),535(a,1,2,1,2)),rewrite([6(4)])].
+
+given #685 (T,wt=12): 5624 meet(join(A,a),complement(join(b,join(B,A)))) = zero.  [para(35(a,1),535(a,1,2,1))].
+
+given #686 (T,wt=12): 5632 meet(join(a,meet(A,B)),complement(join(B,b))) = zero.  [para(201(a,1),535(a,1,2,1)),rewrite([6(3)])].
+
+given #687 (A,wt=17): 298 join(A,join(B,join(C,meet(join(A,C),D)))) = join(B,join(A,C)).  [para(32(a,1),35(a,1,2)),flip(a)].
+
+given #688 (T,wt=12): 5635 meet(join(a,meet(A,B)),complement(join(A,b))) = zero.  [para(249(a,1),535(a,1,2,1)),rewrite([6(3)])].
+
+Low Water (keep): wt=26.000, iters=6679
+
+given #689 (T,wt=12): 5797 meet(A,meet(complement(meet(b,A)),meet(B,a))) = zero.  [para(343(a,1),147(a,1,1)),rewrite([7(8),70(9),343(13)])].
+
+given #690 (T,wt=12): 5801 meet(A,meet(complement(meet(A,b)),meet(B,a))) = zero.  [para(418(a,1),147(a,1,1)),rewrite([7(8),70(9),418(13)])].
+
+given #691 (T,wt=12): 5802 meet(complement(meet(b,join(a,A))),meet(B,a)) = zero.  [para(1034(a,1),147(a,1,1)),rewrite([70(10),1034(15)])].
+
+given #692 (A,wt=15): 299 meet(join(A,B),join(C,join(A,join(D,B)))) = join(A,B).  [para(35(a,1),78(a,1,2,2))].
+
+given #693 (T,wt=12): 5808 meet(a,meet(complement(meet(A,b)),meet(B,A))) = zero.  [para(1363(a,1),147(a,1,1)),rewrite([7(8),70(9),1363(13)])].
+
+given #694 (T,wt=12): 5809 meet(complement(meet(b,join(A,a))),meet(B,a)) = zero.  [para(1489(a,1),147(a,1,1)),rewrite([70(10),1489(15)])].
+
+given #695 (T,wt=12): 5957 join(meet(b,A),complement(meet(a,meet(A,B)))) = one.  [para(273(a,1),149(a,1,2)),rewrite([6(4),68(4)]),flip(a)].
+
+given #696 (T,wt=12): 6325 join(meet(b,join(a,A)),complement(meet(B,a))) = one.  [para(3(a,1),731(a,1,2,1,2))].
+
+given #697 (A,wt=15): 300 join(A,join(B,join(meet(A,C),D))) = join(A,join(B,D)).  [para(35(a,1),33(a,1,2))].
+
+given #698 (T,wt=12): 6328 join(meet(b,join(A,a)),complement(meet(B,a))) = one.  [para(19(a,1),731(a,1,2,1,2))].
+
+given #699 (T,wt=12): 6334 join(meet(b,A),complement(meet(a,meet(B,A)))) = one.  [para(27(a,1),731(a,1,2,1))].
+
+given #700 (T,wt=12): 6351 join(meet(b,join(A,B)),complement(meet(A,a))) = one.  [para(128(a,1),731(a,1,2,1))].
+
+given #701 (T,wt=12): 6354 join(meet(A,b),complement(meet(B,meet(A,a)))) = one.  [para(167(a,1),731(a,1,1)),rewrite([173(7)])].
+
+given #702 (A,wt=15): 304 meet(join(A,B),join(C,join(A,join(B,D)))) = join(A,B).  [para(8(a,1),134(a,1,2,2))].
+
+given #703 (T,wt=12): 6356 join(meet(b,join(A,B)),complement(meet(a,B))) = one.  [para(167(a,1),731(a,1,2,1))].
+
+given #704 (T,wt=12): 6376 join(meet(A,b),complement(meet(a,meet(B,A)))) = one.  [para(27(a,1),735(a,1,2,1))].
+
+given #705 (T,wt=12): 7061 meet(a,meet(A,complement(meet(b,join(A,B))))) = zero.  [para(344(a,1),170(a,1,2)),rewrite([84(3),5(5)]),flip(a)].
+
+given #706 (T,wt=12): 7274 join(A,join(B,complement(join(meet(C,B),A)))) = one.  [para(1414(a,1),959(a,1,2)),rewrite([6(4)])].
+
+given #707 (A,wt=13): 306 meet(A,meet(B,join(C,join(A,D)))) = meet(B,A).  [para(134(a,1),27(a,1,2)),flip(a)].
+
+Low Water (keep): wt=25.000, iters=6771
+
+given #708 (T,wt=12): 7275 join(A,join(b,complement(join(meet(B,a),A)))) = one.  [para(2440(a,1),959(a,1,2)),rewrite([6(6)])].
+
+given #709 (T,wt=12): 7276 join(A,join(b,complement(join(meet(a,B),A)))) = one.  [para(2463(a,1),959(a,1,2)),rewrite([6(6)])].
+
+given #710 (T,wt=12): 7291 join(A,complement(join(meet(B,A),meet(A,C)))) = one.  [para(963(a,1),61(a,1)),flip(a)].
+
+given #711 (T,wt=12): 7295 join(b,complement(join(meet(A,a),meet(b,B)))) = one.  [para(963(a,1),188(a,1)),flip(a)].
+
+given #712 (A,wt=13): 307 meet(a,meet(join(A,join(B,b)),C)) = meet(a,C).  [para(142(a,1),7(a,1,1)),flip(a)].
+
+given #713 (T,wt=12): 7296 join(b,complement(join(meet(a,A),meet(b,B)))) = one.  [para(963(a,1),190(a,1)),flip(a)].
+
+given #714 (T,wt=12): 7373 join(A,join(complement(join(A,a)),join(B,b))) = one.  [para(413(a,1),964(a,1,2,2,2,1)),rewrite([75(7),6(7),70(7),8(7)])].
+
+given #715 (T,wt=12): 7374 join(A,join(complement(join(a,A)),join(B,b))) = one.  [para(1349(a,1),964(a,1,2,2,2,1)),rewrite([75(7),6(7),70(7),8(7)])].
+
+given #716 (T,wt=12): 7375 join(complement(join(a,meet(b,A))),join(B,b)) = one.  [para(1354(a,1),964(a,1,2,2,2,1)),rewrite([75(8),6(8),70(8)])].
+
+given #717 (A,wt=13): 310 join(a,join(A,join(B,b))) = join(A,join(B,b)).  [para(142(a,1),18(a,1,2)),rewrite([6(5)])].
+
+given #718 (T,wt=12): 7376 join(b,join(complement(join(A,a)),join(B,A))) = one.  [para(1356(a,1),964(a,1,2,2,2,1)),rewrite([75(7),39(7),8(7)])].
+
+given #719 (T,wt=12): 7377 join(complement(join(a,meet(A,b))),join(B,b)) = one.  [para(1443(a,1),964(a,1,2,2,2,1)),rewrite([75(8),6(8),70(8)])].
+
+given #720 (T,wt=12): 7422 meet(A,meet(B,complement(meet(join(C,B),A)))) = zero.  [para(1752(a,1),1024(a,1,2)),rewrite([5(4)])].
+
+given #721 (T,wt=12): 7423 meet(A,meet(a,complement(meet(join(b,B),A)))) = zero.  [para(2171(a,1),1024(a,1,2)),rewrite([5(6)])].
+
+given #722 (A,wt=13): 311 meet(a,meet(A,join(B,join(C,b)))) = meet(A,a).  [para(142(a,1),27(a,1,2)),flip(a)].
+
+Low Water (keep): wt=24.000, iters=6701
+
+given #723 (T,wt=12): 7424 meet(A,meet(a,complement(meet(join(B,b),A)))) = zero.  [para(2174(a,1),1024(a,1,2)),rewrite([5(6)])].
+
+given #724 (T,wt=12): 7489 meet(A,complement(meet(join(B,A),join(A,C)))) = zero.  [para(1027(a,1),76(a,1)),flip(a)].
+
+given #725 (T,wt=12): 7491 meet(a,complement(meet(join(b,A),join(a,B)))) = zero.  [para(1027(a,1),139(a,1)),flip(a)].
+
+given #726 (T,wt=12): 7493 meet(a,complement(meet(join(A,b),join(a,B)))) = zero.  [para(1027(a,1),141(a,1)),flip(a)].
+
+given #727 (A,wt=14): 312 zero != a | join(A,b) != one | complement(a) = join(A,b).  [para(144(a,1),11(b,1)),rewrite([124(4)]),flip(a)].
+
+given #728 (T,wt=12): 7568 meet(a,meet(A,complement(meet(b,join(B,A))))) = zero.  [para(1752(a,1),1031(a,1,2)),rewrite([5(6)])].
+
+given #729 (T,wt=12): 8177 join(b,join(A,complement(join(a,meet(A,B))))) = one.  [para(255(a,1),1350(a,1,2)),rewrite([6(4),6(6)])].
+
+given #730 (T,wt=12): 8178 join(b,join(A,complement(join(a,meet(B,A))))) = one.  [para(1414(a,1),1350(a,1,2)),rewrite([6(4),6(6)])].
+
+given #731 (T,wt=12): 8470 meet(join(meet(A,B),meet(B,C)),complement(B)) = zero.  [para(4(a,1),1417(a,1,2,1))].
+
+given #732 (A,wt=13): 313 meet(join(A,a),join(A,join(B,b))) = join(A,a).  [para(144(a,1),31(a,1,2,2))].
+
+given #733 (T,wt=12): 8471 meet(complement(join(A,B)),join(meet(C,A),B)) = zero.  [para(1417(a,1),5(a,1)),flip(a)].
+
+given #734 (T,wt=12): 8474 meet(join(meet(A,B),meet(C,B)),complement(B)) = zero.  [para(18(a,1),1417(a,1,2,1))].
+
+given #735 (T,wt=12): 8478 meet(join(a,A),complement(join(b,join(B,A)))) = zero.  [para(117(a,1),1417(a,1,1,1)),rewrite([8(5)])].
+
+given #736 (T,wt=12): 8481 meet(join(meet(A,b),meet(B,a)),complement(b)) = zero.  [para(181(a,1),1417(a,1,2,1))].
+
+given #737 (A,wt=15): 315 join(meet(A,B),meet(C,meet(A,meet(B,D)))) = meet(A,B).  [para(7(a,1),164(a,1,2,2))].
+
+given #738 (T,wt=12): 8482 meet(join(meet(A,b),meet(a,B)),complement(b)) = zero.  [para(186(a,1),1417(a,1,2,1))].
+
+given #739 (T,wt=12): 8667 join(A,complement(join(meet(B,A),meet(C,A)))) = one.  [para(1425(a,1),61(a,1)),flip(a)].
+
+given #740 (T,wt=12): 8677 join(b,complement(join(meet(A,b),meet(B,a)))) = one.  [para(1425(a,1),188(a,1)),flip(a)].
+
+given #741 (T,wt=12): 8678 join(b,complement(join(meet(A,b),meet(a,B)))) = one.  [para(1425(a,1),190(a,1)),flip(a)].
+
+given #742 (A,wt=18): 316 meet(A,meet(B,C)) != zero | one != B | complement(B) = meet(A,meet(B,C)).  [para(164(a,1),11(b,1)),rewrite([87(3)]),flip(b)].
+
+given #743 (T,wt=12): 8736 join(b,complement(join(meet(A,a),meet(B,b)))) = one.  [para(1438(a,1),188(a,1)),flip(a)].
+
+given #744 (T,wt=12): 8737 join(b,complement(join(meet(a,A),meet(B,b)))) = one.  [para(1438(a,1),190(a,1)),flip(a)].
+
+given #745 (T,wt=12): 9626 join(b,complement(meet(join(a,meet(b,A)),B))) = one.  [para(1543(a,1),33(a,1)),rewrite([6(6)]),flip(a)].
+
+given #746 (T,wt=12): 9628 join(A,join(b,complement(meet(join(A,a),B)))) = one.  [para(1543(a,1),35(a,1)),flip(a)].
+
+given #747 (A,wt=13): 317 join(A,join(B,meet(C,meet(A,D)))) = join(B,A).  [para(164(a,1),35(a,1,2)),flip(a)].
+
+given #748 (T,wt=12): 9632 join(b,complement(meet(join(a,meet(A,b)),B))) = one.  [para(1543(a,1),61(a,1)),rewrite([6(6)]),flip(a)].
+
+given #749 (T,wt=12): 9925 join(b,complement(meet(A,join(a,meet(b,B))))) = one.  [para(1559(a,1),33(a,1)),rewrite([6(6)]),flip(a)].
+
+given #750 (T,wt=12): 9930 join(b,complement(meet(A,join(a,meet(B,b))))) = one.  [para(1559(a,1),61(a,1)),rewrite([6(6)]),flip(a)].
+
+given #751 (T,wt=12): 10248 meet(A,meet(a,complement(join(meet(b,A),B)))) = zero.  [para(1707(a,1),27(a,1)),flip(a)].
+
+given #752 (A,wt=14): 319 join(A,join(B,join(C,complement(join(A,join(B,C)))))) = one.  [para(38(a,1),8(a,1)),rewrite([8(3)]),flip(a)].
+
+given #753 (T,wt=12): 10257 meet(A,meet(a,complement(join(meet(A,b),B)))) = zero.  [para(167(a,1),1707(a,1,2,2,1,1)),rewrite([7(9),2257(10)])].
+
+given #754 (T,wt=12): 10648 join(meet(join(A,B),join(B,C)),complement(B)) = one.  [para(3(a,1),1758(a,1,2,1))].
+
+given #755 (T,wt=12): 10649 join(meet(A,join(B,C)),complement(meet(C,A))) = one.  [para(5(a,1),1758(a,1,1))].
+
+given #756 (T,wt=12): 10650 join(complement(meet(A,B)),meet(join(C,A),B)) = one.  [para(1758(a,1),6(a,1)),flip(a)].
+
+Low Water (keep): wt=23.000, iters=6721
+
+given #757 (A,wt=19): 320 meet(A,join(B,complement(join(A,B)))) != zero | join(B,complement(join(A,B))) = complement(A).  [para(38(a,1),11(b,1)),flip(c),xx(b)].
+
+given #758 (T,wt=12): 10654 join(meet(join(A,B),join(C,B)),complement(B)) = one.  [para(19(a,1),1758(a,1,2,1))].
+
+given #759 (T,wt=12): 10657 join(meet(join(A,a),join(b,B)),complement(a)) = one.  [para(117(a,1),1758(a,1,2,1))].
+
+given #760 (T,wt=12): 10658 join(meet(join(A,a),join(B,b)),complement(a)) = one.  [para(124(a,1),1758(a,1,2,1))].
+
+given #761 (T,wt=12): 10767 meet(A,complement(meet(join(B,A),join(C,A)))) = zero.  [para(1762(a,1),76(a,1)),flip(a)].
+
+given #762 (A,wt=14): 323 join(A,join(B,join(C,complement(join(B,join(A,C)))))) = one.  [para(35(a,1),38(a,1,2,2,1)),rewrite([8(5)])].
+
+given #763 (T,wt=12): 10768 meet(a,complement(meet(join(A,a),join(b,B)))) = zero.  [para(1762(a,1),139(a,1)),flip(a)].
+
+given #764 (T,wt=12): 10770 meet(a,complement(meet(join(A,a),join(B,b)))) = zero.  [para(1762(a,1),141(a,1)),flip(a)].
+
+given #765 (T,wt=12): 10821 meet(a,complement(meet(join(b,A),join(B,a)))) = zero.  [para(1780(a,1),139(a,1)),flip(a)].
+
+given #766 (T,wt=12): 10823 meet(a,complement(meet(join(A,b),join(B,a)))) = zero.  [para(1780(a,1),141(a,1)),flip(a)].
+
+given #767 (A,wt=13): 325 join(b,join(meet(A,meet(B,a)),C)) = join(b,C).  [para(187(a,1),8(a,1,1)),flip(a)].
+
+given #768 (T,wt=12): 11372 join(complement(a),meet(join(b,A),join(a,B))) = one.  [para(133(a,1),1872(a,1,2))].
+
+given #769 (T,wt=12): 11388 join(complement(a),meet(join(b,A),join(B,a))) = one.  [para(133(a,1),1880(a,1,2))].
+
+given #770 (T,wt=12): 11761 meet(join(meet(A,a),meet(b,B)),complement(b)) = zero.  [para(181(a,1),226(a,1,1,2,1)),rewrite([181(9)])].
+
+given #771 (T,wt=12): 11762 meet(join(meet(a,A),meet(b,B)),complement(b)) = zero.  [para(186(a,1),226(a,1,1,2,1)),rewrite([186(9)])].
+
+given #772 (A,wt=18): 326 meet(a,meet(A,B)) != zero | b != one | complement(b) = meet(A,meet(B,a)).  [para(187(a,1),11(b,1)),rewrite([182(5)])].
+
+given #773 (T,wt=12): 11927 join(complement(meet(A,B)),meet(B,join(A,C))) = one.  [para(2142(a,1),6(a,1)),flip(a)].
+
+given #774 (T,wt=12): 11933 join(meet(join(b,A),join(a,B)),complement(a)) = one.  [para(117(a,1),2142(a,1,2,1))].
+
+given #775 (T,wt=12): 11934 join(meet(join(A,b),join(a,B)),complement(a)) = one.  [para(124(a,1),2142(a,1,2,1))].
+
+given #776 (T,wt=12): 11935 join(meet(A,join(b,B)),complement(meet(a,A))) = one.  [para(72(a,1),2142(a,1,1,2))].
+
+given #777 (A,wt=13): 327 join(b,join(A,meet(B,meet(C,a)))) = join(A,b).  [para(187(a,1),35(a,1,2)),flip(a)].
+
+given #778 (T,wt=12): 11941 join(meet(A,join(B,b)),complement(meet(a,A))) = one.  [para(144(a,1),2142(a,1,1,2))].
+
+given #779 (T,wt=12): 12011 join(complement(meet(a,A)),meet(join(b,B),A)) = one.  [para(2223(a,1),6(a,1)),flip(a)].
+
+given #780 (T,wt=12): 12014 join(meet(join(b,A),join(B,a)),complement(a)) = one.  [para(19(a,1),2223(a,1,2,1))].
+
+given #781 (T,wt=12): 12017 join(meet(join(b,A),join(b,B)),complement(a)) = one.  [para(117(a,1),2223(a,1,2,1))].
+
+given #782 (A,wt=13): 329 join(b,join(meet(A,meet(a,B)),C)) = join(b,C).  [para(192(a,1),8(a,1,1)),flip(a)].
+
+given #783 (T,wt=12): 12018 join(meet(join(b,A),join(B,b)),complement(a)) = one.  [para(124(a,1),2223(a,1,2,1))].
+
+given #784 (T,wt=12): 12077 meet(a,complement(meet(join(b,A),join(b,B)))) = zero.  [para(2224(a,1),139(a,1)),flip(a)].
+
+given #785 (T,wt=12): 12078 meet(a,complement(meet(join(b,A),join(B,b)))) = zero.  [para(2224(a,1),141(a,1)),flip(a)].
+
+given #786 (T,wt=12): 12095 meet(a,complement(meet(join(A,b),join(b,B)))) = zero.  [para(2240(a,1),141(a,1)),flip(a)].
+
+given #787 (A,wt=18): 330 meet(A,meet(a,B)) != zero | b != one | complement(b) = meet(A,meet(a,B)).  [para(192(a,1),11(b,1)),rewrite([119(5)])].
+
+given #788 (T,wt=12): 12102 join(complement(meet(a,A)),meet(join(B,b),A)) = one.  [para(2259(a,1),6(a,1)),flip(a)].
+
+given #789 (T,wt=12): 12105 join(meet(join(A,b),join(B,a)),complement(a)) = one.  [para(19(a,1),2259(a,1,2,1))].
+
+given #790 (T,wt=12): 12108 join(meet(join(A,b),join(b,B)),complement(a)) = one.  [para(117(a,1),2259(a,1,2,1))].
+
+given #791 (T,wt=12): 12109 join(meet(join(A,b),join(B,b)),complement(a)) = one.  [para(124(a,1),2259(a,1,2,1))].
+
+given #792 (A,wt=13): 331 join(b,join(A,meet(B,meet(a,C)))) = join(A,b).  [para(192(a,1),35(a,1,2)),flip(a)].
+
+given #793 (T,wt=12): 12166 meet(a,complement(meet(join(A,b),join(B,b)))) = zero.  [para(2260(a,1),141(a,1)),flip(a)].
+
+given #794 (T,wt=12): 12298 join(meet(b,A),complement(meet(A,meet(B,a)))) = one.  [para(58(a,1),2304(a,1,2,1,2))].
+
+given #795 (T,wt=12): 12311 join(meet(A,b),complement(meet(A,meet(a,B)))) = one.  [para(119(a,1),2304(a,1,2,1))].
+
+given #796 (T,wt=12): 12543 join(complement(meet(A,B)),meet(A,join(C,B))) = one.  [para(2329(a,1),6(a,1)),flip(a)].
+
+given #797 (A,wt=13): 332 join(b,join(A,join(a,B))) = join(b,join(A,B)).  [para(231(a,1),8(a,1,1)),rewrite([8(3),8(7)]),flip(a)].
+
+Low Water (keep): wt=22.000, iters=6687
+
+given #798 (T,wt=12): 12693 join(complement(meet(A,a)),meet(A,join(b,B))) = one.  [para(2366(a,1),6(a,1)),flip(a)].
+
+given #799 (T,wt=12): 12816 join(complement(meet(A,a)),meet(A,join(B,b))) = one.  [para(2391(a,1),6(a,1)),flip(a)].
+
+given #800 (T,wt=12): 13039 join(meet(b,join(A,B)),complement(meet(a,A))) = one.  [para(135(a,1),2424(a,1,2,1))].
+
+given #801 (T,wt=12): 13055 join(meet(b,join(A,B)),complement(meet(B,a))) = one.  [para(76(a,1),2425(a,1,2,1))].
+
+given #802 (A,wt=18): 333 meet(b,join(A,a)) != zero | join(b,A) != one | complement(b) = join(A,a).  [para(231(a,1),11(b,1))].
+
+given #803 (T,wt=12): 13185 meet(complement(join(b,A)),join(meet(B,a),A)) = zero.  [para(2441(a,1),5(a,1)),flip(a)].
+
+given #804 (T,wt=12): 13187 meet(join(meet(A,a),meet(B,b)),complement(b)) = zero.  [para(18(a,1),2441(a,1,2,1))].
+
+given #805 (T,wt=12): 13188 meet(join(meet(A,a),meet(B,a)),complement(b)) = zero.  [para(181(a,1),2441(a,1,2,1))].
+
+given #806 (T,wt=12): 13189 meet(join(meet(A,a),meet(a,B)),complement(b)) = zero.  [para(186(a,1),2441(a,1,2,1))].
+
+given #807 (A,wt=13): 336 meet(join(A,a),join(B,join(b,A))) = join(A,a).  [para(231(a,1),78(a,1,2,2))].
+
+given #808 (T,wt=12): 13229 join(b,complement(join(meet(A,a),meet(B,a)))) = one.  [para(2445(a,1),188(a,1)),flip(a)].
+
+given #809 (T,wt=12): 13230 join(b,complement(join(meet(A,a),meet(a,B)))) = one.  [para(2445(a,1),190(a,1)),flip(a)].
+
+given #810 (T,wt=12): 13241 join(b,complement(join(meet(a,A),meet(B,a)))) = one.  [para(2451(a,1),190(a,1)),flip(a)].
+
+given #811 (T,wt=12): 13248 meet(complement(join(b,A)),join(meet(a,B),A)) = zero.  [para(2464(a,1),5(a,1)),flip(a)].
+
+given #812 (A,wt=13): 337 meet(a,meet(join(A,join(b,B)),C)) = meet(a,C).  [para(287(a,1),7(a,1,1)),flip(a)].
+
+given #813 (T,wt=12): 13249 meet(join(A,meet(a,B)),complement(join(b,A))) = zero.  [para(6(a,1),2464(a,1,1))].
+
+given #814 (T,wt=12): 13250 meet(join(meet(a,A),meet(B,b)),complement(b)) = zero.  [para(18(a,1),2464(a,1,2,1))].
+
+given #815 (T,wt=12): 13251 meet(join(meet(a,A),meet(B,a)),complement(b)) = zero.  [para(181(a,1),2464(a,1,2,1))].
+
+given #816 (T,wt=12): 13252 meet(join(meet(a,A),meet(a,B)),complement(b)) = zero.  [para(186(a,1),2464(a,1,2,1))].
+
+given #817 (A,wt=13): 340 meet(a,meet(A,join(B,join(b,C)))) = meet(A,a).  [para(287(a,1),27(a,1,2)),flip(a)].
+
+given #818 (T,wt=12): 13413 join(b,complement(join(meet(a,A),meet(a,B)))) = one.  [para(2468(a,1),190(a,1)),flip(a)].
+
+given #819 (T,wt=12): 13554 meet(join(a,meet(A,B)),complement(join(b,A))) = zero.  [para(255(a,1),2503(a,1,2,1)),rewrite([6(3)])].
+
+given #820 (T,wt=12): 13555 meet(join(a,meet(A,B)),complement(join(b,B))) = zero.  [para(1414(a,1),2503(a,1,2,1)),rewrite([6(3)])].
+
+given #821 (T,wt=12): 13709 meet(join(a,A),complement(join(A,join(B,b)))) = zero.  [para(144(a,1),2523(a,1,2,1,2))].
+
+given #822 (A,wt=14): 342 meet(A,meet(B,meet(C,complement(meet(A,meet(B,C)))))) = zero.  [para(41(a,1),7(a,1)),rewrite([7(3)]),flip(a)].
+
+given #823 (T,wt=12): 13811 meet(complement(join(A,B)),join(B,meet(C,A))) = zero.  [para(2556(a,1),5(a,1)),flip(a)].
+
+given #824 (T,wt=12): 13920 meet(complement(join(b,A)),join(A,meet(B,a))) = zero.  [para(2636(a,1),5(a,1)),flip(a)].
+
+given #825 (T,wt=12): 14028 meet(complement(b),join(meet(a,A),meet(b,B))) = zero.  [para(252(a,1),2049(a,1,2))].
+
+given #826 (T,wt=12): 14029 meet(complement(b),join(meet(a,A),meet(B,b))) = zero.  [para(252(a,1),2052(a,1,2))].
+
+given #827 (A,wt=14): 346 meet(A,meet(B,meet(C,complement(meet(B,meet(A,C)))))) = zero.  [para(27(a,1),41(a,1,2,2,1)),rewrite([7(5)])].
+
+given #828 (T,wt=12): 14050 join(meet(b,join(a,A)),complement(meet(a,B))) = one.  [para(24(a,1),2733(a,1,2,1)),rewrite([5(4)])].
+
+given #829 (T,wt=12): 14057 join(meet(b,join(A,a)),complement(meet(a,B))) = one.  [para(76(a,1),2733(a,1,2,1)),rewrite([5(4)])].
+
+given #830 (T,wt=12): 14069 meet(complement(join(A,B)),join(B,meet(A,C))) = zero.  [para(2741(a,1),5(a,1)),flip(a)].
+
+given #831 (T,wt=12): 14238 meet(complement(join(A,b)),join(A,meet(a,B))) = zero.  [para(2794(a,1),5(a,1)),flip(a)].
+
+given #832 (A,wt=14): 347 join(A,join(B,join(C,join(complement(join(A,B)),D)))) = one.  [para(99(a,1),8(a,1)),flip(a)].
+
+given #833 (T,wt=12): 14278 join(A,join(b,complement(meet(join(a,A),B)))) = one.  [para(5(a,1),2882(a,1,2,2,1))].
+
+given #834 (T,wt=12): 14573 meet(join(a,meet(b,A)),complement(join(b,B))) = zero.  [para(33(a,1),3027(a,1,2,1)),rewrite([6(4)])].
+
+given #835 (T,wt=12): 14575 meet(join(a,meet(A,b)),complement(join(b,B))) = zero.  [para(61(a,1),3027(a,1,2,1)),rewrite([6(4)])].
+
+given #836 (T,wt=12): 15101 meet(complement(join(A,B)),join(meet(B,C),A)) = zero.  [para(3824(a,1),5(a,1)),flip(a)].
+
+given #837 (A,wt=19): 349 meet(A,join(B,join(complement(A),C))) != zero | join(B,join(complement(A),C)) = complement(A).  [para(99(a,1),11(b,1)),flip(c),xx(b)].
+
+given #838 (T,wt=12): 15151 meet(complement(join(A,B)),join(meet(C,B),A)) = zero.  [para(3826(a,1),5(a,1)),flip(a)].
+
+given #839 (T,wt=12): 15256 meet(complement(join(A,b)),join(meet(B,a),A)) = zero.  [para(3832(a,1),5(a,1)),flip(a)].
+
+Low Water (keep): wt=21.000, iters=6666
+
+given #840 (T,wt=12): 15269 meet(complement(join(A,b)),join(meet(a,B),A)) = zero.  [para(3834(a,1),5(a,1)),flip(a)].
+
+given #841 (T,wt=12): 15284 meet(complement(A),join(meet(A,B),meet(A,C))) = zero.  [para(3906(a,1),5(a,1)),flip(a)].
+
+given #842 (A,wt=14): 351 join(A,join(B,join(C,join(D,complement(join(A,B)))))) = one.  [para(101(a,1),8(a,1)),flip(a)].
+
+given #843 (T,wt=12): 15303 meet(complement(A),join(meet(A,B),meet(C,A))) = zero.  [para(18(a,1),3907(a,1,1,1))].
+
+given #844 (T,wt=12): 15306 meet(complement(b),join(meet(b,A),meet(B,a))) = zero.  [para(181(a,1),3907(a,1,1,1))].
+
+given #845 (T,wt=12): 15307 meet(complement(b),join(meet(b,A),meet(a,B))) = zero.  [para(186(a,1),3907(a,1,1,1))].
+
+given #846 (T,wt=12): 15550 join(complement(meet(A,B)),meet(join(B,C),A)) = one.  [para(3958(a,1),6(a,1)),flip(a)].
+
+given #847 (A,wt=19): 353 meet(A,join(B,join(C,complement(A)))) != zero | join(B,join(C,complement(A))) = complement(A).  [para(101(a,1),11(b,1)),flip(c),xx(b)].
+
+given #848 (T,wt=12): 15799 join(complement(meet(A,B)),meet(join(C,B),A)) = one.  [para(3961(a,1),6(a,1)),flip(a)].
+
+given #849 (T,wt=12): 15856 join(complement(meet(A,a)),meet(join(b,B),A)) = one.  [para(3963(a,1),6(a,1)),flip(a)].
+
+given #850 (T,wt=12): 15874 join(complement(meet(A,a)),meet(join(B,b),A)) = one.  [para(3965(a,1),6(a,1)),flip(a)].
+
+given #851 (T,wt=12): 16012 join(complement(A),meet(join(A,B),join(A,C))) = one.  [para(4050(a,1),6(a,1)),flip(a)].
+
+given #852 (A,wt=14): 355 meet(A,B) != zero | one != B | complement(B) = meet(B,A).  [para(5(a,1),43(a,1))].
+
+given #853 (T,wt=12): 16036 join(complement(A),meet(join(A,B),join(C,A))) = one.  [para(19(a,1),4051(a,1,1,1))].
+
+given #854 (T,wt=12): 16040 join(complement(a),meet(join(a,A),join(b,B))) = one.  [para(117(a,1),4051(a,1,1,1))].
+
+given #855 (T,wt=12): 16041 join(complement(a),meet(join(a,A),join(B,b))) = one.  [para(124(a,1),4051(a,1,1,1))].
+
+given #856 (T,wt=12): 16062 join(complement(meet(A,B)),meet(A,join(B,C))) = one.  [para(167(a,1),4051(a,1,2)),rewrite([306(4)])].
+
+given #857 (A,wt=18): 356 meet(A,meet(B,C)) != zero | one != B | complement(B) = meet(B,meet(A,C)).  [para(27(a,1),43(a,1))].
+
+given #858 (T,wt=12): 16345 meet(complement(join(A,B)),join(A,meet(B,C))) = zero.  [para(4160(a,1),5(a,1)),flip(a)].
+
+given #859 (T,wt=12): 16446 meet(complement(join(A,B)),join(A,meet(C,B))) = zero.  [para(4162(a,1),5(a,1)),flip(a)].
+
+given #860 (T,wt=12): 16516 meet(complement(join(A,b)),join(A,meet(B,a))) = zero.  [para(4164(a,1),5(a,1)),flip(a)].
+
+given #861 (T,wt=12): 17576 meet(complement(join(A,b)),join(a,meet(b,B))) = zero.  [para(5616(a,1),5(a,1)),flip(a)].
+
+given #862 (A,wt=18): 357 join(A,B) != zero | join(A,B) != one | complement(join(A,B)) = join(A,B).  [para(31(a,1),43(a,1)),rewrite([31(12)]),flip(b)].
+
+given #863 (T,wt=12): 17589 meet(complement(join(A,b)),join(a,meet(B,b))) = zero.  [para(5618(a,1),5(a,1)),flip(a)].
+
+given #864 (T,wt=12): 17643 meet(complement(join(A,b)),join(a,meet(B,A))) = zero.  [para(5632(a,1),5(a,1)),flip(a)].
+
+given #865 (T,wt=12): 17785 meet(complement(join(A,b)),join(a,meet(A,B))) = zero.  [para(5635(a,1),5(a,1)),flip(a)].
+
+given #866 (T,wt=12): 17900 join(complement(meet(A,a)),meet(b,join(a,B))) = one.  [para(6325(a,1),6(a,1)),flip(a)].
+
+given #867 (A,wt=14): 358 meet(A,meet(B,meet(C,meet(complement(meet(A,B)),D)))) = zero.  [para(108(a,1),7(a,1)),flip(a)].
+
+given #868 (T,wt=12): 18046 join(complement(meet(A,a)),meet(b,join(B,a))) = one.  [para(6328(a,1),6(a,1)),flip(a)].
+
+given #869 (T,wt=12): 18109 join(complement(meet(A,a)),meet(b,join(A,B))) = one.  [para(6351(a,1),6(a,1)),flip(a)].
+
+given #870 (T,wt=12): 18183 join(complement(meet(a,A)),meet(b,join(B,A))) = one.  [para(6356(a,1),6(a,1)),flip(a)].
+
+given #871 (T,wt=12): 18863 meet(complement(A),join(meet(B,A),meet(A,C))) = zero.  [para(8470(a,1),5(a,1)),flip(a)].
+
+given #872 (A,wt=14): 362 meet(A,meet(B,meet(C,meet(D,complement(meet(A,B)))))) = zero.  [para(110(a,1),7(a,1)),flip(a)].
+
+given #873 (T,wt=12): 18916 meet(complement(A),join(meet(B,A),meet(C,A))) = zero.  [para(18(a,1),8471(a,1,1,1))].
+
+given #874 (T,wt=12): 18919 meet(complement(b),join(meet(A,b),meet(B,a))) = zero.  [para(181(a,1),8471(a,1,1,1))].
+
+given #875 (T,wt=12): 18920 meet(complement(b),join(meet(A,b),meet(a,B))) = zero.  [para(186(a,1),8471(a,1,1,1))].
+
+given #876 (T,wt=12): 19368 join(complement(A),meet(join(B,A),join(A,C))) = one.  [para(10648(a,1),6(a,1)),flip(a)].
+
+given #877 (A,wt=14): 366 meet(A,meet(B,meet(complement(join(meet(A,B),C)),D))) = zero.  [para(136(a,1),7(a,1)),flip(a)].
+
+given #878 (T,wt=12): 19392 join(complement(meet(A,B)),meet(B,join(C,A))) = one.  [para(10649(a,1),6(a,1)),flip(a)].
+
+given #879 (T,wt=12): 19495 join(complement(A),meet(join(B,A),join(C,A))) = one.  [para(19(a,1),10650(a,1,1,1))].
+
+given #880 (T,wt=12): 19499 join(complement(a),meet(join(A,a),join(b,B))) = one.  [para(117(a,1),10650(a,1,1,1))].
+
+given #881 (T,wt=12): 19500 join(complement(a),meet(join(A,a),join(B,b))) = one.  [para(124(a,1),10650(a,1,1,1))].
+
+given #882 (A,wt=14): 367 meet(join(A,B),meet(complement(join(A,join(B,C))),D)) = zero.  [para(8(a,1),136(a,1,2,1,1))].
+
+given #883 (T,wt=12): 19836 join(complement(a),meet(join(A,b),join(a,B))) = one.  [para(6(a,1),11372(a,1,2,1))].
+
+given #884 (T,wt=12): 19840 join(complement(a),meet(join(b,A),join(b,B))) = one.  [para(72(a,1),11372(a,1,2,2))].
+
+given #885 (T,wt=12): 19844 join(complement(a),meet(join(b,A),join(B,b))) = one.  [para(144(a,1),11372(a,1,2,2))].
+
+given #886 (T,wt=12): 19857 join(complement(a),meet(join(A,b),join(B,a))) = one.  [para(6(a,1),11388(a,1,2,1))].
+
+given #887 (A,wt=14): 369 meet(A,meet(B,meet(C,complement(join(meet(A,B),D))))) = zero.  [para(138(a,1),7(a,1)),flip(a)].
+
+given #888 (T,wt=12): 19874 meet(complement(b),join(meet(A,a),meet(b,B))) = zero.  [para(11761(a,1),5(a,1)),flip(a)].
+
+given #889 (T,wt=12): 19900 join(complement(meet(a,A)),meet(A,join(b,B))) = one.  [para(72(a,1),11927(a,1,2,2))].
+
+given #890 (T,wt=12): 19905 join(complement(meet(a,A)),meet(A,join(B,b))) = one.  [para(144(a,1),11927(a,1,2,2))].
+
+given #891 (T,wt=12): 20261 join(complement(a),meet(join(A,b),join(b,B))) = one.  [para(117(a,1),12102(a,1,1,1))].
+
+given #892 (A,wt=14): 370 meet(join(A,B),meet(C,complement(join(A,join(B,D))))) = zero.  [para(8(a,1),138(a,1,2,2,1))].
+
+given #893 (T,wt=12): 20262 join(complement(a),meet(join(A,b),join(B,b))) = one.  [para(124(a,1),12102(a,1,1,1))].
+
+given #894 (T,wt=12): 20532 join(complement(meet(a,A)),meet(b,join(A,B))) = one.  [para(13039(a,1),6(a,1)),flip(a)].
+
+given #895 (T,wt=12): 20570 join(complement(meet(A,a)),meet(b,join(B,A))) = one.  [para(13055(a,1),6(a,1)),flip(a)].
+
+given #896 (T,wt=12): 20585 meet(complement(b),join(meet(A,a),meet(B,b))) = zero.  [para(18(a,1),13185(a,1,1,1))].
+
+given #897 (A,wt=14): 372 meet(A,B) != zero | one != A | complement(meet(A,B)) = A.  [para(4(a,1),44(b,1)),rewrite([5(2),21(2)]),flip(b)].
+
+given #898 (T,wt=12): 20586 meet(complement(b),join(meet(A,a),meet(B,a))) = zero.  [para(181(a,1),13185(a,1,1,1))].
+
+given #899 (T,wt=12): 20587 meet(complement(b),join(meet(A,a),meet(a,B))) = zero.  [para(186(a,1),13185(a,1,1,1))].
+
+given #900 (T,wt=12): 20708 meet(complement(join(b,A)),join(A,meet(a,B))) = zero.  [para(6(a,1),13248(a,1,2))].
+
+given #901 (T,wt=12): 20709 meet(complement(b),join(meet(a,A),meet(B,a))) = zero.  [para(181(a,1),13248(a,1,1,1))].
+
+given #902 (A,wt=20): 373 meet(A,join(B,C)) != zero | join(B,join(C,A)) != one | complement(A) = join(B,C).  [para(8(a,1),44(b,1))].
+
+given #903 (T,wt=12): 20710 meet(complement(b),join(meet(a,A),meet(a,B))) = zero.  [para(186(a,1),13248(a,1,1,1))].
+
+given #904 (T,wt=12): 20954 meet(complement(join(b,A)),join(a,meet(A,B))) = zero.  [para(13554(a,1),5(a,1)),flip(a)].
+
+given #905 (T,wt=12): 20993 meet(complement(join(b,A)),join(a,meet(B,A))) = zero.  [para(13555(a,1),5(a,1)),flip(a)].
+
+given #906 (T,wt=12): 21147 join(complement(meet(a,A)),meet(b,join(a,B))) = one.  [para(14050(a,1),6(a,1)),flip(a)].
+
+given #907 (A,wt=14): 375 meet(A,B) != zero | one != B | complement(meet(A,B)) = B.  [para(18(a,1),44(b,1)),rewrite([5(2),22(2)]),flip(b)].
+
+given #908 (T,wt=12): 21161 join(complement(meet(a,A)),meet(b,join(B,a))) = one.  [para(14057(a,1),6(a,1)),flip(a)].
+
+Low Water (keep): wt=20.000, iters=6668
+
+given #909 (T,wt=12): 21250 meet(complement(join(b,A)),join(a,meet(b,B))) = zero.  [para(14573(a,1),5(a,1)),flip(a)].
+
+given #910 (T,wt=12): 21263 meet(complement(join(b,A)),join(a,meet(B,b))) = zero.  [para(14575(a,1),5(a,1)),flip(a)].
+
+given #911 (T,wt=13): 391 meet(A,complement(meet(A,B))) != zero | meet(A,B) = A.  [para(250(a,1),44(b,1)),rewrite([5(3),374(11)]),xx(b)].
+
+given #912 (A,wt=15): 377 meet(A,join(complement(A),B)) != zero | complement(join(complement(A),B)) = A.  [para(69(a,1),44(b,1)),rewrite([5(3)]),xx(b)].
+
+given #913 (T,wt=13): 392 meet(A,complement(meet(B,A))) != zero | meet(B,A) = A.  [para(261(a,1),44(b,1)),rewrite([5(3),374(11)]),xx(b)].
+
+given #914 (T,wt=13): 393 meet(b,complement(meet(A,a))) != zero | meet(A,a) = b.  [para(266(a,1),44(b,1)),rewrite([5(5),374(14)]),xx(b)].
+
+given #915 (T,wt=13): 394 meet(b,complement(meet(a,A))) != zero | meet(a,A) = b.  [para(277(a,1),44(b,1)),rewrite([5(5),374(14)]),xx(b)].
+
+given #916 (T,wt=13): 410 meet(complement(A),join(B,A)) != zero | join(B,A) = A.  [para(404(a,1),11(b,1)),rewrite([374(10)]),flip(c),xx(b)].
+
+given #917 (A,wt=15): 378 meet(A,join(B,complement(A))) != zero | complement(join(B,complement(A))) = A.  [para(94(a,1),44(b,1)),rewrite([5(3)]),xx(b)].
+
+given #918 (T,wt=13): 1096 meet(complement(a),join(A,b)) != zero | join(A,b) = a.  [para(1046(a,1),11(b,1)),rewrite([374(13)]),flip(c),xx(b)].
+
+given #919 (T,wt=13): 1461 join(A,join(B,meet(C,join(B,A)))) = join(A,B).  [para(6(a,1),62(a,1,2,2,2))].
+
+given #920 (T,wt=13): 1824 meet(A,meet(B,join(C,meet(B,A)))) = meet(A,B).  [para(5(a,1),77(a,1,2,2,2))].
+
+given #921 (T,wt=13): 1828 meet(a,meet(A,join(B,meet(b,A)))) = meet(a,A).  [para(77(a,1),57(a,1,2)),rewrite([57(4)]),flip(a)].
+
+given #922 (A,wt=14): 379 zero != A | join(A,B) != one | complement(join(A,B)) = A.  [para(29(a,1),44(b,1)),rewrite([5(2),3(2)]),flip(a)].
+
+given #923 (T,wt=13): 1857 meet(A,join(meet(B,C),meet(A,C))) = meet(A,C).  [back_rewrite(556),rewrite([1827(5),128(4)]),flip(a)].
+
+given #924 (T,wt=13): 2074 join(a,meet(b,join(a,A))) = meet(b,join(a,A)).  [para(3(a,1),123(a,1,1))].
+
+given #925 (T,wt=11): 22607 join(A,meet(b,join(a,A))) = join(A,a).  [para(2074(a,1),1461(a,1,2))].
+
+given #926 (T,wt=11): 22608 join(A,meet(b,join(A,a))) = join(A,a).  [para(6(a,1),22607(a,1,2,2))].
+
+given #927 (A,wt=14): 380 zero != A | join(B,A) != one | complement(join(B,A)) = A.  [para(30(a,1),44(b,1)),rewrite([5(2),19(2)]),flip(a)].
+
+given #928 (T,wt=13): 2080 join(a,meet(b,join(A,a))) = meet(b,join(A,a)).  [para(19(a,1),123(a,1,1))].
+
+Low Water (displace): id=1345, wt=99.000
+
+Low Water (displace): id=22713, wt=17.000
+
+given #929 (T,wt=13): 2102 meet(A,join(a,meet(b,join(B,A)))) = meet(b,A).  [back_rewrite(1784),rewrite([2074(7),243(6)]),flip(a)].
+
+given #930 (T,wt=13): 2105 meet(A,join(a,meet(b,join(A,B)))) = meet(b,A).  [back_rewrite(1366),rewrite([2074(7),306(6)]),flip(a)].
+
+Low Water (displace): id=22774, wt=16.000
+
+given #931 (T,wt=13): 2172 meet(a,meet(A,join(meet(A,b),B))) = meet(a,A).  [para(118(a,1),135(a,1,2)),rewrite([5(6),7(6),118(10)])].
+
+given #932 (A,wt=22): 381 meet(A,meet(B,C)) != zero | meet(A,B) != one | complement(meet(A,meet(B,C))) = meet(A,B).  [para(25(a,1),44(b,1)),rewrite([5(4),27(4),27(3),7(2),87(3),21(3)])].
+
+given #933 (T,wt=13): 2173 meet(join(A,join(B,C)),meet(D,B)) = meet(D,B).  [para(35(a,1),135(a,1,1))].
+
+Low Water (displace): id=22913, wt=15.000
+
+given #934 (T,wt=13): 2194 meet(join(A,join(B,C)),meet(D,C)) = meet(D,C).  [para(78(a,1),91(a,1,2,2)),rewrite([78(7)])].
+
+given #935 (T,wt=13): 2195 meet(join(A,join(B,b)),meet(C,a)) = meet(C,a).  [para(142(a,1),91(a,1,2,2)),rewrite([142(11)])].
+
+given #936 (T,wt=13): 2196 meet(join(A,join(b,B)),meet(C,a)) = meet(C,a).  [para(287(a,1),91(a,1,2,2)),rewrite([287(11)])].
+
+given #937 (A,wt=14): 382 meet(A,a) != zero | b != one | complement(meet(A,a)) = b.  [para(181(a,1),44(b,1)),rewrite([5(4),58(4)])].
+
+given #938 (T,wt=13): 2297 join(meet(A,meet(B,C)),meet(B,A)) = meet(A,B).  [para(151(a,1),33(a,2)),rewrite([7(3),2294(6)])].
+
+given #939 (T,wt=13): 2417 meet(A,meet(a,join(B,meet(b,A)))) = meet(A,a).  [para(185(a,1),78(a,1,2,2)),rewrite([7(6)])].
+
+given #940 (T,wt=13): 2432 meet(complement(A),join(A,B)) != zero | join(A,B) = A.  [para(374(a,1),96(a,1,2,1)),rewrite([374(7),374(8)])].
+
+given #941 (T,wt=13): 2490 join(A,join(b,meet(B,join(A,a)))) = join(A,b).  [para(198(a,1),60(a,1,2,2)),rewrite([8(6)])].
+
+given #942 (A,wt=14): 383 meet(a,A) != zero | b != one | complement(meet(a,A)) = b.  [para(186(a,1),44(b,1)),rewrite([5(4),27(4),57(4)])].
+
+given #943 (T,wt=13): 2509 meet(join(A,B),join(C,join(B,A))) = join(A,B).  [para(199(a,1),13(a,2,2,2)),rewrite([8(6),1461(6),199(4),19(8)])].
+
+given #944 (T,wt=13): 2525 meet(join(A,join(B,C)),join(B,A)) = join(B,A).  [para(199(a,1),135(a,1,2)),rewrite([8(2),199(7)])].
+
+given #945 (T,wt=13): 2590 join(A,meet(B,meet(C,meet(D,meet(E,A))))) = A.  [para(7(a,1),202(a,1,2,2,2))].
+
+given #946 (T,wt=13): 2601 join(A,meet(B,meet(C,meet(D,meet(A,E))))) = A.  [para(202(a,1),33(a,1,2)),rewrite([4(2)]),flip(a)].
+
+given #947 (A,wt=18): 384 meet(A,meet(B,C)) != zero | one != C | complement(meet(A,meet(B,C))) = C.  [para(60(a,1),44(b,1)),rewrite([5(3),91(3)]),flip(b)].
+
+given #948 (T,wt=13): 2628 join(b,meet(A,meet(B,meet(C,meet(D,a))))) = b.  [para(202(a,1),188(a,1,2)),rewrite([181(4)]),flip(a)].
+
+given #949 (T,wt=13): 2629 join(b,meet(A,meet(B,meet(C,meet(a,D))))) = b.  [para(202(a,1),190(a,1,2)),rewrite([186(4)]),flip(a)].
+
+given #950 (T,wt=13): 2665 meet(A,join(B,join(C,join(D,join(E,A))))) = A.  [para(8(a,1),239(a,1,2,2,2))].
+
+given #951 (T,wt=13): 2668 meet(A,join(B,join(C,join(D,join(A,E))))) = A.  [para(239(a,1),24(a,1,2)),rewrite([3(2)]),flip(a)].
+
+given #952 (A,wt=14): 385 zero != a | join(b,A) != one | complement(join(b,A)) = a.  [para(72(a,1),44(b,1)),rewrite([5(4),117(4)]),flip(a)].
+
+given #953 (T,wt=13): 2696 meet(a,join(A,join(B,join(C,join(b,D))))) = a.  [para(239(a,1),139(a,1,2)),rewrite([117(4)]),flip(a)].
+
+given #954 (T,wt=13): 2697 meet(a,join(A,join(B,join(C,join(D,b))))) = a.  [para(239(a,1),141(a,1,2)),rewrite([124(4)]),flip(a)].
+
+given #955 (T,wt=13): 2727 meet(a,meet(A,join(B,meet(A,b)))) = meet(a,A).  [para(247(a,1),78(a,1,2,2)),rewrite([7(6)])].
+
+given #956 (T,wt=13): 2762 join(meet(A,meet(B,C)),join(D,B)) = join(D,B).  [para(27(a,1),255(a,1,1))].
+
+given #957 (A,wt=15): 387 meet(b,join(complement(a),A)) != zero | complement(join(complement(a),A)) = b.  [para(217(a,1),44(b,1)),rewrite([5(5)]),xx(b)].
+
+given #958 (T,wt=13): 2767 join(b,join(A,meet(join(A,a),B))) = join(b,A).  [para(231(a,1),255(a,1,2)),rewrite([35(6),6(5),231(10)])].
+
+given #959 (T,wt=11): 23804 join(b,meet(join(a,meet(b,A)),B)) = b.  [para(4(a,1),2767(a,2)),rewrite([6(7),33(10)])].
+
+given #960 (T,wt=11): 23805 join(b,meet(join(a,meet(A,b)),B)) = b.  [para(18(a,1),2767(a,2)),rewrite([6(7),61(10)])].
+
+Low Water (displace): id=23986, wt=14.000
+
+given #961 (T,wt=11): 23894 join(b,meet(A,join(a,meet(b,B)))) = b.  [para(5(a,1),23804(a,1,2))].
+
+given #962 (A,wt=26): 388 meet(A,join(B,meet(join(A,B),C))) != zero | join(A,B) != one | complement(join(B,meet(join(A,B),C))) = A.  [para(32(a,1),44(b,1)),rewrite([5(4)])].
+
+given #963 (T,wt=11): 23947 join(b,meet(A,join(a,meet(B,b)))) = b.  [para(5(a,1),23805(a,1,2))].
+
+given #964 (T,wt=13): 2773 join(meet(A,meet(B,C)),join(D,C)) = join(D,C).  [para(91(a,1),255(a,1,1))].
+
+given #965 (T,wt=13): 2775 join(meet(A,meet(a,B)),meet(b,A)) = meet(b,A).  [para(185(a,1),255(a,1,2)),rewrite([7(3),185(11)])].
+
+given #966 (T,wt=13): 2778 join(meet(a,meet(A,B)),meet(A,b)) = meet(A,b).  [para(247(a,1),255(a,1,2)),rewrite([7(3),247(11)])].
+
+given #967 (A,wt=15): 389 meet(b,join(A,complement(a))) != zero | complement(join(A,complement(a))) = b.  [para(219(a,1),44(b,1)),rewrite([5(5)]),xx(b)].
+
+given #968 (T,wt=13): 2876 join(A,join(b,meet(B,join(a,A)))) = join(A,b).  [para(314(a,1),60(a,1,2,2)),rewrite([8(6)])].
+
+given #969 (T,wt=13): 2897 meet(join(A,join(b,B)),join(a,A)) = join(a,A).  [para(314(a,1),135(a,1,2)),rewrite([8(3),314(11)])].
+
+given #970 (T,wt=13): 2930 meet(A,meet(a,join(meet(A,b),B))) = meet(A,a).  [para(58(a,1),104(a,1,2)),rewrite([5(5),5(9),15(9)])].
+
+given #971 (T,wt=13): 3005 meet(b,join(a,meet(b,A))) = join(a,meet(b,A)).  [para(4(a,1),334(a,1,2)),rewrite([6(4),5(6),6(10)])].
+
+given #972 (A,wt=22): 390 meet(A,join(meet(A,B),C)) != zero | join(A,C) != one | complement(join(meet(A,B),C)) = A.  [para(33(a,1),44(b,1)),rewrite([5(3)])].
+
+given #973 (T,wt=13): 3007 meet(b,join(a,meet(A,b))) = join(a,meet(A,b)).  [para(18(a,1),334(a,1,2)),rewrite([6(4),5(6),6(10)])].
+
+given #974 (T,wt=13): 3008 join(b,join(A,meet(B,join(A,a)))) = join(b,A).  [para(334(a,1),60(a,1,2,2)),rewrite([8(6)])].
+
+given #975 (T,wt=13): 3028 meet(join(b,join(A,B)),join(A,a)) = join(A,a).  [para(334(a,1),135(a,1,2)),rewrite([8(3),334(11)])].
+
+given #976 (T,wt=13): 3135 join(meet(A,meet(B,C)),meet(C,B)) = meet(C,B).  [para(151(a,1),1414(a,1,2)),rewrite([151(7)])].
+
+given #977 (A,wt=20): 395 meet(join(A,B),C) != zero | join(A,join(C,B)) != one | complement(join(A,B)) = C.  [para(35(a,1),44(b,1))].
+
+given #978 (T,wt=13): 3140 join(meet(A,meet(B,a)),meet(b,B)) = meet(b,B).  [para(185(a,1),1414(a,1,2)),rewrite([185(11)])].
+
+given #979 (T,wt=13): 3144 join(meet(A,meet(a,B)),meet(B,b)) = meet(B,b).  [para(247(a,1),1414(a,1,2)),rewrite([247(11)])].
+
+given #980 (T,wt=13): 3370 meet(join(A,a),join(B,join(A,b))) = join(A,a).  [para(198(a,1),1752(a,1,2)),rewrite([5(6),198(11)])].
+
+given #981 (T,wt=13): 3371 meet(join(A,join(B,C)),join(C,B)) = join(C,B).  [para(199(a,1),1752(a,1,2)),rewrite([199(7)])].
+
+given #982 (A,wt=14): 396 zero != a | join(A,b) != one | complement(join(A,b)) = a.  [para(144(a,1),44(b,1)),rewrite([5(4),124(4)]),flip(a)].
+
+given #983 (T,wt=13): 3378 meet(join(A,join(B,b)),join(a,B)) = join(a,B).  [para(314(a,1),1752(a,1,2)),rewrite([314(11)])].
+
+given #984 (T,wt=13): 3382 meet(join(A,join(b,B)),join(B,a)) = join(B,a).  [para(334(a,1),1752(a,1,2)),rewrite([334(11)])].
+
+given #985 (T,wt=13): 3634 meet(A,meet(a,join(B,meet(A,b)))) = meet(A,a).  [para(2360(a,1),134(a,1,2,2)),rewrite([7(6)])].
+
+given #986 (T,wt=13): 3661 join(meet(A,meet(B,a)),join(C,b)) = join(C,b).  [para(7(a,1),2440(a,1,1))].
+
+given #987 (A,wt=18): 397 meet(A,meet(B,C)) != zero | one != B | complement(meet(A,meet(B,C))) = B.  [para(164(a,1),44(b,1)),rewrite([5(3),87(3)]),flip(b)].
+
+given #988 (T,wt=13): 3671 join(meet(A,meet(a,B)),join(C,b)) = join(C,b).  [para(27(a,1),2463(a,1,1))].
+
+given #989 (T,wt=13): 3689 join(b,join(A,meet(B,join(a,A)))) = join(b,A).  [para(2872(a,1),60(a,1,2,2)),rewrite([8(6)])].
+
+given #990 (T,wt=13): 3702 meet(join(a,A),join(b,join(A,B))) = join(a,A).  [para(2872(a,1),135(a,1,2)),rewrite([8(3),5(6),2872(11)])].
+
+given #991 (T,wt=13): 3705 meet(join(a,A),join(B,join(b,A))) = join(a,A).  [para(2872(a,1),1752(a,1,2)),rewrite([5(6),2872(11)])].
+
+given #992 (A,wt=19): 398 meet(A,join(B,complement(join(A,B)))) != zero | complement(join(B,complement(join(A,B)))) = A.  [para(38(a,1),44(b,1)),rewrite([5(4)]),xx(b)].
+
+given #993 (T,wt=13): 3802 join(meet(b,A),meet(A,meet(a,B))) = meet(b,A).  [para(119(a,1),25(a,1,2))].
+
+given #994 (T,wt=13): 4223 meet(A,meet(a,join(meet(b,A),B))) = meet(a,A).  [para(126(a,1),27(a,1)),flip(a)].
+
+given #995 (T,wt=13): 4226 meet(a,join(meet(b,join(A,join(B,a))),C)) = a.  [para(78(a,1),126(a,2)),rewrite([237(12)])].
+
+given #996 (T,wt=13): 4229 meet(a,join(meet(b,join(A,join(a,B))),C)) = a.  [para(134(a,1),126(a,2)),rewrite([286(12)])].
+
+given #997 (A,wt=18): 399 meet(a,meet(A,B)) != zero | b != one | complement(meet(A,meet(B,a))) = b.  [para(187(a,1),44(b,1)),rewrite([5(5),182(5)])].
+
+given #998 (T,wt=13): 4293 meet(a,join(A,join(meet(b,join(a,B)),C))) = a.  [para(35(a,1),4215(a,1,2))].
+
+given #999 (T,wt=13): 4317 meet(a,join(A,join(B,meet(b,join(a,C))))) = a.  [para(115(a,1),4215(a,1,2))].
+
+given #1000 (T,wt=13): 4332 meet(a,join(A,join(meet(b,join(B,a)),C))) = a.  [para(35(a,1),4219(a,1,2))].
+
+given #1001 (T,wt=13): 4356 meet(a,join(A,join(B,meet(b,join(C,a))))) = a.  [para(115(a,1),4219(a,1,2))].
+
+given #1002 (A,wt=18): 400 meet(A,meet(a,B)) != zero | b != one | complement(meet(A,meet(a,B))) = b.  [para(192(a,1),44(b,1)),rewrite([5(5),119(5)])].
+
+given #1003 (T,wt=13): 4376 meet(a,join(A,meet(b,join(B,join(a,C))))) = a.  [para(35(a,1),4287(a,1,2,2,2))].
+
+given #1004 (T,wt=13): 4396 meet(a,join(A,meet(b,join(B,join(C,a))))) = a.  [para(115(a,1),4287(a,1,2,2,2))].
+
+given #1005 (T,wt=13): 5383 meet(A,join(meet(join(A,B),join(A,C)),D)) = A.  [para(137(a,1),24(a,1)),rewrite([3(2)]),flip(a)].
+
+given #1006 (T,wt=13): 5422 meet(A,join(meet(join(A,B),join(C,A)),D)) = A.  [para(137(a,1),76(a,1)),rewrite([19(2)]),flip(a)].
+
+given #1007 (A,wt=18): 401 meet(b,join(A,a)) != zero | join(b,A) != one | complement(join(A,a)) = b.  [para(231(a,1),44(b,1)),rewrite([5(4)])].
+
+given #1008 (T,wt=13): 5427 meet(a,join(meet(join(a,A),join(b,B)),C)) = a.  [para(137(a,1),139(a,1)),rewrite([117(4)]),flip(a)].
+
+given #1009 (T,wt=13): 5429 meet(a,join(meet(join(a,A),join(B,b)),C)) = a.  [para(137(a,1),141(a,1)),rewrite([124(4)]),flip(a)].
+
+given #1010 (T,wt=13): 5546 join(meet(b,A),meet(A,meet(B,a))) = meet(A,b).  [para(58(a,1),145(a,1,2,2))].
+
+given #1011 (T,wt=13): 5560 join(meet(A,b),meet(A,meet(a,B))) = meet(b,A).  [para(119(a,1),145(a,1,2))].
+
+given #1012 (A,wt=19): 402 meet(A,join(B,join(complement(A),C))) != zero | complement(join(B,join(complement(A),C))) = A.  [para(99(a,1),44(b,1)),rewrite([5(4)]),xx(b)].
+
+given #1013 (T,wt=13): 5637 join(meet(A,B),meet(C,meet(B,A))) = meet(A,B).  [para(5(a,1),146(a,1,2)),rewrite([7(3)])].
+
+given #1014 (T,wt=13): 5705 meet(A,join(meet(B,C),meet(A,B))) = meet(A,B).  [back_rewrite(554),rewrite([5664(5),128(4)]),flip(a)].
+
+given #1015 (T,wt=13): 5759 join(meet(A,meet(B,C)),meet(C,A)) = meet(C,A).  [para(147(a,1),6(a,1)),flip(a)].
+
+given #1016 (T,wt=13): 5974 join(meet(b,A),meet(a,meet(A,B))) = meet(b,A).  [para(185(a,1),149(a,1,2)),rewrite([25(6),5(7)]),flip(a)].
+
+given #1017 (A,wt=19): 403 meet(A,join(B,join(C,complement(A)))) != zero | complement(join(B,join(C,complement(A)))) = A.  [para(101(a,1),44(b,1)),rewrite([5(4)]),xx(b)].
+
+given #1018 (T,wt=10): 26343 join(A,B) != zero | join(B,A) = zero.  [para(193(a,1),403(a,1)),rewrite([318(7),75(5)]),flip(b)].
+
+given #1019 (T,wt=10): 26346 meet(A,B) != zero | meet(B,A) = zero.  [para(151(a,1),26343(a,1)),rewrite([151(6)])].
+
+given #1020 (T,wt=13): 7017 join(meet(b,A),meet(a,meet(B,A))) = meet(b,A).  [para(170(a,1),60(a,1,2))].
+
+given #1021 (T,wt=13): 7630 join(meet(A,b),meet(a,meet(A,B))) = meet(b,A).  [para(182(a,1),145(a,1,2))].
+
+given #1022 (A,wt=14): 411 join(A,join(B,complement(join(B,meet(join(A,B),C))))) = one.  [para(32(a,1),404(a,1,2)),rewrite([6(6),8(6)])].
+
+given #1023 (T,wt=13): 7813 join(meet(A,b),meet(B,meet(A,a))) = meet(A,b).  [para(27(a,1),184(a,1,2))].
+
+given #1024 (T,wt=13): 8184 meet(join(a,A),join(A,join(b,B))) = join(A,a).  [para(72(a,1),193(a,1,2,2))].
+
+given #1025 (T,wt=13): 8187 meet(join(a,A),join(A,join(B,b))) = join(A,a).  [para(144(a,1),193(a,1,2,2))].
+
+given #1026 (T,wt=13): 8372 meet(join(A,join(B,C)),join(C,A)) = join(C,A).  [para(195(a,1),5(a,1)),flip(a)].
+
+given #1027 (A,wt=15): 414 meet(join(A,B),complement(B)) != zero | complement(join(A,B)) = complement(B).  [para(404(a,1),44(b,1)),xx(b)].
+
+given #1028 (T,wt=13): 9941 join(meet(b,A),meet(B,meet(A,a))) = meet(b,A).  [para(5(a,1),208(a,1,2,2))].
+
+given #1029 (T,wt=13): 9942 join(meet(A,meet(a,B)),meet(b,B)) = meet(b,B).  [para(208(a,1),6(a,1)),flip(a)].
+
+given #1030 (T,wt=13): 10010 meet(A,join(meet(B,a),meet(A,b))) = meet(A,b).  [back_rewrite(564),rewrite([9961(8),128(6)]),flip(a)].
+
+given #1031 (T,wt=13): 10901 meet(join(A,a),join(b,join(B,A))) = join(A,a).  [para(6(a,1),216(a,1,2)),rewrite([8(5)])].
+
+given #1032 (A,wt=14): 416 meet(A,meet(B,complement(meet(B,join(meet(A,B),C))))) = zero.  [para(23(a,1),405(a,1,2)),rewrite([5(6),7(6)])].
+
+given #1033 (T,wt=13): 10907 meet(join(A,a),join(b,join(A,B))) = join(A,a).  [para(35(a,1),216(a,1,2))].
+
+given #1034 (T,wt=13): 11212 join(A,join(b,meet(join(A,a),B))) = join(A,b).  [para(66(a,1),222(a,2,2)),rewrite([6(6),72(7)])].
+
+given #1035 (T,wt=13): 13462 join(meet(A,b),meet(a,meet(B,A))) = meet(A,b).  [para(245(a,1),60(a,1,2))].
+
+given #1036 (T,wt=13): 13978 join(meet(a,meet(A,B)),meet(b,A)) = meet(b,A).  [para(123(a,1),252(a,1,1)),rewrite([7(5),19(9),7(5)]),flip(a)].
+
+given #1037 (A,wt=18): 421 meet(A,B) != zero | join(C,A) != one | complement(join(C,A)) = meet(A,B).  [para(4(a,1),45(b,1,2)),rewrite([27(3),76(3)])].
+
+given #1038 (T,wt=13): 14301 join(A,meet(join(meet(A,B),meet(A,C)),D)) = A.  [para(259(a,1),33(a,1)),rewrite([4(2)]),flip(a)].
+
+given #1039 (T,wt=13): 14313 join(A,meet(join(meet(A,B),meet(C,A)),D)) = A.  [para(259(a,1),61(a,1)),rewrite([18(2)]),flip(a)].
+
+given #1040 (T,wt=13): 14321 join(b,meet(join(meet(b,A),meet(B,a)),C)) = b.  [para(259(a,1),188(a,1)),rewrite([181(4)]),flip(a)].
+
+given #1041 (T,wt=13): 14322 join(b,meet(join(meet(b,A),meet(a,B)),C)) = b.  [para(259(a,1),190(a,1)),rewrite([186(4)]),flip(a)].
+
+given #1042 (A,wt=20): 422 meet(join(A,B),C) != zero | join(B,join(C,A)) != one | complement(join(A,B)) = C.  [para(6(a,1),45(b,1)),rewrite([8(6)])].
+
+given #1043 (T,wt=13): 15287 meet(A,join(meet(complement(A),B),meet(complement(A),C))) = zero.  [para(374(a,1),3906(a,1,2)),rewrite([5(6)])].
+
+given #1044 (T,wt=13): 15371 meet(A,join(meet(complement(A),B),meet(C,complement(A)))) = zero.  [para(374(a,1),3910(a,1,2)),rewrite([5(6)])].
+
+given #1045 (T,wt=13): 15626 meet(complement(a),join(b,A)) != zero | join(b,A) = a.  [para(217(a,1),284(b,1)),rewrite([374(13)]),flip(c),xx(b)].
+
+given #1046 (T,wt=13): 16017 join(A,meet(join(complement(A),B),join(complement(A),C))) = one.  [para(374(a,1),4050(a,1,2)),rewrite([6(6)])].
+
+given #1047 (A,wt=26): 423 meet(join(A,join(B,C)),D) != zero | join(A,join(B,join(C,D))) != one | complement(join(A,join(B,C))) = D.  [para(8(a,1),45(b,1,2))].
+
+given #1048 (T,wt=13): 16131 join(A,meet(join(complement(A),B),join(C,complement(A)))) = one.  [para(374(a,1),4055(a,1,2)),rewrite([6(6)])].
+
+given #1049 (T,wt=13): 17684 join(b,join(A,meet(join(a,A),B))) = join(b,A).  [para(298(a,1),72(a,1)),rewrite([35(4),72(4)]),flip(a)].
+
+given #1050 (T,wt=13): 18131 meet(join(a,A),join(B,join(A,b))) = join(a,A).  [para(144(a,1),304(a,1,2,2))].
+
+given #1051 (T,wt=13): 18644 join(A,join(b,meet(join(a,A),B))) = join(A,b).  [para(310(a,1),222(a,1)),rewrite([6(5),144(10)])].
+
+given #1052 (A,wt=18): 426 meet(b,join(A,a)) != zero | join(A,b) != one | complement(join(A,a)) = b.  [para(66(a,1),45(b,1,2)),rewrite([5(4)])].
+
+given #1053 (T,wt=13): 18866 meet(A,join(meet(B,complement(A)),meet(complement(A),C))) = zero.  [para(374(a,1),8470(a,1,2)),rewrite([5(6)])].
+
+given #1054 (T,wt=13): 18966 join(A,complement(join(B,A))) != one | join(B,A) = A.  [para(8471(a,1),251(a,1)),rewrite([6(6),374(11),5(12),130(12),70(11)]),xx(a)].
+
+given #1055 (T,wt=13): 18980 meet(A,join(meet(B,complement(A)),meet(C,complement(A)))) = zero.  [para(374(a,1),8474(a,1,2)),rewrite([5(6)])].
+
+given #1056 (T,wt=13): 19373 join(A,meet(join(B,complement(A)),join(complement(A),C))) = one.  [para(374(a,1),10648(a,1,2)),rewrite([6(6)])].
+
+given #1057 (A,wt=19): 428 meet(join(A,B),join(complement(B),C)) != zero | complement(join(A,B)) = join(complement(B),C).  [para(69(a,1),45(b,1,2)),rewrite([81(8)]),xx(b)].
+
+given #1058 (T,wt=13): 19575 join(A,meet(join(B,complement(A)),join(C,complement(A)))) = one.  [para(374(a,1),10654(a,1,2)),rewrite([6(6)])].
+
+given #1059 (T,wt=13): 20461 meet(join(a,A),join(b,join(B,A))) = join(a,A).  [para(332(a,1),78(a,1,2))].
+
+given #1060 (T,wt=13): 21365 join(A,complement(join(A,B))) != one | join(A,B) = A.  [para(15151(a,1),251(a,1)),rewrite([6(6),374(11),5(12),154(12),70(11)]),xx(a)].
+
+given #1061 (T,wt=9): 27739 join(a,complement(b)) != one | b = a.  [para(66(a,1),21365(a,1,2,1)),rewrite([66(9)])].
+
+given #1062 (A,wt=19): 429 meet(join(A,B),join(C,complement(B))) != zero | complement(join(A,B)) = join(C,complement(B)).  [para(94(a,1),45(b,1,2)),rewrite([81(8)]),xx(b)].
+
+Low Water (keep): wt=19.000, iters=11662
+
+given #1063 (F,wt=11): 27737 join(complement(a),complement(join(complement(a),complement(b)))) != one # answer(prove_distributivity).  [ur(21365,b,17,a)].
+
+given #1064 (F,wt=12): 27756 complement(join(complement(a),complement(join(complement(a),complement(b))))) != zero # answer(prove_distributivity).  [ur(3798,b,27737,a),rewrite([6(9)])].
+
+given #1065 (T,wt=13): 21724 join(complement(A),meet(A,B)) != one | meet(A,B) = A.  [para(18863(a,1),251(a,1)),rewrite([374(10),5(10),10(10),70(11)]),flip(c),xx(a)].
+
+given #1066 (T,wt=13): 21769 join(complement(A),meet(B,A)) != one | meet(B,A) = A.  [para(18916(a,1),251(a,1)),rewrite([374(10),5(10),10(10),70(11)]),flip(c),xx(a)].
+
+given #1067 (T,wt=13): 21773 join(complement(b),meet(A,a)) != one | meet(A,a) = b.  [para(18919(a,1),251(a,1)),rewrite([374(13),5(15),10(15),70(15)]),flip(c),xx(a)].
+
+given #1068 (T,wt=13): 21775 join(complement(b),meet(a,A)) != one | meet(a,A) = b.  [para(18920(a,1),251(a,1)),rewrite([374(13),5(15),10(15),70(15)]),flip(c),xx(a)].
+
+given #1069 (A,wt=15): 430 meet(join(A,B),complement(A)) != zero | complement(join(A,B)) = complement(A).  [para(94(a,1),45(b,1)),xx(b)].
+
+given #1070 (T,wt=13): 22191 meet(A,complement(meet(B,A))) != zero | meet(A,B) = A.  [para(5(a,1),391(a,1,2,1))].
+
+given #1071 (T,wt=13): 22200 meet(join(A,B),complement(A)) != zero | join(A,B) = A.  [para(3(a,1),392(a,1,2,1)),rewrite([3(7)]),flip(b)].
+
+given #1072 (T,wt=13): 22201 meet(A,complement(meet(A,B))) != zero | meet(B,A) = A.  [para(5(a,1),392(a,1,2,1))].
+
+given #1073 (T,wt=13): 22202 meet(join(A,B),complement(B)) != zero | join(A,B) = B.  [para(19(a,1),392(a,1,2,1)),rewrite([19(7)]),flip(b)].
+
+given #1074 (A,wt=24): 431 meet(join(A,B),join(B,C)) != zero | join(A,join(B,C)) != one | complement(join(A,B)) = join(B,C).  [para(29(a,1),45(b,1,2))].
+
+given #1075 (T,wt=13): 22203 meet(join(b,A),complement(a)) != zero | join(b,A) = a.  [para(117(a,1),392(a,1,2,1)),rewrite([117(11)]),flip(b)].
+
+given #1076 (T,wt=13): 22204 meet(join(A,b),complement(a)) != zero | join(A,b) = a.  [para(124(a,1),392(a,1,2,1)),rewrite([124(11)]),flip(b)].
+
+given #1077 (T,wt=13): 22209 meet(b,complement(meet(a,A))) != zero | meet(A,a) = b.  [para(5(a,1),393(a,1,2,1))].
+
+given #1078 (T,wt=13): 22211 meet(b,complement(meet(A,a))) != zero | meet(a,A) = b.  [para(5(a,1),394(a,1,2,1))].
+
+given #1079 (A,wt=24): 432 meet(join(A,B),join(C,B)) != zero | join(A,join(C,B)) != one | complement(join(A,B)) = join(C,B).  [para(30(a,1),45(b,1,2))].
+
+given #1080 (T,wt=13): 22213 meet(complement(A),join(A,B)) != zero | join(B,A) = A.  [para(6(a,1),410(a,1,2))].
+
+given #1081 (T,wt=13): 22216 meet(complement(a),join(b,A)) != zero | join(A,b) = a.  [para(6(a,1),1096(a,1,2))].
+
+given #1082 (T,wt=13): 22481 meet(A,join(meet(B,C),meet(C,A))) = meet(A,C).  [para(5(a,1),1857(a,1,2,2))].
+
+given #1083 (T,wt=13): 22482 meet(A,join(meet(A,B),meet(C,B))) = meet(A,B).  [para(6(a,1),1857(a,1,2))].
+
+given #1084 (A,wt=14): 433 zero != A | join(B,A) != one | complement(join(A,B)) = A.  [para(30(a,1),45(b,1)),rewrite([5(2),3(2)]),flip(a)].
+
+given #1085 (T,wt=13): 22487 meet(a,join(meet(A,B),meet(b,B))) = meet(a,B).  [para(1857(a,1),57(a,1,2)),rewrite([57(4)]),flip(a)].
+
+given #1086 (T,wt=13): 22612 join(A,meet(b,join(a,meet(A,B)))) = join(A,a).  [para(22607(a,1),33(a,1,2)),rewrite([6(3),249(4)]),flip(a)].
+
+given #1087 (T,wt=13): 22617 join(A,meet(b,join(a,meet(B,A)))) = join(A,a).  [para(22607(a,1),61(a,1,2)),rewrite([6(3),201(4)]),flip(a)].
+
+given #1088 (T,wt=13): 22830 meet(a,join(meet(A,b),meet(A,B))) = meet(a,A).  [para(13(a,1),2172(a,1,2)),rewrite([11645(6)])].
+
+given #1089 (A,wt=18): 436 meet(a,A) != zero | join(B,b) != one | complement(join(B,b)) = meet(a,A).  [para(186(a,1),45(b,1,2)),rewrite([27(5),141(5)])].
+
+given #1090 (T,wt=13): 23072 join(meet(A,meet(B,a)),meet(b,A)) = meet(A,b).  [para(58(a,1),2297(a,1,1,2))].
+
+given #1091 (T,wt=13): 23147 meet(complement(A),join(B,A)) != zero | join(A,B) = A.  [para(6(a,1),2432(a,1,2))].
+
+given #1092 (T,wt=13): 23262 meet(join(A,join(B,b)),join(a,A)) = join(a,A).  [para(144(a,1),2525(a,1,1,2))].
+
+given #1093 (T,wt=13): 23808 join(b,meet(join(a,meet(A,meet(B,b))),C)) = b.  [para(60(a,1),2767(a,2)),rewrite([6(9),203(12)])].
+
+given #1094 (A,wt=24): 438 meet(join(A,a),join(b,B)) != zero | join(A,join(b,B)) != one | complement(join(A,a)) = join(b,B).  [para(72(a,1),45(b,1,2))].
+
+given #1095 (T,wt=13): 23811 join(b,meet(join(a,meet(A,meet(b,B))),C)) = b.  [para(164(a,1),2767(a,2)),rewrite([6(9),257(12)])].
+
+given #1096 (T,wt=13): 23897 join(b,meet(A,meet(join(a,meet(b,B)),C))) = b.  [para(27(a,1),23804(a,1,2))].
+
+given #1097 (T,wt=13): 23902 join(b,meet(A,meet(B,join(a,meet(b,C))))) = b.  [para(91(a,1),23804(a,1,2))].
+
+given #1098 (T,wt=13): 23950 join(b,meet(A,meet(join(a,meet(B,b)),C))) = b.  [para(27(a,1),23805(a,1,2))].
+
+given #1099 (A,wt=15): 439 meet(join(A,b),complement(a)) != zero | complement(join(A,b)) = complement(a).  [para(215(a,1),45(b,1,2)),rewrite([81(9)]),xx(b)].
+
+given #1100 (T,wt=13): 23955 join(b,meet(A,meet(B,join(a,meet(C,b))))) = b.  [para(91(a,1),23805(a,1,2))].
+
+given #1101 (T,wt=13): 24002 join(b,meet(A,join(a,meet(B,meet(b,C))))) = b.  [para(27(a,1),23894(a,1,2,2,2))].
+
+given #1102 (T,wt=13): 24005 join(b,meet(A,join(a,meet(B,meet(C,b))))) = b.  [para(91(a,1),23894(a,1,2,2,2))].
+
+given #1103 (T,wt=13): 24183 join(meet(a,meet(A,B)),meet(b,B)) = meet(b,B).  [para(5(a,1),2775(a,1,1)),rewrite([7(3)])].
+
+given #1104 (A,wt=19): 440 meet(join(A,b),join(complement(a),B)) != zero | complement(join(A,b)) = join(complement(a),B).  [para(217(a,1),45(b,1,2)),rewrite([81(10)]),xx(b)].
+
+given #1105 (T,wt=13): 24224 join(meet(a,meet(A,B)),meet(B,b)) = meet(B,b).  [para(5(a,1),2778(a,1,1,2))].
+
+given #1106 (T,wt=13): 24638 meet(join(b,join(A,B)),join(B,a)) = join(B,a).  [para(6(a,1),3028(a,1,1,2))].
+
+given #1107 (T,wt=13): 24728 join(meet(A,meet(B,a)),meet(B,b)) = meet(b,B).  [para(5(a,1),3140(a,1,2))].
+
+given #1108 (T,wt=13): 25261 meet(a,join(meet(b,A),meet(A,B))) = meet(a,A).  [para(4223(a,1),166(a,1)),rewrite([11647(8)]),flip(a)].
+
+given #1109 (A,wt=32): 441 meet(join(A,B),join(C,meet(join(B,C),D))) != zero | join(A,join(B,C)) != one | complement(join(A,B)) = join(C,meet(join(B,C),D)).  [para(32(a,1),45(b,1,2))].
+
+given #1110 (T,wt=13): 25435 meet(a,join(A,meet(join(b,B),join(a,C)))) = a.  [para(133(a,1),4293(a,1,2,2))].
+
+given #1111 (T,wt=13): 25532 meet(a,join(A,meet(join(b,B),join(C,a)))) = a.  [para(133(a,1),4332(a,1,2,2))].
+
+given #1112 (T,wt=13): 25745 meet(A,join(meet(join(B,A),join(A,C)),D)) = A.  [para(6(a,1),5383(a,1,2,1,1))].
+
+given #1113 (T,wt=13): 25746 meet(A,join(B,meet(join(A,C),join(A,D)))) = A.  [para(6(a,1),5383(a,1,2))].
+
+given #1114 (A,wt=22): 442 meet(join(A,B),C) != zero | join(A,B) != one | complement(join(A,B)) = meet(join(A,B),C).  [para(32(a,1),45(b,1)),rewrite([21(4)])].
+
+given #1115 (T,wt=13): 25748 meet(a,join(meet(join(b,A),join(b,B)),C)) = a.  [para(5383(a,1),57(a,1,2)),rewrite([15(3)]),flip(a)].
+
+given #1116 (T,wt=13): 25750 meet(a,join(meet(join(b,A),join(a,B)),C)) = a.  [para(72(a,1),5383(a,1,2,1,1))].
+
+given #1117 (T,wt=13): 25753 meet(a,join(meet(join(A,b),join(a,B)),C)) = a.  [para(144(a,1),5383(a,1,2,1,1))].
+
+given #1118 (T,wt=13): 25838 meet(A,join(meet(join(B,A),join(C,A)),D)) = A.  [para(6(a,1),5422(a,1,2,1,1))].
+
+given #1119 (A,wt=19): 443 meet(join(A,b),join(B,complement(a))) != zero | complement(join(A,b)) = join(B,complement(a)).  [para(219(a,1),45(b,1,2)),rewrite([81(10)]),xx(b)].
+
+given #1120 (T,wt=13): 25839 meet(A,join(B,meet(join(A,C),join(D,A)))) = A.  [para(6(a,1),5422(a,1,2))].
+
+given #1121 (T,wt=13): 25841 meet(a,join(meet(join(b,A),join(B,b)),C)) = a.  [para(5422(a,1),57(a,1,2)),rewrite([15(3)]),flip(a)].
+
+given #1122 (T,wt=13): 25844 meet(a,join(meet(join(b,A),join(B,a)),C)) = a.  [para(72(a,1),5422(a,1,2,1,1))].
+
+given #1123 (T,wt=13): 25847 meet(a,join(meet(join(A,b),join(B,a)),C)) = a.  [para(144(a,1),5422(a,1,2,1,1))].
+
+given #1124 (A,wt=15): 444 meet(join(b,A),complement(a)) != zero | complement(join(b,A)) = complement(a).  [para(219(a,1),45(b,1)),xx(b)].
+
+given #1125 (T,wt=13): 25936 meet(a,join(meet(join(A,a),join(b,B)),C)) = a.  [para(6(a,1),5427(a,1,2,1,1))].
+
+given #1126 (T,wt=13): 25937 meet(a,join(A,meet(join(a,B),join(b,C)))) = a.  [para(6(a,1),5427(a,1,2))].
+
+given #1127 (T,wt=13): 25942 meet(a,join(meet(join(A,b),join(b,B)),C)) = a.  [para(144(a,1),5427(a,1,2,1,1))].
+
+given #1128 (T,wt=13): 26003 meet(a,join(meet(join(A,a),join(B,b)),C)) = a.  [para(6(a,1),5429(a,1,2,1,1))].
+
+given #1129 (A,wt=28): 445 meet(join(A,B),join(meet(B,C),D)) != zero | join(A,join(B,D)) != one | complement(join(A,B)) = join(meet(B,C),D).  [para(33(a,1),45(b,1,2))].
+
+given #1130 (T,wt=13): 26004 meet(a,join(A,meet(join(a,B),join(C,b)))) = a.  [para(6(a,1),5429(a,1,2))].
+
+given #1131 (T,wt=13): 26009 meet(a,join(meet(join(A,b),join(B,b)),C)) = a.  [para(144(a,1),5429(a,1,2,1,1))].
+
+given #1132 (T,wt=13): 26096 meet(A,join(meet(a,B),meet(b,A))) = meet(A,b).  [para(5560(a,1),48(a,1,2,2,2)),rewrite([22(7),7(8),11653(7),5(13),21(13),19(14)])].
+
+given #1133 (T,wt=13): 26178 meet(A,join(meet(B,C),meet(B,A))) = meet(A,B).  [para(5(a,1),5705(a,1,2,2))].
+
+given #1134 (A,wt=19): 446 meet(join(A,B),complement(meet(B,C))) != zero | complement(join(A,B)) = complement(meet(B,C)).  [para(250(a,1),45(b,1,2)),rewrite([81(8)]),xx(b)].
+
+given #1135 (T,wt=13): 26179 meet(A,join(meet(A,B),meet(B,C))) = meet(A,B).  [para(6(a,1),5705(a,1,2))].
+
+given #1136 (T,wt=13): 26183 meet(a,join(meet(A,B),meet(b,A))) = meet(a,A).  [para(5705(a,1),57(a,1,2)),rewrite([57(4)]),flip(a)].
+
+given #1137 (T,wt=13): 26396 meet(A,join(meet(a,B),meet(A,b))) = meet(A,b).  [back_rewrite(872),rewrite([26353(8),128(6)]),flip(a)].
+
+given #1138 (T,wt=13): 26605 meet(A,join(meet(B,a),meet(b,A))) = meet(A,b).  [para(5(a,1),10010(a,1,2,2))].
+
+given #1139 (A,wt=19): 447 meet(join(A,B),complement(meet(C,B))) != zero | complement(join(A,B)) = complement(meet(C,B)).  [para(261(a,1),45(b,1,2)),rewrite([81(8)]),xx(b)].
+
+given #1140 (T,wt=13): 26606 meet(A,join(meet(A,b),meet(B,a))) = meet(A,b).  [para(6(a,1),10010(a,1,2))].
+
+given #1141 (T,wt=13): 26956 join(A,meet(join(meet(B,A),meet(A,C)),D)) = A.  [para(5(a,1),14301(a,1,2,1,1))].
+
+given #1142 (T,wt=13): 26957 join(A,meet(B,join(meet(A,C),meet(A,D)))) = A.  [para(5(a,1),14301(a,1,2))].
+
+given #1143 (T,wt=13): 26961 join(b,meet(join(meet(A,a),meet(b,B)),C)) = b.  [para(58(a,1),14301(a,1,2,1,1))].
+
+given #1144 (A,wt=19): 448 meet(join(A,b),complement(meet(B,a))) != zero | complement(join(A,b)) = complement(meet(B,a)).  [para(266(a,1),45(b,1,2)),rewrite([81(10)]),xx(b)].
+
+given #1145 (T,wt=13): 27047 join(A,meet(join(meet(B,A),meet(C,A)),D)) = A.  [para(5(a,1),14313(a,1,2,1,1))].
+
+given #1146 (T,wt=13): 27048 join(A,meet(B,join(meet(A,C),meet(D,A)))) = A.  [para(5(a,1),14313(a,1,2))].
+
+given #1147 (T,wt=13): 27054 join(b,meet(join(meet(A,a),meet(B,b)),C)) = b.  [para(58(a,1),14313(a,1,2,1,1))].
+
+given #1148 (T,wt=13): 27140 join(b,meet(join(meet(A,b),meet(B,a)),C)) = b.  [para(5(a,1),14321(a,1,2,1,1))].
+
+given #1149 (A,wt=19): 449 meet(join(A,b),complement(meet(a,B))) != zero | complement(join(A,b)) = complement(meet(a,B)).  [para(277(a,1),45(b,1,2)),rewrite([81(10)]),xx(b)].
+
+given #1150 (T,wt=13): 27141 join(b,meet(A,join(meet(b,B),meet(C,a)))) = b.  [para(5(a,1),14321(a,1,2))].
+
+given #1151 (T,wt=13): 27145 join(b,meet(join(meet(A,a),meet(B,a)),C)) = b.  [para(58(a,1),14321(a,1,2,1,1))].
+
+given #1152 (T,wt=13): 27207 join(b,meet(join(meet(A,b),meet(a,B)),C)) = b.  [para(5(a,1),14322(a,1,2,1,1))].
+
+given #1153 (T,wt=13): 27208 join(b,meet(A,join(meet(b,B),meet(a,C)))) = b.  [para(5(a,1),14322(a,1,2))].
+
+given #1154 (A,wt=26): 450 meet(join(A,B),join(C,D)) != zero | join(A,join(C,join(B,D))) != one | complement(join(A,B)) = join(C,D).  [para(35(a,1),45(b,1,2))].
+
+given #1155 (T,wt=13): 27209 join(b,meet(join(meet(a,A),meet(b,B)),C)) = b.  [para(6(a,1),14322(a,1,2,1))].
+
+given #1156 (T,wt=13): 27213 join(b,meet(join(meet(A,a),meet(a,B)),C)) = b.  [para(58(a,1),14322(a,1,2,1,1))].
+
+given #1157 (T,wt=13): 27303 meet(a,join(meet(complement(b),A),meet(complement(b),B))) = zero.  [hyper(379,a,15287,a(flip),b,807,a),rewrite([15287(9),5(10),70(12),374(11),15287(18)])].
+
+given #1158 (T,wt=13): 27325 meet(a,join(meet(complement(b),A),meet(B,complement(b)))) = zero.  [hyper(379,a,15371,a(flip),b,807,a),rewrite([15371(9),5(10),70(12),374(11),15371(18)])].
+
+given #1159 (A,wt=20): 451 meet(join(A,B),C) != zero | join(B,join(A,C)) != one | complement(join(A,B)) = C.  [para(35(a,1),45(b,1))].
+
+given #1160 (T,wt=13): 27334 meet(complement(a),join(A,b)) != zero | join(b,A) = a.  [para(6(a,1),15626(a,1,2))].
+
+given #1161 (T,wt=13): 27348 join(b,meet(join(complement(a),A),join(complement(a),B))) = one.  [hyper(372,a,970,a,b,16017,a(flip)),rewrite([16017(9),67(12),374(11),16017(18)])].
+
+given #1162 (T,wt=13): 27372 join(b,meet(join(complement(a),A),join(B,complement(a)))) = one.  [hyper(372,a,970,a,b,16131,a(flip)),rewrite([16131(9),67(12),374(11),16131(18)])].
+
+given #1163 (T,wt=13): 27602 meet(a,join(meet(A,complement(b)),meet(complement(b),B))) = zero.  [hyper(379,a,18866,a(flip),b,807,a),rewrite([18866(9),5(10),70(12),374(11),18866(18)])].
+
+given #1164 (A,wt=24): 452 meet(join(A,a),join(B,b)) != zero | join(A,join(B,b)) != one | complement(join(A,a)) = join(B,b).  [para(144(a,1),45(b,1,2))].
+
+given #1165 (T,wt=13): 27613 join(meet(A,B),complement(A)) != one | meet(A,B) = A.  [para(4(a,1),18966(a,1,2,1)),rewrite([4(7)]),flip(b)].
+
+given #1166 (T,wt=13): 27614 join(A,complement(join(A,B))) != one | join(B,A) = A.  [para(6(a,1),18966(a,1,2,1))].
+
+given #1167 (T,wt=13): 27616 join(meet(A,B),complement(B)) != one | meet(A,B) = B.  [para(18(a,1),18966(a,1,2,1)),rewrite([18(7)]),flip(b)].
+
+given #1168 (T,wt=13): 27617 join(meet(A,a),complement(b)) != one | meet(A,a) = b.  [para(181(a,1),18966(a,1,2,1)),rewrite([181(11)]),flip(b)].
+
+given #1169 (A,wt=18): 453 meet(b,join(a,A)) != zero | join(A,b) != one | complement(join(a,A)) = b.  [para(144(a,1),45(b,1)),rewrite([5(4)])].
+
+given #1170 (T,wt=13): 27618 join(meet(a,A),complement(b)) != one | meet(a,A) = b.  [para(186(a,1),18966(a,1,2,1)),rewrite([186(11)]),flip(b)].
+
+given #1171 (T,wt=13): 27638 meet(a,join(meet(A,complement(b)),meet(B,complement(b)))) = zero.  [hyper(379,a,18980,a(flip),b,807,a),rewrite([18980(9),5(10),70(12),374(11),18980(18)])].
+
+given #1172 (T,wt=13): 27660 join(b,meet(join(A,complement(a)),join(complement(a),B))) = one.  [hyper(372,a,970,a,b,19373,a(flip)),rewrite([19373(9),67(12),374(11),19373(18)])].
+
+given #1173 (T,wt=13): 27684 join(b,meet(join(A,complement(a)),join(B,complement(a)))) = one.  [hyper(372,a,970,a,b,19575,a(flip)),rewrite([19575(9),67(12),374(11),19575(18)])].
+
+given #1174 (A,wt=23): 455 meet(join(A,B),join(C,complement(join(B,C)))) != zero | complement(join(A,B)) = join(C,complement(join(B,C))).  [para(38(a,1),45(b,1,2)),rewrite([81(9)]),xx(b)].
+
+given #1175 (T,wt=13): 27738 join(A,complement(join(B,A))) != one | join(A,B) = A.  [para(6(a,1),21365(a,1,2,1))].
+
+given #1176 (T,wt=13): 27740 join(a,complement(join(b,A))) != one | join(b,A) = a.  [para(72(a,1),21365(a,1,2,1)),rewrite([72(11)])].
+
+given #1177 (T,wt=13): 27742 join(a,complement(join(A,b))) != one | join(A,b) = a.  [para(144(a,1),21365(a,1,2,1)),rewrite([144(11)])].
+
+given #1178 (T,wt=13): 27757 join(complement(A),meet(B,A)) != one | meet(A,B) = A.  [para(5(a,1),21724(a,1,2))].
+
+given #1179 (A,wt=24): 458 meet(join(A,b),join(B,a)) != zero | join(A,join(b,B)) != one | complement(join(A,b)) = join(B,a).  [para(231(a,1),45(b,1,2))].
+
+given #1180 (T,wt=13): 27771 join(complement(A),meet(A,B)) != one | meet(B,A) = A.  [para(5(a,1),21769(a,1,2))].
+
+given #1181 (T,wt=13): 27783 join(complement(b),meet(a,A)) != one | meet(A,a) = b.  [para(5(a,1),21773(a,1,2))].
+
+given #1182 (T,wt=13): 27785 join(complement(b),meet(A,a)) != one | meet(a,A) = b.  [para(5(a,1),21775(a,1,2))].
+
+given #1183 (T,wt=13): 27792 meet(join(A,B),complement(B)) != zero | join(B,A) = B.  [para(6(a,1),22200(a,1,1))].
+
+given #1184 (A,wt=23): 459 meet(join(A,B),join(C,join(complement(B),D))) != zero | complement(join(A,B)) = join(C,join(complement(B),D)).  [para(99(a,1),45(b,1,2)),rewrite([81(9)]),xx(b)].
+
+given #1185 (T,wt=13): 27799 meet(join(A,B),complement(A)) != zero | join(B,A) = A.  [para(6(a,1),22202(a,1,1))].
+
+given #1186 (T,wt=13): 27800 meet(join(A,b),complement(a)) != zero | join(b,A) = a.  [para(6(a,1),22203(a,1,1))].
+
+given #1187 (T,wt=13): 27802 meet(join(b,A),complement(a)) != zero | join(A,b) = a.  [para(6(a,1),22204(a,1,1))].
+
+given #1188 (T,wt=13): 27807 meet(A,join(meet(B,A),meet(C,B))) = meet(A,B).  [para(6(a,1),22481(a,1,2))].
+
+given #1189 (A,wt=19): 460 meet(join(A,B),join(complement(A),C)) != zero | complement(join(A,B)) = join(complement(A),C).  [para(99(a,1),45(b,1)),xx(b)].
+
+given #1190 (T,wt=13): 27813 meet(a,join(meet(A,B),meet(B,b))) = meet(a,B).  [para(22481(a,1),57(a,1,2)),rewrite([57(4)]),flip(a)].
+
+given #1191 (T,wt=13): 27944 meet(a,join(meet(b,A),meet(B,A))) = meet(a,A).  [para(22482(a,1),57(a,1,2)),rewrite([57(4)]),flip(a)].
+
+given #1192 (T,wt=13): 28213 meet(a,join(meet(A,b),meet(B,A))) = meet(a,A).  [para(5(a,1),22830(a,1,2,2))].
+
+given #1193 (T,wt=13): 28214 meet(a,join(meet(A,B),meet(A,b))) = meet(a,A).  [para(6(a,1),22830(a,1,2))].
+
+given #1194 (A,wt=23): 461 meet(join(A,B),join(C,join(D,complement(B)))) != zero | complement(join(A,B)) = join(C,join(D,complement(B))).  [para(101(a,1),45(b,1,2)),rewrite([81(9)]),xx(b)].
+
+given #1195 (T,wt=13): 28530 join(b,meet(A,join(meet(a,B),meet(b,C)))) = b.  [para(252(a,1),23897(a,1,2,2))].
+
+given #1196 (T,wt=13): 28641 join(b,meet(A,join(meet(a,B),meet(C,b)))) = b.  [para(252(a,1),23950(a,1,2,2))].
+
+given #1197 (T,wt=13): 29114 meet(a,join(A,meet(join(B,b),join(a,C)))) = a.  [para(6(a,1),25435(a,1,2,2,1))].
+
+given #1198 (T,wt=13): 29118 meet(a,join(A,meet(join(b,B),join(b,C)))) = a.  [para(72(a,1),25435(a,1,2,2,2))].
+
+given #1199 (A,wt=19): 462 meet(join(A,B),join(C,complement(A))) != zero | complement(join(A,B)) = join(C,complement(A)).  [para(101(a,1),45(b,1)),xx(b)].
+
+given #1200 (T,wt=13): 29121 meet(a,join(A,meet(join(b,B),join(C,b)))) = a.  [para(144(a,1),25435(a,1,2,2,2))].
+
+given #1201 (T,wt=13): 29188 meet(a,join(A,meet(join(B,a),join(b,C)))) = a.  [para(5(a,1),25532(a,1,2,2))].
+
+given #1202 (T,wt=13): 29189 meet(a,join(A,meet(join(B,b),join(C,a)))) = a.  [para(6(a,1),25532(a,1,2,2,1))].
+
+given #1203 (T,wt=13): 29258 meet(A,join(B,meet(join(C,A),join(A,D)))) = A.  [para(6(a,1),25745(a,1,2))].
+
+given #1204 (A,wt=19): 463 meet(join(A,complement(B)),join(C,B)) != zero | complement(join(A,complement(B))) = join(C,B).  [para(404(a,1),45(b,1,2)),rewrite([81(8)]),xx(b)].
+
+given #1205 (T,wt=13): 29666 meet(A,join(B,meet(join(C,A),join(D,A)))) = A.  [para(6(a,1),25838(a,1,2))].
+
+given #1206 (T,wt=13): 30074 meet(a,join(A,meet(join(B,b),join(b,C)))) = a.  [para(144(a,1),25937(a,1,2,2,1))].
+
+given #1207 (T,wt=13): 30196 meet(a,join(A,meet(join(B,a),join(C,b)))) = a.  [para(6(a,1),26003(a,1,2))].
+
+given #1208 (T,wt=13): 30265 meet(a,join(A,meet(join(B,b),join(C,b)))) = a.  [para(144(a,1),26004(a,1,2,2,1))].
+
+given #1209 (A,wt=14): 468 meet(A,meet(B,meet(complement(join(C,meet(A,B))),D))) = zero.  [para(158(a,1),7(a,1)),flip(a)].
+
+given #1210 (T,wt=13): 30384 meet(A,join(meet(b,A),meet(a,B))) = meet(A,b).  [para(6(a,1),26096(a,1,2))].
+
+given #1211 (T,wt=13): 30450 meet(A,join(meet(B,A),meet(B,C))) = meet(A,B).  [para(6(a,1),26178(a,1,2))].
+
+given #1212 (T,wt=13): 30747 meet(A,join(meet(A,b),meet(a,B))) = meet(A,b).  [para(6(a,1),26396(a,1,2))].
+
+given #1213 (T,wt=13): 30776 meet(A,join(meet(b,A),meet(B,a))) = meet(A,b).  [para(6(a,1),26605(a,1,2))].
+
+given #1214 (A,wt=16): 471 meet(join(A,meet(join(B,A),C)),meet(complement(join(B,A)),D)) = zero.  [para(32(a,1),158(a,1,2,1,1))].
+
+given #1215 (T,wt=13): 30869 join(A,meet(B,join(meet(C,A),meet(A,D)))) = A.  [para(5(a,1),26956(a,1,2))].
+
+given #1216 (T,wt=13): 30963 join(b,meet(A,join(meet(B,a),meet(b,C)))) = b.  [para(58(a,1),26957(a,1,2,2,1))].
+
+given #1217 (T,wt=13): 31122 join(A,meet(B,join(meet(C,A),meet(D,A)))) = A.  [para(5(a,1),27047(a,1,2))].
+
+given #1218 (T,wt=13): 31213 join(b,meet(A,join(meet(B,a),meet(C,b)))) = b.  [para(58(a,1),27048(a,1,2,2,1))].
+
+given #1219 (A,wt=14): 472 meet(join(meet(A,B),C),meet(complement(join(A,C)),D)) = zero.  [para(33(a,1),158(a,1,2,1,1))].
+
+given #1220 (T,wt=13): 31300 join(b,meet(join(meet(a,A),meet(B,b)),C)) = b.  [para(5(a,1),27054(a,1,2,1,1))].
+
+given #1221 (T,wt=13): 31363 join(b,meet(A,join(meet(B,b),meet(C,a)))) = b.  [para(5(a,1),27140(a,1,2))].
+
+given #1222 (T,wt=13): 31433 join(b,meet(A,join(meet(B,a),meet(C,a)))) = b.  [para(58(a,1),27141(a,1,2,2,1))].
+
+given #1223 (T,wt=13): 31499 join(b,meet(join(meet(a,A),meet(B,a)),C)) = b.  [para(5(a,1),27145(a,1,2,1,1))].
+
+given #1224 (A,wt=14): 473 meet(join(A,B),meet(complement(join(A,join(C,B))),D)) = zero.  [para(35(a,1),158(a,1,2,1,1))].
+
+given #1225 (T,wt=13): 31554 join(b,meet(A,join(meet(B,b),meet(a,C)))) = b.  [para(5(a,1),27207(a,1,2))].
+
+given #1226 (T,wt=13): 31619 join(b,meet(A,join(meet(B,a),meet(a,C)))) = b.  [para(58(a,1),27208(a,1,2,2,1))].
+
+given #1227 (T,wt=13): 31746 join(b,meet(join(meet(a,A),meet(a,B)),C)) = b.  [para(5(a,1),27213(a,1,2,1,1))].
+
+given #1228 (T,wt=13): 31852 join(meet(A,B),complement(B)) != one | meet(B,A) = B.  [para(5(a,1),27613(a,1,1))].
+
+given #1229 (A,wt=14): 527 meet(A,meet(B,complement(join(C,join(D,meet(A,B)))))) = zero.  [para(160(a,1),7(a,1)),flip(a)].
+
+given #1230 (T,wt=13): 31879 join(meet(A,B),complement(A)) != one | meet(B,A) = A.  [para(5(a,1),27616(a,1,1))].
+
+given #1231 (T,wt=13): 31890 join(meet(a,A),complement(b)) != one | meet(A,a) = b.  [para(5(a,1),27617(a,1,1))].
+
+given #1232 (T,wt=13): 31896 join(meet(A,a),complement(b)) != one | meet(a,A) = b.  [para(5(a,1),27618(a,1,1))].
+
+given #1233 (T,wt=13): 31929 join(a,complement(join(A,b))) != one | join(b,A) = a.  [para(6(a,1),27740(a,1,2,1))].
+
+given #1234 (A,wt=14): 530 meet(A,meet(B,meet(C,complement(join(D,meet(A,B)))))) = zero.  [para(25(a,1),160(a,1,2,1,2)),rewrite([7(6),7(5)])].
+
+given #1235 (T,wt=13): 31933 join(a,complement(join(b,A))) != one | join(A,b) = a.  [para(6(a,1),27742(a,1,2,1))].
+
+given #1236 (T,wt=13): 32413 join(b,meet(A,join(meet(a,B),meet(C,a)))) = b.  [para(58(a,1),28530(a,1,2,2,2))].
+
+given #1237 (T,wt=13): 34325 join(b,meet(A,join(meet(a,B),meet(a,C)))) = b.  [para(5(a,1),31619(a,1,2,2,1))].
+
+given #1238 (T,wt=14): 533 meet(join(meet(A,B),C),complement(join(D,join(A,C)))) = zero.  [para(33(a,1),160(a,1,2,1,2))].
+
+given #1239 (A,wt=16): 532 meet(join(A,meet(join(B,A),C)),complement(join(D,join(B,A)))) = zero.  [para(32(a,1),160(a,1,2,1,2))].
+
+given #1240 (T,wt=14): 534 meet(join(A,B),complement(join(C,join(A,join(D,B))))) = zero.  [para(35(a,1),160(a,1,2,1,2))].
+
+given #1241 (T,wt=14): 536 meet(A,meet(B,complement(join(C,join(meet(A,B),D))))) = zero.  [para(162(a,1),7(a,1)),flip(a)].
+
+given #1242 (T,wt=14): 537 meet(join(A,B),complement(join(C,join(A,join(B,D))))) = zero.  [para(8(a,1),162(a,1,2,1,2))].
+
+given #1243 (T,wt=14): 542 meet(join(meet(A,B),C),meet(D,complement(join(A,C)))) = zero.  [para(33(a,1),176(a,1,2,2,1))].
+
+given #1244 (A,wt=16): 541 meet(join(A,meet(join(B,A),C)),meet(D,complement(join(B,A)))) = zero.  [para(32(a,1),176(a,1,2,2,1))].
+
+given #1245 (T,wt=14): 543 meet(join(A,B),meet(C,complement(join(A,join(D,B))))) = zero.  [para(35(a,1),176(a,1,2,2,1))].
+
+============================== STATISTICS ============================
+
+Given=1245. Generated=1262420. Kept=34977. proofs=0.
+Usable=1238. Sos=19999. Demods=18450. Limbo=7, Disabled=13747. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=6.
+Forward_subsumed=1183505. Back_subsumed=95.
+Sos_limit_deleted=43932. Sos_displaced=11728. Sos_removed=0.
+New_demodulators=31308 (6 lex), Back_demodulated=1908. Back_unit_deleted=0.
+Demod_attempts=26342922. Demod_rewrites=5787680.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=324305. Nonunit_bsub_feature_tests=20103.
+Megabytes=59.50.
+User_CPU=10.00, System_CPU=0.27, Wall_clock=10.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 20 exit (max_seconds) Fri Oct 23 14:55:36 2026
+
+SEARCH FAILED
+
+------ process 20 exit (max_seconds) ------
+

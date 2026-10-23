@@ -1,0 +1,27 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-member(X,Y) | little_set(X) # label(a2) # label(axiom).
+little_set(f1(X,Y)) | X = Y # label(extensionality1) # label(axiom).
+member(f1(X,Y),X) | member(f1(X,Y),Y) | X = Y # label(extensionality2) # label(axiom).
+-member(f1(X,Y),X) | -member(f1(X,Y),Y) | X = Y # label(extensionality3) # label(axiom).
+-member(Z,intersection(X,Y)) | member(Z,X) # label(intersection1) # label(axiom).
+-member(Z,intersection(X,Y)) | member(Z,Y) # label(intersection2) # label(axiom).
+member(Z,intersection(X,Y)) | -member(Z,X) | -member(Z,Y) # label(intersection3) # label(axiom).
+-member(Z,complement(X)) | -member(Z,X) # label(complement1) # label(axiom).
+member(Z,complement(X)) | -little_set(Z) | member(Z,X) # label(complement2) # label(axiom).
+union(X,Y) = complement(intersection(complement(X),complement(Y))) # label(union) # label(axiom).
+-member(Z,empty_set) # label(empty_set) # label(axiom).
+member(Z,universal_set) | -little_set(Z) # label(universal_set) # label(axiom).
+union(as,bs) = cs # label(a_union_b_is_c) # label(hypothesis).
+union(bs,as) = ds # label(b_union_a_is_d) # label(hypothesis).
+cs != ds # label(prove_c_equals_d) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

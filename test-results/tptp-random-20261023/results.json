@@ -1,0 +1,359 @@
+{
+  "elapsed_seconds": 20.73,
+  "workers": 8,
+  "cpu_seconds_per_problem": 10,
+  "wall_seconds_per_problem": 15,
+  "results": [
+    {
+      "problem": "SWV771-1",
+      "expected": "Unsatisfiable",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "LCL450+2",
+      "expected": "Theorem",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "SYN548+1",
+      "expected": "Theorem",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "SWC312-1",
+      "expected": "Unsatisfiable",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "GRP738-1",
+      "expected": "Satisfiable",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "REL032+2",
+      "expected": "Theorem",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "SYN539-1",
+      "expected": "Satisfiable",
+      "result": "inconclusive",
+      "reason": "sos_empty",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "HWV008-2.002",
+      "expected": "Unsatisfiable",
+      "result": "consistent_proof",
+      "reason": "max_proofs",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "GRP734+1",
+      "expected": "Satisfiable",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "ITP018+5",
+      "expected": "Theorem",
+      "result": "conversion_timeout",
+      "seconds": 10.02,
+      "negated_quantifier_conversion_risk": [
+        "../TPTP/Axioms/ITP001/ITP003+5.ax",
+        "../TPTP/Axioms/ITP001/ITP015+5.ax",
+        "../TPTP/Axioms/ITP001/ITP016+5.ax",
+        "../TPTP/Axioms/ITP001/ITP027+5.ax",
+        "../TPTP/Axioms/ITP001/ITP036+5.ax",
+        "../TPTP/Axioms/ITP001/ITP057+5.ax",
+        "../TPTP/Axioms/ITP001/ITP080+5.ax",
+        "../TPTP/Axioms/ITP001/ITP092+5.ax",
+        "../TPTP/Axioms/ITP001/ITP128+5.ax"
+      ]
+    },
+    {
+      "problem": "GRP461-1",
+      "expected": "Unsatisfiable",
+      "result": "consistent_proof",
+      "reason": "max_proofs",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "KLE021+3",
+      "expected": "Theorem",
+      "result": "consistent_proof",
+      "reason": "max_proofs",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "SET831-1",
+      "expected": "Unsatisfiable",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "SET968+1",
+      "expected": "Theorem",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "NLP092+1",
+      "expected": "CounterSatisfiable",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": [
+        "../TPTP/Problems/NLP/NLP092+1.p"
+      ]
+    },
+    {
+      "problem": "SCT068-1",
+      "expected": "Unsatisfiable",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "FLD004-1",
+      "expected": "Unsatisfiable",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "LAT317+4",
+      "expected": "Theorem",
+      "result": "inconclusive",
+      "reason": "wall_timeout",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": [
+        "../TPTP/Problems/LAT/LAT317+4.p",
+        "../TPTP/Axioms/SET007/SET007+14.ax",
+        "../TPTP/Axioms/SET007/SET007+18.ax",
+        "../TPTP/Axioms/SET007/SET007+28.ax",
+        "../TPTP/Axioms/SET007/SET007+29.ax",
+        "../TPTP/Axioms/SET007/SET007+43.ax",
+        "../TPTP/Axioms/SET007/SET007+48.ax",
+        "../TPTP/Axioms/SET007/SET007+84.ax",
+        "../TPTP/Axioms/SET007/SET007+86.ax",
+        "../TPTP/Axioms/SET007/SET007+92.ax",
+        "../TPTP/Axioms/SET007/SET007+93.ax",
+        "../TPTP/Axioms/SET007/SET007+94.ax",
+        "../TPTP/Axioms/SET007/SET007+95.ax",
+        "../TPTP/Axioms/SET007/SET007+96.ax",
+        "../TPTP/Axioms/SET007/SET007+114.ax",
+        "../TPTP/Axioms/SET007/SET007+115.ax",
+        "../TPTP/Axioms/SET007/SET007+122.ax",
+        "../TPTP/Axioms/SET007/SET007+129.ax",
+        "../TPTP/Axioms/SET007/SET007+144.ax",
+        "../TPTP/Axioms/SET007/SET007+157.ax",
+        "../TPTP/Axioms/SET007/SET007+176.ax",
+        "../TPTP/Axioms/SET007/SET007+181.ax",
+        "../TPTP/Axioms/SET007/SET007+189.ax",
+        "../TPTP/Axioms/SET007/SET007+201.ax",
+        "../TPTP/Axioms/SET007/SET007+212.ax",
+        "../TPTP/Axioms/SET007/SET007+215.ax",
+        "../TPTP/Axioms/SET007/SET007+216.ax",
+        "../TPTP/Axioms/SET007/SET007+221.ax",
+        "../TPTP/Axioms/SET007/SET007+222.ax",
+        "../TPTP/Axioms/SET007/SET007+226.ax",
+        "../TPTP/Axioms/SET007/SET007+228.ax",
+        "../TPTP/Axioms/SET007/SET007+229.ax",
+        "../TPTP/Axioms/SET007/SET007+232.ax",
+        "../TPTP/Axioms/SET007/SET007+235.ax",
+        "../TPTP/Axioms/SET007/SET007+237.ax",
+        "../TPTP/Axioms/SET007/SET007+242.ax",
+        "../TPTP/Axioms/SET007/SET007+251.ax",
+        "../TPTP/Axioms/SET007/SET007+254.ax",
+        "../TPTP/Axioms/SET007/SET007+257.ax",
+        "../TPTP/Axioms/SET007/SET007+267.ax",
+        "../TPTP/Axioms/SET007/SET007+268.ax",
+        "../TPTP/Axioms/SET007/SET007+275.ax",
+        "../TPTP/Axioms/SET007/SET007+282.ax",
+        "../TPTP/Axioms/SET007/SET007+287.ax",
+        "../TPTP/Axioms/SET007/SET007+288.ax",
+        "../TPTP/Axioms/SET007/SET007+290.ax",
+        "../TPTP/Axioms/SET007/SET007+294.ax",
+        "../TPTP/Axioms/SET007/SET007+299.ax",
+        "../TPTP/Axioms/SET007/SET007+310.ax",
+        "../TPTP/Axioms/SET007/SET007+333.ax",
+        "../TPTP/Axioms/SET007/SET007+350.ax",
+        "../TPTP/Axioms/SET007/SET007+356.ax",
+        "../TPTP/Axioms/SET007/SET007+377.ax",
+        "../TPTP/Axioms/SET007/SET007+408.ax"
+      ]
+    },
+    {
+      "problem": "SET890+1",
+      "expected": "Theorem",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "RNG104+1",
+      "expected": "Theorem",
+      "result": "inconclusive",
+      "reason": "max_seconds",
+      "reused_saved_run": true,
+      "negated_quantifier_conversion_risk": []
+    },
+    {
+      "problem": "COL101-2",
+      "expected": "Unsatisfiable",
+      "conversion_exit": 0,
+      "exit": 0,
+      "result": "consistent_proof",
+      "seconds": 0.016,
+      "negated_quantifier_conversion_risk": [],
+      "reason": "max_proofs"
+    },
+    {
+      "problem": "SWB030+3",
+      "expected": "Satisfiable",
+      "conversion_exit": 0,
+      "exit": 4,
+      "result": "inconclusive",
+      "seconds": 10.229,
+      "negated_quantifier_conversion_risk": [],
+      "reason": "max_seconds"
+    },
+    {
+      "problem": "LAT225-1",
+      "expected": "Unsatisfiable",
+      "conversion_exit": 0,
+      "exit": 4,
+      "result": "inconclusive",
+      "seconds": 10.31,
+      "negated_quantifier_conversion_risk": [],
+      "reason": "max_seconds"
+    },
+    {
+      "problem": "PRO001+4",
+      "expected": "Theorem",
+      "conversion_exit": 0,
+      "exit": 2,
+      "result": "inconclusive",
+      "seconds": 0.031,
+      "negated_quantifier_conversion_risk": [
+        "../TPTP/Problems/PRO/PRO001+4.p"
+      ],
+      "reason": "sos_empty"
+    },
+    {
+      "problem": "SYN139-1",
+      "expected": "Unsatisfiable",
+      "conversion_exit": 0,
+      "exit": 0,
+      "result": "consistent_proof",
+      "seconds": 0.086,
+      "negated_quantifier_conversion_risk": [],
+      "reason": "max_proofs"
+    },
+    {
+      "problem": "MGT050+1",
+      "expected": "Theorem",
+      "conversion_exit": 0,
+      "exit": 0,
+      "result": "consistent_proof",
+      "seconds": 0.018,
+      "negated_quantifier_conversion_risk": [],
+      "reason": "max_proofs"
+    },
+    {
+      "problem": "SWV456+1",
+      "expected": "Theorem",
+      "conversion_exit": 0,
+      "exit": 4,
+      "result": "inconclusive",
+      "seconds": 10.21,
+      "negated_quantifier_conversion_risk": [],
+      "reason": "max_seconds"
+    },
+    {
+      "problem": "ITP009+2",
+      "expected": "Theorem",
+      "conversion_exit": 0,
+      "exit": 4,
+      "result": "inconclusive",
+      "seconds": 10.235,
+      "negated_quantifier_conversion_risk": [],
+      "reason": "max_seconds"
+    },
+    {
+      "problem": "SYN485+1",
+      "expected": "Theorem",
+      "conversion_exit": 0,
+      "exit": 4,
+      "result": "inconclusive",
+      "seconds": 10.206,
+      "negated_quantifier_conversion_risk": [],
+      "reason": "max_seconds"
+    },
+    {
+      "problem": "SWC305+1",
+      "expected": "Theorem",
+      "conversion_exit": 0,
+      "exit": 4,
+      "result": "inconclusive",
+      "seconds": 10.167,
+      "negated_quantifier_conversion_risk": [],
+      "reason": "max_seconds"
+    },
+    {
+      "problem": "KRS161+1",
+      "expected": "Theorem",
+      "conversion_exit": 0,
+      "exit": "wall_timeout",
+      "result": "inconclusive",
+      "seconds": 15.008,
+      "negated_quantifier_conversion_risk": [
+        "../TPTP/Problems/KRS/KRS161+1.p"
+      ],
+      "reason": "wall_timeout"
+    },
+    {
+      "problem": "LAT161-1",
+      "expected": "Unsatisfiable",
+      "conversion_exit": 0,
+      "exit": 4,
+      "result": "inconclusive",
+      "seconds": 10.196,
+      "negated_quantifier_conversion_risk": [],
+      "reason": "max_seconds"
+    }
+  ],
+  "note": "elapsed_seconds covers resumed batch only; overall experiment including build and investigation took under five minutes. Completed logs were reused following a converter timeout in the first batch."
+}

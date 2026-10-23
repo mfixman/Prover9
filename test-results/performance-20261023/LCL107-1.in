@@ -1,0 +1,15 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-is_a_theorem(equivalent(X,Y)) | -is_a_theorem(X) | is_a_theorem(Y) # label(condensed_detachment) # label(axiom).
+is_a_theorem(equivalent(equivalent(equivalent(equivalent(X,Y),Z),equivalent(equivalent(U,V),equivalent(equivalent(equivalent(W,V),equivalent(W,U)),V6))),equivalent(Z,equivalent(equivalent(Y,X),V6)))) # label(lg_27_1690) # label(axiom).
+-is_a_theorem(equivalent(equivalent(equivalent(a,b),c),equivalent(equivalent(e,b),equivalent(equivalent(a,e),c)))) # label(prove_p_1) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

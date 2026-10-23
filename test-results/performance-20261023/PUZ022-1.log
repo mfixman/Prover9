@@ -1,0 +1,171 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 47 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-borders(Y,X) | borders(X,Y) # label(symmetry_of_borders) # label(axiom).
+ocean(atlantic) # label(atlantic) # label(negated_conjecture).
+ocean(indian) # label(indian) # label(negated_conjecture).
+ocean(pacific) # label(pacific) # label(negated_conjecture).
+ocean(southern) # label(southern) # label(negated_conjecture).
+state(western_australia) # label(western_australia) # label(negated_conjecture).
+state(northern_territory) # label(northern_territory) # label(negated_conjecture).
+state(queensland) # label(queensland) # label(negated_conjecture).
+state(south_australia) # label(south_australia) # label(negated_conjecture).
+state(new_south_wales) # label(new_south_wales) # label(negated_conjecture).
+state(victoria) # label(victoria) # label(negated_conjecture).
+state(tasmania) # label(tasmania) # label(negated_conjecture).
+borders(western_australia,northern_territory) # label(wa_nt) # label(negated_conjecture).
+borders(western_australia,south_australia) # label(wa_sa) # label(negated_conjecture).
+borders(south_australia,northern_territory) # label(sa_nt) # label(negated_conjecture).
+borders(south_australia,queensland) # label(sa_qld) # label(negated_conjecture).
+borders(south_australia,new_south_wales) # label(sa_nsw) # label(negated_conjecture).
+borders(south_australia,victoria) # label(sa_vic) # label(negated_conjecture).
+borders(northern_territory,queensland) # label(nt_qld) # label(negated_conjecture).
+borders(queensland,new_south_wales) # label(qld_nsw) # label(negated_conjecture).
+borders(new_south_wales,victoria) # label(nsw_vic) # label(negated_conjecture).
+borders(indian,western_australia) # label(indian_wa) # label(negated_conjecture).
+borders(indian,northern_territory) # label(indian_nt) # label(negated_conjecture).
+borders(indian,queensland) # label(indian_qld) # label(negated_conjecture).
+borders(southern,western_australia) # label(southern_wa) # label(negated_conjecture).
+borders(southern,south_australia) # label(southern_sa) # label(negated_conjecture).
+borders(southern,victoria) # label(southern_vic) # label(negated_conjecture).
+borders(southern,tasmania) # label(southern_tas) # label(negated_conjecture).
+borders(pacific,queensland) # label(pacific_qld) # label(negated_conjecture).
+borders(pacific,new_south_wales) # label(pacific_nsw) # label(negated_conjecture).
+borders(pacific,victoria) # label(pacific_vic) # label(negated_conjecture).
+borders(pacific,tasmania) # label(pacific_tas) # label(negated_conjecture).
+-state(State1) | -state(State2) | -borders(State1,State2) | -borders(State1,Ocean) | -borders(State2,Ocean) | -ocean(Ocean) # label(prove_borders) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating ocean/1
+1 -state(A) | -state(B) | -borders(A,B) | -borders(A,C) | -borders(B,C) | -ocean(C) # label(prove_borders) # label(negated_conjecture).  [assumption].
+2 ocean(atlantic) # label(atlantic) # label(negated_conjecture).  [assumption].
+3 ocean(indian) # label(indian) # label(negated_conjecture).  [assumption].
+4 ocean(pacific) # label(pacific) # label(negated_conjecture).  [assumption].
+5 ocean(southern) # label(southern) # label(negated_conjecture).  [assumption].
+Derived: -state(A) | -state(B) | -borders(A,B) | -borders(A,atlantic) | -borders(B,atlantic).  [resolve(1,f,2,a)].
+Derived: -state(A) | -state(B) | -borders(A,B) | -borders(A,indian) | -borders(B,indian).  [resolve(1,f,3,a)].
+Derived: -state(A) | -state(B) | -borders(A,B) | -borders(A,pacific) | -borders(B,pacific).  [resolve(1,f,4,a)].
+Derived: -state(A) | -state(B) | -borders(A,B) | -borders(A,southern) | -borders(B,southern).  [resolve(1,f,5,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % assign(max_proofs, 4).  % (Horn set with more than one neg. clause)
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ state, borders ]).
+Function symbol precedence:  function_order([ south_australia, queensland, new_south_wales, northern_territory, victoria, western_australia, pacific, southern, indian, tasmania, atlantic ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=0)
+  % clear(ordered_res).  % (HNE depth_diff=0)
+  % set(ur_resolution).  % (HNE depth_diff=0)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:
+  % set(unit_deletion).  % (Horn set with negative nonunits)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds.
+% Length of proof is 12.
+% Level of proof is 2.
+% Maximum clause weight is 13.000.
+% Given clauses 30 (15.000 givens/level).
+
+1 -state(A) | -state(B) | -borders(A,B) | -borders(A,C) | -borders(B,C) | -ocean(C) # label(prove_borders) # label(negated_conjecture).  [assumption].
+3 ocean(indian) # label(indian) # label(negated_conjecture).  [assumption].
+6 -borders(A,B) | borders(B,A) # label(symmetry_of_borders) # label(axiom).  [assumption].
+8 state(northern_territory) # label(northern_territory) # label(negated_conjecture).  [assumption].
+9 state(queensland) # label(queensland) # label(negated_conjecture).  [assumption].
+20 borders(northern_territory,queensland) # label(nt_qld) # label(negated_conjecture).  [assumption].
+24 borders(indian,northern_territory) # label(indian_nt) # label(negated_conjecture).  [assumption].
+25 borders(indian,queensland) # label(indian_qld) # label(negated_conjecture).  [assumption].
+35 -state(A) | -state(B) | -borders(A,B) | -borders(A,indian) | -borders(B,indian).  [resolve(1,f,3,a)].
+48 borders(northern_territory,indian).  [ur(6,a,24,a)].
+49 borders(queensland,indian).  [ur(6,a,25,a)].
+119 $F.  [resolve(35,c,20,a),unit_del(a,8),unit_del(b,9),unit_del(c,48),unit_del(d,49)].
+
+============================== end of proof ==========================
+% Redundant proof: 122 $F.  [resolve(35,c,14,a),unit_del(a,7),unit_del(b,8),unit_del(c,47),unit_del(d,48)].
+
+% Disable descendants (x means already disabled):
+ 0x 1x 34 35 36 37 58 59 60 61
+ 62 63 64 65 66 67 68 69 70 71
+ 72 73 74 75 76 77 78 79 80 81
+ 82 83 84 85 86 87 88 89 90 91
+ 92 93 94 95 96x 97x 98 99 100 101
+ 102 103x 104x 105 106 107 108x 109x 110x 111
+ 112x 113x 114x 115 116 117x 118 120x 121 123
+ 124
+
+============================== STATISTICS ============================
+
+Given=50. Generated=146. Kept=117. proofs=1.
+Usable=48. Sos=0. Demods=0. Limbo=0, Disabled=106. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=27. Back_subsumed=12.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=24. Nonunit_bsub_feature_tests=122.
+Megabytes=0.17.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with 1 proof.
+
+Process 47 exit (sos_empty) Fri Oct 23 15:00:23 2026
+-------- Proof 1 -------- 
+
+SEARCH FAILED
+
+------ process 47 exit (sos_empty) ------
+

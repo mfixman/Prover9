@@ -1,0 +1,1162 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+succ(s0,s1) # label(bound1) # label(axiom).
+succ(s1,s2) # label(bound2) # label(axiom).
+succ(s2,s3) # label(bound3) # label(axiom).
+succ(s3,s4) # label(bound4) # label(axiom).
+succ(s4,s5) # label(bound5) # label(axiom).
+succ(s5,s6) # label(bound6) # label(axiom).
+succ(s6,s7) # label(bound7) # label(axiom).
+succ(s7,s8) # label(bound8) # label(axiom).
+succ(s8,s9) # label(bound9) # label(axiom).
+succ(s9,s10) # label(bound10) # label(axiom).
+succ(s10,s11) # label(bound11) # label(axiom).
+succ(s11,s12) # label(bound12) # label(axiom).
+succ(s12,s13) # label(bound13) # label(axiom).
+succ(s13,s14) # label(bound14) # label(axiom).
+succ(s14,s15) # label(bound15) # label(axiom).
+succ(s15,s16) # label(bound16) # label(axiom).
+succ(s16,s17) # label(bound17) # label(axiom).
+succ(s17,s18) # label(bound18) # label(axiom).
+succ(s18,s19) # label(bound19) # label(axiom).
+succ(s19,s20) # label(bound20) # label(axiom).
+succ(s20,s21) # label(bound21) # label(axiom).
+succ(s21,s22) # label(bound22) # label(axiom).
+succ(s22,s23) # label(bound23) # label(axiom).
+succ(s23,s24) # label(bound24) # label(axiom).
+succ(s24,s25) # label(bound25) # label(axiom).
+succ(s25,s26) # label(bound26) # label(axiom).
+succ(s26,s27) # label(bound27) # label(axiom).
+succ(s27,s28) # label(bound28) # label(axiom).
+succ(s28,s29) # label(bound29) # label(axiom).
+succ(s29,s30) # label(bound30) # label(axiom).
+succ(s30,s31) # label(bound31) # label(axiom).
+succ(s31,s32) # label(bound32) # label(axiom).
+succ(s32,s33) # label(bound33) # label(axiom).
+succ(s33,s34) # label(bound34) # label(axiom).
+succ(s34,s35) # label(bound35) # label(axiom).
+succ(s35,s36) # label(bound36) # label(axiom).
+succ(s36,s37) # label(bound37) # label(axiom).
+succ(s37,s38) # label(bound38) # label(axiom).
+succ(s38,s39) # label(bound39) # label(axiom).
+succ(s39,s40) # label(bound40) # label(axiom).
+succ(s40,s41) # label(bound41) # label(axiom).
+succ(s41,s42) # label(bound42) # label(axiom).
+succ(s42,s43) # label(bound43) # label(axiom).
+succ(s43,s44) # label(bound44) # label(axiom).
+succ(s44,s45) # label(bound45) # label(axiom).
+succ(s45,s46) # label(bound46) # label(axiom).
+succ(s46,s47) # label(bound47) # label(axiom).
+succ(s47,s48) # label(bound48) # label(axiom).
+succ(s48,s49) # label(bound49) # label(axiom).
+succ(s49,s50) # label(bound50) # label(axiom).
+succ(s50,s51) # label(bound51) # label(axiom).
+succ(s51,s52) # label(bound52) # label(axiom).
+succ(s52,s53) # label(bound53) # label(axiom).
+succ(s53,s54) # label(bound54) # label(axiom).
+succ(s54,s55) # label(bound55) # label(axiom).
+succ(s55,s56) # label(bound56) # label(axiom).
+succ(s56,s57) # label(bound57) # label(axiom).
+succ(s57,s58) # label(bound58) # label(axiom).
+succ(s58,s59) # label(bound59) # label(axiom).
+succ(s59,s60) # label(bound60) # label(axiom).
+succ(s60,s61) # label(bound61) # label(axiom).
+succ(s61,s62) # label(bound62) # label(axiom).
+succ(s62,s63) # label(bound63) # label(axiom).
+succ(s63,s64) # label(bound64) # label(axiom).
+succ(s64,s65) # label(bound65) # label(axiom).
+succ(s65,s66) # label(bound66) # label(axiom).
+succ(s66,s67) # label(bound67) # label(axiom).
+succ(s67,s68) # label(bound68) # label(axiom).
+succ(s68,s69) # label(bound69) # label(axiom).
+succ(s69,s70) # label(bound70) # label(axiom).
+succ(s70,s71) # label(bound71) # label(axiom).
+succ(s71,s72) # label(bound72) # label(axiom).
+succ(s72,s73) # label(bound73) # label(axiom).
+succ(s73,s74) # label(bound74) # label(axiom).
+succ(s74,s75) # label(bound75) # label(axiom).
+succ(s75,s76) # label(bound76) # label(axiom).
+succ(s76,s77) # label(bound77) # label(axiom).
+succ(s77,s78) # label(bound78) # label(axiom).
+succ(s78,s79) # label(bound79) # label(axiom).
+succ(s79,s80) # label(bound80) # label(axiom).
+succ(s80,s81) # label(bound81) # label(axiom).
+succ(s81,s82) # label(bound82) # label(axiom).
+succ(s82,s83) # label(bound83) # label(axiom).
+succ(s83,s84) # label(bound84) # label(axiom).
+succ(s84,s85) # label(bound85) # label(axiom).
+succ(s85,s86) # label(bound86) # label(axiom).
+succ(s86,s87) # label(bound87) # label(axiom).
+succ(s87,s88) # label(bound88) # label(axiom).
+succ(s88,s89) # label(bound89) # label(axiom).
+succ(s89,s90) # label(bound90) # label(axiom).
+succ(s90,s91) # label(bound91) # label(axiom).
+succ(s91,s92) # label(bound92) # label(axiom).
+succ(s92,s93) # label(bound93) # label(axiom).
+succ(s93,s94) # label(bound94) # label(axiom).
+succ(s94,s95) # label(bound95) # label(axiom).
+succ(s95,s96) # label(bound96) # label(axiom).
+succ(s96,s97) # label(bound97) # label(axiom).
+succ(s97,s98) # label(bound98) # label(axiom).
+succ(s98,s99) # label(bound99) # label(axiom).
+succ(s99,s100) # label(bound100) # label(axiom).
+succ(s100,s101) # label(bound101) # label(axiom).
+succ(s101,s102) # label(bound102) # label(axiom).
+succ(s102,s103) # label(bound103) # label(axiom).
+succ(s103,s104) # label(bound104) # label(axiom).
+succ(s104,s105) # label(bound105) # label(axiom).
+succ(s105,s106) # label(bound106) # label(axiom).
+succ(s106,s107) # label(bound107) # label(axiom).
+succ(s107,s108) # label(bound108) # label(axiom).
+succ(s108,s109) # label(bound109) # label(axiom).
+succ(s109,s110) # label(bound110) # label(axiom).
+succ(s110,s111) # label(bound111) # label(axiom).
+succ(s111,s112) # label(bound112) # label(axiom).
+succ(s112,s113) # label(bound113) # label(axiom).
+succ(s113,s114) # label(bound114) # label(axiom).
+succ(s114,s115) # label(bound115) # label(axiom).
+succ(s115,s116) # label(bound116) # label(axiom).
+succ(s116,s117) # label(bound117) # label(axiom).
+succ(s117,s118) # label(bound118) # label(axiom).
+succ(s118,s119) # label(bound119) # label(axiom).
+succ(s119,s120) # label(bound120) # label(axiom).
+succ(s120,s121) # label(bound121) # label(axiom).
+succ(s121,s122) # label(bound122) # label(axiom).
+succ(s122,s123) # label(bound123) # label(axiom).
+succ(s123,s124) # label(bound124) # label(axiom).
+succ(s124,s125) # label(bound125) # label(axiom).
+succ(s125,s126) # label(bound126) # label(axiom).
+succ(s126,s127) # label(bound127) # label(axiom).
+succ(s127,s128) # label(bound128) # label(axiom).
+succ(s128,s129) # label(bound129) # label(axiom).
+succ(s129,s130) # label(bound130) # label(axiom).
+succ(s130,s131) # label(bound131) # label(axiom).
+succ(s131,s132) # label(bound132) # label(axiom).
+succ(s132,s133) # label(bound133) # label(axiom).
+succ(s133,s134) # label(bound134) # label(axiom).
+succ(s134,s135) # label(bound135) # label(axiom).
+succ(s135,s136) # label(bound136) # label(axiom).
+succ(s136,s137) # label(bound137) # label(axiom).
+succ(s137,s138) # label(bound138) # label(axiom).
+succ(s138,s139) # label(bound139) # label(axiom).
+succ(s139,s140) # label(bound140) # label(axiom).
+succ(s140,s141) # label(bound141) # label(axiom).
+succ(s141,s142) # label(bound142) # label(axiom).
+succ(s142,s143) # label(bound143) # label(axiom).
+succ(s143,s144) # label(bound144) # label(axiom).
+succ(s144,s145) # label(bound145) # label(axiom).
+succ(s145,s146) # label(bound146) # label(axiom).
+succ(s146,s147) # label(bound147) # label(axiom).
+succ(s147,s148) # label(bound148) # label(axiom).
+succ(s148,s149) # label(bound149) # label(axiom).
+last(s149) # label(bound150) # label(axiom).
+-succ(X,Y) | trans(X,Y) # label(bound151) # label(axiom).
+-loop | trans(s149,s0) | trans(s149,s1) | trans(s149,s2) | trans(s149,s3) | trans(s149,s4) | trans(s149,s5) | trans(s149,s6) | trans(s149,s7) | trans(s149,s8) | trans(s149,s9) | trans(s149,s10) | trans(s149,s11) | trans(s149,s12) | trans(s149,s13) | trans(s149,s14) | trans(s149,s15) | trans(s149,s16) | trans(s149,s17) | trans(s149,s18) | trans(s149,s19) | trans(s149,s20) | trans(s149,s21) | trans(s149,s22) | trans(s149,s23) | trans(s149,s24) | trans(s149,s25) | trans(s149,s26) | trans(s149,s27) | trans(s149,s28) | trans(s149,s29) | trans(s149,s30) | trans(s149,s31) | trans(s149,s32) | trans(s149,s33) | trans(s149,s34) | trans(s149,s35) | trans(s149,s36) | trans(s149,s37) | trans(s149,s38) | trans(s149,s39) | trans(s149,s40) | trans(s149,s41) | trans(s149,s42) | trans(s149,s43) | trans(s149,s44) | trans(s149,s45) | trans(s149,s46) | trans(s149,s47) | trans(s149,s48) | trans(s149,s49) | trans(s149,s50) | trans(s149,s51) | trans(s149,s52) | trans(s149,s53) | trans(s149,s54) | trans(s149,s55) | trans(s149,s56) | trans(s149,s57) | trans(s149,s58) | trans(s149,s59) | trans(s149,s60) | trans(s149,s61) | trans(s149,s62) | trans(s149,s63) | trans(s149,s64) | trans(s149,s65) | trans(s149,s66) | trans(s149,s67) | trans(s149,s68) | trans(s149,s69) | trans(s149,s70) | trans(s149,s71) | trans(s149,s72) | trans(s149,s73) | trans(s149,s74) | trans(s149,s75) | trans(s149,s76) | trans(s149,s77) | trans(s149,s78) | trans(s149,s79) | trans(s149,s80) | trans(s149,s81) | trans(s149,s82) | trans(s149,s83) | trans(s149,s84) | trans(s149,s85) | trans(s149,s86) | trans(s149,s87) | trans(s149,s88) | trans(s149,s89) | trans(s149,s90) | trans(s149,s91) | trans(s149,s92) | trans(s149,s93) | trans(s149,s94) | trans(s149,s95) | trans(s149,s96) | trans(s149,s97) | trans(s149,s98) | trans(s149,s99) | trans(s149,s100) | trans(s149,s101) | trans(s149,s102) | trans(s149,s103) | trans(s149,s104) | trans(s149,s105) | trans(s149,s106) | trans(s149,s107) | trans(s149,s108) | trans(s149,s109) | trans(s149,s110) | trans(s149,s111) | trans(s149,s112) | trans(s149,s113) | trans(s149,s114) | trans(s149,s115) | trans(s149,s116) | trans(s149,s117) | trans(s149,s118) | trans(s149,s119) | trans(s149,s120) | trans(s149,s121) | trans(s149,s122) | trans(s149,s123) | trans(s149,s124) | trans(s149,s125) | trans(s149,s126) | trans(s149,s127) | trans(s149,s128) | trans(s149,s129) | trans(s149,s130) | trans(s149,s131) | trans(s149,s132) | trans(s149,s133) | trans(s149,s134) | trans(s149,s135) | trans(s149,s136) | trans(s149,s137) | trans(s149,s138) | trans(s149,s139) | trans(s149,s140) | trans(s149,s141) | trans(s149,s142) | trans(s149,s143) | trans(s149,s144) | trans(s149,s145) | trans(s149,s146) | trans(s149,s147) | trans(s149,s148) | trans(s149,s149) # label(bound152) # label(axiom).
+m_Communication_v_s(c_COM,c_s) # label(m_main_1) # label(axiom).
+m_Crane_v_s(c_CR,c_s) # label(m_main_2) # label(axiom).
+m_DepositBelt_v_s(c_DB,c_s) # label(m_main_3) # label(axiom).
+m_ERTable_v_s(c_ERT,c_s) # label(m_main_4) # label(axiom).
+m_FeedBelt_v_s(c_FB,c_s) # label(m_main_5) # label(axiom).
+m_Press_v_s(c_PR,c_s) # label(m_main_6) # label(axiom).
+m_Robot_v_s(c_RB,c_s) # label(m_main_7) # label(axiom).
+m_Sensor_v_s(c_SEN,c_s) # label(m_main_8) # label(axiom).
+m_state_v_angle(J0,X,c_arm1totable) | -node1(J0,X) # label(m_Communication_1) # label(axiom).
+m_state_v_A1M(J0,X,c_retract) | -node1(J0,X) # label(m_Communication_2) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node1(J0,X) # label(m_Communication_3) # label(axiom).
+m_state_v_FBM(J0,X,c_on) | -node2(J0,X) # label(m_Communication_4) # label(axiom).
+m_state_v_deliv(J0,X) | -node2(J0,X) # label(m_Communication_5) # label(axiom).
+-m_state_v_pfl(J0,X) | -node2(J0,X) # label(m_Communication_6) # label(axiom).
+m_state_v_tl(J0,Y) | -m_state_v_tl(J0,X) | -node3(J0,X,Y) # label(m_Communication_7) # label(axiom).
+-m_state_v_tl(J0,Y) | m_state_v_tl(J0,X) | -node3(J0,X,Y) # label(m_Communication_8) # label(axiom).
+-m_state_v_angle(J0,X,c_arm1totable) | -m_state_v_A1M(J0,X,c_retract) | -m_state_v_a1ext(J0,X,c_retracted) | -m_state_v_tl(J0,Y) | -node4(J0,X,Y) # label(m_Communication_9) # label(axiom).
+node1(J0,X) | -m_state_v_FBM(J0,X,c_on) | -m_state_v_deliv(J0,X) | m_state_v_pfl(J0,X) | m_state_v_tl(J0,Y) | -node4(J0,X,Y) # label(m_Communication_10) # label(axiom).
+node1(J0,X) | node2(J0,X) | node3(J0,X,Y) | -node4(J0,X,Y) # label(m_Communication_11) # label(axiom).
+-trans(X,Y) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | node4(J0,X,Y) # label(m_Communication_12) # label(axiom).
+m_state_v_CVM(J0,X,c_up) | -node5(J0,X) # label(m_Communication_13) # label(axiom).
+m_state_v_gvp(J0,X,c_sd) | -node5(J0,X) # label(m_Communication_14) # label(axiom).
+m_state_v_angle(J0,X,c_arm2todepbelt) | -node6(J0,X) # label(m_Communication_15) # label(axiom).
+m_state_v_A2M(J0,X,c_retract) | -node6(J0,X) # label(m_Communication_16) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node6(J0,X) # label(m_Communication_17) # label(axiom).
+m_state_v_brl(J0,Y) | -m_state_v_brl(J0,X) | -node7(J0,X,Y) # label(m_Communication_18) # label(axiom).
+-m_state_v_brl(J0,Y) | m_state_v_brl(J0,X) | -node7(J0,X,Y) # label(m_Communication_19) # label(axiom).
+-m_state_v_CVM(J0,X,c_up) | -m_state_v_gvp(J0,X,c_sd) | m_state_v_brl(J0,Y) | -node8(J0,X,Y) # label(m_Communication_20) # label(axiom).
+node5(J0,X) | -m_state_v_angle(J0,X,c_arm2todepbelt) | -m_state_v_A2M(J0,X,c_retract) | -m_state_v_a2ext(J0,X,c_retracted) | -m_state_v_brl(J0,Y) | -node8(J0,X,Y) # label(m_Communication_21) # label(axiom).
+node5(J0,X) | node6(J0,X) | node7(J0,X,Y) | -node8(J0,X,Y) # label(m_Communication_22) # label(axiom).
+-trans(X,Y) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | node8(J0,X,Y) # label(m_Communication_23) # label(axiom).
+m_state_v_CVM(J0,X,c_up) | -node9(J0,X) # label(m_Communication_24) # label(axiom).
+m_state_v_gvp(J0,X,c_sd) | -node9(J0,X) # label(m_Communication_25) # label(axiom).
+m_state_v_DBM(J0,X,c_run) | -node10(J0,X) # label(m_Communication_26) # label(axiom).
+m_state_v_crit(J0,X) | -node10(J0,X) # label(m_Communication_27) # label(axiom).
+-m_state_v_pbl(J0,X) | -node10(J0,X) # label(m_Communication_28) # label(axiom).
+m_state_v_pbe(J0,Y) | -m_state_v_pbe(J0,X) | -node11(J0,X,Y) # label(m_Communication_29) # label(axiom).
+-m_state_v_pbe(J0,Y) | m_state_v_pbe(J0,X) | -node11(J0,X,Y) # label(m_Communication_30) # label(axiom).
+-m_state_v_CVM(J0,X,c_up) | -m_state_v_gvp(J0,X,c_sd) | -m_state_v_pbe(J0,Y) | -node12(J0,X,Y) # label(m_Communication_31) # label(axiom).
+node9(J0,X) | -m_state_v_DBM(J0,X,c_run) | -m_state_v_crit(J0,X) | m_state_v_pbl(J0,X) | m_state_v_pbe(J0,Y) | -node12(J0,X,Y) # label(m_Communication_32) # label(axiom).
+node9(J0,X) | node10(J0,X) | node11(J0,X,Y) | -node12(J0,X,Y) # label(m_Communication_33) # label(axiom).
+-trans(X,Y) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | node12(J0,X,Y) # label(m_Communication_34) # label(axiom).
+m_state_v_FBM(J0,X,c_on) | -node13(J0,X) # label(m_Communication_35) # label(axiom).
+-m_state_v_deliv(J0,X) | -node13(J0,X) # label(m_Communication_36) # label(axiom).
+m_state_v_pfl(J0,X) | -node13(J0,X) # label(m_Communication_37) # label(axiom).
+m_state_v_CVM(J0,X,c_idle) | -node14(J0,X) # label(m_Communication_38) # label(axiom).
+m_state_v_gvp(J0,X,c_ovf) | -node14(J0,X) # label(m_Communication_39) # label(axiom).
+m_state_v_gof(J0,X) | -node14(J0,X) # label(m_Communication_40) # label(axiom).
+m_state_v_CHM(J0,X,c_idle) | -node14(J0,X) # label(m_Communication_41) # label(axiom).
+m_state_v_CMag(J0,X,c_off) | -node14(J0,X) # label(m_Communication_42) # label(axiom).
+m_state_v_ff(J0,Y) | -m_state_v_ff(J0,X) | -node15(J0,X,Y) # label(m_Communication_43) # label(axiom).
+-m_state_v_ff(J0,Y) | m_state_v_ff(J0,X) | -node15(J0,X,Y) # label(m_Communication_44) # label(axiom).
+-m_state_v_FBM(J0,X,c_on) | m_state_v_deliv(J0,X) | -m_state_v_pfl(J0,X) | m_state_v_ff(J0,Y) | -node16(J0,X,Y) # label(m_Communication_45) # label(axiom).
+node13(J0,X) | -m_state_v_CVM(J0,X,c_idle) | -m_state_v_gvp(J0,X,c_ovf) | -m_state_v_gof(J0,X) | -m_state_v_CHM(J0,X,c_idle) | -m_state_v_CMag(J0,X,c_off) | -m_state_v_ff(J0,Y) | -node16(J0,X,Y) # label(m_Communication_46) # label(axiom).
+node13(J0,X) | node14(J0,X) | node15(J0,X,Y) | -node16(J0,X,Y) # label(m_Communication_47) # label(axiom).
+-trans(X,Y) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | -m_Communication_v_s(I0,J0) | node16(J0,X,Y) # label(m_Communication_48) # label(axiom).
+m_state_v_FBM(J0,X,c_on) | -node17(J0,X) # label(m_Sensor_1) # label(axiom).
+-m_state_v_deliv(J0,X) | -node17(J0,X) # label(m_Sensor_2) # label(axiom).
+-m_state_v_ff(J0,X) | -node17(J0,X) # label(m_Sensor_3) # label(axiom).
+m_state_v_FBM(J0,X,c_on) | -node18(J0,X) # label(m_Sensor_4) # label(axiom).
+m_state_v_deliv(J0,X) | -node18(J0,X) # label(m_Sensor_5) # label(axiom).
+m_state_v_pfl(J0,Y) | -m_state_v_pfl(J0,X) | -node19(J0,X,Y) # label(m_Sensor_6) # label(axiom).
+-m_state_v_pfl(J0,Y) | m_state_v_pfl(J0,X) | -node19(J0,X,Y) # label(m_Sensor_7) # label(axiom).
+-m_state_v_FBM(J0,X,c_on) | m_state_v_deliv(J0,X) | m_state_v_ff(J0,X) | m_state_v_pfl(J0,Y) | -node20(J0,X,Y) # label(m_Sensor_8) # label(axiom).
+node17(J0,X) | -m_state_v_FBM(J0,X,c_on) | -m_state_v_deliv(J0,X) | -m_state_v_pfl(J0,Y) | -node20(J0,X,Y) # label(m_Sensor_9) # label(axiom).
+node17(J0,X) | node18(J0,X) | node19(J0,X,Y) | -node20(J0,X,Y) # label(m_Sensor_10) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node20(J0,X,Y) # label(m_Sensor_11) # label(axiom).
+m_state_v_topPos(J0,Y) | -m_state_v_topPos(J0,X) | -node21(J0,X,Y) # label(m_Sensor_12) # label(axiom).
+-m_state_v_topPos(J0,Y) | m_state_v_topPos(J0,X) | -node21(J0,X,Y) # label(m_Sensor_13) # label(axiom).
+-m_state_v_TEM(J0,X,c_up) | m_state_v_topPos(J0,Y) | -node22(J0,X,Y) # label(m_Sensor_14) # label(axiom).
+m_state_v_TEM(J0,X,c_up) | -m_state_v_TEM(J0,X,c_down) | -m_state_v_topPos(J0,Y) | -node22(J0,X,Y) # label(m_Sensor_15) # label(axiom).
+m_state_v_TEM(J0,X,c_up) | m_state_v_TEM(J0,X,c_down) | node21(J0,X,Y) | -node22(J0,X,Y) # label(m_Sensor_16) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node22(J0,X,Y) # label(m_Sensor_17) # label(axiom).
+m_state_v_botPos(J0,Y) | -m_state_v_botPos(J0,X) | -node23(J0,X,Y) # label(m_Sensor_18) # label(axiom).
+-m_state_v_botPos(J0,Y) | m_state_v_botPos(J0,X) | -node23(J0,X,Y) # label(m_Sensor_19) # label(axiom).
+-m_state_v_TEM(J0,X,c_down) | m_state_v_botPos(J0,Y) | -node24(J0,X,Y) # label(m_Sensor_20) # label(axiom).
+m_state_v_TEM(J0,X,c_down) | -m_state_v_TEM(J0,X,c_up) | -m_state_v_botPos(J0,Y) | -node24(J0,X,Y) # label(m_Sensor_21) # label(axiom).
+m_state_v_TEM(J0,X,c_down) | m_state_v_TEM(J0,X,c_up) | node23(J0,X,Y) | -node24(J0,X,Y) # label(m_Sensor_22) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node24(J0,X,Y) # label(m_Sensor_23) # label(axiom).
+m_state_v_minRot(J0,Y) | -m_state_v_minRot(J0,X) | -node25(J0,X,Y) # label(m_Sensor_24) # label(axiom).
+-m_state_v_minRot(J0,Y) | m_state_v_minRot(J0,X) | -node25(J0,X,Y) # label(m_Sensor_25) # label(axiom).
+-m_state_v_TRM(J0,X,c_counterclockwise) | m_state_v_minRot(J0,Y) | -node26(J0,X,Y) # label(m_Sensor_26) # label(axiom).
+m_state_v_TRM(J0,X,c_counterclockwise) | -m_state_v_TRM(J0,X,c_clockwise) | -m_state_v_minRot(J0,Y) | -node26(J0,X,Y) # label(m_Sensor_27) # label(axiom).
+m_state_v_TRM(J0,X,c_counterclockwise) | m_state_v_TRM(J0,X,c_clockwise) | node25(J0,X,Y) | -node26(J0,X,Y) # label(m_Sensor_28) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node26(J0,X,Y) # label(m_Sensor_29) # label(axiom).
+m_state_v_maxRot(J0,Y) | -m_state_v_maxRot(J0,X) | -node27(J0,X,Y) # label(m_Sensor_30) # label(axiom).
+-m_state_v_maxRot(J0,Y) | m_state_v_maxRot(J0,X) | -node27(J0,X,Y) # label(m_Sensor_31) # label(axiom).
+-m_state_v_TRM(J0,X,c_clockwise) | m_state_v_maxRot(J0,Y) | -node28(J0,X,Y) # label(m_Sensor_32) # label(axiom).
+m_state_v_TRM(J0,X,c_clockwise) | -m_state_v_TRM(J0,X,c_counterclockwise) | -m_state_v_maxRot(J0,Y) | -node28(J0,X,Y) # label(m_Sensor_33) # label(axiom).
+m_state_v_TRM(J0,X,c_clockwise) | m_state_v_TRM(J0,X,c_counterclockwise) | node27(J0,X,Y) | -node28(J0,X,Y) # label(m_Sensor_34) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node28(J0,X,Y) # label(m_Sensor_35) # label(axiom).
+m_state_v_A1M(J0,X,c_extend) | -node29(J0,X) # label(m_Sensor_36) # label(axiom).
+m_state_v_angle(J0,X,c_arm1totable) | -node29(J0,X) # label(m_Sensor_37) # label(axiom).
+m_state_v_A1M(J0,X,c_extend) | -node30(J0,X) # label(m_Sensor_38) # label(axiom).
+m_state_v_angle(J0,X,c_arm1topress) | -node30(J0,X) # label(m_Sensor_39) # label(axiom).
+m_state_v_a1ext(J0,Y,V) | -m_state_v_a1ext(J0,X,V) | -node31(J0,X,Y) # label(m_Sensor_40) # label(axiom).
+-m_state_v_a1ext(J0,Y,V) | m_state_v_a1ext(J0,X,V) | -node31(J0,X,Y) # label(m_Sensor_41) # label(axiom).
+-m_state_v_A1M(J0,X,c_extend) | -m_state_v_angle(J0,X,c_arm1totable) | m_state_v_a1ext(J0,Y,c_ot) | -node32(J0,X,Y) # label(m_Sensor_42) # label(axiom).
+node29(J0,X) | -m_state_v_A1M(J0,X,c_extend) | -m_state_v_angle(J0,X,c_arm1topress) | m_state_v_a1ext(J0,Y,c_a1ip) | -node32(J0,X,Y) # label(m_Sensor_43) # label(axiom).
+node29(J0,X) | node30(J0,X) | -m_state_v_A1M(J0,X,c_retract) | m_state_v_a1ext(J0,Y,c_retracted) | -node32(J0,X,Y) # label(m_Sensor_44) # label(axiom).
+node29(J0,X) | node30(J0,X) | m_state_v_A1M(J0,X,c_retract) | node31(J0,X,Y) | -node32(J0,X,Y) # label(m_Sensor_45) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node32(J0,X,Y) # label(m_Sensor_46) # label(axiom).
+m_state_v_A2M(J0,X,c_extend) | -node33(J0,X) # label(m_Sensor_47) # label(axiom).
+m_state_v_angle(J0,X,c_arm2topress) | -node33(J0,X) # label(m_Sensor_48) # label(axiom).
+m_state_v_A2M(J0,X,c_extend) | -node34(J0,X) # label(m_Sensor_49) # label(axiom).
+m_state_v_angle(J0,X,c_arm2todepbelt) | -node34(J0,X) # label(m_Sensor_50) # label(axiom).
+m_state_v_a2ext(J0,Y,V) | -m_state_v_a2ext(J0,X,V) | -node35(J0,X,Y) # label(m_Sensor_51) # label(axiom).
+-m_state_v_a2ext(J0,Y,V) | m_state_v_a2ext(J0,X,V) | -node35(J0,X,Y) # label(m_Sensor_52) # label(axiom).
+-m_state_v_A2M(J0,X,c_extend) | -m_state_v_angle(J0,X,c_arm2topress) | m_state_v_a2ext(J0,Y,c_a2ip) | -node36(J0,X,Y) # label(m_Sensor_53) # label(axiom).
+node33(J0,X) | -m_state_v_A2M(J0,X,c_extend) | -m_state_v_angle(J0,X,c_arm2todepbelt) | m_state_v_a2ext(J0,Y,c_ob) | -node36(J0,X,Y) # label(m_Sensor_54) # label(axiom).
+node33(J0,X) | node34(J0,X) | -m_state_v_A2M(J0,X,c_retract) | m_state_v_a2ext(J0,Y,c_retracted) | -node36(J0,X,Y) # label(m_Sensor_55) # label(axiom).
+node33(J0,X) | node34(J0,X) | m_state_v_A2M(J0,X,c_retract) | node35(J0,X,Y) | -node36(J0,X,Y) # label(m_Sensor_56) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node36(J0,X,Y) # label(m_Sensor_57) # label(axiom).
+m_state_v_angle(J0,X,c_arm1totable) | -node37(J0,X) # label(m_Sensor_58) # label(axiom).
+m_state_v_RRM(J0,X,c_counterclock) | -node37(J0,X) # label(m_Sensor_59) # label(axiom).
+m_state_v_angle_status(J0,X,c_arm1stoppedattable) | -node37(J0,X) # label(m_Sensor_60) # label(axiom).
+m_state_v_angle(J0,X,c_arm2topress) | -node38(J0,X) # label(m_Sensor_61) # label(axiom).
+m_state_v_RRM(J0,X,c_counterclock) | -node38(J0,X) # label(m_Sensor_62) # label(axiom).
+m_state_v_angle_status(J0,X,c_arm2stoppedatpress) | -node38(J0,X) # label(m_Sensor_63) # label(axiom).
+m_state_v_angle(J0,X,c_arm2todepbelt) | -node39(J0,X) # label(m_Sensor_64) # label(axiom).
+m_state_v_RRM(J0,X,c_counterclock) | -node39(J0,X) # label(m_Sensor_65) # label(axiom).
+m_state_v_angle_status(J0,X,c_arm2stoppedatbelt) | -node39(J0,X) # label(m_Sensor_66) # label(axiom).
+m_state_v_angle(J0,X,c_arm1topress) | -node40(J0,X) # label(m_Sensor_67) # label(axiom).
+m_state_v_RRM(J0,X,c_clockwise) | -node40(J0,X) # label(m_Sensor_68) # label(axiom).
+m_state_v_angle_status(J0,X,c_arm1stoppedatpress) | -node40(J0,X) # label(m_Sensor_69) # label(axiom).
+m_state_v_angle(J0,Y,V) | -m_state_v_angle(J0,X,V) | -node41(J0,X,Y) # label(m_Sensor_70) # label(axiom).
+-m_state_v_angle(J0,Y,V) | m_state_v_angle(J0,X,V) | -node41(J0,X,Y) # label(m_Sensor_71) # label(axiom).
+-m_state_v_angle(J0,X,c_arm1totable) | -m_state_v_RRM(J0,X,c_counterclock) | -m_state_v_angle_status(J0,X,c_arm1stoppedattable) | m_state_v_angle(J0,Y,c_arm2topress) | -node42(J0,X,Y) # label(m_Sensor_72) # label(axiom).
+node37(J0,X) | -m_state_v_angle(J0,X,c_arm2topress) | -m_state_v_RRM(J0,X,c_counterclock) | -m_state_v_angle_status(J0,X,c_arm2stoppedatpress) | m_state_v_angle(J0,Y,c_arm2todepbelt) | -node42(J0,X,Y) # label(m_Sensor_73) # label(axiom).
+node37(J0,X) | node38(J0,X) | -m_state_v_angle(J0,X,c_arm2todepbelt) | -m_state_v_RRM(J0,X,c_counterclock) | -m_state_v_angle_status(J0,X,c_arm2stoppedatbelt) | m_state_v_angle(J0,Y,c_arm1topress) | -node42(J0,X,Y) # label(m_Sensor_74) # label(axiom).
+node37(J0,X) | node38(J0,X) | node39(J0,X) | -m_state_v_angle(J0,X,c_arm1topress) | -m_state_v_RRM(J0,X,c_clockwise) | -m_state_v_angle_status(J0,X,c_arm1stoppedatpress) | m_state_v_angle(J0,Y,c_arm1totable) | -node42(J0,X,Y) # label(m_Sensor_75) # label(axiom).
+node37(J0,X) | node38(J0,X) | node39(J0,X) | node40(J0,X) | node41(J0,X,Y) | -node42(J0,X,Y) # label(m_Sensor_76) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node42(J0,X,Y) # label(m_Sensor_77) # label(axiom).
+m_state_v_angle(J0,X,c_arm1totable) | -node43(J0,X) # label(m_Sensor_78) # label(axiom).
+m_state_v_RRM(J0,X,c_idle) | -node43(J0,X) # label(m_Sensor_79) # label(axiom).
+m_state_v_angle(J0,X,c_arm2topress) | -node44(J0,X) # label(m_Sensor_80) # label(axiom).
+m_state_v_RRM(J0,X,c_idle) | -node44(J0,X) # label(m_Sensor_81) # label(axiom).
+m_state_v_angle(J0,X,c_arm2todepbelt) | -node45(J0,X) # label(m_Sensor_82) # label(axiom).
+m_state_v_RRM(J0,X,c_idle) | -node45(J0,X) # label(m_Sensor_83) # label(axiom).
+m_state_v_angle(J0,X,c_arm1topress) | -node46(J0,X) # label(m_Sensor_84) # label(axiom).
+m_state_v_RRM(J0,X,c_idle) | -node46(J0,X) # label(m_Sensor_85) # label(axiom).
+m_state_v_angle_status(J0,Y,V) | -m_state_v_angle_status(J0,X,V) | -node47(J0,X,Y) # label(m_Sensor_86) # label(axiom).
+-m_state_v_angle_status(J0,Y,V) | m_state_v_angle_status(J0,X,V) | -node47(J0,X,Y) # label(m_Sensor_87) # label(axiom).
+-m_state_v_angle(J0,X,c_arm1totable) | -m_state_v_RRM(J0,X,c_idle) | m_state_v_angle_status(J0,Y,c_arm1stoppedattable) | -node48(J0,X,Y) # label(m_Sensor_88) # label(axiom).
+node43(J0,X) | -m_state_v_angle(J0,X,c_arm2topress) | -m_state_v_RRM(J0,X,c_idle) | m_state_v_angle_status(J0,Y,c_arm2stoppedatpress) | -node48(J0,X,Y) # label(m_Sensor_89) # label(axiom).
+node43(J0,X) | node44(J0,X) | -m_state_v_angle(J0,X,c_arm2todepbelt) | -m_state_v_RRM(J0,X,c_idle) | m_state_v_angle_status(J0,Y,c_arm2stoppedatbelt) | -node48(J0,X,Y) # label(m_Sensor_90) # label(axiom).
+node43(J0,X) | node44(J0,X) | node45(J0,X) | -m_state_v_angle(J0,X,c_arm1topress) | -m_state_v_RRM(J0,X,c_idle) | m_state_v_angle_status(J0,Y,c_arm1stoppedatpress) | -node48(J0,X,Y) # label(m_Sensor_91) # label(axiom).
+node43(J0,X) | node44(J0,X) | node45(J0,X) | node46(J0,X) | node47(J0,X,Y) | -node48(J0,X,Y) # label(m_Sensor_92) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node48(J0,X,Y) # label(m_Sensor_93) # label(axiom).
+m_state_v_topPosP(J0,X) | -node49(J0,X) # label(m_Sensor_94) # label(axiom).
+m_state_v_PM(J0,X,c_down) | -node49(J0,X) # label(m_Sensor_95) # label(axiom).
+m_state_v_midPosP(J0,X) | -node50(J0,X) # label(m_Sensor_96) # label(axiom).
+m_state_v_PM(J0,X,c_up) | -node50(J0,X) # label(m_Sensor_97) # label(axiom).
+m_state_v_press_status(J0,X,c_pressatmid) | -node50(J0,X) # label(m_Sensor_98) # label(axiom).
+m_state_v_topPosP(J0,Y) | -m_state_v_topPosP(J0,X) | -node51(J0,X,Y) # label(m_Sensor_99) # label(axiom).
+-m_state_v_topPosP(J0,Y) | m_state_v_topPosP(J0,X) | -node51(J0,X,Y) # label(m_Sensor_100) # label(axiom).
+-m_state_v_topPosP(J0,X) | -m_state_v_PM(J0,X,c_down) | -m_state_v_topPosP(J0,Y) | -node52(J0,X,Y) # label(m_Sensor_101) # label(axiom).
+node49(J0,X) | -m_state_v_midPosP(J0,X) | -m_state_v_PM(J0,X,c_up) | -m_state_v_press_status(J0,X,c_pressatmid) | m_state_v_topPosP(J0,Y) | -node52(J0,X,Y) # label(m_Sensor_102) # label(axiom).
+node49(J0,X) | node50(J0,X) | node51(J0,X,Y) | -node52(J0,X,Y) # label(m_Sensor_103) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node52(J0,X,Y) # label(m_Sensor_104) # label(axiom).
+m_state_v_botPosP(J0,X) | -node53(J0,X) # label(m_Sensor_105) # label(axiom).
+m_state_v_PM(J0,X,c_up) | -node53(J0,X) # label(m_Sensor_106) # label(axiom).
+m_state_v_midPosP(J0,X) | -node54(J0,X) # label(m_Sensor_107) # label(axiom).
+m_state_v_PM(J0,X,c_up) | -node54(J0,X) # label(m_Sensor_108) # label(axiom).
+m_state_v_press_status(J0,X,c_pressatmid) | -node54(J0,X) # label(m_Sensor_109) # label(axiom).
+m_state_v_midPosP(J0,Y) | -m_state_v_midPosP(J0,X) | -node55(J0,X,Y) # label(m_Sensor_110) # label(axiom).
+-m_state_v_midPosP(J0,Y) | m_state_v_midPosP(J0,X) | -node55(J0,X,Y) # label(m_Sensor_111) # label(axiom).
+-m_state_v_botPosP(J0,X) | -m_state_v_PM(J0,X,c_up) | m_state_v_midPosP(J0,Y) | -node56(J0,X,Y) # label(m_Sensor_112) # label(axiom).
+node53(J0,X) | -m_state_v_midPosP(J0,X) | -m_state_v_PM(J0,X,c_up) | -m_state_v_press_status(J0,X,c_pressatmid) | -m_state_v_midPosP(J0,Y) | -node56(J0,X,Y) # label(m_Sensor_113) # label(axiom).
+node53(J0,X) | node54(J0,X) | node55(J0,X,Y) | -node56(J0,X,Y) # label(m_Sensor_114) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node56(J0,X,Y) # label(m_Sensor_115) # label(axiom).
+m_state_v_botPosP(J0,X) | -node57(J0,X) # label(m_Sensor_116) # label(axiom).
+m_state_v_PM(J0,X,c_up) | -node57(J0,X) # label(m_Sensor_117) # label(axiom).
+m_state_v_topPosP(J0,X) | -node58(J0,X) # label(m_Sensor_118) # label(axiom).
+m_state_v_PM(J0,X,c_down) | -node58(J0,X) # label(m_Sensor_119) # label(axiom).
+m_state_v_botPosP(J0,Y) | -m_state_v_botPosP(J0,X) | -node59(J0,X,Y) # label(m_Sensor_120) # label(axiom).
+-m_state_v_botPosP(J0,Y) | m_state_v_botPosP(J0,X) | -node59(J0,X,Y) # label(m_Sensor_121) # label(axiom).
+-m_state_v_botPosP(J0,X) | -m_state_v_PM(J0,X,c_up) | -m_state_v_botPosP(J0,Y) | -node60(J0,X,Y) # label(m_Sensor_122) # label(axiom).
+node57(J0,X) | -m_state_v_topPosP(J0,X) | -m_state_v_PM(J0,X,c_down) | m_state_v_botPosP(J0,Y) | -node60(J0,X,Y) # label(m_Sensor_123) # label(axiom).
+node57(J0,X) | node58(J0,X) | node59(J0,X,Y) | -node60(J0,X,Y) # label(m_Sensor_124) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node60(J0,X,Y) # label(m_Sensor_125) # label(axiom).
+m_state_v_topPosP(J0,X) | -node61(J0,X) # label(m_Sensor_126) # label(axiom).
+m_state_v_PM(J0,X,c_idle) | -node61(J0,X) # label(m_Sensor_127) # label(axiom).
+m_state_v_pl(J0,X) | -node61(J0,X) # label(m_Sensor_128) # label(axiom).
+m_state_v_fc(J0,Y) | -m_state_v_fc(J0,X) | -node62(J0,X,Y) # label(m_Sensor_129) # label(axiom).
+-m_state_v_fc(J0,Y) | m_state_v_fc(J0,X) | -node62(J0,X,Y) # label(m_Sensor_130) # label(axiom).
+-m_state_v_topPosP(J0,X) | -m_state_v_PM(J0,X,c_idle) | -m_state_v_pl(J0,X) | m_state_v_fc(J0,Y) | -node63(J0,X,Y) # label(m_Sensor_131) # label(axiom).
+node61(J0,X) | m_state_v_pl(J0,X) | -m_state_v_fc(J0,Y) | -node63(J0,X,Y) # label(m_Sensor_132) # label(axiom).
+node61(J0,X) | -m_state_v_pl(J0,X) | node62(J0,X,Y) | -node63(J0,X,Y) # label(m_Sensor_133) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node63(J0,X,Y) # label(m_Sensor_134) # label(axiom).
+m_state_v_topPosP(J0,X) | -node64(J0,X) # label(m_Sensor_135) # label(axiom).
+m_state_v_PM(J0,X,c_idle) | -node64(J0,X) # label(m_Sensor_136) # label(axiom).
+m_state_v_midPosP(J0,X) | -node65(J0,X) # label(m_Sensor_137) # label(axiom).
+m_state_v_PM(J0,X,c_idle) | -node65(J0,X) # label(m_Sensor_138) # label(axiom).
+m_state_v_botPosP(J0,X) | -node66(J0,X) # label(m_Sensor_139) # label(axiom).
+m_state_v_PM(J0,X,c_idle) | -node66(J0,X) # label(m_Sensor_140) # label(axiom).
+m_state_v_press_status(J0,Y,V) | -m_state_v_press_status(J0,X,V) | -node67(J0,X,Y) # label(m_Sensor_141) # label(axiom).
+-m_state_v_press_status(J0,Y,V) | m_state_v_press_status(J0,X,V) | -node67(J0,X,Y) # label(m_Sensor_142) # label(axiom).
+-m_state_v_topPosP(J0,X) | -m_state_v_PM(J0,X,c_idle) | m_state_v_press_status(J0,Y,c_pressattop) | -node68(J0,X,Y) # label(m_Sensor_143) # label(axiom).
+node64(J0,X) | -m_state_v_midPosP(J0,X) | -m_state_v_PM(J0,X,c_idle) | m_state_v_press_status(J0,Y,c_pressatmid) | -node68(J0,X,Y) # label(m_Sensor_144) # label(axiom).
+node64(J0,X) | node65(J0,X) | -m_state_v_botPosP(J0,X) | -m_state_v_PM(J0,X,c_idle) | m_state_v_press_status(J0,Y,c_pressatbot) | -node68(J0,X,Y) # label(m_Sensor_145) # label(axiom).
+node64(J0,X) | node65(J0,X) | node66(J0,X) | node67(J0,X,Y) | -node68(J0,X,Y) # label(m_Sensor_146) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node68(J0,X,Y) # label(m_Sensor_147) # label(axiom).
+m_state_v_DBM(J0,X,c_run) | -node69(J0,X) # label(m_Sensor_148) # label(axiom).
+-m_state_v_brl(J0,X) | -node69(J0,X) # label(m_Sensor_149) # label(axiom).
+-m_state_v_pbl(J0,X) | -node69(J0,X) # label(m_Sensor_150) # label(axiom).
+m_state_v_DBM(J0,X,c_run) | -node70(J0,X) # label(m_Sensor_151) # label(axiom).
+m_state_v_crit(J0,X) | -node70(J0,X) # label(m_Sensor_152) # label(axiom).
+m_state_v_pbl(J0,X) | -node70(J0,X) # label(m_Sensor_153) # label(axiom).
+m_state_v_pbl(J0,Y) | -m_state_v_pbl(J0,X) | -node71(J0,X,Y) # label(m_Sensor_154) # label(axiom).
+-m_state_v_pbl(J0,Y) | m_state_v_pbl(J0,X) | -node71(J0,X,Y) # label(m_Sensor_155) # label(axiom).
+-m_state_v_DBM(J0,X,c_run) | m_state_v_brl(J0,X) | m_state_v_pbl(J0,X) | m_state_v_pbl(J0,Y) | -node72(J0,X,Y) # label(m_Sensor_156) # label(axiom).
+node69(J0,X) | -m_state_v_DBM(J0,X,c_run) | -m_state_v_crit(J0,X) | -m_state_v_pbl(J0,X) | -m_state_v_pbl(J0,Y) | -node72(J0,X,Y) # label(m_Sensor_157) # label(axiom).
+node69(J0,X) | node70(J0,X) | node71(J0,X,Y) | -node72(J0,X,Y) # label(m_Sensor_158) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node72(J0,X,Y) # label(m_Sensor_159) # label(axiom).
+m_state_v_gob(J0,Y) | -m_state_v_gob(J0,X) | -node73(J0,X,Y) # label(m_Sensor_160) # label(axiom).
+-m_state_v_gob(J0,Y) | m_state_v_gob(J0,X) | -node73(J0,X,Y) # label(m_Sensor_161) # label(axiom).
+-m_state_v_CHM(J0,X,c_todepbelt) | m_state_v_gob(J0,Y) | -node74(J0,X,Y) # label(m_Sensor_162) # label(axiom).
+m_state_v_CHM(J0,X,c_todepbelt) | -m_state_v_CHM(J0,X,c_tofeedbelt) | -m_state_v_gob(J0,Y) | -node74(J0,X,Y) # label(m_Sensor_163) # label(axiom).
+m_state_v_CHM(J0,X,c_todepbelt) | m_state_v_CHM(J0,X,c_tofeedbelt) | node73(J0,X,Y) | -node74(J0,X,Y) # label(m_Sensor_164) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node74(J0,X,Y) # label(m_Sensor_165) # label(axiom).
+m_state_v_gof(J0,Y) | -m_state_v_gof(J0,X) | -node75(J0,X,Y) # label(m_Sensor_166) # label(axiom).
+-m_state_v_gof(J0,Y) | m_state_v_gof(J0,X) | -node75(J0,X,Y) # label(m_Sensor_167) # label(axiom).
+-m_state_v_CHM(J0,X,c_tofeedbelt) | m_state_v_gof(J0,Y) | -node76(J0,X,Y) # label(m_Sensor_168) # label(axiom).
+m_state_v_CHM(J0,X,c_tofeedbelt) | -m_state_v_CHM(J0,X,c_todepbelt) | -m_state_v_gof(J0,Y) | -node76(J0,X,Y) # label(m_Sensor_169) # label(axiom).
+m_state_v_CHM(J0,X,c_tofeedbelt) | m_state_v_CHM(J0,X,c_todepbelt) | node75(J0,X,Y) | -node76(J0,X,Y) # label(m_Sensor_170) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node76(J0,X,Y) # label(m_Sensor_171) # label(axiom).
+m_state_v_gvp(J0,X,c_ovb) | -node77(J0,X) # label(m_Sensor_172) # label(axiom).
+m_state_v_gripper_status(J0,X,c_gripperstoppedat_ovb) | -node77(J0,X) # label(m_Sensor_173) # label(axiom).
+m_state_v_CVM(J0,X,c_up) | -node77(J0,X) # label(m_Sensor_174) # label(axiom).
+m_state_v_gvp(J0,X,c_sd) | -node78(J0,X) # label(m_Sensor_175) # label(axiom).
+m_state_v_gripper_status(J0,X,c_gripperstoppedat_sd) | -node78(J0,X) # label(m_Sensor_176) # label(axiom).
+m_state_v_CVM(J0,X,c_down) | -node78(J0,X) # label(m_Sensor_177) # label(axiom).
+m_state_v_gvp(J0,X,c_ovf) | -node79(J0,X) # label(m_Sensor_178) # label(axiom).
+m_state_v_gripper_status(J0,X,c_gripperstoppedat_ovf) | -node79(J0,X) # label(m_Sensor_179) # label(axiom).
+m_state_v_CVM(J0,X,c_down) | -node79(J0,X) # label(m_Sensor_180) # label(axiom).
+m_state_v_gvp(J0,X,c_ovf) | -node80(J0,X) # label(m_Sensor_181) # label(axiom).
+m_state_v_gripper_status(J0,X,c_gripperstoppedat_ovf) | -node80(J0,X) # label(m_Sensor_182) # label(axiom).
+m_state_v_CVM(J0,X,c_up) | -node80(J0,X) # label(m_Sensor_183) # label(axiom).
+m_state_v_gvp(J0,Y,V) | -m_state_v_gvp(J0,X,V) | -node81(J0,X,Y) # label(m_Sensor_184) # label(axiom).
+-m_state_v_gvp(J0,Y,V) | m_state_v_gvp(J0,X,V) | -node81(J0,X,Y) # label(m_Sensor_185) # label(axiom).
+-m_state_v_gvp(J0,X,c_ovb) | -m_state_v_gripper_status(J0,X,c_gripperstoppedat_ovb) | -m_state_v_CVM(J0,X,c_up) | m_state_v_gvp(J0,Y,c_sd) | -node82(J0,X,Y) # label(m_Sensor_186) # label(axiom).
+node77(J0,X) | -m_state_v_gvp(J0,X,c_sd) | -m_state_v_gripper_status(J0,X,c_gripperstoppedat_sd) | -m_state_v_CVM(J0,X,c_down) | m_state_v_gvp(J0,Y,c_ovf) | -node82(J0,X,Y) # label(m_Sensor_187) # label(axiom).
+node77(J0,X) | node78(J0,X) | -m_state_v_gvp(J0,X,c_ovf) | -m_state_v_gripper_status(J0,X,c_gripperstoppedat_ovf) | -m_state_v_CVM(J0,X,c_down) | m_state_v_gvp(J0,Y,c_ovb) | -node82(J0,X,Y) # label(m_Sensor_188) # label(axiom).
+node77(J0,X) | node78(J0,X) | node79(J0,X) | -m_state_v_gvp(J0,X,c_ovf) | -m_state_v_gripper_status(J0,X,c_gripperstoppedat_ovf) | -m_state_v_CVM(J0,X,c_up) | m_state_v_gvp(J0,Y,c_sd) | -node82(J0,X,Y) # label(m_Sensor_189) # label(axiom).
+node77(J0,X) | node78(J0,X) | node79(J0,X) | node80(J0,X) | node81(J0,X,Y) | -node82(J0,X,Y) # label(m_Sensor_190) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node82(J0,X,Y) # label(m_Sensor_191) # label(axiom).
+m_state_v_CVM(J0,X,c_idle) | -node83(J0,X) # label(m_Sensor_192) # label(axiom).
+m_state_v_gvp(J0,X,c_ovb) | -node83(J0,X) # label(m_Sensor_193) # label(axiom).
+m_state_v_CVM(J0,X,c_idle) | -node84(J0,X) # label(m_Sensor_194) # label(axiom).
+m_state_v_gvp(J0,X,c_ovf) | -node84(J0,X) # label(m_Sensor_195) # label(axiom).
+m_state_v_CVM(J0,X,c_idle) | -node85(J0,X) # label(m_Sensor_196) # label(axiom).
+m_state_v_gvp(J0,X,c_sd) | -node85(J0,X) # label(m_Sensor_197) # label(axiom).
+m_state_v_gripper_status(J0,Y,V) | -m_state_v_gripper_status(J0,X,V) | -node86(J0,X,Y) # label(m_Sensor_198) # label(axiom).
+-m_state_v_gripper_status(J0,Y,V) | m_state_v_gripper_status(J0,X,V) | -node86(J0,X,Y) # label(m_Sensor_199) # label(axiom).
+-m_state_v_CVM(J0,X,c_idle) | -m_state_v_gvp(J0,X,c_ovb) | m_state_v_gripper_status(J0,Y,c_gripperstoppedat_ovb) | -node87(J0,X,Y) # label(m_Sensor_200) # label(axiom).
+node83(J0,X) | -m_state_v_CVM(J0,X,c_idle) | -m_state_v_gvp(J0,X,c_ovf) | m_state_v_gripper_status(J0,Y,c_gripperstoppedat_ovf) | -node87(J0,X,Y) # label(m_Sensor_201) # label(axiom).
+node83(J0,X) | node84(J0,X) | -m_state_v_CVM(J0,X,c_idle) | -m_state_v_gvp(J0,X,c_sd) | m_state_v_gripper_status(J0,Y,c_gripperstoppedat_sd) | -node87(J0,X,Y) # label(m_Sensor_202) # label(axiom).
+node83(J0,X) | node84(J0,X) | node85(J0,X) | node86(J0,X,Y) | -node87(J0,X,Y) # label(m_Sensor_203) # label(axiom).
+-trans(X,Y) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | -m_Sensor_v_s(I0,J0) | node87(J0,X,Y) # label(m_Sensor_204) # label(axiom).
+m_state_v_gob(J0,X) | -node88(J0,X) # label(m_Crane_1) # label(axiom).
+m_state_v_gvp(J0,X,c_ovb) | -node88(J0,X) # label(m_Crane_2) # label(axiom).
+m_state_v_CHM(J0,X,c_idle) | -node88(J0,X) # label(m_Crane_3) # label(axiom).
+m_state_v_CVM(J0,X,c_idle) | -node88(J0,X) # label(m_Crane_4) # label(axiom).
+m_state_v_CMag(J0,X,c_off) | -node88(J0,X) # label(m_Crane_5) # label(axiom).
+m_state_v_pbe(J0,X) | -node88(J0,X) # label(m_Crane_6) # label(axiom).
+m_state_v_CVM(J0,X,c_down) | -node89(J0,X) # label(m_Crane_7) # label(axiom).
+m_state_v_gvp(J0,X,c_ovf) | -node89(J0,X) # label(m_Crane_8) # label(axiom).
+m_state_v_gof(J0,X) | -node89(J0,X) # label(m_Crane_9) # label(axiom).
+m_state_v_CMag(J0,Y,V) | -m_state_v_CMag(J0,X,V) | -node90(J0,X,Y) # label(m_Crane_10) # label(axiom).
+-m_state_v_CMag(J0,Y,V) | m_state_v_CMag(J0,X,V) | -node90(J0,X,Y) # label(m_Crane_11) # label(axiom).
+-m_state_v_gob(J0,X) | -m_state_v_gvp(J0,X,c_ovb) | -m_state_v_CHM(J0,X,c_idle) | -m_state_v_CVM(J0,X,c_idle) | -m_state_v_CMag(J0,X,c_off) | -m_state_v_pbe(J0,X) | m_state_v_CMag(J0,Y,c_on) | -node91(J0,X,Y) # label(m_Crane_12) # label(axiom).
+node88(J0,X) | -m_state_v_CVM(J0,X,c_down) | -m_state_v_gvp(J0,X,c_ovf) | -m_state_v_gof(J0,X) | m_state_v_CMag(J0,Y,c_off) | -node91(J0,X,Y) # label(m_Crane_13) # label(axiom).
+node88(J0,X) | node89(J0,X) | node90(J0,X,Y) | -node91(J0,X,Y) # label(m_Crane_14) # label(axiom).
+-trans(X,Y) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | node91(J0,X,Y) # label(m_Crane_15) # label(axiom).
+m_state_v_CVM(J0,X,c_idle) | -node92(J0,X) # label(m_Crane_16) # label(axiom).
+m_state_v_gvp(J0,X,c_ovb) | -node92(J0,X) # label(m_Crane_17) # label(axiom).
+m_state_v_CMag(J0,X,c_on) | -node92(J0,X) # label(m_Crane_18) # label(axiom).
+m_state_v_CVM(J0,X,c_up) | -node93(J0,X) # label(m_Crane_19) # label(axiom).
+m_state_v_gvp(J0,X,c_sd) | -node93(J0,X) # label(m_Crane_20) # label(axiom).
+m_state_v_gof(J0,X) | -node94(J0,X) # label(m_Crane_21) # label(axiom).
+m_state_v_gvp(J0,X,c_sd) | -node94(J0,X) # label(m_Crane_22) # label(axiom).
+m_state_v_CHM(J0,X,c_idle) | -node94(J0,X) # label(m_Crane_23) # label(axiom).
+m_state_v_CVM(J0,X,c_idle) | -node94(J0,X) # label(m_Crane_24) # label(axiom).
+m_state_v_CMag(J0,X,c_on) | -node94(J0,X) # label(m_Crane_25) # label(axiom).
+m_state_v_ff(J0,X) | -node94(J0,X) # label(m_Crane_26) # label(axiom).
+m_state_v_CVM(J0,X,c_down) | -node95(J0,X) # label(m_Crane_27) # label(axiom).
+m_state_v_gvp(J0,X,c_ovf) | -node95(J0,X) # label(m_Crane_28) # label(axiom).
+m_state_v_gof(J0,X) | -node95(J0,X) # label(m_Crane_29) # label(axiom).
+m_state_v_CHM(J0,X,c_todepbelt) | -node96(J0,X) # label(m_Crane_30) # label(axiom).
+m_state_v_gob(J0,X) | -node96(J0,X) # label(m_Crane_31) # label(axiom).
+m_state_v_gob(J0,X) | -node97(J0,X) # label(m_Crane_32) # label(axiom).
+m_state_v_CVM(J0,X,c_down) | -node97(J0,X) # label(m_Crane_33) # label(axiom).
+m_state_v_gvp(J0,X,c_ovb) | -node97(J0,X) # label(m_Crane_34) # label(axiom).
+m_state_v_CVM(J0,Y,V) | -m_state_v_CVM(J0,X,V) | -node98(J0,X,Y) # label(m_Crane_35) # label(axiom).
+-m_state_v_CVM(J0,Y,V) | m_state_v_CVM(J0,X,V) | -node98(J0,X,Y) # label(m_Crane_36) # label(axiom).
+-m_state_v_CVM(J0,X,c_idle) | -m_state_v_gvp(J0,X,c_ovb) | -m_state_v_CMag(J0,X,c_on) | m_state_v_CVM(J0,Y,c_up) | -node99(J0,X,Y) # label(m_Crane_37) # label(axiom).
+node92(J0,X) | -m_state_v_CVM(J0,X,c_up) | -m_state_v_gvp(J0,X,c_sd) | m_state_v_CVM(J0,Y,c_idle) | -node99(J0,X,Y) # label(m_Crane_38) # label(axiom).
+node92(J0,X) | node93(J0,X) | -m_state_v_gof(J0,X) | -m_state_v_gvp(J0,X,c_sd) | -m_state_v_CHM(J0,X,c_idle) | -m_state_v_CVM(J0,X,c_idle) | -m_state_v_CMag(J0,X,c_on) | -m_state_v_ff(J0,X) | m_state_v_CVM(J0,Y,c_down) | -node99(J0,X,Y) # label(m_Crane_39) # label(axiom).
+node92(J0,X) | node93(J0,X) | node94(J0,X) | -m_state_v_CVM(J0,X,c_down) | -m_state_v_gvp(J0,X,c_ovf) | -m_state_v_gof(J0,X) | m_state_v_CVM(J0,Y,c_idle) | -node99(J0,X,Y) # label(m_Crane_40) # label(axiom).
+node92(J0,X) | node93(J0,X) | node94(J0,X) | node95(J0,X) | -m_state_v_CHM(J0,X,c_todepbelt) | -m_state_v_gob(J0,X) | m_state_v_CVM(J0,Y,c_down) | -node99(J0,X,Y) # label(m_Crane_41) # label(axiom).
+node92(J0,X) | node93(J0,X) | node94(J0,X) | node95(J0,X) | node96(J0,X) | -m_state_v_gob(J0,X) | -m_state_v_CVM(J0,X,c_down) | -m_state_v_gvp(J0,X,c_ovb) | m_state_v_CVM(J0,Y,c_idle) | -node99(J0,X,Y) # label(m_Crane_42) # label(axiom).
+node92(J0,X) | node93(J0,X) | node94(J0,X) | node95(J0,X) | node96(J0,X) | node97(J0,X) | node98(J0,X,Y) | -node99(J0,X,Y) # label(m_Crane_43) # label(axiom).
+-trans(X,Y) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | node99(J0,X,Y) # label(m_Crane_44) # label(axiom).
+m_state_v_CVM(J0,X,c_up) | -node100(J0,X) # label(m_Crane_45) # label(axiom).
+m_state_v_gvp(J0,X,c_sd) | -node100(J0,X) # label(m_Crane_46) # label(axiom).
+m_state_v_CHM(J0,X,c_tofeedbelt) | -node101(J0,X) # label(m_Crane_47) # label(axiom).
+m_state_v_gof(J0,X) | -node101(J0,X) # label(m_Crane_48) # label(axiom).
+m_state_v_CVM(J0,X,c_idle) | -node102(J0,X) # label(m_Crane_49) # label(axiom).
+m_state_v_gvp(J0,X,c_ovf) | -node102(J0,X) # label(m_Crane_50) # label(axiom).
+m_state_v_gof(J0,X) | -node102(J0,X) # label(m_Crane_51) # label(axiom).
+m_state_v_CHM(J0,X,c_idle) | -node102(J0,X) # label(m_Crane_52) # label(axiom).
+m_state_v_CMag(J0,X,c_off) | -node102(J0,X) # label(m_Crane_53) # label(axiom).
+m_state_v_CHM(J0,X,c_todepbelt) | -node103(J0,X) # label(m_Crane_54) # label(axiom).
+m_state_v_gob(J0,X) | -node103(J0,X) # label(m_Crane_55) # label(axiom).
+m_state_v_CHM(J0,Y,V) | -m_state_v_CHM(J0,X,V) | -node104(J0,X,Y) # label(m_Crane_56) # label(axiom).
+-m_state_v_CHM(J0,Y,V) | m_state_v_CHM(J0,X,V) | -node104(J0,X,Y) # label(m_Crane_57) # label(axiom).
+-m_state_v_CVM(J0,X,c_up) | -m_state_v_gvp(J0,X,c_sd) | m_state_v_CHM(J0,Y,c_tofeedbelt) | -node105(J0,X,Y) # label(m_Crane_58) # label(axiom).
+node100(J0,X) | -m_state_v_CHM(J0,X,c_tofeedbelt) | -m_state_v_gof(J0,X) | m_state_v_CHM(J0,Y,c_idle) | -node105(J0,X,Y) # label(m_Crane_59) # label(axiom).
+node100(J0,X) | node101(J0,X) | -m_state_v_CVM(J0,X,c_idle) | -m_state_v_gvp(J0,X,c_ovf) | -m_state_v_gof(J0,X) | -m_state_v_CHM(J0,X,c_idle) | -m_state_v_CMag(J0,X,c_off) | m_state_v_CHM(J0,Y,c_todepbelt) | -node105(J0,X,Y) # label(m_Crane_60) # label(axiom).
+node100(J0,X) | node101(J0,X) | node102(J0,X) | -m_state_v_CHM(J0,X,c_todepbelt) | -m_state_v_gob(J0,X) | m_state_v_CHM(J0,Y,c_idle) | -node105(J0,X,Y) # label(m_Crane_61) # label(axiom).
+node100(J0,X) | node101(J0,X) | node102(J0,X) | node103(J0,X) | node104(J0,X,Y) | -node105(J0,X,Y) # label(m_Crane_62) # label(axiom).
+-trans(X,Y) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | -m_Crane_v_s(I0,J0) | node105(J0,X,Y) # label(m_Crane_63) # label(axiom).
+m_state_v_DBM(J0,X,c_run) | -node106(J0,X) # label(m_DepositBelt_1) # label(axiom).
+-m_state_v_crit(J0,X) | -node106(J0,X) # label(m_DepositBelt_2) # label(axiom).
+m_state_v_pbl(J0,X) | -node106(J0,X) # label(m_DepositBelt_3) # label(axiom).
+m_state_v_DBM(J0,X,c_run) | -node107(J0,X) # label(m_DepositBelt_4) # label(axiom).
+m_state_v_crit(J0,X) | -node107(J0,X) # label(m_DepositBelt_5) # label(axiom).
+-m_state_v_pbl(J0,X) | -node107(J0,X) # label(m_DepositBelt_6) # label(axiom).
+m_state_v_crit(J0,Y) | -m_state_v_crit(J0,X) | -node108(J0,X,Y) # label(m_DepositBelt_7) # label(axiom).
+-m_state_v_crit(J0,Y) | m_state_v_crit(J0,X) | -node108(J0,X,Y) # label(m_DepositBelt_8) # label(axiom).
+-m_state_v_DBM(J0,X,c_run) | m_state_v_crit(J0,X) | -m_state_v_pbl(J0,X) | m_state_v_crit(J0,Y) | -node109(J0,X,Y) # label(m_DepositBelt_9) # label(axiom).
+node106(J0,X) | -m_state_v_DBM(J0,X,c_run) | -m_state_v_crit(J0,X) | m_state_v_pbl(J0,X) | -m_state_v_crit(J0,Y) | -node109(J0,X,Y) # label(m_DepositBelt_10) # label(axiom).
+node106(J0,X) | node107(J0,X) | node108(J0,X,Y) | -node109(J0,X,Y) # label(m_DepositBelt_11) # label(axiom).
+-trans(X,Y) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | node109(J0,X,Y) # label(m_DepositBelt_12) # label(axiom).
+m_state_v_DBM(J0,X,c_run) | -node110(J0,X) # label(m_DepositBelt_13) # label(axiom).
+m_state_v_crit(J0,X) | -node110(J0,X) # label(m_DepositBelt_14) # label(axiom).
+-m_state_v_pbl(J0,X) | -node110(J0,X) # label(m_DepositBelt_15) # label(axiom).
+m_state_v_DBM(J0,X,c_idle) | -node111(J0,X) # label(m_DepositBelt_16) # label(axiom).
+-m_state_v_pbe(J0,X) | -node111(J0,X) # label(m_DepositBelt_17) # label(axiom).
+m_state_v_DBM(J0,Y,V) | -m_state_v_DBM(J0,X,V) | -node112(J0,X,Y) # label(m_DepositBelt_18) # label(axiom).
+-m_state_v_DBM(J0,Y,V) | m_state_v_DBM(J0,X,V) | -node112(J0,X,Y) # label(m_DepositBelt_19) # label(axiom).
+-m_state_v_DBM(J0,X,c_run) | -m_state_v_crit(J0,X) | m_state_v_pbl(J0,X) | m_state_v_DBM(J0,Y,c_idle) | -node113(J0,X,Y) # label(m_DepositBelt_20) # label(axiom).
+node110(J0,X) | -m_state_v_DBM(J0,X,c_idle) | m_state_v_pbe(J0,X) | m_state_v_DBM(J0,Y,c_run) | -node113(J0,X,Y) # label(m_DepositBelt_21) # label(axiom).
+node110(J0,X) | node111(J0,X) | node112(J0,X,Y) | -node113(J0,X,Y) # label(m_DepositBelt_22) # label(axiom).
+-trans(X,Y) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | -m_DepositBelt_v_s(I0,J0) | node113(J0,X,Y) # label(m_DepositBelt_23) # label(axiom).
+m_state_v_botPosP(J0,X) | -node114(J0,X) # label(m_Press_1) # label(axiom).
+m_state_v_PM(J0,X,c_idle) | -node114(J0,X) # label(m_Press_2) # label(axiom).
+-m_state_v_pl(J0,X) | -node114(J0,X) # label(m_Press_3) # label(axiom).
+-m_state_v_pl(J0,X) | -node115(J0,X) # label(m_Press_4) # label(axiom).
+m_state_v_PM(J0,X,c_up) | -node115(J0,X) # label(m_Press_5) # label(axiom).
+m_state_v_midPosP(J0,X) | -node115(J0,X) # label(m_Press_6) # label(axiom).
+m_state_v_midPosP(J0,X) | -node116(J0,X) # label(m_Press_7) # label(axiom).
+m_state_v_PM(J0,X,c_idle) | -node116(J0,X) # label(m_Press_8) # label(axiom).
+m_state_v_pl(J0,X) | -node116(J0,X) # label(m_Press_9) # label(axiom).
+m_state_v_pl(J0,X) | -node117(J0,X) # label(m_Press_10) # label(axiom).
+m_state_v_PM(J0,X,c_up) | -node117(J0,X) # label(m_Press_11) # label(axiom).
+m_state_v_topPosP(J0,X) | -node117(J0,X) # label(m_Press_12) # label(axiom).
+m_state_v_topPosP(J0,X) | -node118(J0,X) # label(m_Press_13) # label(axiom).
+m_state_v_PM(J0,X,c_idle) | -node118(J0,X) # label(m_Press_14) # label(axiom).
+m_state_v_fc(J0,X) | -node118(J0,X) # label(m_Press_15) # label(axiom).
+m_state_v_PM(J0,X,c_down) | -node119(J0,X) # label(m_Press_16) # label(axiom).
+m_state_v_botPosP(J0,X) | -node119(J0,X) # label(m_Press_17) # label(axiom).
+m_state_v_PM(J0,Y,V) | -m_state_v_PM(J0,X,V) | -node120(J0,X,Y) # label(m_Press_18) # label(axiom).
+-m_state_v_PM(J0,Y,V) | m_state_v_PM(J0,X,V) | -node120(J0,X,Y) # label(m_Press_19) # label(axiom).
+-m_state_v_botPosP(J0,X) | -m_state_v_PM(J0,X,c_idle) | m_state_v_pl(J0,X) | m_state_v_PM(J0,Y,c_up) | -node121(J0,X,Y) # label(m_Press_20) # label(axiom).
+node114(J0,X) | m_state_v_pl(J0,X) | -m_state_v_PM(J0,X,c_up) | -m_state_v_midPosP(J0,X) | m_state_v_PM(J0,Y,c_idle) | -node121(J0,X,Y) # label(m_Press_21) # label(axiom).
+node114(J0,X) | node115(J0,X) | -m_state_v_midPosP(J0,X) | -m_state_v_PM(J0,X,c_idle) | -m_state_v_pl(J0,X) | m_state_v_PM(J0,Y,c_up) | -node121(J0,X,Y) # label(m_Press_22) # label(axiom).
+node114(J0,X) | node115(J0,X) | node116(J0,X) | -m_state_v_pl(J0,X) | -m_state_v_PM(J0,X,c_up) | -m_state_v_topPosP(J0,X) | m_state_v_PM(J0,Y,c_idle) | -node121(J0,X,Y) # label(m_Press_23) # label(axiom).
+node114(J0,X) | node115(J0,X) | node116(J0,X) | node117(J0,X) | -m_state_v_topPosP(J0,X) | -m_state_v_PM(J0,X,c_idle) | -m_state_v_fc(J0,X) | m_state_v_PM(J0,Y,c_down) | -node121(J0,X,Y) # label(m_Press_24) # label(axiom).
+node114(J0,X) | node115(J0,X) | node116(J0,X) | node117(J0,X) | node118(J0,X) | -m_state_v_PM(J0,X,c_down) | -m_state_v_botPosP(J0,X) | m_state_v_PM(J0,Y,c_idle) | -node121(J0,X,Y) # label(m_Press_25) # label(axiom).
+node114(J0,X) | node115(J0,X) | node116(J0,X) | node117(J0,X) | node118(J0,X) | node119(J0,X) | node120(J0,X,Y) | -node121(J0,X,Y) # label(m_Press_26) # label(axiom).
+-trans(X,Y) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | -m_Press_v_s(I0,J0) | node121(J0,X,Y) # label(m_Press_27) # label(axiom).
+m_state_v_angle(J0,X,c_arm1totable) | -node122(J0,X) # label(m_Robot_1) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node122(J0,X) # label(m_Robot_2) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node122(J0,X) # label(m_Robot_3) # label(axiom).
+m_state_v_RRM(J0,X,c_idle) | -node122(J0,X) # label(m_Robot_4) # label(axiom).
+m_state_v_A1M(J0,X,c_idle) | -node122(J0,X) # label(m_Robot_5) # label(axiom).
+m_state_v_A2M(J0,X,c_idle) | -node122(J0,X) # label(m_Robot_6) # label(axiom).
+m_state_v_A1Mag(J0,X,c_off) | -node122(J0,X) # label(m_Robot_7) # label(axiom).
+m_state_v_A2Mag(J0,X,c_off) | -node122(J0,X) # label(m_Robot_8) # label(axiom).
+m_state_v_topPos(J0,X) | -node122(J0,X) # label(m_Robot_9) # label(axiom).
+m_state_v_maxRot(J0,X) | -node122(J0,X) # label(m_Robot_10) # label(axiom).
+m_state_v_tl(J0,X) | -node122(J0,X) # label(m_Robot_11) # label(axiom).
+m_state_v_angle(J0,X,c_arm1topress) | -node123(J0,X) # label(m_Robot_12) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node123(J0,X) # label(m_Robot_13) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node123(J0,X) # label(m_Robot_14) # label(axiom).
+m_state_v_RRM(J0,X,c_idle) | -node123(J0,X) # label(m_Robot_15) # label(axiom).
+m_state_v_A1M(J0,X,c_idle) | -node123(J0,X) # label(m_Robot_16) # label(axiom).
+m_state_v_A2M(J0,X,c_idle) | -node123(J0,X) # label(m_Robot_17) # label(axiom).
+m_state_v_A1Mag(J0,X,c_on) | -node123(J0,X) # label(m_Robot_18) # label(axiom).
+m_state_v_A2Mag(J0,X,c_off) | -node123(J0,X) # label(m_Robot_19) # label(axiom).
+m_state_v_midPosP(J0,X) | -node123(J0,X) # label(m_Robot_20) # label(axiom).
+m_state_v_PM(J0,X,c_idle) | -node123(J0,X) # label(m_Robot_21) # label(axiom).
+-m_state_v_pl(J0,X) | -node123(J0,X) # label(m_Robot_22) # label(axiom).
+m_state_v_angle(J0,X,c_arm1totable) | -node124(J0,X) # label(m_Robot_23) # label(axiom).
+m_state_v_A1M(J0,X,c_extend) | -node124(J0,X) # label(m_Robot_24) # label(axiom).
+m_state_v_a1ext(J0,X,c_ot) | -node124(J0,X) # label(m_Robot_25) # label(axiom).
+m_state_v_angle(J0,X,c_arm1topress) | -node125(J0,X) # label(m_Robot_26) # label(axiom).
+m_state_v_A1M(J0,X,c_extend) | -node125(J0,X) # label(m_Robot_27) # label(axiom).
+m_state_v_a1ext(J0,X,c_a1ip) | -node125(J0,X) # label(m_Robot_28) # label(axiom).
+m_state_v_angle(J0,X,c_arm1totable) | -node126(J0,X) # label(m_Robot_29) # label(axiom).
+m_state_v_a1ext(J0,X,c_ot) | -node126(J0,X) # label(m_Robot_30) # label(axiom).
+m_state_v_A1M(J0,X,c_idle) | -node126(J0,X) # label(m_Robot_31) # label(axiom).
+m_state_v_A1Mag(J0,X,c_on) | -node126(J0,X) # label(m_Robot_32) # label(axiom).
+m_state_v_angle(J0,X,c_arm1topress) | -node127(J0,X) # label(m_Robot_33) # label(axiom).
+m_state_v_a1ext(J0,X,c_a1ip) | -node127(J0,X) # label(m_Robot_34) # label(axiom).
+m_state_v_A1M(J0,X,c_idle) | -node127(J0,X) # label(m_Robot_35) # label(axiom).
+m_state_v_A1Mag(J0,X,c_off) | -node127(J0,X) # label(m_Robot_36) # label(axiom).
+m_state_v_angle(J0,X,c_arm1totable) | -node128(J0,X) # label(m_Robot_37) # label(axiom).
+m_state_v_A1M(J0,X,c_retract) | -node128(J0,X) # label(m_Robot_38) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node128(J0,X) # label(m_Robot_39) # label(axiom).
+m_state_v_angle(J0,X,c_arm1topress) | -node129(J0,X) # label(m_Robot_40) # label(axiom).
+m_state_v_A1M(J0,X,c_retract) | -node129(J0,X) # label(m_Robot_41) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node129(J0,X) # label(m_Robot_42) # label(axiom).
+m_state_v_A1M(J0,Y,V) | -m_state_v_A1M(J0,X,V) | -node130(J0,X,Y) # label(m_Robot_43) # label(axiom).
+-m_state_v_A1M(J0,Y,V) | m_state_v_A1M(J0,X,V) | -node130(J0,X,Y) # label(m_Robot_44) # label(axiom).
+-m_state_v_angle(J0,X,c_arm1totable) | -m_state_v_a1ext(J0,X,c_retracted) | -m_state_v_a2ext(J0,X,c_retracted) | -m_state_v_RRM(J0,X,c_idle) | -m_state_v_A1M(J0,X,c_idle) | -m_state_v_A2M(J0,X,c_idle) | -m_state_v_A1Mag(J0,X,c_off) | -m_state_v_A2Mag(J0,X,c_off) | -m_state_v_topPos(J0,X) | -m_state_v_maxRot(J0,X) | -m_state_v_tl(J0,X) | m_state_v_A1M(J0,Y,c_extend) | -node131(J0,X,Y) # label(m_Robot_45) # label(axiom).
+node122(J0,X) | -m_state_v_angle(J0,X,c_arm1topress) | -m_state_v_a1ext(J0,X,c_retracted) | -m_state_v_a2ext(J0,X,c_retracted) | -m_state_v_RRM(J0,X,c_idle) | -m_state_v_A1M(J0,X,c_idle) | -m_state_v_A2M(J0,X,c_idle) | -m_state_v_A1Mag(J0,X,c_on) | -m_state_v_A2Mag(J0,X,c_off) | -m_state_v_midPosP(J0,X) | -m_state_v_PM(J0,X,c_idle) | m_state_v_pl(J0,X) | m_state_v_A1M(J0,Y,c_extend) | -node131(J0,X,Y) # label(m_Robot_46) # label(axiom).
+node122(J0,X) | node123(J0,X) | -m_state_v_angle(J0,X,c_arm1totable) | -m_state_v_A1M(J0,X,c_extend) | -m_state_v_a1ext(J0,X,c_ot) | m_state_v_A1M(J0,Y,c_idle) | -node131(J0,X,Y) # label(m_Robot_47) # label(axiom).
+node122(J0,X) | node123(J0,X) | node124(J0,X) | -m_state_v_angle(J0,X,c_arm1topress) | -m_state_v_A1M(J0,X,c_extend) | -m_state_v_a1ext(J0,X,c_a1ip) | m_state_v_A1M(J0,Y,c_idle) | -node131(J0,X,Y) # label(m_Robot_48) # label(axiom).
+node122(J0,X) | node123(J0,X) | node124(J0,X) | node125(J0,X) | -m_state_v_angle(J0,X,c_arm1totable) | -m_state_v_a1ext(J0,X,c_ot) | -m_state_v_A1M(J0,X,c_idle) | -m_state_v_A1Mag(J0,X,c_on) | m_state_v_A1M(J0,Y,c_retract) | -node131(J0,X,Y) # label(m_Robot_49) # label(axiom).
+node122(J0,X) | node123(J0,X) | node124(J0,X) | node125(J0,X) | node126(J0,X) | -m_state_v_angle(J0,X,c_arm1topress) | -m_state_v_a1ext(J0,X,c_a1ip) | -m_state_v_A1M(J0,X,c_idle) | -m_state_v_A1Mag(J0,X,c_off) | m_state_v_A1M(J0,Y,c_retract) | -node131(J0,X,Y) # label(m_Robot_50) # label(axiom).
+node122(J0,X) | node123(J0,X) | node124(J0,X) | node125(J0,X) | node126(J0,X) | node127(J0,X) | -m_state_v_angle(J0,X,c_arm1totable) | -m_state_v_A1M(J0,X,c_retract) | -m_state_v_a1ext(J0,X,c_retracted) | m_state_v_A1M(J0,Y,c_idle) | -node131(J0,X,Y) # label(m_Robot_51) # label(axiom).
+node122(J0,X) | node123(J0,X) | node124(J0,X) | node125(J0,X) | node126(J0,X) | node127(J0,X) | node128(J0,X) | -m_state_v_angle(J0,X,c_arm1topress) | -m_state_v_A1M(J0,X,c_retract) | -m_state_v_a1ext(J0,X,c_retracted) | m_state_v_A1M(J0,Y,c_idle) | -node131(J0,X,Y) # label(m_Robot_52) # label(axiom).
+node122(J0,X) | node123(J0,X) | node124(J0,X) | node125(J0,X) | node126(J0,X) | node127(J0,X) | node128(J0,X) | node129(J0,X) | node130(J0,X,Y) | -node131(J0,X,Y) # label(m_Robot_53) # label(axiom).
+-trans(X,Y) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | node131(J0,X,Y) # label(m_Robot_54) # label(axiom).
+m_state_v_angle(J0,X,c_arm2topress) | -node132(J0,X) # label(m_Robot_55) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node132(J0,X) # label(m_Robot_56) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node132(J0,X) # label(m_Robot_57) # label(axiom).
+m_state_v_RRM(J0,X,c_idle) | -node132(J0,X) # label(m_Robot_58) # label(axiom).
+m_state_v_A1M(J0,X,c_idle) | -node132(J0,X) # label(m_Robot_59) # label(axiom).
+m_state_v_A2M(J0,X,c_idle) | -node132(J0,X) # label(m_Robot_60) # label(axiom).
+m_state_v_A1Mag(J0,X,c_on) | -node132(J0,X) # label(m_Robot_61) # label(axiom).
+m_state_v_A2Mag(J0,X,c_off) | -node132(J0,X) # label(m_Robot_62) # label(axiom).
+m_state_v_botPosP(J0,X) | -node132(J0,X) # label(m_Robot_63) # label(axiom).
+m_state_v_PM(J0,X,c_idle) | -node132(J0,X) # label(m_Robot_64) # label(axiom).
+m_state_v_pl(J0,X) | -node132(J0,X) # label(m_Robot_65) # label(axiom).
+m_state_v_angle(J0,X,c_arm2todepbelt) | -node133(J0,X) # label(m_Robot_66) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node133(J0,X) # label(m_Robot_67) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node133(J0,X) # label(m_Robot_68) # label(axiom).
+m_state_v_RRM(J0,X,c_idle) | -node133(J0,X) # label(m_Robot_69) # label(axiom).
+m_state_v_A1M(J0,X,c_idle) | -node133(J0,X) # label(m_Robot_70) # label(axiom).
+m_state_v_A2M(J0,X,c_idle) | -node133(J0,X) # label(m_Robot_71) # label(axiom).
+m_state_v_A1Mag(J0,X,c_on) | -node133(J0,X) # label(m_Robot_72) # label(axiom).
+m_state_v_A2Mag(J0,X,c_on) | -node133(J0,X) # label(m_Robot_73) # label(axiom).
+m_state_v_brl(J0,X) | -node133(J0,X) # label(m_Robot_74) # label(axiom).
+m_state_v_angle(J0,X,c_arm2topress) | -node134(J0,X) # label(m_Robot_75) # label(axiom).
+m_state_v_A2M(J0,X,c_extend) | -node134(J0,X) # label(m_Robot_76) # label(axiom).
+m_state_v_a2ext(J0,X,c_a2ip) | -node134(J0,X) # label(m_Robot_77) # label(axiom).
+m_state_v_angle(J0,X,c_arm2todepbelt) | -node135(J0,X) # label(m_Robot_78) # label(axiom).
+m_state_v_A2M(J0,X,c_extend) | -node135(J0,X) # label(m_Robot_79) # label(axiom).
+m_state_v_a2ext(J0,X,c_ob) | -node135(J0,X) # label(m_Robot_80) # label(axiom).
+m_state_v_angle(J0,X,c_arm2topress) | -node136(J0,X) # label(m_Robot_81) # label(axiom).
+m_state_v_a2ext(J0,X,c_a2ip) | -node136(J0,X) # label(m_Robot_82) # label(axiom).
+m_state_v_A2M(J0,X,c_idle) | -node136(J0,X) # label(m_Robot_83) # label(axiom).
+m_state_v_A2Mag(J0,X,c_on) | -node136(J0,X) # label(m_Robot_84) # label(axiom).
+m_state_v_angle(J0,X,c_arm2todepbelt) | -node137(J0,X) # label(m_Robot_85) # label(axiom).
+m_state_v_a2ext(J0,X,c_ob) | -node137(J0,X) # label(m_Robot_86) # label(axiom).
+m_state_v_A2M(J0,X,c_idle) | -node137(J0,X) # label(m_Robot_87) # label(axiom).
+m_state_v_A2Mag(J0,X,c_off) | -node137(J0,X) # label(m_Robot_88) # label(axiom).
+m_state_v_angle(J0,X,c_arm2topress) | -node138(J0,X) # label(m_Robot_89) # label(axiom).
+m_state_v_A2M(J0,X,c_retract) | -node138(J0,X) # label(m_Robot_90) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node138(J0,X) # label(m_Robot_91) # label(axiom).
+m_state_v_angle(J0,X,c_arm2todepbelt) | -node139(J0,X) # label(m_Robot_92) # label(axiom).
+m_state_v_A2M(J0,X,c_retract) | -node139(J0,X) # label(m_Robot_93) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node139(J0,X) # label(m_Robot_94) # label(axiom).
+m_state_v_A2M(J0,Y,V) | -m_state_v_A2M(J0,X,V) | -node140(J0,X,Y) # label(m_Robot_95) # label(axiom).
+-m_state_v_A2M(J0,Y,V) | m_state_v_A2M(J0,X,V) | -node140(J0,X,Y) # label(m_Robot_96) # label(axiom).
+-m_state_v_angle(J0,X,c_arm2topress) | -m_state_v_a1ext(J0,X,c_retracted) | -m_state_v_a2ext(J0,X,c_retracted) | -m_state_v_RRM(J0,X,c_idle) | -m_state_v_A1M(J0,X,c_idle) | -m_state_v_A2M(J0,X,c_idle) | -m_state_v_A1Mag(J0,X,c_on) | -m_state_v_A2Mag(J0,X,c_off) | -m_state_v_botPosP(J0,X) | -m_state_v_PM(J0,X,c_idle) | -m_state_v_pl(J0,X) | m_state_v_A2M(J0,Y,c_extend) | -node141(J0,X,Y) # label(m_Robot_97) # label(axiom).
+node132(J0,X) | -m_state_v_angle(J0,X,c_arm2todepbelt) | -m_state_v_a1ext(J0,X,c_retracted) | -m_state_v_a2ext(J0,X,c_retracted) | -m_state_v_RRM(J0,X,c_idle) | -m_state_v_A1M(J0,X,c_idle) | -m_state_v_A2M(J0,X,c_idle) | -m_state_v_A1Mag(J0,X,c_on) | -m_state_v_A2Mag(J0,X,c_on) | -m_state_v_brl(J0,X) | m_state_v_A2M(J0,Y,c_extend) | -node141(J0,X,Y) # label(m_Robot_98) # label(axiom).
+node132(J0,X) | node133(J0,X) | -m_state_v_angle(J0,X,c_arm2topress) | -m_state_v_A2M(J0,X,c_extend) | -m_state_v_a2ext(J0,X,c_a2ip) | m_state_v_A2M(J0,Y,c_idle) | -node141(J0,X,Y) # label(m_Robot_99) # label(axiom).
+node132(J0,X) | node133(J0,X) | node134(J0,X) | -m_state_v_angle(J0,X,c_arm2todepbelt) | -m_state_v_A2M(J0,X,c_extend) | -m_state_v_a2ext(J0,X,c_ob) | m_state_v_A2M(J0,Y,c_idle) | -node141(J0,X,Y) # label(m_Robot_100) # label(axiom).
+node132(J0,X) | node133(J0,X) | node134(J0,X) | node135(J0,X) | -m_state_v_angle(J0,X,c_arm2topress) | -m_state_v_a2ext(J0,X,c_a2ip) | -m_state_v_A2M(J0,X,c_idle) | -m_state_v_A2Mag(J0,X,c_on) | m_state_v_A2M(J0,Y,c_retract) | -node141(J0,X,Y) # label(m_Robot_101) # label(axiom).
+node132(J0,X) | node133(J0,X) | node134(J0,X) | node135(J0,X) | node136(J0,X) | -m_state_v_angle(J0,X,c_arm2todepbelt) | -m_state_v_a2ext(J0,X,c_ob) | -m_state_v_A2M(J0,X,c_idle) | -m_state_v_A2Mag(J0,X,c_off) | m_state_v_A2M(J0,Y,c_retract) | -node141(J0,X,Y) # label(m_Robot_102) # label(axiom).
+node132(J0,X) | node133(J0,X) | node134(J0,X) | node135(J0,X) | node136(J0,X) | node137(J0,X) | -m_state_v_angle(J0,X,c_arm2topress) | -m_state_v_A2M(J0,X,c_retract) | -m_state_v_a2ext(J0,X,c_retracted) | m_state_v_A2M(J0,Y,c_idle) | -node141(J0,X,Y) # label(m_Robot_103) # label(axiom).
+node132(J0,X) | node133(J0,X) | node134(J0,X) | node135(J0,X) | node136(J0,X) | node137(J0,X) | node138(J0,X) | -m_state_v_angle(J0,X,c_arm2todepbelt) | -m_state_v_A2M(J0,X,c_retract) | -m_state_v_a2ext(J0,X,c_retracted) | m_state_v_A2M(J0,Y,c_idle) | -node141(J0,X,Y) # label(m_Robot_104) # label(axiom).
+node132(J0,X) | node133(J0,X) | node134(J0,X) | node135(J0,X) | node136(J0,X) | node137(J0,X) | node138(J0,X) | node139(J0,X) | node140(J0,X,Y) | -node141(J0,X,Y) # label(m_Robot_105) # label(axiom).
+-trans(X,Y) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | node141(J0,X,Y) # label(m_Robot_106) # label(axiom).
+m_state_v_angle(J0,X,c_arm1totable) | -node142(J0,X) # label(m_Robot_107) # label(axiom).
+m_state_v_A1M(J0,X,c_extend) | -node142(J0,X) # label(m_Robot_108) # label(axiom).
+m_state_v_a1ext(J0,X,c_ot) | -node142(J0,X) # label(m_Robot_109) # label(axiom).
+m_state_v_angle(J0,X,c_arm1topress) | -node143(J0,X) # label(m_Robot_110) # label(axiom).
+m_state_v_A1M(J0,X,c_extend) | -node143(J0,X) # label(m_Robot_111) # label(axiom).
+m_state_v_a1ext(J0,X,c_a1ip) | -node143(J0,X) # label(m_Robot_112) # label(axiom).
+m_state_v_A1Mag(J0,Y,V) | -m_state_v_A1Mag(J0,X,V) | -node144(J0,X,Y) # label(m_Robot_113) # label(axiom).
+-m_state_v_A1Mag(J0,Y,V) | m_state_v_A1Mag(J0,X,V) | -node144(J0,X,Y) # label(m_Robot_114) # label(axiom).
+-m_state_v_angle(J0,X,c_arm1totable) | -m_state_v_A1M(J0,X,c_extend) | -m_state_v_a1ext(J0,X,c_ot) | m_state_v_A1Mag(J0,Y,c_on) | -node145(J0,X,Y) # label(m_Robot_115) # label(axiom).
+node142(J0,X) | -m_state_v_angle(J0,X,c_arm1topress) | -m_state_v_A1M(J0,X,c_extend) | -m_state_v_a1ext(J0,X,c_a1ip) | m_state_v_A1Mag(J0,Y,c_off) | -node145(J0,X,Y) # label(m_Robot_116) # label(axiom).
+node142(J0,X) | node143(J0,X) | node144(J0,X,Y) | -node145(J0,X,Y) # label(m_Robot_117) # label(axiom).
+-trans(X,Y) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | node145(J0,X,Y) # label(m_Robot_118) # label(axiom).
+m_state_v_angle(J0,X,c_arm2topress) | -node146(J0,X) # label(m_Robot_119) # label(axiom).
+m_state_v_A2M(J0,X,c_extend) | -node146(J0,X) # label(m_Robot_120) # label(axiom).
+m_state_v_a2ext(J0,X,c_a2ip) | -node146(J0,X) # label(m_Robot_121) # label(axiom).
+m_state_v_angle(J0,X,c_arm2todepbelt) | -node147(J0,X) # label(m_Robot_122) # label(axiom).
+m_state_v_A2M(J0,X,c_extend) | -node147(J0,X) # label(m_Robot_123) # label(axiom).
+m_state_v_a2ext(J0,X,c_ob) | -node147(J0,X) # label(m_Robot_124) # label(axiom).
+m_state_v_A2Mag(J0,Y,V) | -m_state_v_A2Mag(J0,X,V) | -node148(J0,X,Y) # label(m_Robot_125) # label(axiom).
+-m_state_v_A2Mag(J0,Y,V) | m_state_v_A2Mag(J0,X,V) | -node148(J0,X,Y) # label(m_Robot_126) # label(axiom).
+-m_state_v_angle(J0,X,c_arm2topress) | -m_state_v_A2M(J0,X,c_extend) | -m_state_v_a2ext(J0,X,c_a2ip) | m_state_v_A2Mag(J0,Y,c_on) | -node149(J0,X,Y) # label(m_Robot_127) # label(axiom).
+node146(J0,X) | -m_state_v_angle(J0,X,c_arm2todepbelt) | -m_state_v_A2M(J0,X,c_extend) | -m_state_v_a2ext(J0,X,c_ob) | m_state_v_A2Mag(J0,Y,c_off) | -node149(J0,X,Y) # label(m_Robot_128) # label(axiom).
+node146(J0,X) | node147(J0,X) | node148(J0,X,Y) | -node149(J0,X,Y) # label(m_Robot_129) # label(axiom).
+-trans(X,Y) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | node149(J0,X,Y) # label(m_Robot_130) # label(axiom).
+m_state_v_angle(J0,X,c_arm1totable) | -node150(J0,X) # label(m_Robot_131) # label(axiom).
+m_state_v_A1M(J0,X,c_retract) | -node150(J0,X) # label(m_Robot_132) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node150(J0,X) # label(m_Robot_133) # label(axiom).
+m_state_v_angle(J0,X,c_arm2topress) | -node151(J0,X) # label(m_Robot_134) # label(axiom).
+m_state_v_A2M(J0,X,c_retract) | -node151(J0,X) # label(m_Robot_135) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node151(J0,X) # label(m_Robot_136) # label(axiom).
+m_state_v_angle(J0,X,c_arm2todepbelt) | -node152(J0,X) # label(m_Robot_137) # label(axiom).
+m_state_v_A2M(J0,X,c_retract) | -node152(J0,X) # label(m_Robot_138) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node152(J0,X) # label(m_Robot_139) # label(axiom).
+m_state_v_angle(J0,X,c_arm1topress) | -node153(J0,X) # label(m_Robot_140) # label(axiom).
+m_state_v_A1M(J0,X,c_retract) | -node153(J0,X) # label(m_Robot_141) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node153(J0,X) # label(m_Robot_142) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node154(J0,X) # label(m_Robot_143) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node154(J0,X) # label(m_Robot_144) # label(axiom).
+m_state_v_A1M(J0,X,c_idle) | -node154(J0,X) # label(m_Robot_145) # label(axiom).
+m_state_v_A2M(J0,X,c_idle) | -node154(J0,X) # label(m_Robot_146) # label(axiom).
+m_state_v_RRM(J0,X,c_counterclock) | -node154(J0,X) # label(m_Robot_147) # label(axiom).
+m_state_v_A1Mag(J0,X,c_on) | -node154(J0,X) # label(m_Robot_148) # label(axiom).
+m_state_v_A2Mag(J0,X,c_off) | -node154(J0,X) # label(m_Robot_149) # label(axiom).
+m_state_v_angle(J0,X,c_arm2topress) | -node154(J0,X) # label(m_Robot_150) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node155(J0,X) # label(m_Robot_151) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node155(J0,X) # label(m_Robot_152) # label(axiom).
+m_state_v_A1M(J0,X,c_idle) | -node155(J0,X) # label(m_Robot_153) # label(axiom).
+m_state_v_A2M(J0,X,c_idle) | -node155(J0,X) # label(m_Robot_154) # label(axiom).
+m_state_v_RRM(J0,X,c_counterclock) | -node155(J0,X) # label(m_Robot_155) # label(axiom).
+m_state_v_A1Mag(J0,X,c_on) | -node155(J0,X) # label(m_Robot_156) # label(axiom).
+m_state_v_A2Mag(J0,X,c_on) | -node155(J0,X) # label(m_Robot_157) # label(axiom).
+m_state_v_angle(J0,X,c_arm2todepbelt) | -node155(J0,X) # label(m_Robot_158) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node156(J0,X) # label(m_Robot_159) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node156(J0,X) # label(m_Robot_160) # label(axiom).
+m_state_v_A1M(J0,X,c_idle) | -node156(J0,X) # label(m_Robot_161) # label(axiom).
+m_state_v_A2M(J0,X,c_idle) | -node156(J0,X) # label(m_Robot_162) # label(axiom).
+m_state_v_RRM(J0,X,c_counterclock) | -node156(J0,X) # label(m_Robot_163) # label(axiom).
+m_state_v_A1Mag(J0,X,c_on) | -node156(J0,X) # label(m_Robot_164) # label(axiom).
+m_state_v_A2Mag(J0,X,c_off) | -node156(J0,X) # label(m_Robot_165) # label(axiom).
+m_state_v_angle(J0,X,c_arm1topress) | -node156(J0,X) # label(m_Robot_166) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node157(J0,X) # label(m_Robot_167) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node157(J0,X) # label(m_Robot_168) # label(axiom).
+m_state_v_A1M(J0,X,c_idle) | -node157(J0,X) # label(m_Robot_169) # label(axiom).
+m_state_v_A2M(J0,X,c_idle) | -node157(J0,X) # label(m_Robot_170) # label(axiom).
+m_state_v_RRM(J0,X,c_clockwise) | -node157(J0,X) # label(m_Robot_171) # label(axiom).
+m_state_v_A1Mag(J0,X,c_off) | -node157(J0,X) # label(m_Robot_172) # label(axiom).
+m_state_v_A2Mag(J0,X,c_off) | -node157(J0,X) # label(m_Robot_173) # label(axiom).
+m_state_v_angle(J0,X,c_arm1totable) | -node157(J0,X) # label(m_Robot_174) # label(axiom).
+m_state_v_RRM(J0,Y,V) | -m_state_v_RRM(J0,X,V) | -node158(J0,X,Y) # label(m_Robot_175) # label(axiom).
+-m_state_v_RRM(J0,Y,V) | m_state_v_RRM(J0,X,V) | -node158(J0,X,Y) # label(m_Robot_176) # label(axiom).
+-m_state_v_angle(J0,X,c_arm1totable) | -m_state_v_A1M(J0,X,c_retract) | -m_state_v_a1ext(J0,X,c_retracted) | m_state_v_RRM(J0,Y,c_counterclock) | -node159(J0,X,Y) # label(m_Robot_177) # label(axiom).
+node150(J0,X) | -m_state_v_angle(J0,X,c_arm2topress) | -m_state_v_A2M(J0,X,c_retract) | -m_state_v_a2ext(J0,X,c_retracted) | m_state_v_RRM(J0,Y,c_counterclock) | -node159(J0,X,Y) # label(m_Robot_178) # label(axiom).
+node150(J0,X) | node151(J0,X) | -m_state_v_angle(J0,X,c_arm2todepbelt) | -m_state_v_A2M(J0,X,c_retract) | -m_state_v_a2ext(J0,X,c_retracted) | m_state_v_RRM(J0,Y,c_counterclock) | -node159(J0,X,Y) # label(m_Robot_179) # label(axiom).
+node150(J0,X) | node151(J0,X) | node152(J0,X) | -m_state_v_angle(J0,X,c_arm1topress) | -m_state_v_A1M(J0,X,c_retract) | -m_state_v_a1ext(J0,X,c_retracted) | m_state_v_RRM(J0,Y,c_clockwise) | -node159(J0,X,Y) # label(m_Robot_180) # label(axiom).
+node150(J0,X) | node151(J0,X) | node152(J0,X) | node153(J0,X) | -m_state_v_a1ext(J0,X,c_retracted) | -m_state_v_a2ext(J0,X,c_retracted) | -m_state_v_A1M(J0,X,c_idle) | -m_state_v_A2M(J0,X,c_idle) | -m_state_v_RRM(J0,X,c_counterclock) | -m_state_v_A1Mag(J0,X,c_on) | -m_state_v_A2Mag(J0,X,c_off) | -m_state_v_angle(J0,X,c_arm2topress) | m_state_v_RRM(J0,Y,c_idle) | -node159(J0,X,Y) # label(m_Robot_181) # label(axiom).
+node150(J0,X) | node151(J0,X) | node152(J0,X) | node153(J0,X) | node154(J0,X) | -m_state_v_a1ext(J0,X,c_retracted) | -m_state_v_a2ext(J0,X,c_retracted) | -m_state_v_A1M(J0,X,c_idle) | -m_state_v_A2M(J0,X,c_idle) | -m_state_v_RRM(J0,X,c_counterclock) | -m_state_v_A1Mag(J0,X,c_on) | -m_state_v_A2Mag(J0,X,c_on) | -m_state_v_angle(J0,X,c_arm2todepbelt) | m_state_v_RRM(J0,Y,c_idle) | -node159(J0,X,Y) # label(m_Robot_182) # label(axiom).
+node150(J0,X) | node151(J0,X) | node152(J0,X) | node153(J0,X) | node154(J0,X) | node155(J0,X) | -m_state_v_a1ext(J0,X,c_retracted) | -m_state_v_a2ext(J0,X,c_retracted) | -m_state_v_A1M(J0,X,c_idle) | -m_state_v_A2M(J0,X,c_idle) | -m_state_v_RRM(J0,X,c_counterclock) | -m_state_v_A1Mag(J0,X,c_on) | -m_state_v_A2Mag(J0,X,c_off) | -m_state_v_angle(J0,X,c_arm1topress) | m_state_v_RRM(J0,Y,c_idle) | -node159(J0,X,Y) # label(m_Robot_183) # label(axiom).
+node150(J0,X) | node151(J0,X) | node152(J0,X) | node153(J0,X) | node154(J0,X) | node155(J0,X) | node156(J0,X) | -m_state_v_a1ext(J0,X,c_retracted) | -m_state_v_a2ext(J0,X,c_retracted) | -m_state_v_A1M(J0,X,c_idle) | -m_state_v_A2M(J0,X,c_idle) | -m_state_v_RRM(J0,X,c_clockwise) | -m_state_v_A1Mag(J0,X,c_off) | -m_state_v_A2Mag(J0,X,c_off) | -m_state_v_angle(J0,X,c_arm1totable) | m_state_v_RRM(J0,Y,c_idle) | -node159(J0,X,Y) # label(m_Robot_184) # label(axiom).
+node150(J0,X) | node151(J0,X) | node152(J0,X) | node153(J0,X) | node154(J0,X) | node155(J0,X) | node156(J0,X) | node157(J0,X) | node158(J0,X,Y) | -node159(J0,X,Y) # label(m_Robot_185) # label(axiom).
+-trans(X,Y) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | node159(J0,X,Y) # label(m_Robot_186) # label(axiom).
+m_state_v_angle(J0,X,c_arm2topress) | -node160(J0,X) # label(m_Robot_187) # label(axiom).
+m_state_v_A2M(J0,X,c_retract) | -node160(J0,X) # label(m_Robot_188) # label(axiom).
+m_state_v_a2ext(J0,X,c_retracted) | -node160(J0,X) # label(m_Robot_189) # label(axiom).
+m_state_v_angle(J0,X,c_arm1topress) | -node161(J0,X) # label(m_Robot_190) # label(axiom).
+m_state_v_A1M(J0,X,c_retract) | -node161(J0,X) # label(m_Robot_191) # label(axiom).
+m_state_v_a1ext(J0,X,c_retracted) | -node161(J0,X) # label(m_Robot_192) # label(axiom).
+m_state_v_pl(J0,Y) | -m_state_v_pl(J0,X) | -node162(J0,X,Y) # label(m_Robot_193) # label(axiom).
+-m_state_v_pl(J0,Y) | m_state_v_pl(J0,X) | -node162(J0,X,Y) # label(m_Robot_194) # label(axiom).
+-m_state_v_angle(J0,X,c_arm2topress) | -m_state_v_A2M(J0,X,c_retract) | -m_state_v_a2ext(J0,X,c_retracted) | -m_state_v_pl(J0,Y) | -node163(J0,X,Y) # label(m_Robot_195) # label(axiom).
+node160(J0,X) | -m_state_v_angle(J0,X,c_arm1topress) | -m_state_v_A1M(J0,X,c_retract) | -m_state_v_a1ext(J0,X,c_retracted) | m_state_v_pl(J0,Y) | -node163(J0,X,Y) # label(m_Robot_196) # label(axiom).
+node160(J0,X) | node161(J0,X) | node162(J0,X,Y) | -node163(J0,X,Y) # label(m_Robot_197) # label(axiom).
+-trans(X,Y) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | -m_Robot_v_s(I0,J0) | node163(J0,X,Y) # label(m_Robot_198) # label(axiom).
+m_state_v_botPos(J0,X) | -node164(J0,X) # label(m_ERTable_1) # label(axiom).
+m_state_v_minRot(J0,X) | -node164(J0,X) # label(m_ERTable_2) # label(axiom).
+m_state_v_TEM(J0,X,c_idle) | -node164(J0,X) # label(m_ERTable_3) # label(axiom).
+m_state_v_TRM(J0,X,c_idle) | -node164(J0,X) # label(m_ERTable_4) # label(axiom).
+m_state_v_tl(J0,X) | -node164(J0,X) # label(m_ERTable_5) # label(axiom).
+m_state_v_TRM(J0,X,c_clockwise) | -node165(J0,X) # label(m_ERTable_6) # label(axiom).
+m_state_v_maxRot(J0,X) | -node165(J0,X) # label(m_ERTable_7) # label(axiom).
+m_state_v_topPos(J0,X) | -node166(J0,X) # label(m_ERTable_8) # label(axiom).
+m_state_v_maxRot(J0,X) | -node166(J0,X) # label(m_ERTable_9) # label(axiom).
+m_state_v_TEM(J0,X,c_idle) | -node166(J0,X) # label(m_ERTable_10) # label(axiom).
+m_state_v_TRM(J0,X,c_idle) | -node166(J0,X) # label(m_ERTable_11) # label(axiom).
+-m_state_v_tl(J0,X) | -node166(J0,X) # label(m_ERTable_12) # label(axiom).
+m_state_v_TRM(J0,X,c_counterclockwise) | -node167(J0,X) # label(m_ERTable_13) # label(axiom).
+m_state_v_minRot(J0,X) | -node167(J0,X) # label(m_ERTable_14) # label(axiom).
+m_state_v_TRM(J0,Y,V) | -m_state_v_TRM(J0,X,V) | -node168(J0,X,Y) # label(m_ERTable_15) # label(axiom).
+-m_state_v_TRM(J0,Y,V) | m_state_v_TRM(J0,X,V) | -node168(J0,X,Y) # label(m_ERTable_16) # label(axiom).
+-m_state_v_botPos(J0,X) | -m_state_v_minRot(J0,X) | -m_state_v_TEM(J0,X,c_idle) | -m_state_v_TRM(J0,X,c_idle) | -m_state_v_tl(J0,X) | m_state_v_TRM(J0,Y,c_clockwise) | -node169(J0,X,Y) # label(m_ERTable_17) # label(axiom).
+node164(J0,X) | -m_state_v_TRM(J0,X,c_clockwise) | -m_state_v_maxRot(J0,X) | m_state_v_TRM(J0,Y,c_idle) | -node169(J0,X,Y) # label(m_ERTable_18) # label(axiom).
+node164(J0,X) | node165(J0,X) | -m_state_v_topPos(J0,X) | -m_state_v_maxRot(J0,X) | -m_state_v_TEM(J0,X,c_idle) | -m_state_v_TRM(J0,X,c_idle) | m_state_v_tl(J0,X) | m_state_v_TRM(J0,Y,c_counterclockwise) | -node169(J0,X,Y) # label(m_ERTable_19) # label(axiom).
+node164(J0,X) | node165(J0,X) | node166(J0,X) | -m_state_v_TRM(J0,X,c_counterclockwise) | -m_state_v_minRot(J0,X) | m_state_v_TRM(J0,Y,c_idle) | -node169(J0,X,Y) # label(m_ERTable_20) # label(axiom).
+node164(J0,X) | node165(J0,X) | node166(J0,X) | node167(J0,X) | node168(J0,X,Y) | -node169(J0,X,Y) # label(m_ERTable_21) # label(axiom).
+-trans(X,Y) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | node169(J0,X,Y) # label(m_ERTable_22) # label(axiom).
+m_state_v_botPos(J0,X) | -node170(J0,X) # label(m_ERTable_23) # label(axiom).
+m_state_v_minRot(J0,X) | -node170(J0,X) # label(m_ERTable_24) # label(axiom).
+m_state_v_TEM(J0,X,c_idle) | -node170(J0,X) # label(m_ERTable_25) # label(axiom).
+m_state_v_TRM(J0,X,c_idle) | -node170(J0,X) # label(m_ERTable_26) # label(axiom).
+m_state_v_tl(J0,X) | -node170(J0,X) # label(m_ERTable_27) # label(axiom).
+m_state_v_TEM(J0,X,c_up) | -node171(J0,X) # label(m_ERTable_28) # label(axiom).
+m_state_v_topPos(J0,X) | -node171(J0,X) # label(m_ERTable_29) # label(axiom).
+m_state_v_topPos(J0,X) | -node172(J0,X) # label(m_ERTable_30) # label(axiom).
+m_state_v_maxRot(J0,X) | -node172(J0,X) # label(m_ERTable_31) # label(axiom).
+m_state_v_TEM(J0,X,c_idle) | -node172(J0,X) # label(m_ERTable_32) # label(axiom).
+m_state_v_TRM(J0,X,c_idle) | -node172(J0,X) # label(m_ERTable_33) # label(axiom).
+-m_state_v_tl(J0,X) | -node172(J0,X) # label(m_ERTable_34) # label(axiom).
+m_state_v_TEM(J0,X,c_down) | -node173(J0,X) # label(m_ERTable_35) # label(axiom).
+m_state_v_botPos(J0,X) | -node173(J0,X) # label(m_ERTable_36) # label(axiom).
+m_state_v_TEM(J0,Y,V) | -m_state_v_TEM(J0,X,V) | -node174(J0,X,Y) # label(m_ERTable_37) # label(axiom).
+-m_state_v_TEM(J0,Y,V) | m_state_v_TEM(J0,X,V) | -node174(J0,X,Y) # label(m_ERTable_38) # label(axiom).
+-m_state_v_botPos(J0,X) | -m_state_v_minRot(J0,X) | -m_state_v_TEM(J0,X,c_idle) | -m_state_v_TRM(J0,X,c_idle) | -m_state_v_tl(J0,X) | m_state_v_TEM(J0,Y,c_up) | -node175(J0,X,Y) # label(m_ERTable_39) # label(axiom).
+node170(J0,X) | -m_state_v_TEM(J0,X,c_up) | -m_state_v_topPos(J0,X) | m_state_v_TEM(J0,Y,c_idle) | -node175(J0,X,Y) # label(m_ERTable_40) # label(axiom).
+node170(J0,X) | node171(J0,X) | -m_state_v_topPos(J0,X) | -m_state_v_maxRot(J0,X) | -m_state_v_TEM(J0,X,c_idle) | -m_state_v_TRM(J0,X,c_idle) | m_state_v_tl(J0,X) | m_state_v_TEM(J0,Y,c_down) | -node175(J0,X,Y) # label(m_ERTable_41) # label(axiom).
+node170(J0,X) | node171(J0,X) | node172(J0,X) | -m_state_v_TEM(J0,X,c_down) | -m_state_v_botPos(J0,X) | m_state_v_TEM(J0,Y,c_idle) | -node175(J0,X,Y) # label(m_ERTable_42) # label(axiom).
+node170(J0,X) | node171(J0,X) | node172(J0,X) | node173(J0,X) | node174(J0,X,Y) | -node175(J0,X,Y) # label(m_ERTable_43) # label(axiom).
+-trans(X,Y) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | -m_ERTable_v_s(I0,J0) | node175(J0,X,Y) # label(m_ERTable_44) # label(axiom).
+m_state_v_FBM(J0,X,c_on) | -node176(J0,X) # label(m_FeedBelt_1) # label(axiom).
+-m_state_v_deliv(J0,X) | -node176(J0,X) # label(m_FeedBelt_2) # label(axiom).
+m_state_v_pfl(J0,X) | -node176(J0,X) # label(m_FeedBelt_3) # label(axiom).
+m_state_v_botPos(J0,X) | -node176(J0,X) # label(m_FeedBelt_4) # label(axiom).
+m_state_v_minRot(J0,X) | -node176(J0,X) # label(m_FeedBelt_5) # label(axiom).
+m_state_v_TEM(J0,X,c_idle) | -node176(J0,X) # label(m_FeedBelt_6) # label(axiom).
+m_state_v_TRM(J0,X,c_idle) | -node176(J0,X) # label(m_FeedBelt_7) # label(axiom).
+-m_state_v_tl(J0,X) | -node176(J0,X) # label(m_FeedBelt_8) # label(axiom).
+m_state_v_botPos(J0,X) | -node177(J0,X) # label(m_FeedBelt_9) # label(axiom).
+m_state_v_minRot(J0,X) | -node177(J0,X) # label(m_FeedBelt_10) # label(axiom).
+m_state_v_TEM(J0,X,c_idle) | -node177(J0,X) # label(m_FeedBelt_11) # label(axiom).
+m_state_v_TRM(J0,X,c_idle) | -node177(J0,X) # label(m_FeedBelt_12) # label(axiom).
+-m_state_v_tl(J0,X) | -node177(J0,X) # label(m_FeedBelt_13) # label(axiom).
+m_state_v_FBM(J0,X,c_off) | -node177(J0,X) # label(m_FeedBelt_14) # label(axiom).
+m_state_v_FBM(J0,X,c_on) | -node178(J0,X) # label(m_FeedBelt_15) # label(axiom).
+m_state_v_deliv(J0,X) | -node178(J0,X) # label(m_FeedBelt_16) # label(axiom).
+-m_state_v_pfl(J0,X) | -node178(J0,X) # label(m_FeedBelt_17) # label(axiom).
+m_state_v_deliv(J0,Y) | -m_state_v_deliv(J0,X) | -node179(J0,X,Y) # label(m_FeedBelt_18) # label(axiom).
+-m_state_v_deliv(J0,Y) | m_state_v_deliv(J0,X) | -node179(J0,X,Y) # label(m_FeedBelt_19) # label(axiom).
+-m_state_v_FBM(J0,X,c_on) | m_state_v_deliv(J0,X) | -m_state_v_pfl(J0,X) | -m_state_v_botPos(J0,X) | -m_state_v_minRot(J0,X) | -m_state_v_TEM(J0,X,c_idle) | -m_state_v_TRM(J0,X,c_idle) | m_state_v_tl(J0,X) | m_state_v_deliv(J0,Y) | -node180(J0,X,Y) # label(m_FeedBelt_20) # label(axiom).
+node176(J0,X) | -m_state_v_botPos(J0,X) | -m_state_v_minRot(J0,X) | -m_state_v_TEM(J0,X,c_idle) | -m_state_v_TRM(J0,X,c_idle) | m_state_v_tl(J0,X) | -m_state_v_FBM(J0,X,c_off) | m_state_v_deliv(J0,Y) | -node180(J0,X,Y) # label(m_FeedBelt_21) # label(axiom).
+node176(J0,X) | node177(J0,X) | -m_state_v_FBM(J0,X,c_on) | -m_state_v_deliv(J0,X) | m_state_v_pfl(J0,X) | -m_state_v_deliv(J0,Y) | -node180(J0,X,Y) # label(m_FeedBelt_22) # label(axiom).
+node176(J0,X) | node177(J0,X) | node178(J0,X) | node179(J0,X,Y) | -node180(J0,X,Y) # label(m_FeedBelt_23) # label(axiom).
+-trans(X,Y) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | node180(J0,X,Y) # label(m_FeedBelt_24) # label(axiom).
+m_state_v_botPos(J0,X) | -node181(J0,X) # label(m_FeedBelt_25) # label(axiom).
+m_state_v_minRot(J0,X) | -node181(J0,X) # label(m_FeedBelt_26) # label(axiom).
+m_state_v_TEM(J0,X,c_idle) | -node181(J0,X) # label(m_FeedBelt_27) # label(axiom).
+m_state_v_TRM(J0,X,c_idle) | -node181(J0,X) # label(m_FeedBelt_28) # label(axiom).
+-m_state_v_tl(J0,X) | -node181(J0,X) # label(m_FeedBelt_29) # label(axiom).
+m_state_v_FBM(J0,X,c_on) | -node182(J0,X) # label(m_FeedBelt_30) # label(axiom).
+-m_state_v_deliv(J0,X) | -node182(J0,X) # label(m_FeedBelt_31) # label(axiom).
+m_state_v_pfl(J0,X) | -node182(J0,X) # label(m_FeedBelt_32) # label(axiom).
+-m_state_v_botPos(J0,X) | -m_state_v_minRot(J0,X) | -m_state_v_TEM(J0,X,c_idle) | -m_state_v_TRM(J0,X,c_idle) | m_state_v_tl(J0,X) | -node182(J0,X) # label(m_FeedBelt_33) # label(axiom).
+m_state_v_botPos(J0,X) | -node183(J0,X) # label(m_FeedBelt_34) # label(axiom).
+m_state_v_minRot(J0,X) | -node183(J0,X) # label(m_FeedBelt_35) # label(axiom).
+m_state_v_TEM(J0,X,c_idle) | -node183(J0,X) # label(m_FeedBelt_36) # label(axiom).
+m_state_v_TRM(J0,X,c_idle) | -node183(J0,X) # label(m_FeedBelt_37) # label(axiom).
+-m_state_v_tl(J0,X) | -node183(J0,X) # label(m_FeedBelt_38) # label(axiom).
+m_state_v_FBM(J0,X,c_off) | -node183(J0,X) # label(m_FeedBelt_39) # label(axiom).
+m_state_v_FBM(J0,Y,V) | -m_state_v_FBM(J0,X,V) | -node184(J0,X,Y) # label(m_FeedBelt_40) # label(axiom).
+-m_state_v_FBM(J0,Y,V) | m_state_v_FBM(J0,X,V) | -node184(J0,X,Y) # label(m_FeedBelt_41) # label(axiom).
+-m_state_v_FBM(J0,X,c_on) | m_state_v_deliv(J0,X) | -m_state_v_pfl(J0,X) | node181(J0,X) | m_state_v_FBM(J0,Y,c_off) | -node185(J0,X,Y) # label(m_FeedBelt_42) # label(axiom).
+node182(J0,X) | -m_state_v_botPos(J0,X) | -m_state_v_minRot(J0,X) | -m_state_v_TEM(J0,X,c_idle) | -m_state_v_TRM(J0,X,c_idle) | m_state_v_tl(J0,X) | -m_state_v_FBM(J0,X,c_off) | m_state_v_FBM(J0,Y,c_on) | -node185(J0,X,Y) # label(m_FeedBelt_43) # label(axiom).
+node182(J0,X) | node183(J0,X) | node184(J0,X,Y) | -node185(J0,X,Y) # label(m_FeedBelt_44) # label(axiom).
+-trans(X,Y) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | -m_FeedBelt_v_s(I0,J0) | node185(J0,X,Y) # label(m_FeedBelt_45) # label(axiom).
+m_state_v_A1M(I0,X,c_extend) | m_state_v_A1M(I0,X,c_retract) | m_state_v_A1M(I0,X,c_idle) # label(m_state_1) # label(axiom).
+-m_state_v_A1M(I0,X,c_extend) | -m_state_v_A1M(I0,X,c_retract) # label(m_state_2) # label(axiom).
+-m_state_v_A1M(I0,X,c_extend) | -m_state_v_A1M(I0,X,c_idle) # label(m_state_3) # label(axiom).
+-m_state_v_A1M(I0,X,c_retract) | -m_state_v_A1M(I0,X,c_idle) # label(m_state_4) # label(axiom).
+m_state_v_A1Mag(I0,X,c_on) | m_state_v_A1Mag(I0,X,c_off) # label(m_state_5) # label(axiom).
+-m_state_v_A1Mag(I0,X,c_on) | -m_state_v_A1Mag(I0,X,c_off) # label(m_state_6) # label(axiom).
+m_state_v_A2M(I0,X,c_extend) | m_state_v_A2M(I0,X,c_retract) | m_state_v_A2M(I0,X,c_idle) # label(m_state_7) # label(axiom).
+-m_state_v_A2M(I0,X,c_extend) | -m_state_v_A2M(I0,X,c_retract) # label(m_state_8) # label(axiom).
+-m_state_v_A2M(I0,X,c_extend) | -m_state_v_A2M(I0,X,c_idle) # label(m_state_9) # label(axiom).
+-m_state_v_A2M(I0,X,c_retract) | -m_state_v_A2M(I0,X,c_idle) # label(m_state_10) # label(axiom).
+m_state_v_A2Mag(I0,X,c_on) | m_state_v_A2Mag(I0,X,c_off) # label(m_state_11) # label(axiom).
+-m_state_v_A2Mag(I0,X,c_on) | -m_state_v_A2Mag(I0,X,c_off) # label(m_state_12) # label(axiom).
+m_state_v_CHM(I0,X,c_tofeedbelt) | m_state_v_CHM(I0,X,c_todepbelt) | m_state_v_CHM(I0,X,c_idle) # label(m_state_13) # label(axiom).
+-m_state_v_CHM(I0,X,c_tofeedbelt) | -m_state_v_CHM(I0,X,c_todepbelt) # label(m_state_14) # label(axiom).
+-m_state_v_CHM(I0,X,c_tofeedbelt) | -m_state_v_CHM(I0,X,c_idle) # label(m_state_15) # label(axiom).
+-m_state_v_CHM(I0,X,c_todepbelt) | -m_state_v_CHM(I0,X,c_idle) # label(m_state_16) # label(axiom).
+m_state_v_CMag(I0,X,c_on) | m_state_v_CMag(I0,X,c_off) # label(m_state_17) # label(axiom).
+-m_state_v_CMag(I0,X,c_on) | -m_state_v_CMag(I0,X,c_off) # label(m_state_18) # label(axiom).
+m_state_v_CVM(I0,X,c_up) | m_state_v_CVM(I0,X,c_down) | m_state_v_CVM(I0,X,c_idle) # label(m_state_19) # label(axiom).
+-m_state_v_CVM(I0,X,c_up) | -m_state_v_CVM(I0,X,c_down) # label(m_state_20) # label(axiom).
+-m_state_v_CVM(I0,X,c_up) | -m_state_v_CVM(I0,X,c_idle) # label(m_state_21) # label(axiom).
+-m_state_v_CVM(I0,X,c_down) | -m_state_v_CVM(I0,X,c_idle) # label(m_state_22) # label(axiom).
+m_state_v_DBM(I0,X,c_run) | m_state_v_DBM(I0,X,c_idle) # label(m_state_23) # label(axiom).
+-m_state_v_DBM(I0,X,c_run) | -m_state_v_DBM(I0,X,c_idle) # label(m_state_24) # label(axiom).
+m_state_v_FBM(I0,X,c_on) | m_state_v_FBM(I0,X,c_off) # label(m_state_25) # label(axiom).
+-m_state_v_FBM(I0,X,c_on) | -m_state_v_FBM(I0,X,c_off) # label(m_state_26) # label(axiom).
+m_state_v_PM(I0,X,c_up) | m_state_v_PM(I0,X,c_down) | m_state_v_PM(I0,X,c_idle) # label(m_state_27) # label(axiom).
+-m_state_v_PM(I0,X,c_up) | -m_state_v_PM(I0,X,c_down) # label(m_state_28) # label(axiom).
+-m_state_v_PM(I0,X,c_up) | -m_state_v_PM(I0,X,c_idle) # label(m_state_29) # label(axiom).
+-m_state_v_PM(I0,X,c_down) | -m_state_v_PM(I0,X,c_idle) # label(m_state_30) # label(axiom).
+m_state_v_RRM(I0,X,c_clockwise) | m_state_v_RRM(I0,X,c_counterclock) | m_state_v_RRM(I0,X,c_idle) # label(m_state_31) # label(axiom).
+-m_state_v_RRM(I0,X,c_clockwise) | -m_state_v_RRM(I0,X,c_counterclock) # label(m_state_32) # label(axiom).
+-m_state_v_RRM(I0,X,c_clockwise) | -m_state_v_RRM(I0,X,c_idle) # label(m_state_33) # label(axiom).
+-m_state_v_RRM(I0,X,c_counterclock) | -m_state_v_RRM(I0,X,c_idle) # label(m_state_34) # label(axiom).
+m_state_v_TEM(I0,X,c_up) | m_state_v_TEM(I0,X,c_down) | m_state_v_TEM(I0,X,c_idle) # label(m_state_35) # label(axiom).
+-m_state_v_TEM(I0,X,c_up) | -m_state_v_TEM(I0,X,c_down) # label(m_state_36) # label(axiom).
+-m_state_v_TEM(I0,X,c_up) | -m_state_v_TEM(I0,X,c_idle) # label(m_state_37) # label(axiom).
+-m_state_v_TEM(I0,X,c_down) | -m_state_v_TEM(I0,X,c_idle) # label(m_state_38) # label(axiom).
+m_state_v_TRM(I0,X,c_clockwise) | m_state_v_TRM(I0,X,c_counterclockwise) | m_state_v_TRM(I0,X,c_idle) # label(m_state_39) # label(axiom).
+-m_state_v_TRM(I0,X,c_clockwise) | -m_state_v_TRM(I0,X,c_counterclockwise) # label(m_state_40) # label(axiom).
+-m_state_v_TRM(I0,X,c_clockwise) | -m_state_v_TRM(I0,X,c_idle) # label(m_state_41) # label(axiom).
+-m_state_v_TRM(I0,X,c_counterclockwise) | -m_state_v_TRM(I0,X,c_idle) # label(m_state_42) # label(axiom).
+m_state_v_a1ext(I0,X,c_a1ip) | m_state_v_a1ext(I0,X,c_ot) | m_state_v_a1ext(I0,X,c_retracted) # label(m_state_43) # label(axiom).
+-m_state_v_a1ext(I0,X,c_a1ip) | -m_state_v_a1ext(I0,X,c_ot) # label(m_state_44) # label(axiom).
+-m_state_v_a1ext(I0,X,c_a1ip) | -m_state_v_a1ext(I0,X,c_retracted) # label(m_state_45) # label(axiom).
+-m_state_v_a1ext(I0,X,c_ot) | -m_state_v_a1ext(I0,X,c_retracted) # label(m_state_46) # label(axiom).
+m_state_v_a2ext(I0,X,c_a2ip) | m_state_v_a2ext(I0,X,c_ob) | m_state_v_a2ext(I0,X,c_retracted) # label(m_state_47) # label(axiom).
+-m_state_v_a2ext(I0,X,c_a2ip) | -m_state_v_a2ext(I0,X,c_ob) # label(m_state_48) # label(axiom).
+-m_state_v_a2ext(I0,X,c_a2ip) | -m_state_v_a2ext(I0,X,c_retracted) # label(m_state_49) # label(axiom).
+-m_state_v_a2ext(I0,X,c_ob) | -m_state_v_a2ext(I0,X,c_retracted) # label(m_state_50) # label(axiom).
+m_state_v_angle(I0,X,c_arm1totable) | m_state_v_angle(I0,X,c_arm2topress) | m_state_v_angle(I0,X,c_arm2todepbelt) | m_state_v_angle(I0,X,c_arm1topress) # label(m_state_51) # label(axiom).
+-m_state_v_angle(I0,X,c_arm1totable) | -m_state_v_angle(I0,X,c_arm2topress) # label(m_state_52) # label(axiom).
+-m_state_v_angle(I0,X,c_arm1totable) | -m_state_v_angle(I0,X,c_arm2todepbelt) # label(m_state_53) # label(axiom).
+-m_state_v_angle(I0,X,c_arm1totable) | -m_state_v_angle(I0,X,c_arm1topress) # label(m_state_54) # label(axiom).
+-m_state_v_angle(I0,X,c_arm2topress) | -m_state_v_angle(I0,X,c_arm2todepbelt) # label(m_state_55) # label(axiom).
+-m_state_v_angle(I0,X,c_arm2topress) | -m_state_v_angle(I0,X,c_arm1topress) # label(m_state_56) # label(axiom).
+-m_state_v_angle(I0,X,c_arm2todepbelt) | -m_state_v_angle(I0,X,c_arm1topress) # label(m_state_57) # label(axiom).
+m_state_v_angle_status(I0,X,c_arm2stoppedatpress) | m_state_v_angle_status(I0,X,c_arm2stoppedatbelt) | m_state_v_angle_status(I0,X,c_arm1stoppedatpress) | m_state_v_angle_status(I0,X,c_arm1stoppedattable) # label(m_state_58) # label(axiom).
+-m_state_v_angle_status(I0,X,c_arm2stoppedatpress) | -m_state_v_angle_status(I0,X,c_arm2stoppedatbelt) # label(m_state_59) # label(axiom).
+-m_state_v_angle_status(I0,X,c_arm2stoppedatpress) | -m_state_v_angle_status(I0,X,c_arm1stoppedatpress) # label(m_state_60) # label(axiom).
+-m_state_v_angle_status(I0,X,c_arm2stoppedatpress) | -m_state_v_angle_status(I0,X,c_arm1stoppedattable) # label(m_state_61) # label(axiom).
+-m_state_v_angle_status(I0,X,c_arm2stoppedatbelt) | -m_state_v_angle_status(I0,X,c_arm1stoppedatpress) # label(m_state_62) # label(axiom).
+-m_state_v_angle_status(I0,X,c_arm2stoppedatbelt) | -m_state_v_angle_status(I0,X,c_arm1stoppedattable) # label(m_state_63) # label(axiom).
+-m_state_v_angle_status(I0,X,c_arm1stoppedatpress) | -m_state_v_angle_status(I0,X,c_arm1stoppedattable) # label(m_state_64) # label(axiom).
+m_state_v_gripper_status(I0,X,c_gripperstoppedat_ovf) | m_state_v_gripper_status(I0,X,c_gripperstoppedat_ovb) | m_state_v_gripper_status(I0,X,c_gripperstoppedat_sd) # label(m_state_65) # label(axiom).
+-m_state_v_gripper_status(I0,X,c_gripperstoppedat_ovf) | -m_state_v_gripper_status(I0,X,c_gripperstoppedat_ovb) # label(m_state_66) # label(axiom).
+-m_state_v_gripper_status(I0,X,c_gripperstoppedat_ovf) | -m_state_v_gripper_status(I0,X,c_gripperstoppedat_sd) # label(m_state_67) # label(axiom).
+-m_state_v_gripper_status(I0,X,c_gripperstoppedat_ovb) | -m_state_v_gripper_status(I0,X,c_gripperstoppedat_sd) # label(m_state_68) # label(axiom).
+m_state_v_gvp(I0,X,c_ovb) | m_state_v_gvp(I0,X,c_ovf) | m_state_v_gvp(I0,X,c_sd) # label(m_state_69) # label(axiom).
+-m_state_v_gvp(I0,X,c_ovb) | -m_state_v_gvp(I0,X,c_ovf) # label(m_state_70) # label(axiom).
+-m_state_v_gvp(I0,X,c_ovb) | -m_state_v_gvp(I0,X,c_sd) # label(m_state_71) # label(axiom).
+-m_state_v_gvp(I0,X,c_ovf) | -m_state_v_gvp(I0,X,c_sd) # label(m_state_72) # label(axiom).
+m_state_v_press_status(I0,X,c_pressattop) | m_state_v_press_status(I0,X,c_pressatmid) | m_state_v_press_status(I0,X,c_pressatbot) # label(m_state_73) # label(axiom).
+-m_state_v_press_status(I0,X,c_pressattop) | -m_state_v_press_status(I0,X,c_pressatmid) # label(m_state_74) # label(axiom).
+-m_state_v_press_status(I0,X,c_pressattop) | -m_state_v_press_status(I0,X,c_pressatbot) # label(m_state_75) # label(axiom).
+-m_state_v_press_status(I0,X,c_pressatmid) | -m_state_v_press_status(I0,X,c_pressatbot) # label(m_state_76) # label(axiom).
+m_state_v_FBM(I0,s0,c_off) # label(m_state_77) # label(axiom).
+-m_state_v_deliv(I0,s0) # label(m_state_78) # label(axiom).
+m_state_v_pfl(I0,s0) # label(m_state_79) # label(axiom).
+m_state_v_botPos(I0,s0) # label(m_state_80) # label(axiom).
+m_state_v_minRot(I0,s0) # label(m_state_81) # label(axiom).
+m_state_v_TEM(I0,s0,c_idle) # label(m_state_82) # label(axiom).
+m_state_v_TRM(I0,s0,c_idle) # label(m_state_83) # label(axiom).
+m_state_v_tl(I0,s0) # label(m_state_84) # label(axiom).
+-m_state_v_maxRot(I0,s0) # label(m_state_85) # label(axiom).
+-m_state_v_topPos(I0,s0) # label(m_state_86) # label(axiom).
+m_state_v_A1M(I0,s0,c_idle) # label(m_state_87) # label(axiom).
+m_state_v_angle(I0,s0,c_arm1totable) # label(m_state_88) # label(axiom).
+m_state_v_angle_status(I0,s0,c_arm1stoppedattable) # label(m_state_89) # label(axiom).
+m_state_v_a1ext(I0,s0,c_retracted) # label(m_state_90) # label(axiom).
+m_state_v_a2ext(I0,s0,c_retracted) # label(m_state_91) # label(axiom).
+m_state_v_RRM(I0,s0,c_idle) # label(m_state_92) # label(axiom).
+m_state_v_A2M(I0,s0,c_idle) # label(m_state_93) # label(axiom).
+m_state_v_A1Mag(I0,s0,c_off) # label(m_state_94) # label(axiom).
+m_state_v_A2Mag(I0,s0,c_off) # label(m_state_95) # label(axiom).
+-m_state_v_brl(I0,s0) # label(m_state_96) # label(axiom).
+-m_state_v_midPosP(I0,s0) # label(m_state_97) # label(axiom).
+m_state_v_press_status(I0,s0,c_pressatbot) # label(m_state_98) # label(axiom).
+m_state_v_pl(I0,s0) # label(m_state_99) # label(axiom).
+m_state_v_PM(I0,s0,c_idle) # label(m_state_100) # label(axiom).
+m_state_v_botPosP(I0,s0) # label(m_state_101) # label(axiom).
+-m_state_v_topPosP(I0,s0) # label(m_state_102) # label(axiom).
+-m_state_v_fc(I0,s0) # label(m_state_103) # label(axiom).
+-m_state_v_crit(I0,s0) # label(m_state_104) # label(axiom).
+m_state_v_DBM(I0,s0,c_idle) # label(m_state_105) # label(axiom).
+-m_state_v_pbl(I0,s0) # label(m_state_106) # label(axiom).
+m_state_v_CMag(I0,s0,c_on) # label(m_state_107) # label(axiom).
+m_state_v_gob(I0,s0) # label(m_state_108) # label(axiom).
+m_state_v_gvp(I0,s0,c_ovb) # label(m_state_109) # label(axiom).
+m_state_v_gripper_status(I0,s0,c_gripperstoppedat_ovb) # label(m_state_110) # label(axiom).
+m_state_v_CVM(I0,s0,c_idle) # label(m_state_111) # label(axiom).
+m_state_v_CHM(I0,s0,c_idle) # label(m_state_112) # label(axiom).
+m_state_v_pbe(I0,s0) # label(m_state_113) # label(axiom).
+-m_state_v_gof(I0,s0) # label(m_state_114) # label(axiom).
+-m_state_v_ff(I0,s0) # label(m_state_115) # label(axiom).
+-m_state_v_FBM(c_s,X,c_on) | -m_state_v_deliv(c_s,X) | -always186(X) # label(prpty1) # label(negated_conjecture).
+always186(Y) | -trans(X,Y) | -always186(X) # label(prpty2) # label(negated_conjecture).
+loop | -always186(X) | -last(X) # label(prpty3) # label(negated_conjecture).
+m_state_v_FBM(c_s,X,c_on) | -node187(X) # label(prpty4) # label(negated_conjecture).
+-m_state_v_deliv(c_s,X) | -node187(X) # label(prpty5) # label(negated_conjecture).
+always186(X) | -node187(X) # label(prpty6) # label(negated_conjecture).
+-m_state_v_botPos(c_s,X) | -m_state_v_minRot(c_s,X) | -m_state_v_TEM(c_s,X,c_idle) | -m_state_v_TRM(c_s,X,c_idle) | -always188(X) # label(prpty7) # label(negated_conjecture).
+always188(Y) | -trans(X,Y) | -always188(X) # label(prpty8) # label(negated_conjecture).
+loop | -always188(X) | -last(X) # label(prpty9) # label(negated_conjecture).
+m_state_v_FBM(c_s,X,c_on) | -node189(X) # label(prpty10) # label(negated_conjecture).
+m_state_v_deliv(c_s,X) | -node189(X) # label(prpty11) # label(negated_conjecture).
+always188(X) | -node189(X) # label(prpty12) # label(negated_conjecture).
+-m_state_v_topPos(c_s,X) | -m_state_v_maxRot(c_s,X) | -m_state_v_TEM(c_s,X,c_idle) | -m_state_v_TRM(c_s,X,c_idle) | -always190(X) # label(prpty13) # label(negated_conjecture).
+always190(Y) | -trans(X,Y) | -always190(X) # label(prpty14) # label(negated_conjecture).
+loop | -always190(X) | -last(X) # label(prpty15) # label(negated_conjecture).
+m_state_v_botPos(c_s,X) | -node191(X) # label(prpty16) # label(negated_conjecture).
+m_state_v_minRot(c_s,X) | -node191(X) # label(prpty17) # label(negated_conjecture).
+m_state_v_TEM(c_s,X,c_idle) | -node191(X) # label(prpty18) # label(negated_conjecture).
+m_state_v_TRM(c_s,X,c_idle) | -node191(X) # label(prpty19) # label(negated_conjecture).
+always190(X) | -node191(X) # label(prpty20) # label(negated_conjecture).
+-m_state_v_angle(c_s,X,c_arm1totable) | -m_state_v_A1M(c_s,X,c_extend) | -m_state_v_a1ext(c_s,X,c_ot) | -always192(X) # label(prpty21) # label(negated_conjecture).
+always192(Y) | -trans(X,Y) | -always192(X) # label(prpty22) # label(negated_conjecture).
+loop | -always192(X) | -last(X) # label(prpty23) # label(negated_conjecture).
+m_state_v_topPos(c_s,X) | -node193(X) # label(prpty24) # label(negated_conjecture).
+m_state_v_maxRot(c_s,X) | -node193(X) # label(prpty25) # label(negated_conjecture).
+m_state_v_TEM(c_s,X,c_idle) | -node193(X) # label(prpty26) # label(negated_conjecture).
+m_state_v_TRM(c_s,X,c_idle) | -node193(X) # label(prpty27) # label(negated_conjecture).
+always192(X) | -node193(X) # label(prpty28) # label(negated_conjecture).
+-m_state_v_angle(c_s,X,c_arm1topress) | -m_state_v_A1M(c_s,X,c_extend) | -m_state_v_a1ext(c_s,X,c_a1ip) | -always194(X) # label(prpty29) # label(negated_conjecture).
+always194(Y) | -trans(X,Y) | -always194(X) # label(prpty30) # label(negated_conjecture).
+loop | -always194(X) | -last(X) # label(prpty31) # label(negated_conjecture).
+m_state_v_angle(c_s,X,c_arm1totable) | -node195(X) # label(prpty32) # label(negated_conjecture).
+m_state_v_A1M(c_s,X,c_extend) | -node195(X) # label(prpty33) # label(negated_conjecture).
+m_state_v_a1ext(c_s,X,c_ot) | -node195(X) # label(prpty34) # label(negated_conjecture).
+always194(X) | -node195(X) # label(prpty35) # label(negated_conjecture).
+-m_state_v_midPosP(c_s,X) | -m_state_v_PM(c_s,X,c_idle) | -always196(X) # label(prpty36) # label(negated_conjecture).
+always196(Y) | -trans(X,Y) | -always196(X) # label(prpty37) # label(negated_conjecture).
+loop | -always196(X) | -last(X) # label(prpty38) # label(negated_conjecture).
+m_state_v_angle(c_s,X,c_arm1topress) | -node197(X) # label(prpty39) # label(negated_conjecture).
+m_state_v_A1M(c_s,X,c_extend) | -node197(X) # label(prpty40) # label(negated_conjecture).
+m_state_v_a1ext(c_s,X,c_a1ip) | -node197(X) # label(prpty41) # label(negated_conjecture).
+always196(X) | -node197(X) # label(prpty42) # label(negated_conjecture).
+-m_state_v_topPosP(c_s,X) | -m_state_v_PM(c_s,X,c_idle) | -always198(X) # label(prpty43) # label(negated_conjecture).
+always198(Y) | -trans(X,Y) | -always198(X) # label(prpty44) # label(negated_conjecture).
+loop | -always198(X) | -last(X) # label(prpty45) # label(negated_conjecture).
+m_state_v_midPosP(c_s,X) | -node199(X) # label(prpty46) # label(negated_conjecture).
+m_state_v_PM(c_s,X,c_idle) | -node199(X) # label(prpty47) # label(negated_conjecture).
+always198(X) | -node199(X) # label(prpty48) # label(negated_conjecture).
+-m_state_v_botPosP(c_s,X) | -m_state_v_PM(c_s,X,c_idle) | -always200(X) # label(prpty49) # label(negated_conjecture).
+always200(Y) | -trans(X,Y) | -always200(X) # label(prpty50) # label(negated_conjecture).
+loop | -always200(X) | -last(X) # label(prpty51) # label(negated_conjecture).
+m_state_v_topPosP(c_s,X) | -node201(X) # label(prpty52) # label(negated_conjecture).
+m_state_v_PM(c_s,X,c_idle) | -node201(X) # label(prpty53) # label(negated_conjecture).
+always200(X) | -node201(X) # label(prpty54) # label(negated_conjecture).
+-m_state_v_angle(c_s,X,c_arm2topress) | -m_state_v_A2M(c_s,X,c_extend) | -m_state_v_a2ext(c_s,X,c_a2ip) | -always202(X) # label(prpty55) # label(negated_conjecture).
+always202(Y) | -trans(X,Y) | -always202(X) # label(prpty56) # label(negated_conjecture).
+loop | -always202(X) | -last(X) # label(prpty57) # label(negated_conjecture).
+m_state_v_botPosP(c_s,X) | -node203(X) # label(prpty58) # label(negated_conjecture).
+m_state_v_PM(c_s,X,c_idle) | -node203(X) # label(prpty59) # label(negated_conjecture).
+always202(X) | -node203(X) # label(prpty60) # label(negated_conjecture).
+-m_state_v_angle(c_s,X,c_arm2todepbelt) | -m_state_v_A2M(c_s,X,c_extend) | -m_state_v_a2ext(c_s,X,c_ob) | -always204(X) # label(prpty61) # label(negated_conjecture).
+always204(Y) | -trans(X,Y) | -always204(X) # label(prpty62) # label(negated_conjecture).
+loop | -always204(X) | -last(X) # label(prpty63) # label(negated_conjecture).
+m_state_v_angle(c_s,X,c_arm2topress) | -node205(X) # label(prpty64) # label(negated_conjecture).
+m_state_v_A2M(c_s,X,c_extend) | -node205(X) # label(prpty65) # label(negated_conjecture).
+m_state_v_a2ext(c_s,X,c_a2ip) | -node205(X) # label(prpty66) # label(negated_conjecture).
+always204(X) | -node205(X) # label(prpty67) # label(negated_conjecture).
+-m_state_v_DBM(c_s,X,c_run) | m_state_v_crit(c_s,X) | -always206(X) # label(prpty68) # label(negated_conjecture).
+always206(Y) | -trans(X,Y) | -always206(X) # label(prpty69) # label(negated_conjecture).
+loop | -always206(X) | -last(X) # label(prpty70) # label(negated_conjecture).
+m_state_v_angle(c_s,X,c_arm2todepbelt) | -node207(X) # label(prpty71) # label(negated_conjecture).
+m_state_v_A2M(c_s,X,c_extend) | -node207(X) # label(prpty72) # label(negated_conjecture).
+m_state_v_a2ext(c_s,X,c_ob) | -node207(X) # label(prpty73) # label(negated_conjecture).
+always206(X) | -node207(X) # label(prpty74) # label(negated_conjecture).
+-m_state_v_DBM(c_s,X,c_run) | -m_state_v_crit(c_s,X) | -always208(X) # label(prpty75) # label(negated_conjecture).
+always208(Y) | -trans(X,Y) | -always208(X) # label(prpty76) # label(negated_conjecture).
+loop | -always208(X) | -last(X) # label(prpty77) # label(negated_conjecture).
+m_state_v_DBM(c_s,X,c_run) | -node209(X) # label(prpty78) # label(negated_conjecture).
+-m_state_v_crit(c_s,X) | -node209(X) # label(prpty79) # label(negated_conjecture).
+always208(X) | -node209(X) # label(prpty80) # label(negated_conjecture).
+-m_state_v_gob(c_s,X) | -m_state_v_gvp(c_s,X,c_ovb) | -m_state_v_CHM(c_s,X,c_idle) | -m_state_v_CVM(c_s,X,c_idle) | -m_state_v_CMag(c_s,X,c_off) | -m_state_v_pbe(c_s,X) | -always210(X) # label(prpty81) # label(negated_conjecture).
+always210(Y) | -trans(X,Y) | -always210(X) # label(prpty82) # label(negated_conjecture).
+loop | -always210(X) | -last(X) # label(prpty83) # label(negated_conjecture).
+m_state_v_DBM(c_s,X,c_run) | -node211(X) # label(prpty84) # label(negated_conjecture).
+m_state_v_crit(c_s,X) | -node211(X) # label(prpty85) # label(negated_conjecture).
+always210(X) | -node211(X) # label(prpty86) # label(negated_conjecture).
+-m_state_v_CVM(c_s,X,c_down) | -m_state_v_gvp(c_s,X,c_ovf) | -m_state_v_gof(c_s,X) | -always212(X) # label(prpty87) # label(negated_conjecture).
+always212(Y) | -trans(X,Y) | -always212(X) # label(prpty88) # label(negated_conjecture).
+loop | -always212(X) | -last(X) # label(prpty89) # label(negated_conjecture).
+m_state_v_gob(c_s,X) | -node213(X) # label(prpty90) # label(negated_conjecture).
+m_state_v_gvp(c_s,X,c_ovb) | -node213(X) # label(prpty91) # label(negated_conjecture).
+m_state_v_CHM(c_s,X,c_idle) | -node213(X) # label(prpty92) # label(negated_conjecture).
+m_state_v_CVM(c_s,X,c_idle) | -node213(X) # label(prpty93) # label(negated_conjecture).
+m_state_v_CMag(c_s,X,c_off) | -node213(X) # label(prpty94) # label(negated_conjecture).
+m_state_v_pbe(c_s,X) | -node213(X) # label(prpty95) # label(negated_conjecture).
+always212(X) | -node213(X) # label(prpty96) # label(negated_conjecture).
+-m_state_v_FBM(c_s,X,c_on) | m_state_v_deliv(c_s,X) | -always214(X) # label(prpty97) # label(negated_conjecture).
+always214(Y) | -trans(X,Y) | -always214(X) # label(prpty98) # label(negated_conjecture).
+loop | -always214(X) | -last(X) # label(prpty99) # label(negated_conjecture).
+m_state_v_CVM(c_s,X,c_down) | -node215(X) # label(prpty100) # label(negated_conjecture).
+m_state_v_gvp(c_s,X,c_ovf) | -node215(X) # label(prpty101) # label(negated_conjecture).
+m_state_v_gof(c_s,X) | -node215(X) # label(prpty102) # label(negated_conjecture).
+always214(X) | -node215(X) # label(prpty103) # label(negated_conjecture).
+node215(X) | xuntil217(X) | -until216(X) # label(prpty104) # label(negated_conjecture).
+until216(Y) | -succ(X,Y) | -xuntil217(X) # label(prpty105) # label(negated_conjecture).
+loop | -last(X) | -xuntil217(X) # label(prpty106) # label(negated_conjecture).
+until2p218(Y) | -trans(X,Y) | -last(X) | -xuntil217(X) # label(prpty107) # label(negated_conjecture).
+node215(X) | xuntil2p219(X) | -until2p218(X) # label(prpty108) # label(negated_conjecture).
+until2p218(Y) | -succ(X,Y) | -xuntil2p219(X) # label(prpty109) # label(negated_conjecture).
+-last(X) | -xuntil2p219(X) # label(prpty110) # label(negated_conjecture).
+node213(X) | until216(X) | -node220(X) # label(prpty111) # label(negated_conjecture).
+node220(X) | xuntil222(X) | -until221(X) # label(prpty112) # label(negated_conjecture).
+until221(Y) | -succ(X,Y) | -xuntil222(X) # label(prpty113) # label(negated_conjecture).
+loop | -last(X) | -xuntil222(X) # label(prpty114) # label(negated_conjecture).
+until2p223(Y) | -trans(X,Y) | -last(X) | -xuntil222(X) # label(prpty115) # label(negated_conjecture).
+node220(X) | xuntil2p224(X) | -until2p223(X) # label(prpty116) # label(negated_conjecture).
+until2p223(Y) | -succ(X,Y) | -xuntil2p224(X) # label(prpty117) # label(negated_conjecture).
+-last(X) | -xuntil2p224(X) # label(prpty118) # label(negated_conjecture).
+node211(X) | until221(X) | -node225(X) # label(prpty119) # label(negated_conjecture).
+node225(X) | xuntil227(X) | -until226(X) # label(prpty120) # label(negated_conjecture).
+until226(Y) | -succ(X,Y) | -xuntil227(X) # label(prpty121) # label(negated_conjecture).
+loop | -last(X) | -xuntil227(X) # label(prpty122) # label(negated_conjecture).
+until2p228(Y) | -trans(X,Y) | -last(X) | -xuntil227(X) # label(prpty123) # label(negated_conjecture).
+node225(X) | xuntil2p229(X) | -until2p228(X) # label(prpty124) # label(negated_conjecture).
+until2p228(Y) | -succ(X,Y) | -xuntil2p229(X) # label(prpty125) # label(negated_conjecture).
+-last(X) | -xuntil2p229(X) # label(prpty126) # label(negated_conjecture).
+node209(X) | until226(X) | -node230(X) # label(prpty127) # label(negated_conjecture).
+node230(X) | xuntil232(X) | -until231(X) # label(prpty128) # label(negated_conjecture).
+until231(Y) | -succ(X,Y) | -xuntil232(X) # label(prpty129) # label(negated_conjecture).
+loop | -last(X) | -xuntil232(X) # label(prpty130) # label(negated_conjecture).
+until2p233(Y) | -trans(X,Y) | -last(X) | -xuntil232(X) # label(prpty131) # label(negated_conjecture).
+node230(X) | xuntil2p234(X) | -until2p233(X) # label(prpty132) # label(negated_conjecture).
+until2p233(Y) | -succ(X,Y) | -xuntil2p234(X) # label(prpty133) # label(negated_conjecture).
+-last(X) | -xuntil2p234(X) # label(prpty134) # label(negated_conjecture).
+node207(X) | until231(X) | -node235(X) # label(prpty135) # label(negated_conjecture).
+node235(X) | xuntil237(X) | -until236(X) # label(prpty136) # label(negated_conjecture).
+until236(Y) | -succ(X,Y) | -xuntil237(X) # label(prpty137) # label(negated_conjecture).
+loop | -last(X) | -xuntil237(X) # label(prpty138) # label(negated_conjecture).
+until2p238(Y) | -trans(X,Y) | -last(X) | -xuntil237(X) # label(prpty139) # label(negated_conjecture).
+node235(X) | xuntil2p239(X) | -until2p238(X) # label(prpty140) # label(negated_conjecture).
+until2p238(Y) | -succ(X,Y) | -xuntil2p239(X) # label(prpty141) # label(negated_conjecture).
+-last(X) | -xuntil2p239(X) # label(prpty142) # label(negated_conjecture).
+node205(X) | until236(X) | -node240(X) # label(prpty143) # label(negated_conjecture).
+node240(X) | xuntil242(X) | -until241(X) # label(prpty144) # label(negated_conjecture).
+until241(Y) | -succ(X,Y) | -xuntil242(X) # label(prpty145) # label(negated_conjecture).
+loop | -last(X) | -xuntil242(X) # label(prpty146) # label(negated_conjecture).
+until2p243(Y) | -trans(X,Y) | -last(X) | -xuntil242(X) # label(prpty147) # label(negated_conjecture).
+node240(X) | xuntil2p244(X) | -until2p243(X) # label(prpty148) # label(negated_conjecture).
+until2p243(Y) | -succ(X,Y) | -xuntil2p244(X) # label(prpty149) # label(negated_conjecture).
+-last(X) | -xuntil2p244(X) # label(prpty150) # label(negated_conjecture).
+node203(X) | until241(X) | -node245(X) # label(prpty151) # label(negated_conjecture).
+node245(X) | xuntil247(X) | -until246(X) # label(prpty152) # label(negated_conjecture).
+until246(Y) | -succ(X,Y) | -xuntil247(X) # label(prpty153) # label(negated_conjecture).
+loop | -last(X) | -xuntil247(X) # label(prpty154) # label(negated_conjecture).
+until2p248(Y) | -trans(X,Y) | -last(X) | -xuntil247(X) # label(prpty155) # label(negated_conjecture).
+node245(X) | xuntil2p249(X) | -until2p248(X) # label(prpty156) # label(negated_conjecture).
+until2p248(Y) | -succ(X,Y) | -xuntil2p249(X) # label(prpty157) # label(negated_conjecture).
+-last(X) | -xuntil2p249(X) # label(prpty158) # label(negated_conjecture).
+node201(X) | until246(X) | -node250(X) # label(prpty159) # label(negated_conjecture).
+node250(X) | xuntil252(X) | -until251(X) # label(prpty160) # label(negated_conjecture).
+until251(Y) | -succ(X,Y) | -xuntil252(X) # label(prpty161) # label(negated_conjecture).
+loop | -last(X) | -xuntil252(X) # label(prpty162) # label(negated_conjecture).
+until2p253(Y) | -trans(X,Y) | -last(X) | -xuntil252(X) # label(prpty163) # label(negated_conjecture).
+node250(X) | xuntil2p254(X) | -until2p253(X) # label(prpty164) # label(negated_conjecture).
+until2p253(Y) | -succ(X,Y) | -xuntil2p254(X) # label(prpty165) # label(negated_conjecture).
+-last(X) | -xuntil2p254(X) # label(prpty166) # label(negated_conjecture).
+node199(X) | until251(X) | -node255(X) # label(prpty167) # label(negated_conjecture).
+node255(X) | xuntil257(X) | -until256(X) # label(prpty168) # label(negated_conjecture).
+until256(Y) | -succ(X,Y) | -xuntil257(X) # label(prpty169) # label(negated_conjecture).
+loop | -last(X) | -xuntil257(X) # label(prpty170) # label(negated_conjecture).
+until2p258(Y) | -trans(X,Y) | -last(X) | -xuntil257(X) # label(prpty171) # label(negated_conjecture).
+node255(X) | xuntil2p259(X) | -until2p258(X) # label(prpty172) # label(negated_conjecture).
+until2p258(Y) | -succ(X,Y) | -xuntil2p259(X) # label(prpty173) # label(negated_conjecture).
+-last(X) | -xuntil2p259(X) # label(prpty174) # label(negated_conjecture).
+node197(X) | until256(X) | -node260(X) # label(prpty175) # label(negated_conjecture).
+node260(X) | xuntil262(X) | -until261(X) # label(prpty176) # label(negated_conjecture).
+until261(Y) | -succ(X,Y) | -xuntil262(X) # label(prpty177) # label(negated_conjecture).
+loop | -last(X) | -xuntil262(X) # label(prpty178) # label(negated_conjecture).
+until2p263(Y) | -trans(X,Y) | -last(X) | -xuntil262(X) # label(prpty179) # label(negated_conjecture).
+node260(X) | xuntil2p264(X) | -until2p263(X) # label(prpty180) # label(negated_conjecture).
+until2p263(Y) | -succ(X,Y) | -xuntil2p264(X) # label(prpty181) # label(negated_conjecture).
+-last(X) | -xuntil2p264(X) # label(prpty182) # label(negated_conjecture).
+node195(X) | until261(X) | -node265(X) # label(prpty183) # label(negated_conjecture).
+node265(X) | xuntil267(X) | -until266(X) # label(prpty184) # label(negated_conjecture).
+until266(Y) | -succ(X,Y) | -xuntil267(X) # label(prpty185) # label(negated_conjecture).
+loop | -last(X) | -xuntil267(X) # label(prpty186) # label(negated_conjecture).
+until2p268(Y) | -trans(X,Y) | -last(X) | -xuntil267(X) # label(prpty187) # label(negated_conjecture).
+node265(X) | xuntil2p269(X) | -until2p268(X) # label(prpty188) # label(negated_conjecture).
+until2p268(Y) | -succ(X,Y) | -xuntil2p269(X) # label(prpty189) # label(negated_conjecture).
+-last(X) | -xuntil2p269(X) # label(prpty190) # label(negated_conjecture).
+node193(X) | until266(X) | -node270(X) # label(prpty191) # label(negated_conjecture).
+node270(X) | xuntil272(X) | -until271(X) # label(prpty192) # label(negated_conjecture).
+until271(Y) | -succ(X,Y) | -xuntil272(X) # label(prpty193) # label(negated_conjecture).
+loop | -last(X) | -xuntil272(X) # label(prpty194) # label(negated_conjecture).
+until2p273(Y) | -trans(X,Y) | -last(X) | -xuntil272(X) # label(prpty195) # label(negated_conjecture).
+node270(X) | xuntil2p274(X) | -until2p273(X) # label(prpty196) # label(negated_conjecture).
+until2p273(Y) | -succ(X,Y) | -xuntil2p274(X) # label(prpty197) # label(negated_conjecture).
+-last(X) | -xuntil2p274(X) # label(prpty198) # label(negated_conjecture).
+node191(X) | until271(X) | -node275(X) # label(prpty199) # label(negated_conjecture).
+node275(X) | xuntil277(X) | -until276(X) # label(prpty200) # label(negated_conjecture).
+until276(Y) | -succ(X,Y) | -xuntil277(X) # label(prpty201) # label(negated_conjecture).
+loop | -last(X) | -xuntil277(X) # label(prpty202) # label(negated_conjecture).
+until2p278(Y) | -trans(X,Y) | -last(X) | -xuntil277(X) # label(prpty203) # label(negated_conjecture).
+node275(X) | xuntil2p279(X) | -until2p278(X) # label(prpty204) # label(negated_conjecture).
+until2p278(Y) | -succ(X,Y) | -xuntil2p279(X) # label(prpty205) # label(negated_conjecture).
+-last(X) | -xuntil2p279(X) # label(prpty206) # label(negated_conjecture).
+node189(X) | until276(X) | -node280(X) # label(prpty207) # label(negated_conjecture).
+node280(X) | xuntil282(X) | -until281(X) # label(prpty208) # label(negated_conjecture).
+until281(Y) | -succ(X,Y) | -xuntil282(X) # label(prpty209) # label(negated_conjecture).
+loop | -last(X) | -xuntil282(X) # label(prpty210) # label(negated_conjecture).
+until2p283(Y) | -trans(X,Y) | -last(X) | -xuntil282(X) # label(prpty211) # label(negated_conjecture).
+node280(X) | xuntil2p284(X) | -until2p283(X) # label(prpty212) # label(negated_conjecture).
+until2p283(Y) | -succ(X,Y) | -xuntil2p284(X) # label(prpty213) # label(negated_conjecture).
+-last(X) | -xuntil2p284(X) # label(prpty214) # label(negated_conjecture).
+node187(X) | until281(X) | -node285(X) # label(prpty215) # label(negated_conjecture).
+node285(X) | xuntil287(X) | -until286(X) # label(prpty216) # label(negated_conjecture).
+until286(Y) | -succ(X,Y) | -xuntil287(X) # label(prpty217) # label(negated_conjecture).
+loop | -last(X) | -xuntil287(X) # label(prpty218) # label(negated_conjecture).
+until2p288(Y) | -trans(X,Y) | -last(X) | -xuntil287(X) # label(prpty219) # label(negated_conjecture).
+node285(X) | xuntil2p289(X) | -until2p288(X) # label(prpty220) # label(negated_conjecture).
+until2p288(Y) | -succ(X,Y) | -xuntil2p289(X) # label(prpty221) # label(negated_conjecture).
+-last(X) | -xuntil2p289(X) # label(prpty222) # label(negated_conjecture).
+until286(s0) # label(prpty223) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

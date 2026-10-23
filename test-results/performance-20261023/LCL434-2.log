@@ -1,0 +1,121 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 76 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+c_in(v_pa,c_insert(v_p,v_H,tc_PropLog_Opl(t_a)),tc_PropLog_Opl(t_a)) # label(cls_conjecture_0) # label(negated_conjecture).
+-c_in(c_PropLog_Opl_Oop_A_N_62(v_p,v_pa,t_a),c_PropLog_Othms(v_H,t_a),tc_PropLog_Opl(t_a)) # label(cls_conjecture_1) # label(negated_conjecture).
+-c_in(V_p,V_H,tc_PropLog_Opl(T_a)) | c_in(V_p,c_PropLog_Othms(V_H,T_a),tc_PropLog_Opl(T_a)) # label(cls_PropLog_Othms_OH_0) # label(axiom).
+c_in(c_PropLog_Opl_Oop_A_N_62(V_p,V_p,T_a),c_PropLog_Othms(V_H,T_a),tc_PropLog_Opl(T_a)) # label(cls_PropLog_Othms__I_0) # label(axiom).
+-c_in(V_q,c_PropLog_Othms(V_H,T_a),tc_PropLog_Opl(T_a)) | c_in(c_PropLog_Opl_Oop_A_N_62(V_p,V_q,T_a),c_PropLog_Othms(V_H,T_a),tc_PropLog_Opl(T_a)) # label(cls_PropLog_Oweaken__right_0) # label(axiom).
+-c_in(V_a,c_insert(V_b,V_A,T_a),T_a) | c_in(V_a,V_A,T_a) | V_a = V_b # label(cls_Set_OinsertE_0) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, c_in ]).
+Function symbol precedence:  function_order([ t_a, v_H, v_p, v_pa, c_PropLog_Othms, tc_PropLog_Opl, c_PropLog_Opl_Oop_A_N_62, c_insert ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds.
+% Length of proof is 11.
+% Level of proof is 4.
+% Maximum clause weight is 17.000.
+% Given clauses 8 (2.000 givens/level).
+
+1 c_in(v_pa,c_insert(v_p,v_H,tc_PropLog_Opl(t_a)),tc_PropLog_Opl(t_a)) # label(cls_conjecture_0) # label(negated_conjecture).  [assumption].
+2 -c_in(c_PropLog_Opl_Oop_A_N_62(v_p,v_pa,t_a),c_PropLog_Othms(v_H,t_a),tc_PropLog_Opl(t_a)) # label(cls_conjecture_1) # label(negated_conjecture).  [assumption].
+3 -c_in(A,B,tc_PropLog_Opl(C)) | c_in(A,c_PropLog_Othms(B,C),tc_PropLog_Opl(C)) # label(cls_PropLog_Othms_OH_0) # label(axiom).  [assumption].
+4 c_in(c_PropLog_Opl_Oop_A_N_62(A,A,B),c_PropLog_Othms(C,B),tc_PropLog_Opl(B)) # label(cls_PropLog_Othms__I_0) # label(axiom).  [assumption].
+5 -c_in(A,c_PropLog_Othms(B,C),tc_PropLog_Opl(C)) | c_in(c_PropLog_Opl_Oop_A_N_62(D,A,C),c_PropLog_Othms(B,C),tc_PropLog_Opl(C)) # label(cls_PropLog_Oweaken__right_0) # label(axiom).  [assumption].
+6 -c_in(A,c_insert(B,C,D),D) | c_in(A,C,D) | A = B # label(cls_Set_OinsertE_0) # label(axiom).  [assumption].
+10 -c_in(v_pa,c_PropLog_Othms(v_H,t_a),tc_PropLog_Opl(t_a)).  [ur(5,b,2,a)].
+11 c_in(v_pa,v_H,tc_PropLog_Opl(t_a)) | v_pa = v_p.  [resolve(6,a,1,a)].
+14 -c_in(v_pa,v_H,tc_PropLog_Opl(t_a)).  [ur(3,b,10,a)].
+15 v_pa = v_p.  [back_unit_del(11),unit_del(a,14)].
+22 $F.  [back_rewrite(2),rewrite([15(2)]),unit_del(a,4)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=8. Generated=23. Kept=21. proofs=1.
+Usable=5. Sos=1. Demods=1. Limbo=7, Disabled=14. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=1. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=1 (0 lex), Back_demodulated=7. Back_unit_deleted=1.
+Demod_attempts=74. Demod_rewrites=7.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=1. Nonunit_bsub_feature_tests=6.
+Megabytes=0.07.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 76 exit (max_proofs) Fri Oct 23 15:00:23 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 76 exit (max_proofs) ------
+

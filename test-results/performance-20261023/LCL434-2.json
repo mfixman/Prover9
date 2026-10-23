@@ -1,0 +1,12 @@
+{
+  "problem": "LCL434-2",
+  "domain": "LCL",
+  "rating": 0.05,
+  "conversion_wall_seconds": 0.005392624996602535,
+  "exit_code": 0,
+  "search_wall_seconds": 0.0028226470021763816,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.0,
+  "total_wall_seconds": 0.010175229996093549
+}

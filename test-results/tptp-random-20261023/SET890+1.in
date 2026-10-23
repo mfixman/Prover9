@@ -1,0 +1,19 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all A all B (in(A,B) -> -in(B,A))) # label(antisymmetry_r2_hidden) # label(axiom).
+(all A all B (A = B <-> subset(A,B) & subset(B,A))) # label(d10_xboole_0) # label(axiom).
+(all A all B (B = singleton(A) <-> (all C (in(C,B) <-> C = A)))) # label(d1_tarski) # label(axiom).
+(all A all B (subset(A,B) <-> (all C (in(C,A) -> in(C,B))))) # label(d3_tarski) # label(axiom).
+(all A all B (B = union(A) <-> (all C (in(C,B) <-> (exists D (in(C,D) & in(D,A))))))) # label(d4_tarski) # label(axiom).
+(all A all B (in(A,B) -> subset(A,union(B)))) # label(l50_zfmisc_1) # label(axiom).
+(exists A empty(A)) # label(rc1_xboole_0) # label(axiom).
+(exists A -empty(A)) # label(rc2_xboole_0) # label(axiom).
+(all A all B subset(A,A)) # label(reflexivity_r1_tarski) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all A union(singleton(A)) = A) # label(t31_zfmisc_1) # label(conjecture).
+end_of_list.

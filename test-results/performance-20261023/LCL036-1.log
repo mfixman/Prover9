@@ -1,0 +1,127 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 115 was started by mfixman on bodoque,
+Fri Oct 23 15:00:44 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-is_a_theorem(implies(X,Y)) | -is_a_theorem(X) | is_a_theorem(Y) # label(condensed_detachment) # label(axiom).
+is_a_theorem(implies(implies(implies(implies(implies(X,Y),implies(Z,falsehood)),U),V),implies(implies(V,X),implies(Z,X)))) # label(c0_CAMerideth) # label(axiom).
+-is_a_theorem(implies(implies(implies(a,falsehood),falsehood),a)) # label(prove_c0_5) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_c0_5 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ is_a_theorem ]).
+Function symbol precedence:  function_order([ falsehood, a, implies ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(hyper_resolution).  % (HNE depth_diff=1)
+    % set(hyper_resolution) -> set(pos_hyper_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.04 (+ 0.01) seconds: prove_c0_5.
+% Length of proof is 22.
+% Level of proof is 18.
+% Maximum clause weight is 20.000.
+% Given clauses 75 (4.167 givens/level).
+
+1 -is_a_theorem(implies(A,B)) | -is_a_theorem(A) | is_a_theorem(B) # label(condensed_detachment) # label(axiom).  [assumption].
+2 is_a_theorem(implies(implies(implies(implies(implies(A,B),implies(C,falsehood)),D),E),implies(implies(E,A),implies(C,A)))) # label(c0_CAMerideth) # label(axiom).  [assumption].
+3 -is_a_theorem(implies(implies(implies(a,falsehood),falsehood),a)) # label(prove_c0_5) # label(negated_conjecture) # answer(prove_c0_5).  [assumption].
+4 is_a_theorem(implies(implies(implies(implies(A,B),implies(C,B)),implies(B,D)),implies(E,implies(B,D)))).  [hyper(1,a,2,a,b,2,a)].
+6 is_a_theorem(implies(implies(implies(A,implies(falsehood,B)),C),implies(D,C))).  [hyper(1,a,2,a,b,4,a)].
+14 is_a_theorem(implies(A,implies(B,implies(falsehood,C)))).  [hyper(1,a,6,a,b,6,a)].
+18 is_a_theorem(implies(A,implies(falsehood,B))).  [hyper(1,a,14,a,b,14,a)].
+26 is_a_theorem(implies(implies(implies(falsehood,A),B),implies(C,B))).  [hyper(1,a,2,a,b,18,a)].
+28 is_a_theorem(implies(A,implies(B,implies(C,B)))).  [hyper(1,a,4,a,b,26,a)].
+29 is_a_theorem(implies(A,implies(B,A))).  [hyper(1,a,28,a,b,28,a)].
+34 is_a_theorem(implies(implies(implies(A,implies(implies(implies(B,C),implies(D,falsehood)),E)),B),implies(D,B))).  [hyper(1,a,2,a,b,29,a)].
+67 is_a_theorem(implies(implies(implies(A,B),C),implies(implies(implies(B,D),implies(A,falsehood)),C))).  [hyper(1,a,2,a,b,34,a)].
+127 is_a_theorem(implies(implies(implies(A,B),implies(C,falsehood)),implies(D,implies(C,A)))).  [hyper(1,a,67,a,b,29,a)].
+128 is_a_theorem(implies(implies(implies(A,B),implies(implies(falsehood,C),falsehood)),implies(D,A))).  [hyper(1,a,67,a,b,26,a)].
+139 is_a_theorem(implies(implies(implies(A,implies(B,C)),B),implies(D,B))).  [hyper(1,a,2,a,b,128,a)].
+144 is_a_theorem(implies(implies(implies(A,B),C),implies(B,C))).  [hyper(1,a,2,a,b,139,a)].
+153 is_a_theorem(implies(implies(implies(implies(A,falsehood),B),C),implies(A,C))).  [hyper(1,a,2,a,b,144,a)].
+261 is_a_theorem(implies(implies(A,falsehood),implies(A,B))).  [hyper(1,a,153,a,b,153,a)].
+276 is_a_theorem(implies(A,implies(implies(A,falsehood),B))).  [hyper(1,a,153,a,b,261,a)].
+300 is_a_theorem(implies(A,implies(implies(implies(B,C),falsehood),B))).  [hyper(1,a,127,a,b,276,a)].
+525 is_a_theorem(implies(implies(implies(A,B),falsehood),A)).  [hyper(1,a,300,a,b,300,a)].
+526 $F # answer(prove_c0_5).  [resolve(525,a,3,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=75. Generated=3913. Kept=525. proofs=1.
+Usable=67. Sos=386. Demods=0. Limbo=0, Disabled=74. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=3388. Back_subsumed=71.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=1.
+Megabytes=0.97.
+User_CPU=0.04, System_CPU=0.01, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 115 exit (max_proofs) Fri Oct 23 15:00:44 2026
+-------- Proof 1 -------- prove_c0_5.
+
+THEOREM PROVED
+
+------ process 115 exit (max_proofs) ------
+

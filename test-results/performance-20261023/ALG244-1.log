@@ -1,0 +1,112 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 245 was started by mfixman on bodoque,
+Fri Oct 23 15:01:27 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+mult(A,mult(B,C)) = mult(mult(A,B),mult(A,C)) # label(c01) # label(axiom).
+mult(mult(A,B),C) = mult(mult(A,C),mult(B,C)) # label(c02) # label(axiom).
+mult(mult(mult(A,B),mult(C,D)),mult(mult(mult(A,B),mult(C,D)),mult(mult(A,C),mult(B,D)))) = mult(mult(A,C),mult(B,D)) # label(c03) # label(axiom).
+mult(A,A) = A # label(c04) # label(axiom).
+mult(mult(mult(a,b),mult(c,d)),mult(mult(a,c),mult(b,d))) != mult(mult(mult(a,c),mult(b,d)),mult(mult(a,b),mult(c,d))) # label(goals) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label goals to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ a, b, c, d, mult ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+Low Water (keep): wt=49.000, iters=6745
+
+Low Water (keep): wt=47.000, iters=6685
+
+Low Water (keep): wt=45.000, iters=6698
+
+Low Water (keep): wt=43.000, iters=6867
+
+Low Water (keep): wt=41.000, iters=6976
+
+Low Water (keep): wt=39.000, iters=6684
+
+Low Water (keep): wt=37.000, iters=6813
+
+Low Water (keep): wt=35.000, iters=7005
+
+Low Water (keep): wt=33.000, iters=6689
+
+============================== STATISTICS ============================
+
+Given=186. Generated=130197. Kept=16517. proofs=0.
+Usable=175. Sos=13837. Demods=2882. Limbo=0, Disabled=2510. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=3537.
+Forward_subsumed=41332. Back_subsumed=1050.
+Sos_limit_deleted=68811. Sos_displaced=0. Sos_removed=0.
+New_demodulators=3702 (0 lex), Back_demodulated=1455. Back_unit_deleted=0.
+Demod_attempts=3784417. Demod_rewrites=156960.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=38.58.
+User_CPU=20.02, System_CPU=0.07, Wall_clock=20.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 245 exit (max_seconds) Fri Oct 23 15:01:47 2026
+
+SEARCH FAILED
+
+------ process 245 exit (max_seconds) ------
+

@@ -1,0 +1,396 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 219 was started by mfixman on bodoque,
+Fri Oct 23 15:01:24 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,c_Type_Oty_ONT) | c_TypeRel_Ohas__field(V_P,c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__8__1(V_D,V_E,V_F,V_P,V_e,V_h,V_v),V_F,c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__8__2(V_D,V_E,V_F,V_P,V_e,V_h,V_v),V_D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OFAss(V_e,V_F,V_D,V_v,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I8_J_7) # label(axiom).
+V_D_H = V_D | -c_TypeRel_Osees__field(V_P,V_C,V_F,V_T_H,V_D_H,T_a) | -c_TypeRel_Osees__field(V_P,V_C,V_F,V_T,V_D,T_a) # label(cls_sees__field__fun_1) # label(axiom).
+V_T_H = V_T | -c_TypeRel_Osees__field(V_P,V_C,V_F,V_T_H,V_D_H,T_a) | -c_TypeRel_Osees__field(V_P,V_C,V_F,V_T,V_D,T_a) # label(cls_sees__field__fun_0) # label(axiom).
+c_TypeRel_Ohas__field(V_P,V_C,V_F,V_T,V_D,T_a) | -c_TypeRel_Osees__field(V_P,V_C,V_F,V_T,V_D,T_a) # label(cls_has__visible__field_0) # label(axiom).
+V_T = c_Type_Oty_OVoid | c_TypeRel_Ohas__field(V_P,c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__8__1(V_D,V_E,V_F,V_P,V_e,V_h,V_v),V_F,c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__8__2(V_D,V_E,V_F,V_P,V_e,V_h,V_v),V_D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OFAss(V_e,V_F,V_D,V_v,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I8_J_6) # label(axiom).
+c_TypeRel_Osees__field(V_P,V_D,V_F,V_T,V_D,T_a) | -c_TypeRel_Osees__field(V_P,V_C,V_F,V_T,V_D,T_a) # label(cls_sees__field__idemp_0) # label(axiom).
+c_WellType_OWT(V_P,V_E,c_Expr_Oexp_OFAcc(V_e,V_F,V_D,tc_List_Olist(tc_String_Ochar)),V_T) | -c_TypeRel_Osees__field(V_P,V_C,V_F,V_T,V_D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellType_OWT(V_P,V_E,V_e,c_Type_Oty_OClass(V_C)) # label(cls_WTFAcc_0) # label(axiom).
+c_Progress_OWTrt_H(V_P,V_h,V_E,c_Expr_Oexp_OFAss(V_e_092_060_094isub_0621,V_F,V_D,V_e_092_060_094isub_0622,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OVoid) | -c_Progress_OWTrt_H(V_P,V_h,V_E,V_e_092_060_094isub_0622,V_T_092_060_094isub_0622) | -c_Progress_OWTrt_H(V_P,V_h,V_E,V_e_092_060_094isub_0621,c_Type_Oty_ONT) # label(cls_WTrt_H__WTrts_H_Ointros_I11_J_0) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,c_Type_Oty_ONT) | V_T = c_Type_Oty_OVoid | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OFAss(V_e,V_F,V_D,V_v,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I8_J_1) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OFAss(V_e_092_060_094isub_0621,V_F,V_D,V_e_092_060_094isub_0622,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OVoid) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e_092_060_094isub_0622,V_T_092_060_094isub_0622) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e_092_060_094isub_0621,c_Type_Oty_ONT) # label(cls_WTrtFAssNT_0) # label(axiom).
+c_Expr_Oexp_OSeq(V_exp1_H,V_exp2_H,T_a) != c_Expr_Oexp_OFAss(V_exp1,V_list1,V_list2,V_exp2,T_a) # label(cls_exp_Osimps_I175_J_0) # label(axiom).
+c_Expr_Oexp_OCall(V_exp_H,V_list1_H,V_list2_H,T_a) != c_Expr_Oexp_OFAss(V_exp1,V_list1,V_list2,V_exp2,T_a) # label(cls_exp_Osimps_I171_J_0) # label(axiom).
+c_Expr_Oexp_OFAss(V_exp1_H,V_list1_H,V_list2_H,V_exp2_H,T_a) != c_Expr_Oexp_Onew(V_list,T_a) # label(cls_exp_Osimps_I29_J_0) # label(axiom).
+c_Expr_Oexp_Onew(V_list,T_a) != c_Expr_Oexp_OFAss(V_exp1_H,V_list1_H,V_list2_H,V_exp2_H,T_a) # label(cls_exp_Osimps_I28_J_0) # label(axiom).
+c_Expr_Oexp_OCast(V_list,V_exp,T_a) != c_Expr_Oexp_OFAss(V_exp1_H,V_list1_H,V_list2_H,V_exp2_H,T_a) # label(cls_exp_Osimps_I54_J_0) # label(axiom).
+c_Expr_Oexp_OFAss(V_exp1,V_list1,V_list2,V_exp2,T_a) != c_Expr_Oexp_OFAss(V_exp1_H,V_list1_H,V_list2_H,V_exp2_H,T_a) | V_exp2 = V_exp2_H # label(cls_exp_Osimps_I8_J_3) # label(axiom).
+c_Expr_Oexp_OFAss(V_exp1,V_list1,V_list2,V_exp2,T_a) != c_Expr_Oexp_OFAss(V_exp1_H,V_list1_H,V_list2_H,V_exp2_H,T_a) | V_list2 = V_list2_H # label(cls_exp_Osimps_I8_J_2) # label(axiom).
+c_Expr_Oexp_OFAss(V_exp1,V_list1,V_list2,V_exp2,T_a) != c_Expr_Oexp_OFAss(V_exp1_H,V_list1_H,V_list2_H,V_exp2_H,T_a) | V_list1 = V_list1_H # label(cls_exp_Osimps_I8_J_1) # label(axiom).
+c_Expr_Oexp_OFAss(V_exp1,V_list1,V_list2,V_exp2,T_a) != c_Expr_Oexp_OFAss(V_exp1_H,V_list1_H,V_list2_H,V_exp2_H,T_a) | V_exp1 = V_exp1_H # label(cls_exp_Osimps_I8_J_0) # label(axiom).
+c_Expr_Oexp_OFAss(V_exp1,V_list1,V_list2,V_exp2,T_a) != c_Expr_Oexp_OSeq(V_exp1_H,V_exp2_H,T_a) # label(cls_exp_Osimps_I174_J_0) # label(axiom).
+c_Expr_Oexp_OFAss(V_exp1_H,V_list1_H,V_list2_H,V_exp2_H,T_a) != c_Expr_Oexp_OFAcc(V_exp,V_list1,V_list2,T_a) # label(cls_exp_Osimps_I155_J_0) # label(axiom).
+c_Expr_Oexp_OFAss(V_exp1,V_list1,V_list2,V_exp2,T_a) != c_Expr_Oexp_OCall(V_exp_H,V_list1_H,V_list2_H,T_a) # label(cls_exp_Osimps_I170_J_0) # label(axiom).
+c_Expr_Oexp_OFAss(V_exp1_H,V_list1_H,V_list2_H,V_exp2_H,T_a) != c_Expr_Oexp_OCast(V_list,V_exp,T_a) # label(cls_exp_Osimps_I55_J_0) # label(axiom).
+c_Expr_Oexp_OFAcc(V_exp,V_list1,V_list2,T_a) != c_Expr_Oexp_OFAss(V_exp1_H,V_list1_H,V_list2_H,V_exp2_H,T_a) # label(cls_exp_Osimps_I154_J_0) # label(axiom).
+c_WellType_OWT(V_P,V_E,c_Expr_Oexp_OFAss(V_e_092_060_094isub_0621,V_F,V_D,V_e_092_060_094isub_0622,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OVoid) | -c_TypeRel_Owiden(V_P,V_T_H,V_T,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellType_OWT(V_P,V_E,V_e_092_060_094isub_0622,V_T_H) | -c_TypeRel_Osees__field(V_P,V_C,V_F,V_T,V_D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellType_OWT(V_P,V_E,V_e_092_060_094isub_0621,c_Type_Oty_OClass(V_C)) # label(cls_WTFAss_0) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,c_Type_Oty_ONT) | c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,c_Type_Oty_OClass(c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__8__1(V_D,V_E,V_F,V_P,V_e,V_h,V_v))) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OFAss(V_e,V_F,V_D,V_v,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I8_J_4) # label(axiom).
+V_T = c_Type_Oty_OVoid | c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,c_Type_Oty_OClass(c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__8__1(V_D,V_E,V_F,V_P,V_e,V_h,V_v))) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OFAss(V_e,V_F,V_D,V_v,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I8_J_3) # label(axiom).
+V_T = c_Type_Oty_OVoid | V_T = c_Type_Oty_OVoid | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OFAss(V_e,V_F,V_D,V_v,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I8_J_0) # label(axiom).
+V_T = c_Type_Oty_OVoid | -c_WellType_OWT(V_P,V_E,c_Expr_Oexp_OFAss(V_a,V_F,V_D,V_v,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WT__elim__cases_I8_J_0) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__6__1(V_D,V_E,V_P,V_e,V_h)) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OCast(V_D,V_e,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I6_J_1) # label(axiom).
+c_Progress_OWTrt_H(V_P,V_h,V_E,c_Expr_Oexp_OCall(V_e,V_M,V_es,tc_List_Olist(tc_String_Ochar)),V_T) | -c_Progress_OWTrts_H(V_P,V_h,V_E,V_es,V_Ts) | -c_Progress_OWTrt_H(V_P,V_h,V_E,V_e,c_Type_Oty_ONT) # label(cls_WTrt_H__WTrts_H_Ointros_I13_J_0) # label(axiom).
+V_T = c_Type_Oty_OClass(c_Type_Osko__Type__XrefTE__1__1(V_T)) | V_T = c_Type_Oty_ONT | -c_Type_Ois__refT(V_T) # label(cls_refTE_0) # label(axiom).
+V_T = c_Type_Oty_OClass(c_Type_Osko__Type__Xis__refT__def__1__1(V_T)) | V_T = c_Type_Oty_ONT | -c_Type_Ois__refT(V_T) # label(cls_is__refT__def_0) # label(axiom).
+c_Type_Ois__refT(c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__6__1(V_D,V_E,V_P,V_e,V_h)) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OCast(V_D,V_e,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I6_J_2) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,c_Type_Oty_ONT) | c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,c_Type_Oty_OClass(c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__7__1(V_D,V_E,V_F,V_P,V_T,V_e,V_h))) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OFAcc(V_e,V_F,V_D,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I7_J_0) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,c_Type_Oty_ONT) | c_TypeRel_Ohas__field(V_P,c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__7__1(V_D,V_E,V_F,V_P,V_T,V_e,V_h),V_F,V_T,V_D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OFAcc(V_e,V_F,V_D,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I7_J_1) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OFAss(V_e_092_060_094isub_0621,V_F,V_D,V_e_092_060_094isub_0622,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OVoid) | -c_TypeRel_Owiden(V_P,V_T_092_060_094isub_0622,V_T,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e_092_060_094isub_0622,V_T_092_060_094isub_0622) | -c_TypeRel_Ohas__field(V_P,V_C,V_F,V_T,V_D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e_092_060_094isub_0621,c_Type_Oty_OClass(V_C)) # label(cls_WTrtFAss_0) # label(axiom).
+c_Progress_OWTrt_H(V_P,V_h,V_E,c_Expr_Oexp_OFAss(V_e_092_060_094isub_0621,V_F,V_D,V_e_092_060_094isub_0622,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OVoid) | -c_TypeRel_Owiden(V_P,V_T_092_060_094isub_0622,V_T,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_Progress_OWTrt_H(V_P,V_h,V_E,V_e_092_060_094isub_0622,V_T_092_060_094isub_0622) | -c_TypeRel_Ohas__field(V_P,V_C,V_F,V_T,V_D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_Progress_OWTrt_H(V_P,V_h,V_E,V_e_092_060_094isub_0621,c_Type_Oty_OClass(V_C)) # label(cls_WTrt_H__WTrts_H_Ointros_I10_J_0) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_9) # label(axiom).
+V_xa = c_Type_Oty_OBoolean | V_xa = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_f2,V_x,V_f4,V_f5,V_xa,T_a) = c_Type_Oty_Oty__case(V_g1,V_g2,V_x,V_g4,V_g5,V_xa,T_a) | V_xa = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xa,V_f5,V_g5,T_a)) | V_xa = c_Type_Oty_ONT # label(cls_ty_Ocase__cong_4) # label(axiom).
+V_xa = c_Type_Oty_OInteger | V_xa = c_Type_Oty_OBoolean | V_xa = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_x,V_f5,V_xa,T_a) = c_Type_Oty_Oty__case(V_g1,V_g2,V_g3,V_x,V_g5,V_xa,T_a) | V_xa = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xa,V_f5,V_g5,T_a)) # label(cls_ty_Ocase__cong_2) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_7) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_7) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_21) # label(axiom).
+c_Type_Oty_Oty__case(V_x,V_f2,V_f3,V_f4,V_f5,V_xa,T_a) = c_Type_Oty_Oty__case(V_x,V_g2,V_g3,V_g4,V_g5,V_xa,T_a) | V_xa = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xa,V_f5,V_g5,T_a)) | V_xa = c_Type_Oty_ONT | V_xa = c_Type_Oty_OInteger | V_xa = c_Type_Oty_OBoolean # label(cls_ty_Ocase__cong_16) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_13) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_13) # label(axiom).
+V_xa = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_x,V_f3,V_f4,V_f5,V_xa,T_a) = c_Type_Oty_Oty__case(V_g1,V_x,V_g3,V_g4,V_g5,V_xa,T_a) | V_xa = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xa,V_f5,V_g5,T_a)) | V_xa = c_Type_Oty_ONT | V_xa = c_Type_Oty_OInteger # label(cls_ty_Ocase__cong_8) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_21) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xa,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xa,V_f5,V_g5,T_a)) | V_xa = c_Type_Oty_ONT | V_xa = c_Type_Oty_OBoolean | V_xa = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_f2,V_x,V_f4,V_f5,V_xa,T_a) = c_Type_Oty_Oty__case(V_g1,V_g2,V_x,V_g4,V_g5,V_xa,T_a) # label(cls_ty_Ocase__cong_5) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_10) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_10) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_8) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_8) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xa,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xa,V_f5,V_g5,T_a)) | V_xa = c_Type_Oty_OInteger | V_xa = c_Type_Oty_OBoolean | V_xa = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_x,V_f5,V_xa,T_a) = c_Type_Oty_Oty__case(V_g1,V_g2,V_g3,V_x,V_g5,V_xa,T_a) # label(cls_ty_Ocase__cong_3) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_22) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xa,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xa,V_f5,V_g5,T_a)) | V_xa = c_Type_Oty_ONT | V_xa = c_Type_Oty_OInteger | V_xa = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_x,V_f3,V_f4,V_f5,V_xa,T_a) = c_Type_Oty_Oty__case(V_g1,V_x,V_g3,V_g4,V_g5,V_xa,T_a) # label(cls_ty_Ocase__cong_9) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_22) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_14) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_14) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xa,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xa,V_f5,V_g5,T_a)) | V_xa = c_Type_Oty_ONT | V_xa = c_Type_Oty_OInteger | V_xa = c_Type_Oty_OBoolean | c_Type_Oty_Oty__case(V_x,V_f2,V_f3,V_f4,V_f5,V_xa,T_a) = c_Type_Oty_Oty__case(V_x,V_g2,V_g3,V_g4,V_g5,V_xa,T_a) # label(cls_ty_Ocase__cong_17) # label(axiom).
+V_xb = c_Type_Oty_OBoolean | V_xb = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_f2,V_xa,V_x,V_f5,V_xb,T_a) = c_Type_Oty_Oty__case(V_g1,V_g2,V_xa,V_x,V_g5,V_xb,T_a) | V_xb = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) # label(cls_ty_Ocase__cong_6) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_11) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_11) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_25) # label(axiom).
+V_xb = c_Type_Oty_OBoolean | c_Type_Oty_Oty__case(V_xa,V_f2,V_x,V_f4,V_f5,V_xb,T_a) = c_Type_Oty_Oty__case(V_xa,V_g2,V_x,V_g4,V_g5,V_xb,T_a) | V_xb = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) | V_xb = c_Type_Oty_ONT # label(cls_ty_Ocase__cong_20) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_17) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_17) # label(axiom).
+V_xb = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_xa,V_x,V_f4,V_f5,V_xb,T_a) = c_Type_Oty_Oty__case(V_g1,V_xa,V_x,V_g4,V_g5,V_xb,T_a) | V_xb = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) | V_xb = c_Type_Oty_ONT # label(cls_ty_Ocase__cong_12) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_25) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_23) # label(axiom).
+V_xb = c_Type_Oty_OInteger | V_xb = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_xa,V_f3,V_x,V_f5,V_xb,T_a) = c_Type_Oty_Oty__case(V_g1,V_xa,V_g3,V_x,V_g5,V_xb,T_a) | V_xb = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) # label(cls_ty_Ocase__cong_10) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_15) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_15) # label(axiom).
+V_xb = c_Type_Oty_OInteger | V_xb = c_Type_Oty_OBoolean | c_Type_Oty_Oty__case(V_xa,V_f2,V_f3,V_x,V_f5,V_xb,T_a) = c_Type_Oty_Oty__case(V_xa,V_g2,V_g3,V_x,V_g5,V_xb,T_a) | V_xb = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) # label(cls_ty_Ocase__cong_18) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_23) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_29) # label(axiom).
+c_Type_Oty_Oty__case(V_xa,V_x,V_f3,V_f4,V_f5,V_xb,T_a) = c_Type_Oty_Oty__case(V_xa,V_x,V_g3,V_g4,V_g5,V_xb,T_a) | V_xb = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) | V_xb = c_Type_Oty_ONT | V_xb = c_Type_Oty_OInteger # label(cls_ty_Ocase__cong_24) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_29) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_12) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_12) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) | V_xb = c_Type_Oty_OBoolean | V_xb = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_f2,V_xa,V_x,V_f5,V_xb,T_a) = c_Type_Oty_Oty__case(V_g1,V_g2,V_xa,V_x,V_g5,V_xb,T_a) # label(cls_ty_Ocase__cong_7) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_18) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) | V_xb = c_Type_Oty_ONT | V_xb = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_xa,V_x,V_f4,V_f5,V_xb,T_a) = c_Type_Oty_Oty__case(V_g1,V_xa,V_x,V_g4,V_g5,V_xb,T_a) # label(cls_ty_Ocase__cong_13) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_18) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_26) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) | V_xb = c_Type_Oty_ONT | V_xb = c_Type_Oty_OBoolean | c_Type_Oty_Oty__case(V_xa,V_f2,V_x,V_f4,V_f5,V_xb,T_a) = c_Type_Oty_Oty__case(V_xa,V_g2,V_x,V_g4,V_g5,V_xb,T_a) # label(cls_ty_Ocase__cong_21) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_26) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_24) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) | V_xb = c_Type_Oty_OInteger | V_xb = c_Type_Oty_OBoolean | c_Type_Oty_Oty__case(V_xa,V_f2,V_f3,V_x,V_f5,V_xb,T_a) = c_Type_Oty_Oty__case(V_xa,V_g2,V_g3,V_x,V_g5,V_xb,T_a) # label(cls_ty_Ocase__cong_19) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_24) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_16) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) | V_xb = c_Type_Oty_OInteger | V_xb = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_xa,V_f3,V_x,V_f5,V_xb,T_a) = c_Type_Oty_Oty__case(V_g1,V_xa,V_g3,V_x,V_g5,V_xb,T_a) # label(cls_ty_Ocase__cong_11) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_16) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xb,V_f5,V_g5,T_a)) | V_xb = c_Type_Oty_ONT | V_xb = c_Type_Oty_OInteger | c_Type_Oty_Oty__case(V_xa,V_x,V_f3,V_f4,V_f5,V_xb,T_a) = c_Type_Oty_Oty__case(V_xa,V_x,V_g3,V_g4,V_g5,V_xb,T_a) # label(cls_ty_Ocase__cong_25) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_30) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_30) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_27) # label(axiom).
+V_xc = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_xb,V_xa,V_x,V_f5,V_xc,T_a) = c_Type_Oty_Oty__case(V_g1,V_xb,V_xa,V_x,V_g5,V_xc,T_a) | V_xc = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xc,V_f5,V_g5,T_a)) # label(cls_ty_Ocase__cong_14) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_19) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_19) # label(axiom).
+V_xc = c_Type_Oty_OBoolean | c_Type_Oty_Oty__case(V_xb,V_f2,V_xa,V_x,V_f5,V_xc,T_a) = c_Type_Oty_Oty__case(V_xb,V_g2,V_xa,V_x,V_g5,V_xc,T_a) | V_xc = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xc,V_f5,V_g5,T_a)) # label(cls_ty_Ocase__cong_22) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_27) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_33) # label(axiom).
+c_Type_Oty_Oty__case(V_xb,V_xa,V_x,V_f4,V_f5,V_xc,T_a) = c_Type_Oty_Oty__case(V_xb,V_xa,V_x,V_g4,V_g5,V_xc,T_a) | V_xc = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xc,V_f5,V_g5,T_a)) | V_xc = c_Type_Oty_ONT # label(cls_ty_Ocase__cong_28) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_33) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_31) # label(axiom).
+V_xc = c_Type_Oty_OInteger | c_Type_Oty_Oty__case(V_xb,V_xa,V_f3,V_x,V_f5,V_xc,T_a) = c_Type_Oty_Oty__case(V_xb,V_xa,V_g3,V_x,V_g5,V_xc,T_a) | V_xc = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xc,V_f5,V_g5,T_a)) # label(cls_ty_Ocase__cong_26) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_31) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xc,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xc,V_f5,V_g5,T_a)) | V_xc = c_Type_Oty_OBoolean | c_Type_Oty_Oty__case(V_xb,V_f2,V_xa,V_x,V_f5,V_xc,T_a) = c_Type_Oty_Oty__case(V_xb,V_g2,V_xa,V_x,V_g5,V_xc,T_a) # label(cls_ty_Ocase__cong_23) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_20) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_20) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_28) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xc,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xc,V_f5,V_g5,T_a)) | V_xc = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_xb,V_xa,V_x,V_f5,V_xc,T_a) = c_Type_Oty_Oty__case(V_g1,V_xb,V_xa,V_x,V_g5,V_xc,T_a) # label(cls_ty_Ocase__cong_15) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_28) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_34) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_34) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xc,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xc,V_f5,V_g5,T_a)) | V_xc = c_Type_Oty_ONT | c_Type_Oty_Oty__case(V_xb,V_xa,V_x,V_f4,V_f5,V_xc,T_a) = c_Type_Oty_Oty__case(V_xb,V_xa,V_x,V_g4,V_g5,V_xc,T_a) # label(cls_ty_Ocase__cong_29) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xc,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xc,V_f5,V_g5,T_a)) | V_xc = c_Type_Oty_OInteger | c_Type_Oty_Oty__case(V_xb,V_xa,V_f3,V_x,V_f5,V_xc,T_a) = c_Type_Oty_Oty__case(V_xb,V_xa,V_g3,V_x,V_g5,V_xc,T_a) # label(cls_ty_Ocase__cong_27) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_32) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | V_x = c_Type_Oty_OInteger | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_32) # label(axiom).
+c_TypeRel_Owiden(V_P,c_Type_Oty_ONT,c_Type_Oty_OClass(V_C),T_a) # label(cls_widen__Class_2) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_35) # label(axiom).
+c_Type_Oty_Oty__case(V_xc,V_xb,V_xa,V_x,V_f5,V_xd,T_a) = c_Type_Oty_Oty__case(V_xc,V_xb,V_xa,V_x,V_g5,V_xd,T_a) | V_xd = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xd,V_f5,V_g5,T_a)) # label(cls_ty_Ocase__cong_30) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_35) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit__asm_36) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | -hBOOL(hAPP(V_P,V_f4)) | -hBOOL(hAPP(V_P,V_f3)) | -hBOOL(hAPP(V_P,V_f2)) | -hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_36) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xd,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_xd,V_f5,V_g5,T_a)) | c_Type_Oty_Oty__case(V_xc,V_xb,V_xa,V_x,V_f5,V_xd,T_a) = c_Type_Oty_Oty__case(V_xc,V_xb,V_xa,V_x,V_g5,V_xd,T_a) # label(cls_ty_Ocase__cong_31) # label(axiom).
+c_TypeRel_Owiden(V_P,V_T,V_T,T_a) # label(cls_widen__refl_0) # label(axiom).
+c_TypeRel_Owiden(V_P,V_S,V_T,T_a) | -c_TypeRel_Owiden(V_P,V_U,V_T,T_a) | -c_TypeRel_Owiden(V_P,V_S,V_U,T_a) # label(cls_widen__trans_0) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | -hBOOL(hAPP(V_P,V_f3)) | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_9) # label(axiom).
+hBOOL(hAPP(V_P,V_ty)) | -hBOOL(hAPP(V_P,c_Type_Oty_OClass(v_sko__Value__Xdefault__val__Xinduct__1(V_P)))) | -hBOOL(hAPP(V_P,c_Type_Oty_ONT)) | -hBOOL(hAPP(V_P,c_Type_Oty_OInteger)) | -hBOOL(hAPP(V_P,c_Type_Oty_OBoolean)) | -hBOOL(hAPP(V_P,c_Type_Oty_OVoid)) # label(cls_default__val_Oinduct_0) # label(axiom).
+V_v = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xnchotomy__1__1(V_v)) | V_v = c_Type_Oty_ONT | V_v = c_Type_Oty_OInteger | V_v = c_Type_Oty_OBoolean | V_v = c_Type_Oty_OVoid # label(cls_ty_Onchotomy_0) # label(axiom).
+hBOOL(hAPP(V_P,V_ty)) | -hBOOL(hAPP(V_P,c_Type_Oty_OClass(v_sko__Type__Xty__Xinduct__1(V_P)))) | -hBOOL(hAPP(V_P,c_Type_Oty_ONT)) | -hBOOL(hAPP(V_P,c_Type_Oty_OInteger)) | -hBOOL(hAPP(V_P,c_Type_Oty_OBoolean)) | -hBOOL(hAPP(V_P,c_Type_Oty_OVoid)) # label(cls_ty_Oinduct_0) # label(axiom).
+V_y = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xexhaust__1__1(V_y)) | V_y = c_Type_Oty_ONT | V_y = c_Type_Oty_OInteger | V_y = c_Type_Oty_OBoolean | V_y = c_Type_Oty_OVoid # label(cls_ty_Oexhaust_0) # label(axiom).
+hBOOL(hAPP(V_P,V_ty)) | -hBOOL(hAPP(V_P,c_Type_Oty_OClass(v_sko__Type__Xty__Xinducts__1(V_P)))) | -hBOOL(hAPP(V_P,c_Type_Oty_ONT)) | -hBOOL(hAPP(V_P,c_Type_Oty_OInteger)) | -hBOOL(hAPP(V_P,c_Type_Oty_OBoolean)) | -hBOOL(hAPP(V_P,c_Type_Oty_OVoid)) # label(cls_ty_Oinducts_0) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_6) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | -hBOOL(hAPP(V_P,hAPP(V_f5,v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)))) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_6) # label(axiom).
+hAPP(V_f5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_x,V_f5,V_g5,T_a)) != hAPP(V_g5,c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_x,V_f5,V_g5,T_a)) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid | c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,T_a) = c_Type_Oty_Oty__case(V_g1,V_g2,V_g3,V_g4,V_g5,V_x,T_a) # label(cls_ty_Ocase__cong_1) # label(axiom).
+c_TypeRel_Owiden(v_P,v_U____,c_Type_Oty_OClass(v_C____),tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) # label(cls_UsubC_0) # label(axiom).
+c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,T_a) = c_Type_Oty_Oty__case(V_g1,V_g2,V_g3,V_g4,V_g5,V_x,T_a) | V_x = c_Type_Oty_OClass(c_Type_Osko__Type__Xty__Xcase__cong__1__1(V_x,V_f5,V_g5,T_a)) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Ocase__cong_0) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit_5) # label(axiom).
+hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,V_x,t_a))) | V_x = c_Type_Oty_OClass(v_sko__Type__Xty__Xsplit__asm__1(V_P,V_f5,V_x)) | V_x = c_Type_Oty_ONT | V_x = c_Type_Oty_OInteger | V_x = c_Type_Oty_OBoolean | V_x = c_Type_Oty_OVoid # label(cls_ty_Osplit__asm_5) # label(axiom).
+c_TypeRel_Owiden(v_P,v_sko__local__XIH__1(V_Ea,v_P,V_Ta,v_e_Ha____,v_h_Ha____),V_Ta,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(v_P,v_ha____,V_Ea,v_ea____,V_Ta) | -c_TypeSafe__Mirabelle_Osconf(v_P,V_Ea,c_Pair(v_ha____,v_la____,tc_fun(tc_nat,tc_Option_Ooption(tc_prod(tc_List_Olist(tc_String_Ochar),tc_fun(tc_prod(tc_List_Olist(tc_String_Ochar),tc_List_Olist(tc_String_Ochar)),tc_Option_Ooption(tc_Value_Oval))))),tc_fun(tc_List_Olist(tc_String_Ochar),tc_Option_Ooption(tc_Value_Oval)))) # label(cls_IH_1) # label(axiom).
+c_TypeRel_Owiden(v_P,v_sko__local__XCallObj__Xhyps__2__1(V_E,v_P,V_T,v_e_Ha____,v_h_Ha____),V_T,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(v_P,v_ha____,V_E,v_ea____,V_T) | -c_TypeSafe__Mirabelle_Osconf(v_P,V_E,c_Pair(v_ha____,v_la____,tc_fun(tc_nat,tc_Option_Ooption(tc_prod(tc_List_Olist(tc_String_Ochar),tc_fun(tc_prod(tc_List_Olist(tc_String_Ochar),tc_List_Olist(tc_String_Ochar)),tc_Option_Ooption(tc_Value_Oval))))),tc_fun(tc_List_Olist(tc_String_Ochar),tc_Option_Ooption(tc_Value_Oval)))) # label(cls_CallObj_Ohyps_I2_J_1) # label(axiom).
+c_TypeRel_Owiden(v_P,v_sko__local__XCallObj__2__1(V_E,v_P,V_T,v_e_Ha____,v_h_Ha____),V_T,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(v_P,v_ha____,V_E,v_ea____,V_T) | -c_TypeSafe__Mirabelle_Osconf(v_P,V_E,c_Pair(v_ha____,v_la____,tc_fun(tc_nat,tc_Option_Ooption(tc_prod(tc_List_Olist(tc_String_Ochar),tc_fun(tc_prod(tc_List_Olist(tc_String_Ochar),tc_List_Olist(tc_String_Ochar)),tc_Option_Ooption(tc_Value_Oval))))),tc_fun(tc_List_Olist(tc_String_Ochar),tc_Option_Ooption(tc_Value_Oval)))) # label(cls_CallObj_I2_J_1) # label(axiom).
+v_U____ != c_Type_Oty_ONT | c_TypeRel_Owiden(v_P,v_sko__unknown__thm__BwcM__1(v_E____,v_M____,v_P,v_T____,v_e_Ha____,v_esa____,v_h_Ha____),v_T____,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) # label(cls_calculation_1) # label(axiom).
+V_T = c_Type_Oty_OInteger | V_T = c_Type_Oty_OBoolean | V_T = c_Type_Oty_OVoid | c_Type_Ois__refT(V_T) # label(cls_not__refTE_0) # label(axiom).
+c_Expr_Oexp_OSeq(V_exp1_H,V_exp2_H,T_a) != c_Expr_Oexp_OCast(V_list,V_exp,T_a) # label(cls_exp_Osimps_I61_J_0) # label(axiom).
+c_Expr_Oexp_OCall(V_exp_H,V_list1_H,V_list2_H,T_a) != c_Expr_Oexp_OFAcc(V_exp,V_list1,V_list2,T_a) # label(cls_exp_Osimps_I157_J_0) # label(axiom).
+c_Expr_Oexp_OCall(V_exp_H,V_list1_H,V_list2_H,T_a) != c_Expr_Oexp_OCast(V_list,V_exp,T_a) # label(cls_exp_Osimps_I57_J_0) # label(axiom).
+c_WellTypeRT_OWTrt(v_P,v_ha____,v_E____,c_Expr_Oexp_OCall(v_ea____,v_M____,v_esa____,tc_List_Olist(tc_String_Ochar)),v_T____) # label(cls_wt_0) # label(axiom).
+c_Expr_Oexp_OSeq(V_exp1,V_exp2,T_a) != c_Expr_Oexp_OSeq(V_exp1_H,V_exp2_H,T_a) | V_exp2 = V_exp2_H # label(cls_exp_Osimps_I11_J_1) # label(axiom).
+c_Expr_Oexp_OSeq(V_exp1,V_exp2,T_a) != c_Expr_Oexp_OSeq(V_exp1_H,V_exp2_H,T_a) | V_exp1 = V_exp1_H # label(cls_exp_Osimps_I11_J_0) # label(axiom).
+-hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OVoid,t_a))) | hBOOL(hAPP(V_P,V_f1)) # label(cls_ty_Osplit_0) # label(axiom).
+-hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OBoolean,t_a))) | hBOOL(hAPP(V_P,V_f2)) # label(cls_ty_Osplit_1) # label(axiom).
+c_Type_Ois__refT(c_Type_Oty_ONT) # label(cls_is__refT__def_1) # label(axiom).
+c_Type_Oty_OVoid != c_Type_Oty_ONT # label(cls_ty_Osimps_I6_J_0) # label(axiom).
+c_Expr_Oexp_OFAcc(V_exp_H,V_list1_H,V_list2_H,T_a) != c_Expr_Oexp_Onew(V_list,T_a) # label(cls_exp_Osimps_I27_J_0) # label(axiom).
+c_Type_Oty_OBoolean != c_Type_Oty_ONT # label(cls_ty_Osimps_I12_J_0) # label(axiom).
+c_Expr_Oexp_OCast(V_list,V_exp,T_a) != c_Expr_Oexp_OCast(V_list_H,V_exp_H,T_a) | V_exp = V_exp_H # label(cls_exp_Osimps_I2_J_1) # label(axiom).
+c_Expr_Oexp_OCast(V_list,V_exp,T_a) != c_Expr_Oexp_OCast(V_list_H,V_exp_H,T_a) | V_list = V_list_H # label(cls_exp_Osimps_I2_J_0) # label(axiom).
+c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OBoolean,T_a) = V_f2 # label(cls_ty_Osimps_I23_J_0) # label(axiom).
+c_Expr_Oexp_Onew(V_list,T_a) != c_Expr_Oexp_OFAcc(V_exp_H,V_list1_H,V_list2_H,T_a) # label(cls_exp_Osimps_I26_J_0) # label(axiom).
+c_Expr_Oexp_Onew(V_list,T_a) != c_Expr_Oexp_OCall(V_exp_H,V_list1_H,V_list2_H,T_a) # label(cls_exp_Osimps_I30_J_0) # label(axiom).
+c_Type_Oty_OInteger != c_Type_Oty_OBoolean # label(cls_ty_Osimps_I11_J_0) # label(axiom).
+c_Expr_Oexp_Onew(V_list,T_a) != c_Expr_Oexp_OCast(V_list_H,V_exp_H,T_a) # label(cls_exp_Osimps_I16_J_0) # label(axiom).
+c_Type_Oty_OVoid != c_Type_Oty_OInteger # label(cls_ty_Osimps_I4_J_0) # label(axiom).
+c_Expr_Oexp_Onew(V_list,T_a) != c_Expr_Oexp_Onew(V_list_H,T_a) | V_list = V_list_H # label(cls_exp_Osimps_I1_J_0) # label(axiom).
+c_Objects_Ohext(V_h,V_h) # label(cls_hext__refl_0) # label(axiom).
+c_Objects_Ohext(V_h,V_h_H_H) | -c_Objects_Ohext(V_h_H,V_h_H_H) | -c_Objects_Ohext(V_h,V_h_H) # label(cls_hext__trans_0) # label(axiom).
+c_Progress_OWTrt_H(V_P,V_h,V_E,c_Expr_Oexp_OFAcc(V_e,V_F,V_D,tc_List_Olist(tc_String_Ochar)),V_T) | -c_TypeRel_Ohas__field(V_P,V_C,V_F,V_T,V_D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_Progress_OWTrt_H(V_P,V_h,V_E,V_e,c_Type_Oty_OClass(V_C)) # label(cls_WTrt_H__WTrts_H_Ointros_I8_J_0) # label(axiom).
+c_Type_Oty_Oty__rec(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OInteger,T_a) = V_f3 # label(cls_ty_Orecs_I3_J_0) # label(axiom).
+c_Expr_Oexp_OCall(V_exp,V_list1,V_list2,T_a) != c_Expr_Oexp_OCall(V_exp_H,V_list1_H,V_list2_H,T_a) | V_list2 = V_list2_H # label(cls_exp_Osimps_I9_J_2) # label(axiom).
+c_Expr_Oexp_OCall(V_exp,V_list1,V_list2,T_a) != c_Expr_Oexp_OCall(V_exp_H,V_list1_H,V_list2_H,T_a) | V_list1 = V_list1_H # label(cls_exp_Osimps_I9_J_1) # label(axiom).
+c_Expr_Oexp_OCall(V_exp,V_list1,V_list2,T_a) != c_Expr_Oexp_OCall(V_exp_H,V_list1_H,V_list2_H,T_a) | V_exp = V_exp_H # label(cls_exp_Osimps_I9_J_0) # label(axiom).
+c_Type_Oty_ONT != c_Type_Oty_OBoolean # label(cls_ty_Osimps_I13_J_0) # label(axiom).
+c_COMBI(V_P,T_a) = V_P # label(cls_COMBI__def_0) # label(axiom).
+c_Expr_Oexp_OCast(V_list,V_exp,T_a) != c_Expr_Oexp_OFAcc(V_exp_H,V_list1_H,V_list2_H,T_a) # label(cls_exp_Osimps_I52_J_0) # label(axiom).
+c_Expr_Oexp_OCast(V_list,V_exp,T_a) != c_Expr_Oexp_OCall(V_exp_H,V_list1_H,V_list2_H,T_a) # label(cls_exp_Osimps_I56_J_0) # label(axiom).
+c_Type_Oty_OInteger != c_Type_Oty_OVoid # label(cls_ty_Osimps_I5_J_0) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OCast(V_C,V_e,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(V_C)) | -c_Decl_Ois__class(V_P,V_C,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_Type_Ois__refT(V_T) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,V_T) # label(cls_WTrtCast_0) # label(axiom).
+c_Type_Oty_OInteger != c_Type_Oty_ONT # label(cls_ty_Osimps_I16_J_0) # label(axiom).
+c_Progress_OWTrt_H(V_P,V_h,V_E,c_Expr_Oexp_Onew(V_C,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(V_C)) | -c_Decl_Ois__class(V_P,V_C,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) # label(cls_WTrt_H__WTrts_H_Ointros_I1_J_0) # label(axiom).
+c_Expr_Oexp_OCall(V_exp,V_list1,V_list2,T_a) != c_Expr_Oexp_OSeq(V_exp1_H,V_exp2_H,T_a) # label(cls_exp_Osimps_I186_J_0) # label(axiom).
+c_Expr_Oexp_OCast(V_list_H,V_exp_H,T_a) != c_Expr_Oexp_Onew(V_list,T_a) # label(cls_exp_Osimps_I17_J_0) # label(axiom).
+c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_ONT,T_a) = V_f4 # label(cls_ty_Osimps_I25_J_0) # label(axiom).
+c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OInteger,T_a) = V_f3 # label(cls_ty_Osimps_I24_J_0) # label(axiom).
+c_Progress_OWTrt_H(V_P,V_h,V_E,c_Expr_Oexp_OCast(V_C,V_e,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(V_C)) | -c_Decl_Ois__class(V_P,V_C,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_Type_Ois__refT(V_T) | -c_Progress_OWTrt_H(V_P,V_h,V_E,V_e,V_T) # label(cls_WTrt_H__WTrts_H_Ointros_I2_J_0) # label(axiom).
+c_Map_Omap__le(V_f,V_f,T_a,T_b) # label(cls_map__le__refl_0) # label(axiom).
+c_Map_Omap__le(V_m1,V_m3,T_a,T_b) | -c_Map_Omap__le(V_m2,V_m3,T_a,T_b) | -c_Map_Omap__le(V_m1,V_m2,T_a,T_b) # label(cls_map__le__trans_0) # label(axiom).
+c_WellType_OWT(V_P,V_E_H,V_e,V_T) | -c_Map_Omap__le(V_E,V_E_H,tc_List_Olist(tc_String_Ochar),tc_Type_Oty) | -c_WellType_OWT(V_P,V_E,V_e,V_T) # label(cls_wt__env__mono_0) # label(axiom).
+c_WellType_OWT(V_P,V_E,c_Expr_Oexp_Onew(V_C,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(V_C)) | -c_Decl_Ois__class(V_P,V_C,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) # label(cls_WTNew_0) # label(axiom).
+V_T = c_Type_Oty_OClass(V_D) | -c_WellType_OWT(V_P,V_E,c_Expr_Oexp_OCast(V_D,V_e,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WT__elim__cases_I6_J_0) # label(axiom).
+c_Type_Oty_OVoid != c_Type_Oty_OBoolean # label(cls_ty_Osimps_I2_J_0) # label(axiom).
+c_Decl_Ois__class(V_P,V_C,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_Onew(V_C,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I10_J_1) # label(axiom).
+c_Decl_Ois__class(V_P,V_D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellType_OWT(V_P,V_E,c_Expr_Oexp_OCast(V_D,V_e,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WT__elim__cases_I6_J_2) # label(axiom).
+c_Expr_Oexp_OFAcc(V_exp,V_list1,V_list2,T_a) != c_Expr_Oexp_OSeq(V_exp1_H,V_exp2_H,T_a) # label(cls_exp_Osimps_I160_J_0) # label(axiom).
+c_Expr_Oexp_OFAcc(V_exp,V_list1,V_list2,T_a) != c_Expr_Oexp_OFAcc(V_exp_H,V_list1_H,V_list2_H,T_a) | V_list2 = V_list2_H # label(cls_exp_Osimps_I7_J_2) # label(axiom).
+c_Expr_Oexp_OFAcc(V_exp,V_list1,V_list2,T_a) != c_Expr_Oexp_OFAcc(V_exp_H,V_list1_H,V_list2_H,T_a) | V_list1 = V_list1_H # label(cls_exp_Osimps_I7_J_1) # label(axiom).
+c_Expr_Oexp_OFAcc(V_exp,V_list1,V_list2,T_a) != c_Expr_Oexp_OFAcc(V_exp_H,V_list1_H,V_list2_H,T_a) | V_exp = V_exp_H # label(cls_exp_Osimps_I7_J_0) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OFAcc(V_e,V_F,V_D,tc_List_Olist(tc_String_Ochar)),V_T) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,c_Type_Oty_ONT) # label(cls_WTrtFAccNT_0) # label(axiom).
+c_Progress_OWTrt_H(V_P,V_h,V_E,c_Expr_Oexp_OFAcc(V_e,V_F,V_D,tc_List_Olist(tc_String_Ochar)),V_T) | -c_Progress_OWTrt_H(V_P,V_h,V_E,V_e,c_Type_Oty_ONT) # label(cls_WTrt_H__WTrts_H_Ointros_I9_J_0) # label(axiom).
+-hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_ONT,t_a))) | hBOOL(hAPP(V_P,V_f4)) # label(cls_ty_Osplit_3) # label(axiom).
+c_Type_Oty_ONT != c_Type_Oty_OVoid # label(cls_ty_Osimps_I7_J_0) # label(axiom).
+c_Type_Oty_OBoolean != c_Type_Oty_OInteger # label(cls_ty_Osimps_I10_J_0) # label(axiom).
+c_Type_Oty_Oty__rec(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_ONT,T_a) = V_f4 # label(cls_ty_Orecs_I4_J_0) # label(axiom).
+V_f = V_g | -c_Map_Omap__le(V_g,V_f,T_a,T_b) | -c_Map_Omap__le(V_f,V_g,T_a,T_b) # label(cls_map__le__antisym_0) # label(axiom).
+-hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OInteger,t_a))) | hBOOL(hAPP(V_P,V_f3)) # label(cls_ty_Osplit_2) # label(axiom).
+V_T = c_Type_Oty_OClass(V_C) | -c_WellType_OWT(V_P,V_E,c_Expr_Oexp_Onew(V_C,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WT__elim__cases_I10_J_0) # label(axiom).
+c_Expr_Oexp_OFAcc(V_exp,V_list1,V_list2,T_a) != c_Expr_Oexp_OCall(V_exp_H,V_list1_H,V_list2_H,T_a) # label(cls_exp_Osimps_I156_J_0) # label(axiom).
+c_Type_Oty_OBoolean != c_Type_Oty_OVoid # label(cls_ty_Osimps_I3_J_0) # label(axiom).
+c_Decl_Ois__class(V_P,V_C,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellType_OWT(V_P,V_E,c_Expr_Oexp_Onew(V_C,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WT__elim__cases_I10_J_1) # label(axiom).
+c_Expr_Oexp_OFAcc(V_exp_H,V_list1_H,V_list2_H,T_a) != c_Expr_Oexp_OCast(V_list,V_exp,T_a) # label(cls_exp_Osimps_I53_J_0) # label(axiom).
+c_Progress_OWTrt_H(V_P,V_h,V_E,c_Expr_Oexp_OSeq(V_e_092_060_094isub_0621,V_e_092_060_094isub_0622,tc_List_Olist(tc_String_Ochar)),V_T_092_060_094isub_0622) | -c_Progress_OWTrt_H(V_P,V_h,V_E,V_e_092_060_094isub_0622,V_T_092_060_094isub_0622) | -c_Progress_OWTrt_H(V_P,V_h,V_E,V_e_092_060_094isub_0621,V_T_092_060_094isub_0621) # label(cls_WTrt_H__WTrts_H_Ointros_I18_J_0) # label(axiom).
+c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OVoid,T_a) = V_f1 # label(cls_ty_Osimps_I22_J_0) # label(axiom).
+c_TypeSafe__Mirabelle_Osconf(v_P,v_E____,c_Pair(v_ha____,v_la____,tc_fun(tc_nat,tc_Option_Ooption(tc_prod(tc_List_Olist(tc_String_Ochar),tc_fun(tc_prod(tc_List_Olist(tc_String_Ochar),tc_List_Olist(tc_String_Ochar)),tc_Option_Ooption(tc_Value_Oval))))),tc_fun(tc_List_Olist(tc_String_Ochar),tc_Option_Ooption(tc_Value_Oval)))) # label(cls_conf_0) # label(axiom).
+c_Expr_Oexp_Onew(V_list,T_a) != c_Expr_Oexp_OSeq(V_exp1_H,V_exp2_H,T_a) # label(cls_exp_Osimps_I34_J_0) # label(axiom).
+c_Expr_Oexp_OCast(V_list,V_exp,T_a) != c_Expr_Oexp_OSeq(V_exp1_H,V_exp2_H,T_a) # label(cls_exp_Osimps_I60_J_0) # label(axiom).
+c_Expr_Oexp_OSeq(V_exp1_H,V_exp2_H,T_a) != c_Expr_Oexp_Onew(V_list,T_a) # label(cls_exp_Osimps_I35_J_0) # label(axiom).
+c_Pair(V_a,V_b,T_a,T_b) != c_Pair(V_a_H,V_b_H,T_a,T_b) | V_a = V_a_H # label(cls_Pair__eq_0) # label(axiom).
+c_Pair(V_a,V_b,T_a,T_b) != c_Pair(V_a_H,V_b_H,T_a,T_b) | V_b = V_b_H # label(cls_Pair__eq_1) # label(axiom).
+c_Type_Oty_Oty__rec(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OBoolean,T_a) = V_f2 # label(cls_ty_Orecs_I2_J_0) # label(axiom).
+c_WellType_OWT(V_P,V_E,c_Expr_Oexp_OSeq(V_e_092_060_094isub_0621,V_e_092_060_094isub_0622,tc_List_Olist(tc_String_Ochar)),V_T_092_060_094isub_0622) | -c_WellType_OWT(V_P,V_E,V_e_092_060_094isub_0622,V_T_092_060_094isub_0622) | -c_WellType_OWT(V_P,V_E,V_e_092_060_094isub_0621,V_T_092_060_094isub_0621) # label(cls_WTSeq_0) # label(axiom).
+c_Type_Oty_Oty__rec(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OVoid,T_a) = V_f1 # label(cls_ty_Orecs_I1_J_0) # label(axiom).
+c_Type_Oty_ONT != c_Type_Oty_OInteger # label(cls_ty_Osimps_I17_J_0) # label(axiom).
+c_Expr_Oexp_OCall(V_exp_H,V_list1_H,V_list2_H,T_a) != c_Expr_Oexp_Onew(V_list,T_a) # label(cls_exp_Osimps_I31_J_0) # label(axiom).
+c_Decl_Ois__class(V_P,V_D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OCast(V_D,V_e,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I6_J_3) # label(axiom).
+c_Expr_Oexp_OSeq(V_exp1_H,V_exp2_H,T_a) != c_Expr_Oexp_OFAcc(V_exp,V_list1,V_list2,T_a) # label(cls_exp_Osimps_I161_J_0) # label(axiom).
+c_Expr_Oexp_OSeq(V_exp1_H,V_exp2_H,T_a) != c_Expr_Oexp_OCall(V_exp,V_list1,V_list2,T_a) # label(cls_exp_Osimps_I187_J_0) # label(axiom).
+V_T = c_Type_Oty_OClass(V_D) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OCast(V_D,V_e,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I6_J_0) # label(axiom).
+c_Type_Oty_OVoid != c_Type_Oty_OClass(V_list_H) # label(cls_ty_Osimps_I8_J_0) # label(axiom).
+v_U____ = c_Type_Oty_OClass(v_C_H____) # label(cls_UClass_0) # label(axiom).
+c_Type_Oty_ONT != c_Type_Oty_OClass(V_list_H) # label(cls_ty_Osimps_I20_J_0) # label(axiom).
+c_WellTypeRT_OWTrt(v_P,v_h_Ha____,V_E,v_e_Ha____,v_sko__local__XCallObj__2__1(V_E,v_P,V_T,v_e_Ha____,v_h_Ha____)) | -c_WellTypeRT_OWTrt(v_P,v_ha____,V_E,v_ea____,V_T) | -c_TypeSafe__Mirabelle_Osconf(v_P,V_E,c_Pair(v_ha____,v_la____,tc_fun(tc_nat,tc_Option_Ooption(tc_prod(tc_List_Olist(tc_String_Ochar),tc_fun(tc_prod(tc_List_Olist(tc_String_Ochar),tc_List_Olist(tc_String_Ochar)),tc_Option_Ooption(tc_Value_Oval))))),tc_fun(tc_List_Olist(tc_String_Ochar),tc_Option_Ooption(tc_Value_Oval)))) # label(cls_CallObj_I2_J_0) # label(axiom).
+c_Type_Oty_OInteger != c_Type_Oty_OClass(V_list_H) # label(cls_ty_Osimps_I18_J_0) # label(axiom).
+c_Type_Oty_OClass(V_list_H) != c_Type_Oty_OBoolean # label(cls_ty_Osimps_I15_J_0) # label(axiom).
+c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OClass(V_list),T_a) = hAPP(V_f5,V_list) # label(cls_ty_Osimps_I26_J_0) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OSeq(V_e_092_060_094isub_0621,V_e_092_060_094isub_0622,tc_List_Olist(tc_String_Ochar)),V_T_092_060_094isub_0622) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e_092_060_094isub_0622,V_T_092_060_094isub_0622) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e_092_060_094isub_0621,V_T_092_060_094isub_0621) # label(cls_WTrtSeq_0) # label(axiom).
+c_WellTypeRT_OWTrt(v_P,v_h_Ha____,V_Ea,v_e_Ha____,v_sko__local__XIH__1(V_Ea,v_P,V_Ta,v_e_Ha____,v_h_Ha____)) | -c_WellTypeRT_OWTrt(v_P,v_ha____,V_Ea,v_ea____,V_Ta) | -c_TypeSafe__Mirabelle_Osconf(v_P,V_Ea,c_Pair(v_ha____,v_la____,tc_fun(tc_nat,tc_Option_Ooption(tc_prod(tc_List_Olist(tc_String_Ochar),tc_fun(tc_prod(tc_List_Olist(tc_String_Ochar),tc_List_Olist(tc_String_Ochar)),tc_Option_Ooption(tc_Value_Oval))))),tc_fun(tc_List_Olist(tc_String_Ochar),tc_Option_Ooption(tc_Value_Oval)))) # label(cls_IH_0) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_Onew(V_C,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(V_C)) | -c_Decl_Ois__class(V_P,V_C,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) # label(cls_WTrtNew_0) # label(axiom).
+v_U____ != c_Type_Oty_ONT | c_WellTypeRT_OWTrt(v_P,v_h_Ha____,v_E____,c_Expr_Oexp_OCall(v_e_Ha____,v_M____,v_esa____,tc_List_Olist(tc_String_Ochar)),v_sko__unknown__thm__BwcM__1(v_E____,v_M____,v_P,v_T____,v_e_Ha____,v_esa____,v_h_Ha____)) # label(cls_calculation_0) # label(axiom).
+V_T = c_Type_Oty_OClass(V_C) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_Onew(V_C,tc_List_Olist(tc_String_Ochar)),V_T) # label(cls_WTrt__elim__cases_I10_J_0) # label(axiom).
+c_Type_Oty_OClass(V_list_H) != c_Type_Oty_OVoid # label(cls_ty_Osimps_I9_J_0) # label(axiom).
+c_WellTypeRT_OWTrt(v_P,v_h_Ha____,v_E____,v_e_Ha____,v_U____) # label(cls_wte_H_0) # label(axiom).
+c_Type_Oty_OClass(V_list) != c_Type_Oty_OClass(V_list_H) | V_list = V_list_H # label(cls_ty_Oinject_0) # label(axiom).
+c_WellTypeRT_OWTrt(v_P,v_ha____,v_E____,v_ea____,c_Type_Oty_OClass(v_C____)) # label(cls_wte_0) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E_H,V_e,V_T) | -c_Map_Omap__le(V_E,V_E_H,tc_List_Olist(tc_String_Ochar),tc_Type_Oty) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,V_T) # label(cls_WTrt__env__mono_0) # label(axiom).
+c_Type_Oty_Oty__rec(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OClass(V_list),T_a) = hAPP(V_f5,V_list) # label(cls_ty_Orecs_I5_J_0) # label(axiom).
+c_Type_Oty_OClass(V_list_H) != c_Type_Oty_OInteger # label(cls_ty_Osimps_I19_J_0) # label(axiom).
+c_Progress_OWTrt_H(V_P,V_h,V_E,V_e,V_T) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,V_T) # label(cls_wt__wt_H_0) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,V_T) | -c_Progress_OWTrt_H(V_P,V_h,V_E,V_e,V_T) # label(cls_wt_H__wt_0) # label(axiom).
+c_Type_Oty_OBoolean != c_Type_Oty_OClass(V_list_H) # label(cls_ty_Osimps_I14_J_0) # label(axiom).
+c_Type_Oty_OClass(V_list_H) != c_Type_Oty_ONT # label(cls_ty_Osimps_I21_J_0) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,V_T) | -c_WellType_OWT(V_P,V_E,V_e,V_T) # label(cls_WT__implies__WTrt_0) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h_H,V_E,V_e,V_T) | -c_Objects_Ohext(V_h,V_h_H) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,V_T) # label(cls_WTrt__hext__mono_0) # label(axiom).
+-hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OClass(V_xa),t_a))) | hBOOL(hAPP(V_P,hAPP(V_f5,V_xa))) # label(cls_ty_Osplit__asm_4) # label(axiom).
+-hBOOL(hAPP(V_P,c_Type_Oty_Oty__case(V_f1,V_f2,V_f3,V_f4,V_f5,c_Type_Oty_OClass(V_list),t_a))) | hBOOL(hAPP(V_P,hAPP(V_f5,V_list))) # label(cls_ty_Osplit_4) # label(axiom).
+c_COMBI(v_P,t_a) = v_P # label(cls_COMBI__def__raw_0) # label(axiom).
+c_WellTypeRT_OWTrt(v_P,v_h_Ha____,V_E,v_e_Ha____,v_sko__local__XCallObj__Xhyps__2__1(V_E,v_P,V_T,v_e_Ha____,v_h_Ha____)) | -c_WellTypeRT_OWTrt(v_P,v_ha____,V_E,v_ea____,V_T) | -c_TypeSafe__Mirabelle_Osconf(v_P,V_E,c_Pair(v_ha____,v_la____,tc_fun(tc_nat,tc_Option_Ooption(tc_prod(tc_List_Olist(tc_String_Ochar),tc_fun(tc_prod(tc_List_Olist(tc_String_Ochar),tc_List_Olist(tc_String_Ochar)),tc_Option_Ooption(tc_Value_Oval))))),tc_fun(tc_List_Olist(tc_String_Ochar),tc_Option_Ooption(tc_Value_Oval)))) # label(cls_CallObj_Ohyps_I2_J_0) # label(axiom).
+c_Type_Ois__refT(c_Type_Oty_OClass(V_x)) # label(cls_is__refT__def_2) # label(axiom).
+c_WellTypeRT_OWTrt(V_P,V_h,V_E,c_Expr_Oexp_OFAcc(V_e,V_F,V_D,tc_List_Olist(tc_String_Ochar)),V_T) | -c_TypeRel_Ohas__field(V_P,V_C,V_F,V_T,V_D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(V_P,V_h,V_E,V_e,c_Type_Oty_OClass(V_C)) # label(cls_WTrtFAcc_0) # label(axiom).
+v_U____ = c_Type_Oty_OClass(v_C_H____) # label(cls_CHAINED_0) # label(axiom).
+c_WellTypeRT_OWTrt(v_P,v_h_Ha____,v_E____,v_e_Ha____,v_U____) # label(cls_CHAINED_0_01) # label(axiom).
+-c_WellTypeRT_OWTrt(v_P,v_h_Ha____,v_E____,v_e_Ha____,c_Type_Oty_OClass(v_C_H____)) # label(cls_conjecture_0) # label(negated_conjecture).
+c_fequal(V_x,V_x,T_a) # label(cls_ATP__Linkup_Oequal__imp__fequal_0) # label(axiom).
+V_X = V_Y | -c_fequal(V_X,V_Y,T_a) # label(cls_ATP__Linkup_Ofequal__imp__equal_0) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating c_Progress_OWTrts_H/5
+
+Eliminating c_Type_Ois__refT/1
+1 c_Type_Ois__refT(c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__6__1(A,B,C,D,E)) | -c_WellTypeRT_OWTrt(C,E,B,c_Expr_Oexp_OCast(A,D,tc_List_Olist(tc_String_Ochar)),F) # label(cls_WTrt__elim__cases_I6_J_2) # label(axiom).  [assumption].
+2 A = c_Type_Oty_OClass(c_Type_Osko__Type__XrefTE__1__1(A)) | A = c_Type_Oty_ONT | -c_Type_Ois__refT(A) # label(cls_refTE_0) # label(axiom).  [assumption].
+3 A = c_Type_Oty_OClass(c_Type_Osko__Type__Xis__refT__def__1__1(A)) | A = c_Type_Oty_ONT | -c_Type_Ois__refT(A) # label(cls_is__refT__def_0) # label(axiom).  [assumption].
+Derived: -c_WellTypeRT_OWTrt(A,B,C,c_Expr_Oexp_OCast(D,E,tc_List_Olist(tc_String_Ochar)),F) | c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__6__1(D,C,A,E,B) = c_Type_Oty_OClass(c_Type_Osko__Type__XrefTE__1__1(c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__6__1(D,C,A,E,B))) | c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__6__1(D,C,A,E,B) = c_Type_Oty_ONT.  [resolve(1,a,2,c)].
+Derived: -c_WellTypeRT_OWTrt(A,B,C,c_Expr_Oexp_OCast(D,E,tc_List_Olist(tc_String_Ochar)),F) | c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__6__1(D,C,A,E,B) = c_Type_Oty_OClass(c_Type_Osko__Type__Xis__refT__def__1__1(c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__6__1(D,C,A,E,B))) | c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__6__1(D,C,A,E,B) = c_Type_Oty_ONT.  [resolve(1,a,3,c)].
+4 A = c_Type_Oty_OInteger | A = c_Type_Oty_OBoolean | A = c_Type_Oty_OVoid | c_Type_Ois__refT(A) # label(cls_not__refTE_0) # label(axiom).  [assumption].
+Derived: A = c_Type_Oty_OInteger | A = c_Type_Oty_OBoolean | A = c_Type_Oty_OVoid | A = c_Type_Oty_OClass(c_Type_Osko__Type__XrefTE__1__1(A)) | A = c_Type_Oty_ONT.  [resolve(4,d,2,c)].
+Derived: A = c_Type_Oty_OInteger | A = c_Type_Oty_OBoolean | A = c_Type_Oty_OVoid | A = c_Type_Oty_OClass(c_Type_Osko__Type__Xis__refT__def__1__1(A)) | A = c_Type_Oty_ONT.  [resolve(4,d,3,c)].
+5 c_Type_Ois__refT(c_Type_Oty_ONT) # label(cls_is__refT__def_1) # label(axiom).  [assumption].
+Derived: c_Type_Oty_ONT = c_Type_Oty_OClass(c_Type_Osko__Type__XrefTE__1__1(c_Type_Oty_ONT)) | c_Type_Oty_ONT = c_Type_Oty_ONT.  [resolve(5,a,2,c)].
+Derived: c_Type_Oty_ONT = c_Type_Oty_OClass(c_Type_Osko__Type__Xis__refT__def__1__1(c_Type_Oty_ONT)) | c_Type_Oty_ONT = c_Type_Oty_ONT.  [resolve(5,a,3,c)].
+6 c_WellTypeRT_OWTrt(A,B,C,c_Expr_Oexp_OCast(D,E,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(D)) | -c_Decl_Ois__class(A,D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_Type_Ois__refT(F) | -c_WellTypeRT_OWTrt(A,B,C,E,F) # label(cls_WTrtCast_0) # label(axiom).  [assumption].
+Derived: c_WellTypeRT_OWTrt(A,B,C,c_Expr_Oexp_OCast(D,E,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(D)) | -c_Decl_Ois__class(A,D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(A,B,C,E,c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__6__1(F,V6,V7,V8,V9)) | -c_WellTypeRT_OWTrt(V7,V9,V6,c_Expr_Oexp_OCast(F,V8,tc_List_Olist(tc_String_Ochar)),V10).  [resolve(6,c,1,a)].
+Derived: c_WellTypeRT_OWTrt(A,B,C,c_Expr_Oexp_OCast(D,E,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(D)) | -c_Decl_Ois__class(A,D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(A,B,C,E,F) | F = c_Type_Oty_OInteger | F = c_Type_Oty_OBoolean | F = c_Type_Oty_OVoid.  [resolve(6,c,4,d)].
+Derived: c_WellTypeRT_OWTrt(A,B,C,c_Expr_Oexp_OCast(D,E,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(D)) | -c_Decl_Ois__class(A,D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(A,B,C,E,c_Type_Oty_ONT).  [resolve(6,c,5,a)].
+7 c_Progress_OWTrt_H(A,B,C,c_Expr_Oexp_OCast(D,E,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(D)) | -c_Decl_Ois__class(A,D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_Type_Ois__refT(F) | -c_Progress_OWTrt_H(A,B,C,E,F) # label(cls_WTrt_H__WTrts_H_Ointros_I2_J_0) # label(axiom).  [assumption].
+Derived: c_Progress_OWTrt_H(A,B,C,c_Expr_Oexp_OCast(D,E,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(D)) | -c_Decl_Ois__class(A,D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_Progress_OWTrt_H(A,B,C,E,c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__6__1(F,V6,V7,V8,V9)) | -c_WellTypeRT_OWTrt(V7,V9,V6,c_Expr_Oexp_OCast(F,V8,tc_List_Olist(tc_String_Ochar)),V10).  [resolve(7,c,1,a)].
+Derived: c_Progress_OWTrt_H(A,B,C,c_Expr_Oexp_OCast(D,E,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(D)) | -c_Decl_Ois__class(A,D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_Progress_OWTrt_H(A,B,C,E,F) | F = c_Type_Oty_OInteger | F = c_Type_Oty_OBoolean | F = c_Type_Oty_OVoid.  [resolve(7,c,4,d)].
+Derived: c_Progress_OWTrt_H(A,B,C,c_Expr_Oexp_OCast(D,E,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(D)) | -c_Decl_Ois__class(A,D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_Progress_OWTrt_H(A,B,C,E,c_Type_Oty_ONT).  [resolve(7,c,5,a)].
+8 c_Type_Ois__refT(c_Type_Oty_OClass(A)) # label(cls_is__refT__def_2) # label(axiom).  [assumption].
+Derived: c_Type_Oty_OClass(A) = c_Type_Oty_OClass(c_Type_Osko__Type__XrefTE__1__1(c_Type_Oty_OClass(A))) | c_Type_Oty_OClass(A) = c_Type_Oty_ONT.  [resolve(8,a,2,c)].
+Derived: c_Type_Oty_OClass(A) = c_Type_Oty_OClass(c_Type_Osko__Type__Xis__refT__def__1__1(c_Type_Oty_OClass(A))) | c_Type_Oty_OClass(A) = c_Type_Oty_ONT.  [resolve(8,a,3,c)].
+Derived: c_WellTypeRT_OWTrt(A,B,C,c_Expr_Oexp_OCast(D,E,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(D)) | -c_Decl_Ois__class(A,D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_WellTypeRT_OWTrt(A,B,C,E,c_Type_Oty_OClass(F)).  [resolve(8,a,6,c)].
+Derived: c_Progress_OWTrt_H(A,B,C,c_Expr_Oexp_OCast(D,E,tc_List_Olist(tc_String_Ochar)),c_Type_Oty_OClass(D)) | -c_Decl_Ois__class(A,D,tc_prod(tc_List_Olist(tc_List_Olist(tc_String_Ochar)),tc_Expr_Oexp(tc_List_Olist(tc_String_Ochar)))) | -c_Progress_OWTrt_H(A,B,C,E,c_Type_Oty_OClass(F)).  [resolve(8,a,7,c)].
+
+Eliminating c_fequal/3
+9 A = B | -c_fequal(A,B,C) # label(cls_ATP__Linkup_Ofequal__imp__equal_0) # label(axiom).  [assumption].
+10 c_fequal(A,A,B) # label(cls_ATP__Linkup_Oequal__imp__fequal_0) # label(axiom).  [assumption].
+Derived: A = A.  [resolve(9,b,10,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, hBOOL, c_Objects_Ohext, c_Decl_Ois__class, c_TypeSafe__Mirabelle_Osconf, c_WellType_OWT, c_TypeRel_Owiden, c_Map_Omap__le, c_WellTypeRT_OWTrt, c_Progress_OWTrt_H, c_TypeRel_Osees__field, c_TypeRel_Ohas__field ]).
+Function symbol precedence:  function_order([ tc_String_Ochar, c_Type_Oty_ONT, c_Type_Oty_OVoid, t_a, c_Type_Oty_OBoolean, c_Type_Oty_OInteger, v_P, v_ha____, tc_Value_Oval, v_e_Ha____, v_h_Ha____, v_E____, v_ea____, tc_nat, v_U____, v_la____, v_M____, v_T____, v_esa____, tc_Type_Oty, v_C_H____, v_C____, hAPP, tc_prod, tc_fun, c_Expr_Oexp_Onew, c_COMBI, tc_List_Olist, c_Type_Oty_OClass, tc_Expr_Oexp, tc_Option_Ooption, c_Type_Osko__Type__Xis__refT__def__1__1, c_Type_Osko__Type__XrefTE__1__1, c_Type_Osko__Type__Xty__Xexhaust__1__1, c_Type_Osko__Type__Xty__Xnchotomy__1__1, v_sko__Type__Xty__Xinduct__1, v_sko__Type__Xty__Xinducts__1, v_sko__Value__Xdefault__val__Xinduct__1, v_sko__Type__Xty__Xsplit__1, v_sko__Type__Xty__Xsplit__asm__1, c_Expr_Oexp_OCast, c_Expr_Oexp_OSeq, c_Type_Osko__Type__Xty__Xcase__cong__1__1, c_Expr_Oexp_OFAcc, c_Pair, c_Expr_Oexp_OCall, c_Expr_Oexp_OFAss, c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__6__1, v_sko__local__XCallObj__2__1, v_sko__local__XCallObj__Xhyps__2__1, v_sko__local__XIH__1, c_Type_Oty_Oty__case, c_Type_Oty_Oty__rec, c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__8__1, c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__7__1, c_WellTypeRT_Osko__WellTypeRT__XWTrt__elim__cases__8__2, v_sko__unknown__thm__BwcM__1 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== PROOF =================================
+
+% Proof 1 at 0.05 (+ 0.00) seconds.
+% Length of proof is 5.
+% Level of proof is 2.
+% Maximum clause weight is 6.000.
+% Given clauses 0 (0.000 givens/level).
+
+340 v_U____ = c_Type_Oty_OClass(v_C_H____) # label(cls_UClass_0) # label(axiom).  [assumption].
+341 c_Type_Oty_OClass(v_C_H____) = v_U____.  [copy(340),flip(a)].
+355 c_WellTypeRT_OWTrt(v_P,v_h_Ha____,v_E____,v_e_Ha____,v_U____) # label(cls_wte_H_0) # label(axiom).  [assumption].
+371 -c_WellTypeRT_OWTrt(v_P,v_h_Ha____,v_E____,v_e_Ha____,c_Type_Oty_OClass(v_C_H____)) # label(cls_conjecture_0) # label(negated_conjecture).  [assumption].
+372 $F.  [copy(371),rewrite([341(6)]),unit_del(a,355)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=0. Generated=256. Kept=223. proofs=1.
+Usable=0. Sos=0. Demods=12. Limbo=223, Disabled=267. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=32. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=12 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=1158. Demod_rewrites=7.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=46. Nonunit_bsub_feature_tests=0.
+Megabytes=1.49.
+User_CPU=0.05, System_CPU=0.00, Wall_clock=1.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 219 exit (max_proofs) Fri Oct 23 15:01:25 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 219 exit (max_proofs) ------
+

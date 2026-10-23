@@ -1,0 +1,43 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-equalish(X,Y) | equalish(additive_inverse(X),additive_inverse(Y)) # label(additive_inverse_substitution) # label(axiom).
+-equalish(X,Y) | equalish(add(X,W),add(Y,W)) # label(add_substitution1) # label(axiom).
+-equalish(X,Y) | -sum(X,W,Z) | sum(Y,W,Z) # label(sum_substitution1) # label(axiom).
+-equalish(X,Y) | -sum(W,X,Z) | sum(W,Y,Z) # label(sum_substitution2) # label(axiom).
+-equalish(X,Y) | -sum(W,Z,X) | sum(W,Z,Y) # label(sum_substitution3) # label(axiom).
+-equalish(X,Y) | equalish(multiply(X,W),multiply(Y,W)) # label(multiply_substitution1) # label(axiom).
+-equalish(X,Y) | -product(X,W,Z) | product(Y,W,Z) # label(product_substitution1) # label(axiom).
+-equalish(X,Y) | -product(W,X,Z) | product(W,Y,Z) # label(product_substitution2) # label(axiom).
+-equalish(X,Y) | -product(W,Z,X) | product(W,Z,Y) # label(product_substitution3) # label(axiom).
+sum(additive_identity,X,X) # label(additive_identity1) # label(axiom).
+sum(X,additive_identity,X) # label(additive_identity2) # label(axiom).
+product(X,Y,multiply(X,Y)) # label(closure_of_multiplication) # label(axiom).
+sum(X,Y,add(X,Y)) # label(closure_of_addition) # label(axiom).
+sum(additive_inverse(X),X,additive_identity) # label(left_inverse) # label(axiom).
+sum(X,additive_inverse(X),additive_identity) # label(right_inverse) # label(axiom).
+-sum(X,Y,U) | -sum(Y,Z,V) | -sum(U,Z,W) | sum(X,V,W) # label(associativity_of_addition1) # label(axiom).
+-sum(X,Y,U) | -sum(Y,Z,V) | -sum(X,V,W) | sum(U,Z,W) # label(associativity_of_addition2) # label(axiom).
+-sum(X,Y,Z) | sum(Y,X,Z) # label(commutativity_of_addition) # label(axiom).
+-product(X,Y,U) | -product(Y,Z,V) | -product(U,Z,W) | product(X,V,W) # label(associativity_of_multiplication1) # label(axiom).
+-product(X,Y,U) | -product(Y,Z,V) | -product(X,V,W) | product(U,Z,W) # label(associativity_of_multiplication2) # label(axiom).
+-product(X,Y,V1) | -product(X,Z,V2) | -sum(Y,Z,V3) | -product(X,V3,V4) | sum(V1,V2,V4) # label(distributivity1) # label(axiom).
+-product(X,Y,V1) | -product(X,Z,V2) | -sum(Y,Z,V3) | -sum(V1,V2,V4) | product(X,V3,V4) # label(distributivity2) # label(axiom).
+-product(Y,X,V1) | -product(Z,X,V2) | -sum(Y,Z,V3) | -product(V3,X,V4) | sum(V1,V2,V4) # label(distributivity3) # label(axiom).
+-product(Y,X,V1) | -product(Z,X,V2) | -sum(Y,Z,V3) | -sum(V1,V2,V4) | product(V3,X,V4) # label(distributivity4) # label(axiom).
+-sum(X,Y,U) | -sum(X,Y,V) | equalish(U,V) # label(addition_is_well_defined) # label(axiom).
+-product(X,Y,U) | -product(X,Y,V) | equalish(U,V) # label(multiplication_is_well_defined) # label(axiom).
+product(additive_identity,X,additive_identity) # label(multiplicative_identity1) # label(axiom).
+product(X,additive_identity,additive_identity) # label(multiplicative_identity2) # label(axiom).
+product(a,b,d) # label(a_times_b) # label(hypothesis).
+product(additive_inverse(a),b,c) # label(a_inverse_times_b) # label(hypothesis).
+-sum(c,d,additive_identity) # label(prove_sum_is_additive_identity) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

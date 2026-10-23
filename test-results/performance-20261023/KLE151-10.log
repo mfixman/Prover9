@@ -1,0 +1,217 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 113 was started by mfixman on bodoque,
+Fri Oct 23 15:00:43 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+ifeq3(A,A,B,C) = B # label(ifeq_axiom) # label(axiom).
+ifeq2(A,A,B,C) = B # label(ifeq_axiom_001) # label(axiom).
+ifeq(A,A,B,C) = B # label(ifeq_axiom_002) # label(axiom).
+addition(A,B) = addition(B,A) # label(additive_commutativity) # label(axiom).
+addition(A,addition(B,C)) = addition(addition(A,B),C) # label(additive_associativity) # label(axiom).
+addition(A,zero) = A # label(additive_identity) # label(axiom).
+addition(A,A) = A # label(idempotence) # label(axiom).
+multiplication(A,multiplication(B,C)) = multiplication(multiplication(A,B),C) # label(multiplicative_associativity) # label(axiom).
+multiplication(A,one) = A # label(multiplicative_right_identity) # label(axiom).
+multiplication(one,A) = A # label(multiplicative_left_identity) # label(axiom).
+multiplication(A,addition(B,C)) = addition(multiplication(A,B),multiplication(A,C)) # label(distributivity1) # label(axiom).
+multiplication(addition(A,B),C) = addition(multiplication(A,C),multiplication(B,C)) # label(distributivity2) # label(axiom).
+multiplication(zero,A) = zero # label(left_annihilation) # label(axiom).
+addition(one,multiplication(A,star(A))) = star(A) # label(star_unfold1) # label(axiom).
+addition(one,multiplication(star(A),A)) = star(A) # label(star_unfold2) # label(axiom).
+ifeq(leq(addition(multiplication(A,C),B),C),true,leq(multiplication(star(A),B),C),true) = true # label(star_induction1) # label(axiom).
+ifeq(leq(addition(multiplication(C,A),B),C),true,leq(multiplication(B,star(A)),C),true) = true # label(star_induction2) # label(axiom).
+strong_iteration(A) = addition(multiplication(A,strong_iteration(A)),one) # label(infty_unfold1) # label(axiom).
+ifeq(leq(C,addition(multiplication(A,C),B)),true,leq(C,multiplication(strong_iteration(A),B)),true) = true # label(infty_coinduction) # label(axiom).
+strong_iteration(A) = addition(star(A),multiplication(strong_iteration(A),zero)) # label(isolation) # label(axiom).
+ifeq2(leq(A,B),true,addition(A,B),B) = B # label(order_1) # label(axiom).
+ifeq3(addition(A,B),B,leq(A,B),true) = true # label(order) # label(axiom).
+leq(multiplication(sK2_goals_X0,strong_iteration(multiplication(sK1_goals_X1,sK2_goals_X0))),multiplication(strong_iteration(multiplication(sK2_goals_X0,sK1_goals_X1)),sK2_goals_X0)) != true # label(goals) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label goals to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ true, one, zero, sK1_goals_X1, sK2_goals_X0, multiplication, addition, leq, star, strong_iteration, ifeq, ifeq2, ifeq3 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+% Operation addition is commutative; C redundancy checks enabled.
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+% Operation addition is associative-commutative; CAC redundancy checks enabled.
+% back CAC tautology: 30 addition(A,addition(B,C)) = addition(C,addition(A,B)).  [para(6(a,1),4(a,1))].
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 31 (0.00 of 1.17 sec).
+
+given #500 (T,wt=11): 589 leq(multiplication(A,star(A)),addition(star(A),B)) = true.  [para(44(a,1),165(a,1,2))].
+
+Low Water (keep): wt=48.000, iters=6674
+
+Low Water (keep): wt=47.000, iters=6669
+
+Low Water (keep): wt=41.000, iters=6678
+
+Low Water (keep): wt=37.000, iters=6666
+
+Low Water (keep): wt=36.000, iters=6685
+
+Low Water (keep): wt=35.000, iters=6790
+
+Low Water (keep): wt=34.000, iters=6846
+
+Low Water (keep): wt=33.000, iters=6716
+
+Low Water (keep): wt=32.000, iters=6851
+
+Low Water (keep): wt=31.000, iters=6738
+
+Low Water (keep): wt=30.000, iters=6847
+
+Low Water (keep): wt=29.000, iters=6699
+
+Low Water (keep): wt=28.000, iters=6823
+
+Low Water (keep): wt=27.000, iters=6687
+
+Low Water (keep): wt=26.000, iters=6706
+
+Low Water (keep): wt=25.000, iters=6782
+
+Low Water (keep): wt=24.000, iters=6675
+
+Low Water (keep): wt=23.000, iters=6672
+
+Low Water (keep): wt=22.000, iters=6695
+
+Low Water (keep): wt=21.000, iters=6678
+
+Low Water (displace): id=8003, wt=59.000
+
+Low Water (displace): id=12653, wt=55.000
+
+Low Water (displace): id=12629, wt=51.000
+
+Low Water (displace): id=9166, wt=50.000
+
+Low Water (displace): id=12571, wt=49.000
+
+Low Water (displace): id=10866, wt=48.000
+
+Low Water (displace): id=12593, wt=47.000
+
+Low Water (displace): id=12812, wt=46.000
+
+Low Water (displace): id=12654, wt=45.000
+
+Low Water (displace): id=12913, wt=44.000
+
+Low Water (displace): id=12857, wt=43.000
+
+Low Water (displace): id=12916, wt=42.000
+
+Low Water (displace): id=12870, wt=41.000
+
+Low Water (displace): id=12997, wt=40.000
+
+Low Water (displace): id=12674, wt=39.000
+
+Low Water (displace): id=23577, wt=19.000
+
+Low Water (displace): id=23695, wt=18.000
+
+given #1000 (T,wt=11): 17131 leq(A,star(multiplication(addition(B,star(C)),A))) = true.  [para(113(a,1),15804(a,1,2,1,1))].
+
+Low Water (keep): wt=20.000, iters=6690
+
+Low Water (keep): wt=19.000, iters=6706
+
+Low Water (displace): id=27045, wt=16.000
+
+Low Water (displace): id=27620, wt=15.000
+
+Low Water (displace): id=28001, wt=14.000
+
+Low Water (displace): id=28050, wt=13.000
+
+given #1500 (T,wt=12): 9924 leq(A,multiplication(star(strong_iteration(A)),addition(B,star(C)))) = true.  [para(113(a,1),1951(a,1,2,2))].
+
+Low Water (displace): id=34480, wt=12.000
+
+Low Water (keep): wt=18.000, iters=6671
+
+given #2000 (T,wt=8): 42011 multiplication(strong_iteration(A),strong_iteration(A)) = strong_iteration(A).  [back_rewrite(291),rewrite([41788(3),41788(5)])].
+
+============================== STATISTICS ============================
+
+Given=2193. Generated=651170. Kept=44174. proofs=0.
+Usable=1707. Sos=19458. Demods=19858. Limbo=2, Disabled=23030. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=62.
+Forward_subsumed=428404. Back_subsumed=276.
+Sos_limit_deleted=178530. Sos_displaced=13077. Sos_removed=0.
+New_demodulators=42390 (8 lex), Back_demodulated=9653. Back_unit_deleted=0.
+Demod_attempts=12367374. Demod_rewrites=1612166.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=63.51.
+User_CPU=20.00, System_CPU=0.67, Wall_clock=22.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 113 exit (max_seconds) Fri Oct 23 15:01:05 2026
+
+SEARCH FAILED
+
+------ process 113 exit (max_seconds) ------
+

@@ -1,0 +1,26 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-environment(A) | -subpopulations(B,C,A,D) | subpopulations(C,B,A,D) # label(mp_symmetry_of_subpopulations_1) # label(axiom).
+-environment(A) | -subpopulations(first_movers,efficient_producers,A,B) | in_environment(A,B) # label(mp_time_point_occur_2) # label(axiom).
+environment(A) | -greater(zero,growth_rate(B,C)) # label(mp_growth_rate_relationships_3) # label(axiom).
+subpopulations(A,B,C,D) | -greater(zero,growth_rate(A,D)) # label(mp_growth_rate_relationships_4) # label(axiom).
+-greater_or_equal(growth_rate(A,B),zero) | -greater(zero,growth_rate(A,B)) # label(mp_growth_rate_relationships_5) # label(axiom).
+greater(zero,growth_rate(A,B)) | -environment(C) | -subpopulations(A,D,C,B) | greater_or_equal(growth_rate(A,B),zero) # label(mp_growth_rate_relationships_6) # label(axiom).
+-environment(A) | -subpopulations(B,C,A,D) | -greater_or_equal(growth_rate(C,D),zero) | -greater(zero,growth_rate(B,D)) | outcompetes(C,B,D) # label(d2_7) # label(hypothesis).
+-environment(A) | -subpopulations(B,C,A,D) | -outcompetes(C,B,D) | greater_or_equal(growth_rate(C,D),zero) # label(d2_8) # label(hypothesis).
+-environment(A) | -subpopulations(B,C,A,D) | -outcompetes(C,B,D) | greater(zero,growth_rate(B,D)) # label(d2_9) # label(hypothesis).
+greater(resilience(efficient_producers),resilience(first_movers)) # label(a2_10) # label(hypothesis).
+-environment(A) | -in_environment(A,B) | greater(zero,growth_rate(C,B)) | -greater(resilience(D),resilience(C)) | -greater(zero,growth_rate(D,B)) # label(a13_11) # label(hypothesis).
+environment(sk1) # label(prove_t5_12) # label(negated_conjecture).
+subpopulations(first_movers,efficient_producers,sk1,sk2) # label(prove_t5_13) # label(negated_conjecture).
+outcompetes(first_movers,efficient_producers,sk2) # label(prove_t5_14) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

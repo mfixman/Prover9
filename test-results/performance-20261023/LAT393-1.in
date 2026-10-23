@@ -1,0 +1,17 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+f(f(f(f(A,B),f(B,C)),D),f(B,f(f(B,f(f(A,A),A)),C))) = B # label(sos) # label(axiom).
+or(A,B) = f(f(A,A),f(B,B)) # label(sos_001) # label(axiom).
+and(A,B) = f(f(A,B),f(A,B)) # label(sos_002) # label(axiom).
+neg(A) = f(A,A) # label(sos_003) # label(axiom).
+f(x0,f(f(x1,x2),f(x1,x2))) != f(x1,f(f(x0,x2),f(x0,x2))) # label(goals) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

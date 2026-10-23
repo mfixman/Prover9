@@ -1,0 +1,12 @@
+{
+  "problem": "SWV356-2",
+  "domain": "SWV",
+  "rating": 0.0,
+  "conversion_wall_seconds": 0.010887301003094763,
+  "exit_code": 0,
+  "search_wall_seconds": 0.008306846997584216,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.0,
+  "total_wall_seconds": 0.022790622999309562
+}

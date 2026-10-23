@@ -1,0 +1,153 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 48 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-is_a_theorem(equivalent(X,Y)) | -is_a_theorem(X) | is_a_theorem(Y) # label(condensed_detachment) # label(axiom).
+is_a_theorem(equivalent(X,equivalent(X,equivalent(equivalent(equivalent(Y,Z),equivalent(U,Z)),equivalent(Y,U))))) # label(s_3) # label(axiom).
+-is_a_theorem(equivalent(a,equivalent(a,equivalent(equivalent(b,c),equivalent(equivalent(b,e),equivalent(c,e)))))) # label(prove_lg_2) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_lg_2 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ is_a_theorem ]).
+Function symbol precedence:  function_order([ a, b, c, e, equivalent ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(hyper_resolution).  % (HNE depth_diff=1)
+    % set(hyper_resolution) -> set(pos_hyper_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+Low Water (keep): wt=60.000, iters=6676
+
+Low Water (keep): wt=56.000, iters=6691
+
+Low Water (keep): wt=52.000, iters=6677
+
+Low Water (keep): wt=48.000, iters=6696
+
+Low Water (keep): wt=44.000, iters=6680
+
+Low Water (keep): wt=40.000, iters=6680
+
+Low Water (keep): wt=36.000, iters=6732
+
+Low Water (keep): wt=32.000, iters=6680
+
+Low Water (keep): wt=28.000, iters=6690
+
+Low Water (keep): wt=24.000, iters=6673
+
+============================== PROOF =================================
+
+% Proof 1 at 4.13 (+ 0.03) seconds: prove_lg_2.
+% Length of proof is 28.
+% Level of proof is 20.
+% Maximum clause weight is 28.000.
+% Given clauses 353 (17.650 givens/level).
+
+1 -is_a_theorem(equivalent(A,B)) | -is_a_theorem(A) | is_a_theorem(B) # label(condensed_detachment) # label(axiom).  [assumption].
+2 is_a_theorem(equivalent(A,equivalent(A,equivalent(equivalent(equivalent(B,C),equivalent(D,C)),equivalent(B,D))))) # label(s_3) # label(axiom).  [assumption].
+3 -is_a_theorem(equivalent(a,equivalent(a,equivalent(equivalent(b,c),equivalent(equivalent(b,e),equivalent(c,e)))))) # label(prove_lg_2) # label(negated_conjecture) # answer(prove_lg_2).  [assumption].
+4 is_a_theorem(equivalent(equivalent(A,equivalent(A,equivalent(equivalent(equivalent(B,C),equivalent(D,C)),equivalent(B,D)))),equivalent(equivalent(equivalent(E,F),equivalent(V6,F)),equivalent(E,V6)))).  [hyper(1,a,2,a,b,2,a)].
+6 is_a_theorem(equivalent(equivalent(equivalent(A,B),equivalent(C,B)),equivalent(A,C))).  [hyper(1,a,4,a,b,2,a)].
+7 is_a_theorem(equivalent(equivalent(equivalent(equivalent(A,B),equivalent(C,B)),equivalent(A,C)),equivalent(equivalent(equivalent(D,E),equivalent(F,E)),equivalent(D,F)))).  [hyper(1,a,2,a,b,6,a)].
+24 is_a_theorem(equivalent(equivalent(equivalent(A,B),equivalent(C,B)),equivalent(equivalent(A,D),equivalent(C,D)))).  [hyper(1,a,6,a,b,7,a)].
+33 is_a_theorem(equivalent(equivalent(A,B),equivalent(A,B))).  [hyper(1,a,6,a,b,24,a)].
+39 is_a_theorem(equivalent(equivalent(A,B),equivalent(equivalent(A,equivalent(equivalent(equivalent(C,D),equivalent(E,D)),equivalent(C,E))),B))).  [hyper(1,a,24,a,b,2,a)].
+42 is_a_theorem(equivalent(A,A)).  [hyper(1,a,6,a,b,33,a)].
+46 is_a_theorem(equivalent(equivalent(A,A),equivalent(equivalent(equivalent(B,C),equivalent(D,C)),equivalent(B,D)))).  [hyper(1,a,2,a,b,42,a)].
+50 is_a_theorem(equivalent(equivalent(A,B),equivalent(equivalent(A,C),equivalent(B,C)))).  [hyper(1,a,6,a,b,46,a)].
+67 is_a_theorem(equivalent(equivalent(equivalent(equivalent(A,B),equivalent(C,B)),D),equivalent(equivalent(A,C),D))).  [hyper(1,a,50,a,b,6,a)].
+83 is_a_theorem(equivalent(equivalent(equivalent(A,B),C),equivalent(equivalent(A,D),equivalent(C,equivalent(D,B))))).  [hyper(1,a,67,a,b,67,a)].
+251 is_a_theorem(equivalent(equivalent(A,equivalent(equivalent(equivalent(B,C),equivalent(D,C)),equivalent(B,D))),A)).  [hyper(1,a,39,a,b,42,a)].
+264 is_a_theorem(equivalent(equivalent(A,equivalent(equivalent(B,C),equivalent(D,C))),equivalent(A,equivalent(B,D)))).  [hyper(1,a,67,a,b,251,a)].
+272 is_a_theorem(equivalent(equivalent(A,equivalent(B,C)),equivalent(A,equivalent(equivalent(B,D),equivalent(C,D))))).  [hyper(1,a,251,a,b,39,a)].
+273 is_a_theorem(equivalent(equivalent(equivalent(A,B),equivalent(equivalent(C,D),equivalent(B,D))),equivalent(A,C))).  [hyper(1,a,264,a,b,264,a)].
+314 is_a_theorem(equivalent(equivalent(equivalent(A,equivalent(B,C)),equivalent(D,B)),equivalent(A,equivalent(D,C)))).  [hyper(1,a,264,a,b,272,a)].
+348 is_a_theorem(equivalent(equivalent(A,equivalent(B,B)),A)).  [hyper(1,a,273,a,b,272,a)].
+357 is_a_theorem(equivalent(equivalent(A,B),equivalent(A,equivalent(B,equivalent(C,C))))).  [hyper(1,a,83,a,b,348,a)].
+448 is_a_theorem(equivalent(A,equivalent(A,equivalent(B,B)))).  [hyper(1,a,357,a,b,42,a)].
+471 is_a_theorem(equivalent(equivalent(A,B),equivalent(equivalent(A,equivalent(C,C)),B))).  [hyper(1,a,50,a,b,448,a)].
+880 is_a_theorem(equivalent(equivalent(A,equivalent(B,equivalent(C,C))),equivalent(A,B))).  [hyper(1,a,264,a,b,471,a)].
+1627 is_a_theorem(equivalent(equivalent(equivalent(A,equivalent(B,C)),equivalent(C,B)),A)).  [hyper(1,a,880,a,b,314,a)].
+1682 is_a_theorem(equivalent(equivalent(equivalent(A,equivalent(B,C)),D),equivalent(A,equivalent(D,equivalent(C,B))))).  [hyper(1,a,83,a,b,1627,a)].
+18364 is_a_theorem(equivalent(A,equivalent(A,equivalent(equivalent(B,C),equivalent(equivalent(B,D),equivalent(C,D)))))).  [hyper(1,a,1682,a,b,251,a)].
+18365 $F # answer(prove_lg_2).  [resolve(18364,a,3,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=353. Generated=75494. Kept=18364. proofs=1.
+Usable=352. Sos=17955. Demods=0. Limbo=37, Disabled=22. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=41287. Back_subsumed=19.
+Sos_limit_deleted=15843. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=1.
+Megabytes=33.17.
+User_CPU=4.13, System_CPU=0.03, Wall_clock=4.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 48 exit (max_proofs) Fri Oct 23 15:00:27 2026
+-------- Proof 1 -------- prove_lg_2.
+
+THEOREM PROVED
+
+------ process 48 exit (max_proofs) ------
+

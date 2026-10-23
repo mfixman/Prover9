@@ -1,0 +1,14 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+inverse(multiply(A,multiply(B,multiply(multiply(inverse(B),C),inverse(multiply(D,multiply(A,C))))))) = D # label(single_axiom) # label(axiom).
+multiply(inverse(a1),a1) != multiply(inverse(b1),b1) # label(prove_these_axioms_1) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

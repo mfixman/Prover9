@@ -1,0 +1,12 @@
+{
+  "problem": "LCL812-1",
+  "domain": "LCL",
+  "rating": 0.1,
+  "conversion_wall_seconds": 0.04923866500030272,
+  "exit_code": 0,
+  "search_wall_seconds": 0.7716515619977145,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.75,
+  "total_wall_seconds": 0.8231002450047527
+}

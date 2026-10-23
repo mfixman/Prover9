@@ -1,0 +1,1676 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 48 was started by mfixman on bodoque,
+Fri Oct 23 14:54:44 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,10).
+assign(max_megs,256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all A all B (in(A,B) -> -in(B,A))) # label(antisymmetry_r2_hidden) # label(axiom).
+(all A all B (A = B <-> subset(A,B) & subset(B,A))) # label(d10_xboole_0) # label(axiom).
+(all A all B (B = singleton(A) <-> (all C (in(C,B) <-> C = A)))) # label(d1_tarski) # label(axiom).
+(all A all B (subset(A,B) <-> (all C (in(C,A) -> in(C,B))))) # label(d3_tarski) # label(axiom).
+(all A all B (B = union(A) <-> (all C (in(C,B) <-> (exists D (in(C,D) & in(D,A))))))) # label(d4_tarski) # label(axiom).
+(all A all B (in(A,B) -> subset(A,union(B)))) # label(l50_zfmisc_1) # label(axiom).
+(exists A empty(A)) # label(rc1_xboole_0) # label(axiom).
+(exists A -empty(A)) # label(rc2_xboole_0) # label(axiom).
+(all A all B subset(A,A)) # label(reflexivity_r1_tarski) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all A union(singleton(A)) = A) # label(t31_zfmisc_1) # label(conjecture).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all A all B (in(A,B) -> -in(B,A))) # label(antisymmetry_r2_hidden) # label(axiom) # label(non_clause).  [assumption].
+2 (all A all B (A = B <-> subset(A,B) & subset(B,A))) # label(d10_xboole_0) # label(axiom) # label(non_clause).  [assumption].
+3 (all A all B (B = singleton(A) <-> (all C (in(C,B) <-> C = A)))) # label(d1_tarski) # label(axiom) # label(non_clause).  [assumption].
+4 (all A all B (subset(A,B) <-> (all C (in(C,A) -> in(C,B))))) # label(d3_tarski) # label(axiom) # label(non_clause).  [assumption].
+5 (all A all B (B = union(A) <-> (all C (in(C,B) <-> (exists D (in(C,D) & in(D,A))))))) # label(d4_tarski) # label(axiom) # label(non_clause).  [assumption].
+6 (all A all B (in(A,B) -> subset(A,union(B)))) # label(l50_zfmisc_1) # label(axiom) # label(non_clause).  [assumption].
+7 (exists A empty(A)) # label(rc1_xboole_0) # label(axiom) # label(non_clause).  [assumption].
+8 (exists A -empty(A)) # label(rc2_xboole_0) # label(axiom) # label(non_clause).  [assumption].
+9 (all A all B subset(A,A)) # label(reflexivity_r1_tarski) # label(axiom) # label(non_clause).  [assumption].
+10 (all A union(singleton(A)) = A) # label(t31_zfmisc_1) # label(conjecture) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-in(A,B) | -in(B,A) # label(antisymmetry_r2_hidden) # label(axiom).  [clausify(1)].
+A != B | subset(B,A) # label(d10_xboole_0) # label(axiom).  [clausify(2)].
+A != B | subset(A,B) # label(d10_xboole_0) # label(axiom).  [clausify(2)].
+A = B | -subset(B,A) | -subset(A,B) # label(d10_xboole_0) # label(axiom).  [clausify(2)].
+singleton(A) != B | -in(C,B) | C = A # label(d1_tarski) # label(axiom).  [clausify(3)].
+singleton(A) != B | in(C,B) | C != A # label(d1_tarski) # label(axiom).  [clausify(3)].
+singleton(A) = B | in(f1(A,B),B) | f1(A,B) = A # label(d1_tarski) # label(axiom).  [clausify(3)].
+singleton(A) = B | -in(f1(A,B),B) | f1(A,B) != A # label(d1_tarski) # label(axiom).  [clausify(3)].
+-subset(A,B) | -in(C,A) | in(C,B) # label(d3_tarski) # label(axiom).  [clausify(4)].
+subset(A,B) | in(f2(A,B),A) # label(d3_tarski) # label(axiom).  [clausify(4)].
+subset(A,B) | -in(f2(A,B),B) # label(d3_tarski) # label(axiom).  [clausify(4)].
+union(A) != B | -in(C,B) | in(C,f3(A,B,C)) # label(d4_tarski) # label(axiom).  [clausify(5)].
+union(A) != B | -in(C,B) | in(f3(A,B,C),A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+union(A) != B | in(C,B) | -in(C,D) | -in(D,A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+union(A) = B | in(f4(A,B),B) | in(f4(A,B),f5(A,B)) # label(d4_tarski) # label(axiom).  [clausify(5)].
+union(A) = B | in(f4(A,B),B) | in(f5(A,B),A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+union(A) = B | -in(f4(A,B),B) | -in(f4(A,B),C) | -in(C,A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+-in(A,B) | subset(A,union(B)) # label(l50_zfmisc_1) # label(axiom).  [clausify(6)].
+empty(c1) # label(rc1_xboole_0) # label(axiom).  [clausify(7)].
+-empty(c2) # label(rc2_xboole_0) # label(axiom).  [clausify(8)].
+subset(A,A) # label(reflexivity_r1_tarski) # label(axiom).  [clausify(9)].
+union(singleton(c3)) != c3 # label(t31_zfmisc_1) # label(conjecture).  [deny(10)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, empty, in, subset ]).
+Function symbol precedence:  function_order([ c1, c2, c3, f1, f2, f4, f5, union, singleton, f3 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+kept:      11 -in(A,B) | -in(B,A) # label(antisymmetry_r2_hidden) # label(axiom).  [clausify(1)].
+kept:      12 A != B | subset(B,A) # label(d10_xboole_0) # label(axiom).  [clausify(2)].
+kept:      13 A != B | subset(A,B) # label(d10_xboole_0) # label(axiom).  [clausify(2)].
+kept:      14 A = B | -subset(B,A) | -subset(A,B) # label(d10_xboole_0) # label(axiom).  [clausify(2)].
+kept:      15 singleton(A) != B | -in(C,B) | C = A # label(d1_tarski) # label(axiom).  [clausify(3)].
+kept:      16 singleton(A) != B | in(C,B) | C != A # label(d1_tarski) # label(axiom).  [clausify(3)].
+kept:      17 singleton(A) = B | in(f1(A,B),B) | f1(A,B) = A # label(d1_tarski) # label(axiom).  [clausify(3)].
+kept:      18 singleton(A) = B | -in(f1(A,B),B) | f1(A,B) != A # label(d1_tarski) # label(axiom).  [clausify(3)].
+kept:      19 -subset(A,B) | -in(C,A) | in(C,B) # label(d3_tarski) # label(axiom).  [clausify(4)].
+kept:      20 subset(A,B) | in(f2(A,B),A) # label(d3_tarski) # label(axiom).  [clausify(4)].
+kept:      21 subset(A,B) | -in(f2(A,B),B) # label(d3_tarski) # label(axiom).  [clausify(4)].
+kept:      22 union(A) != B | -in(C,B) | in(C,f3(A,B,C)) # label(d4_tarski) # label(axiom).  [clausify(5)].
+kept:      23 union(A) != B | -in(C,B) | in(f3(A,B,C),A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+kept:      24 union(A) != B | in(C,B) | -in(C,D) | -in(D,A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+kept:      25 union(A) = B | in(f4(A,B),B) | in(f4(A,B),f5(A,B)) # label(d4_tarski) # label(axiom).  [clausify(5)].
+kept:      26 union(A) = B | in(f4(A,B),B) | in(f5(A,B),A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+kept:      27 union(A) = B | -in(f4(A,B),B) | -in(f4(A,B),C) | -in(C,A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+kept:      28 -in(A,B) | subset(A,union(B)) # label(l50_zfmisc_1) # label(axiom).  [clausify(6)].
+kept:      29 empty(c1) # label(rc1_xboole_0) # label(axiom).  [clausify(7)].
+kept:      30 -empty(c2) # label(rc2_xboole_0) # label(axiom).  [clausify(8)].
+kept:      31 subset(A,A) # label(reflexivity_r1_tarski) # label(axiom).  [clausify(9)].
+kept:      32 union(singleton(c3)) != c3 # label(t31_zfmisc_1) # label(conjecture).  [deny(10)].
+kept:      33 -in(A,A).  [factor(11,a,b)].
+kept:      34 singleton(A) != A | in(singleton(A),A).  [factor(16,a,c)].
+kept:      35 union(A) = B | -in(f4(A,B),B) | -in(B,A).  [factor(27,b,c)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+11 -in(A,B) | -in(B,A) # label(antisymmetry_r2_hidden) # label(axiom).  [clausify(1)].
+12 A != B | subset(B,A) # label(d10_xboole_0) # label(axiom).  [clausify(2)].
+13 A != B | subset(A,B) # label(d10_xboole_0) # label(axiom).  [clausify(2)].
+14 A = B | -subset(B,A) | -subset(A,B) # label(d10_xboole_0) # label(axiom).  [clausify(2)].
+15 singleton(A) != B | -in(C,B) | C = A # label(d1_tarski) # label(axiom).  [clausify(3)].
+16 singleton(A) != B | in(C,B) | C != A # label(d1_tarski) # label(axiom).  [clausify(3)].
+17 singleton(A) = B | in(f1(A,B),B) | f1(A,B) = A # label(d1_tarski) # label(axiom).  [clausify(3)].
+18 singleton(A) = B | -in(f1(A,B),B) | f1(A,B) != A # label(d1_tarski) # label(axiom).  [clausify(3)].
+19 -subset(A,B) | -in(C,A) | in(C,B) # label(d3_tarski) # label(axiom).  [clausify(4)].
+20 subset(A,B) | in(f2(A,B),A) # label(d3_tarski) # label(axiom).  [clausify(4)].
+21 subset(A,B) | -in(f2(A,B),B) # label(d3_tarski) # label(axiom).  [clausify(4)].
+22 union(A) != B | -in(C,B) | in(C,f3(A,B,C)) # label(d4_tarski) # label(axiom).  [clausify(5)].
+23 union(A) != B | -in(C,B) | in(f3(A,B,C),A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+24 union(A) != B | in(C,B) | -in(C,D) | -in(D,A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+25 union(A) = B | in(f4(A,B),B) | in(f4(A,B),f5(A,B)) # label(d4_tarski) # label(axiom).  [clausify(5)].
+26 union(A) = B | in(f4(A,B),B) | in(f5(A,B),A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+27 union(A) = B | -in(f4(A,B),B) | -in(f4(A,B),C) | -in(C,A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+28 -in(A,B) | subset(A,union(B)) # label(l50_zfmisc_1) # label(axiom).  [clausify(6)].
+29 empty(c1) # label(rc1_xboole_0) # label(axiom).  [clausify(7)].
+30 -empty(c2) # label(rc2_xboole_0) # label(axiom).  [clausify(8)].
+31 subset(A,A) # label(reflexivity_r1_tarski) # label(axiom).  [clausify(9)].
+32 union(singleton(c3)) != c3 # label(t31_zfmisc_1) # label(conjecture).  [deny(10)].
+33 -in(A,A).  [factor(11,a,b)].
+34 singleton(A) != A | in(singleton(A),A).  [factor(16,a,c)].
+35 union(A) = B | -in(f4(A,B),B) | -in(B,A).  [factor(27,b,c)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+given #1 (I,wt=6): 11 -in(A,B) | -in(B,A) # label(antisymmetry_r2_hidden) # label(axiom).  [clausify(1)].
+
+given #2 (I,wt=6): 12 A != B | subset(B,A) # label(d10_xboole_0) # label(axiom).  [clausify(2)].
+
+given #3 (I,wt=6): 13 A != B | subset(A,B) # label(d10_xboole_0) # label(axiom).  [clausify(2)].
+
+given #4 (I,wt=9): 14 A = B | -subset(B,A) | -subset(A,B) # label(d10_xboole_0) # label(axiom).  [clausify(2)].
+
+given #5 (I,wt=10): 15 singleton(A) != B | -in(C,B) | C = A # label(d1_tarski) # label(axiom).  [clausify(3)].
+
+given #6 (I,wt=10): 16 singleton(A) != B | in(C,B) | C != A # label(d1_tarski) # label(axiom).  [clausify(3)].
+
+given #7 (I,wt=14): 17 singleton(A) = B | in(f1(A,B),B) | f1(A,B) = A # label(d1_tarski) # label(axiom).  [clausify(3)].
+
+given #8 (I,wt=14): 18 singleton(A) = B | -in(f1(A,B),B) | f1(A,B) != A # label(d1_tarski) # label(axiom).  [clausify(3)].
+
+given #9 (I,wt=9): 19 -subset(A,B) | -in(C,A) | in(C,B) # label(d3_tarski) # label(axiom).  [clausify(4)].
+
+given #10 (I,wt=8): 20 subset(A,B) | in(f2(A,B),A) # label(d3_tarski) # label(axiom).  [clausify(4)].
+
+given #11 (I,wt=8): 21 subset(A,B) | -in(f2(A,B),B) # label(d3_tarski) # label(axiom).  [clausify(4)].
+
+given #12 (I,wt=13): 22 union(A) != B | -in(C,B) | in(C,f3(A,B,C)) # label(d4_tarski) # label(axiom).  [clausify(5)].
+
+given #13 (I,wt=13): 23 union(A) != B | -in(C,B) | in(f3(A,B,C),A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+
+given #14 (I,wt=13): 24 union(A) != B | in(C,B) | -in(C,D) | -in(D,A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+
+given #15 (I,wt=16): 25 union(A) = B | in(f4(A,B),B) | in(f4(A,B),f5(A,B)) # label(d4_tarski) # label(axiom).  [clausify(5)].
+
+given #16 (I,wt=14): 26 union(A) = B | in(f4(A,B),B) | in(f5(A,B),A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+
+given #17 (I,wt=17): 27 union(A) = B | -in(f4(A,B),B) | -in(f4(A,B),C) | -in(C,A) # label(d4_tarski) # label(axiom).  [clausify(5)].
+
+given #18 (I,wt=7): 28 -in(A,B) | subset(A,union(B)) # label(l50_zfmisc_1) # label(axiom).  [clausify(6)].
+
+given #19 (I,wt=2): 29 empty(c1) # label(rc1_xboole_0) # label(axiom).  [clausify(7)].
+
+given #20 (I,wt=2): 30 -empty(c2) # label(rc2_xboole_0) # label(axiom).  [clausify(8)].
+
+given #21 (I,wt=3): 31 subset(A,A) # label(reflexivity_r1_tarski) # label(axiom).  [clausify(9)].
+
+given #22 (I,wt=5): 32 union(singleton(c3)) != c3 # label(t31_zfmisc_1) # label(conjecture).  [deny(10)].
+
+given #23 (I,wt=3): 33 -in(A,A).  [factor(11,a,b)].
+
+given #24 (I,wt=12): 35 union(A) = B | -in(f4(A,B),B) | -in(B,A).  [factor(27,b,c)].
+
+given #25 (A,wt=7): 36 in(A,singleton(B)) | A != B.  [xx_res(16,a)].
+
+given #26 (F,wt=4): 72 singleton(A) != A.  [ur(16,b,33,a,c,xx)].
+
+given #27 (F,wt=5): 74 -in(A,singleton(singleton(A))).  [ur(15,a,xx,c,72,a(flip))].
+
+given #28 (F,wt=6): 70 -in(union(singleton(c3)),singleton(c3)).  [ur(15,a,xx,c,32,a)].
+
+given #29 (F,wt=6): 71 -in(c3,singleton(union(singleton(c3)))).  [ur(15,a,xx,c,32,a(flip))].
+
+given #30 (T,wt=4): 73 in(A,singleton(A)).  [xx_res(36,b)].
+
+given #31 (T,wt=5): 76 subset(A,union(singleton(A))).  [resolve(73,a,28,a)].
+
+given #32 (T,wt=7): 37 singleton(A) != B | in(A,B).  [xx_res(16,c)].
+
+given #33 (T,wt=8): 83 singleton(A) != singleton(B) | B = A.  [resolve(73,a,15,b)].
+
+given #34 (A,wt=18): 38 singleton(A) = B | f1(A,B) = A | singleton(C) != B | f1(A,B) = C.  [resolve(17,b,15,b)].
+
+given #35 (F,wt=4): 84 -in(singleton(A),A).  [resolve(73,a,11,b)].
+
+given #36 (F,wt=4): 95 -subset(singleton(A),A).  [ur(19,b,73,a,c,33,a)].
+
+given #37 (F,wt=5): 90 -in(union(singleton(A)),A).  [ur(24,a,xx,b,33,a,d,73,a)].
+
+given #38 (F,wt=5): 91 -in(singleton(union(A)),A).  [ur(24,a,xx,b,33,a,c,73,a)].
+
+given #39 (T,wt=7): 106 in(f2(singleton(A),A),singleton(A)).  [resolve(95,a,20,a)].
+
+given #40 (T,wt=8): 97 -in(A,B) | in(A,union(singleton(B))).  [resolve(76,a,19,a)].
+
+given #41 (T,wt=6): 137 in(A,union(singleton(singleton(A)))).  [resolve(97,a,73,a)].
+
+given #42 (T,wt=7): 142 subset(A,union(union(singleton(singleton(A))))).  [resolve(137,a,28,a)].
+
+given #43 (A,wt=14): 39 singleton(A) = B | f1(A,B) = A | -in(B,f1(A,B)).  [resolve(17,b,11,b)].
+
+given #44 (F,wt=5): 99 -subset(union(singleton(c3)),c3).  [ur(14,a,32,a(flip),c,76,a)].
+
+given #45 (F,wt=5): 101 singleton(singleton(A)) != A.  [ur(37,b,84,a)].
+
+given #46 (F,wt=5): 105 -subset(singleton(singleton(A)),A).  [ur(19,b,73,a,c,84,a)].
+
+given #47 (F,wt=6): 85 -in(f4(singleton(c3),c3),c3).  [ur(35,a,32,a,c,73,a)].
+
+given #48 (T,wt=8): 118 subset(f2(singleton(A),A),union(singleton(A))).  [resolve(106,a,28,a)].
+
+given #49 (T,wt=8): 141 in(A,union(singleton(union(singleton(singleton(A)))))).  [resolve(137,a,97,a)].
+
+given #50 (T,wt=9): 136 in(f2(singleton(A),A),union(singleton(singleton(A)))).  [resolve(97,a,106,a)].
+
+given #51 (T,wt=9): 192 in(f2(union(singleton(c3)),c3),union(singleton(c3))).  [resolve(99,a,20,a)].
+
+given #52 (A,wt=11): 40 in(f2(A,B),A) | -in(C,A) | in(C,B).  [resolve(20,a,19,a)].
+
+given #53 (F,wt=6): 89 union(singleton(singleton(A))) != A.  [ur(24,b,33,a,c,73,a,d,73,a)].
+
+given #54 (F,wt=6): 92 -subset(singleton(A),singleton(singleton(A))).  [ur(19,b,73,a,c,74,a)].
+
+given #55 (F,wt=6): 103 -in(singleton(union(singleton(A))),A).  [ur(24,a,xx,b,84,a,d,73,a)].
+
+given #56 (F,wt=6): 104 -in(singleton(singleton(union(A))),A).  [ur(24,a,xx,b,84,a,c,73,a)].
+
+given #57 (T,wt=9): 197 in(f2(singleton(singleton(A)),A),singleton(singleton(A))).  [resolve(105,a,20,a)].
+
+given #58 (T,wt=9): 209 subset(A,union(union(singleton(union(singleton(singleton(A))))))).  [resolve(141,a,28,a)].
+
+given #59 (T,wt=9): 340 in(f2(singleton(A),singleton(singleton(A))),singleton(A)).  [resolve(92,a,20,a)].
+
+given #60 (T,wt=10): 98 union(singleton(A)) = A | -subset(union(singleton(A)),A).  [resolve(76,a,14,c),flip(a)].
+
+given #61 (A,wt=11): 41 in(f2(A,B),A) | A = B | -subset(B,A).  [resolve(20,a,14,c)].
+
+given #62 (F,wt=6): 107 -in(f2(singleton(A),A),A).  [ur(21,a,95,a)].
+
+given #63 (F,wt=6): 108 singleton(union(singleton(A))) != A.  [ur(37,b,90,a)].
+
+given #64 (F,wt=6): 112 -subset(singleton(union(singleton(A))),A).  [ur(19,b,73,a,c,90,a)].
+
+given #65 (F,wt=6): 113 singleton(singleton(union(A))) != A.  [ur(37,b,91,a)].
+
+given #66 (T,wt=10): 149 union(singleton(singleton(A))) != singleton(B) | A = B.  [resolve(137,a,15,b),flip(a)].
+
+given #67 (T,wt=10): 190 -in(A,B) | in(A,union(union(singleton(singleton(B))))).  [resolve(142,a,19,a)].
+
+given #68 (T,wt=8): 504 in(A,union(union(singleton(singleton(singleton(A)))))).  [resolve(190,a,73,a)].
+
+given #69 (T,wt=9): 511 subset(A,union(union(union(singleton(singleton(singleton(A))))))).  [resolve(504,a,28,a)].
+
+given #70 (A,wt=11): 42 in(f2(A,B),A) | B = A | -subset(B,A).  [resolve(20,a,14,b)].
+
+given #71 (F,wt=6): 117 -subset(singleton(singleton(union(A))),A).  [ur(19,b,73,a,c,91,a)].
+
+given #72 (F,wt=6): 150 -in(union(singleton(singleton(A))),A).  [resolve(137,a,11,b)].
+
+given #73 (F,wt=6): 188 -subset(union(singleton(singleton(A))),A).  [ur(19,b,137,a,c,33,a)].
+
+given #74 (F,wt=6): 196 -in(A,singleton(singleton(singleton(A)))).  [ur(15,a,xx,c,101,a(flip))].
+
+given #75 (T,wt=10): 208 in(A,union(singleton(union(singleton(union(singleton(singleton(A)))))))).  [resolve(141,a,97,a)].
+
+given #76 (T,wt=10): 279 subset(f2(singleton(A),A),union(union(singleton(singleton(A))))).  [resolve(136,a,28,a)].
+
+given #77 (T,wt=10): 302 subset(f2(union(singleton(c3)),c3),union(union(singleton(c3)))).  [resolve(192,a,28,a)].
+
+given #78 (T,wt=10): 330 in(f2(singleton(A),B),singleton(A)) | in(A,B).  [resolve(40,b,73,a)].
+
+given #79 (A,wt=23): 43 union(A) != B | in(f1(C,B),f3(A,B,f1(C,B))) | singleton(C) = B | f1(C,B) = C.  [resolve(22,b,17,b)].
+
+given #80 (F,wt=7): 75 singleton(union(singleton(c3))) != singleton(c3).  [ur(16,b,70,a,c,xx)].
+
+given #81 (F,wt=7): 93 -subset(singleton(c3),singleton(union(singleton(c3)))).  [ur(19,b,73,a,c,71,a)].
+
+given #82 (F,wt=7): 94 -subset(singleton(union(singleton(c3))),singleton(c3)).  [ur(19,b,73,a,c,70,a)].
+
+given #83 (F,wt=7): 102 union(singleton(singleton(singleton(A)))) != A.  [ur(24,b,84,a,c,73,a,d,73,a)].
+
+given #84 (T,wt=10): 389 subset(f2(singleton(singleton(A)),A),union(singleton(singleton(A)))).  [resolve(197,a,28,a)].
+
+given #85 (T,wt=10): 419 subset(f2(singleton(A),singleton(singleton(A))),union(singleton(A))).  [resolve(340,a,28,a)].
+
+given #86 (T,wt=10): 501 in(A,union(union(singleton(singleton(union(singleton(singleton(A)))))))).  [resolve(190,a,137,a)].
+
+given #87 (T,wt=10): 509 in(A,union(singleton(union(union(singleton(singleton(singleton(A)))))))).  [resolve(504,a,97,a)].
+
+given #88 (A,wt=21): 44 union(A) != B | in(f3(A,B,f1(C,B)),A) | singleton(C) = B | f1(C,B) = C.  [resolve(23,b,17,b)].
+
+given #89 (F,wt=7): 110 -in(union(singleton(union(singleton(A)))),A).  [ur(24,a,xx,b,90,a,d,73,a)].
+
+given #90 (F,wt=7): 111 -in(singleton(union(singleton(union(A)))),A).  [ur(24,a,xx,b,90,a,c,73,a)].
+
+given #91 (F,wt=7): 115 -in(singleton(union(union(singleton(A)))),A).  [ur(24,a,xx,b,91,a,d,73,a)].
+
+given #92 (F,wt=7): 116 -in(singleton(singleton(union(union(A)))),A).  [ur(24,a,xx,b,91,a,c,73,a)].
+
+given #93 (T,wt=10): 913 in(A,B) | -in(singleton(A),f2(singleton(A),B)).  [resolve(330,a,11,b)].
+
+given #94 (T,wt=10): 928 in(f2(singleton(c3),singleton(union(singleton(c3)))),singleton(c3)).  [resolve(93,a,20,a)].
+
+given #95 (T,wt=11): 79 union(singleton(A)) != B | in(C,B) | -in(C,A).  [resolve(73,a,24,d)].
+
+given #96 (T,wt=9): 1774 union(singleton(singleton(A))) != B | in(A,B).  [resolve(79,c,73,a)].
+
+given #97 (A,wt=21): 45 union(A) != B | in(f1(C,D),B) | -in(D,A) | singleton(C) = D | f1(C,D) = C.  [resolve(24,c,17,b)].
+
+given #98 (F,wt=7): 125 -in(singleton(A),f2(singleton(A),A)).  [resolve(106,a,11,b)].
+
+given #99 (F,wt=7): 133 -subset(singleton(A),f2(singleton(A),A)).  [ur(19,b,106,a,c,33,a)].
+
+given #100 (F,wt=7): 170 -in(union(union(singleton(singleton(A)))),A).  [ur(24,a,xx,b,33,a,d,137,a)].
+
+given #101 (F,wt=7): 181 -in(union(singleton(singleton(union(A)))),A).  [ur(24,a,xx,b,33,a,c,137,a)].
+
+given #102 (T,wt=10): 1854 in(f2(singleton(A),f2(singleton(A),A)),singleton(A)).  [resolve(133,a,20,a)].
+
+given #103 (T,wt=11): 80 union(A) != B | in(C,B) | -in(singleton(C),A).  [resolve(73,a,24,c)].
+
+given #104 (T,wt=11): 96 union(singleton(A)) = A | -in(f4(singleton(A),A),A).  [factor(77,b,c)].
+
+given #105 (T,wt=11): 124 singleton(A) != singleton(B) | f2(singleton(B),B) = A.  [resolve(106,a,15,b)].
+
+given #106 (A,wt=21): 46 union(A) != B | in(C,B) | -in(C,f1(D,A)) | singleton(D) = A | f1(D,A) = D.  [resolve(24,d,17,b)].
+
+given #107 (F,wt=7): 184 -subset(union(singleton(singleton(singleton(A)))),A).  [ur(19,b,137,a,c,84,a)].
+
+given #108 (F,wt=7): 193 -in(f2(union(singleton(c3)),c3),c3).  [ur(21,a,99,a)].
+
+given #109 (F,wt=7): 198 -in(f2(singleton(singleton(A)),A),A).  [ur(21,a,105,a)].
+
+given #110 (F,wt=7): 199 singleton(f4(singleton(c3),c3)) != c3.  [ur(37,b,85,a)].
+
+given #111 (T,wt=6): 2076 f2(singleton(A),A) = A.  [xx_res(124,a)].
+
+given #112 (T,wt=11): 301 in(f2(union(singleton(c3)),c3),union(singleton(union(singleton(c3))))).  [resolve(192,a,97,a)].
+
+given #113 (T,wt=11): 387 in(f2(singleton(singleton(A)),A),union(singleton(singleton(singleton(A))))).  [resolve(197,a,97,a)].
+
+given #114 (T,wt=11): 417 in(f2(singleton(A),singleton(singleton(A))),union(singleton(singleton(A)))).  [resolve(340,a,97,a)].
+
+given #115 (A,wt=23): 47 union(A) = B | in(f4(A,B),B) | union(f5(A,B)) != C | in(D,C) | -in(D,f4(A,B)).  [resolve(25,c,24,d)].
+
+given #116 (F,wt=7): 205 -subset(singleton(f4(singleton(c3),c3)),c3).  [ur(19,b,73,a,c,85,a)].
+
+given #117 (F,wt=7): 339 -in(A,singleton(union(singleton(singleton(A))))).  [ur(15,a,xx,c,89,a(flip))].
+
+given #118 (F,wt=7): 343 singleton(singleton(union(singleton(A)))) != A.  [ur(37,b,103,a)].
+
+given #119 (F,wt=7): 344 singleton(union(singleton(singleton(A)))) != A.  [ur(36,a,103,a)].
+
+given #120 (T,wt=11): 483 in(f2(singleton(union(singleton(A))),A),singleton(union(singleton(A)))).  [resolve(112,a,20,a)].
+
+given #121 (T,wt=11): 641 in(f2(singleton(singleton(union(A))),A),singleton(singleton(union(A)))).  [resolve(117,a,20,a)].
+
+given #122 (T,wt=11): 676 in(f2(union(singleton(singleton(A))),A),union(singleton(singleton(A)))).  [resolve(188,a,20,a)].
+
+given #123 (T,wt=11): 722 subset(A,union(union(singleton(union(singleton(union(singleton(singleton(A))))))))).  [resolve(208,a,28,a)].
+
+given #124 (A,wt=23): 48 union(A) = B | in(f4(A,B),B) | union(C) != D | in(f4(A,B),D) | -in(f5(A,B),C).  [resolve(25,c,24,c)].
+
+given #125 (F,wt=7): 364 -subset(singleton(singleton(union(singleton(A)))),A).  [ur(19,b,73,a,c,103,a)].
+
+given #126 (F,wt=7): 366 singleton(singleton(singleton(union(A)))) != A.  [ur(37,b,104,a)].
+
+given #127 (F,wt=7): 386 -subset(singleton(singleton(singleton(union(A)))),A).  [ur(19,b,73,a,c,104,a)].
+
+given #128 (F,wt=7): 482 -in(A,singleton(singleton(union(singleton(A))))).  [ur(15,a,xx,c,108,a(flip))].
+
+given #129 (T,wt=11): 906 in(A,B) | subset(f2(singleton(A),B),union(singleton(A))).  [resolve(330,a,28,a)].
+
+given #130 (T,wt=11): 951 subset(A,union(union(union(singleton(singleton(union(singleton(singleton(A))))))))).  [resolve(501,a,28,a)].
+
+given #131 (T,wt=11): 1158 subset(A,union(union(singleton(union(union(singleton(singleton(singleton(A))))))))).  [resolve(509,a,28,a)].
+
+given #132 (T,wt=11): 1711 subset(f2(singleton(c3),singleton(union(singleton(c3)))),union(singleton(c3))).  [resolve(928,a,28,a)].
+
+given #133 (A,wt=25): 49 union(A) = B | in(f4(A,B),B) | f5(A,B) != union(C) | in(f3(C,f5(A,B),f4(A,B)),C).  [resolve(25,c,23,b),flip(c)].
+
+given #134 (F,wt=7): 488 -in(singleton(singleton(union(A))),singleton(A)).  [ur(15,a,xx,c,113,a)].
+
+given #135 (F,wt=7): 496 -in(A,singleton(singleton(singleton(union(A))))).  [ur(15,a,xx,c,113,a(flip))].
+
+given #136 (F,wt=7): 675 -subset(singleton(union(singleton(singleton(A)))),A).  [ur(19,b,73,a,c,150,a)].
+
+given #137 (F,wt=7): 718 -subset(singleton(A),singleton(singleton(singleton(A)))).  [ur(19,b,73,a,c,196,a)].
+
+given #138 (T,wt=10): 3179 in(f2(singleton(A),singleton(singleton(singleton(A)))),singleton(A)).  [resolve(718,a,20,a)].
+
+given #139 (T,wt=11): 1771 union(singleton(union(singleton(singleton(A))))) != B | in(A,B).  [resolve(79,c,137,a)].
+
+given #140 (T,wt=11): 2075 union(union(singleton(singleton(singleton(A))))) != B | in(A,B).  [resolve(80,c,137,a)].
+
+given #141 (T,wt=11): 3186 subset(f2(singleton(A),singleton(singleton(singleton(A)))),union(singleton(A))).  [resolve(3179,a,28,a)].
+
+given #142 (A,wt=27): 50 union(A) = B | in(f4(A,B),B) | f5(A,B) != union(C) | in(f4(A,B),f3(C,f5(A,B),f4(A,B))).  [resolve(25,c,22,b),flip(c)].
+
+given #143 (F,wt=7): 2092 union(singleton(union(singleton(c3)))) != c3.  [ur(79,b,193,a,c,192,a)].
+
+given #144 (F,wt=7): 2293 -subset(union(singleton(union(singleton(c3)))),c3).  [ur(19,b,301,a,c,193,a)].
+
+given #145 (F,wt=8): 86 union(singleton(singleton(A))) != singleton(singleton(A)).  [ur(24,b,74,a,c,73,a,d,73,a)].
+
+given #146 (F,wt=8): 109 union(singleton(singleton(union(singleton(A))))) != A.  [ur(24,b,90,a,c,73,a,d,73,a)].
+
+given #147 (T,wt=12): 81 union(A) != singleton(B) | in(f3(A,singleton(B),B),A).  [resolve(73,a,23,b)].
+
+given #148 (T,wt=12): 82 union(A) != singleton(B) | in(B,f3(A,singleton(B),B)).  [resolve(73,a,22,b)].
+
+given #149 (T,wt=12): 216 union(singleton(union(singleton(singleton(A))))) != singleton(B) | A = B.  [resolve(141,a,15,b),flip(a)].
+
+given #150 (T,wt=12): 415 -in(A,B) | in(A,union(union(singleton(union(singleton(singleton(B))))))).  [resolve(209,a,19,a)].
+
+given #151 (A,wt=20): 51 union(A) = B | in(f4(A,B),B) | f5(A,B) != singleton(C) | f4(A,B) = C.  [resolve(25,c,15,b),flip(c)].
+
+given #152 (F,wt=8): 114 union(singleton(singleton(singleton(union(A))))) != A.  [ur(24,b,91,a,c,73,a,d,73,a)].
+
+given #153 (F,wt=8): 166 union(union(singleton(singleton(singleton(A))))) != A.  [ur(24,b,33,a,c,73,a,d,137,a)].
+
+given #154 (F,wt=8): 169 -in(singleton(union(union(singleton(singleton(A))))),A).  [ur(24,a,xx,b,84,a,d,137,a)].
+
+given #155 (F,wt=8): 177 union(singleton(union(singleton(singleton(A))))) != A.  [ur(24,b,33,a,c,137,a,d,73,a)].
+
+given #156 (T,wt=10): 3336 in(A,union(union(singleton(union(singleton(singleton(singleton(A)))))))).  [resolve(415,a,73,a)].
+
+given #157 (T,wt=11): 3505 subset(A,union(union(union(singleton(union(singleton(singleton(singleton(A))))))))).  [resolve(3336,a,28,a)].
+
+given #158 (T,wt=12): 500 in(A,union(union(singleton(singleton(union(singleton(union(singleton(singleton(A)))))))))).  [resolve(190,a,141,a)].
+
+given #159 (T,wt=12): 508 in(A,union(union(singleton(singleton(union(union(singleton(singleton(singleton(A)))))))))).  [resolve(504,a,190,a)].
+
+given #160 (A,wt=16): 52 union(A) = B | in(f4(A,B),B) | -in(f5(A,B),f4(A,B)).  [resolve(25,c,11,b)].
+
+given #161 (F,wt=8): 180 -in(union(singleton(singleton(singleton(union(A))))),A).  [ur(24,a,xx,b,84,a,c,137,a)].
+
+given #162 (F,wt=8): 182 -subset(union(singleton(singleton(singleton(union(A))))),A).  [ur(19,b,137,a,c,91,a)].
+
+given #163 (F,wt=8): 183 -subset(union(singleton(singleton(union(singleton(A))))),A).  [ur(19,b,137,a,c,90,a)].
+
+given #164 (F,wt=8): 185 -subset(union(singleton(singleton(A))),singleton(singleton(A))).  [ur(19,b,137,a,c,74,a)].
+
+given #165 (T,wt=12): 518 union(union(singleton(singleton(singleton(A))))) != singleton(B) | A = B.  [resolve(504,a,15,b),flip(a)].
+
+given #166 (T,wt=12): 639 -in(A,B) | in(A,union(union(union(singleton(singleton(singleton(B))))))).  [resolve(511,a,19,a)].
+
+given #167 (T,wt=10): 5448 in(A,union(union(union(singleton(singleton(singleton(singleton(A)))))))).  [resolve(639,a,73,a)].
+
+given #168 (T,wt=11): 5461 subset(A,union(union(union(union(singleton(singleton(singleton(singleton(A))))))))).  [resolve(5448,a,28,a)].
+
+given #169 (A,wt=18): 53 union(A) = B | in(f4(A,B),B) | union(C) != B | -in(f5(A,B),C).  [factor(48,b,d)].
+
+given #170 (F,wt=8): 217 -in(union(singleton(union(singleton(singleton(A))))),A).  [resolve(141,a,11,b)].
+
+given #171 (F,wt=8): 275 -subset(union(singleton(union(singleton(singleton(A))))),A).  [ur(19,b,141,a,c,33,a)].
+
+given #172 (F,wt=8): 342 -in(singleton(union(singleton(union(singleton(A))))),A).  [ur(97,b,103,a)].
+
+given #173 (F,wt=8): 361 -in(singleton(singleton(union(singleton(union(A))))),A).  [ur(24,a,xx,b,103,a,c,73,a)].
+
+given #174 (T,wt=12): 720 in(A,union(singleton(union(singleton(union(singleton(union(singleton(singleton(A)))))))))).  [resolve(208,a,97,a)].
+
+given #175 (T,wt=12): 904 in(A,B) | in(f2(singleton(A),B),union(singleton(singleton(A)))).  [resolve(330,a,97,a)].
+
+given #176 (T,wt=12): 930 in(f2(singleton(union(singleton(c3))),singleton(c3)),singleton(union(singleton(c3)))).  [resolve(94,a,20,a)].
+
+Low Water (keep): wt=24.000, iters=6914
+
+given #177 (T,wt=12): 949 in(A,union(singleton(union(union(singleton(singleton(union(singleton(singleton(A)))))))))).  [resolve(501,a,97,a)].
+
+given #178 (A,wt=21): 54 union(A) = B | in(f4(A,B),B) | union(A) != C | in(D,C) | -in(D,f5(A,B)).  [resolve(26,c,24,d)].
+
+given #179 (F,wt=8): 365 -in(singleton(singleton(union(union(singleton(A))))),A).  [ur(97,b,104,a)].
+
+Low Water (keep): wt=23.000, iters=7107
+
+given #180 (F,wt=8): 383 -in(singleton(singleton(singleton(union(union(A))))),A).  [ur(24,a,xx,b,104,a,c,73,a)].
+
+given #181 (F,wt=8): 484 -in(f2(singleton(union(singleton(A))),A),A).  [ur(21,a,112,a)].
+
+given #182 (F,wt=8): 485 singleton(singleton(singleton(union(A)))) != singleton(A).  [ur(83,b,113,a),flip(a)].
+
+given #183 (T,wt=12): 1156 in(A,union(singleton(union(singleton(union(union(singleton(singleton(singleton(A)))))))))).  [resolve(509,a,97,a)].
+
+Low Water (keep): wt=22.000, iters=6788
+
+given #184 (T,wt=12): 1709 in(f2(singleton(c3),singleton(union(singleton(c3)))),union(singleton(singleton(c3)))).  [resolve(928,a,97,a)].
+
+given #185 (T,wt=12): 2242 subset(f2(union(singleton(c3)),c3),union(union(singleton(union(singleton(c3)))))).  [resolve(301,a,28,a)].
+
+given #186 (T,wt=12): 2306 subset(f2(singleton(singleton(A)),A),union(union(singleton(singleton(singleton(A)))))).  [resolve(387,a,28,a)].
+
+given #187 (A,wt=21): 55 union(A) = B | in(f4(A,B),B) | union(C) != D | in(f5(A,B),D) | -in(A,C).  [resolve(26,c,24,c)].
+
+given #188 (F,wt=8): 519 -in(union(union(singleton(singleton(singleton(A))))),A).  [resolve(504,a,11,b)].
+
+given #189 (F,wt=8): 631 -subset(union(union(singleton(singleton(singleton(A))))),A).  [ur(19,b,504,a,c,33,a)].
+
+given #190 (F,wt=8): 642 -in(f2(singleton(singleton(union(A))),A),A).  [ur(21,a,117,a)].
+
+given #191 (F,wt=8): 644 -in(union(singleton(singleton(union(singleton(A))))),A).  [ur(97,b,150,a)].
+
+Low Water (keep): wt=21.000, iters=6761
+
+given #192 (T,wt=12): 2362 subset(f2(singleton(A),singleton(singleton(A))),union(union(singleton(singleton(A))))).  [resolve(417,a,28,a)].
+
+given #193 (T,wt=12): 2566 subset(f2(singleton(union(singleton(A))),A),union(singleton(union(singleton(A))))).  [resolve(483,a,28,a)].
+
+given #194 (T,wt=12): 2633 subset(f2(singleton(singleton(union(A))),A),union(singleton(singleton(union(A))))).  [resolve(641,a,28,a)].
+
+given #195 (T,wt=12): 2700 subset(f2(union(singleton(singleton(A))),A),union(union(singleton(singleton(A))))).  [resolve(676,a,28,a)].
+
+given #196 (A,wt=21): 56 union(A) = B | in(f4(A,B),B) | union(C) != A | in(f3(C,A,f5(A,B)),C).  [resolve(26,c,23,b)].
+
+given #197 (F,wt=8): 671 -in(singleton(union(singleton(singleton(union(A))))),A).  [ur(24,a,xx,b,150,a,c,73,a)].
+
+given #198 (F,wt=8): 677 -in(f2(union(singleton(singleton(A))),A),A).  [ur(21,a,188,a)].
+
+given #199 (F,wt=8): 922 -in(singleton(union(singleton(c3))),singleton(singleton(c3))).  [ur(15,a,xx,c,75,a)].
+
+given #200 (F,wt=8): 927 -in(singleton(c3),singleton(singleton(union(singleton(c3))))).  [ur(15,a,xx,c,75,a(flip))].
+
+given #201 (T,wt=12): 3182 in(f2(singleton(A),singleton(singleton(singleton(A)))),union(singleton(singleton(A)))).  [resolve(3179,a,97,a)].
+
+given #202 (T,wt=12): 3335 in(A,union(union(singleton(union(singleton(singleton(union(singleton(singleton(A)))))))))).  [resolve(415,a,137,a)].
+
+given #203 (T,wt=12): 3499 in(A,union(singleton(union(union(singleton(union(singleton(singleton(singleton(A)))))))))).  [resolve(3336,a,97,a)].
+
+given #204 (T,wt=12): 5447 in(A,union(union(union(singleton(singleton(singleton(union(singleton(singleton(A)))))))))).  [resolve(639,a,137,a)].
+
+Low Water (keep): wt=20.000, iters=6895
+
+given #205 (A,wt=23): 57 union(A) = B | in(f4(A,B),B) | union(C) != A | in(f5(A,B),f3(C,A,f5(A,B))).  [resolve(26,c,22,b)].
+
+given #206 (F,wt=8): 941 -in(A,singleton(union(singleton(singleton(singleton(A)))))).  [ur(15,a,xx,c,102,a(flip))].
+
+given #207 (F,wt=8): 1391 singleton(union(singleton(union(singleton(A))))) != A.  [ur(37,b,110,a)].
+
+given #208 (F,wt=8): 1464 -subset(singleton(union(singleton(union(singleton(A))))),A).  [ur(19,b,73,a,c,110,a)].
+
+given #209 (F,wt=8): 1467 singleton(singleton(union(singleton(union(A))))) != A.  [ur(37,b,111,a)].
+
+given #210 (T,wt=12): 5455 in(A,union(singleton(union(union(union(singleton(singleton(singleton(singleton(A)))))))))).  [resolve(5448,a,97,a)].
+
+given #211 (T,wt=12): 7539 in(A,B) | -in(union(singleton(singleton(A))),f2(singleton(A),B)).  [resolve(904,b,11,b)].
+
+Low Water (keep): wt=19.000, iters=6753
+
+given #212 (T,wt=13): 145 union(union(singleton(singleton(A)))) != B | in(C,B) | -in(C,A).  [resolve(137,a,24,d)].
+
+given #213 (T,wt=13): 146 union(A) != B | in(C,B) | -in(union(singleton(singleton(C))),A).  [resolve(137,a,24,c)].
+
+given #214 (A,wt=18): 58 union(A) = B | in(f4(A,B),B) | singleton(C) != A | f5(A,B) = C.  [resolve(26,c,15,b)].
+
+given #215 (F,wt=8): 1540 -subset(singleton(singleton(union(singleton(union(A))))),A).  [ur(19,b,73,a,c,111,a)].
+
+given #216 (F,wt=8): 1543 singleton(singleton(union(union(singleton(A))))) != A.  [ur(37,b,115,a)].
+
+given #217 (F,wt=8): 1544 singleton(union(union(singleton(singleton(A))))) != A.  [ur(36,a,115,a)].
+
+given #218 (F,wt=8): 1617 -subset(singleton(singleton(union(union(singleton(A))))),A).  [ur(19,b,73,a,c,115,a)].
+
+given #219 (T,wt=13): 308 union(singleton(c3)) != singleton(A) | f2(union(singleton(c3)),c3) = A.  [resolve(192,a,15,b),flip(a)].
+
+given #220 (T,wt=13): 395 singleton(singleton(A)) != singleton(B) | f2(singleton(singleton(A)),A) = B.  [resolve(197,a,15,b),flip(a)].
+
+given #221 (T,wt=8): 11256 f2(singleton(singleton(A)),A) = singleton(A).  [xx_res(395,a)].
+
+given #222 (T,wt=10): 11259 singleton(singleton(A)) != singleton(B) | singleton(A) = B.  [back_rewrite(395),rewrite([11256(7)])].
+
+given #223 (A,wt=14): 59 union(A) = B | in(f4(A,B),B) | -in(A,f5(A,B)).  [resolve(26,c,11,b)].
+
+given #224 (F,wt=7): 11260 -in(singleton(c3),f5(singleton(c3),c3)).  [ur(59,a,32,a,b,85,a)].
+
+given #225 (F,wt=8): 1620 singleton(singleton(singleton(union(union(A))))) != A.  [ur(37,b,116,a)].
+
+given #226 (F,wt=8): 1693 -subset(singleton(singleton(singleton(union(union(A))))),A).  [ur(19,b,73,a,c,116,a)].
+
+given #227 (F,wt=8): 1933 -subset(singleton(union(union(singleton(singleton(A))))),A).  [ur(19,b,73,a,c,170,a)].
+
+given #228 (T,wt=13): 425 singleton(A) != singleton(B) | f2(singleton(B),singleton(singleton(B))) = A.  [resolve(340,a,15,b)].
+
+given #229 (T,wt=8): 11391 f2(singleton(A),singleton(singleton(A))) = A.  [xx_res(425,a)].
+
+given #230 (T,wt=13): 449 in(f2(A,B),A) | A = B | in(f2(B,A),B).  [resolve(41,c,20,a)].
+
+given #231 (T,wt=13): 499 in(f2(union(singleton(c3)),c3),union(union(singleton(singleton(union(singleton(c3))))))).  [resolve(190,a,192,a)].
+
+given #232 (A,wt=25): 60 union(A) = B | -in(f4(A,B),B) | -in(f4(A,B),f5(A,C)) | union(A) = C | in(f4(A,C),C).  [resolve(27,d,26,c)].
+
+given #233 (F,wt=8): 1944 singleton(union(singleton(singleton(union(A))))) != A.  [ur(37,b,181,a)].
+
+given #234 (F,wt=8): 2011 -subset(singleton(union(singleton(singleton(union(A))))),A).  [ur(19,b,73,a,c,181,a)].
+
+given #235 (F,wt=8): 2095 singleton(f2(union(singleton(c3)),c3)) != c3.  [ur(37,b,193,a)].
+
+given #236 (F,wt=8): 2144 -subset(singleton(f2(union(singleton(c3)),c3)),c3).  [ur(19,b,73,a,c,193,a)].
+
+given #237 (T,wt=13): 901 -in(A,f2(union(singleton(c3)),c3)) | in(A,union(union(singleton(c3)))).  [resolve(302,a,19,a)].
+
+given #238 (T,wt=13): 1763 union(singleton(union(union(singleton(singleton(singleton(A))))))) != B | in(A,B).  [resolve(79,c,504,a)].
+
+given #239 (T,wt=13): 1770 union(singleton(union(singleton(union(singleton(singleton(A))))))) != B | in(A,B).  [resolve(79,c,141,a)].
+
+given #240 (T,wt=13): 2071 union(union(union(singleton(singleton(singleton(singleton(A))))))) != B | in(A,B).  [resolve(80,c,504,a)].
+
+given #241 (A,wt=31): 61 union(f5(A,B)) = C | -in(f4(f5(A,B),C),C) | -in(f4(f5(A,B),C),f4(A,B)) | union(A) = B | in(f4(A,B),B).  [resolve(27,d,25,c)].
+
+given #242 (F,wt=8): 2229 -in(singleton(f4(singleton(c3),c3)),singleton(c3)).  [ur(15,a,xx,c,199,a)].
+
+given #243 (F,wt=8): 2236 -in(c3,singleton(singleton(f4(singleton(c3),c3)))).  [ur(15,a,xx,c,199,a(flip))].
+
+given #244 (F,wt=8): 2533 -subset(singleton(A),singleton(union(singleton(singleton(A))))).  [ur(19,b,73,a,c,339,a)].
+
+given #245 (F,wt=8): 2547 -in(A,singleton(singleton(singleton(union(singleton(A)))))).  [ur(15,a,2076,a(flip),c,343,a(flip)),rewrite([2076(12)])].
+
+given #246 (T,wt=11): 11668 in(f2(singleton(A),singleton(union(singleton(singleton(A))))),singleton(A)).  [resolve(2533,a,20,a)].
+
+given #247 (T,wt=12): 11725 subset(f2(singleton(A),singleton(union(singleton(singleton(A))))),union(singleton(A))).  [resolve(11668,a,28,a)].
+
+given #248 (T,wt=13): 2074 union(union(singleton(union(singleton(singleton(singleton(A))))))) != B | in(A,B).  [resolve(80,c,141,a)].
+
+given #249 (T,wt=13): 2078 in(f2(union(singleton(singleton(singleton(A)))),A),union(singleton(singleton(singleton(A))))).  [resolve(184,a,20,a)].
+
+given #250 (A,wt=25): 62 union(A) = B | -in(f4(A,B),B) | -in(f4(A,B),f1(C,A)) | singleton(C) = A | f1(C,A) = C.  [resolve(27,d,17,b)].
+
+given #251 (F,wt=8): 2560 -in(A,singleton(singleton(union(singleton(singleton(A)))))).  [ur(15,a,2076,a(flip),c,344,a(flip)),rewrite([2076(12)])].
+
+given #252 (F,wt=8): 2793 union(singleton(f5(singleton(c3),c3))) != c3.  [ur(48,a,32,a,b,85,a,d,85,a,e,73,a)].
+
+given #253 (F,wt=8): 2823 -in(singleton(singleton(singleton(union(A)))),singleton(A)).  [ur(15,a,2076,a(flip),c,366,a),rewrite([2076(8)])].
+
+given #254 (F,wt=8): 2840 -in(A,singleton(singleton(singleton(singleton(union(A)))))).  [ur(15,a,2076,a(flip),c,366,a(flip)),rewrite([2076(12)])].
+
+given #255 (T,wt=13): 2238 in(f2(union(singleton(c3)),c3),union(singleton(union(singleton(union(singleton(c3))))))).  [resolve(301,a,97,a)].
+
+given #256 (T,wt=13): 2428 in(f2(singleton(f4(singleton(c3),c3)),c3),singleton(f4(singleton(c3),c3))).  [resolve(205,a,20,a)].
+
+given #257 (T,wt=13): 2562 in(f2(singleton(union(singleton(A))),A),union(singleton(singleton(union(singleton(A)))))).  [resolve(483,a,97,a)].
+
+given #258 (T,wt=13): 2629 in(f2(singleton(singleton(union(A))),A),union(singleton(singleton(singleton(union(A)))))).  [resolve(641,a,97,a)].
+
+given #259 (A,wt=24): 63 f5(A,B) = union(A) | -in(f4(A,f5(A,B)),f5(A,B)) | union(A) = B | in(f4(A,B),B).  [factor(60,b,c),flip(a)].
+
+given #260 (F,wt=8): 2977 -subset(singleton(A),singleton(singleton(union(singleton(A))))).  [ur(19,b,73,a,c,482,a)].
+
+given #261 (F,wt=8): 3041 -subset(singleton(singleton(singleton(union(A)))),singleton(A)).  [ur(19,b,73,a,c,488,a)].
+
+given #262 (F,wt=8): 3176 -subset(singleton(A),singleton(singleton(singleton(union(A))))).  [ur(19,b,73,a,c,496,a)].
+
+given #263 (F,wt=8): 3275 -in(union(singleton(union(singleton(c3)))),singleton(c3)).  [ur(15,a,2076,a(flip),c,2092,a),rewrite([2076(11)])].
+
+given #264 (T,wt=11): 12207 in(f2(singleton(A),singleton(singleton(union(singleton(A))))),singleton(A)).  [resolve(2977,a,20,a)].
+
+given #265 (T,wt=11): 12211 in(f2(singleton(A),singleton(singleton(singleton(union(A))))),singleton(A)).  [resolve(3176,a,20,a)].
+
+given #266 (T,wt=12): 12247 subset(f2(singleton(A),singleton(singleton(union(singleton(A))))),union(singleton(A))).  [resolve(12207,a,28,a)].
+
+given #267 (T,wt=12): 12331 subset(f2(singleton(A),singleton(singleton(singleton(union(A))))),union(singleton(A))).  [resolve(12211,a,28,a)].
+
+given #268 (A,wt=28): 64 union(f5(A,B)) = f4(A,B) | -in(f4(f5(A,B),f4(A,B)),f4(A,B)) | union(A) = B | in(f4(A,B),B).  [factor(61,b,c)].
+
+given #269 (F,wt=8): 3282 -in(c3,singleton(union(singleton(union(singleton(c3)))))).  [ur(15,a,2076,a(flip),c,2092,a(flip)),rewrite([2076(15)])].
+
+given #270 (F,wt=8): 8172 -in(union(singleton(c3)),f5(singleton(c3),c3)).  [ur(54,a,32,a,b,85,a,c,2076,a(flip),d,33,a),rewrite([2076(8)])].
+
+given #271 (F,wt=8): 11313 singleton(singleton(c3)) != f5(singleton(c3),c3).  [ur(37,b,11260,a)].
+
+given #272 (F,wt=8): 11335 -subset(singleton(singleton(c3)),f5(singleton(c3),c3)).  [ur(19,b,73,a,c,11260,a)].
+
+given #273 (T,wt=12): 12517 in(f2(singleton(singleton(c3)),f5(singleton(c3),c3)),singleton(singleton(c3))).  [resolve(11335,a,20,a)].
+
+given #274 (T,wt=13): 2696 in(f2(union(singleton(singleton(A))),A),union(singleton(union(singleton(singleton(A)))))).  [resolve(676,a,97,a)].
+
+given #275 (T,wt=13): 2814 in(f2(singleton(singleton(union(singleton(A)))),A),singleton(singleton(union(singleton(A))))).  [resolve(364,a,20,a)].
+
+given #276 (T,wt=13): 2841 in(f2(singleton(singleton(singleton(union(A)))),A),singleton(singleton(singleton(union(A))))).  [resolve(386,a,20,a)].
+
+given #277 (A,wt=24): 65 f1(A,B) = union(B) | -in(f4(B,f1(A,B)),f1(A,B)) | singleton(A) = B | f1(A,B) = A.  [factor(62,b,c),flip(a)].
+
+given #278 (F,wt=9): 87 singleton(union(singleton(c3))) != union(singleton(singleton(c3))).  [ur(24,b,71,a,c,73,a,d,73,a),flip(a)].
+
+given #279 (F,wt=9): 88 union(singleton(singleton(union(singleton(c3))))) != singleton(c3).  [ur(24,b,70,a,c,73,a,d,73,a)].
+
+given #280 (F,wt=9): 156 union(union(singleton(singleton(singleton(singleton(A)))))) != A.  [ur(24,b,84,a,c,73,a,d,137,a)].
+
+given #281 (F,wt=9): 167 -in(singleton(union(union(union(singleton(singleton(A)))))),A).  [ur(24,a,xx,b,91,a,d,137,a)].
+
+given #282 (T,wt=13): 2981 in(A,union(singleton(A))) | -in(A,f2(singleton(A),union(singleton(A)))).  [factor(2979,a,c)].
+
+given #283 (T,wt=13): 3177 in(f2(singleton(union(singleton(singleton(A)))),A),singleton(union(singleton(singleton(A))))).  [resolve(675,a,20,a)].
+
+Low Water (keep): wt=18.000, iters=6708
+
+given #284 (T,wt=13): 3283 in(f2(union(singleton(union(singleton(c3)))),c3),union(singleton(union(singleton(c3))))).  [resolve(2293,a,20,a)].
+
+given #285 (T,wt=13): 4050 subset(A,union(union(union(singleton(singleton(union(singleton(union(singleton(singleton(A))))))))))).  [resolve(500,a,28,a)].
+
+given #286 (A,wt=23): 66 f1(union(A),A) = union(A) | -in(f4(A,f1(union(A),A)),f1(union(A),A)) | singleton(union(A)) = A.  [factor(65,a,d)].
+
+given #287 (F,wt=9): 168 -in(union(singleton(union(union(singleton(singleton(A)))))),A).  [ur(24,a,xx,b,90,a,d,137,a)].
+
+given #288 (F,wt=9): 173 union(singleton(union(singleton(singleton(singleton(A)))))) != A.  [ur(24,b,84,a,c,137,a,d,73,a)].
+
+given #289 (F,wt=9): 178 -in(union(singleton(singleton(singleton(union(union(A)))))),A).  [ur(24,a,xx,b,91,a,c,137,a)].
+
+given #290 (F,wt=9): 179 -in(union(singleton(singleton(union(singleton(union(A)))))),A).  [ur(24,a,xx,b,90,a,c,137,a)].
+
+given #291 (T,wt=13): 4642 subset(A,union(union(union(singleton(singleton(union(union(singleton(singleton(singleton(A))))))))))).  [resolve(508,a,28,a)].
+
+given #292 (T,wt=13): 5425 in(f2(union(singleton(singleton(A))),singleton(singleton(A))),union(singleton(singleton(A)))).  [resolve(185,a,20,a)].
+
+given #293 (T,wt=13): 6688 subset(A,union(union(singleton(union(singleton(union(singleton(union(singleton(singleton(A))))))))))).  [resolve(720,a,28,a)].
+
+given #294 (T,wt=13): 7532 in(A,B) | subset(f2(singleton(A),B),union(union(singleton(singleton(A))))).  [resolve(904,b,28,a)].
+
+given #295 (A,wt=15): 67 subset(f5(A,B),union(A)) | union(A) = B | in(f4(A,B),B).  [resolve(28,a,26,c)].
+
+given #296 (F,wt=9): 186 -subset(union(singleton(singleton(c3))),singleton(union(singleton(c3)))).  [ur(19,b,137,a,c,71,a)].
+
+given #297 (F,wt=9): 187 -subset(union(singleton(singleton(union(singleton(c3))))),singleton(c3)).  [ur(19,b,137,a,c,70,a)].
+
+given #298 (F,wt=9): 194 singleton(singleton(singleton(A))) != union(singleton(singleton(A))).  [ur(15,b,137,a,c,101,a(flip))].
+
+given #299 (F,wt=9): 203 union(singleton(singleton(f4(singleton(c3),c3)))) != c3.  [ur(24,b,85,a,c,73,a,d,73,a)].
+
+given #300 (T,wt=13): 7549 subset(f2(singleton(union(singleton(c3))),singleton(c3)),union(singleton(union(singleton(c3))))).  [resolve(930,a,28,a)].
+
+given #301 (T,wt=13): 7647 subset(A,union(union(singleton(union(union(singleton(singleton(union(singleton(singleton(A))))))))))).  [resolve(949,a,28,a)].
+
+given #302 (T,wt=13): 8583 subset(A,union(union(singleton(union(singleton(union(union(singleton(singleton(singleton(A))))))))))).  [resolve(1156,a,28,a)].
+
+given #303 (T,wt=13): 8909 subset(f2(singleton(c3),singleton(union(singleton(c3)))),union(union(singleton(singleton(c3))))).  [resolve(1709,a,28,a)].
+
+given #304 (A,wt=17): 68 subset(f4(A,B),union(f5(A,B))) | union(A) = B | in(f4(A,B),B).  [resolve(28,a,25,c)].
+
+given #305 (F,wt=9): 204 -subset(union(singleton(singleton(f4(singleton(c3),c3)))),c3).  [ur(19,b,137,a,c,85,a)].
+
+given #306 (F,wt=9): 247 -in(union(union(singleton(union(singleton(singleton(A)))))),A).  [ur(24,a,xx,b,33,a,d,141,a)].
+
+given #307 (F,wt=9): 267 -in(union(singleton(union(singleton(singleton(union(A)))))),A).  [ur(24,a,xx,b,33,a,c,141,a)].
+
+given #308 (F,wt=9): 271 -subset(union(singleton(union(singleton(singleton(singleton(A)))))),A).  [ur(19,b,141,a,c,84,a)].
+
+given #309 (T,wt=13): 9767 subset(f2(singleton(A),singleton(singleton(singleton(A)))),union(union(singleton(singleton(A))))).  [resolve(3182,a,28,a)].
+
+given #310 (T,wt=13): 9845 subset(A,union(union(union(singleton(union(singleton(singleton(union(singleton(singleton(A))))))))))).  [resolve(3335,a,28,a)].
+
+given #311 (T,wt=13): 10141 subset(A,union(union(singleton(union(union(singleton(union(singleton(singleton(singleton(A))))))))))).  [resolve(3499,a,28,a)].
+
+given #312 (T,wt=13): 10437 subset(A,union(union(union(union(singleton(singleton(singleton(union(singleton(singleton(A))))))))))).  [resolve(5447,a,28,a)].
+
+given #313 (A,wt=15): 69 subset(f1(A,B),union(B)) | singleton(A) = B | f1(A,B) = A.  [resolve(28,a,17,b)].
+
+given #314 (F,wt=9): 309 -in(union(singleton(c3)),f2(union(singleton(c3)),c3)).  [resolve(192,a,11,b)].
+
+given #315 (F,wt=9): 321 -subset(union(singleton(c3)),f2(union(singleton(c3)),c3)).  [ur(19,b,192,a,c,33,a)].
+
+given #316 (F,wt=9): 353 union(singleton(singleton(singleton(union(singleton(A)))))) != A.  [ur(24,b,103,a,c,73,a,d,73,a)].
+
+given #317 (F,wt=9): 363 -subset(union(singleton(singleton(singleton(union(singleton(A)))))),A).  [ur(19,b,137,a,c,103,a)].
+
+given #318 (T,wt=13): 10857 subset(A,union(union(singleton(union(union(union(singleton(singleton(singleton(singleton(A))))))))))).  [resolve(5455,a,28,a)].
+
+given #319 (T,wt=13): 11152 union(union(singleton(singleton(union(singleton(singleton(A))))))) != B | in(A,B).  [resolve(145,c,137,a)].
+
+given #320 (T,wt=13): 11411 A = B | in(f2(B,A),B) | -in(A,f2(A,B)).  [resolve(449,a,11,b)].
+
+given #321 (T,wt=13): 11428 in(f2(A,B),A) | A = B | -in(B,f2(B,A)).  [resolve(449,c,11,b)].
+
+given #322 (A,wt=17): 77 union(singleton(A)) = B | -in(f4(singleton(A),B),B) | -in(f4(singleton(A),B),A).  [resolve(73,a,27,d)].
+
+given #323 (F,wt=9): 375 union(singleton(singleton(singleton(singleton(union(A)))))) != A.  [ur(24,b,104,a,c,73,a,d,73,a)].
+
+given #324 (F,wt=9): 385 -subset(union(singleton(singleton(singleton(singleton(union(A)))))),A).  [ur(19,b,137,a,c,104,a)].
+
+given #325 (F,wt=9): 580 -in(union(union(union(singleton(singleton(singleton(A)))))),A).  [ur(24,a,xx,b,33,a,d,504,a)].
+
+given #326 (F,wt=9): 620 -in(union(union(singleton(singleton(singleton(union(A)))))),A).  [ur(24,a,xx,b,33,a,c,504,a)].
+
+given #327 (T,wt=13): 11720 in(f2(singleton(A),singleton(union(singleton(singleton(A))))),union(singleton(singleton(A)))).  [resolve(11668,a,97,a)].
+
+given #328 (T,wt=13): 12242 in(f2(singleton(A),singleton(singleton(union(singleton(A))))),union(singleton(singleton(A)))).  [resolve(12207,a,97,a)].
+
+given #329 (T,wt=13): 12326 in(f2(singleton(A),singleton(singleton(singleton(union(A))))),union(singleton(singleton(A)))).  [resolve(12211,a,97,a)].
+
+given #330 (T,wt=13): 12528 subset(f2(singleton(singleton(c3)),f5(singleton(c3),c3)),union(singleton(singleton(c3)))).  [resolve(12517,a,28,a)].
+
+given #331 (A,wt=15): 78 union(A) = B | -in(f4(A,B),B) | -in(singleton(f4(A,B)),A).  [resolve(73,a,27,c)].
+
+given #332 (F,wt=9): 627 -subset(union(union(singleton(singleton(singleton(singleton(A)))))),A).  [ur(19,b,504,a,c,84,a)].
+
+given #333 (F,wt=9): 660 union(singleton(singleton(union(singleton(singleton(A)))))) != A.  [ur(24,b,150,a,c,73,a,d,73,a)].
+
+given #334 (F,wt=9): 674 -subset(union(singleton(singleton(union(singleton(singleton(A)))))),A).  [ur(19,b,137,a,c,150,a)].
+
+given #335 (F,wt=9): 715 -subset(union(singleton(singleton(A))),singleton(singleton(singleton(A)))).  [ur(19,b,137,a,c,196,a)].
+
+given #336 (T,wt=13): 13329 in(f2(union(singleton(c3)),f2(union(singleton(c3)),c3)),union(singleton(c3))).  [resolve(321,a,20,a)].
+
+given #337 (T,wt=14): 191 union(union(singleton(singleton(A)))) = A | -subset(union(union(singleton(singleton(A)))),A).  [resolve(142,a,14,c),flip(a)].
+
+given #338 (T,wt=14): 327 in(f2(union(singleton(singleton(A))),B),union(singleton(singleton(A)))) | in(A,B).  [resolve(40,b,137,a)].
+
+given #339 (T,wt=14): 445 union(singleton(A)) = A | in(f2(union(singleton(A)),A),union(singleton(A))).  [resolve(98,b,20,a)].
+
+given #340 (A,wt=17): 100 singleton(A) = singleton(B) | f1(A,singleton(B)) = A | f1(A,singleton(B)) = B.  [xx_res(38,c)].
+
+given #341 (F,wt=9): 918 singleton(singleton(union(singleton(c3)))) != singleton(singleton(c3)).  [ur(83,b,75,a),flip(a)].
+
+given #342 (F,wt=9): 1390 -in(union(singleton(union(singleton(union(singleton(A)))))),A).  [ur(97,b,110,a)].
+
+given #343 (F,wt=9): 1457 -in(singleton(union(singleton(union(singleton(union(A)))))),A).  [ur(24,a,xx,b,110,a,c,73,a)].
+
+given #344 (F,wt=9): 1466 -in(singleton(union(singleton(union(union(singleton(A)))))),A).  [ur(97,b,111,a)].
+
+given #345 (T,wt=14): 719 in(A,union(union(singleton(singleton(union(singleton(union(singleton(union(singleton(singleton(A)))))))))))).  [resolve(208,a,190,a)].
+
+given #346 (T,wt=14): 729 union(singleton(union(singleton(union(singleton(singleton(A))))))) != singleton(B) | A = B.  [resolve(208,a,15,b),flip(a)].
+
+given #347 (T,wt=14): 903 in(A,B) | in(f2(singleton(A),B),union(union(singleton(singleton(singleton(A)))))).  [resolve(330,a,190,a)].
+
+given #348 (T,wt=14): 912 in(A,B) | singleton(C) != singleton(A) | f2(singleton(A),B) = C.  [resolve(330,a,15,b)].
+
+given #349 (A,wt=16): 138 in(f5(A,B),union(singleton(A))) | union(A) = B | in(f4(A,B),B).  [resolve(97,a,26,c)].
+
+given #350 (F,wt=9): 1533 -in(singleton(singleton(union(singleton(union(union(A)))))),A).  [ur(24,a,xx,b,111,a,c,73,a)].
+
+given #351 (F,wt=9): 1542 -in(singleton(union(union(singleton(union(singleton(A)))))),A).  [ur(97,b,115,a)].
+
+given #352 (F,wt=9): 1610 -in(singleton(singleton(union(union(singleton(union(A)))))),A).  [ur(24,a,xx,b,115,a,c,73,a)].
+
+given #353 (F,wt=9): 1619 -in(singleton(singleton(union(union(union(singleton(A)))))),A).  [ur(97,b,116,a)].
+
+given #354 (T,wt=9): 15700 in(A,B) | f2(singleton(A),B) = A.  [xx_res(912,b)].
+
+given #355 (T,wt=8): 16130 singleton(c3) != singleton(A) | c3 = A.  [back_rewrite(1717),rewrite([16065(11)])].
+
+given #356 (T,wt=9): 16035 f2(singleton(A),singleton(singleton(singleton(A)))) = A.  [resolve(15700,a,196,a)].
+
+given #357 (T,wt=9): 16065 f2(singleton(c3),singleton(union(singleton(c3)))) = c3.  [resolve(15700,a,71,a)].
+
+given #358 (A,wt=18): 139 in(f4(A,B),union(singleton(f5(A,B)))) | union(A) = B | in(f4(A,B),B).  [resolve(97,a,25,c)].
+
+given #359 (F,wt=9): 1686 -in(singleton(singleton(singleton(union(union(union(A)))))),A).  [ur(24,a,xx,b,116,a,c,73,a)].
+
+given #360 (F,wt=9): 1860 -in(union(union(singleton(singleton(union(singleton(A)))))),A).  [ur(97,b,170,a)].
+
+given #361 (F,wt=9): 1926 -in(singleton(union(union(singleton(singleton(union(A)))))),A).  [ur(24,a,xx,b,170,a,c,73,a)].
+
+given #362 (F,wt=9): 1937 -in(union(singleton(singleton(union(union(singleton(A)))))),A).  [ur(97,b,181,a)].
+
+given #363 (T,wt=9): 16100 f2(singleton(A),B) = A | -in(B,A).  [resolve(15700,a,11,b)].
+
+given #364 (T,wt=10): 16021 f2(singleton(A),singleton(singleton(singleton(union(A))))) = A.  [resolve(15700,a,496,a)].
+
+given #365 (T,wt=10): 16024 f2(singleton(A),singleton(singleton(union(singleton(A))))) = A.  [resolve(15700,a,482,a)].
+
+given #366 (T,wt=10): 16030 f2(singleton(A),singleton(union(singleton(singleton(A))))) = A.  [resolve(15700,a,339,a)].
+
+given #367 (A,wt=16): 140 in(f1(A,B),union(singleton(B))) | singleton(A) = B | f1(A,B) = A.  [resolve(97,a,17,b)].
+
+given #368 (F,wt=9): 2004 -in(singleton(union(singleton(singleton(union(union(A)))))),A).  [ur(24,a,xx,b,181,a,c,73,a)].
+
+given #369 (F,wt=9): 2079 -in(f2(union(singleton(singleton(singleton(A)))),A),A).  [ur(21,a,184,a)].
+
+given #370 (F,wt=9): 2125 union(union(singleton(singleton(union(singleton(c3)))))) != c3.  [ur(24,b,193,a,c,192,a,d,137,a)].
+
+given #371 (F,wt=9): 2223 singleton(singleton(f4(singleton(c3),c3))) != singleton(c3).  [ur(83,b,199,a),flip(a)].
+
+given #372 (T,wt=10): 16057 f2(singleton(singleton(union(A))),A) = singleton(union(A)).  [resolve(15700,a,91,a)].
+
+given #373 (T,wt=9): 16748 in(A,singleton(union(B))) | union(B) != A.  [resolve(16057,a,16,a(flip)),rewrite([16057(4)]),flip(b)].
+
+given #374 (T,wt=10): 16058 f2(singleton(union(singleton(A))),A) = union(singleton(A)).  [resolve(15700,a,90,a)].
+
+given #375 (T,wt=10): 16089 f2(singleton(A),B) = A | subset(A,union(B)).  [resolve(15700,a,28,a)].
+
+given #376 (A,wt=23): 143 union(union(singleton(singleton(A)))) = B | -in(f4(union(singleton(singleton(A))),B),B) | -in(f4(union(singleton(singleton(A))),B),A).  [resolve(137,a,27,d)].
+
+given #377 (F,wt=9): 2251 union(singleton(union(singleton(union(singleton(c3)))))) != c3.  [ur(79,b,193,a,c,301,a)].
+
+given #378 (F,wt=9): 2817 singleton(singleton(singleton(singleton(union(A))))) != singleton(A).  [ur(83,b,366,a),flip(a)].
+
+given #379 (F,wt=9): 3269 singleton(union(singleton(union(singleton(c3))))) != singleton(c3).  [ur(83,b,2092,a),flip(a)].
+
+given #380 (F,wt=9): 3284 -in(f2(union(singleton(union(singleton(c3)))),c3),c3).  [ur(21,a,2293,a)].
+
+given #381 (T,wt=11): 15989 f2(singleton(singleton(c3)),f5(singleton(c3),c3)) = singleton(c3).  [resolve(15700,a,11260,a)].
+
+given #382 (T,wt=7): 16888 in(A,singleton(c3)) | c3 != A.  [resolve(15989,a,16,a(flip)),rewrite([15989(8)]),flip(b)].
+
+given #383 (T,wt=11): 15992 f2(singleton(c3),singleton(union(singleton(union(singleton(c3)))))) = c3.  [resolve(15700,a,3282,a)].
+
+given #384 (T,wt=11): 15995 f2(singleton(A),singleton(singleton(singleton(singleton(union(A)))))) = A.  [resolve(15700,a,2840,a)].
+
+given #385 (A,wt=17): 144 union(A) = B | -in(f4(A,B),B) | -in(union(singleton(singleton(f4(A,B)))),A).  [resolve(137,a,27,c)].
+
+given #386 (F,wt=9): 3292 -in(union(singleton(singleton(A))),singleton(singleton(singleton(A)))).  [ur(15,a,2076,a(flip),c,86,a),rewrite([2076(11)])].
+
+given #387 (F,wt=9): 3299 -in(singleton(singleton(A)),singleton(union(singleton(singleton(A))))).  [ur(15,a,2076,a(flip),c,86,a(flip)),rewrite([2076(12)])].
+
+given #388 (F,wt=9): 3317 -in(A,singleton(union(singleton(singleton(union(singleton(A))))))).  [ur(15,a,2076,a(flip),c,109,a(flip)),rewrite([2076(14)])].
+
+given #389 (F,wt=9): 3357 -in(union(singleton(singleton(singleton(union(A))))),singleton(A)).  [ur(15,a,2076,a(flip),c,114,a),rewrite([2076(9)])].
+
+given #390 (T,wt=11): 15997 f2(singleton(A),singleton(singleton(union(singleton(singleton(A)))))) = A.  [resolve(15700,a,2560,a)].
+
+given #391 (T,wt=11): 15998 f2(singleton(A),singleton(singleton(singleton(union(singleton(A)))))) = A.  [resolve(15700,a,2547,a)].
+
+given #392 (T,wt=11): 15999 f2(singleton(c3),singleton(singleton(f4(singleton(c3),c3)))) = c3.  [resolve(15700,a,2236,a)].
+
+given #393 (T,wt=11): 16008 f2(singleton(A),singleton(union(singleton(singleton(singleton(A)))))) = A.  [resolve(15700,a,941,a)].
+
+given #394 (A,wt=16): 147 union(singleton(singleton(A))) != union(B) | in(f3(B,union(singleton(singleton(A))),A),B).  [resolve(137,a,23,b),flip(a)].
+
+given #395 (F,wt=9): 3376 -in(A,singleton(union(singleton(singleton(singleton(union(A))))))).  [ur(15,a,2076,a(flip),c,114,a(flip)),rewrite([2076(14)])].
+
+given #396 (F,wt=9): 3394 -in(A,singleton(union(union(singleton(singleton(singleton(A))))))).  [ur(15,a,2076,a(flip),c,166,a(flip)),rewrite([2076(14)])].
+
+given #397 (F,wt=9): 3414 singleton(singleton(union(union(singleton(singleton(A)))))) != A.  [ur(37,b,169,a)].
+
+given #398 (F,wt=9): 3415 singleton(union(union(singleton(singleton(singleton(A)))))) != A.  [ur(36,a,169,a)].
+
+given #399 (T,wt=11): 16055 f2(singleton(A),B) = A | in(A,union(singleton(B))).  [resolve(15700,a,97,a)].
+
+given #400 (T,wt=11): 16066 f2(singleton(union(singleton(c3))),singleton(c3)) = union(singleton(c3)).  [resolve(15700,a,70,a)].
+
+given #401 (T,wt=11): 17198 f2(singleton(A),B) = A | -in(union(singleton(B)),A).  [resolve(16055,b,11,b)].
+
+given #402 (T,wt=12): 16009 f2(singleton(singleton(c3)),singleton(singleton(union(singleton(c3))))) = singleton(c3).  [resolve(15700,a,927,a)].
+
+given #403 (A,wt=16): 148 union(singleton(singleton(A))) != union(B) | in(A,f3(B,union(singleton(singleton(A))),A)).  [resolve(137,a,22,b),flip(a)].
+
+given #404 (F,wt=9): 3479 -subset(singleton(singleton(union(union(singleton(singleton(A)))))),A).  [ur(19,b,73,a,c,169,a)].
+
+given #405 (F,wt=9): 3496 -in(A,singleton(union(singleton(union(singleton(singleton(A))))))).  [ur(15,a,2076,a(flip),c,177,a(flip)),rewrite([2076(14)])].
+
+given #406 (F,wt=9): 5276 -in(f5(singleton(c3),c3),f4(singleton(c3),c3)).  [ur(52,a,32,a,b,85,a)].
+
+given #407 (F,wt=9): 5302 singleton(union(singleton(singleton(singleton(union(A)))))) != A.  [ur(37,b,180,a)].
+
+given #408 (T,wt=11): 17236 in(A,f3(singleton(singleton(A)),union(singleton(singleton(A))),A)).  [xx_res(148,a)].
+
+given #409 (T,wt=12): 16046 f2(singleton(union(singleton(singleton(A)))),A) = union(singleton(singleton(A))).  [resolve(15700,a,150,a)].
+
+given #410 (T,wt=12): 16053 f2(singleton(singleton(singleton(union(A)))),A) = singleton(singleton(union(A))).  [resolve(15700,a,104,a)].
+
+given #411 (T,wt=11): 17474 in(A,singleton(singleton(union(B)))) | singleton(union(B)) != A.  [resolve(16053,a,16,a(flip)),rewrite([16053(5)]),flip(b)].
+
+given #412 (A,wt=12): 151 union(union(singleton(singleton(union(singleton(singleton(singleton(union(A))))))))) != A.  [ur(24,b,91,a,c,137,a,d,137,a)].
+
+given #413 (F,wt=9): 5420 -subset(singleton(union(singleton(singleton(singleton(union(A)))))),A).  [ur(19,b,73,a,c,180,a)].
+
+given #414 (F,wt=9): 6200 singleton(union(singleton(union(singleton(singleton(A)))))) != A.  [ur(37,b,217,a)].
+
+given #415 (F,wt=9): 6339 -subset(singleton(union(singleton(union(singleton(singleton(A)))))),A).  [ur(19,b,73,a,c,217,a)].
+
+given #416 (F,wt=9): 6370 singleton(singleton(union(singleton(union(singleton(A)))))) != A.  [ur(37,b,342,a)].
+
+given #417 (T,wt=12): 16054 f2(singleton(singleton(union(singleton(A)))),A) = singleton(union(singleton(A))).  [resolve(15700,a,103,a)].
+
+given #418 (T,wt=12): 16059 f2(singleton(f4(singleton(c3),c3)),c3) = f4(singleton(c3),c3).  [resolve(15700,a,85,a)].
+
+given #419 (T,wt=12): 16124 singleton(union(singleton(A))) != singleton(B) | union(singleton(A)) = B.  [back_rewrite(2572),rewrite([16058(9)])].
+
+given #420 (T,wt=12): 16512 f2(singleton(A),B) = A | f2(singleton(B),A) = B.  [resolve(16100,b,15700,a)].
+
+given #421 (A,wt=10): 152 union(union(singleton(singleton(singleton(singleton(union(A))))))) != A.  [ur(24,b,91,a,c,73,a,d,137,a)].
+
+given #422 (F,wt=9): 6509 -subset(singleton(singleton(union(singleton(union(singleton(A)))))),A).  [ur(19,b,73,a,c,342,a)].
+
+given #423 (F,wt=9): 6538 singleton(singleton(singleton(union(singleton(union(A)))))) != A.  [ur(37,b,361,a)].
+
+given #424 (F,wt=9): 6677 -subset(singleton(singleton(singleton(union(singleton(union(A)))))),A).  [ur(19,b,73,a,c,361,a)].
+
+given #425 (F,wt=9): 8171 -in(singleton(union(singleton(c3))),f5(singleton(c3),c3)).  [ur(54,a,32,a,b,85,a,c,2076,a(flip),d,84,a),rewrite([2076(8)])].
+
+given #426 (T,wt=12): 16955 f2(singleton(A),singleton(union(singleton(singleton(union(singleton(A))))))) = A.  [resolve(3317,a,15700,a)].
+
+given #427 (T,wt=12): 17040 f2(singleton(A),singleton(union(singleton(singleton(singleton(union(A))))))) = A.  [resolve(3376,a,15700,a)].
+
+given #428 (T,wt=12): 17064 f2(singleton(A),singleton(union(union(singleton(singleton(singleton(A))))))) = A.  [resolve(3394,a,15700,a)].
+
+given #429 (T,wt=12): 17187 f2(singleton(A),B) = A | subset(A,union(union(singleton(B)))).  [resolve(16055,b,28,a)].
+
+given #430 (A,wt=12): 153 union(union(singleton(singleton(union(singleton(singleton(union(singleton(A))))))))) != A.  [ur(24,b,90,a,c,137,a,d,137,a)].
+
+given #431 (F,wt=9): 8206 singleton(singleton(singleton(union(union(singleton(A)))))) != A.  [ur(37,b,365,a)].
+
+given #432 (F,wt=9): 8299 -subset(singleton(singleton(singleton(union(union(singleton(A)))))),A).  [ur(19,b,73,a,c,365,a)].
+
+given #433 (F,wt=9): 8333 singleton(singleton(singleton(singleton(union(union(A)))))) != A.  [ur(37,b,383,a)].
+
+given #434 (F,wt=9): 8426 -subset(singleton(singleton(singleton(singleton(union(union(A)))))),A).  [ur(19,b,73,a,c,383,a)].
+
+given #435 (T,wt=12): 17250 f2(singleton(A),singleton(union(singleton(union(singleton(singleton(A))))))) = A.  [resolve(3496,a,15700,a)].
+
+given #436 (T,wt=12): 17363 subset(A,union(f3(singleton(singleton(A)),union(singleton(singleton(A))),A))).  [resolve(17236,a,28,a)].
+
+given #437 (T,wt=12): 17586 f2(singleton(A),B) = A | subset(f2(singleton(B),A),B).  [resolve(16512,a,13,a)].
+
+given #438 (T,wt=12): 17587 f2(singleton(A),B) = A | subset(B,f2(singleton(B),A)).  [resolve(16512,a,12,a)].
+
+given #439 (A,wt=10): 154 union(union(singleton(singleton(singleton(union(singleton(A))))))) != A.  [ur(24,b,90,a,c,73,a,d,137,a)].
+
+given #440 (F,wt=9): 8559 -in(singleton(singleton(singleton(union(A)))),singleton(singleton(A))).  [ur(15,a,2076,a(flip),c,485,a),rewrite([2076(10)])].
+
+given #441 (F,wt=9): 8572 -in(singleton(A),singleton(singleton(singleton(singleton(union(A)))))).  [ur(15,a,2076,a(flip),c,485,a(flip)),rewrite([2076(13)])].
+
+given #442 (F,wt=9): 9093 union(singleton(singleton(c3))) != f5(singleton(c3),c3).  [ur(55,a,32,a,b,85,a,d,33,a,e,73,a)].
+
+given #443 (F,wt=9): 9227 -subset(singleton(union(union(singleton(singleton(singleton(A)))))),A).  [ur(19,b,73,a,c,519,a)].
+
+given #444 (T,wt=13): 15990 f2(singleton(union(singleton(c3))),f5(singleton(c3),c3)) = union(singleton(c3)).  [resolve(15700,a,8172,a)].
+
+given #445 (T,wt=13): 16022 f2(singleton(singleton(singleton(union(A)))),singleton(A)) = singleton(singleton(union(A))).  [resolve(15700,a,488,a)].
+
+given #446 (T,wt=13): 16037 f2(singleton(A),B) = A | in(A,union(union(singleton(singleton(B))))).  [resolve(15700,a,190,a)].
+
+given #447 (T,wt=13): 16097 f2(singleton(f2(A,B)),B) = f2(A,B) | subset(A,B).  [resolve(15700,a,21,b)].
+
+given #448 (A,wt=11): 155 union(union(singleton(singleton(union(singleton(singleton(singleton(A)))))))) != A.  [ur(24,b,84,a,c,137,a,d,137,a)].
+
+given #449 (F,wt=9): 9387 singleton(union(singleton(singleton(union(singleton(A)))))) != A.  [ur(37,b,644,a)].
+
+given #450 (F,wt=9): 9456 -subset(singleton(union(singleton(singleton(union(singleton(A)))))),A).  [ur(19,b,73,a,c,644,a)].
+
+given #451 (F,wt=9): 9505 singleton(singleton(union(singleton(singleton(union(A)))))) != A.  [ur(37,b,671,a)].
+
+given #452 (F,wt=9): 9574 -subset(singleton(singleton(union(singleton(singleton(union(A)))))),A).  [ur(19,b,73,a,c,671,a)].
+
+given #453 (T,wt=13): 16099 f2(singleton(A),B) = A | singleton(C) != B | A = C.  [resolve(15700,a,15,b)].
+
+given #454 (T,wt=10): 18174 f2(singleton(A),singleton(B)) = A | A = B.  [resolve(16099,b,17250,a(flip)),rewrite([17250(11)])].
+
+given #455 (T,wt=10): 18178 f2(singleton(A),singleton(c3)) = A | c3 = A.  [resolve(16099,b,16009,a(flip)),rewrite([16009(10)]),flip(b)].
+
+given #456 (T,wt=10): 18188 A = B | subset(f2(singleton(A),singleton(B)),A).  [resolve(18174,a,13,a)].
+
+given #457 (A,wt=12): 157 union(union(singleton(singleton(union(singleton(singleton(A))))))) != singleton(singleton(A)).  [ur(24,b,74,a,c,137,a,d,137,a)].
+
+given #458 (F,wt=9): 9610 singleton(f2(union(singleton(singleton(A))),A)) != A.  [ur(37,b,677,a)].
+
+given #459 (F,wt=9): 9662 -subset(singleton(f2(union(singleton(singleton(A))),A)),A).  [ur(19,b,73,a,c,677,a)].
+
+given #460 (F,wt=9): 9710 -subset(singleton(singleton(union(singleton(c3)))),singleton(singleton(c3))).  [ur(19,b,73,a,c,922,a)].
+
+given #461 (F,wt=9): 9758 -subset(singleton(singleton(c3)),singleton(singleton(union(singleton(c3))))).  [ur(19,b,73,a,c,927,a)].
+
+given #462 (T,wt=10): 18189 A = B | subset(A,f2(singleton(A),singleton(B))).  [resolve(18174,a,12,a)].
+
+given #463 (T,wt=10): 18214 c3 = A | subset(f2(singleton(A),singleton(c3)),A).  [resolve(18178,a,13,a)].
+
+given #464 (T,wt=10): 18215 c3 = A | subset(A,f2(singleton(A),singleton(c3))).  [resolve(18178,a,12,a)].
+
+given #465 (T,wt=11): 18186 A = B | in(f2(singleton(A),singleton(B)),singleton(A)).  [resolve(18174,a,36,b)].
+
+given #466 (A,wt=10): 159 union(union(singleton(singleton(singleton(A))))) != singleton(singleton(A)).  [ur(24,b,74,a,c,73,a,d,137,a)].
+
+given #467 (F,wt=9): 10761 -subset(singleton(A),singleton(union(singleton(singleton(singleton(A)))))).  [ur(19,b,73,a,c,941,a)].
+
+given #468 (F,wt=9): 10793 -in(A,singleton(singleton(union(singleton(union(singleton(A))))))).  [ur(15,a,2076,a(flip),c,1391,a(flip)),rewrite([2076(14)])].
+
+given #469 (F,wt=9): 10813 -in(singleton(singleton(union(singleton(union(A))))),singleton(A)).  [ur(15,a,2076,a(flip),c,1467,a),rewrite([2076(9)])].
+
+given #470 (F,wt=9): 10845 -in(A,singleton(singleton(singleton(union(singleton(union(A))))))).  [ur(15,a,2076,a(flip),c,1467,a(flip)),rewrite([2076(14)])].
+
+given #471 (T,wt=11): 18206 A = B | in(A,singleton(f2(singleton(A),singleton(B)))).  [resolve(18174,a,36,b(flip))].
+
+given #472 (T,wt=11): 18212 c3 = A | in(f2(singleton(A),singleton(c3)),singleton(A)).  [resolve(18178,a,36,b)].
+
+given #473 (T,wt=11): 18216 c3 = A | in(A,singleton(f2(singleton(A),singleton(c3)))).  [resolve(18178,a,36,b(flip))].
+
+given #474 (T,wt=11): 18327 A = B | -in(singleton(A),f2(singleton(A),singleton(B))).  [resolve(18186,b,11,b)].
+
+given #475 (A,wt=13): 160 union(union(singleton(singleton(union(singleton(singleton(c3))))))) != singleton(union(singleton(c3))).  [ur(24,b,71,a,c,137,a,d,137,a)].
+
+given #476 (F,wt=9): 11184 singleton(singleton(f5(singleton(c3),c3))) != singleton(c3).  [ur(58,a,32,a,b,85,a,d,72,a(flip))].
+
+given #477 (F,wt=9): 11220 -in(A,singleton(singleton(singleton(union(union(singleton(A))))))).  [ur(15,a,2076,a(flip),c,1543,a(flip)),rewrite([2076(14)])].
+
+given #478 (F,wt=9): 11253 -in(A,singleton(singleton(union(union(singleton(singleton(A))))))).  [ur(15,a,2076,a(flip),c,1544,a(flip)),rewrite([2076(14)])].
+
+given #479 (F,wt=9): 11354 -in(singleton(singleton(singleton(union(union(A))))),singleton(A)).  [ur(15,a,11256,a(flip),c,1620,a),rewrite([11256(8)])].
+
+given #480 (T,wt=11): 18451 A = B | -in(singleton(f2(singleton(A),singleton(B))),A).  [resolve(18206,b,11,b)].
+
+given #481 (T,wt=11): 18477 c3 = A | -in(singleton(A),f2(singleton(A),singleton(c3))).  [resolve(18212,b,11,b)].
+
+given #482 (T,wt=11): 18502 c3 = A | -in(singleton(f2(singleton(A),singleton(c3))),A).  [resolve(18216,b,11,b)].
+
+given #483 (T,wt=12): 18176 f2(singleton(A),singleton(union(B))) = A | union(B) = A.  [resolve(16099,b,16057,a(flip)),rewrite([16057(5)]),flip(b)].
+
+given #484 (A,wt=11): 161 union(union(singleton(singleton(singleton(c3))))) != singleton(union(singleton(c3))).  [ur(24,b,71,a,c,73,a,d,137,a)].
+
+given #485 (F,wt=9): 11386 -in(A,singleton(singleton(singleton(singleton(union(union(A))))))).  [ur(15,a,11256,a(flip),c,1620,a(flip)),rewrite([11256(13)])].
+
+given #486 (F,wt=9): 11508 -subset(union(union(singleton(singleton(union(singleton(c3)))))),c3).  [ur(19,b,499,a,c,193,a)].
+
+given #487 (F,wt=9): 11542 -in(singleton(union(singleton(singleton(union(A))))),singleton(A)).  [ur(15,a,11391,a(flip),c,1944,a),rewrite([11391(11)])].
+
+given #488 (F,wt=9): 11573 -in(A,singleton(singleton(union(singleton(singleton(union(A))))))).  [ur(15,a,11391,a(flip),c,1944,a(flip)),rewrite([11391(16)])].
+
+given #489 (T,wt=12): 18205 singleton(A) = B | in(A,f2(singleton(singleton(A)),singleton(B))).  [resolve(18174,a,37,a(flip))].
+
+given #490 (T,wt=12): 18209 A = B | subset(singleton(A),singleton(B)) | -in(A,singleton(B)).  [para(18174(a,1),21(b,1))].
+
+given #491 (T,wt=12): 18218 c3 = A | subset(singleton(A),singleton(c3)) | -in(A,singleton(c3)).  [para(18178(a,1),21(b,1))].
+
+given #492 (T,wt=12): 18320 A = B | subset(f2(singleton(A),singleton(B)),union(singleton(A))).  [resolve(18186,b,28,a)].
+
+given #493 (A,wt=13): 162 union(union(singleton(singleton(union(singleton(singleton(union(singleton(c3))))))))) != singleton(c3).  [ur(24,b,70,a,c,137,a,d,137,a)].
+
+given #494 (F,wt=9): 11594 -in(singleton(f2(union(singleton(c3)),c3)),singleton(c3)).  [ur(15,a,11391,a(flip),c,2095,a),rewrite([11391(14)])].
+
+given #495 (F,wt=9): 11612 -in(c3,singleton(singleton(f2(union(singleton(c3)),c3)))).  [ur(15,a,11391,a(flip),c,2095,a(flip)),rewrite([11391(19)])].
+
+given #496 (F,wt=9): 11642 -subset(singleton(singleton(f4(singleton(c3),c3))),singleton(c3)).  [ur(19,b,73,a,c,2229,a)].
+
+given #497 (F,wt=9): 11667 -subset(singleton(c3),singleton(singleton(f4(singleton(c3),c3)))).  [ur(19,b,73,a,c,2236,a)].
+
+given #498 (T,wt=12): 18360 f2(singleton(A),singleton(singleton(union(singleton(union(singleton(A))))))) = A.  [resolve(10793,a,15700,a)].
+
+given #499 (T,wt=12): 18403 f2(singleton(A),singleton(singleton(singleton(union(singleton(union(A))))))) = A.  [resolve(10845,a,15700,a)].
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 1459 (0.00 of 2.20 sec).
+
+given #500 (T,wt=12): 18443 A = B | subset(A,union(singleton(f2(singleton(A),singleton(B))))).  [resolve(18206,b,28,a)].
+
+given #501 (T,wt=12): 18459 A = B | singleton(f2(singleton(A),singleton(B))) != singleton(B).  [factor(18450,a,c)].
+
+given #502 (A,wt=11): 163 union(union(singleton(singleton(singleton(union(singleton(c3))))))) != singleton(c3).  [ur(24,b,70,a,c,73,a,d,137,a)].
+
+given #503 (F,wt=9): 11715 -subset(singleton(A),singleton(singleton(singleton(union(singleton(A)))))).  [ur(19,b,73,a,c,2547,a)].
+
+given #504 (F,wt=9): 11899 -subset(singleton(A),singleton(singleton(union(singleton(singleton(A)))))).  [ur(19,b,73,a,c,2560,a)].
+
+given #505 (F,wt=9): 11918 -in(union(singleton(f5(singleton(c3),c3))),singleton(c3)).  [ur(15,a,11391,a(flip),c,2793,a),rewrite([11391(14)])].
+
+given #506 (F,wt=9): 11936 -in(c3,singleton(union(singleton(f5(singleton(c3),c3))))).  [ur(15,a,11391,a(flip),c,2793,a(flip)),rewrite([11391(19)])].
+
+given #507 (T,wt=8): 19025 A = B | singleton(A) != singleton(B).  [para(18174(a,1),18459(b,1,1)),merge(b)].
+
+given #508 (T,wt=12): 18470 c3 = A | subset(f2(singleton(A),singleton(c3)),union(singleton(A))).  [resolve(18212,b,28,a)].
+
+given #509 (T,wt=12): 18495 c3 = A | subset(A,union(singleton(f2(singleton(A),singleton(c3))))).  [resolve(18216,b,28,a)].
+
+given #510 (T,wt=12): 18607 f2(singleton(A),singleton(singleton(singleton(union(union(singleton(A))))))) = A.  [resolve(11220,a,15700,a)].
+
+given #511 (A,wt=10): 164 union(union(singleton(singleton(union(singleton(singleton(A))))))) != A.  [ur(24,b,33,a,c,137,a,d,137,a)].
+
+given #512 (F,wt=9): 11961 -subset(singleton(singleton(singleton(singleton(union(A))))),singleton(A)).  [ur(19,b,73,a,c,2823,a)].
+
+given #513 (F,wt=9): 12010 -subset(singleton(A),singleton(singleton(singleton(singleton(union(A)))))).  [ur(19,b,73,a,c,2840,a)].
+
+given #514 (F,wt=9): 12062 -subset(union(singleton(union(singleton(union(singleton(c3)))))),c3).  [ur(19,b,2238,a,c,193,a)].
+
+given #515 (F,wt=9): 12237 -subset(singleton(union(singleton(union(singleton(c3))))),singleton(c3)).  [ur(19,b,73,a,c,3275,a)].
+
+given #516 (T,wt=12): 18632 f2(singleton(A),singleton(singleton(union(union(singleton(singleton(A))))))) = A.  [resolve(11253,a,15700,a)].
+
+given #517 (T,wt=12): 18739 union(A) = B | subset(f2(singleton(B),singleton(union(A))),B).  [resolve(18176,a,13,a)].
+
+given #518 (T,wt=12): 18740 union(A) = B | subset(B,f2(singleton(B),singleton(union(A)))).  [resolve(18176,a,12,a)].
+
+given #519 (T,wt=12): 18776 f2(singleton(A),singleton(singleton(singleton(singleton(union(union(A))))))) = A.  [resolve(11386,a,15700,a)].
+
+given #520 (A,wt=10): 171 union(singleton(union(singleton(singleton(singleton(union(A))))))) != A.  [ur(24,b,91,a,c,137,a,d,73,a)].
+
+given #521 (F,wt=9): 12436 -subset(singleton(c3),singleton(union(singleton(union(singleton(c3)))))).  [ur(19,b,73,a,c,3282,a)].
+
+given #522 (F,wt=9): 12461 singleton(union(singleton(c3))) != f5(singleton(c3),c3).  [ur(37,b,8172,a)].
+
+given #523 (F,wt=9): 12479 -subset(singleton(union(singleton(c3))),f5(singleton(c3),c3)).  [ur(19,b,73,a,c,8172,a)].
+
+given #524 (F,wt=9): 12498 -in(singleton(singleton(c3)),singleton(f5(singleton(c3),c3))).  [ur(15,a,11391,a(flip),c,11313,a),rewrite([11391(17)])].
+
+given #525 (T,wt=12): 18828 f2(singleton(A),singleton(singleton(union(singleton(singleton(union(A))))))) = A.  [resolve(11573,a,15700,a)].
+
+given #526 (T,wt=12): 18875 singleton(A) = B | -in(f2(singleton(singleton(A)),singleton(B)),A).  [resolve(18205,b,11,b)].
+
+given #527 (T,wt=12): 18933 f2(singleton(c3),singleton(singleton(f2(union(singleton(c3)),c3)))) = c3.  [resolve(11612,a,15700,a)].
+
+given #528 (T,wt=12): 19079 f2(singleton(c3),singleton(union(singleton(f5(singleton(c3),c3))))) = c3.  [resolve(11936,a,15700,a)].
+
+given #529 (A,wt=10): 172 union(singleton(union(singleton(singleton(union(singleton(A))))))) != A.  [ur(24,b,90,a,c,137,a,d,73,a)].
+
+given #530 (F,wt=9): 12516 -in(f5(singleton(c3),c3),singleton(singleton(singleton(c3)))).  [ur(15,a,11391,a(flip),c,11313,a(flip)),rewrite([11391(16)])].
+
+given #531 (F,wt=9): 13331 f2(union(singleton(c3)),c3) != union(singleton(c3)).  [ur(13,b,321,a),flip(a)].
+
+given #532 (F,wt=9): 17300 union(singleton(singleton(c3))) != f4(singleton(c3),c3).  [ur(55,a,32,a,b,85,a,d,5276,a,e,73,a)].
+
+given #533 (F,wt=10): 174 union(singleton(union(singleton(singleton(A))))) != singleton(singleton(A)).  [ur(24,b,74,a,c,137,a,d,73,a)].
+
+given #534 (T,wt=13): 16768 f2(singleton(A),B) = A | -in(C,A) | in(C,union(B)).  [resolve(16089,b,19,a)].
+
+given #535 (T,wt=12): 19530 f2(singleton(singleton(A)),B) = singleton(A) | in(A,union(B)).  [resolve(16768,b,73,a)].
+
+given #536 (T,wt=12): 19599 f2(singleton(singleton(A)),B) = singleton(A) | -in(union(B),A).  [resolve(19530,b,11,b)].
+
+given #537 (T,wt=13): 17035 in(f3(singleton(singleton(A)),union(singleton(singleton(A))),A),singleton(singleton(A))).  [xx_res(147,a)].
+
+given #538 (A,wt=11): 175 union(singleton(union(singleton(singleton(c3))))) != singleton(union(singleton(c3))).  [ur(24,b,71,a,c,137,a,d,73,a)].
+
+given #539 (F,wt=10): 243 union(union(singleton(union(singleton(singleton(singleton(A))))))) != A.  [ur(24,b,33,a,c,73,a,d,141,a)].
+
+given #540 (F,wt=10): 246 -in(singleton(union(union(singleton(union(singleton(singleton(A))))))),A).  [ur(24,a,xx,b,84,a,d,141,a)].
+
+given #541 (F,wt=10): 263 union(singleton(union(singleton(union(singleton(singleton(A))))))) != A.  [ur(24,b,33,a,c,141,a,d,73,a)].
+
+given #542 (F,wt=10): 266 -in(union(singleton(union(singleton(singleton(singleton(union(A))))))),A).  [ur(24,a,xx,b,84,a,c,141,a)].
+
+given #543 (T,wt=13): 17171 f2(singleton(A),B) = A | in(A,union(singleton(union(singleton(B))))).  [resolve(16055,b,97,a)].
+
+given #544 (T,wt=13): 17355 in(A,union(singleton(f3(singleton(singleton(A)),union(singleton(singleton(A))),A)))).  [resolve(17236,a,97,a)].
+
+given #545 (T,wt=13): 17584 f2(singleton(A),B) = A | in(f2(singleton(B),A),singleton(B)).  [resolve(16512,a,36,b)].
+
+given #546 (T,wt=13): 17603 f2(singleton(A),B) = A | in(B,singleton(f2(singleton(B),A))).  [resolve(16512,a,36,b(flip))].
+
+given #547 (A,wt=11): 176 union(singleton(union(singleton(singleton(union(singleton(c3))))))) != singleton(c3).  [ur(24,b,70,a,c,137,a,d,73,a)].
+
+given #548 (F,wt=10): 268 -subset(union(singleton(union(singleton(singleton(singleton(union(A))))))),A).  [ur(19,b,141,a,c,91,a)].
+
+given #549 (F,wt=10): 269 -subset(union(singleton(union(singleton(singleton(union(singleton(A))))))),A).  [ur(19,b,141,a,c,90,a)].
+
+given #550 (F,wt=10): 272 -subset(union(singleton(union(singleton(singleton(A))))),singleton(singleton(A))).  [ur(19,b,141,a,c,74,a)].
+
+given #551 (F,wt=10): 313 -in(union(union(singleton(c3))),f2(union(singleton(c3)),c3)).  [ur(24,a,xx,b,33,a,d,192,a)].
+
+given #552 (T,wt=13): 17905 f2(singleton(singleton(A)),singleton(singleton(singleton(singleton(union(A)))))) = singleton(A).  [resolve(8572,a,15700,a)].
+
+given #553 (T,wt=13): 18052 f2(singleton(A),B) = A | -in(union(union(singleton(singleton(B)))),A).  [resolve(16037,b,11,b)].
+
+given #554 (T,wt=13): 18223 A = B | -in(C,f2(singleton(A),singleton(B))) | in(C,A).  [resolve(18188,b,19,a)].
+
+given #555 (T,wt=13): 18295 A = B | -in(C,A) | in(C,f2(singleton(A),singleton(B))).  [resolve(18189,b,19,a)].
+
+Low Water (keep): wt=17.000, iters=7191
+
+given #556 (A,wt=15): 189 union(union(singleton(singleton(A)))) = A | -in(f4(union(singleton(singleton(A))),A),A).  [factor(143,b,c)].
+
+given #557 (F,wt=10): 356 -in(singleton(union(singleton(union(union(singleton(singleton(A))))))),A).  [ur(24,a,xx,b,103,a,d,137,a)].
+
+given #558 (F,wt=10): 360 -in(union(singleton(singleton(singleton(union(singleton(union(A))))))),A).  [ur(24,a,xx,b,103,a,c,137,a)].
+
+given #559 (F,wt=10): 378 -in(singleton(singleton(union(union(union(singleton(singleton(A))))))),A).  [ur(24,a,xx,b,104,a,d,137,a)].
+
+given #560 (F,wt=10): 382 -in(union(singleton(singleton(singleton(singleton(union(union(A))))))),A).  [ur(24,a,xx,b,104,a,c,137,a)].
+
+given #561 (T,wt=13): 18300 c3 = A | -in(B,f2(singleton(A),singleton(c3))) | in(B,A).  [resolve(18214,b,19,a)].
+
+given #562 (T,wt=13): 18305 c3 = A | -in(B,A) | in(B,f2(singleton(A),singleton(c3))).  [resolve(18215,b,19,a)].
+
+given #563 (T,wt=13): 18315 A = B | in(f2(singleton(A),singleton(B)),union(singleton(singleton(A)))).  [resolve(18186,b,97,a)].
+
+given #564 (T,wt=13): 18435 A = B | in(A,union(singleton(singleton(f2(singleton(A),singleton(B)))))).  [resolve(18206,b,97,a)].
+
+given #565 (A,wt=13): 200 union(union(singleton(singleton(union(singleton(singleton(f4(singleton(c3),c3)))))))) != c3.  [ur(24,b,85,a,c,137,a,d,137,a)].
+
+given #566 (F,wt=10): 479 singleton(singleton(union(singleton(A)))) != union(singleton(singleton(A))).  [ur(15,b,137,a,c,108,a(flip))].
+
+given #567 (F,wt=10): 487 union(singleton(singleton(singleton(singleton(union(A)))))) != singleton(A).  [ur(15,b,137,a,c,113,a),flip(a)].
+
+given #568 (F,wt=10): 493 singleton(singleton(singleton(union(A)))) != union(singleton(singleton(A))).  [ur(15,b,137,a,c,113,a(flip))].
+
+given #569 (F,wt=10): 524 union(union(union(singleton(singleton(singleton(singleton(A))))))) != A.  [ur(24,b,107,a,c,106,a,d,504,a)].
+
+given #570 (T,wt=13): 18465 c3 = A | in(f2(singleton(A),singleton(c3)),union(singleton(singleton(A)))).  [resolve(18212,b,97,a)].
+
+given #571 (T,wt=13): 18490 c3 = A | in(A,union(singleton(singleton(f2(singleton(A),singleton(c3)))))).  [resolve(18216,b,97,a)].
+
+given #572 (T,wt=13): 18737 union(A) = B | in(f2(singleton(B),singleton(union(A))),singleton(B)).  [resolve(18176,a,36,b)].
+
+given #573 (T,wt=13): 18749 union(A) = B | in(B,singleton(f2(singleton(B),singleton(union(A))))).  [resolve(18176,a,36,b(flip))].
+
+given #574 (A,wt=11): 201 union(singleton(union(singleton(singleton(f4(singleton(c3),c3)))))) != c3.  [ur(24,b,85,a,c,137,a,d,73,a)].
+
+given #575 (F,wt=10): 579 -in(singleton(union(union(union(singleton(singleton(singleton(A))))))),A).  [ur(24,a,xx,b,84,a,d,504,a)].
+
+given #576 (F,wt=10): 613 union(singleton(union(union(singleton(singleton(singleton(A))))))) != A.  [ur(24,b,33,a,c,504,a,d,73,a)].
+
+given #577 (F,wt=10): 619 -in(union(union(singleton(singleton(singleton(singleton(union(A))))))),A).  [ur(24,a,xx,b,84,a,c,504,a)].
+
+given #578 (F,wt=10): 624 -subset(union(union(singleton(singleton(singleton(singleton(union(A))))))),A).  [ur(19,b,504,a,c,91,a)].
+
+given #579 (T,wt=13): 18867 singleton(A) = B | subset(A,union(f2(singleton(singleton(A)),singleton(B)))).  [resolve(18205,b,28,a)].
+
+given #580 (T,wt=13): 19588 f2(singleton(singleton(A)),B) = singleton(A) | subset(A,union(union(B))).  [resolve(19530,b,28,a)].
+
+given #581 (T,wt=13): 19887 f2(singleton(A),B) = A | -in(union(singleton(union(singleton(B)))),A).  [resolve(17171,b,11,b)].
+
+given #582 (T,wt=13): 19968 f2(singleton(A),B) = A | -in(singleton(B),f2(singleton(B),A)).  [resolve(17584,b,11,b)].
+
+given #583 (A,wt=11): 202 union(union(singleton(singleton(singleton(f4(singleton(c3),c3)))))) != c3.  [ur(24,b,85,a,c,73,a,d,137,a)].
+
+given #584 (F,wt=10): 625 -subset(union(union(singleton(singleton(singleton(union(singleton(A))))))),A).  [ur(19,b,504,a,c,90,a)].
+
+given #585 (F,wt=10): 628 -subset(union(union(singleton(singleton(singleton(A))))),singleton(singleton(A))).  [ur(19,b,504,a,c,74,a)].
+
+given #586 (F,wt=10): 643 -in(union(singleton(singleton(union(union(singleton(singleton(A))))))),A).  [ur(190,b,150,a)].
+
+given #587 (F,wt=10): 670 -in(union(singleton(singleton(union(singleton(singleton(union(A))))))),A).  [ur(24,a,xx,b,150,a,c,137,a)].
+
+given #588 (T,wt=13): 19999 f2(singleton(A),B) = A | -in(singleton(f2(singleton(B),A)),B).  [resolve(17603,b,11,b)].
+
+given #589 (T,wt=13): 21011 A = B | -in(union(singleton(singleton(A))),f2(singleton(A),singleton(B))).  [resolve(18315,b,11,b)].
+
+given #590 (T,wt=13): 21048 A = B | -in(union(singleton(singleton(f2(singleton(A),singleton(B))))),A).  [resolve(18435,b,11,b)].
+
+given #591 (T,wt=13): 21184 c3 = A | -in(union(singleton(singleton(A))),f2(singleton(A),singleton(c3))).  [resolve(18465,b,11,b)].
+
+given #592 (A,wt=29): 210 union(union(singleton(union(singleton(singleton(A)))))) = B | -in(f4(union(singleton(union(singleton(singleton(A))))),B),B) | -in(f4(union(singleton(union(singleton(singleton(A))))),B),A).  [resolve(141,a,27,d)].
+
+given #593 (F,wt=10): 730 -in(union(singleton(union(singleton(union(singleton(singleton(A))))))),A).  [resolve(208,a,11,b)].
+
+given #594 (F,wt=10): 891 -subset(union(singleton(union(singleton(union(singleton(singleton(A))))))),A).  [ur(19,b,208,a,c,33,a)].
+
+given #595 (F,wt=10): 959 -in(union(union(singleton(singleton(union(singleton(singleton(A))))))),A).  [resolve(501,a,11,b)].
+
+given #596 (F,wt=10): 1146 -subset(union(union(singleton(singleton(union(singleton(singleton(A))))))),A).  [ur(19,b,501,a,c,33,a)].
+
+given #597 (T,wt=13): 21214 c3 = A | -in(union(singleton(singleton(f2(singleton(A),singleton(c3))))),A).  [resolve(18490,b,11,b)].
+
+given #598 (T,wt=13): 21244 union(A) = B | -in(singleton(B),f2(singleton(B),singleton(union(A)))).  [resolve(18737,b,11,b)].
+
+given #599 (T,wt=13): 21274 union(A) = B | -in(singleton(f2(singleton(B),singleton(union(A)))),B).  [resolve(18749,b,11,b)].
+
+given #600 (T,wt=14): 915 in(A,B) | union(singleton(A)) != B | -in(A,f2(singleton(A),B)).  [factor(908,a,c)].
+
+given #601 (A,wt=19): 211 union(A) = B | -in(f4(A,B),B) | -in(union(singleton(union(singleton(singleton(f4(A,B)))))),A).  [resolve(141,a,27,c)].
+
+given #602 (F,wt=10): 1166 -in(union(singleton(union(union(singleton(singleton(singleton(A))))))),A).  [resolve(509,a,11,b)].
+
+given #603 (F,wt=10): 1379 -subset(union(singleton(union(union(singleton(singleton(singleton(A))))))),A).  [ur(19,b,509,a,c,33,a)].
+
+given #604 (F,wt=10): 1440 union(singleton(singleton(union(singleton(union(singleton(A))))))) != A.  [ur(24,b,110,a,c,73,a,d,73,a)].
+
+given #605 (F,wt=10): 1463 -subset(union(singleton(singleton(union(singleton(union(singleton(A))))))),A).  [ur(19,b,137,a,c,110,a)].
+
+given #606 (T,wt=14): 948 in(A,union(union(singleton(singleton(union(union(singleton(singleton(union(singleton(singleton(A)))))))))))).  [resolve(501,a,190,a)].
+
+given #607 (T,wt=14): 958 union(union(singleton(singleton(union(singleton(singleton(A))))))) != singleton(B) | A = B.  [resolve(501,a,15,b),flip(a)].
+
+given #608 (T,wt=14): 1155 in(A,union(union(singleton(singleton(union(singleton(union(union(singleton(singleton(singleton(A)))))))))))).  [resolve(509,a,190,a)].
+
+given #609 (T,wt=14): 1165 union(singleton(union(union(singleton(singleton(singleton(A))))))) != singleton(B) | A = B.  [resolve(509,a,15,b),flip(a)].
+
+given #610 (A,wt=15): 212 union(union(singleton(union(singleton(singleton(A)))))) != B | in(C,B) | -in(C,A).  [resolve(141,a,24,d)].
+
+given #611 (F,wt=10): 1516 union(singleton(singleton(singleton(union(singleton(union(A))))))) != A.  [ur(24,b,111,a,c,73,a,d,73,a)].
+
+given #612 (F,wt=10): 1539 -subset(union(singleton(singleton(singleton(union(singleton(union(A))))))),A).  [ur(19,b,137,a,c,111,a)].
+
+given #613 (F,wt=10): 1593 union(singleton(singleton(singleton(union(union(singleton(A))))))) != A.  [ur(24,b,115,a,c,73,a,d,73,a)].
+
+given #614 (F,wt=10): 1616 -subset(union(singleton(singleton(singleton(union(union(singleton(A))))))),A).  [ur(19,b,137,a,c,115,a)].
+
+given #615 (T,wt=14): 1769 union(singleton(union(singleton(c3)))) != A | in(f2(union(singleton(c3)),c3),A).  [resolve(79,c,192,a)].
+
+given #616 (T,wt=14): 2764 -in(A,B) | in(A,union(union(singleton(union(singleton(union(singleton(singleton(B))))))))).  [resolve(722,a,19,a)].
+
+given #617 (T,wt=12): 22122 in(A,union(union(singleton(union(singleton(union(singleton(singleton(singleton(A)))))))))).  [resolve(2764,a,73,a)].
+
+given #618 (T,wt=13): 22149 subset(A,union(union(union(singleton(union(singleton(union(singleton(singleton(singleton(A))))))))))).  [resolve(22122,a,28,a)].
+
+given #619 (A,wt=15): 213 union(A) != B | in(C,B) | -in(union(singleton(union(singleton(singleton(C))))),A).  [resolve(141,a,24,c)].
+
+given #620 (F,wt=10): 1669 union(singleton(singleton(singleton(singleton(union(union(A))))))) != A.  [ur(24,b,116,a,c,73,a,d,73,a)].
+
+given #621 (F,wt=10): 1692 -subset(union(singleton(singleton(singleton(singleton(union(union(A))))))),A).  [ur(19,b,137,a,c,116,a)].
+
+given #622 (F,wt=10): 1857 union(singleton(singleton(union(union(singleton(singleton(A))))))) != A.  [ur(1774,b,170,a)].
+
+given #623 (F,wt=10): 1932 -subset(union(singleton(singleton(union(union(singleton(singleton(A))))))),A).  [ur(19,b,137,a,c,170,a)].
+
+given #624 (T,wt=14): 2979 in(A,B) | -in(C,f2(singleton(A),B)) | in(C,union(singleton(A))).  [resolve(906,b,19,a)].
+
+given #625 (T,wt=14): 2983 -in(A,B) | in(A,union(union(union(singleton(singleton(union(singleton(singleton(B))))))))).  [resolve(951,a,19,a)].
+
+given #626 (T,wt=12): 22418 in(A,union(union(union(singleton(singleton(union(singleton(singleton(singleton(A)))))))))).  [resolve(2983,a,73,a)].
+
+given #627 (T,wt=13): 22447 subset(A,union(union(union(union(singleton(singleton(union(singleton(singleton(singleton(A))))))))))).  [resolve(22418,a,28,a)].
+
+given #628 (A,wt=20): 214 union(singleton(union(singleton(singleton(A))))) != union(B) | in(f3(B,union(singleton(union(singleton(singleton(A))))),A),B).  [resolve(141,a,23,b),flip(a)].
+
+given #629 (F,wt=10): 1934 union(singleton(singleton(union(singleton(singleton(union(A))))))) != A.  [ur(1774,b,181,a)].
+
+given #630 (F,wt=10): 2010 -subset(union(singleton(singleton(union(singleton(singleton(union(A))))))),A).  [ur(19,b,137,a,c,181,a)].
+
+given #631 (F,wt=10): 2080 union(singleton(singleton(f2(union(singleton(c3)),c3)))) != c3.  [ur(1774,b,193,a)].
+
+given #632 (F,wt=10): 2143 -subset(union(singleton(singleton(f2(union(singleton(c3)),c3)))),c3).  [ur(19,b,137,a,c,193,a)].
+
+given #633 (T,wt=14): 2986 -in(A,B) | in(A,union(union(singleton(union(union(singleton(singleton(singleton(B))))))))).  [resolve(1158,a,19,a)].
+
+given #634 (T,wt=12): 22672 in(A,union(union(singleton(union(union(singleton(singleton(singleton(singleton(A)))))))))).  [resolve(2986,a,73,a)].
+
+given #635 (T,wt=13): 22702 subset(A,union(union(union(singleton(union(union(singleton(singleton(singleton(singleton(A))))))))))).  [resolve(22672,a,28,a)].
+
+given #636 (T,wt=14): 3323 in(A,union(union(singleton(union(singleton(singleton(union(union(singleton(singleton(singleton(A)))))))))))).  [resolve(415,a,504,a)].
+
+given #637 (A,wt=20): 215 union(singleton(union(singleton(singleton(A))))) != union(B) | in(A,f3(B,union(singleton(union(singleton(singleton(A))))),A)).  [resolve(141,a,22,b),flip(a)].
+
+given #638 (F,wt=10): 2427 -in(union(f5(singleton(c3),c3)),f4(singleton(c3),c3)).  [ur(47,a,32,a,b,85,a,c,2076,a(flip),d,33,a),rewrite([2076(12)])].
+
+given #639 (F,wt=10): 2532 -subset(union(singleton(singleton(A))),singleton(union(singleton(singleton(A))))).  [ur(19,b,137,a,c,339,a)].
+
+given #640 (F,wt=10): 2792 union(union(singleton(singleton(f5(singleton(c3),c3))))) != c3.  [ur(48,a,32,a,b,85,a,d,85,a,e,137,a)].
+
+given #641 (F,wt=10): 2976 -subset(union(singleton(singleton(A))),singleton(singleton(union(singleton(A))))).  [ur(19,b,137,a,c,482,a)].
+
+given #642 (T,wt=14): 3334 in(A,union(union(singleton(union(singleton(singleton(union(singleton(union(singleton(singleton(A)))))))))))).  [resolve(415,a,141,a)].
+
+given #643 (T,wt=14): 3498 in(A,union(union(singleton(singleton(union(union(singleton(union(singleton(singleton(singleton(A)))))))))))).  [resolve(3336,a,190,a)].
+
+given #644 (T,wt=14): 3512 union(union(singleton(union(singleton(singleton(singleton(A))))))) != singleton(B) | A = B.  [resolve(3336,a,15,b),flip(a)].
+
+given #645 (T,wt=14): 4040 -in(A,B) | in(A,union(union(union(singleton(union(singleton(singleton(singleton(B))))))))).  [resolve(3505,a,19,a)].
+
+given #646 (A,wt=16): 218 union(union(singleton(union(singleton(singleton(union(singleton(union(singleton(singleton(singleton(union(A))))))))))))) != A.  [ur(24,b,91,a,c,141,a,d,141,a)].
+
+given #647 (F,wt=10): 3040 -subset(union(singleton(singleton(singleton(singleton(union(A)))))),singleton(A)).  [ur(19,b,137,a,c,488,a)].
+
+given #648 (F,wt=10): 3175 -subset(union(singleton(singleton(A))),singleton(singleton(singleton(union(A))))).  [ur(19,b,137,a,c,496,a)].
+
+given #649 (F,wt=10): 3286 singleton(union(singleton(singleton(A)))) != singleton(singleton(singleton(A))).  [ur(83,b,86,a),flip(a)].
+
+given #650 (F,wt=10): 3352 singleton(union(singleton(singleton(singleton(union(A)))))) != singleton(A).  [ur(83,b,114,a),flip(a)].
+
+given #651 (T,wt=12): 23064 in(A,union(union(union(singleton(union(singleton(singleton(singleton(singleton(A)))))))))).  [resolve(4040,a,73,a)].
+
+given #652 (T,wt=13): 23178 subset(A,union(union(union(union(singleton(union(singleton(singleton(singleton(singleton(A))))))))))).  [resolve(23064,a,28,a)].
+
+given #653 (T,wt=14): 4044 in(A,union(singleton(union(union(singleton(singleton(union(singleton(union(singleton(singleton(A)))))))))))).  [resolve(500,a,97,a)].
+
+given #654 (T,wt=14): 4636 in(A,union(singleton(union(union(singleton(singleton(union(union(singleton(singleton(singleton(A)))))))))))).  [resolve(508,a,97,a)].
+
+given #655 (A,wt=14): 219 union(union(singleton(union(singleton(singleton(union(singleton(singleton(singleton(union(A))))))))))) != A.  [ur(24,b,91,a,c,137,a,d,141,a)].
+
+given #656 (F,wt=10): 3401 -in(singleton(union(union(singleton(singleton(union(singleton(A))))))),A).  [ur(97,b,169,a)].
+
+given #657 (F,wt=10): 3407 -in(singleton(singleton(union(union(singleton(singleton(union(A))))))),A).  [ur(80,a,2076,a(flip),b,169,a),rewrite([2076(4)])].
+
+given #658 (F,wt=10): 3513 -in(union(union(singleton(union(singleton(singleton(singleton(A))))))),A).  [resolve(3336,a,11,b)].
+
+given #659 (F,wt=10): 4018 -subset(union(union(singleton(union(singleton(singleton(singleton(A))))))),A).  [ur(19,b,3336,a,c,33,a)].
+
+given #660 (T,wt=14): 5434 in(A,union(union(union(singleton(singleton(singleton(union(union(singleton(singleton(singleton(A)))))))))))).  [resolve(639,a,504,a)].
+
+given #661 (T,wt=14): 5446 in(A,union(union(union(singleton(singleton(singleton(union(singleton(union(singleton(singleton(A)))))))))))).  [resolve(639,a,141,a)].
+
+given #662 (T,wt=14): 5454 in(A,union(union(singleton(singleton(union(union(union(singleton(singleton(singleton(singleton(A)))))))))))).  [resolve(5448,a,190,a)].
+
+given #663 (T,wt=14): 5468 union(union(union(singleton(singleton(singleton(singleton(A))))))) != singleton(B) | A = B.  [resolve(5448,a,15,b),flip(a)].
+
+given #664 (A,wt=12): 220 union(union(singleton(union(singleton(singleton(singleton(singleton(union(A))))))))) != A.  [ur(24,b,91,a,c,73,a,d,141,a)].
+
+given #665 (F,wt=10): 5283 -in(union(singleton(singleton(singleton(union(union(singleton(A))))))),A).  [ur(97,b,180,a)].
+
+given #666 (F,wt=10): 5292 -in(singleton(union(singleton(singleton(singleton(union(union(A))))))),A).  [ur(80,a,2076,a(flip),b,180,a),rewrite([2076(4)])].
+
+given #667 (F,wt=10): 5422 -in(f2(union(singleton(singleton(singleton(union(A))))),A),A).  [ur(21,a,182,a)].
+
+given #668 (F,wt=10): 5424 -in(f2(union(singleton(singleton(union(singleton(A))))),A),A).  [ur(21,a,183,a)].
+
+given #669 (T,wt=14): 6170 -in(A,B) | in(A,union(union(union(union(singleton(singleton(singleton(singleton(B))))))))).  [resolve(5461,a,19,a)].
+
+given #670 (T,wt=12): 23759 in(A,union(union(union(union(singleton(singleton(singleton(singleton(singleton(A)))))))))).  [resolve(6170,a,73,a)].
+
+given #671 (T,wt=13): 23789 subset(A,union(union(union(union(union(singleton(singleton(singleton(singleton(singleton(A))))))))))).  [resolve(23759,a,28,a)].
+
+given #672 (T,wt=14): 6681 in(A,union(singleton(union(singleton(union(singleton(union(singleton(union(singleton(singleton(A)))))))))))).  [resolve(720,a,97,a)].
+
+given #673 (A,wt=16): 221 union(union(singleton(union(singleton(singleton(union(singleton(union(singleton(singleton(union(singleton(A))))))))))))) != A.  [ur(24,b,90,a,c,141,a,d,141,a)].
+
+given #674 (F,wt=10): 5469 -in(union(union(union(singleton(singleton(singleton(singleton(A))))))),A).  [resolve(5448,a,11,b)].
+
+given #675 (F,wt=10): 6148 -subset(union(union(union(singleton(singleton(singleton(singleton(A))))))),A).  [ur(19,b,5448,a,c,33,a)].
+
+given #676 (F,wt=10): 6179 -in(union(singleton(union(singleton(singleton(union(singleton(A))))))),A).  [ur(97,b,217,a)].
+
+given #677 (F,wt=10): 6189 -in(singleton(union(singleton(union(singleton(singleton(union(A))))))),A).  [ur(80,a,2076,a(flip),b,217,a),rewrite([2076(4)])].
+
+given #678 (T,wt=14): 7528 in(A,B) | in(f2(singleton(A),B),union(singleton(union(singleton(singleton(A)))))).  [resolve(904,b,97,a)].
+
+given #679 (T,wt=14): 7640 in(A,union(singleton(union(singleton(union(union(singleton(singleton(union(singleton(singleton(A)))))))))))).  [resolve(949,a,97,a)].
+
+given #680 (T,wt=14): 8576 in(A,union(singleton(union(singleton(union(singleton(union(union(singleton(singleton(singleton(A)))))))))))).  [resolve(1156,a,97,a)].
+
+Low Water (displace): id=7304, wt=27.000
+
+given #681 (T,wt=14): 9837 in(A,union(singleton(union(union(singleton(union(singleton(singleton(union(singleton(singleton(A)))))))))))).  [resolve(3335,a,97,a)].
+
+Low Water (displace): id=7354, wt=26.000
+
+given #682 (A,wt=14): 222 union(union(singleton(union(singleton(singleton(union(singleton(singleton(union(singleton(A))))))))))) != A.  [ur(24,b,90,a,c,137,a,d,141,a)].
+
+given #683 (F,wt=10): 6341 -in(f2(union(singleton(union(singleton(singleton(A))))),A),A).  [ur(21,a,275,a)].
+
+given #684 (F,wt=10): 6349 -in(singleton(union(singleton(union(singleton(union(singleton(A))))))),A).  [ur(97,b,342,a)].
+
+given #685 (F,wt=10): 6359 -in(singleton(singleton(union(singleton(union(singleton(union(A))))))),A).  [ur(80,a,2076,a(flip),b,342,a),rewrite([2076(4)])].
+
+given #686 (F,wt=10): 6517 -in(singleton(singleton(union(singleton(union(union(singleton(A))))))),A).  [ur(97,b,361,a)].
+
+Low Water (displace): id=7444, wt=25.000
+
+given #687 (T,wt=14): 10133 in(A,union(singleton(union(singleton(union(union(singleton(union(singleton(singleton(singleton(A)))))))))))).  [resolve(3499,a,97,a)].
+
+given #688 (T,wt=14): 10429 in(A,union(singleton(union(union(union(singleton(singleton(singleton(union(singleton(singleton(A)))))))))))).  [resolve(5447,a,97,a)].
+
+given #689 (T,wt=14): 10849 in(A,union(singleton(union(singleton(union(union(union(singleton(singleton(singleton(singleton(A)))))))))))).  [resolve(5455,a,97,a)].
+
+given #690 (T,wt=14): 11404 A = B | in(f2(B,A),B) | subset(f2(A,B),union(A)).  [resolve(449,a,28,a)].
+
+given #691 (A,wt=12): 223 union(union(singleton(union(singleton(singleton(singleton(union(singleton(A))))))))) != A.  [ur(24,b,90,a,c,73,a,d,141,a)].
+
+given #692 (F,wt=10): 6527 -in(singleton(singleton(singleton(union(singleton(union(union(A))))))),A).  [ur(80,a,2076,a(flip),b,361,a),rewrite([2076(4)])].
+
+given #693 (F,wt=10): 8169 -in(singleton(union(union(singleton(c3)))),f5(singleton(c3),c3)).  [ur(54,a,32,a,b,85,a,c,2076,a(flip),d,91,a),rewrite([2076(8)])].
+
+given #694 (F,wt=10): 8170 -in(union(singleton(union(singleton(c3)))),f5(singleton(c3),c3)).  [ur(54,a,32,a,b,85,a,c,2076,a(flip),d,90,a),rewrite([2076(8)])].
+
+given #695 (F,wt=10): 8180 -in(singleton(singleton(union(union(singleton(union(singleton(A))))))),A).  [ur(97,b,365,a)].
+
+given #696 (T,wt=14): 11421 in(f2(A,B),A) | A = B | subset(f2(B,A),union(B)).  [resolve(449,c,28,a)].
+
+given #697 (T,wt=14): 11444 subset(f2(union(singleton(c3)),c3),union(union(union(singleton(singleton(union(singleton(c3)))))))).  [resolve(499,a,28,a)].
+
+given #698 (T,wt=14): 11808 subset(f2(union(singleton(singleton(singleton(A)))),A),union(union(singleton(singleton(singleton(A)))))).  [resolve(2078,a,28,a)].
+
+Low Water (displace): id=7424, wt=24.000
+
+given #699 (T,wt=14): 12020 subset(f2(union(singleton(c3)),c3),union(union(singleton(union(singleton(union(singleton(c3)))))))).  [resolve(2238,a,28,a)].
+
+given #700 (A,wt=17): 224 union(union(singleton(union(singleton(singleton(union(singleton(union(singleton(singleton(f4(singleton(c3),c3)))))))))))) != c3.  [ur(24,b,85,a,c,141,a,d,141,a)].
+
+given #701 (F,wt=10): 8192 -in(singleton(singleton(singleton(union(union(singleton(union(A))))))),A).  [ur(80,a,2076,a(flip),b,365,a),rewrite([2076(4)])].
+
+given #702 (F,wt=10): 8307 -in(singleton(singleton(singleton(union(union(union(singleton(A))))))),A).  [ur(97,b,383,a)].
+
+given #703 (F,wt=10): 8319 -in(singleton(singleton(singleton(singleton(union(union(union(A))))))),A).  [ur(80,a,2076,a(flip),b,383,a),rewrite([2076(4)])].
+
+given #704 (F,wt=10): 8549 singleton(singleton(singleton(singleton(union(A))))) != singleton(singleton(A)).  [ur(83,b,485,a),flip(a)].
+
+given #705 (T,wt=14): 12607 subset(f2(union(singleton(singleton(A))),A),union(union(singleton(union(singleton(singleton(A))))))).  [resolve(2696,a,28,a)].
+
+given #706 (T,wt=14): 12927 subset(f2(union(singleton(union(singleton(c3)))),c3),union(union(singleton(union(singleton(c3)))))).  [resolve(3283,a,28,a)].
+
+given #707 (T,wt=14): 13109 subset(f2(union(singleton(singleton(A))),singleton(singleton(A))),union(union(singleton(singleton(A))))).  [resolve(5425,a,28,a)].
+
+given #708 (T,wt=14): 13149 in(f2(union(singleton(singleton(c3))),singleton(union(singleton(c3)))),union(singleton(singleton(c3)))).  [resolve(186,a,20,a)].
+
+given #709 (A,wt=15): 225 union(union(singleton(union(singleton(singleton(union(singleton(singleton(f4(singleton(c3),c3)))))))))) != c3.  [ur(24,b,85,a,c,137,a,d,141,a)].
+
+given #710 (F,wt=10): 9101 -in(union(union(singleton(singleton(singleton(union(singleton(A))))))),A).  [ur(97,b,519,a)].
+
+given #711 (F,wt=10): 9114 -in(singleton(union(union(singleton(singleton(singleton(union(A))))))),A).  [ur(80,a,2076,a(flip),b,519,a),rewrite([2076(4)])].
+
+given #712 (F,wt=10): 9229 -in(f2(union(union(singleton(singleton(singleton(A))))),A),A).  [ur(21,a,631,a)].
+
+given #713 (F,wt=10): 9359 -in(union(singleton(singleton(union(singleton(union(singleton(A))))))),A).  [ur(97,b,644,a)].
+
+given #714 (T,wt=14): 13577 in(f2(union(singleton(singleton(A))),singleton(singleton(singleton(A)))),union(singleton(singleton(A)))).  [resolve(715,a,20,a)].
+
+given #715 (T,wt=14): 13588 subset(f2(union(singleton(c3)),f2(union(singleton(c3)),c3)),union(union(singleton(c3)))).  [resolve(13329,a,28,a)].
+
+given #716 (T,wt=14): 13634 in(A,B) | -in(union(singleton(singleton(A))),f2(union(singleton(singleton(A))),B)).  [resolve(327,a,11,b)].
+
+given #717 (T,wt=14): 13653 union(singleton(A)) = A | -in(union(singleton(A)),f2(union(singleton(A)),A)).  [resolve(445,b,11,b)].
+
+given #718 (A,wt=13): 226 union(union(singleton(union(singleton(singleton(singleton(f4(singleton(c3),c3)))))))) != c3.  [ur(24,b,85,a,c,73,a,d,141,a)].
+
+given #719 (F,wt=10): 9372 -in(singleton(union(singleton(singleton(union(singleton(union(A))))))),A).  [ur(80,a,2076,a(flip),b,644,a),rewrite([2076(4)])].
+
+given #720 (F,wt=10): 9477 -in(singleton(union(singleton(singleton(union(union(singleton(A))))))),A).  [ur(97,b,671,a)].
+
+Low Water (displace): id=8072, wt=23.000
+
+given #721 (F,wt=10): 9490 -in(singleton(singleton(union(singleton(singleton(union(union(A))))))),A).  [ur(80,a,2076,a(flip),b,671,a),rewrite([2076(4)])].
+
+Low Water (keep): wt=16.000, iters=6681
+
+============================== STATISTICS ============================
+
+Given=721. Generated=655384. Kept=24865. proofs=0.
+Usable=668. Sos=19999. Demods=589. Limbo=8, Disabled=4212. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=116.
+Forward_subsumed=101720. Back_subsumed=13.
+Sos_limit_deleted=528683. Sos_displaced=748. Sos_removed=0.
+New_demodulators=591 (0 lex), Back_demodulated=3429. Back_unit_deleted=0.
+Demod_attempts=17243145. Demod_rewrites=279832.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=301768. Nonunit_bsub_feature_tests=117509.
+Megabytes=39.37.
+User_CPU=10.00, System_CPU=0.19, Wall_clock=10.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 48 exit (max_seconds) Fri Oct 23 14:54:54 2026
+
+SEARCH FAILED
+
+------ process 48 exit (max_seconds) ------
+

@@ -1,0 +1,52 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all W0 (aElement0(W0) -> $T)) # label(mElmSort) # label(axiom).
+aElement0(sz00) # label(mSortsC) # label(axiom).
+aElement0(sz10) # label(mSortsC_01) # label(axiom).
+(all W0 (aElement0(W0) -> aElement0(smndt0(W0)))) # label(mSortsU) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> aElement0(sdtpldt0(W0,W1)))) # label(mSortsB) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> aElement0(sdtasdt0(W0,W1)))) # label(mSortsB_02) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> sdtpldt0(W0,W1) = sdtpldt0(W1,W0))) # label(mAddComm) # label(axiom).
+(all W0 all W1 all W2 (aElement0(W0) & aElement0(W1) & aElement0(W2) -> sdtpldt0(sdtpldt0(W0,W1),W2) = sdtpldt0(W0,sdtpldt0(W1,W2)))) # label(mAddAsso) # label(axiom).
+(all W0 (aElement0(W0) -> sdtpldt0(W0,sz00) = W0 & W0 = sdtpldt0(sz00,W0))) # label(mAddZero) # label(axiom).
+(all W0 (aElement0(W0) -> sdtpldt0(W0,smndt0(W0)) = sz00 & sz00 = sdtpldt0(smndt0(W0),W0))) # label(mAddInvr) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> sdtasdt0(W0,W1) = sdtasdt0(W1,W0))) # label(mMulComm) # label(axiom).
+(all W0 all W1 all W2 (aElement0(W0) & aElement0(W1) & aElement0(W2) -> sdtasdt0(sdtasdt0(W0,W1),W2) = sdtasdt0(W0,sdtasdt0(W1,W2)))) # label(mMulAsso) # label(axiom).
+(all W0 (aElement0(W0) -> sdtasdt0(W0,sz10) = W0 & W0 = sdtasdt0(sz10,W0))) # label(mMulUnit) # label(axiom).
+(all W0 all W1 all W2 (aElement0(W0) & aElement0(W1) & aElement0(W2) -> sdtasdt0(W0,sdtpldt0(W1,W2)) = sdtpldt0(sdtasdt0(W0,W1),sdtasdt0(W0,W2)) & sdtasdt0(sdtpldt0(W1,W2),W0) = sdtpldt0(sdtasdt0(W1,W0),sdtasdt0(W2,W0)))) # label(mAMDistr) # label(axiom).
+(all W0 (aElement0(W0) -> sdtasdt0(smndt0(sz10),W0) = smndt0(W0) & smndt0(W0) = sdtasdt0(W0,smndt0(sz10)))) # label(mMulMnOne) # label(axiom).
+(all W0 (aElement0(W0) -> sdtasdt0(W0,sz00) = sz00 & sz00 = sdtasdt0(sz00,W0))) # label(mMulZero) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> (sdtasdt0(W0,W1) = sz00 -> W0 = sz00 | W1 = sz00))) # label(mCancel) # label(axiom).
+sz10 != sz00 # label(mUnNeZr) # label(axiom).
+(all W0 (aSet0(W0) -> $T)) # label(mSetSort) # label(axiom).
+(all W0 (aSet0(W0) -> (all W1 (aElementOf0(W1,W0) -> aElement0(W1))))) # label(mEOfElem) # label(axiom).
+(all W0 all W1 (aSet0(W0) & aSet0(W1) -> ((all W2 (aElementOf0(W2,W0) -> aElementOf0(W2,W1))) & (all W2 (aElementOf0(W2,W1) -> aElementOf0(W2,W0))) -> W0 = W1))) # label(mSetEq) # label(axiom).
+(all W0 all W1 (aSet0(W0) & aSet0(W1) -> (all W2 (W2 = sdtpldt1(W0,W1) <-> aSet0(W2) & (all W3 (aElementOf0(W3,W2) <-> (exists W4 exists W5 (aElementOf0(W4,W0) & aElementOf0(W5,W1) & sdtpldt0(W4,W5) = W3)))))))) # label(mDefSSum) # label(definition).
+(all W0 all W1 (aSet0(W0) & aSet0(W1) -> (all W2 (W2 = sdtasasdt0(W0,W1) <-> aSet0(W2) & (all W3 (aElementOf0(W3,W2) <-> aElementOf0(W3,W0) & aElementOf0(W3,W1))))))) # label(mDefSInt) # label(definition).
+(all W0 (aIdeal0(W0) <-> aSet0(W0) & (all W1 (aElementOf0(W1,W0) -> (all W2 (aElementOf0(W2,W0) -> aElementOf0(sdtpldt0(W1,W2),W0))) & (all W2 (aElement0(W2) -> aElementOf0(sdtasdt0(W2,W1),W0))))))) # label(mDefIdeal) # label(definition).
+(all W0 all W1 (aIdeal0(W0) & aIdeal0(W1) -> aIdeal0(sdtpldt1(W0,W1)))) # label(mIdeSum) # label(axiom).
+(all W0 all W1 (aIdeal0(W0) & aIdeal0(W1) -> aIdeal0(sdtasasdt0(W0,W1)))) # label(mIdeInt) # label(axiom).
+(all W0 all W1 all W2 (aElement0(W0) & aElement0(W1) & aIdeal0(W2) -> (sdteqdtlpzmzozddtrp0(W0,W1,W2) <-> aElementOf0(sdtpldt0(W0,smndt0(W1)),W2)))) # label(mDefMod) # label(definition).
+(all W0 all W1 (aIdeal0(W0) & aIdeal0(W1) -> ((all W2 (aElement0(W2) -> aElementOf0(W2,sdtpldt1(W0,W1)))) -> (all W2 all W3 (aElement0(W2) & aElement0(W3) -> (exists W4 (aElement0(W4) & sdteqdtlpzmzozddtrp0(W4,W2,W0) & sdteqdtlpzmzozddtrp0(W4,W3,W1)))))))) # label(mChineseRemainder) # label(axiom).
+(all W0 (aNaturalNumber0(W0) -> $T)) # label(mNatSort) # label(axiom).
+(all W0 (aElement0(W0) & W0 != sz00 -> aNaturalNumber0(sbrdtbr0(W0)))) # label(mEucSort) # label(axiom).
+(all W0 all W1 (aNaturalNumber0(W0) & aNaturalNumber0(W1) -> (iLess0(W0,W1) -> $T))) # label(mNatLess) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) & W1 != sz00 -> (exists W2 exists W3 (aElement0(W2) & aElement0(W3) & W0 = sdtpldt0(sdtasdt0(W2,W1),W3) & (W3 != sz00 -> iLess0(sbrdtbr0(W3),sbrdtbr0(W1))))))) # label(mDivision) # label(axiom).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> (doDivides0(W0,W1) <-> (exists W2 (aElement0(W2) & sdtasdt0(W0,W2) = W1))))) # label(mDefDiv) # label(definition).
+(all W0 (aElement0(W0) -> (all W1 (aDivisorOf0(W1,W0) <-> aElement0(W1) & doDivides0(W1,W0))))) # label(mDefDvs) # label(definition).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> (all W2 (aGcdOfAnd0(W2,W0,W1) <-> aDivisorOf0(W2,W0) & aDivisorOf0(W2,W1) & (all W3 (aDivisorOf0(W3,W0) & aDivisorOf0(W3,W1) -> doDivides0(W3,W2))))))) # label(mDefGCD) # label(definition).
+(all W0 all W1 (aElement0(W0) & aElement0(W1) -> (misRelativelyPrime0(W0,W1) <-> aGcdOfAnd0(sz10,W0,W1)))) # label(mDefRel) # label(definition).
+(all W0 (aElement0(W0) -> (all W1 (W1 = slsdtgt0(W0) <-> aSet0(W1) & (all W2 (aElementOf0(W2,W1) <-> (exists W3 (aElement0(W3) & sdtasdt0(W0,W3) = W2)))))))) # label(mDefPrIdeal) # label(definition).
+aElement0(xc) # label(m__1905) # label(hypothesis).
+aElementOf0(xx,slsdtgt0(xc)) & aElementOf0(xy,slsdtgt0(xc)) & aElement0(xz) # label(m__1933) # label(hypothesis).
+aElement0(xu) & sdtasdt0(xc,xu) = xx # label(m__1956) # label(hypothesis).
+aElement0(xv) & sdtasdt0(xc,xv) = xy # label(m__1979) # label(hypothesis).
+sdtpldt0(xx,xy) = sdtasdt0(xc,sdtpldt0(xu,xv)) # label(m__2010) # label(hypothesis).
+end_of_list.
+
+formulas(goals).
+sdtasdt0(xz,xx) = sdtasdt0(xc,sdtasdt0(xu,xz)) # label(m__) # label(conjecture).
+end_of_list.

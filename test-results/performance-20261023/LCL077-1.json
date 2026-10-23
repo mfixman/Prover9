@@ -1,0 +1,12 @@
+{
+  "problem": "LCL077-1",
+  "domain": "LCL",
+  "rating": 0.0,
+  "conversion_wall_seconds": 0.003992376005044207,
+  "exit_code": 0,
+  "search_wall_seconds": 0.14099970100505743,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.13,
+  "total_wall_seconds": 0.14639148500282317
+}

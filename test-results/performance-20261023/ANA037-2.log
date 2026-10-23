@@ -1,0 +1,156 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 169 was started by mfixman on bodoque,
+Fri Oct 23 15:00:59 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+c_lessequals(c_0,v_f(v_xa),t_b) # label(cls_conjecture_2) # label(negated_conjecture).
+c_lessequals(c_HOL_Oabs(v_a(v_xa),t_b),c_times(v_c,v_f(v_xa),t_b),t_b) # label(cls_conjecture_4) # label(negated_conjecture).
+-c_lessequals(c_HOL_Oabs(v_a(v_xa),t_b),c_times(c_Orderings_Omax(v_c,v_ca,t_b),v_f(v_xa),t_b),t_b) # label(cls_conjecture_8) # label(negated_conjecture).
+class_Ring__and__Field_Oordered__idom(t_b) # label(tfree_tcs) # label(negated_conjecture).
+-class_Orderings_Olinorder(T_b) | c_lessequals(V_x,c_Orderings_Omax(V_x,V_y,T_b),T_b) # label(cls_Orderings_Ole__maxI1_0) # label(axiom).
+-class_Orderings_Oorder(T_a) | -c_lessequals(V_y,V_z,T_a) | -c_lessequals(V_x,V_y,T_a) | c_lessequals(V_x,V_z,T_a) # label(cls_Orderings_Oorder__class_Oorder__trans_0) # label(axiom).
+-class_Ring__and__Field_Opordered__semiring(T_a) | -c_lessequals(V_a,V_b,T_a) | -c_lessequals(c_0,V_c,T_a) | c_lessequals(c_times(V_a,V_c,T_a),c_times(V_b,V_c,T_a),T_a) # label(cls_Ring__and__Field_Opordered__semiring__class_Omult__right__mono_0) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T) | class_Orderings_Olinorder(T) # label(clsrel_Ring__and__Field_Oordered__idom_33) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T) | class_Ring__and__Field_Opordered__semiring(T) # label(clsrel_Ring__and__Field_Oordered__idom_42) # label(axiom).
+-class_Ring__and__Field_Oordered__idom(T) | class_Orderings_Oorder(T) # label(clsrel_Ring__and__Field_Oordered__idom_44) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating class_Ring__and__Field_Oordered__idom/1
+1 -class_Ring__and__Field_Oordered__idom(A) | class_Orderings_Olinorder(A) # label(clsrel_Ring__and__Field_Oordered__idom_33) # label(axiom).  [assumption].
+2 class_Ring__and__Field_Oordered__idom(t_b) # label(tfree_tcs) # label(negated_conjecture).  [assumption].
+Derived: class_Orderings_Olinorder(t_b).  [resolve(1,a,2,a)].
+3 -class_Ring__and__Field_Oordered__idom(A) | class_Ring__and__Field_Opordered__semiring(A) # label(clsrel_Ring__and__Field_Oordered__idom_42) # label(axiom).  [assumption].
+Derived: class_Ring__and__Field_Opordered__semiring(t_b).  [resolve(3,a,2,a)].
+4 -class_Ring__and__Field_Oordered__idom(A) | class_Orderings_Oorder(A) # label(clsrel_Ring__and__Field_Oordered__idom_44) # label(axiom).  [assumption].
+Derived: class_Orderings_Oorder(t_b).  [resolve(4,a,2,a)].
+
+Eliminating class_Orderings_Olinorder/1
+5 class_Orderings_Olinorder(t_b).  [resolve(1,a,2,a)].
+6 -class_Orderings_Olinorder(A) | c_lessequals(B,c_Orderings_Omax(B,C,A),A) # label(cls_Orderings_Ole__maxI1_0) # label(axiom).  [assumption].
+Derived: c_lessequals(A,c_Orderings_Omax(A,B,t_b),t_b).  [resolve(5,a,6,a)].
+
+Eliminating class_Orderings_Oorder/1
+7 class_Orderings_Oorder(t_b).  [resolve(4,a,2,a)].
+8 -class_Orderings_Oorder(A) | -c_lessequals(B,C,A) | -c_lessequals(D,B,A) | c_lessequals(D,C,A) # label(cls_Orderings_Oorder__class_Oorder__trans_0) # label(axiom).  [assumption].
+Derived: -c_lessequals(A,B,t_b) | -c_lessequals(C,A,t_b) | c_lessequals(C,B,t_b).  [resolve(7,a,8,a)].
+
+Eliminating class_Ring__and__Field_Opordered__semiring/1
+9 class_Ring__and__Field_Opordered__semiring(t_b).  [resolve(3,a,2,a)].
+10 -class_Ring__and__Field_Opordered__semiring(A) | -c_lessequals(B,C,A) | -c_lessequals(c_0,D,A) | c_lessequals(c_times(B,D,A),c_times(C,D,A),A) # label(cls_Ring__and__Field_Opordered__semiring__class_Omult__right__mono_0) # label(axiom).  [assumption].
+Derived: -c_lessequals(A,B,t_b) | -c_lessequals(c_0,C,t_b) | c_lessequals(c_times(A,C,t_b),c_times(B,C,t_b),t_b).  [resolve(9,a,10,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label cls_conjecture_8 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ c_lessequals ]).
+Function symbol precedence:  function_order([ t_b, v_xa, c_0, v_c, v_ca, c_HOL_Oabs, v_f, v_a, c_times, c_Orderings_Omax ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(neg_binary_resolution).  % (HNE depth_diff=-1)
+  % clear(ordered_res).  % (HNE depth_diff=-1)
+  % set(ur_resolution).  % (HNE depth_diff=-1)
+    % set(ur_resolution) -> set(pos_ur_resolution).
+    % set(ur_resolution) -> set(neg_ur_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds: cls_conjecture_8.
+% Length of proof is 19.
+% Level of proof is 4.
+% Maximum clause weight is 18.000.
+% Given clauses 6 (1.500 givens/level).
+
+1 -class_Ring__and__Field_Oordered__idom(A) | class_Orderings_Olinorder(A) # label(clsrel_Ring__and__Field_Oordered__idom_33) # label(axiom).  [assumption].
+2 class_Ring__and__Field_Oordered__idom(t_b) # label(tfree_tcs) # label(negated_conjecture).  [assumption].
+3 -class_Ring__and__Field_Oordered__idom(A) | class_Ring__and__Field_Opordered__semiring(A) # label(clsrel_Ring__and__Field_Oordered__idom_42) # label(axiom).  [assumption].
+4 -class_Ring__and__Field_Oordered__idom(A) | class_Orderings_Oorder(A) # label(clsrel_Ring__and__Field_Oordered__idom_44) # label(axiom).  [assumption].
+5 class_Orderings_Olinorder(t_b).  [resolve(1,a,2,a)].
+6 -class_Orderings_Olinorder(A) | c_lessequals(B,c_Orderings_Omax(B,C,A),A) # label(cls_Orderings_Ole__maxI1_0) # label(axiom).  [assumption].
+7 class_Orderings_Oorder(t_b).  [resolve(4,a,2,a)].
+8 -class_Orderings_Oorder(A) | -c_lessequals(B,C,A) | -c_lessequals(D,B,A) | c_lessequals(D,C,A) # label(cls_Orderings_Oorder__class_Oorder__trans_0) # label(axiom).  [assumption].
+9 class_Ring__and__Field_Opordered__semiring(t_b).  [resolve(3,a,2,a)].
+10 -class_Ring__and__Field_Opordered__semiring(A) | -c_lessequals(B,C,A) | -c_lessequals(c_0,D,A) | c_lessequals(c_times(B,D,A),c_times(C,D,A),A) # label(cls_Ring__and__Field_Opordered__semiring__class_Omult__right__mono_0) # label(axiom).  [assumption].
+11 c_lessequals(c_0,v_f(v_xa),t_b) # label(cls_conjecture_2) # label(negated_conjecture).  [assumption].
+12 c_lessequals(c_HOL_Oabs(v_a(v_xa),t_b),c_times(v_c,v_f(v_xa),t_b),t_b) # label(cls_conjecture_4) # label(negated_conjecture).  [assumption].
+13 -c_lessequals(c_HOL_Oabs(v_a(v_xa),t_b),c_times(c_Orderings_Omax(v_c,v_ca,t_b),v_f(v_xa),t_b),t_b) # label(cls_conjecture_8) # label(negated_conjecture) # answer(cls_conjecture_8).  [assumption].
+14 c_lessequals(A,c_Orderings_Omax(A,B,t_b),t_b).  [resolve(5,a,6,a)].
+15 -c_lessequals(A,B,t_b) | -c_lessequals(C,A,t_b) | c_lessequals(C,B,t_b).  [resolve(7,a,8,a)].
+16 -c_lessequals(A,B,t_b) | -c_lessequals(c_0,C,t_b) | c_lessequals(c_times(A,C,t_b),c_times(B,C,t_b),t_b).  [resolve(9,a,10,a)].
+22 -c_lessequals(c_times(v_c,v_f(v_xa),t_b),c_times(c_Orderings_Omax(v_c,v_ca,t_b),v_f(v_xa),t_b),t_b) # answer(cls_conjecture_8).  [ur(15,b,12,a,c,13,a)].
+24 c_lessequals(c_times(A,v_f(v_xa),t_b),c_times(c_Orderings_Omax(A,B,t_b),v_f(v_xa),t_b),t_b).  [ur(16,a,14,a,b,11,a)].
+25 $F # answer(cls_conjecture_8).  [resolve(24,a,22,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=6. Generated=14. Kept=14. proofs=1.
+Usable=6. Sos=6. Demods=0. Limbo=1, Disabled=16. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=1. Nonunit_bsub_feature_tests=4.
+Megabytes=0.08.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 169 exit (max_proofs) Fri Oct 23 15:00:59 2026
+-------- Proof 1 -------- cls_conjecture_8.
+
+THEOREM PROVED
+
+------ process 169 exit (max_proofs) ------
+

@@ -1,0 +1,12 @@
+{
+  "problem": "GRP664-12",
+  "domain": "GRP",
+  "rating": 0.86,
+  "conversion_wall_seconds": 0.01128192400210537,
+  "exit_code": 4,
+  "search_wall_seconds": 20.669572441998753,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.12,
+  "total_wall_seconds": 20.681638013003976
+}

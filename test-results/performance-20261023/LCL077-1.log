@@ -1,0 +1,132 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 31 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-is_a_theorem(implies(X,Y)) | -is_a_theorem(X) | is_a_theorem(Y) # label(condensed_detachment) # label(axiom).
+is_a_theorem(implies(X,implies(Y,X))) # label(cn_18) # label(axiom).
+is_a_theorem(implies(implies(X,implies(Y,Z)),implies(implies(X,Y),implies(X,Z)))) # label(cn_35) # label(axiom).
+is_a_theorem(implies(implies(not(X),not(Y)),implies(Y,X))) # label(cn_49) # label(axiom).
+-is_a_theorem(implies(not(not(a)),a)) # label(prove_cn_39) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_cn_39 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ is_a_theorem ]).
+Function symbol precedence:  function_order([ a, implies, not ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(hyper_resolution).  % (HNE depth_diff=1)
+    % set(hyper_resolution) -> set(pos_hyper_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.13 (+ 0.00) seconds: prove_cn_39.
+% Length of proof is 25.
+% Level of proof is 8.
+% Maximum clause weight is 20.000.
+% Given clauses 175 (21.875 givens/level).
+
+1 -is_a_theorem(implies(A,B)) | -is_a_theorem(A) | is_a_theorem(B) # label(condensed_detachment) # label(axiom).  [assumption].
+2 is_a_theorem(implies(A,implies(B,A))) # label(cn_18) # label(axiom).  [assumption].
+3 is_a_theorem(implies(implies(A,implies(B,C)),implies(implies(A,B),implies(A,C)))) # label(cn_35) # label(axiom).  [assumption].
+4 is_a_theorem(implies(implies(not(A),not(B)),implies(B,A))) # label(cn_49) # label(axiom).  [assumption].
+5 -is_a_theorem(implies(not(not(a)),a)) # label(prove_cn_39) # label(negated_conjecture) # answer(prove_cn_39).  [assumption].
+6 is_a_theorem(implies(A,implies(B,implies(C,B)))).  [hyper(1,a,2,a,b,2,a)].
+7 is_a_theorem(implies(implies(implies(A,implies(B,C)),implies(A,B)),implies(implies(A,implies(B,C)),implies(A,C)))).  [hyper(1,a,3,a,b,3,a)].
+8 is_a_theorem(implies(A,implies(implies(B,implies(C,D)),implies(implies(B,C),implies(B,D))))).  [hyper(1,a,2,a,b,3,a)].
+9 is_a_theorem(implies(implies(A,B),implies(A,A))).  [hyper(1,a,3,a,b,2,a)].
+10 is_a_theorem(implies(implies(implies(not(A),not(B)),B),implies(implies(not(A),not(B)),A))).  [hyper(1,a,3,a,b,4,a)].
+11 is_a_theorem(implies(A,implies(implies(not(B),not(C)),implies(C,B)))).  [hyper(1,a,2,a,b,4,a)].
+13 is_a_theorem(implies(A,implies(B,implies(C,implies(D,C))))).  [hyper(1,a,2,a,b,6,a)].
+16 is_a_theorem(implies(A,A)).  [hyper(1,a,9,a,b,6,a)].
+17 is_a_theorem(implies(implies(implies(A,B),A),implies(implies(A,B),B))).  [hyper(1,a,3,a,b,16,a)].
+25 is_a_theorem(implies(implies(A,implies(implies(B,A),C)),implies(A,C))).  [hyper(1,a,7,a,b,6,a)].
+43 is_a_theorem(implies(implies(A,implies(implies(B,implies(C,B)),D)),implies(A,D))).  [hyper(1,a,7,a,b,13,a)].
+158 is_a_theorem(implies(not(A),implies(A,B))).  [hyper(1,a,25,a,b,11,a)].
+159 is_a_theorem(implies(implies(A,B),implies(implies(C,A),implies(C,B)))).  [hyper(1,a,25,a,b,8,a)].
+165 is_a_theorem(implies(A,implies(not(B),implies(B,C)))).  [hyper(1,a,2,a,b,158,a)].
+196 is_a_theorem(implies(implies(implies(not(A),implies(A,B)),C),C)).  [hyper(1,a,17,a,b,165,a)].
+814 is_a_theorem(implies(implies(implies(A,B),C),implies(B,C))).  [hyper(1,a,43,a,b,159,a)].
+841 is_a_theorem(implies(A,implies(implies(not(B),not(A)),B))).  [hyper(1,a,814,a,b,10,a)].
+1298 is_a_theorem(implies(implies(A,implies(not(B),not(A))),implies(A,B))).  [hyper(1,a,3,a,b,841,a)].
+4593 is_a_theorem(implies(not(not(A)),A)).  [hyper(1,a,196,a,b,1298,a)].
+4594 $F # answer(prove_cn_39).  [resolve(4593,a,5,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=175. Generated=20439. Kept=4593. proofs=1.
+Usable=174. Sos=4368. Demods=0. Limbo=23, Disabled=32. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=15846. Back_subsumed=27.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=1.
+Megabytes=7.88.
+User_CPU=0.13, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 31 exit (max_proofs) Fri Oct 23 15:00:23 2026
+-------- Proof 1 -------- prove_cn_39.
+
+THEOREM PROVED
+
+------ process 31 exit (max_proofs) ------
+

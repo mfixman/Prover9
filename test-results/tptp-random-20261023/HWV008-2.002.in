@@ -1,0 +1,92 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+
+% Including file Axioms/HWV002-0.ax
+
+
+% Including file Axioms/HWV002-1.ax
+
+
+% Including file Axioms/HWV002-2.ax
+
+set(prolog_style_variables).
+
+formulas(assumptions).
+-connection(P1,P2) | -zero(P1) | zero(P2) # label(value_propagation_zero1) # label(axiom).
+-connection(P1,P2) | -one(P1) | one(P2) # label(value_propagation_one1) # label(axiom).
+-connection(P1,P2) | -zero(P2) | zero(P1) # label(value_propagation_zero2) # label(axiom).
+-connection(P1,P2) | -one(P2) | one(P1) # label(value_propagation_one2) # label(axiom).
+-zero(P) | -one(P) # label(unique_value) # label(axiom).
+-and_ok(K) | -zero(in1(K)) | zero(out1(K)) # label(and_0x_0) # label(axiom).
+-and_ok(K) | -zero(in2(K)) | zero(out1(K)) # label(and_x0_0) # label(axiom).
+-and_ok(K) | -one(in1(K)) | -one(in2(K)) | one(out1(K)) # label(and_11_1) # label(axiom).
+-and_ok(K) | -zero(out1(K)) | zero(in1(K)) | zero(in2(K)) # label(and_0_00) # label(axiom).
+-and_ok(K) | -one(out1(K)) | one(in1(K)) # label(and_1_1x) # label(axiom).
+-and_ok(K) | -one(out1(K)) | one(in2(K)) # label(and_1_x1) # label(axiom).
+-and_ok(K) | -abnormal(K) # label(not_and_ok_and_abnormal) # label(axiom).
+-logic_and(K) | and_ok(K) | abnormal(K) # label(and_ok_or_abnormal) # label(axiom).
+-or_ok(K) | -one(in1(K)) | one(out1(K)) # label(or_1x_1) # label(axiom).
+-or_ok(K) | -one(in2(K)) | one(out1(K)) # label(or_x1_1) # label(axiom).
+-or_ok(K) | -zero(in1(K)) | -zero(in2(K)) | zero(out1(K)) # label(or_00_0) # label(axiom).
+-or_ok(K) | -one(out1(K)) | one(in1(K)) | one(in2(K)) # label(or_1_11) # label(axiom).
+-or_ok(K) | -zero(out1(K)) | zero(in1(K)) # label(or_0_0x) # label(axiom).
+-or_ok(K) | -zero(out1(K)) | zero(in2(K)) # label(or_0_01) # label(axiom).
+-or_ok(K) | -abnormal(K) # label(not_or_ok_and_abnormal) # label(axiom).
+-logic_or(K) | or_ok(K) | abnormal(K) # label(or_ok_or_abnormal) # label(axiom).
+-not_ok(K) | -zero(in1(K)) | one(out1(K)) # label(not_0_1_fw) # label(axiom).
+-not_ok(K) | -one(in1(K)) | zero(out1(K)) # label(not_1_0_fw) # label(axiom).
+-not_ok(K) | -zero(out1(K)) | one(in1(K)) # label(not_0_1_bw) # label(axiom).
+-not_ok(K) | -one(out1(K)) | zero(in1(K)) # label(not_1_0_bw) # label(axiom).
+-not_ok(K) | -abnormal(K) # label(not__not_ok_and_abnormal) # label(axiom).
+-logic_not(K) | not_ok(K) | abnormal(K) # label(not_ok_or_abnormal) # label(axiom).
+-halfadder(X) | logic_and(and1(X)) # label(halfadder_and1) # label(axiom).
+-halfadder(X) | logic_and(and2(X)) # label(halfadder_and2) # label(axiom).
+-halfadder(X) | logic_not(not1(X)) # label(halfadder_not1) # label(axiom).
+-halfadder(X) | logic_or(or1(X)) # label(halfadder_or1) # label(axiom).
+-halfadder(X) | connection(in1(X),in1(or1(X))) # label(halfadder_connection_in1_in1or1) # label(axiom).
+-halfadder(X) | connection(in2(X),in2(or1(X))) # label(halfadder_connection_in2_in2or1) # label(axiom).
+-halfadder(X) | connection(in1(X),in1(and2(X))) # label(halfadder_connection_in1_in1and2) # label(axiom).
+-halfadder(X) | connection(in2(X),in2(and2(X))) # label(halfadder_connection_in2_in2and2) # label(axiom).
+-halfadder(X) | connection(outs(X),out1(and1(X))) # label(halfadder_connection_outs_out1and1) # label(axiom).
+-halfadder(X) | connection(outc(X),out1(and2(X))) # label(halfadder_connection_outc_out1and2) # label(axiom).
+-halfadder(X) | connection(out1(or1(X)),in1(and1(X))) # label(halfadder_connection_out1or1_in1_and1) # label(axiom).
+-halfadder(X) | connection(out1(and2(X)),in1(not1(X))) # label(halfadder_connection_out1and2_in1not1) # label(axiom).
+-halfadder(X) | connection(out1(not1(X)),in2(and1(X))) # label(halfadder_connection_out1not1_in2and1) # label(axiom).
+-fulladder(X) | halfadder(h1(X)) # label(fulladder_halfadder1) # label(axiom).
+-fulladder(X) | halfadder(h2(X)) # label(fulladder_halfadder2) # label(axiom).
+-fulladder(X) | logic_or(or1(X)) # label(fulladder_or1) # label(axiom).
+-fulladder(X) | connection(outs(h1(X)),in2(h2(X))) # label(fulladder_connection_outsh1_in2h2) # label(axiom).
+-fulladder(X) | connection(outc(h1(X)),in2(or1(X))) # label(fulladder_connection_outch1_in2or1) # label(axiom).
+-fulladder(X) | connection(outc(h2(X)),in1(or1(X))) # label(fulladder_connection_outch2_in1or1) # label(axiom).
+-fulladder(X) | connection(in1(X),in1(h2(X))) # label(fulladder_connection_in1_in1h2) # label(axiom).
+-fulladder(X) | connection(in2(X),in1(h1(X))) # label(fulladder_connection_in2_in1h1) # label(axiom).
+-fulladder(X) | connection(inc(X),in2(h1(X))) # label(fulladder_connection_inc_in2h1) # label(axiom).
+-fulladder(X) | connection(outs(X),outs(h2(X))) # label(fulladder_connection_outs_outsh2) # label(axiom).
+-fulladder(X) | connection(outc(X),out1(or1(X))) # label(fulladder_connection_outc_out1or1) # label(axiom).
+-nbit_adder2(X) | fulladder(f1(X)) # label(nbit_adder_fulladder1) # label(axiom).
+-nbit_adder2(X) | fulladder(f2(X)) # label(nbit_adder_fulladder2) # label(axiom).
+-nbit_adder2(X) | connection(out1(X),out1(f1(X))) # label(nbit_adder_connection_out1_out1f1) # label(axiom).
+-nbit_adder2(X) | connection(out2(X),out1(f2(X))) # label(nbit_adder_connection_out2_out1f2) # label(axiom).
+-nbit_adder2(X) | connection(outc(X),outc(f2(X))) # label(nbit_adder_connection_outc_outcf1) # label(axiom).
+-nbit_adder2(X) | connection(ina1(X),in1(f1(X))) # label(nbit_adder_connection_ina1_in1f1) # label(axiom).
+-nbit_adder2(X) | connection(inb1(X),in2(f1(X))) # label(nbit_adder_connection_inb1_in2f1) # label(axiom).
+-nbit_adder2(X) | connection(ina2(X),in1(f2(X))) # label(nbit_adder_connection_ina2_in1f2) # label(axiom).
+-nbit_adder2(X) | connection(inb2(X),in2(f2(X))) # label(nbit_adder_connection_inb2_in2f2) # label(axiom).
+-nbit_adder2(X) | connection(outc(f1(X)),inc(f2(X))) # label(nbit_adder_connection_inc_incf1) # label(axiom).
+-nbit_adder2(X) | connection(inc(X),inc(f1(X))) # label(nbit_adder_connection_inc_incf2) # label(axiom).
+nbit_adder2(a) # label(a_isa_2bit_adder) # label(hypothesis).
+zero(ina1(a)) # label(ina1_0) # label(hypothesis).
+zero(ina2(a)) # label(ina2_0) # label(hypothesis).
+zero(inb1(a)) # label(inb1_0) # label(hypothesis).
+zero(inb2(a)) # label(inb2_0) # label(hypothesis).
+zero(inc(a)) # label(inc_0) # label(hypothesis).
+zero(out1(a)) # label(out1_0) # label(hypothesis).
+zero(out2(a)) # label(out2_0) # label(hypothesis).
+one(outc(a)) # label(outc_1) # label(hypothesis).
+-abnormal(or1(f2(a))) # label(diagnosis_or1f2a) # label(negated_conjecture).
+-abnormal(and2(h1(f2(a)))) # label(diagnosis_and2h1f2a) # label(negated_conjecture).
+-abnormal(and2(h2(f2(a)))) # label(diagnosis_and2h2f2a) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

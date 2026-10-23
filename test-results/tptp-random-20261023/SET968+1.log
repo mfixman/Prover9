@@ -1,0 +1,1413 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 39 was started by mfixman on bodoque,
+Fri Oct 23 14:54:44 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,10).
+assign(max_megs,256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all A all B set_union2(A,B) = set_union2(B,A)) # label(commutativity_k2_xboole_0) # label(axiom).
+(all A all B (-empty(A) -> -empty(set_union2(A,B)))) # label(fc2_xboole_0) # label(axiom).
+(all A all B (-empty(A) -> -empty(set_union2(B,A)))) # label(fc3_xboole_0) # label(axiom).
+(all A all B set_union2(A,A) = A) # label(idempotence_k2_xboole_0) # label(axiom).
+(exists A empty(A)) # label(rc1_xboole_0) # label(axiom).
+(exists A -empty(A)) # label(rc2_xboole_0) # label(axiom).
+(all A all B all C (cartesian_product2(set_union2(A,B),C) = set_union2(cartesian_product2(A,C),cartesian_product2(B,C)) & cartesian_product2(C,set_union2(A,B)) = set_union2(cartesian_product2(C,A),cartesian_product2(C,B)))) # label(t120_zfmisc_1) # label(axiom).
+(all A all B all C set_union2(set_union2(A,B),C) = set_union2(A,set_union2(B,C))) # label(t4_xboole_1) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all A all B all C all D cartesian_product2(set_union2(A,B),set_union2(C,D)) = set_union2(set_union2(set_union2(cartesian_product2(A,C),cartesian_product2(A,D)),cartesian_product2(B,C)),cartesian_product2(B,D))) # label(t121_zfmisc_1) # label(conjecture).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all A all B set_union2(A,B) = set_union2(B,A)) # label(commutativity_k2_xboole_0) # label(axiom) # label(non_clause).  [assumption].
+2 (all A all B (-empty(A) -> -empty(set_union2(A,B)))) # label(fc2_xboole_0) # label(axiom) # label(non_clause).  [assumption].
+3 (all A all B (-empty(A) -> -empty(set_union2(B,A)))) # label(fc3_xboole_0) # label(axiom) # label(non_clause).  [assumption].
+4 (all A all B set_union2(A,A) = A) # label(idempotence_k2_xboole_0) # label(axiom) # label(non_clause).  [assumption].
+5 (exists A empty(A)) # label(rc1_xboole_0) # label(axiom) # label(non_clause).  [assumption].
+6 (exists A -empty(A)) # label(rc2_xboole_0) # label(axiom) # label(non_clause).  [assumption].
+7 (all A all B all C (cartesian_product2(set_union2(A,B),C) = set_union2(cartesian_product2(A,C),cartesian_product2(B,C)) & cartesian_product2(C,set_union2(A,B)) = set_union2(cartesian_product2(C,A),cartesian_product2(C,B)))) # label(t120_zfmisc_1) # label(axiom) # label(non_clause).  [assumption].
+8 (all A all B all C set_union2(set_union2(A,B),C) = set_union2(A,set_union2(B,C))) # label(t4_xboole_1) # label(axiom) # label(non_clause).  [assumption].
+9 (all A all B all C all D cartesian_product2(set_union2(A,B),set_union2(C,D)) = set_union2(set_union2(set_union2(cartesian_product2(A,C),cartesian_product2(A,D)),cartesian_product2(B,C)),cartesian_product2(B,D))) # label(t121_zfmisc_1) # label(conjecture) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+set_union2(A,B) = set_union2(B,A) # label(commutativity_k2_xboole_0) # label(axiom).  [clausify(1)].
+empty(A) | -empty(set_union2(A,B)) # label(fc2_xboole_0) # label(axiom).  [clausify(2)].
+empty(A) | -empty(set_union2(B,A)) # label(fc3_xboole_0) # label(axiom).  [clausify(3)].
+set_union2(A,A) = A # label(idempotence_k2_xboole_0) # label(axiom).  [clausify(4)].
+empty(c1) # label(rc1_xboole_0) # label(axiom).  [clausify(5)].
+-empty(c2) # label(rc2_xboole_0) # label(axiom).  [clausify(6)].
+cartesian_product2(set_union2(A,B),C) = set_union2(cartesian_product2(A,C),cartesian_product2(B,C)) # label(t120_zfmisc_1) # label(axiom).  [clausify(7)].
+cartesian_product2(A,set_union2(B,C)) = set_union2(cartesian_product2(A,B),cartesian_product2(A,C)) # label(t120_zfmisc_1) # label(axiom).  [clausify(7)].
+set_union2(set_union2(A,B),C) = set_union2(A,set_union2(B,C)) # label(t4_xboole_1) # label(axiom).  [clausify(8)].
+cartesian_product2(set_union2(c3,c4),set_union2(c5,c6)) != set_union2(set_union2(set_union2(cartesian_product2(c3,c5),cartesian_product2(c3,c6)),cartesian_product2(c4,c5)),cartesian_product2(c4,c6)) # label(t121_zfmisc_1) # label(conjecture).  [deny(9)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label rc2_xboole_0 to answer in negative clause
+  % copying label t121_zfmisc_1 to answer in negative clause
+  % assign(max_proofs, 2).  % (Horn set with more than one neg. clause)
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, empty ]).
+Function symbol precedence:  function_order([ c1, c2, c3, c4, c5, c6, set_union2, cartesian_product2 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(hyper_resolution).  % (nonunit Horn with equality)
+    % set(hyper_resolution) -> set(pos_hyper_resolution).
+  % set(neg_ur_resolution).  % (nonunit Horn with equality)
+  % assign(para_lit_limit, 2).  % (nonunit Horn with equality)
+
+Auto_process settings:  (no changes).
+
+
+% Operation set_union2 is commutative; C redundancy checks enabled.
+kept:      10 set_union2(A,B) = set_union2(B,A) # label(commutativity_k2_xboole_0) # label(axiom).  [clausify(1)].
+kept:      11 empty(A) | -empty(set_union2(A,B)) # label(fc2_xboole_0) # label(axiom).  [clausify(2)].
+kept:      12 empty(A) | -empty(set_union2(B,A)) # label(fc3_xboole_0) # label(axiom).  [clausify(3)].
+kept:      13 set_union2(A,A) = A # label(idempotence_k2_xboole_0) # label(axiom).  [clausify(4)].
+kept:      14 empty(c1) # label(rc1_xboole_0) # label(axiom).  [clausify(5)].
+kept:      15 -empty(c2) # label(rc2_xboole_0) # label(axiom) # answer(rc2_xboole_0).  [clausify(6)].
+kept:      16 cartesian_product2(set_union2(A,B),C) = set_union2(cartesian_product2(A,C),cartesian_product2(B,C)) # label(t120_zfmisc_1) # label(axiom).  [clausify(7)].
+kept:      17 cartesian_product2(A,set_union2(B,C)) = set_union2(cartesian_product2(A,B),cartesian_product2(A,C)) # label(t120_zfmisc_1) # label(axiom).  [clausify(7)].
+kept:      18 set_union2(set_union2(A,B),C) = set_union2(A,set_union2(B,C)) # label(t4_xboole_1) # label(axiom).  [clausify(8)].
+           19 cartesian_product2(set_union2(c3,c4),set_union2(c5,c6)) != set_union2(set_union2(set_union2(cartesian_product2(c3,c5),cartesian_product2(c3,c6)),cartesian_product2(c4,c5)),cartesian_product2(c4,c6)) # label(t121_zfmisc_1) # label(conjecture) # answer(t121_zfmisc_1).  [deny(9)].
+kept:      20 set_union2(cartesian_product2(c3,c5),set_union2(cartesian_product2(c4,c5),set_union2(cartesian_product2(c3,c6),cartesian_product2(c4,c6)))) != set_union2(cartesian_product2(c3,c5),set_union2(cartesian_product2(c3,c6),set_union2(cartesian_product2(c4,c5),cartesian_product2(c4,c6)))) # answer(t121_zfmisc_1).  [copy(19),rewrite([17(7),16(5),16(12),18(15),18(26),18(30),18(29)])].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+10 set_union2(A,B) = set_union2(B,A) # label(commutativity_k2_xboole_0) # label(axiom).  [clausify(1)].
+11 empty(A) | -empty(set_union2(A,B)) # label(fc2_xboole_0) # label(axiom).  [clausify(2)].
+12 empty(A) | -empty(set_union2(B,A)) # label(fc3_xboole_0) # label(axiom).  [clausify(3)].
+13 set_union2(A,A) = A # label(idempotence_k2_xboole_0) # label(axiom).  [clausify(4)].
+14 empty(c1) # label(rc1_xboole_0) # label(axiom).  [clausify(5)].
+15 -empty(c2) # label(rc2_xboole_0) # label(axiom) # answer(rc2_xboole_0).  [clausify(6)].
+16 cartesian_product2(set_union2(A,B),C) = set_union2(cartesian_product2(A,C),cartesian_product2(B,C)) # label(t120_zfmisc_1) # label(axiom).  [clausify(7)].
+17 cartesian_product2(A,set_union2(B,C)) = set_union2(cartesian_product2(A,B),cartesian_product2(A,C)) # label(t120_zfmisc_1) # label(axiom).  [clausify(7)].
+18 set_union2(set_union2(A,B),C) = set_union2(A,set_union2(B,C)) # label(t4_xboole_1) # label(axiom).  [clausify(8)].
+20 set_union2(cartesian_product2(c3,c5),set_union2(cartesian_product2(c4,c5),set_union2(cartesian_product2(c3,c6),cartesian_product2(c4,c6)))) != set_union2(cartesian_product2(c3,c5),set_union2(cartesian_product2(c3,c6),set_union2(cartesian_product2(c4,c5),cartesian_product2(c4,c6)))) # answer(t121_zfmisc_1).  [copy(19),rewrite([17(7),16(5),16(12),18(15),18(26),18(30),18(29)])].
+end_of_list.
+
+formulas(demodulators).
+10 set_union2(A,B) = set_union2(B,A) # label(commutativity_k2_xboole_0) # label(axiom).  [clausify(1)].
+        % (lex-dep)
+13 set_union2(A,A) = A # label(idempotence_k2_xboole_0) # label(axiom).  [clausify(4)].
+16 cartesian_product2(set_union2(A,B),C) = set_union2(cartesian_product2(A,C),cartesian_product2(B,C)) # label(t120_zfmisc_1) # label(axiom).  [clausify(7)].
+17 cartesian_product2(A,set_union2(B,C)) = set_union2(cartesian_product2(A,B),cartesian_product2(A,C)) # label(t120_zfmisc_1) # label(axiom).  [clausify(7)].
+18 set_union2(set_union2(A,B),C) = set_union2(A,set_union2(B,C)) # label(t4_xboole_1) # label(axiom).  [clausify(8)].
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+given #1 (I,wt=7): 10 set_union2(A,B) = set_union2(B,A) # label(commutativity_k2_xboole_0) # label(axiom).  [clausify(1)].
+
+given #2 (I,wt=6): 11 empty(A) | -empty(set_union2(A,B)) # label(fc2_xboole_0) # label(axiom).  [clausify(2)].
+
+given #3 (I,wt=6): 12 empty(A) | -empty(set_union2(B,A)) # label(fc3_xboole_0) # label(axiom).  [clausify(3)].
+
+given #4 (I,wt=5): 13 set_union2(A,A) = A # label(idempotence_k2_xboole_0) # label(axiom).  [clausify(4)].
+
+given #5 (I,wt=2): 14 empty(c1) # label(rc1_xboole_0) # label(axiom).  [clausify(5)].
+
+given #6 (I,wt=2): 15 -empty(c2) # label(rc2_xboole_0) # label(axiom) # answer(rc2_xboole_0).  [clausify(6)].
+
+given #7 (I,wt=13): 16 cartesian_product2(set_union2(A,B),C) = set_union2(cartesian_product2(A,C),cartesian_product2(B,C)) # label(t120_zfmisc_1) # label(axiom).  [clausify(7)].
+
+given #8 (I,wt=13): 17 cartesian_product2(A,set_union2(B,C)) = set_union2(cartesian_product2(A,B),cartesian_product2(A,C)) # label(t120_zfmisc_1) # label(axiom).  [clausify(7)].
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds: t121_zfmisc_1.
+% Length of proof is 10.
+% Level of proof is 3.
+% Maximum clause weight is 31.000.
+% Given clauses 8 (2.667 givens/level).
+
+7 (all A all B all C (cartesian_product2(set_union2(A,B),C) = set_union2(cartesian_product2(A,C),cartesian_product2(B,C)) & cartesian_product2(C,set_union2(A,B)) = set_union2(cartesian_product2(C,A),cartesian_product2(C,B)))) # label(t120_zfmisc_1) # label(axiom) # label(non_clause).  [assumption].
+8 (all A all B all C set_union2(set_union2(A,B),C) = set_union2(A,set_union2(B,C))) # label(t4_xboole_1) # label(axiom) # label(non_clause).  [assumption].
+9 (all A all B all C all D cartesian_product2(set_union2(A,B),set_union2(C,D)) = set_union2(set_union2(set_union2(cartesian_product2(A,C),cartesian_product2(A,D)),cartesian_product2(B,C)),cartesian_product2(B,D))) # label(t121_zfmisc_1) # label(conjecture) # label(non_clause) # label(goal).  [goal].
+16 cartesian_product2(set_union2(A,B),C) = set_union2(cartesian_product2(A,C),cartesian_product2(B,C)) # label(t120_zfmisc_1) # label(axiom).  [clausify(7)].
+17 cartesian_product2(A,set_union2(B,C)) = set_union2(cartesian_product2(A,B),cartesian_product2(A,C)) # label(t120_zfmisc_1) # label(axiom).  [clausify(7)].
+18 set_union2(set_union2(A,B),C) = set_union2(A,set_union2(B,C)) # label(t4_xboole_1) # label(axiom).  [clausify(8)].
+19 cartesian_product2(set_union2(c3,c4),set_union2(c5,c6)) != set_union2(set_union2(set_union2(cartesian_product2(c3,c5),cartesian_product2(c3,c6)),cartesian_product2(c4,c5)),cartesian_product2(c4,c6)) # label(t121_zfmisc_1) # label(conjecture) # answer(t121_zfmisc_1).  [deny(9)].
+20 set_union2(cartesian_product2(c3,c5),set_union2(cartesian_product2(c4,c5),set_union2(cartesian_product2(c3,c6),cartesian_product2(c4,c6)))) != set_union2(cartesian_product2(c3,c5),set_union2(cartesian_product2(c3,c6),set_union2(cartesian_product2(c4,c5),cartesian_product2(c4,c6)))) # answer(t121_zfmisc_1).  [copy(19),rewrite([17(7),16(5),16(12),18(15),18(26),18(30),18(29)])].
+23 set_union2(cartesian_product2(A,B),set_union2(cartesian_product2(C,B),set_union2(cartesian_product2(A,D),cartesian_product2(C,D)))) = set_union2(cartesian_product2(A,B),set_union2(cartesian_product2(A,D),set_union2(cartesian_product2(C,B),cartesian_product2(C,D)))).  [para(17(a,1),16(a,1)),rewrite([16(2),16(5),18(7),17(9),17(12),18(14)])].
+24 $F # answer(t121_zfmisc_1).  [resolve(23,a,20,a)].
+
+============================== end of proof ==========================
+
+% Disable descendants (x means already disabled):
+ 19x 20
+
+given #9 (I,wt=11): 18 set_union2(set_union2(A,B),C) = set_union2(A,set_union2(B,C)) # label(t4_xboole_1) # label(axiom).  [clausify(8)].
+
+% Operation set_union2 is associative-commutative; CAC redundancy checks enabled.
+% back CAC tautology: 25 set_union2(A,set_union2(B,C)) = set_union2(C,set_union2(A,B)).  [para(18(a,1),10(a,1))].
+% back CAC tautology: 23 set_union2(cartesian_product2(A,B),set_union2(cartesian_product2(C,B),set_union2(cartesian_product2(A,D),cartesian_product2(C,D)))) = set_union2(cartesian_product2(A,B),set_union2(cartesian_product2(A,D),set_union2(cartesian_product2(C,B),cartesian_product2(C,D)))).  [para(17(a,1),16(a,1)),rewrite([16(2),16(5),18(7),17(9),17(12),18(14)])].
+
+given #10 (A,wt=4): 21 -empty(set_union2(A,c2)) # answer(rc2_xboole_0).  [ur(12,a,15,a)].
+
+given #11 (F,wt=4): 22 -empty(set_union2(c2,A)) # answer(rc2_xboole_0).  [ur(11,a,15,a)].
+
+given #12 (F,wt=6): 32 -empty(set_union2(A,set_union2(B,c2))) # answer(rc2_xboole_0).  [ur(12,a,21,a)].
+
+given #13 (F,wt=6): 33 -empty(set_union2(A,set_union2(c2,B))) # answer(rc2_xboole_0).  [ur(11,a,21,a),rewrite([18(3)])].
+
+given #14 (F,wt=8): 34 -empty(set_union2(A,set_union2(B,set_union2(C,c2)))) # answer(rc2_xboole_0).  [ur(12,a,32,a)].
+
+given #15 (T,wt=8): 28 empty(A) | -empty(set_union2(B,set_union2(C,A))).  [para(18(a,1),12(b,1))].
+
+given #16 (T,wt=8): 39 empty(A) | -empty(set_union2(B,set_union2(A,C))).  [para(10(a,1),28(b,1,2))].
+
+given #17 (T,wt=9): 30 set_union2(A,set_union2(A,B)) = set_union2(A,B).  [para(13(a,1),18(a,1,1)),flip(a)].
+
+given #18 (T,wt=9): 31 set_union2(A,set_union2(B,A)) = set_union2(B,A).  [para(13(a,1),18(a,2,2)),rewrite([10(2)])].
+
+given #19 (A,wt=11): 26 set_union2(A,set_union2(B,C)) = set_union2(B,set_union2(A,C)).  [para(10(a,1),18(a,1,1)),rewrite([18(2)])].
+
+given #20 (F,wt=8): 35 -empty(set_union2(A,set_union2(B,set_union2(c2,C)))) # answer(rc2_xboole_0).  [ur(11,a,32,a),rewrite([18(4),18(3)])].
+
+given #21 (F,wt=10): 36 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,c2))))) # answer(rc2_xboole_0).  [ur(12,a,34,a)].
+
+given #22 (F,wt=10): 37 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(c2,D))))) # answer(rc2_xboole_0).  [ur(11,a,34,a),rewrite([18(5),18(4),18(3)])].
+
+given #23 (F,wt=12): 38 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,c2)))))) # answer(rc2_xboole_0).  [ur(28,a,34,a)].
+
+given #24 (T,wt=10): 27 empty(set_union2(A,B)) | -empty(set_union2(A,set_union2(B,C))).  [para(18(a,1),11(b,1))].
+
+given #25 (T,wt=8): 56 empty(set_union2(A,B)) | -empty(set_union2(B,A)).  [para(31(a,1),27(b,1))].
+
+given #26 (T,wt=10): 40 empty(A) | -empty(set_union2(B,set_union2(C,set_union2(D,A)))).  [para(18(a,1),28(b,1,2))].
+
+given #27 (T,wt=10): 43 empty(A) | -empty(set_union2(B,set_union2(C,set_union2(A,D)))).  [para(18(a,1),39(b,1))].
+
+given #28 (A,wt=12): 41 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(c2,E)))))) # answer(rc2_xboole_0).  [ur(39,a,34,a),rewrite([18(5),18(4),18(3)])].
+
+given #29 (F,wt=14): 50 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(c2,F))))))) # answer(rc2_xboole_0).  [ur(39,a,36,a),rewrite([18(6),18(5),18(4),18(3)])].
+
+given #30 (F,wt=14): 51 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,c2))))))) # answer(rc2_xboole_0).  [ur(28,a,36,a)].
+
+given #31 (F,wt=16): 52 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(c2,V6)))))))) # answer(rc2_xboole_0).  [ur(39,a,38,a),rewrite([18(7),18(6),18(5),18(4),18(3)])].
+
+given #32 (F,wt=16): 53 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,c2)))))))) # answer(rc2_xboole_0).  [ur(28,a,38,a)].
+
+given #33 (T,wt=10): 48 empty(set_union2(A,B)) | -empty(set_union2(A,set_union2(C,B))).  [para(26(a,1),12(b,1))].
+
+given #34 (T,wt=10): 54 empty(set_union2(A,B)) | -empty(set_union2(B,set_union2(C,A))).  [para(10(a,1),27(b,1)),rewrite([18(4)])].
+
+given #35 (T,wt=10): 58 empty(set_union2(A,B)) | -empty(set_union2(B,set_union2(A,C))).  [para(26(a,1),27(b,1))].
+
+given #36 (T,wt=10): 71 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(B,A))).  [para(10(a,1),48(b,1)),rewrite([18(4)])].
+
+given #37 (A,wt=12): 42 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(A,set_union2(B,D)))).  [para(18(a,1),39(b,1,2))].
+
+given #38 (F,wt=18): 61 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,c2))))))))) # answer(rc2_xboole_0).  [ur(40,a,38,a)].
+
+given #39 (F,wt=18): 64 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(c2,V7))))))))) # answer(rc2_xboole_0).  [ur(43,a,38,a),rewrite([18(7),18(6),18(5),18(4),18(3)])].
+
+given #40 (F,wt=20): 67 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(c2,V8)))))))))) # answer(rc2_xboole_0).  [ur(40,a,50,a)].
+
+given #41 (F,wt=20): 68 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,c2)))))))))) # answer(rc2_xboole_0).  [ur(40,a,51,a)].
+
+given #42 (T,wt=12): 49 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(A,set_union2(D,B)))).  [para(26(a,1),28(b,1,2))].
+
+given #43 (T,wt=12): 57 empty(set_union2(A,B)) | -empty(set_union2(A,set_union2(C,set_union2(B,D)))).  [para(26(a,1),27(b,1,2))].
+
+given #44 (T,wt=12): 59 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(C,A))).  [para(18(a,1),56(b,1))].
+
+given #45 (T,wt=12): 60 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(C,B))).  [para(26(a,1),56(b,1)),rewrite([18(2)])].
+
+given #46 (A,wt=13): 45 set_union2(A,set_union2(B,set_union2(A,C))) = set_union2(B,set_union2(A,C)).  [para(30(a,1),18(a,2,2)),rewrite([26(3),18(2)])].
+
+given #47 (F,wt=22): 69 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(c2,V9))))))))))) # answer(rc2_xboole_0).  [ur(40,a,52,a)].
+
+given #48 (F,wt=22): 70 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,c2))))))))))) # answer(rc2_xboole_0).  [ur(40,a,53,a)].
+
+given #49 (F,wt=24): 88 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(c2,V10)))))))))))) # answer(rc2_xboole_0).  [ur(43,a,61,a),rewrite([18(10),18(9),18(8),18(7),18(6),18(5),18(4),18(3)])].
+
+given #50 (F,wt=24): 89 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,c2)))))))))))) # answer(rc2_xboole_0).  [ur(40,a,61,a)].
+
+given #51 (T,wt=12): 62 empty(A) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,A))))).  [para(18(a,1),40(b,1,2,2))].
+
+given #52 (T,wt=12): 66 empty(A) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(A,E))))).  [para(18(a,1),43(b,1,2))].
+
+given #53 (T,wt=12): 72 empty(set_union2(A,B)) | -empty(set_union2(A,set_union2(C,set_union2(D,B)))).  [para(18(a,1),48(b,1,2))].
+
+given #54 (T,wt=12): 74 empty(set_union2(A,B)) | -empty(set_union2(B,set_union2(C,set_union2(D,A)))).  [para(18(a,1),54(b,1,2))].
+
+given #55 (A,wt=13): 47 set_union2(A,set_union2(B,set_union2(C,A))) = set_union2(B,set_union2(C,A)).  [para(18(a,1),31(a,1,2)),rewrite([18(5)])].
+
+given #56 (F,wt=26): 90 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(c2,V11))))))))))))) # answer(rc2_xboole_0).  [ur(40,a,67,a)].
+
+given #57 (F,wt=26): 91 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,c2))))))))))))) # answer(rc2_xboole_0).  [ur(40,a,68,a)].
+
+given #58 (F,wt=28): 106 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(c2,V12)))))))))))))) # answer(rc2_xboole_0).  [ur(40,a,69,a)].
+
+given #59 (F,wt=28): 107 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,c2)))))))))))))) # answer(rc2_xboole_0).  [ur(40,a,70,a)].
+
+given #60 (T,wt=12): 76 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(A,B))).  [para(30(a,1),54(b,1,2)),rewrite([18(2)])].
+
+given #61 (T,wt=12): 80 empty(set_union2(A,B)) | -empty(set_union2(B,set_union2(C,set_union2(A,D)))).  [para(26(a,1),58(b,1,2))].
+
+given #62 (T,wt=12): 82 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(B,A)))).  [para(18(a,1),71(b,1))].
+
+given #63 (T,wt=12): 84 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(B,set_union2(D,A)))).  [para(10(a,1),42(b,1,2)),rewrite([18(4)])].
+
+given #64 (A,wt=14): 55 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(B,set_union2(C,D)))).  [para(18(a,1),27(b,1,2))].
+
+given #65 (F,wt=30): 108 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(c2,V13))))))))))))))) # answer(rc2_xboole_0).  [ur(40,a,88,a)].
+
+given #66 (F,wt=30): 109 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,c2))))))))))))))) # answer(rc2_xboole_0).  [ur(40,a,89,a)].
+
+given #67 (F,wt=32): 110 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,c2)))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,89,a)].
+
+given #68 (F,wt=32): 111 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(c2,V14)))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,88,a)].
+
+given #69 (T,wt=12): 87 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(B,set_union2(A,D)))).  [para(26(a,1),42(b,1,2))].
+
+given #70 (T,wt=12): 97 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(A,C))).  [para(10(a,1),59(b,1,2))].
+
+given #71 (T,wt=12): 100 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(B,A))).  [para(26(a,1),59(b,1))].
+
+given #72 (T,wt=14): 63 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(E,B))))).  [para(26(a,1),40(b,1,2,2))].
+
+given #73 (A,wt=14): 65 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(B,E))))).  [para(18(a,1),43(b,1,2,2))].
+
+given #74 (F,wt=34): 127 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(c2,V15))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,90,a)].
+
+given #75 (F,wt=34): 128 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,c2))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,91,a)].
+
+given #76 (F,wt=36): 129 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(c2,V16)))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,106,a)].
+
+given #77 (F,wt=36): 130 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,c2)))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,107,a)].
+
+given #78 (T,wt=14): 73 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(B,set_union2(D,C)))).  [para(18(a,1),48(b,1)),rewrite([18(2)])].
+
+given #79 (T,wt=14): 75 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(C,set_union2(D,A)))).  [para(18(a,1),54(b,1))].
+
+given #80 (T,wt=14): 77 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(A,set_union2(D,B)))).  [para(26(a,1),54(b,1,2)),rewrite([18(2)])].
+
+given #81 (T,wt=14): 78 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(A,set_union2(B,D)))).  [para(18(a,1),58(b,1,2)),rewrite([18(2)])].
+
+given #82 (A,wt=14): 79 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(C,set_union2(A,D)))).  [para(18(a,1),58(b,1))].
+
+given #83 (F,wt=38): 149 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(c2,V17))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,108,a)].
+
+given #84 (F,wt=38): 150 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,c2))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,109,a)].
+
+given #85 (F,wt=40): 151 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(c2,V18)))))))))))))))))))) # answer(rc2_xboole_0).  [ur(66,a,110,a),rewrite([18(17),18(16),18(15),18(14),18(13),18(12),18(11),18(10),18(9),18(8),18(7),18(6),18(5),18(4),18(3)])].
+
+given #86 (F,wt=40): 152 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,c2)))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,110,a)].
+
+given #87 (T,wt=14): 81 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(C,A)))).  [para(18(a,1),71(b,1,2))].
+
+given #88 (T,wt=14): 83 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(C,B)))).  [para(26(a,1),71(b,1,2)),rewrite([18(2)])].
+
+given #89 (T,wt=14): 86 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(B,E))))).  [para(26(a,1),42(b,1,2,2))].
+
+given #90 (T,wt=14): 92 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(E,B))))).  [para(18(a,1),49(b,1,2,2))].
+
+given #91 (A,wt=16): 85 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(B,set_union2(C,E))))).  [para(18(a,1),42(b,1,2,2))].
+
+given #92 (F,wt=42): 165 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(c2,V19))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,127,a)].
+
+given #93 (F,wt=42): 166 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,c2))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,128,a)].
+
+given #94 (F,wt=44): 167 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(c2,V20)))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,129,a)].
+
+given #95 (F,wt=44): 168 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,c2)))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,130,a)].
+
+given #96 (T,wt=14): 95 empty(set_union2(A,B)) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(B,E))))).  [para(18(a,1),57(b,1,2))].
+
+given #97 (T,wt=14): 112 empty(A) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,A)))))).  [para(18(a,1),62(b,1,2,2,2))].
+
+given #98 (T,wt=14): 115 empty(A) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(A,F)))))).  [para(18(a,1),66(b,1,2,2))].
+
+given #99 (T,wt=14): 116 empty(set_union2(A,B)) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(E,B))))).  [para(18(a,1),72(b,1,2,2))].
+
+given #100 (A,wt=16): 93 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(B,set_union2(E,C))))).  [para(18(a,1),49(b,1,2)),rewrite([18(2)])].
+
+given #101 (F,wt=46): 187 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(c2,V21))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,149,a)].
+
+given #102 (F,wt=46): 188 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,c2))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,150,a)].
+
+given #103 (F,wt=48): 189 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(c2,V22)))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,151,a)].
+
+given #104 (F,wt=48): 190 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,c2)))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,152,a)].
+
+given #105 (T,wt=14): 119 empty(set_union2(A,B)) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,A))))).  [para(18(a,1),74(b,1,2,2))].
+
+given #106 (T,wt=14): 121 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(A,B)))).  [para(30(a,1),74(b,1,2,2)),rewrite([18(2)])].
+
+given #107 (T,wt=14): 134 empty(set_union2(A,B)) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(A,E))))).  [para(18(a,1),80(b,1,2))].
+
+given #108 (T,wt=14): 137 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(B,A))))).  [para(18(a,1),82(b,1,2))].
+
+given #109 (A,wt=16): 94 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(B,set_union2(C,E))))).  [para(18(a,1),57(b,1,2,2))].
+
+given #110 (F,wt=50): 208 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(c2,V23))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,165,a)].
+
+given #111 (F,wt=50): 209 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,c2))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,166,a)].
+
+given #112 (F,wt=52): 210 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(c2,V24)))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,167,a)].
+
+given #113 (F,wt=52): 211 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,c2)))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(62,a,168,a)].
+
+given #114 (T,wt=14): 139 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(A,B)))).  [para(45(a,1),82(b,1,2)),rewrite([18(2)])].
+
+given #115 (T,wt=14): 140 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(B,set_union2(D,set_union2(E,A))))).  [para(18(a,1),84(b,1,2,2))].
+
+given #116 (T,wt=14): 142 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(B,set_union2(E,A))))).  [para(18(a,1),84(b,1))].
+
+given #117 (T,wt=14): 145 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(C,set_union2(D,B)))).  [para(10(a,1),55(b,1,2)),rewrite([18(5)])].
+
+given #118 (A,wt=16): 96 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(B,set_union2(D,set_union2(C,E))))).  [para(18(a,1),57(b,1)),rewrite([18(2)])].
+
+given #119 (F,wt=54): 216 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,c2))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,168,a)].
+
+given #120 (F,wt=54): 217 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(c2,V25))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,167,a)].
+
+given #121 (F,wt=56): 228 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(c2,V26)))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,187,a)].
+
+given #122 (F,wt=56): 229 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,c2)))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,188,a)].
+
+given #123 (T,wt=14): 147 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(C,set_union2(B,D)))).  [para(26(a,1),55(b,1,2))].
+
+given #124 (T,wt=14): 148 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(A,set_union2(C,D)))).  [para(26(a,1),55(b,1))].
+
+given #125 (T,wt=14): 155 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(B,set_union2(A,E))))).  [para(18(a,1),87(b,1))].
+
+given #126 (T,wt=14): 156 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(B,set_union2(D,set_union2(A,E))))).  [para(26(a,1),87(b,1,2,2))].
+
+given #127 (A,wt=16): 98 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(C,set_union2(D,A)))).  [para(18(a,1),59(b,1,2))].
+
+given #128 (F,wt=58): 230 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(c2,V27))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,189,a)].
+
+given #129 (F,wt=58): 231 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,c2))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,190,a)].
+
+given #130 (F,wt=60): 252 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(c2,V28)))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,208,a)].
+
+given #131 (F,wt=60): 253 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,c2)))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,209,a)].
+
+given #132 (T,wt=14): 169 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(C,B)))).  [para(10(a,1),73(b,1,2)),rewrite([18(5)])].
+
+given #133 (T,wt=14): 170 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(C,A)))).  [para(10(a,1),73(b,1)),rewrite([18(6),18(5)])].
+
+given #134 (T,wt=14): 172 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(A,set_union2(D,C)))).  [para(26(a,1),73(b,1))].
+
+given #135 (T,wt=14): 173 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(A,C)))).  [para(10(a,1),75(b,1,2)),rewrite([18(5)])].
+
+given #136 (A,wt=16): 99 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(A,set_union2(D,B)))).  [para(26(a,1),59(b,1,2)),rewrite([18(3)])].
+
+given #137 (F,wt=62): 254 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(c2,V29))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,210,a)].
+
+given #138 (F,wt=62): 255 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,c2))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,211,a)].
+
+given #139 (F,wt=64): 277 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(c2,V30)))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(115,a,216,a),rewrite([18(28),18(27),18(26),18(25),18(24),18(23),18(22),18(21),18(20),18(19),18(18),18(17),18(16),18(15),18(14),18(13),18(12),18(11),18(10),18(9),18(8),18(7),18(6),18(5),18(4),18(3)])].
+
+given #140 (F,wt=64): 278 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,c2)))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,216,a)].
+
+given #141 (T,wt=14): 176 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(B,set_union2(D,A)))).  [para(26(a,1),75(b,1))].
+
+given #142 (T,wt=14): 178 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(B,A)))).  [para(10(a,1),77(b,1,2)),rewrite([18(5)])].
+
+given #143 (T,wt=14): 185 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(B,set_union2(A,D)))).  [para(26(a,1),78(b,1,2))].
+
+given #144 (T,wt=14): 191 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(A,C)))).  [para(10(a,1),81(b,1,2,2))].
+
+given #145 (A,wt=16): 101 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(C,set_union2(D,B)))).  [para(18(a,1),60(b,1,2))].
+
+given #146 (F,wt=66): 279 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(c2,V31))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,228,a)].
+
+given #147 (F,wt=66): 280 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,c2))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,229,a)].
+
+given #148 (F,wt=68): 302 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(c2,V32)))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,230,a)].
+
+given #149 (F,wt=68): 303 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,c2)))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,231,a)].
+
+given #150 (T,wt=14): 194 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(B,A)))).  [para(26(a,1),81(b,1,2))].
+
+given #151 (T,wt=16): 102 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(B,set_union2(D,C)))).  [para(18(a,1),60(b,1)),rewrite([18(3)])].
+
+given #152 (T,wt=16): 105 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(A,set_union2(B,C)))).  [para(45(a,1),54(b,1,2)),rewrite([18(3),18(2)])].
+
+given #153 (T,wt=16): 113 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,set_union2(F,B)))))).  [para(26(a,1),62(b,1,2,2,2))].
+
+given #154 (A,wt=17): 104 set_union2(A,set_union2(B,set_union2(C,set_union2(A,D)))) = set_union2(B,set_union2(C,set_union2(A,D))).  [para(18(a,1),45(a,1,2)),rewrite([18(7)])].
+
+given #155 (F,wt=70): 304 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(c2,V33))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,252,a)].
+
+given #156 (F,wt=70): 305 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,c2))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,253,a)].
+
+given #157 (F,wt=72): 324 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(c2,V34)))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,254,a)].
+
+given #158 (F,wt=72): 325 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,c2)))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,255,a)].
+
+given #159 (T,wt=16): 114 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,set_union2(B,F)))))).  [para(18(a,1),66(b,1,2,2,2))].
+
+given #160 (T,wt=16): 117 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(B,set_union2(D,set_union2(E,C))))).  [para(18(a,1),72(b,1)),rewrite([18(2)])].
+
+given #161 (T,wt=16): 118 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(B,set_union2(E,C))))).  [para(26(a,1),72(b,1,2,2))].
+
+given #162 (T,wt=16): 120 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,A))))).  [para(18(a,1),74(b,1))].
+
+given #163 (A,wt=16): 122 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(E,B))))).  [para(26(a,1),74(b,1,2,2)),rewrite([18(2)])].
+
+given #164 (F,wt=74): 326 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(c2,V35))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,277,a)].
+
+given #165 (F,wt=74): 327 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,c2))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,278,a)].
+
+given #166 (F,wt=76): 350 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(c2,V36)))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,279,a)].
+
+given #167 (F,wt=76): 351 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,c2)))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,280,a)].
+
+given #168 (T,wt=16): 126 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(A,set_union2(B,D)))).  [para(47(a,1),59(b,1,2)),rewrite([18(4),18(3),31(2)])].
+
+given #169 (T,wt=16): 131 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(D,set_union2(A,B)))).  [para(18(a,1),76(b,1))].
+
+given #170 (T,wt=16): 132 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(B,set_union2(A,C)))).  [para(26(a,1),76(b,1,2)),rewrite([18(2)])].
+
+given #171 (T,wt=16): 133 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(B,E))))).  [para(18(a,1),80(b,1,2,2)),rewrite([18(2)])].
+
+given #172 (A,wt=18): 123 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(B,C))))).  [para(45(a,1),74(b,1,2,2)),rewrite([18(3),18(2)])].
+
+given #173 (F,wt=78): 352 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(c2,V37))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,302,a)].
+
+given #174 (F,wt=78): 353 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,c2))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,303,a)].
+
+given #175 (F,wt=80): 398 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(c2,V38)))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,304,a)].
+
+given #176 (F,wt=80): 399 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,c2)))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,305,a)].
+
+given #177 (T,wt=16): 135 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(A,E))))).  [para(18(a,1),80(b,1))].
+
+given #178 (T,wt=16): 136 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(B,set_union2(C,A))))).  [para(18(a,1),82(b,1,2,2))].
+
+given #179 (T,wt=16): 138 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(C,B))))).  [para(26(a,1),82(b,1,2,2)),rewrite([18(2)])].
+
+given #180 (T,wt=16): 141 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(C,set_union2(E,A))))).  [para(18(a,1),84(b,1,2))].
+
+given #181 (A,wt=17): 125 set_union2(A,set_union2(B,set_union2(C,set_union2(D,A)))) = set_union2(B,set_union2(C,set_union2(D,A))).  [para(18(a,1),47(a,1,2,2)),rewrite([18(6)])].
+
+given #182 (F,wt=82): 400 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(c2,V39))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,324,a)].
+
+given #183 (F,wt=82): 401 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,c2))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,325,a)].
+
+given #184 (F,wt=84): 417 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(c2,V40)))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,326,a)].
+
+given #185 (F,wt=84): 418 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,c2)))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,327,a)].
+
+given #186 (T,wt=16): 143 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(A,set_union2(E,B))))).  [para(26(a,1),84(b,1,2,2)),rewrite([18(2)])].
+
+given #187 (T,wt=16): 153 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(A,set_union2(B,E))))).  [para(18(a,1),87(b,1,2,2)),rewrite([18(2)])].
+
+given #188 (T,wt=16): 154 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(C,set_union2(A,E))))).  [para(18(a,1),87(b,1,2))].
+
+given #189 (T,wt=16): 157 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(C,set_union2(A,D)))).  [para(18(a,1),97(b,1)),rewrite([18(2)])].
+
+given #190 (A,wt=18): 144 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(D,set_union2(A,set_union2(B,C))))).  [para(45(a,1),84(b,1,2,2)),rewrite([18(3),18(2)])].
+
+given #191 (F,wt=86): 419 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(c2,V41))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,350,a)].
+
+given #192 (F,wt=86): 420 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,c2))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,351,a)].
+
+given #193 (F,wt=88): 435 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(c2,V42)))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,352,a)].
+
+given #194 (F,wt=88): 436 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,c2)))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,353,a)].
+
+given #195 (T,wt=16): 158 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(B,set_union2(C,A)))).  [para(18(a,1),100(b,1,2)),rewrite([18(2)])].
+
+given #196 (T,wt=16): 159 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(D,set_union2(B,A)))).  [para(18(a,1),100(b,1))].
+
+given #197 (T,wt=16): 160 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(A,set_union2(C,B)))).  [para(26(a,1),100(b,1,2)),rewrite([18(3)])].
+
+given #198 (T,wt=16): 161 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(E,set_union2(F,B)))))).  [para(18(a,1),63(b,1,2,2,2))].
+
+given #199 (A,wt=18): 146 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))).  [para(18(a,1),55(b,1,2,2))].
+
+given #200 (F,wt=90): 437 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,set_union2(c2,V43))))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,398,a)].
+
+given #201 (F,wt=90): 438 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,set_union2(V43,c2))))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,399,a)].
+
+given #202 (F,wt=92): 488 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,set_union2(V43,set_union2(c2,V44)))))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,400,a)].
+
+given #203 (F,wt=92): 489 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,set_union2(V43,set_union2(V44,c2)))))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,401,a)].
+
+given #204 (T,wt=16): 164 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(E,set_union2(B,F)))))).  [para(26(a,1),65(b,1,2,2,2))].
+
+given #205 (T,wt=16): 179 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(E,B))))).  [para(18(a,1),77(b,1,2,2))].
+
+given #206 (T,wt=16): 184 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(B,E))))).  [para(26(a,1),78(b,1,2,2))].
+
+given #207 (T,wt=16): 199 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(E,set_union2(B,F)))))).  [para(18(a,1),86(b,1,2,2))].
+
+given #208 (A,wt=18): 162 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(B,set_union2(F,C)))))).  [para(18(a,1),63(b,1,2,2)),rewrite([18(2)])].
+
+given #209 (F,wt=94): 490 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,set_union2(V43,set_union2(V44,set_union2(c2,V45))))))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,417,a)].
+
+given #210 (F,wt=94): 491 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,set_union2(V43,set_union2(V44,set_union2(V45,c2))))))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,418,a)].
+
+given #211 (F,wt=96): 511 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,set_union2(V43,set_union2(V44,set_union2(V45,set_union2(c2,V46)))))))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,419,a)].
+
+given #212 (F,wt=96): 512 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,set_union2(V43,set_union2(V44,set_union2(V45,set_union2(V46,c2)))))))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,420,a)].
+
+given #213 (T,wt=16): 201 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(E,set_union2(F,B)))))).  [para(47(a,1),86(b,1,2,2,2))].
+
+given #214 (T,wt=16): 204 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(C,set_union2(E,B))))).  [para(10(a,1),85(b,1,2,2)),rewrite([18(5)])].
+
+given #215 (T,wt=16): 206 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(C,set_union2(B,E))))).  [para(26(a,1),85(b,1,2,2))].
+
+given #216 (T,wt=16): 207 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(A,set_union2(C,E))))).  [para(26(a,1),85(b,1,2))].
+
+given #217 (A,wt=18): 163 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(B,set_union2(C,F)))))).  [para(18(a,1),65(b,1,2,2,2))].
+
+given #218 (F,wt=98): 513 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,set_union2(V43,set_union2(V44,set_union2(V45,set_union2(V46,set_union2(c2,V47))))))))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,435,a)].
+
+given #219 (F,wt=98): 514 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,set_union2(V43,set_union2(V44,set_union2(V45,set_union2(V46,set_union2(V47,c2))))))))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,436,a)].
+
+given #220 (F,wt=100): 535 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,set_union2(V43,set_union2(V44,set_union2(V45,set_union2(V46,set_union2(V47,set_union2(c2,V48)))))))))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,437,a)].
+
+given #221 (F,wt=100): 536 -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,set_union2(V8,set_union2(V9,set_union2(V10,set_union2(V11,set_union2(V12,set_union2(V13,set_union2(V14,set_union2(V15,set_union2(V16,set_union2(V17,set_union2(V18,set_union2(V19,set_union2(V20,set_union2(V21,set_union2(V22,set_union2(V23,set_union2(V24,set_union2(V25,set_union2(V26,set_union2(V27,set_union2(V28,set_union2(V29,set_union2(V30,set_union2(V31,set_union2(V32,set_union2(V33,set_union2(V34,set_union2(V35,set_union2(V36,set_union2(V37,set_union2(V38,set_union2(V39,set_union2(V40,set_union2(V41,set_union2(V42,set_union2(V43,set_union2(V44,set_union2(V45,set_union2(V46,set_union2(V47,set_union2(V48,c2)))))))))))))))))))))))))))))))))))))))))))))))))) # answer(rc2_xboole_0).  [ur(112,a,438,a)].
+
+given #222 (T,wt=16): 213 empty(set_union2(A,B)) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(E,set_union2(B,F)))))).  [para(18(a,1),95(b,1,2,2))].
+
+given #223 (T,wt=16): 215 empty(set_union2(A,B)) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(E,set_union2(F,B)))))).  [para(47(a,1),95(b,1,2,2,2))].
+
+given #224 (T,wt=16): 218 empty(A) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,A))))))).  [para(18(a,1),112(b,1,2,2,2,2))].
+
+given #225 (T,wt=16): 221 empty(A) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(A,V6))))))).  [para(18(a,1),115(b,1,2,2,2))].
+
+given #226 (A,wt=18): 171 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(E,D))))).  [para(18(a,1),73(b,1,2)),rewrite([18(2)])].
+
+given #227 (T,wt=16): 224 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(E,set_union2(C,B))))).  [para(10(a,1),93(b,1,2,2)),rewrite([18(5)])].
+
+given #228 (T,wt=16): 225 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(E,set_union2(C,A))))).  [para(10(a,1),93(b,1,2)),rewrite([18(6),18(5)])].
+
+given #229 (T,wt=16): 227 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(A,set_union2(E,C))))).  [para(26(a,1),93(b,1,2))].
+
+given #230 (T,wt=16): 232 empty(set_union2(A,B)) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,A)))))).  [para(18(a,1),119(b,1,2,2,2))].
+
+given #231 (A,wt=18): 174 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,A))))).  [para(18(a,1),75(b,1,2))].
+
+given #232 (T,wt=16): 234 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,B))))).  [para(30(a,1),119(b,1,2,2,2)),rewrite([18(2)])].
+
+given #233 (T,wt=16): 240 empty(set_union2(A,B)) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(A,F)))))).  [para(18(a,1),134(b,1,2,2))].
+
+given #234 (T,wt=16): 243 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(B,A)))))).  [para(18(a,1),137(b,1,2,2))].
+
+given #235 (T,wt=16): 245 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(C,set_union2(A,B))))).  [para(45(a,1),137(b,1,2,2)),rewrite([18(2)])].
+
+given #236 (A,wt=18): 175 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(E,B))))).  [para(26(a,1),75(b,1,2,2)),rewrite([18(3)])].
+
+given #237 (T,wt=16): 246 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(C,set_union2(E,B))))).  [para(10(a,1),94(b,1,2,2)),rewrite([18(5)])].
+
+given #238 (T,wt=16): 250 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(C,set_union2(B,E))))).  [para(26(a,1),94(b,1,2,2))].
+
+given #239 (T,wt=16): 258 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(B,set_union2(D,set_union2(E,set_union2(F,A)))))).  [para(18(a,1),140(b,1,2,2,2))].
+
+given #240 (T,wt=16): 260 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(B,set_union2(E,set_union2(F,A)))))).  [para(18(a,1),140(b,1))].
+
+given #241 (A,wt=20): 177 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(B,C))))).  [para(45(a,1),75(b,1,2,2)),rewrite([18(4),18(3)])].
+
+given #242 (T,wt=16): 261 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(E,set_union2(A,B))))).  [para(30(a,1),140(b,1,2,2,2)),rewrite([18(2)])].
+
+given #243 (T,wt=16): 265 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(B,set_union2(F,A)))))).  [para(18(a,1),142(b,1,2))].
+
+given #244 (T,wt=16): 268 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(E,B))))).  [para(18(a,1),145(b,1,2,2))].
+
+given #245 (T,wt=16): 271 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(D,set_union2(B,C)))).  [para(30(a,1),145(b,1,2,2)),rewrite([18(2)])].
+
+given #246 (A,wt=18): 180 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(A,set_union2(B,set_union2(E,C))))).  [para(18(a,1),77(b,1,2)),rewrite([18(3)])].
+
+given #247 (T,wt=16): 274 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(C,set_union2(E,A))))).  [para(10(a,1),96(b,1)),rewrite([18(7),18(6),18(5)])].
+
+given #248 (T,wt=16): 276 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(A,set_union2(D,set_union2(C,E))))).  [para(26(a,1),96(b,1))].
+
+given #249 (T,wt=16): 284 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(B,E))))).  [para(26(a,1),147(b,1,2,2))].
+
+given #250 (T,wt=16): 288 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(A,set_union2(D,set_union2(E,C))))).  [para(47(a,1),148(b,1,2,2))].
+
+given #251 (A,wt=20): 181 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(E,set_union2(A,set_union2(B,set_union2(C,D))))).  [para(45(a,1),77(b,1,2,2)),rewrite([18(3),18(2)])].
+
+given #252 (T,wt=16): 291 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(B,set_union2(A,F)))))).  [para(18(a,1),155(b,1,2))].
+
+given #253 (T,wt=16): 292 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(B,set_union2(E,set_union2(A,F)))))).  [para(26(a,1),155(b,1,2,2,2))].
+
+given #254 (T,wt=16): 294 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(B,set_union2(D,set_union2(E,set_union2(A,F)))))).  [para(18(a,1),156(b,1,2,2))].
+
+given #255 (T,wt=16): 296 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(D,set_union2(A,C)))).  [para(10(a,1),98(b,1,2)),rewrite([18(6)])].
+
+given #256 (A,wt=18): 182 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(A,set_union2(B,set_union2(C,E))))).  [para(18(a,1),78(b,1,2,2)),rewrite([18(2)])].
+
+given #257 (T,wt=16): 299 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(D,set_union2(C,A)))).  [para(26(a,1),98(b,1,2))].
+
+given #258 (T,wt=16): 300 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(B,set_union2(D,A)))).  [para(26(a,1),98(b,1))].
+
+given #259 (T,wt=16): 307 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(E,set_union2(C,B))))).  [para(18(a,1),169(b,1,2))].
+
+given #260 (T,wt=16): 311 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(E,set_union2(C,A))))).  [para(18(a,1),170(b,1,2))].
+
+given #261 (A,wt=18): 183 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(B,E))))).  [para(18(a,1),78(b,1))].
+
+given #262 (T,wt=16): 318 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(E,set_union2(A,C))))).  [para(18(a,1),173(b,1,2))].
+
+given #263 (T,wt=16): 328 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(B,set_union2(D,set_union2(E,A))))).  [para(18(a,1),176(b,1,2,2))].
+
+given #264 (T,wt=16): 331 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(C,set_union2(A,B)))).  [para(30(a,1),176(b,1,2,2)),rewrite([18(3)])].
+
+given #265 (T,wt=16): 335 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(B,A))))).  [para(18(a,1),178(b,1,2))].
+
+given #266 (A,wt=18): 186 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(A,E))))).  [para(18(a,1),79(b,1,2))].
+
+given #267 (T,wt=16): 341 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(B,set_union2(D,set_union2(A,E))))).  [para(26(a,1),185(b,1,2,2))].
+
+given #268 (T,wt=16): 343 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(B,set_union2(A,C))))).  [para(18(a,1),191(b,1))].
+
+given #269 (T,wt=16): 344 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(C,set_union2(B,D)))).  [para(10(a,1),101(b,1,2,2))].
+
+given #270 (T,wt=16): 348 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(D,set_union2(C,B)))).  [para(26(a,1),101(b,1,2))].
+
+given #271 (A,wt=18): 192 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(B,set_union2(C,set_union2(D,A))))).  [para(18(a,1),81(b,1,2,2))].
+
+given #272 (T,wt=16): 356 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(C,set_union2(B,A))))).  [para(18(a,1),194(b,1))].
+
+given #273 (T,wt=16): 359 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(A,set_union2(D,C)))).  [para(26(a,1),102(b,1))].
+
+given #274 (T,wt=16): 422 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(B,set_union2(A,D)))).  [para(26(a,1),126(b,1,2))].
+
+given #275 (T,wt=16): 427 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(B,set_union2(E,A))))).  [para(10(a,1),133(b,1,2,2)),rewrite([18(5)])].
+
+given #276 (A,wt=18): 193 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(C,set_union2(A,set_union2(D,B))))).  [para(26(a,1),81(b,1,2,2)),rewrite([18(3)])].
+
+given #277 (T,wt=16): 431 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(B,set_union2(A,E))))).  [para(26(a,1),133(b,1,2,2))].
+
+given #278 (T,wt=16): 439 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(A,set_union2(E,C))))).  [para(10(a,1),135(b,1,2)),rewrite([18(6),18(5)])].
+
+given #279 (T,wt=16): 441 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(C,set_union2(A,E))))).  [para(26(a,1),135(b,1,2))].
+
+given #280 (T,wt=16): 443 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(A,set_union2(C,E))))).  [para(104(a,1),135(b,1,2))].
+
+given #281 (A,wt=18): 195 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(C,set_union2(A,set_union2(B,D))))).  [para(47(a,1),81(b,1,2,2)),rewrite([18(4),18(3),31(2)])].
+
+given #282 (T,wt=16): 451 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(E,set_union2(A,C))))).  [para(10(a,1),141(b,1,2,2)),rewrite([18(5)])].
+
+given #283 (T,wt=16): 454 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(B,set_union2(E,A))))).  [para(26(a,1),141(b,1,2))].
+
+given #284 (T,wt=16): 492 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(E,set_union2(B,A))))).  [para(10(a,1),143(b,1,2,2)),rewrite([18(5)])].
+
+given #285 (T,wt=16): 499 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(B,set_union2(A,E))))).  [para(26(a,1),153(b,1,2,2))].
+
+given #286 (A,wt=18): 196 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(A,set_union2(C,set_union2(D,B))))).  [para(18(a,1),83(b,1,2,2))].
+
+given #287 (T,wt=16): 518 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(C,set_union2(B,A)))).  [para(26(a,1),158(b,1,2))].
+
+given #288 (T,wt=18): 197 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(A,set_union2(B,set_union2(D,C))))).  [para(18(a,1),83(b,1,2)),rewrite([18(3)])].
+
+given #289 (T,wt=18): 198 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(E,set_union2(B,set_union2(C,F)))))).  [para(18(a,1),86(b,1,2,2,2))].
+
+given #290 (T,wt=18): 200 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(B,set_union2(E,set_union2(C,F)))))).  [para(18(a,1),86(b,1,2)),rewrite([18(2)])].
+
+given #291 (A,wt=18): 202 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(B,set_union2(E,set_union2(F,C)))))).  [para(18(a,1),92(b,1,2)),rewrite([18(2)])].
+
+given #292 (T,wt=18): 203 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(E,set_union2(B,set_union2(F,C)))))).  [para(26(a,1),92(b,1,2,2,2))].
+
+given #293 (T,wt=18): 212 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(E,set_union2(B,set_union2(C,F)))))).  [para(18(a,1),95(b,1,2,2,2))].
+
+given #294 (T,wt=18): 214 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(B,set_union2(D,set_union2(E,set_union2(C,F)))))).  [para(18(a,1),95(b,1)),rewrite([18(2)])].
+
+given #295 (T,wt=18): 219 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(A,set_union2(V6,B))))))).  [para(26(a,1),112(b,1,2,2,2,2))].
+
+given #296 (A,wt=20): 205 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(A,set_union2(B,set_union2(C,set_union2(D,F)))))).  [para(18(a,1),85(b,1,2,2,2))].
+
+given #297 (T,wt=18): 220 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(A,set_union2(B,V6))))))).  [para(18(a,1),115(b,1,2,2,2,2))].
+
+given #298 (T,wt=18): 222 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(B,set_union2(D,set_union2(E,set_union2(F,C)))))).  [para(18(a,1),116(b,1)),rewrite([18(2)])].
+
+given #299 (T,wt=18): 223 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(E,set_union2(B,set_union2(F,C)))))).  [para(26(a,1),116(b,1,2,2,2))].
+
+given #300 (T,wt=18): 233 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,A)))))).  [para(18(a,1),119(b,1))].
+
+given #301 (A,wt=20): 226 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(A,set_union2(B,set_union2(C,set_union2(F,D)))))).  [para(18(a,1),93(b,1,2,2)),rewrite([18(2)])].
+
+given #302 (T,wt=18): 235 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,set_union2(F,B)))))).  [para(26(a,1),119(b,1,2,2,2)),rewrite([18(2)])].
+
+given #303 (T,wt=18): 237 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,B))))).  [para(18(a,1),121(b,1))].
+
+given #304 (T,wt=18): 238 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(E,set_union2(B,set_union2(A,C))))).  [para(26(a,1),121(b,1,2,2)),rewrite([18(2)])].
+
+given #305 (T,wt=18): 239 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,set_union2(B,F)))))).  [para(18(a,1),134(b,1,2,2,2)),rewrite([18(2)])].
+
+given #306 (A,wt=20): 236 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(E,set_union2(F,set_union2(A,set_union2(B,C)))))).  [para(45(a,1),119(b,1,2,2,2)),rewrite([18(3),18(2)])].
+
+given #307 (T,wt=18): 241 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(A,F)))))).  [para(18(a,1),134(b,1))].
+
+given #308 (T,wt=18): 242 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(F,set_union2(B,set_union2(C,A)))))).  [para(18(a,1),137(b,1,2,2,2))].
+
+given #309 (T,wt=18): 244 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(F,set_union2(A,set_union2(C,B)))))).  [para(26(a,1),137(b,1,2,2,2)),rewrite([18(2)])].
+
+given #310 (T,wt=18): 249 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(B,set_union2(E,set_union2(C,F)))))).  [para(26(a,1),94(b,1,2,2,2))].
+
+given #311 (A,wt=20): 247 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(E,set_union2(B,set_union2(C,set_union2(D,F)))))).  [para(18(a,1),94(b,1,2,2,2))].
+
+given #312 (T,wt=18): 251 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(B,set_union2(E,set_union2(F,C)))))).  [para(47(a,1),94(b,1,2,2,2))].
+
+given #313 (T,wt=18): 256 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(C,set_union2(D,set_union2(A,B))))).  [para(18(a,1),139(b,1,2))].
+
+given #314 (T,wt=18): 257 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(D,set_union2(B,set_union2(A,C))))).  [para(26(a,1),139(b,1,2,2)),rewrite([18(2)])].
+
+given #315 (T,wt=18): 259 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(C,set_union2(E,set_union2(F,A)))))).  [para(18(a,1),140(b,1,2))].
+
+given #316 (A,wt=20): 248 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(B,set_union2(E,set_union2(C,set_union2(D,F)))))).  [para(18(a,1),94(b,1)),rewrite([18(3)])].
+
+given #317 (T,wt=18): 262 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(E,set_union2(A,set_union2(F,B)))))).  [para(26(a,1),140(b,1,2,2,2)),rewrite([18(2)])].
+
+given #318 (T,wt=18): 264 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(B,set_union2(C,set_union2(F,A)))))).  [para(18(a,1),142(b,1,2,2))].
+
+given #319 (T,wt=18): 266 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(C,set_union2(A,set_union2(F,B)))))).  [para(26(a,1),142(b,1,2,2,2)),rewrite([18(2)])].
+
+given #320 (T,wt=18): 269 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(E,B))))).  [para(18(a,1),145(b,1,2))].
+
+given #321 (A,wt=20): 263 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(D,set_union2(F,set_union2(A,set_union2(B,C)))))).  [para(45(a,1),140(b,1,2,2,2)),rewrite([18(3),18(2)])].
+
+given #322 (T,wt=18): 270 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(B,set_union2(D,set_union2(E,C))))).  [para(18(a,1),145(b,1)),rewrite([18(3)])].
+
+given #323 (T,wt=18): 272 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(D,set_union2(B,set_union2(E,C))))).  [para(26(a,1),145(b,1,2,2)),rewrite([18(2)])].
+
+given #324 (T,wt=18): 281 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(D,set_union2(B,set_union2(C,E))))).  [para(18(a,1),147(b,1,2,2)),rewrite([18(2)])].
+
+given #325 (T,wt=18): 282 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(B,E))))).  [para(18(a,1),147(b,1,2))].
+
+given #326 (A,wt=20): 267 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(F,set_union2(D,set_union2(A,set_union2(B,C)))))).  [para(45(a,1),142(b,1,2,2,2)),rewrite([18(3),18(2)])].
+
+given #327 (T,wt=18): 283 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(B,set_union2(D,set_union2(C,E))))).  [para(18(a,1),147(b,1)),rewrite([18(3)])].
+
+given #328 (T,wt=18): 285 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(A,set_union2(C,set_union2(D,E))))).  [para(18(a,1),148(b,1,2,2))].
+
+given #329 (T,wt=18): 286 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(A,set_union2(B,set_union2(D,E))))).  [para(18(a,1),148(b,1,2)),rewrite([18(3)])].
+
+given #330 (T,wt=18): 287 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(C,set_union2(A,set_union2(D,E))))).  [para(18(a,1),148(b,1)),rewrite([18(2)])].
+
+given #331 (A,wt=20): 273 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(A,set_union2(E,set_union2(B,set_union2(C,D))))).  [para(45(a,1),145(b,1,2,2)),rewrite([18(3),18(2)])].
+
+given #332 (T,wt=18): 289 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(C,set_union2(A,set_union2(B,F)))))).  [para(18(a,1),155(b,1,2,2,2)),rewrite([18(2)])].
+
+given #333 (T,wt=18): 290 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(B,set_union2(C,set_union2(A,F)))))).  [para(18(a,1),155(b,1,2,2))].
+
+given #334 (T,wt=18): 293 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(E,set_union2(A,set_union2(B,F)))))).  [para(18(a,1),156(b,1,2,2,2)),rewrite([18(2)])].
+
+given #335 (T,wt=18): 295 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(C,set_union2(E,set_union2(A,F)))))).  [para(18(a,1),156(b,1,2))].
+
+given #336 (A,wt=20): 275 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(E,set_union2(D,F)))))).  [para(18(a,1),96(b,1,2)),rewrite([18(2)])].
+
+given #337 (T,wt=18): 306 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(E,set_union2(C,set_union2(D,B))))).  [para(18(a,1),169(b,1,2,2))].
+
+given #338 (T,wt=18): 308 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(B,set_union2(E,set_union2(D,C))))).  [para(18(a,1),169(b,1)),rewrite([18(3)])].
+
+given #339 (T,wt=18): 309 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(E,set_union2(B,set_union2(D,C))))).  [para(26(a,1),169(b,1,2,2)),rewrite([18(2)])].
+
+given #340 (T,wt=18): 310 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(E,set_union2(C,set_union2(D,A))))).  [para(18(a,1),170(b,1,2,2))].
+
+given #341 (A,wt=20): 297 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,A))))).  [para(18(a,1),98(b,1,2,2))].
+
+given #342 (T,wt=18): 312 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(C,set_union2(E,set_union2(D,A))))).  [para(18(a,1),170(b,1)),rewrite([18(2)])].
+
+given #343 (T,wt=18): 313 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(E,set_union2(A,set_union2(D,B))))).  [para(26(a,1),170(b,1,2,2)),rewrite([18(3)])].
+
+given #344 (T,wt=18): 314 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(E,set_union2(A,set_union2(B,D))))).  [para(47(a,1),170(b,1,2,2)),rewrite([18(4),18(3),31(2)])].
+
+given #345 (T,wt=18): 315 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(A,set_union2(B,set_union2(E,D))))).  [para(18(a,1),172(b,1,2)),rewrite([18(3)])].
+
+given #346 (A,wt=20): 298 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(E,B))))).  [para(26(a,1),98(b,1,2,2)),rewrite([18(4)])].
+
+given #347 (T,wt=18): 316 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(C,set_union2(A,set_union2(E,D))))).  [para(18(a,1),172(b,1)),rewrite([18(2)])].
+
+given #348 (T,wt=18): 317 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(A,set_union2(C,set_union2(E,D))))).  [para(26(a,1),172(b,1,2,2))].
+
+given #349 (T,wt=18): 319 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(C,set_union2(E,set_union2(A,D))))).  [para(18(a,1),173(b,1)),rewrite([18(2)])].
+
+given #350 (T,wt=18): 320 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(E,set_union2(C,set_union2(A,D))))).  [para(26(a,1),173(b,1,2,2))].
+
+given #351 (A,wt=20): 301 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(B,E))))).  [para(47(a,1),98(b,1,2,2)),rewrite([18(5),18(4),47(3)])].
+
+given #352 (T,wt=18): 329 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(B,set_union2(C,set_union2(E,A))))).  [para(18(a,1),176(b,1,2)),rewrite([18(2)])].
+
+given #353 (T,wt=18): 330 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(D,set_union2(B,set_union2(E,A))))).  [para(18(a,1),176(b,1))].
+
+given #354 (T,wt=18): 332 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(C,set_union2(A,set_union2(E,B))))).  [para(26(a,1),176(b,1,2,2)),rewrite([18(3)])].
+
+given #355 (T,wt=18): 334 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(E,set_union2(B,set_union2(C,A))))).  [para(18(a,1),178(b,1,2,2)),rewrite([18(2)])].
+
+given #356 (A,wt=20): 321 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(E,B))))).  [para(18(a,1),99(b,1,2,2))].
+
+given #357 (T,wt=18): 336 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(B,A))))).  [para(18(a,1),178(b,1))].
+
+given #358 (T,wt=18): 337 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(C,B))))).  [para(26(a,1),178(b,1,2,2)),rewrite([18(3)])].
+
+given #359 (T,wt=18): 338 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(C,set_union2(A,set_union2(B,E))))).  [para(18(a,1),185(b,1,2,2)),rewrite([18(3)])].
+
+given #360 (T,wt=18): 339 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(B,set_union2(C,set_union2(A,E))))).  [para(18(a,1),185(b,1,2)),rewrite([18(2)])].
+
+given #361 (A,wt=20): 322 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(D,set_union2(A,set_union2(B,set_union2(E,C))))).  [para(18(a,1),99(b,1,2)),rewrite([18(4)])].
+
+given #362 (T,wt=18): 340 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(D,set_union2(B,set_union2(A,E))))).  [para(18(a,1),185(b,1))].
+
+given #363 (T,wt=18): 342 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(B,set_union2(C,set_union2(A,D))))).  [para(18(a,1),191(b,1,2)),rewrite([18(2)])].
+
+given #364 (T,wt=18): 354 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(D,set_union2(B,set_union2(C,A))))).  [para(18(a,1),194(b,1,2,2)),rewrite([18(2)])].
+
+given #365 (T,wt=18): 355 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(C,set_union2(D,set_union2(B,A))))).  [para(18(a,1),194(b,1,2))].
+
+given #366 (A,wt=20): 323 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(D,set_union2(A,set_union2(B,set_union2(C,E))))).  [para(47(a,1),99(b,1,2,2)),rewrite([18(4),18(3),31(2)])].
+
+given #367 (T,wt=18): 357 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(D,set_union2(A,set_union2(C,B))))).  [para(26(a,1),194(b,1,2,2)),rewrite([18(3)])].
+
+given #368 (T,wt=18): 361 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,set_union2(F,set_union2(V6,B))))))).  [para(18(a,1),113(b,1,2,2,2,2))].
+
+given #369 (T,wt=18): 368 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(E,set_union2(F,set_union2(B,V6))))))).  [para(104(a,1),65(b,1,2,2,2))].
+
+given #370 (T,wt=18): 371 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(E,set_union2(B,F)))))).  [para(104(a,1),78(b,1,2,2))].
+
+given #371 (A,wt=20): 333 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(E,set_union2(D,set_union2(A,set_union2(B,C))))).  [para(45(a,1),176(b,1,2,2)),rewrite([18(4),18(3)])].
+
+given #372 (T,wt=18): 373 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(E,set_union2(F,set_union2(B,V6))))))).  [para(104(a,1),86(b,1,2,2,2))].
+
+given #373 (T,wt=18): 375 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(C,set_union2(E,set_union2(B,F)))))).  [para(104(a,1),85(b,1,2,2))].
+
+given #374 (T,wt=18): 376 empty(set_union2(A,B)) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(B,V6))))))).  [para(104(a,1),95(b,1,2,2,2))].
+
+given #375 (T,wt=18): 377 empty(A) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(A,V7)))))))).  [para(104(a,1),115(b,1,2,2,2,2))].
+
+given #376 (A,wt=20): 345 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(E,B))))).  [para(18(a,1),101(b,1,2,2))].
+
+given #377 (T,wt=18): 379 empty(set_union2(A,B)) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(A,V6))))))).  [para(104(a,1),134(b,1,2,2,2))].
+
+given #378 (T,wt=18): 381 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(C,set_union2(E,set_union2(B,F)))))).  [para(104(a,1),94(b,1,2,2))].
+
+given #379 (T,wt=18): 386 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(E,set_union2(B,F)))))).  [para(104(a,1),147(b,1,2,2))].
+
+given #380 (T,wt=18): 387 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(A,set_union2(D,set_union2(E,set_union2(C,F)))))).  [para(104(a,1),148(b,1,2,2))].
+
+given #381 (A,wt=20): 346 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(A,set_union2(B,set_union2(D,set_union2(E,C))))).  [para(18(a,1),101(b,1)),rewrite([18(4)])].
+
+given #382 (T,wt=18): 388 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(B,set_union2(E,set_union2(F,set_union2(A,V6))))))).  [para(104(a,1),155(b,1,2,2,2))].
+
+given #383 (T,wt=18): 389 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(B,set_union2(D,set_union2(E,set_union2(F,set_union2(A,V6))))))).  [para(104(a,1),156(b,1,2,2,2))].
+
+given #384 (T,wt=18): 395 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(B,set_union2(D,set_union2(E,set_union2(A,F)))))).  [para(104(a,1),185(b,1,2,2))].
+
+given #385 (T,wt=18): 403 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,set_union2(F,set_union2(B,V6))))))).  [para(26(a,1),114(b,1,2,2,2,2))].
+
+given #386 (A,wt=20): 347 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(A,set_union2(D,set_union2(B,set_union2(E,C))))).  [para(26(a,1),101(b,1,2,2)),rewrite([18(3)])].
+
+given #387 (T,wt=18): 405 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(B,set_union2(F,set_union2(A,V6))))))).  [para(104(a,1),114(b,1,2,2,2))].
+
+given #388 (T,wt=18): 413 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(E,set_union2(F,B)))))).  [para(18(a,1),122(b,1,2,2,2))].
+
+given #389 (T,wt=18): 416 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(A,set_union2(E,set_union2(B,C))))).  [para(104(a,1),122(b,1,2)),rewrite([18(2)])].
+
+given #390 (T,wt=18): 430 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(E,set_union2(B,F)))))).  [para(26(a,1),133(b,1,2,2,2))].
+
+given #391 (A,wt=20): 349 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(A,set_union2(D,set_union2(B,set_union2(C,E))))).  [para(47(a,1),101(b,1,2,2)),rewrite([18(4),18(3),31(2)])].
+
+given #392 (T,wt=18): 433 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(B,set_union2(E,set_union2(A,F)))))).  [para(104(a,1),133(b,1,2,2))].
+
+given #393 (T,wt=18): 450 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(A,set_union2(D,set_union2(B,C))))).  [para(104(a,1),138(b,1,2)),rewrite([18(2)])].
+
+given #394 (T,wt=18): 458 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(E,set_union2(F,set_union2(V6,B))))))).  [para(125(a,1),65(b,1,2,2,2))].
+
+given #395 (T,wt=18): 459 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(E,set_union2(F,B)))))).  [para(125(a,1),78(b,1,2,2))].
+
+given #396 (A,wt=20): 358 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(E,D))))).  [para(18(a,1),102(b,1,2)),rewrite([18(3)])].
+
+given #397 (T,wt=18): 461 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,B))))))).  [para(125(a,1),86(b,1,2,2,2))].
+
+given #398 (T,wt=18): 463 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(C,set_union2(E,set_union2(F,B)))))).  [para(125(a,1),85(b,1,2,2))].
+
+given #399 (T,wt=18): 464 empty(set_union2(A,B)) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,B))))))).  [para(125(a,1),95(b,1,2,2,2))].
+
+given #400 (T,wt=18): 465 empty(A) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(V7,A)))))))).  [para(125(a,1),115(b,1,2,2,2,2))].
+
+given #401 (A,wt=20): 360 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(E,set_union2(A,set_union2(C,set_union2(B,D))))).  [para(26(a,1),105(b,1,2,2)),rewrite([18(2)])].
+
+given #402 (T,wt=18): 466 empty(set_union2(A,B)) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,A))))))).  [para(125(a,1),134(b,1,2,2,2))].
+
+given #403 (T,wt=18): 468 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(C,set_union2(E,set_union2(F,B)))))).  [para(125(a,1),94(b,1,2,2))].
+
+given #404 (T,wt=18): 470 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(C,set_union2(D,set_union2(E,set_union2(F,B)))))).  [para(125(a,1),147(b,1,2,2))].
+
+given #405 (T,wt=18): 471 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(A,set_union2(D,set_union2(E,set_union2(F,C)))))).  [para(125(a,1),148(b,1,2,2))].
+
+given #406 (A,wt=20): 362 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(F,set_union2(A,set_union2(B,set_union2(V6,C))))))).  [para(18(a,1),113(b,1,2,2,2)),rewrite([18(2)])].
+
+given #407 (T,wt=18): 472 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(B,set_union2(E,set_union2(F,set_union2(V6,A))))))).  [para(125(a,1),155(b,1,2,2,2))].
+
+given #408 (T,wt=18): 473 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(B,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,A))))))).  [para(125(a,1),156(b,1,2,2,2))].
+
+given #409 (T,wt=18): 478 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(B,set_union2(D,set_union2(E,set_union2(F,A)))))).  [para(125(a,1),185(b,1,2,2))].
+
+given #410 (T,wt=18): 482 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(B,set_union2(F,set_union2(V6,A))))))).  [para(125(a,1),114(b,1,2,2,2))].
+
+given #411 (A,wt=21): 364 set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(A,E))))) = set_union2(B,set_union2(C,set_union2(D,set_union2(A,E)))).  [para(18(a,1),104(a,1,2,2)),rewrite([18(8)])].
+
+given #412 (T,wt=18): 484 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(B,set_union2(E,set_union2(F,A)))))).  [para(125(a,1),133(b,1,2,2))].
+
+given #413 (T,wt=18): 493 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(A,set_union2(E,set_union2(F,B)))))).  [para(18(a,1),143(b,1,2,2,2))].
+
+given #414 (T,wt=18): 498 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(A,set_union2(E,set_union2(B,F)))))).  [para(26(a,1),153(b,1,2,2,2))].
+
+given #415 (T,wt=18): 501 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(B,set_union2(E,set_union2(A,F)))))).  [para(104(a,1),153(b,1,2,2))].
+
+given #416 (A,wt=22): 365 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(E,set_union2(F,set_union2(A,set_union2(B,set_union2(C,D)))))).  [para(104(a,1),74(b,1,2,2)),rewrite([18(4),18(3),18(2)])].
+
+given #417 (T,wt=18): 503 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(B,set_union2(E,set_union2(F,A)))))).  [para(125(a,1),153(b,1,2,2))].
+
+given #418 (T,wt=18): 506 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(A,set_union2(E,set_union2(C,F)))))).  [para(104(a,1),154(b,1,2,2))].
+
+given #419 (T,wt=18): 508 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(A,set_union2(E,set_union2(F,C)))))).  [para(125(a,1),154(b,1,2,2))].
+
+given #420 (T,wt=18): 530 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(C,set_union2(B,set_union2(D,E))))).  [para(26(a,1),146(b,1,2))].
+
+given #421 (A,wt=21): 366 set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,A))))) = set_union2(B,set_union2(C,set_union2(D,set_union2(E,A)))).  [para(47(a,1),104(a,1,2,2,2)),rewrite([47(8)])].
+
+given #422 (T,wt=18): 554 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(F,set_union2(C,B)))))).  [para(10(a,1),162(b,1,2,2,2)),rewrite([18(5)])].
+
+given #423 (T,wt=18): 555 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(B,set_union2(F,set_union2(C,A)))))).  [para(10(a,1),162(b,1,2,2)),rewrite([18(6),18(5)])].
+
+given #424 (T,wt=18): 557 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(B,set_union2(A,set_union2(F,C)))))).  [para(26(a,1),162(b,1,2,2))].
+
+given #425 (T,wt=18): 561 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(C,set_union2(F,B)))))).  [para(18(a,1),204(b,1))].
+
+given #426 (A,wt=22): 367 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(F,set_union2(E,set_union2(A,set_union2(B,set_union2(C,D)))))).  [para(104(a,1),84(b,1,2,2)),rewrite([18(4),18(3),18(2)])].
+
+given #427 (T,wt=18): 568 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(C,set_union2(B,F)))))).  [para(18(a,1),206(b,1))].
+
+given #428 (T,wt=18): 574 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(B,set_union2(A,set_union2(C,F)))))).  [para(18(a,1),207(b,1))].
+
+given #429 (T,wt=18): 590 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(C,set_union2(E,set_union2(D,B))))).  [para(10(a,1),171(b,1,2)),rewrite([18(7),18(6)])].
+
+given #430 (T,wt=18): 592 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(C,set_union2(B,set_union2(E,D))))).  [para(26(a,1),171(b,1,2))].
+
+given #431 (A,wt=24): 369 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,F)))))) | -empty(set_union2(E,set_union2(F,set_union2(A,set_union2(B,set_union2(C,D)))))).  [para(104(a,1),75(b,1,2,2)),rewrite([18(5),18(4),18(3)])].
+
+given #432 (T,wt=18): 594 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(E,set_union2(F,set_union2(C,B)))))).  [para(18(a,1),224(b,1,2,2))].
+
+given #433 (T,wt=18): 598 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(E,set_union2(F,set_union2(C,A)))))).  [para(18(a,1),225(b,1,2,2))].
+
+given #434 (T,wt=18): 605 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(A,B)))))).  [para(30(a,1),232(b,1,2,2,2,2)),rewrite([18(2)])].
+
+given #435 (T,wt=18): 609 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(D,set_union2(E,set_union2(A,C))))).  [para(10(a,1),174(b,1,2)),rewrite([18(7),18(6)])].
+
+given #436 (A,wt=24): 370 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,F)))))) | -empty(set_union2(F,set_union2(A,set_union2(B,set_union2(C,set_union2(D,E)))))).  [para(104(a,1),77(b,1,2,2)),rewrite([18(4),18(3),18(2)])].
+
+given #437 (T,wt=18): 612 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(D,set_union2(C,set_union2(E,A))))).  [para(26(a,1),174(b,1,2))].
+
+given #438 (T,wt=18): 613 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(B,set_union2(D,set_union2(E,A))))).  [para(26(a,1),174(b,1))].
+
+given #439 (T,wt=18): 617 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(D,set_union2(E,set_union2(C,A))))).  [para(104(a,1),174(b,1,2)),rewrite([18(4),104(4)])].
+
+given #440 (T,wt=18): 625 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,set_union2(B,A))))))).  [para(18(a,1),243(b,1,2,2,2))].
+
+given #441 (A,wt=22): 372 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(F,set_union2(D,set_union2(A,set_union2(B,set_union2(E,C)))))).  [para(104(a,1),81(b,1,2,2)),rewrite([18(5),18(4),18(3),47(3)])].
+
+given #442 (T,wt=18): 627 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(F,set_union2(C,set_union2(A,B)))))).  [para(45(a,1),243(b,1,2,2,2)),rewrite([18(2)])].
+
+given #443 (T,wt=18): 631 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(A,set_union2(E,set_union2(B,D))))).  [para(10(a,1),175(b,1,2)),rewrite([18(7),18(6)])].
+
+given #444 (T,wt=18): 633 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(E,B))))).  [para(26(a,1),175(b,1,2))].
+
+given #445 (T,wt=18): 635 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(A,set_union2(E,set_union2(D,B))))).  [para(104(a,1),175(b,1,2)),rewrite([18(3),47(3)])].
+
+given #446 (A,wt=20): 374 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(B,set_union2(E,set_union2(F,set_union2(C,V6))))))).  [para(104(a,1),85(b,1,2,2,2))].
+
+given #447 (T,wt=18): 637 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(E,set_union2(C,set_union2(F,B)))))).  [para(18(a,1),246(b,1,2))].
+
+given #448 (T,wt=18): 639 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(E,set_union2(D,set_union2(B,C))))).  [para(30(a,1),246(b,1,2,2,2)),rewrite([18(2)])].
+
+given #449 (T,wt=18): 643 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(D,set_union2(E,set_union2(B,C))))).  [para(104(a,1),246(b,1,2)),rewrite([18(2)])].
+
+given #450 (T,wt=18): 646 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(E,set_union2(C,set_union2(B,F)))))).  [para(18(a,1),250(b,1,2))].
+
+given #451 (A,wt=24): 378 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(E,set_union2(F,set_union2(V6,set_union2(A,set_union2(B,set_union2(C,D))))))).  [para(104(a,1),119(b,1,2,2,2)),rewrite([18(4),18(3),18(2)])].
+
+given #452 (T,wt=18): 650 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(E,set_union2(F,set_union2(A,B)))))).  [para(30(a,1),258(b,1,2,2,2,2)),rewrite([18(2)])].
+
+given #453 (T,wt=18): 655 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(C,set_union2(F,set_union2(A,B)))))).  [para(30(a,1),260(b,1,2,2,2,2)),rewrite([18(2)])].
+
+given #454 (T,wt=18): 664 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(B,set_union2(V6,A))))))).  [para(18(a,1),265(b,1,2,2))].
+
+given #455 (T,wt=18): 674 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(A,set_union2(E,set_union2(C,B))))).  [para(10(a,1),180(b,1,2,2)),rewrite([18(6)])].
+
+given #456 (A,wt=20): 380 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(B,set_union2(E,set_union2(F,set_union2(C,V6))))))).  [para(104(a,1),94(b,1,2,2,2))].
+
+given #457 (T,wt=18): 675 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(B,set_union2(E,set_union2(C,A))))).  [para(10(a,1),180(b,1,2)),rewrite([18(7),18(6)])].
+
+given #458 (T,wt=18): 677 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(B,set_union2(A,set_union2(E,C))))).  [para(26(a,1),180(b,1,2))].
+
+given #459 (T,wt=18): 679 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(C,set_union2(E,set_union2(F,A)))))).  [para(18(a,1),274(b,1,2,2,2))].
+
+given #460 (T,wt=18): 681 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(E,set_union2(C,set_union2(F,A)))))).  [para(18(a,1),274(b,1,2))].
+
+given #461 (A,wt=24): 382 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(F,set_union2(E,set_union2(V6,set_union2(A,set_union2(B,set_union2(C,D))))))).  [para(104(a,1),140(b,1,2,2,2)),rewrite([18(4),18(3),18(2)])].
+
+given #462 (T,wt=18): 683 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(E,set_union2(D,set_union2(A,B))))).  [para(30(a,1),274(b,1,2,2,2)),rewrite([18(3)])].
+
+given #463 (T,wt=18): 705 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(B,set_union2(A,V6))))))).  [para(18(a,1),291(b,1,2,2))].
+
+given #464 (T,wt=18): 718 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(A,set_union2(C,set_union2(E,B))))).  [para(10(a,1),182(b,1,2,2)),rewrite([18(6)])].
+
+given #465 (T,wt=18): 721 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(A,set_union2(C,set_union2(B,E))))).  [para(26(a,1),182(b,1,2,2))].
+
+given #466 (A,wt=24): 383 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(F,set_union2(V6,set_union2(E,set_union2(A,set_union2(B,set_union2(C,D))))))).  [para(104(a,1),142(b,1,2,2,2)),rewrite([18(4),18(3),18(2)])].
+
+given #467 (T,wt=18): 722 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(B,set_union2(A,set_union2(C,E))))).  [para(26(a,1),182(b,1,2))].
+
+given #468 (T,wt=18): 738 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(E,set_union2(F,set_union2(C,B)))))).  [para(18(a,1),307(b,1,2,2))].
+
+given #469 (T,wt=18): 742 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(E,set_union2(F,set_union2(C,A)))))).  [para(18(a,1),311(b,1,2,2))].
+
+given #470 (T,wt=18): 747 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(B,E))))).  [para(26(a,1),183(b,1,2))].
+
+given #471 (A,wt=24): 384 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,F)))))) | -empty(set_union2(A,set_union2(F,set_union2(B,set_union2(C,set_union2(D,E)))))).  [para(104(a,1),145(b,1,2,2)),rewrite([18(4),18(3),18(2)])].
+
+given #472 (T,wt=18): 752 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(E,set_union2(F,set_union2(A,C)))))).  [para(18(a,1),318(b,1,2,2))].
+
+given #473 (T,wt=18): 756 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(C,set_union2(E,set_union2(A,B))))).  [para(30(a,1),328(b,1,2,2,2)),rewrite([18(3)])].
+
+given #474 (T,wt=18): 764 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(B,A)))))).  [para(18(a,1),335(b,1,2,2))].
+
+given #475 (T,wt=18): 767 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(E,set_union2(C,set_union2(A,B))))).  [para(45(a,1),335(b,1,2,2)),rewrite([18(3)])].
+
+given #476 (A,wt=20): 385 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(B,set_union2(D,set_union2(E,set_union2(F,set_union2(C,V6))))))).  [para(104(a,1),96(b,1,2,2,2))].
+
+given #477 (T,wt=18): 769 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(D,set_union2(A,set_union2(E,C))))).  [para(10(a,1),186(b,1,2)),rewrite([18(7),18(6)])].
+
+given #478 (T,wt=18): 771 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(D,set_union2(C,set_union2(A,E))))).  [para(26(a,1),186(b,1,2))].
+
+given #479 (T,wt=18): 772 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(B,set_union2(D,set_union2(A,E))))).  [para(26(a,1),186(b,1))].
+
+given #480 (T,wt=18): 774 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(D,set_union2(A,set_union2(C,E))))).  [para(104(a,1),186(b,1,2))].
+
+given #481 (A,wt=24): 390 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,F)))))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(B,set_union2(F,C)))))).  [para(104(a,1),98(b,1,2,2)),rewrite([18(6),18(5),18(4),125(4)])].
+
+given #482 (T,wt=18): 781 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(F,set_union2(B,set_union2(A,C)))))).  [para(18(a,1),343(b,1,2))].
+
+given #483 (T,wt=18): 788 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(B,set_union2(D,set_union2(A,C))))).  [para(10(a,1),192(b,1,2,2)),rewrite([18(6)])].
+
+given #484 (T,wt=18): 791 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(B,set_union2(D,set_union2(C,A))))).  [para(26(a,1),192(b,1,2,2))].
+
+given #485 (T,wt=18): 792 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(C,set_union2(B,set_union2(D,A))))).  [para(26(a,1),192(b,1,2))].
+
+given #486 (A,wt=20): 391 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(C,set_union2(E,set_union2(A,set_union2(D,B))))).  [para(104(a,1),98(b,1,2)),rewrite([18(5),18(4),104(4)])].
+
+given #487 (T,wt=18): 800 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(F,set_union2(C,set_union2(B,A)))))).  [para(18(a,1),356(b,1,2))].
+
+given #488 (T,wt=18): 802 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(D,set_union2(C,set_union2(A,B))))).  [para(104(a,1),356(b,1,2)),rewrite([18(3)])].
+
+given #489 (T,wt=18): 811 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(B,set_union2(F,A)))))).  [para(18(a,1),427(b,1,2))].
+
+given #490 (T,wt=18): 820 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(B,set_union2(A,F)))))).  [para(18(a,1),431(b,1,2))].
+
+given #491 (A,wt=22): 392 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(D,set_union2(F,set_union2(A,set_union2(B,set_union2(E,C)))))).  [para(104(a,1),170(b,1,2,2)),rewrite([18(5),18(4),18(3),47(3)])].
+
+given #492 (T,wt=18): 824 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(A,set_union2(E,set_union2(F,C)))))).  [para(18(a,1),439(b,1,2,2,2))].
+
+given #493 (T,wt=18): 826 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(E,set_union2(A,set_union2(F,C)))))).  [para(18(a,1),439(b,1,2))].
+
+given #494 (T,wt=18): 831 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(E,set_union2(C,set_union2(A,F)))))).  [para(18(a,1),441(b,1,2))].
+
+given #495 (T,wt=18): 833 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(C,set_union2(E,set_union2(A,F)))))).  [para(26(a,1),441(b,1,2,2,2))].
+
+given #496 (A,wt=24): 393 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,F)))))) | -empty(set_union2(E,set_union2(A,set_union2(B,set_union2(C,set_union2(F,D)))))).  [para(104(a,1),99(b,1,2,2)),rewrite([18(5),18(4),18(3),47(3)])].
+
+given #497 (T,wt=18): 835 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(A,set_union2(E,set_union2(C,F)))))).  [para(104(a,1),441(b,1,2,2))].
+
+given #498 (T,wt=18): 839 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(D,set_union2(E,set_union2(A,set_union2(C,F)))))).  [para(18(a,1),443(b,1,2))].
+
+given #499 (T,wt=18): 844 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(C,set_union2(B,set_union2(A,D))))).  [para(26(a,1),195(b,1,2,2))].
+
+NOTE: Back_subsumption disabled, ratio of kept to back_subsumed is 2147483647 (0.00 of 6.45 sec).
+
+given #500 (T,wt=18): 845 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(A,set_union2(C,set_union2(B,D))))).  [para(26(a,1),195(b,1,2))].
+
+given #501 (A,wt=24): 394 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,F)))))) | -empty(set_union2(F,set_union2(E,set_union2(A,set_union2(B,set_union2(C,D)))))).  [para(104(a,1),176(b,1,2,2)),rewrite([18(5),18(4),18(3)])].
+
+given #502 (T,wt=18): 846 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(E,set_union2(F,set_union2(A,C)))))).  [para(18(a,1),451(b,1,2,2))].
+
+given #503 (T,wt=18): 848 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(B,set_union2(F,set_union2(A,C)))))).  [para(18(a,1),451(b,1))].
+
+given #504 (T,wt=18): 852 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(C,set_union2(B,set_union2(F,A)))))).  [para(18(a,1),454(b,1))].
+
+given #505 (T,wt=18): 857 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(E,set_union2(F,set_union2(B,A)))))).  [para(18(a,1),492(b,1,2,2))].
+
+given #506 (A,wt=24): 396 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,F)))))) | -empty(set_union2(A,set_union2(E,set_union2(B,set_union2(C,set_union2(F,D)))))).  [para(104(a,1),101(b,1,2,2)),rewrite([18(5),18(4),18(3),47(3)])].
+
+given #507 (T,wt=18): 859 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(C,set_union2(F,set_union2(B,A)))))).  [para(18(a,1),492(b,1))].
+
+given #508 (T,wt=18): 864 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(C,set_union2(B,set_union2(A,F)))))).  [para(18(a,1),499(b,1))].
+
+given #509 (T,wt=18): 870 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(A,set_union2(D,set_union2(C,B))))).  [para(26(a,1),196(b,1,2,2))].
+
+given #510 (T,wt=18): 879 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(B,set_union2(A,set_union2(D,C))))).  [para(26(a,1),197(b,1,2))].
+
+given #511 (A,wt=25): 397 set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(A,F)))))) = set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(A,F))))).  [para(104(a,1),104(a,1,2,2,2)),rewrite([104(10)])].
+
+given #512 (T,wt=18): 880 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(E,set_union2(C,set_union2(F,B)))))).  [para(10(a,1),198(b,1,2,2,2)),rewrite([18(5)])].
+
+given #513 (T,wt=18): 884 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(E,set_union2(C,set_union2(B,F)))))).  [para(26(a,1),198(b,1,2,2,2))].
+
+given #514 (T,wt=18): 890 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(E,set_union2(C,set_union2(F,A)))))).  [para(10(a,1),200(b,1,2)),rewrite([18(7),18(6),18(5)])].
+
+given #515 (T,wt=18): 937 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(B,set_union2(E,set_union2(A,C))))).  [para(26(a,1),238(b,1,2))].
+
+given #516 (A,wt=20): 402 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(E,set_union2(F,set_union2(A,set_union2(B,set_union2(C,V6))))))).  [para(18(a,1),114(b,1,2,2,2,2))].
+
+given #517 (T,wt=18): 999 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(C,set_union2(E,set_union2(B,D))))).  [para(10(a,1),269(b,1,2,2)),rewrite([18(6)])].
+
+given #518 (T,wt=18): 1003 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(D,set_union2(C,set_union2(E,B))))).  [para(26(a,1),269(b,1,2))].
+
+given #519 (T,wt=18): 1009 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(D,set_union2(E,set_union2(C,B))))).  [para(10(a,1),270(b,1,2)),rewrite([18(7),18(6)])].
+
+given #520 (T,wt=18): 1012 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(A,set_union2(D,set_union2(E,C))))).  [para(26(a,1),270(b,1))].
+
+given #521 (A,wt=20): 404 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,set_union2(F,set_union2(V6,set_union2(B,V7)))))))).  [para(104(a,1),114(b,1,2,2,2,2))].
+
+given #522 (T,wt=18): 1022 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(D,set_union2(C,set_union2(B,E))))).  [para(26(a,1),281(b,1,2,2))].
+
+given #523 (T,wt=18): 1035 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(A,set_union2(D,set_union2(C,E))))).  [para(26(a,1),283(b,1))].
+
+given #524 (T,wt=18): 1049 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(B,set_union2(A,set_union2(D,E))))).  [para(26(a,1),286(b,1,2))].
+
+given #525 (T,wt=18): 1066 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(E,set_union2(C,set_union2(A,F)))))).  [para(26(a,1),290(b,1,2))].
+
+given #526 (A,wt=20): 406 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(B,set_union2(C,set_union2(E,set_union2(F,D)))))).  [para(18(a,1),117(b,1,2)),rewrite([18(2)])].
+
+given #527 (T,wt=18): 1071 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(E,set_union2(B,set_union2(F,A)))))).  [para(10(a,1),293(b,1,2,2,2)),rewrite([18(5)])].
+
+given #528 (T,wt=18): 1075 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(E,set_union2(B,set_union2(A,F)))))).  [para(26(a,1),293(b,1,2,2,2))].
+
+given #529 (T,wt=18): 1080 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(E,set_union2(A,set_union2(F,C)))))).  [para(10(a,1),295(b,1,2,2)),rewrite([18(6),18(5)])].
+
+given #530 (T,wt=18): 1083 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(E,set_union2(A,set_union2(C,F)))))).  [para(104(a,1),295(b,1,2,2))].
+
+given #531 (A,wt=20): 407 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(B,set_union2(E,set_union2(C,set_union2(F,D)))))).  [para(26(a,1),117(b,1,2,2,2))].
+
+given #532 (T,wt=18): 1089 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(E,set_union2(C,set_union2(B,D))))).  [para(10(a,1),306(b,1,2,2,2))].
+
+given #533 (T,wt=18): 1093 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(E,set_union2(D,set_union2(C,B))))).  [para(26(a,1),306(b,1,2,2))].
+
+given #534 (T,wt=18): 1097 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(E,set_union2(D,set_union2(C,A))))).  [para(10(a,1),308(b,1)),rewrite([18(8),18(7),18(6)])].
+
+given #535 (T,wt=18): 1100 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(A,set_union2(E,set_union2(D,C))))).  [para(26(a,1),308(b,1))].
+
+given #536 (A,wt=20): 408 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(A,set_union2(E,set_union2(B,set_union2(C,set_union2(F,D)))))).  [para(18(a,1),118(b,1,2,2)),rewrite([18(2)])].
+
+given #537 (T,wt=18): 1103 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(E,set_union2(D,set_union2(A,C))))).  [para(10(a,1),310(b,1,2,2)),rewrite([18(6)])].
+
+given #538 (T,wt=18): 1121 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(B,set_union2(E,set_union2(D,A))))).  [para(26(a,1),312(b,1))].
+
+given #539 (T,wt=18): 1124 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(E,set_union2(D,set_union2(B,A))))).  [para(10(a,1),313(b,1,2,2)),rewrite([18(6)])].
+
+given #540 (T,wt=18): 1128 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(E,set_union2(B,set_union2(D,A))))).  [para(10(a,1),314(b,1,2,2)),rewrite([18(6)])].
+
+given #541 (A,wt=20): 409 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,A)))))).  [para(18(a,1),120(b,1,2))].
+
+given #542 (T,wt=18): 1130 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(E,set_union2(B,set_union2(A,D))))).  [para(26(a,1),314(b,1,2,2))].
+
+given #543 (T,wt=18): 1134 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(B,set_union2(A,set_union2(E,D))))).  [para(26(a,1),315(b,1,2))].
+
+given #544 (T,wt=18): 1143 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(E,set_union2(A,set_union2(D,C))))).  [para(10(a,1),319(b,1,2)),rewrite([18(7),18(6)])].
+
+given #545 (T,wt=18): 1146 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(B,set_union2(E,set_union2(A,D))))).  [para(26(a,1),319(b,1))].
+
+given #546 (A,wt=20): 410 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,set_union2(F,B)))))).  [para(26(a,1),120(b,1,2,2,2)),rewrite([18(3)])].
+
+given #547 (T,wt=18): 1152 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(C,set_union2(B,set_union2(E,A))))).  [para(26(a,1),329(b,1,2))].
+
+given #548 (T,wt=18): 1161 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(C,set_union2(E,set_union2(B,A))))).  [para(10(a,1),332(b,1,2,2)),rewrite([18(6)])].
+
+given #549 (T,wt=18): 1168 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(E,set_union2(C,set_union2(B,A))))).  [para(26(a,1),334(b,1,2,2))].
+
+given #550 (T,wt=18): 1188 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(C,set_union2(B,set_union2(A,E))))).  [para(26(a,1),338(b,1,2,2))].
+
+given #551 (A,wt=22): 411 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(D,set_union2(E,set_union2(F,set_union2(A,set_union2(B,C)))))).  [para(45(a,1),120(b,1,2,2,2)),rewrite([18(4),18(3)])].
+
+given #552 (T,wt=18): 1212 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(D,set_union2(C,set_union2(B,A))))).  [para(26(a,1),354(b,1,2,2))].
+
+given #553 (T,wt=20): 414 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(B,set_union2(F,C)))))).  [para(18(a,1),122(b,1,2,2)),rewrite([18(3)])].
+
+given #554 (T,wt=20): 421 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(C,set_union2(A,set_union2(D,set_union2(B,E))))).  [para(26(a,1),126(b,1,2,2))].
+
+given #555 (T,wt=20): 423 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,B))))).  [para(18(a,1),131(b,1,2))].
+
+given #556 (A,wt=26): 412 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,F)))))) | -empty(set_union2(E,set_union2(F,set_union2(V6,set_union2(A,set_union2(B,set_union2(C,D))))))).  [para(104(a,1),120(b,1,2,2,2)),rewrite([18(5),18(4),18(3)])].
+
+given #557 (T,wt=20): 424 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(D,set_union2(E,set_union2(B,set_union2(A,C))))).  [para(26(a,1),131(b,1,2,2)),rewrite([18(3)])].
+
+given #558 (T,wt=20): 425 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(E,set_union2(C,set_union2(A,set_union2(B,D))))).  [para(18(a,1),132(b,1,2,2)),rewrite([18(4)])].
+
+given #559 (T,wt=20): 426 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(E,set_union2(B,set_union2(C,set_union2(A,D))))).  [para(18(a,1),132(b,1,2)),rewrite([18(3)])].
+
+given #560 (T,wt=20): 428 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(B,set_union2(C,F)))))).  [para(18(a,1),133(b,1,2,2,2)),rewrite([18(2)])].
+
+given #561 (A,wt=26): 415 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,F)))))) | -empty(set_union2(F,set_union2(V6,set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))))).  [para(104(a,1),122(b,1,2,2,2)),rewrite([18(4),18(3),18(2)])].
+
+given #562 (T,wt=20): 429 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,set_union2(B,F)))))).  [para(18(a,1),133(b,1))].
+
+given #563 (T,wt=20): 432 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(E,set_union2(F,set_union2(B,V6))))))).  [para(104(a,1),133(b,1,2,2,2))].
+
+given #564 (T,wt=20): 440 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(A,F)))))).  [para(18(a,1),135(b,1,2))].
+
+given #565 (T,wt=20): 442 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(A,V6))))))).  [para(104(a,1),135(b,1,2,2,2))].
+
+given #566 (A,wt=22): 434 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(E,set_union2(F,set_union2(A,set_union2(C,set_union2(B,D)))))).  [para(26(a,1),123(b,1,2,2,2)),rewrite([18(2)])].
+
+given #567 (T,wt=20): 444 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(F,set_union2(B,set_union2(C,set_union2(D,A)))))).  [para(18(a,1),136(b,1,2,2,2))].
+
+given #568 (T,wt=20): 445 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(F,set_union2(C,set_union2(A,set_union2(D,B)))))).  [para(26(a,1),136(b,1,2,2,2)),rewrite([18(3)])].
+
+given #569 (T,wt=20): 446 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(F,set_union2(C,set_union2(A,set_union2(B,D)))))).  [para(47(a,1),136(b,1,2,2,2)),rewrite([18(4),18(3),31(2)])].
+
+given #570 (T,wt=20): 448 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(F,set_union2(A,set_union2(C,set_union2(D,B)))))).  [para(18(a,1),138(b,1,2,2,2))].
+
+given #571 (A,wt=24): 447 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(F,set_union2(V6,set_union2(D,set_union2(A,set_union2(B,set_union2(E,C))))))).  [para(104(a,1),136(b,1,2,2,2)),rewrite([18(5),18(4),18(3),47(3)])].
+
+given #572 (T,wt=20): 449 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(F,set_union2(A,set_union2(B,set_union2(D,C)))))).  [para(18(a,1),138(b,1,2,2)),rewrite([18(3)])].
+
+given #573 (T,wt=20): 452 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(B,set_union2(C,set_union2(D,set_union2(F,A)))))).  [para(18(a,1),141(b,1,2,2))].
+
+given #574 (T,wt=20): 453 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(C,set_union2(D,set_union2(A,set_union2(F,B)))))).  [para(26(a,1),141(b,1,2,2,2)),rewrite([18(3)])].
+
+given #575 (T,wt=20): 457 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(C,set_union2(F,set_union2(A,set_union2(D,B)))))).  [para(104(a,1),141(b,1,2,2)),rewrite([18(4),18(3),47(3)])].
+
+given #576 (A,wt=22): 455 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(F,set_union2(D,set_union2(E,set_union2(A,set_union2(B,C)))))).  [para(45(a,1),141(b,1,2,2,2)),rewrite([18(4),18(3)])].
+
+given #577 (T,wt=20): 462 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(A,set_union2(B,set_union2(E,set_union2(F,set_union2(V6,C))))))).  [para(125(a,1),85(b,1,2,2,2))].
+
+given #578 (T,wt=20): 467 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(D,set_union2(B,set_union2(E,set_union2(F,set_union2(V6,C))))))).  [para(125(a,1),94(b,1,2,2,2))].
+
+given #579 (T,wt=20): 469 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(A,set_union2(B,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,C))))))).  [para(125(a,1),96(b,1,2,2,2))].
+
+given #580 (T,wt=20): 475 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(C,set_union2(E,set_union2(A,set_union2(B,D))))).  [para(125(a,1),98(b,1,2)),rewrite([18(5),18(4),45(3)])].
+
+given #581 (A,wt=26): 456 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,F)))))) | -empty(set_union2(V6,set_union2(E,set_union2(F,set_union2(A,set_union2(B,set_union2(C,D))))))).  [para(104(a,1),141(b,1,2,2,2)),rewrite([18(5),18(4),18(3)])].
+
+given #582 (T,wt=20): 481 empty(set_union2(A,B)) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(A,set_union2(F,set_union2(V6,set_union2(V7,B)))))))).  [para(125(a,1),114(b,1,2,2,2,2))].
+
+given #583 (T,wt=20): 483 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(C,set_union2(D,set_union2(A,set_union2(E,set_union2(F,set_union2(V6,B))))))).  [para(125(a,1),133(b,1,2,2,2))].
+
+given #584 (T,wt=20): 485 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(E,set_union2(F,set_union2(V6,A))))))).  [para(125(a,1),135(b,1,2,2,2))].
+
+given #585 (T,wt=20): 487 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(C,set_union2(F,set_union2(A,set_union2(B,D)))))).  [para(125(a,1),141(b,1,2,2)),rewrite([18(4),18(3),31(2)])].
+
+given #586 (A,wt=22): 460 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(F,set_union2(D,set_union2(A,set_union2(B,set_union2(C,E)))))).  [para(125(a,1),81(b,1,2,2)),rewrite([18(5),18(4),18(3),31(2)])].
+
+given #587 (T,wt=20): 494 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(D,set_union2(A,set_union2(B,set_union2(F,C)))))).  [para(18(a,1),143(b,1,2,2)),rewrite([18(3)])].
+
+given #588 (T,wt=20): 496 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(D,set_union2(A,set_union2(B,set_union2(C,F)))))).  [para(18(a,1),153(b,1,2,2,2)),rewrite([18(2)])].
+
+given #589 (T,wt=20): 497 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(C,set_union2(D,set_union2(A,set_union2(B,F)))))).  [para(18(a,1),153(b,1,2))].
+
+given #590 (T,wt=20): 500 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(A,set_union2(E,set_union2(F,set_union2(B,V6))))))).  [para(104(a,1),153(b,1,2,2,2))].
+
+given #591 (A,wt=24): 474 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,F)))))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(B,set_union2(C,F)))))).  [para(125(a,1),98(b,1,2,2)),rewrite([18(6),18(5),18(4),47(3)])].
+
+given #592 (T,wt=20): 502 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(C,set_union2(A,set_union2(E,set_union2(F,set_union2(V6,B))))))).  [para(125(a,1),153(b,1,2,2,2))].
+
+given #593 (T,wt=20): 504 empty(set_union2(A,set_union2(B,set_union2(C,D)))) | -empty(set_union2(E,set_union2(B,set_union2(C,set_union2(D,set_union2(A,F)))))).  [para(18(a,1),154(b,1,2,2))].
+
+given #594 (T,wt=20): 505 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(C,set_union2(E,set_union2(F,set_union2(A,V6))))))).  [para(104(a,1),154(b,1,2,2,2))].
+
+given #595 (T,wt=20): 507 empty(set_union2(A,set_union2(B,C))) | -empty(set_union2(D,set_union2(B,set_union2(C,set_union2(E,set_union2(F,set_union2(V6,A))))))).  [para(125(a,1),154(b,1,2,2,2))].
+
+given #596 (A,wt=22): 476 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(D,set_union2(F,set_union2(A,set_union2(B,set_union2(C,E)))))).  [para(125(a,1),170(b,1,2,2)),rewrite([18(5),18(4),18(3),31(2)])].
+
+given #597 (T,wt=20): 509 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(B,set_union2(C,set_union2(D,set_union2(A,E))))).  [para(18(a,1),157(b,1,2)),rewrite([18(2)])].
+
+given #598 (T,wt=20): 515 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(E,set_union2(B,set_union2(C,set_union2(D,A))))).  [para(18(a,1),158(b,1,2,2)),rewrite([18(2)])].
+
+given #599 (T,wt=20): 516 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(D,set_union2(E,set_union2(B,set_union2(C,A))))).  [para(18(a,1),158(b,1))].
+
+given #600 (T,wt=20): 517 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(E,set_union2(C,set_union2(A,set_union2(D,B))))).  [para(26(a,1),158(b,1,2,2)),rewrite([18(4)])].
+
+given #601 (A,wt=24): 477 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,set_union2(E,F)))))) | -empty(set_union2(E,set_union2(A,set_union2(B,set_union2(C,set_union2(D,F)))))).  [para(125(a,1),99(b,1,2,2)),rewrite([18(5),18(4),18(3),31(2)])].
+
+given #602 (T,wt=20): 521 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(C,set_union2(D,set_union2(E,set_union2(B,A))))).  [para(18(a,1),159(b,1,2))].
+
+given #603 (T,wt=20): 522 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(D,set_union2(E,set_union2(A,set_union2(C,B))))).  [para(26(a,1),159(b,1,2,2)),rewrite([18(4)])].
+
+given #604 (T,wt=20): 523 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(D,set_union2(C,set_union2(A,set_union2(E,B))))).  [para(104(a,1),159(b,1,2)),rewrite([18(5),18(4),125(4)])].
+
+given #605 (T,wt=20): 524 empty(set_union2(A,set_union2(B,set_union2(C,set_union2(D,E))))) | -empty(set_union2(D,set_union2(C,set_union2(A,set_union2(B,E))))).  [para(125(a,1),159(b,1,2)),rewrite([18(5),18(4),47(3)])].
+
+============================== STATISTICS ============================
+
+Given=605. Generated=106532. Kept=2929. proofs=1.
+Usable=605. Sos=2314. Demods=23. Limbo=1, Disabled=19. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=2050.
+Forward_subsumed=101553. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=30 (3 lex), Back_demodulated=6. Back_unit_deleted=0.
+Demod_attempts=4637894. Demod_rewrites=948665.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=9566223. Nonunit_bsub_feature_tests=375044.
+Megabytes=4.79.
+User_CPU=10.00, System_CPU=0.04, Wall_clock=10.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with 1 proof.
+
+Process 39 exit (max_seconds) Fri Oct 23 14:54:54 2026
+-------- Proof 1 -------- t121_zfmisc_1.
+
+SEARCH FAILED
+
+------ process 39 exit (max_seconds) ------
+

@@ -1,0 +1,523 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 35 was started by mfixman on bodoque,
+Fri Oct 23 14:54:44 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,10).
+assign(max_megs,256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all A all B addition(A,B) = addition(B,A)) # label(additive_commutativity) # label(axiom).
+(all C all B all A addition(A,addition(B,C)) = addition(addition(A,B),C)) # label(additive_associativity) # label(axiom).
+(all A addition(A,zero) = A) # label(additive_identity) # label(axiom).
+(all A addition(A,A) = A) # label(additive_idempotence) # label(axiom).
+(all A all B all C multiplication(A,multiplication(B,C)) = multiplication(multiplication(A,B),C)) # label(multiplicative_associativity) # label(axiom).
+(all A multiplication(A,one) = A) # label(multiplicative_right_identity) # label(axiom).
+(all A multiplication(one,A) = A) # label(multiplicative_left_identity) # label(axiom).
+(all A all B all C multiplication(A,addition(B,C)) = addition(multiplication(A,B),multiplication(A,C))) # label(right_distributivity) # label(axiom).
+(all A all B all C multiplication(addition(A,B),C) = addition(multiplication(A,C),multiplication(B,C))) # label(left_distributivity) # label(axiom).
+(all A multiplication(A,zero) = zero) # label(right_annihilation) # label(axiom).
+(all A multiplication(zero,A) = zero) # label(left_annihilation) # label(axiom).
+(all A all B (leq(A,B) <-> addition(A,B) = B)) # label(order) # label(axiom).
+(all X0 (test(X0) <-> (exists X1 complement(X1,X0)))) # label(test_1) # label(axiom).
+(all X0 all X1 (complement(X1,X0) <-> multiplication(X0,X1) = zero & multiplication(X1,X0) = zero & addition(X0,X1) = one)) # label(test_2) # label(axiom).
+(all X0 all X1 (test(X0) -> (c(X0) = X1 <-> complement(X0,X1)))) # label(test_3) # label(axiom).
+(all X0 (-test(X0) -> c(X0) = zero)) # label(test_4) # label(axiom).
+(all X0 all X1 (test(X0) & test(X1) -> c(addition(X0,X1)) = multiplication(c(X0),c(X1)))) # label(test_deMorgan1) # label(axiom).
+(all X0 all X1 (test(X0) & test(X1) -> c(multiplication(X0,X1)) = addition(c(X0),c(X1)))) # label(test_deMorgan2) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(all X0 all X1 (test(X1) -> X0 = addition(multiplication(X1,X0),multiplication(c(X1),X0)))) # label(goals) # label(conjecture).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all A all B addition(A,B) = addition(B,A)) # label(additive_commutativity) # label(axiom) # label(non_clause).  [assumption].
+2 (all C all B all A addition(A,addition(B,C)) = addition(addition(A,B),C)) # label(additive_associativity) # label(axiom) # label(non_clause).  [assumption].
+3 (all A addition(A,zero) = A) # label(additive_identity) # label(axiom) # label(non_clause).  [assumption].
+4 (all A addition(A,A) = A) # label(additive_idempotence) # label(axiom) # label(non_clause).  [assumption].
+5 (all A all B all C multiplication(A,multiplication(B,C)) = multiplication(multiplication(A,B),C)) # label(multiplicative_associativity) # label(axiom) # label(non_clause).  [assumption].
+6 (all A multiplication(A,one) = A) # label(multiplicative_right_identity) # label(axiom) # label(non_clause).  [assumption].
+7 (all A multiplication(one,A) = A) # label(multiplicative_left_identity) # label(axiom) # label(non_clause).  [assumption].
+8 (all A all B all C multiplication(A,addition(B,C)) = addition(multiplication(A,B),multiplication(A,C))) # label(right_distributivity) # label(axiom) # label(non_clause).  [assumption].
+9 (all A all B all C multiplication(addition(A,B),C) = addition(multiplication(A,C),multiplication(B,C))) # label(left_distributivity) # label(axiom) # label(non_clause).  [assumption].
+10 (all A multiplication(A,zero) = zero) # label(right_annihilation) # label(axiom) # label(non_clause).  [assumption].
+11 (all A multiplication(zero,A) = zero) # label(left_annihilation) # label(axiom) # label(non_clause).  [assumption].
+12 (all A all B (leq(A,B) <-> addition(A,B) = B)) # label(order) # label(axiom) # label(non_clause).  [assumption].
+13 (all X0 (test(X0) <-> (exists X1 complement(X1,X0)))) # label(test_1) # label(axiom) # label(non_clause).  [assumption].
+14 (all X0 all X1 (complement(X1,X0) <-> multiplication(X0,X1) = zero & multiplication(X1,X0) = zero & addition(X0,X1) = one)) # label(test_2) # label(axiom) # label(non_clause).  [assumption].
+15 (all X0 all X1 (test(X0) -> (c(X0) = X1 <-> complement(X0,X1)))) # label(test_3) # label(axiom) # label(non_clause).  [assumption].
+16 (all X0 (-test(X0) -> c(X0) = zero)) # label(test_4) # label(axiom) # label(non_clause).  [assumption].
+17 (all X0 all X1 (test(X0) & test(X1) -> c(addition(X0,X1)) = multiplication(c(X0),c(X1)))) # label(test_deMorgan1) # label(axiom) # label(non_clause).  [assumption].
+18 (all X0 all X1 (test(X0) & test(X1) -> c(multiplication(X0,X1)) = addition(c(X0),c(X1)))) # label(test_deMorgan2) # label(axiom) # label(non_clause).  [assumption].
+19 (all X0 all X1 (test(X1) -> X0 = addition(multiplication(X1,X0),multiplication(c(X1),X0)))) # label(goals) # label(conjecture) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+addition(A,B) = addition(B,A) # label(additive_commutativity) # label(axiom).  [clausify(1)].
+addition(addition(A,B),C) = addition(A,addition(B,C)) # label(additive_associativity) # label(axiom).  [clausify(2)].
+addition(A,zero) = A # label(additive_identity) # label(axiom).  [clausify(3)].
+addition(A,A) = A # label(additive_idempotence) # label(axiom).  [clausify(4)].
+multiplication(multiplication(A,B),C) = multiplication(A,multiplication(B,C)) # label(multiplicative_associativity) # label(axiom).  [clausify(5)].
+multiplication(A,one) = A # label(multiplicative_right_identity) # label(axiom).  [clausify(6)].
+multiplication(one,A) = A # label(multiplicative_left_identity) # label(axiom).  [clausify(7)].
+multiplication(A,addition(B,C)) = addition(multiplication(A,B),multiplication(A,C)) # label(right_distributivity) # label(axiom).  [clausify(8)].
+multiplication(addition(A,B),C) = addition(multiplication(A,C),multiplication(B,C)) # label(left_distributivity) # label(axiom).  [clausify(9)].
+multiplication(A,zero) = zero # label(right_annihilation) # label(axiom).  [clausify(10)].
+multiplication(zero,A) = zero # label(left_annihilation) # label(axiom).  [clausify(11)].
+-leq(A,B) | addition(A,B) = B # label(order) # label(axiom).  [clausify(12)].
+leq(A,B) | addition(A,B) != B # label(order) # label(axiom).  [clausify(12)].
+-test(A) | complement(f1(A),A) # label(test_1) # label(axiom).  [clausify(13)].
+test(A) | -complement(B,A) # label(test_1) # label(axiom).  [clausify(13)].
+-complement(A,B) | multiplication(B,A) = zero # label(test_2) # label(axiom).  [clausify(14)].
+-complement(A,B) | multiplication(A,B) = zero # label(test_2) # label(axiom).  [clausify(14)].
+-complement(A,B) | addition(B,A) = one # label(test_2) # label(axiom).  [clausify(14)].
+complement(A,B) | multiplication(B,A) != zero | multiplication(A,B) != zero | addition(B,A) != one # label(test_2) # label(axiom).  [clausify(14)].
+-test(A) | c(A) != B | complement(A,B) # label(test_3) # label(axiom).  [clausify(15)].
+-test(A) | c(A) = B | -complement(A,B) # label(test_3) # label(axiom).  [clausify(15)].
+test(A) | c(A) = zero # label(test_4) # label(axiom).  [clausify(16)].
+-test(A) | -test(B) | c(addition(A,B)) = multiplication(c(A),c(B)) # label(test_deMorgan1) # label(axiom).  [clausify(17)].
+-test(A) | -test(B) | c(multiplication(A,B)) = addition(c(A),c(B)) # label(test_deMorgan2) # label(axiom).  [clausify(18)].
+test(c2) # label(goals) # label(conjecture).  [deny(19)].
+addition(multiplication(c2,c1),multiplication(c(c2),c1)) != c1 # label(goals) # label(conjecture).  [deny(19)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating leq/2
+20 leq(A,B) | addition(A,B) != B # label(order) # label(axiom).  [clausify(12)].
+21 -leq(A,B) | addition(A,B) = B # label(order) # label(axiom).  [clausify(12)].
+
+Eliminating complement/2
+22 test(A) | -complement(B,A) # label(test_1) # label(axiom).  [clausify(13)].
+23 -test(A) | complement(f1(A),A) # label(test_1) # label(axiom).  [clausify(13)].
+24 -complement(A,B) | multiplication(B,A) = zero # label(test_2) # label(axiom).  [clausify(14)].
+Derived: multiplication(A,f1(A)) = zero | -test(A).  [resolve(24,a,23,b)].
+25 -complement(A,B) | multiplication(A,B) = zero # label(test_2) # label(axiom).  [clausify(14)].
+Derived: multiplication(f1(A),A) = zero | -test(A).  [resolve(25,a,23,b)].
+26 -complement(A,B) | addition(B,A) = one # label(test_2) # label(axiom).  [clausify(14)].
+Derived: addition(A,f1(A)) = one | -test(A).  [resolve(26,a,23,b)].
+27 complement(A,B) | multiplication(B,A) != zero | multiplication(A,B) != zero | addition(B,A) != one # label(test_2) # label(axiom).  [clausify(14)].
+Derived: multiplication(A,B) != zero | multiplication(B,A) != zero | addition(A,B) != one | test(A).  [resolve(27,a,22,b)].
+28 -test(A) | c(A) != B | complement(A,B) # label(test_3) # label(axiom).  [clausify(15)].
+Derived: -test(A) | c(A) != B | test(B).  [resolve(28,c,22,b)].
+Derived: -test(A) | c(A) != B | multiplication(B,A) = zero.  [resolve(28,c,24,a)].
+Derived: -test(A) | c(A) != B | multiplication(A,B) = zero.  [resolve(28,c,25,a)].
+Derived: -test(A) | c(A) != B | addition(B,A) = one.  [resolve(28,c,26,a)].
+29 -test(A) | c(A) = B | -complement(A,B) # label(test_3) # label(axiom).  [clausify(15)].
+Derived: -test(f1(A)) | c(f1(A)) = A | -test(A).  [resolve(29,c,23,b)].
+Derived: -test(A) | c(A) = B | multiplication(B,A) != zero | multiplication(A,B) != zero | addition(B,A) != one.  [resolve(29,c,27,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, test ]).
+Function symbol precedence:  function_order([ zero, one, c1, c2, multiplication, addition, c, f1 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+
+% Operation addition is commutative; C redundancy checks enabled.
+kept:      30 addition(A,B) = addition(B,A) # label(additive_commutativity) # label(axiom).  [clausify(1)].
+kept:      31 addition(addition(A,B),C) = addition(A,addition(B,C)) # label(additive_associativity) # label(axiom).  [clausify(2)].
+kept:      32 addition(A,zero) = A # label(additive_identity) # label(axiom).  [clausify(3)].
+kept:      33 addition(A,A) = A # label(additive_idempotence) # label(axiom).  [clausify(4)].
+kept:      34 multiplication(multiplication(A,B),C) = multiplication(A,multiplication(B,C)) # label(multiplicative_associativity) # label(axiom).  [clausify(5)].
+kept:      35 multiplication(A,one) = A # label(multiplicative_right_identity) # label(axiom).  [clausify(6)].
+kept:      36 multiplication(one,A) = A # label(multiplicative_left_identity) # label(axiom).  [clausify(7)].
+           37 multiplication(A,addition(B,C)) = addition(multiplication(A,B),multiplication(A,C)) # label(right_distributivity) # label(axiom).  [clausify(8)].
+kept:      38 addition(multiplication(A,B),multiplication(A,C)) = multiplication(A,addition(B,C)).  [copy(37),flip(a)].
+           39 multiplication(addition(A,B),C) = addition(multiplication(A,C),multiplication(B,C)) # label(left_distributivity) # label(axiom).  [clausify(9)].
+kept:      40 addition(multiplication(A,B),multiplication(C,B)) = multiplication(addition(A,C),B).  [copy(39),flip(a)].
+kept:      41 multiplication(A,zero) = zero # label(right_annihilation) # label(axiom).  [clausify(10)].
+kept:      42 multiplication(zero,A) = zero # label(left_annihilation) # label(axiom).  [clausify(11)].
+kept:      43 test(A) | c(A) = zero # label(test_4) # label(axiom).  [clausify(16)].
+kept:      44 -test(A) | -test(B) | c(addition(A,B)) = multiplication(c(A),c(B)) # label(test_deMorgan1) # label(axiom).  [clausify(17)].
+kept:      45 -test(A) | -test(B) | c(multiplication(A,B)) = addition(c(A),c(B)) # label(test_deMorgan2) # label(axiom).  [clausify(18)].
+kept:      46 test(c2) # label(goals) # label(conjecture).  [deny(19)].
+           47 addition(multiplication(c2,c1),multiplication(c(c2),c1)) != c1 # label(goals) # label(conjecture).  [deny(19)].
+kept:      48 multiplication(addition(c2,c(c2)),c1) != c1.  [copy(47),rewrite([40(8)])].
+kept:      49 multiplication(A,f1(A)) = zero | -test(A).  [resolve(24,a,23,b)].
+kept:      50 multiplication(f1(A),A) = zero | -test(A).  [resolve(25,a,23,b)].
+kept:      51 addition(A,f1(A)) = one | -test(A).  [resolve(26,a,23,b)].
+kept:      52 multiplication(A,B) != zero | multiplication(B,A) != zero | addition(A,B) != one | test(A).  [resolve(27,a,22,b)].
+kept:      53 -test(A) | c(A) != B | test(B).  [resolve(28,c,22,b)].
+kept:      54 -test(A) | c(A) != B | multiplication(B,A) = zero.  [resolve(28,c,24,a)].
+kept:      55 -test(A) | c(A) != B | multiplication(A,B) = zero.  [resolve(28,c,25,a)].
+kept:      56 -test(A) | c(A) != B | addition(B,A) = one.  [resolve(28,c,26,a)].
+kept:      57 -test(f1(A)) | c(f1(A)) = A | -test(A).  [resolve(29,c,23,b)].
+kept:      58 -test(A) | c(A) = B | multiplication(B,A) != zero | multiplication(A,B) != zero | addition(B,A) != one.  [resolve(29,c,27,a)].
+kept:      59 -test(A) | multiplication(c(A),c(A)) = c(A).  [factor(44,a,b),rewrite([33(2)]),flip(b)].
+kept:      60 -test(A) | c(multiplication(A,A)) = c(A).  [factor(45,a,b),rewrite([33(6)])].
+kept:      61 multiplication(A,A) != zero | one != A | test(A).  [factor(52,a,b),rewrite([33(4)]),flip(b)].
+kept:      62 -test(A) | c(A) = A | multiplication(A,A) != zero | one != A.  [factor(58,c,d),rewrite([33(7)]),flip(d)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+30 addition(A,B) = addition(B,A) # label(additive_commutativity) # label(axiom).  [clausify(1)].
+31 addition(addition(A,B),C) = addition(A,addition(B,C)) # label(additive_associativity) # label(axiom).  [clausify(2)].
+32 addition(A,zero) = A # label(additive_identity) # label(axiom).  [clausify(3)].
+33 addition(A,A) = A # label(additive_idempotence) # label(axiom).  [clausify(4)].
+34 multiplication(multiplication(A,B),C) = multiplication(A,multiplication(B,C)) # label(multiplicative_associativity) # label(axiom).  [clausify(5)].
+35 multiplication(A,one) = A # label(multiplicative_right_identity) # label(axiom).  [clausify(6)].
+36 multiplication(one,A) = A # label(multiplicative_left_identity) # label(axiom).  [clausify(7)].
+38 addition(multiplication(A,B),multiplication(A,C)) = multiplication(A,addition(B,C)).  [copy(37),flip(a)].
+40 addition(multiplication(A,B),multiplication(C,B)) = multiplication(addition(A,C),B).  [copy(39),flip(a)].
+41 multiplication(A,zero) = zero # label(right_annihilation) # label(axiom).  [clausify(10)].
+42 multiplication(zero,A) = zero # label(left_annihilation) # label(axiom).  [clausify(11)].
+43 test(A) | c(A) = zero # label(test_4) # label(axiom).  [clausify(16)].
+44 -test(A) | -test(B) | c(addition(A,B)) = multiplication(c(A),c(B)) # label(test_deMorgan1) # label(axiom).  [clausify(17)].
+45 -test(A) | -test(B) | c(multiplication(A,B)) = addition(c(A),c(B)) # label(test_deMorgan2) # label(axiom).  [clausify(18)].
+46 test(c2) # label(goals) # label(conjecture).  [deny(19)].
+48 multiplication(addition(c2,c(c2)),c1) != c1.  [copy(47),rewrite([40(8)])].
+49 multiplication(A,f1(A)) = zero | -test(A).  [resolve(24,a,23,b)].
+50 multiplication(f1(A),A) = zero | -test(A).  [resolve(25,a,23,b)].
+51 addition(A,f1(A)) = one | -test(A).  [resolve(26,a,23,b)].
+52 multiplication(A,B) != zero | multiplication(B,A) != zero | addition(A,B) != one | test(A).  [resolve(27,a,22,b)].
+53 -test(A) | c(A) != B | test(B).  [resolve(28,c,22,b)].
+54 -test(A) | c(A) != B | multiplication(B,A) = zero.  [resolve(28,c,24,a)].
+55 -test(A) | c(A) != B | multiplication(A,B) = zero.  [resolve(28,c,25,a)].
+56 -test(A) | c(A) != B | addition(B,A) = one.  [resolve(28,c,26,a)].
+57 -test(f1(A)) | c(f1(A)) = A | -test(A).  [resolve(29,c,23,b)].
+58 -test(A) | c(A) = B | multiplication(B,A) != zero | multiplication(A,B) != zero | addition(B,A) != one.  [resolve(29,c,27,a)].
+59 -test(A) | multiplication(c(A),c(A)) = c(A).  [factor(44,a,b),rewrite([33(2)]),flip(b)].
+60 -test(A) | c(multiplication(A,A)) = c(A).  [factor(45,a,b),rewrite([33(6)])].
+61 multiplication(A,A) != zero | one != A | test(A).  [factor(52,a,b),rewrite([33(4)]),flip(b)].
+62 -test(A) | c(A) = A | multiplication(A,A) != zero | one != A.  [factor(58,c,d),rewrite([33(7)]),flip(d)].
+end_of_list.
+
+formulas(demodulators).
+30 addition(A,B) = addition(B,A) # label(additive_commutativity) # label(axiom).  [clausify(1)].
+        % (lex-dep)
+31 addition(addition(A,B),C) = addition(A,addition(B,C)) # label(additive_associativity) # label(axiom).  [clausify(2)].
+32 addition(A,zero) = A # label(additive_identity) # label(axiom).  [clausify(3)].
+33 addition(A,A) = A # label(additive_idempotence) # label(axiom).  [clausify(4)].
+34 multiplication(multiplication(A,B),C) = multiplication(A,multiplication(B,C)) # label(multiplicative_associativity) # label(axiom).  [clausify(5)].
+35 multiplication(A,one) = A # label(multiplicative_right_identity) # label(axiom).  [clausify(6)].
+36 multiplication(one,A) = A # label(multiplicative_left_identity) # label(axiom).  [clausify(7)].
+38 addition(multiplication(A,B),multiplication(A,C)) = multiplication(A,addition(B,C)).  [copy(37),flip(a)].
+40 addition(multiplication(A,B),multiplication(C,B)) = multiplication(addition(A,C),B).  [copy(39),flip(a)].
+41 multiplication(A,zero) = zero # label(right_annihilation) # label(axiom).  [clausify(10)].
+42 multiplication(zero,A) = zero # label(left_annihilation) # label(axiom).  [clausify(11)].
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+given #1 (I,wt=7): 30 addition(A,B) = addition(B,A) # label(additive_commutativity) # label(axiom).  [clausify(1)].
+
+given #2 (I,wt=11): 31 addition(addition(A,B),C) = addition(A,addition(B,C)) # label(additive_associativity) # label(axiom).  [clausify(2)].
+
+% Operation addition is associative-commutative; CAC redundancy checks enabled.
+% back CAC tautology: 63 addition(A,addition(B,C)) = addition(C,addition(A,B)).  [para(31(a,1),30(a,1))].
+
+given #3 (I,wt=5): 32 addition(A,zero) = A # label(additive_identity) # label(axiom).  [clausify(3)].
+
+given #4 (I,wt=5): 33 addition(A,A) = A # label(additive_idempotence) # label(axiom).  [clausify(4)].
+
+given #5 (I,wt=11): 34 multiplication(multiplication(A,B),C) = multiplication(A,multiplication(B,C)) # label(multiplicative_associativity) # label(axiom).  [clausify(5)].
+
+given #6 (I,wt=5): 35 multiplication(A,one) = A # label(multiplicative_right_identity) # label(axiom).  [clausify(6)].
+
+given #7 (I,wt=5): 36 multiplication(one,A) = A # label(multiplicative_left_identity) # label(axiom).  [clausify(7)].
+
+given #8 (I,wt=13): 38 addition(multiplication(A,B),multiplication(A,C)) = multiplication(A,addition(B,C)).  [copy(37),flip(a)].
+
+given #9 (I,wt=13): 40 addition(multiplication(A,B),multiplication(C,B)) = multiplication(addition(A,C),B).  [copy(39),flip(a)].
+
+given #10 (I,wt=5): 41 multiplication(A,zero) = zero # label(right_annihilation) # label(axiom).  [clausify(10)].
+
+given #11 (I,wt=5): 42 multiplication(zero,A) = zero # label(left_annihilation) # label(axiom).  [clausify(11)].
+
+given #12 (I,wt=6): 43 test(A) | c(A) = zero # label(test_4) # label(axiom).  [clausify(16)].
+
+given #13 (I,wt=14): 44 -test(A) | -test(B) | c(addition(A,B)) = multiplication(c(A),c(B)) # label(test_deMorgan1) # label(axiom).  [clausify(17)].
+
+given #14 (I,wt=14): 45 -test(A) | -test(B) | c(multiplication(A,B)) = addition(c(A),c(B)) # label(test_deMorgan2) # label(axiom).  [clausify(18)].
+
+given #15 (I,wt=2): 46 test(c2) # label(goals) # label(conjecture).  [deny(19)].
+
+given #16 (I,wt=8): 48 multiplication(addition(c2,c(c2)),c1) != c1.  [copy(47),rewrite([40(8)])].
+
+given #17 (I,wt=8): 49 multiplication(A,f1(A)) = zero | -test(A).  [resolve(24,a,23,b)].
+
+given #18 (I,wt=8): 50 multiplication(f1(A),A) = zero | -test(A).  [resolve(25,a,23,b)].
+
+given #19 (I,wt=8): 51 addition(A,f1(A)) = one | -test(A).  [resolve(26,a,23,b)].
+
+given #20 (I,wt=17): 52 multiplication(A,B) != zero | multiplication(B,A) != zero | addition(A,B) != one | test(A).  [resolve(27,a,22,b)].
+
+given #21 (I,wt=8): 53 -test(A) | c(A) != B | test(B).  [resolve(28,c,22,b)].
+
+given #22 (I,wt=11): 54 -test(A) | c(A) != B | multiplication(B,A) = zero.  [resolve(28,c,24,a)].
+
+given #23 (I,wt=11): 55 -test(A) | c(A) != B | multiplication(A,B) = zero.  [resolve(28,c,25,a)].
+
+given #24 (I,wt=11): 56 -test(A) | c(A) != B | addition(B,A) = one.  [resolve(28,c,26,a)].
+
+given #25 (I,wt=10): 57 -test(f1(A)) | c(f1(A)) = A | -test(A).  [resolve(29,c,23,b)].
+
+given #26 (I,wt=21): 58 -test(A) | c(A) = B | multiplication(B,A) != zero | multiplication(A,B) != zero | addition(B,A) != one.  [resolve(29,c,27,a)].
+
+given #27 (I,wt=10): 59 -test(A) | multiplication(c(A),c(A)) = c(A).  [factor(44,a,b),rewrite([33(2)]),flip(b)].
+
+given #28 (I,wt=9): 60 -test(A) | c(multiplication(A,A)) = c(A).  [factor(45,a,b),rewrite([33(6)])].
+
+given #29 (I,wt=14): 62 -test(A) | c(A) = A | multiplication(A,A) != zero | one != A.  [factor(58,c,d),rewrite([33(7)]),flip(d)].
+
+given #30 (A,wt=11): 64 addition(A,addition(B,C)) = addition(B,addition(A,C)).  [para(30(a,1),31(a,1,1)),rewrite([31(2)])].
+
+given #31 (T,wt=2): 92 test(one).  [resolve(52,c,32,a),rewrite([41(3),35(6)]),xx(a),xx(b)].
+
+given #32 (T,wt=4): 128 f1(one) = zero.  [resolve(92,a,50,b),rewrite([35(4)])].
+
+given #33 (T,wt=5): 65 addition(zero,A) = A.  [para(32(a,1),30(a,1)),flip(a)].
+
+given #34 (T,wt=2): 134 test(zero).  [resolve(65,a,52,c),rewrite([35(3),41(6)]),xx(a),xx(b)].
+
+given #35 (A,wt=9): 66 addition(A,addition(A,B)) = addition(A,B).  [para(33(a,1),31(a,1,1)),flip(a)].
+
+given #36 (T,wt=4): 135 c(zero) = one.  [back_unit_del(133),unit_del(a,134)].
+
+given #37 (T,wt=4): 137 f1(zero) = one.  [resolve(134,a,51,b),rewrite([65(4)])].
+
+given #38 (T,wt=4): 139 c(one) = zero.  [back_rewrite(136),rewrite([137(2)])].
+
+given #39 (T,wt=5): 95 one != A | test(A).  [para(32(a,1),52(c,1)),rewrite([41(2),42(5)]),flip(c),xx(a),xx(b)].
+
+given #40 (A,wt=9): 68 addition(A,addition(B,A)) = addition(B,A).  [para(33(a,1),31(a,2,2)),rewrite([30(2)])].
+
+given #41 (T,wt=5): 142 zero != A | test(A).  [back_rewrite(126),rewrite([139(2)])].
+
+given #42 (T,wt=6): 85 multiplication(c2,f1(c2)) = zero.  [resolve(49,b,46,a)].
+
+given #43 (T,wt=6): 87 multiplication(f1(c2),c2) = zero.  [resolve(50,b,46,a)].
+
+given #44 (T,wt=6): 89 addition(c2,f1(c2)) = one.  [resolve(51,b,46,a)].
+
+given #45 (A,wt=17): 69 addition(multiplication(A,addition(B,C)),D) = addition(multiplication(A,B),addition(multiplication(A,C),D)).  [para(38(a,1),31(a,1,1))].
+
+given #46 (T,wt=5): 162 addition(one,c2) = one.  [para(89(a,1),66(a,1,2)),rewrite([30(3),89(7)])].
+
+given #47 (T,wt=6): 100 c(c2) != A | test(A).  [resolve(53,a,46,a)].
+
+given #48 (T,wt=3): 178 test(c(c2)).  [resolve(100,a,65,a(flip)),rewrite([65(4)])].
+
+given #49 (T,wt=6): 163 addition(one,f1(c2)) = one.  [para(89(a,1),68(a,1,2)),rewrite([30(4),89(8)])].
+
+given #50 (A,wt=11): 70 multiplication(A,addition(one,B)) = addition(A,multiplication(A,B)).  [para(35(a,1),38(a,1,1)),flip(a)].
+
+given #51 (T,wt=7): 113 c(A) = zero | one != A.  [factor(111,a,e),rewrite([42(5),41(8),65(11)]),flip(d),xx(b),xx(c)].
+
+given #52 (T,wt=7): 116 c(multiplication(c2,c2)) = c(c2).  [resolve(60,a,46,a)].
+
+given #53 (T,wt=7): 174 addition(A,multiplication(A,c2)) = A.  [para(162(a,1),38(a,2,2)),rewrite([35(2),35(5)])].
+
+given #54 (T,wt=7): 175 addition(A,multiplication(c2,A)) = A.  [para(162(a,1),40(a,2,1)),rewrite([36(2),36(5)])].
+
+given #55 (A,wt=11): 71 multiplication(A,addition(B,one)) = addition(A,multiplication(A,B)).  [para(35(a,1),38(a,1,2)),rewrite([30(2)]),flip(a)].
+
+given #56 (T,wt=7): 185 c(c(c2)) != A | test(A).  [resolve(178,a,53,a)].
+
+given #57 (T,wt=4): 238 test(c(c(c2))).  [resolve(185,a,175,a(flip)),rewrite([175(9)])].
+
+given #58 (T,wt=8): 114 multiplication(c(c2),c(c2)) = c(c2).  [resolve(59,a,46,a)].
+
+given #59 (T,wt=8): 138 -test(A) | addition(one,c(A)) = one.  [resolve(134,a,45,b),rewrite([41(3),135(3),135(5),30(5)]),flip(b)].
+
+given #60 (A,wt=17): 72 addition(multiplication(addition(A,B),C),D) = addition(multiplication(A,C),addition(multiplication(B,C),D)).  [para(40(a,1),31(a,1,1))].
+
+given #61 (T,wt=6): 261 addition(one,c(c2)) = one.  [resolve(138,a,46,a)].
+
+given #62 (T,wt=7): 260 addition(one,c(c(c2))) = one.  [resolve(138,a,178,a)].
+
+given #63 (T,wt=8): 140 -test(A) | c(addition(one,A)) = zero.  [back_rewrite(132),rewrite([139(6),42(7)])].
+
+given #64 (T,wt=8): 141 -test(A) | c(addition(A,one)) = zero.  [back_rewrite(131),rewrite([139(7),41(7)])].
+
+given #65 (A,wt=17): 73 addition(multiplication(A,multiplication(B,C)),multiplication(D,C)) = multiplication(addition(multiplication(A,B),D),C).  [para(34(a,1),40(a,1,1))].
+
+given #66 (T,wt=8): 143 zero != A | addition(A,one) = one.  [back_rewrite(124),rewrite([139(2)])].
+
+given #67 (T,wt=8): 150 multiplication(c2,multiplication(f1(c2),A)) = zero.  [para(85(a,1),34(a,1,1)),rewrite([42(2)]),flip(a)].
+
+given #68 (T,wt=8): 155 multiplication(f1(c2),multiplication(c2,A)) = zero.  [para(87(a,1),34(a,1,1)),rewrite([42(2)]),flip(a)].
+
+given #69 (T,wt=8): 186 addition(c(c2),f1(c(c2))) = one.  [resolve(178,a,51,b)].
+
+given #70 (A,wt=17): 74 addition(multiplication(A,B),multiplication(C,multiplication(D,B))) = multiplication(addition(A,multiplication(C,D)),B).  [para(34(a,1),40(a,1,2))].
+
+given #71 (T,wt=7): 316 addition(one,f1(c(c2))) = one.  [para(186(a,1),68(a,1,2)),rewrite([30(5),186(11)])].
+
+given #72 (T,wt=8): 187 multiplication(f1(c(c2)),c(c2)) = zero.  [resolve(178,a,50,b)].
+
+given #73 (T,wt=8): 188 multiplication(c(c2),f1(c(c2))) = zero.  [resolve(178,a,49,b)].
+
+given #74 (T,wt=8): 194 addition(A,multiplication(A,f1(c2))) = A.  [para(163(a,1),38(a,2,2)),rewrite([35(2),35(6)])].
+
+given #75 (A,wt=11): 75 multiplication(addition(one,A),B) = addition(B,multiplication(A,B)).  [para(36(a,1),40(a,1,1)),flip(a)].
+
+given #76 (T,wt=8): 195 addition(A,multiplication(f1(c2),A)) = A.  [para(163(a,1),40(a,2,1)),rewrite([36(2),36(6)])].
+
+given #77 (T,wt=8): 245 c(c(c(c2))) != A | test(A).  [resolve(238,a,53,a)].
+
+given #78 (T,wt=5): 382 test(c(c(c(c2)))).  [resolve(245,a,195,a(flip)),rewrite([195(12)])].
+
+given #79 (T,wt=8): 259 addition(one,c(c(c(c2)))) = one.  [resolve(138,a,238,a)].
+
+given #80 (A,wt=11): 76 multiplication(addition(A,one),B) = addition(B,multiplication(A,B)).  [para(36(a,1),40(a,1,2)),rewrite([30(2)]),flip(a)].
+
+given #81 (T,wt=8): 273 addition(A,multiplication(A,c(c2))) = A.  [para(261(a,1),38(a,2,2)),rewrite([35(2),35(6)])].
+
+given #82 (T,wt=8): 274 addition(A,multiplication(c(c2),A)) = A.  [para(261(a,1),40(a,2,1)),rewrite([36(2),36(6)])].
+
+given #83 (T,wt=9): 102 c(c2) != A | multiplication(A,c2) = zero.  [resolve(54,a,46,a)].
+
+given #84 (T,wt=6): 429 multiplication(c(c2),c2) = zero.  [resolve(102,a,274,a(flip)),rewrite([114(7),33(5)])].
+
+given #85 (A,wt=16): 77 -test(A) | c(addition(B,A)) = multiplication(c(B),c(A)) | c(B) = zero.  [resolve(44,a,43,a)].
+
+given #86 (T,wt=8): 430 multiplication(c(c2),multiplication(c2,A)) = zero.  [para(429(a,1),34(a,1,1)),rewrite([42(2)]),flip(a)].
+
+given #87 (T,wt=9): 104 c(c2) != A | multiplication(c2,A) = zero.  [resolve(55,a,46,a)].
+
+given #88 (T,wt=6): 448 multiplication(c2,c(c2)) = zero.  [resolve(104,a,274,a(flip)),rewrite([114(8),33(6)])].
+
+given #89 (T,wt=8): 449 multiplication(c2,multiplication(c(c2),A)) = zero.  [para(448(a,1),34(a,1,1)),rewrite([42(2)]),flip(a)].
+
+given #90 (A,wt=16): 78 -test(A) | c(addition(A,B)) = multiplication(c(A),c(B)) | c(B) = zero.  [resolve(44,b,43,a)].
+
+given #91 (T,wt=9): 106 c(c2) != A | addition(A,c2) = one.  [resolve(56,a,46,a)].
+
+============================== PROOF =================================
+
+% Proof 1 at 0.02 (+ 0.00) seconds.
+% Length of proof is 51.
+% Level of proof is 11.
+% Maximum clause weight is 17.000.
+% Given clauses 91 (8.273 givens/level).
+
+1 (all A all B addition(A,B) = addition(B,A)) # label(additive_commutativity) # label(axiom) # label(non_clause).  [assumption].
+3 (all A addition(A,zero) = A) # label(additive_identity) # label(axiom) # label(non_clause).  [assumption].
+4 (all A addition(A,A) = A) # label(additive_idempotence) # label(axiom) # label(non_clause).  [assumption].
+6 (all A multiplication(A,one) = A) # label(multiplicative_right_identity) # label(axiom) # label(non_clause).  [assumption].
+7 (all A multiplication(one,A) = A) # label(multiplicative_left_identity) # label(axiom) # label(non_clause).  [assumption].
+9 (all A all B all C multiplication(addition(A,B),C) = addition(multiplication(A,C),multiplication(B,C))) # label(left_distributivity) # label(axiom) # label(non_clause).  [assumption].
+10 (all A multiplication(A,zero) = zero) # label(right_annihilation) # label(axiom) # label(non_clause).  [assumption].
+13 (all X0 (test(X0) <-> (exists X1 complement(X1,X0)))) # label(test_1) # label(axiom) # label(non_clause).  [assumption].
+14 (all X0 all X1 (complement(X1,X0) <-> multiplication(X0,X1) = zero & multiplication(X1,X0) = zero & addition(X0,X1) = one)) # label(test_2) # label(axiom) # label(non_clause).  [assumption].
+15 (all X0 all X1 (test(X0) -> (c(X0) = X1 <-> complement(X0,X1)))) # label(test_3) # label(axiom) # label(non_clause).  [assumption].
+17 (all X0 all X1 (test(X0) & test(X1) -> c(addition(X0,X1)) = multiplication(c(X0),c(X1)))) # label(test_deMorgan1) # label(axiom) # label(non_clause).  [assumption].
+18 (all X0 all X1 (test(X0) & test(X1) -> c(multiplication(X0,X1)) = addition(c(X0),c(X1)))) # label(test_deMorgan2) # label(axiom) # label(non_clause).  [assumption].
+19 (all X0 all X1 (test(X1) -> X0 = addition(multiplication(X1,X0),multiplication(c(X1),X0)))) # label(goals) # label(conjecture) # label(non_clause) # label(goal).  [goal].
+22 test(A) | -complement(B,A) # label(test_1) # label(axiom).  [clausify(13)].
+23 -test(A) | complement(f1(A),A) # label(test_1) # label(axiom).  [clausify(13)].
+25 -complement(A,B) | multiplication(A,B) = zero # label(test_2) # label(axiom).  [clausify(14)].
+26 -complement(A,B) | addition(B,A) = one # label(test_2) # label(axiom).  [clausify(14)].
+27 complement(A,B) | multiplication(B,A) != zero | multiplication(A,B) != zero | addition(B,A) != one # label(test_2) # label(axiom).  [clausify(14)].
+28 -test(A) | c(A) != B | complement(A,B) # label(test_3) # label(axiom).  [clausify(15)].
+29 -test(A) | c(A) = B | -complement(A,B) # label(test_3) # label(axiom).  [clausify(15)].
+30 addition(A,B) = addition(B,A) # label(additive_commutativity) # label(axiom).  [clausify(1)].
+32 addition(A,zero) = A # label(additive_identity) # label(axiom).  [clausify(3)].
+33 addition(A,A) = A # label(additive_idempotence) # label(axiom).  [clausify(4)].
+35 multiplication(A,one) = A # label(multiplicative_right_identity) # label(axiom).  [clausify(6)].
+36 multiplication(one,A) = A # label(multiplicative_left_identity) # label(axiom).  [clausify(7)].
+39 multiplication(addition(A,B),C) = addition(multiplication(A,C),multiplication(B,C)) # label(left_distributivity) # label(axiom).  [clausify(9)].
+40 addition(multiplication(A,B),multiplication(C,B)) = multiplication(addition(A,C),B).  [copy(39),flip(a)].
+41 multiplication(A,zero) = zero # label(right_annihilation) # label(axiom).  [clausify(10)].
+44 -test(A) | -test(B) | c(addition(A,B)) = multiplication(c(A),c(B)) # label(test_deMorgan1) # label(axiom).  [clausify(17)].
+45 -test(A) | -test(B) | c(multiplication(A,B)) = addition(c(A),c(B)) # label(test_deMorgan2) # label(axiom).  [clausify(18)].
+46 test(c2) # label(goals) # label(conjecture).  [deny(19)].
+47 addition(multiplication(c2,c1),multiplication(c(c2),c1)) != c1 # label(goals) # label(conjecture).  [deny(19)].
+48 multiplication(addition(c2,c(c2)),c1) != c1.  [copy(47),rewrite([40(8)])].
+50 multiplication(f1(A),A) = zero | -test(A).  [resolve(25,a,23,b)].
+52 multiplication(A,B) != zero | multiplication(B,A) != zero | addition(A,B) != one | test(A).  [resolve(27,a,22,b)].
+56 -test(A) | c(A) != B | addition(B,A) = one.  [resolve(28,c,26,a)].
+57 -test(f1(A)) | c(f1(A)) = A | -test(A).  [resolve(29,c,23,b)].
+59 -test(A) | multiplication(c(A),c(A)) = c(A).  [factor(44,a,b),rewrite([33(2)]),flip(b)].
+65 addition(zero,A) = A.  [para(32(a,1),30(a,1)),flip(a)].
+92 test(one).  [resolve(52,c,32,a),rewrite([41(3),35(6)]),xx(a),xx(b)].
+106 c(c2) != A | addition(A,c2) = one.  [resolve(56,a,46,a)].
+114 multiplication(c(c2),c(c2)) = c(c2).  [resolve(59,a,46,a)].
+128 f1(one) = zero.  [resolve(92,a,50,b),rewrite([35(4)])].
+133 -test(zero) | c(zero) = one.  [para(128(a,1),57(a,1)),rewrite([128(4)]),unit_del(c,92)].
+134 test(zero).  [resolve(65,a,52,c),rewrite([35(3),41(6)]),xx(a),xx(b)].
+135 c(zero) = one.  [back_unit_del(133),unit_del(a,134)].
+138 -test(A) | addition(one,c(A)) = one.  [resolve(134,a,45,b),rewrite([41(3),135(3),135(5),30(5)]),flip(b)].
+261 addition(one,c(c2)) = one.  [resolve(138,a,46,a)].
+274 addition(A,multiplication(c(c2),A)) = A.  [para(261(a,1),40(a,2,1)),rewrite([36(2),36(6)])].
+466 addition(c2,c(c2)) = one.  [resolve(106,a,274,a(flip)),rewrite([114(7),33(5),30(4)])].
+467 $F.  [back_rewrite(48),rewrite([466(4),36(3)]),xx(a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=91. Generated=1841. Kept=434. proofs=1.
+Usable=90. Sos=316. Demods=233. Limbo=1, Disabled=63. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=1406. Back_subsumed=2.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=243 (8 lex), Back_demodulated=22. Back_unit_deleted=2.
+Demod_attempts=21331. Demod_rewrites=3641.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=339. Nonunit_bsub_feature_tests=286.
+Megabytes=0.85.
+User_CPU=0.02, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 35 exit (max_proofs) Fri Oct 23 14:54:44 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 35 exit (max_proofs) ------
+

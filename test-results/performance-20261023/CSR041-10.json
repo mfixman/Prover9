@@ -1,0 +1,12 @@
+{
+  "problem": "CSR041-10",
+  "domain": "CSR",
+  "rating": 0.09,
+  "conversion_wall_seconds": 0.008263974988949485,
+  "exit_code": 0,
+  "search_wall_seconds": 0.01467437099199742,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.01,
+  "total_wall_seconds": 0.02388238999992609
+}

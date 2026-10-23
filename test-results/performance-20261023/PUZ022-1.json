@@ -1,0 +1,12 @@
+{
+  "problem": "PUZ022-1",
+  "domain": "PUZ",
+  "rating": 0.0,
+  "conversion_wall_seconds": 0.009023760008858517,
+  "exit_code": 2,
+  "search_wall_seconds": 0.006903241010149941,
+  "outcome": "unsolved",
+  "reason": "sos_empty",
+  "reported_cpu_seconds": 0.0,
+  "total_wall_seconds": 0.016478482997626998
+}

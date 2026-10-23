@@ -1,0 +1,12 @@
+{
+  "problem": "GRP536-1",
+  "domain": "GRP",
+  "rating": 0.05,
+  "conversion_wall_seconds": 0.007140656001865864,
+  "exit_code": 0,
+  "search_wall_seconds": 0.0037172019947320223,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.0,
+  "total_wall_seconds": 0.011616945994319394
+}

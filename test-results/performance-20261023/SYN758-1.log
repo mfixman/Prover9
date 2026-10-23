@@ -1,0 +1,168 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 44 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+ssRr(U,skf1(U)) # label(clause1) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssPv2(W) | -ssPv4(W) | ssPv3(V) | ssPv3(W) # label(clause2) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv2(V) | -ssRr(W,U) | -ssPv1(W) | -ssPv4(W) | ssPv2(W) # label(clause3) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(W,X) | ssPv3(V) | ssPv1(X) | ssPv2(W) | ssPv4(W) # label(clause4) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(W,X) | ssPv4(V) | ssPv2(X) | ssPv1(W) | ssPv4(W) # label(clause5) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(W,X) | ssPv2(V) | ssPv1(X) | ssPv1(W) | ssPv4(W) # label(clause6) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv3(W) | ssPv1(V) | ssPv2(X) | ssPv2(W) # label(clause7) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv3(V) | -ssRr(W,U) | -ssRr(W,X) | ssPv4(X) | ssPv1(W) | ssPv3(W) # label(clause8) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv2(V) | -ssRr(W,U) | -ssRr(W,X) | ssPv4(X) | ssPv1(W) | ssPv3(W) # label(clause9) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv4(X) | -ssPv3(W) | ssPv1(V) | ssPv2(W) # label(clause10) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv1(W) | -ssPv4(W) | ssPv4(V) | ssPv3(X) # label(clause11) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv4(X) | -ssPv3(W) | ssPv2(V) | ssPv4(W) # label(clause12) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv1(X) | -ssPv1(W) | ssPv3(V) | ssPv4(W) # label(clause13) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv3(V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv1(W) | ssPv1(X) | ssPv4(W) # label(clause14) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv1(X) | -ssPv4(W) | ssPv3(V) | ssPv3(W) # label(clause15) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv1(V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv4(W) | ssPv1(X) | ssPv2(W) # label(clause16) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv4(V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv3(X) | -ssPv2(W) | ssPv4(W) # label(clause17) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv4(V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv4(X) | -ssPv2(W) | ssPv3(W) # label(clause18) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv2(V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv2(X) | -ssPv2(W) | -ssPv4(W) # label(clause19) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv1(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | ssPv1(Y) | ssPv2(W) | ssPv4(W) # label(clause20) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv2(X) | -ssRr(W,Y) | ssPv1(V) | ssPv3(Y) | ssPv2(W) # label(clause21) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv1(V) | -ssRr(W,U) | -ssRr(W,X) | -ssRr(W,Y) | ssPv4(X) | ssPv2(Y) | ssPv2(W) # label(clause22) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(W,X) | -ssRr(W,Y) | -ssPv3(W) | ssPv3(V) | ssPv4(X) | ssPv2(Y) # label(clause23) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv3(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | ssPv4(Y) | ssPv3(W) | ssPv4(W) # label(clause24) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv1(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | ssPv1(Y) | ssPv3(W) | ssPv4(W) # label(clause25) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv4(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | ssPv3(Y) | ssPv1(W) | ssPv2(W) # label(clause26) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv3(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssPv3(W) | ssPv4(Y) | ssPv2(W) # label(clause27) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv4(V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv1(X) | -ssRr(W,Y) | ssPv2(Y) | ssPv2(W) # label(clause28) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv3(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssPv1(W) | ssPv1(Y) | ssPv4(W) # label(clause29) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv3(V) | -ssRr(W,U) | -ssRr(W,X) | -ssPv2(X) | -ssRr(W,Y) | ssPv1(Y) | ssPv2(W) # label(clause30) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv1(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssPv1(W) | ssPv3(Y) | ssPv4(W) # label(clause31) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv1(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssPv3(W) | -ssPv4(W) | ssPv1(Y) # label(clause32) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv2(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssPv1(W) | -ssPv3(W) | ssPv3(Y) # label(clause33) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv4(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssPv1(W) | -ssPv3(W) | ssPv1(Y) # label(clause34) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv4(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssPv1(W) | -ssPv4(W) | ssPv2(Y) # label(clause35) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(W,Z) | ssPv4(V) | ssPv1(Y) | ssPv3(Z) | ssPv1(W) # label(clause36) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv3(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssPv1(Y) | -ssRr(W,X) | -ssPv1(W) | -ssPv3(W) # label(clause37) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(W,Z) | ssPv3(V) | ssPv2(Y) | ssPv3(Z) | ssPv1(W) # label(clause38) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv2(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(W,Z) | ssPv1(Y) | ssPv4(Z) | ssPv2(W) # label(clause39) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv3(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(W,Z) | ssPv2(Y) | ssPv3(Z) | ssPv1(W) # label(clause40) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv2(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(W,Z) | ssPv4(Y) | ssPv3(Z) | ssPv3(W) # label(clause41) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv3(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(W,Z) | -ssPv2(Z) | ssPv1(Y) | ssPv2(W) # label(clause42) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv4(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(W,Z) | -ssPv4(Z) | -ssPv2(W) | ssPv4(Y) # label(clause43) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv3(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(W,Z) | -ssPv4(Z) | -ssPv4(W) | ssPv3(Y) # label(clause44) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv1(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(W,Z) | -ssPv3(Z) | -ssPv1(W) | ssPv4(Y) # label(clause45) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv2(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(W,Z) | -ssPv3(Z) | -ssPv1(W) | ssPv3(Y) # label(clause46) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv2(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(W,Z) | -ssPv3(Z) | -ssPv3(W) | ssPv4(Y) # label(clause47) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv3(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssPv2(Y) | -ssRr(W,X) | -ssRr(W,Z) | -ssPv3(Z) | -ssPv4(W) # label(clause48) # label(negated_conjecture).
+-ssRr(U,V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(Z,X1) | -ssRr(W,Z) | -ssPv1(W) | ssPv3(V) | ssPv2(Y) | ssPv1(X1) # label(clause49) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv3(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssRr(W,X) | -ssRr(Z,X1) | -ssRr(W,Z) | ssPv3(Y) | ssPv1(X1) | ssPv2(W) # label(clause50) # label(negated_conjecture).
+-ssRr(U,V) | -ssPv4(V) | -ssRr(W,U) | -ssRr(X,Y) | -ssPv2(Y) | -ssRr(W,X) | -ssRr(Z,X1) | -ssPv1(X1) | -ssRr(W,Z) | -ssPv2(W) # label(clause51) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ ssPv3, ssPv1, ssPv4, ssPv2, ssRr ]).
+Function symbol precedence:  function_order([ skf1 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.06 seconds.
+
+given #500 (I,wt=12): 646 -ssRr(A,B) | -ssPv2(B) | -ssRr(A,A) | -ssPv3(A) | ssPv4(A).  [factor(510,c,d),merge(e)].
+
+given #1000 (F,wt=16): 2425 -ssPv4(skf1(skf1(A))) | -ssRr(B,C) | -ssPv2(C) | -ssRr(A,B) | -ssPv1(C) | -ssPv2(A).  [resolve(1757,b,1,a)].
+
+given #1500 (T,wt=15): 917 -ssRr(A,B) | -ssPv3(B) | -ssRr(A,A) | -ssPv2(B) | ssPv1(skf1(A)) | ssPv2(A).  [factor(910,a,d)].
+
+given #2000 (A,wt=17): 1091 -ssRr(A,skf1(B)) | -ssRr(B,A) | -ssRr(A,C) | ssPv3(skf1(B)) | ssPv2(C) | ssPv1(B).  [factor(1070,d,f)].
+
+given #2500 (A,wt=21): 1340 -ssRr(A,B) | -ssPv1(B) | -ssRr(C,A) | -ssRr(C,D) | -ssRr(C,E) | -ssPv3(E) | -ssPv1(C) | ssPv4(skf1(D)).  [resolve(45,d,1,a)].
+
+given #3000 (A,wt=21): 1685 -ssRr(A,B) | -ssPv3(B) | -ssRr(C,A) | -ssRr(skf1(C),D) | -ssRr(C,C) | ssPv3(D) | ssPv1(C) | ssPv2(C).  [factor(1651,e,f)].
+
+given #3500 (A,wt=30): 3213 ssPv1(skf1(skf1(skf1(skf1(A))))) | ssPv4(skf1(skf1(skf1(A)))) | ssPv4(skf1(skf1(skf1(skf1(skf1(A)))))) | ssPv1(skf1(skf1(skf1(A)))) | -ssPv2(skf1(A)) | -ssPv2(A) | -ssPv4(A).  [resolve(2517,c,2198,a)].
+
+given #4000 (A,wt=36): 4303 ssPv3(skf1(A)) | ssPv3(A) | ssPv4(A) | ssPv3(skf1(skf1(skf1(skf1(skf1(skf1(A))))))) | ssPv1(skf1(skf1(skf1(skf1(skf1(A)))))) | ssPv4(skf1(skf1(skf1(skf1(A))))) | -ssPv1(skf1(skf1(A))) | ssPv2(skf1(skf1(A))).  [resolve(4255,c,2221,e)].
+
+given #4500 (A,wt=39): 4910 ssPv3(skf1(skf1(skf1(skf1(skf1(skf1(A))))))) | ssPv1(skf1(skf1(skf1(skf1(skf1(A)))))) | ssPv4(skf1(skf1(skf1(skf1(A))))) | -ssPv4(skf1(skf1(A))) | ssPv1(skf1(skf1(A))) | ssPv1(skf1(A)) | ssPv4(skf1(A)) | ssPv1(A) | ssPv4(A).  [resolve(3774,d,2227,a),merge(h)].
+
+given #5000 (A,wt=67): 5742 ssPv3(skf1(skf1(skf1(skf1(skf1(skf1(skf1(A)))))))) | ssPv1(skf1(skf1(skf1(skf1(skf1(skf1(skf1(A)))))))) | ssPv4(skf1(skf1(skf1(skf1(skf1(skf1(skf1(skf1(A))))))))) | ssPv1(skf1(skf1(skf1(skf1(skf1(skf1(A))))))) | ssPv4(skf1(skf1(skf1(skf1(skf1(skf1(A))))))) | ssPv1(skf1(skf1(skf1(skf1(A))))) | ssPv4(skf1(skf1(skf1(A)))) | ssPv1(skf1(skf1(skf1(A)))) | ssPv4(skf1(A)) | ssPv1(A) | ssPv3(A).  [resolve(5735,f,3209,c)].
+
+given #5500 (A,wt=51): 6336 ssPv1(skf1(skf1(skf1(skf1(skf1(skf1(A))))))) | ssPv4(skf1(skf1(skf1(skf1(skf1(A)))))) | ssPv1(skf1(skf1(skf1(skf1(skf1(A)))))) | ssPv1(skf1(skf1(skf1(skf1(A))))) | ssPv4(skf1(skf1(skf1(skf1(A))))) | -ssPv4(skf1(skf1(A))) | ssPv4(skf1(skf1(skf1(skf1(skf1(skf1(A))))))) | ssPv3(skf1(A)) | ssPv1(A).  [resolve(4012,f,5520,b)].
+
+given #6000 (A,wt=88): 13540 ssPv1(skf1(skf1(skf1(skf1(skf1(skf1(skf1(skf1(skf1(A)))))))))) | ssPv4(skf1(skf1(skf1(skf1(skf1(skf1(skf1(skf1(A))))))))) | ssPv1(skf1(skf1(skf1(skf1(skf1(skf1(skf1(skf1(A))))))))) | ssPv1(skf1(skf1(skf1(skf1(skf1(skf1(skf1(A)))))))) | ssPv4(skf1(skf1(skf1(skf1(skf1(skf1(skf1(A)))))))) | ssPv4(skf1(skf1(skf1(skf1(skf1(skf1(A))))))) | ssPv1(skf1(skf1(skf1(skf1(skf1(A)))))) | ssPv4(skf1(skf1(skf1(skf1(A))))) | ssPv1(skf1(skf1(skf1(A)))) | ssPv4(skf1(skf1(A))) | -ssPv3(skf1(skf1(A))) | ssPv1(skf1(A)) | ssPv2(A).  [resolve(5874,k,2275,b)].
+
+given #6500 (A,wt=65): 15419 ssPv3(A) | ssPv1(skf1(skf1(skf1(skf1(A))))) | ssPv2(skf1(skf1(A))) | ssPv1(skf1(skf1(skf1(skf1(skf1(skf1(A))))))) | ssPv4(skf1(skf1(skf1(skf1(skf1(A)))))) | ssPv3(skf1(skf1(skf1(skf1(skf1(skf1(skf1(skf1(A))))))))) | ssPv1(skf1(skf1(skf1(skf1(skf1(skf1(skf1(A)))))))) | ssPv4(skf1(skf1(skf1(skf1(skf1(skf1(A))))))) | ssPv4(skf1(skf1(skf1(skf1(A))))) | -ssPv4(skf1(skf1(skf1(A)))).  [resolve(15080,c,3851,h),merge(i)].
+
+============================== STATISTICS ============================
+
+Given=6811. Generated=187019. Kept=22637. proofs=0.
+Usable=3746. Sos=1510. Demods=0. Limbo=0, Disabled=17432. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=7705.
+Forward_subsumed=156677. Back_subsumed=17381.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=2656880. Nonunit_bsub_feature_tests=1340568.
+Megabytes=45.73.
+User_CPU=20.00, System_CPU=0.14, Wall_clock=21.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 44 exit (max_seconds) Fri Oct 23 15:00:44 2026
+
+SEARCH FAILED
+
+------ process 44 exit (max_seconds) ------
+

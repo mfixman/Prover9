@@ -1,0 +1,12 @@
+{
+  "problem": "SYO624-1",
+  "domain": "SYO",
+  "rating": 1.0,
+  "conversion_wall_seconds": 0.00758072298776824,
+  "exit_code": 4,
+  "search_wall_seconds": 21.692630828998517,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 21.400000000000002,
+  "total_wall_seconds": 21.702133478000178
+}

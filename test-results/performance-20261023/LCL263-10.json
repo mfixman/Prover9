@@ -1,0 +1,12 @@
+{
+  "problem": "LCL263-10",
+  "domain": "LCL",
+  "rating": 1.0,
+  "conversion_wall_seconds": 0.009293755996623076,
+  "exit_code": 4,
+  "search_wall_seconds": 21.897320780000882,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 21.09,
+  "total_wall_seconds": 21.907728518999647
+}

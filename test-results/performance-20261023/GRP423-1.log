@@ -1,0 +1,232 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 149 was started by mfixman on bodoque,
+Fri Oct 23 15:00:46 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(B),multiply(inverse(C),inverse(multiply(inverse(C),C))))))),multiply(A,C))) = B # label(single_axiom) # label(axiom).
+multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) # label(prove_these_axioms_3) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_these_axioms_3 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ a3, b3, c3, multiply, inverse ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 3.03 (+ 0.05) seconds: prove_these_axioms_3.
+% Length of proof is 129.
+% Level of proof is 40.
+% Maximum clause weight is 92.000.
+% Given clauses 87 (2.175 givens/level).
+
+1 inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(B),multiply(inverse(C),inverse(multiply(inverse(C),C))))))),multiply(A,C))) = B # label(single_axiom) # label(axiom).  [assumption].
+2 multiply(multiply(a3,b3),c3) != multiply(a3,multiply(b3,c3)) # label(prove_these_axioms_3) # label(negated_conjecture) # answer(prove_these_axioms_3).  [assumption].
+3 multiply(inverse(multiply(A,inverse(multiply(inverse(B),multiply(inverse(C),inverse(multiply(inverse(C),C))))))),multiply(A,C)) = inverse(multiply(inverse(multiply(D,inverse(multiply(B,multiply(inverse(E),inverse(multiply(inverse(E),E))))))),multiply(D,E))).  [para(1(a,1),1(a,1,1,1,1,2,1,1)),flip(a)].
+5 multiply(inverse(A),inverse(multiply(inverse(B),multiply(inverse(inverse(multiply(inverse(A),A))),inverse(multiply(inverse(inverse(multiply(inverse(A),A))),inverse(multiply(inverse(A),A)))))))) = inverse(multiply(inverse(multiply(C,B)),multiply(C,A))).  [para(1(a,1),1(a,1,1,1,1,2)),flip(a)].
+8 inverse(inverse(multiply(inverse(multiply(A,inverse(multiply(B,multiply(inverse(C),inverse(multiply(inverse(C),C))))))),multiply(A,C)))) = B.  [para(3(a,1),1(a,1,1))].
+13 multiply(inverse(multiply(A,inverse(multiply(inverse(inverse(B)),multiply(inverse(C),inverse(multiply(inverse(C),C))))))),multiply(A,C)) = B.  [para(3(a,2),1(a,1))].
+23 inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(B),multiply(C,inverse(multiply(C,inverse(multiply(inverse(multiply(D,inverse(multiply(C,multiply(inverse(E),inverse(multiply(inverse(E),E))))))),multiply(D,E)))))))))),multiply(A,inverse(multiply(inverse(multiply(D,inverse(multiply(C,multiply(inverse(E),inverse(multiply(inverse(E),E))))))),multiply(D,E)))))) = B.  [para(8(a,1),1(a,1,1,1,1,2,1,2,1)),rewrite([8(14)])].
+24 inverse(inverse(multiply(inverse(multiply(A,inverse(multiply(B,multiply(C,inverse(multiply(C,multiply(inverse(multiply(D,inverse(multiply(inverse(C),multiply(inverse(E),inverse(multiply(inverse(E),E))))))),multiply(D,E))))))))),multiply(A,multiply(inverse(multiply(D,inverse(multiply(inverse(C),multiply(inverse(E),inverse(multiply(inverse(E),E))))))),multiply(D,E)))))) = B.  [para(1(a,1),8(a,1,1,1,1,1,2,1,2,1)),rewrite([1(13)])].
+44 inverse(multiply(inverse(inverse(multiply(inverse(multiply(A,B)),multiply(A,C)))),multiply(inverse(C),inverse(multiply(inverse(C),C))))) = B.  [para(5(a,1),1(a,1,1,1,1))].
+72 multiply(inverse(inverse(multiply(inverse(multiply(A,inverse(B))),multiply(A,C)))),multiply(inverse(C),inverse(multiply(inverse(C),C)))) = B.  [para(5(a,1),13(a,1,1,1))].
+79 inverse(multiply(inverse(multiply(A,B)),multiply(A,C))) = inverse(multiply(inverse(multiply(D,B)),multiply(D,C))).  [para(5(a,1),5(a,1))].
+86 multiply(inverse(multiply(A,B)),multiply(A,C)) = multiply(inverse(multiply(D,B)),multiply(D,C)).  [para(79(a,1),1(a,1,1,1,1,2,1,1)),rewrite([1(17)])].
+90 inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(multiply(B,C)),multiply(B,inverse(multiply(inverse(D),D))))))),multiply(A,D))) = multiply(inverse(D),C).  [para(79(a,1),1(a,1,1,1,1,2))].
+122 inverse(multiply(inverse(multiply(inverse(multiply(A,B)),multiply(A,C))),multiply(inverse(multiply(D,B)),E))) = inverse(multiply(inverse(multiply(F,multiply(D,C))),multiply(F,E))).  [para(79(a,1),79(a,1,1,1))].
+151 multiply(inverse(multiply(A,multiply(B,C))),multiply(A,D)) = multiply(E,multiply(inverse(multiply(B,inverse(multiply(inverse(E),multiply(inverse(C),inverse(multiply(inverse(C),C))))))),D)).  [para(1(a,1),86(a,1,1)),flip(a)].
+163 inverse(multiply(inverse(multiply(inverse(multiply(A,B)),C)),multiply(inverse(multiply(D,B)),multiply(D,E)))) = inverse(multiply(inverse(multiply(F,C)),multiply(F,multiply(A,E)))).  [para(86(a,1),79(a,1,1,2))].
+164 multiply(inverse(multiply(inverse(multiply(A,B)),multiply(A,C))),multiply(inverse(multiply(D,B)),E)) = multiply(inverse(multiply(F,multiply(D,C))),multiply(F,E)).  [para(79(a,1),86(a,1,1))].
+170 multiply(inverse(multiply(inverse(multiply(A,B)),C)),multiply(inverse(multiply(D,B)),multiply(D,E))) = multiply(inverse(multiply(F,C)),multiply(F,multiply(A,E))).  [para(86(a,1),86(a,1,2))].
+182 inverse(inverse(multiply(inverse(multiply(A,B)),multiply(A,C)))) = inverse(inverse(multiply(inverse(multiply(D,B)),multiply(D,C)))).  [para(44(a,1),8(a,1,1,1,1,1,2))].
+346 inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(multiply(inverse(multiply(B,C)),multiply(B,D))),multiply(inverse(multiply(E,C)),inverse(multiply(inverse(F),F))))))),multiply(A,F))) = multiply(inverse(F),multiply(E,D)).  [para(79(a,1),90(a,1,1,1,1,2,1,1))].
+349 multiply(inverse(multiply(inverse(multiply(A,B)),multiply(A,C))),D) = multiply(inverse(multiply(inverse(multiply(E,B)),multiply(E,C))),D).  [para(79(a,1),90(a,2,1)),rewrite([90(25)])].
+358 multiply(inverse(inverse(multiply(inverse(multiply(A,B)),multiply(A,C)))),D) = multiply(inverse(inverse(multiply(inverse(multiply(E,B)),multiply(E,C)))),D).  [para(182(a,1),90(a,2,1)),rewrite([90(28)])].
+704 multiply(inverse(A),multiply(inverse(multiply(B,C)),multiply(B,D))) = multiply(inverse(A),multiply(inverse(multiply(E,C)),multiply(E,D))).  [para(170(a,1),90(a,1,1,1,1,2,1,1,1)),rewrite([346(21)])].
+731 multiply(inverse(multiply(A,multiply(B,C))),multiply(A,multiply(B,D))) = multiply(inverse(multiply(E,multiply(F,C))),multiply(E,multiply(F,D))).  [para(170(a,1),164(a,1))].
+786 multiply(A,multiply(inverse(multiply(B,C)),multiply(B,D))) = multiply(A,multiply(inverse(multiply(E,C)),multiply(E,D))).  [para(1(a,1),704(a,1,1)),rewrite([1(18)])].
+941 inverse(inverse(multiply(inverse(multiply(A,multiply(B,C))),multiply(A,multiply(B,D))))) = inverse(inverse(multiply(inverse(multiply(E,multiply(F,C))),multiply(E,multiply(F,D))))).  [para(731(a,1),182(a,1,1,1))].
+2023 multiply(inverse(multiply(A,multiply(B,C))),multiply(A,multiply(B,C))) = multiply(inverse(D),D).  [para(13(a,1),151(a,2,2))].
+2315 multiply(inverse(A),A) = multiply(inverse(B),B).  [para(13(a,1),2023(a,1,1,1)),rewrite([13(14)])].
+2580 inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(B),multiply(inverse(C),inverse(multiply(inverse(D),D))))))),multiply(A,C))) = B.  [para(2315(a,1),1(a,1,1,1,1,2,1,2,2,1))].
+2605 inverse(multiply(inverse(multiply(inverse(A),A)),multiply(inverse(B),C))) = inverse(multiply(inverse(multiply(D,B)),multiply(D,C))).  [para(2315(a,1),79(a,1,1,1,1))].
+2606 inverse(multiply(inverse(multiply(inverse(A),B)),multiply(inverse(C),C))) = inverse(multiply(inverse(multiply(D,B)),multiply(D,A))).  [para(2315(a,1),79(a,1,1,2))].
+2607 inverse(multiply(inverse(multiply(A,B)),multiply(A,B))) = inverse(multiply(inverse(C),C)).  [para(2315(a,1),79(a,1,1)),flip(a)].
+2608 multiply(inverse(multiply(inverse(A),A)),multiply(inverse(B),C)) = multiply(inverse(multiply(D,B)),multiply(D,C)).  [para(2315(a,1),86(a,1,1,1))].
+2609 multiply(inverse(multiply(inverse(A),B)),multiply(inverse(C),C)) = multiply(inverse(multiply(D,B)),multiply(D,A)).  [para(2315(a,1),86(a,1,2))].
+2612 inverse(multiply(inverse(inverse(multiply(inverse(A),A))),multiply(inverse(B),inverse(multiply(inverse(B),B))))) = B.  [para(2315(a,1),44(a,1,1,1,1,1))].
+2616 inverse(inverse(multiply(inverse(multiply(A,B)),multiply(A,B)))) = inverse(inverse(multiply(inverse(C),C))).  [para(2315(a,1),182(a,1,1,1)),flip(a)].
+2620 multiply(inverse(inverse(multiply(inverse(A),A))),multiply(inverse(inverse(B)),inverse(multiply(inverse(inverse(B)),inverse(B))))) = B.  [para(2315(a,1),72(a,1,1,1,1))].
+2629 multiply(inverse(multiply(inverse(multiply(A,B)),multiply(A,B))),C) = multiply(inverse(multiply(inverse(D),D)),C).  [para(2315(a,1),349(a,1,1,1)),flip(a)].
+2632 multiply(inverse(inverse(multiply(inverse(multiply(A,B)),multiply(A,B)))),C) = multiply(inverse(inverse(multiply(inverse(D),D))),C).  [para(2315(a,1),358(a,1,1,1,1)),flip(a)].
+2659 multiply(A,multiply(inverse(multiply(B,C)),multiply(B,C))) = multiply(A,multiply(inverse(D),D)).  [para(2315(a,1),786(a,1,2)),flip(a)].
+2741 inverse(multiply(inverse(A),A)) = inverse(multiply(inverse(B),B)).  [para(2315(a,1),2607(a,1,1))].
+2867 multiply(inverse(multiply(inverse(A),A)),multiply(inverse(B),B)) = multiply(inverse(C),C).  [para(2741(a,1),2315(a,1,1))].
+3005 multiply(inverse(multiply(inverse(multiply(inverse(A),A)),multiply(inverse(B),B))),multiply(inverse(C),C)) = multiply(inverse(D),D).  [para(2741(a,1),2867(a,1,1,1,1))].
+3006 multiply(inverse(multiply(inverse(A),A)),multiply(inverse(multiply(inverse(B),B)),multiply(inverse(C),C))) = multiply(inverse(D),D).  [para(2741(a,1),2867(a,1,2,1))].
+3023 inverse(inverse(multiply(inverse(A),A))) = inverse(inverse(multiply(inverse(B),B))).  [para(2315(a,1),2616(a,1,1,1))].
+3038 multiply(inverse(inverse(multiply(inverse(A),A))),inverse(multiply(inverse(B),B))) = multiply(inverse(C),C).  [para(3023(a,1),2315(a,1,1))].
+3039 inverse(multiply(inverse(inverse(multiply(inverse(A),A))),inverse(multiply(inverse(B),B)))) = inverse(multiply(inverse(C),C)).  [para(3023(a,1),2741(a,1,1,1))].
+3272 multiply(A,multiply(inverse(multiply(inverse(B),B)),multiply(inverse(C),C))) = multiply(A,multiply(inverse(D),D)).  [para(2315(a,1),2659(a,1,2,1,1))].
+3369 multiply(inverse(multiply(A,B)),multiply(A,B)) = multiply(inverse(inverse(multiply(inverse(C),C))),inverse(multiply(inverse(D),D))).  [para(3038(a,2),86(a,1)),flip(a)].
+3714 inverse(multiply(inverse(inverse(multiply(inverse(A),A))),multiply(inverse(B),inverse(multiply(inverse(C),C))))) = B.  [para(2315(a,1),2612(a,1,1,2,2,1))].
+3736 inverse(multiply(inverse(inverse(multiply(inverse(A),A))),multiply(inverse(B),B))) = inverse(multiply(inverse(C),C)).  [para(3038(a,1),2612(a,1,1,2))].
+3887 inverse(inverse(multiply(inverse(inverse(multiply(inverse(A),A))),multiply(inverse(B),B)))) = inverse(inverse(multiply(inverse(C),C))).  [para(3736(a,2),3023(a,1,1))].
+3913 multiply(inverse(inverse(multiply(inverse(A),A))),multiply(inverse(B),B)) = multiply(inverse(C),C).  [para(3736(a,1),3714(a,1,1,2,1)),rewrite([3714(13)]),flip(a)].
+3937 multiply(inverse(multiply(A,B)),multiply(A,B)) = multiply(inverse(inverse(multiply(inverse(C),C))),multiply(inverse(D),D)).  [para(3913(a,2),86(a,1)),flip(a)].
+4413 multiply(inverse(multiply(inverse(A),B)),multiply(inverse(C),C)) = multiply(inverse(multiply(inverse(D),D)),multiply(inverse(B),A)).  [para(2315(a,1),2608(a,2,2)),flip(a)].
+4683 multiply(inverse(multiply(inverse(multiply(inverse(A),A)),multiply(inverse(B),B))),C) = multiply(inverse(multiply(inverse(D),D)),C).  [para(2315(a,1),2629(a,1,1,1,1,1))].
+5223 multiply(inverse(inverse(multiply(inverse(A),A))),multiply(inverse(inverse(B)),inverse(multiply(inverse(C),C)))) = B.  [para(2315(a,1),2620(a,1,2,2,1))].
+6413 inverse(multiply(inverse(multiply(inverse(multiply(inverse(A),A)),multiply(inverse(inverse(multiply(inverse(B),B))),inverse(multiply(inverse(C),C))))),multiply(inverse(D),E))) = inverse(multiply(inverse(multiply(F,D)),multiply(F,E))).  [para(3039(a,1),2605(a,1,1,1,1,1))].
+6713 multiply(inverse(inverse(multiply(inverse(A),A))),B) = multiply(inverse(inverse(multiply(inverse(C),C))),B).  [para(2315(a,1),2632(a,1,1,1,1))].
+7150 inverse(multiply(inverse(multiply(A,multiply(inverse(B),B))),multiply(A,multiply(inverse(C),C)))) = inverse(multiply(inverse(D),D)).  [para(3005(a,1),79(a,1,1)),flip(a)].
+7155 multiply(inverse(multiply(A,multiply(inverse(B),B))),multiply(A,multiply(inverse(C),C))) = multiply(inverse(D),D).  [para(3005(a,1),86(a,1)),flip(a)].
+7968 inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(multiply(inverse(multiply(B,C)),multiply(B,D))),multiply(inverse(multiply(E,C)),inverse(multiply(F,inverse(multiply(inverse(multiply(V6,inverse(multiply(F,multiply(inverse(V7),inverse(multiply(inverse(V7),V7))))))),multiply(V6,V7)))))))))),multiply(A,inverse(multiply(inverse(multiply(V6,inverse(multiply(F,multiply(inverse(V7),inverse(multiply(inverse(V7),V7))))))),multiply(V6,V7)))))) = multiply(F,multiply(E,D)).  [para(164(a,2),23(a,1,1,1,1,2,1))].
+8089 multiply(inverse(multiply(inverse(A),A)),multiply(B,C)) = multiply(inverse(multiply(D,multiply(inverse(multiply(E,inverse(multiply(inverse(B),multiply(F,inverse(multiply(F,inverse(multiply(inverse(multiply(V6,inverse(multiply(F,multiply(inverse(V7),inverse(multiply(inverse(V7),V7))))))),multiply(V6,V7)))))))))),multiply(E,inverse(multiply(inverse(multiply(V6,inverse(multiply(F,multiply(inverse(V7),inverse(multiply(inverse(V7),V7))))))),multiply(V6,V7))))))),multiply(D,C)).  [para(23(a,1),2608(a,1,2,1))].
+8551 multiply(inverse(multiply(inverse(multiply(A,B)),multiply(A,B))),multiply(inverse(inverse(multiply(inverse(C),C))),multiply(D,E))) = multiply(inverse(multiply(inverse(multiply(D,F)),inverse(multiply(inverse(V6),V6)))),multiply(inverse(multiply(V7,F)),multiply(V7,E))).  [para(3369(a,2),170(a,2,1,1)),flip(a)].
+8667 multiply(inverse(multiply(inverse(multiply(A,B)),multiply(A,multiply(inverse(C),D)))),multiply(inverse(multiply(inverse(multiply(inverse(E),E)),B)),F)) = multiply(inverse(multiply(V6,multiply(inverse(multiply(inverse(D),C)),multiply(inverse(V7),V7)))),multiply(V6,F)).  [para(4413(a,2),164(a,2,1,1,2))].
+8670 multiply(inverse(multiply(inverse(multiply(A,multiply(B,C))),multiply(A,D))),multiply(inverse(E),E)) = multiply(inverse(multiply(inverse(F),F)),multiply(inverse(multiply(inverse(multiply(B,V6)),D)),multiply(inverse(multiply(V7,V6)),multiply(V7,C)))).  [para(164(a,1),4413(a,1,1,1))].
+8713 inverse(multiply(inverse(multiply(inverse(multiply(inverse(multiply(inverse(A),A)),multiply(inverse(B),C))),multiply(inverse(multiply(inverse(C),B)),D))),multiply(inverse(multiply(E,multiply(inverse(F),F))),V6))) = inverse(multiply(inverse(multiply(V7,multiply(E,D))),multiply(V7,V6))).  [para(4413(a,1),122(a,1,1,1,1,1,1))].
+8735 inverse(multiply(inverse(multiply(inverse(multiply(inverse(multiply(inverse(A),A)),multiply(inverse(B),C))),D)),multiply(inverse(multiply(E,multiply(inverse(F),F))),multiply(E,V6)))) = inverse(multiply(inverse(multiply(V7,D)),multiply(V7,multiply(inverse(multiply(inverse(C),B)),V6)))).  [para(4413(a,1),163(a,1,1,1,1,1,1))].
+8736 inverse(multiply(inverse(multiply(inverse(multiply(inverse(A),A)),multiply(inverse(B),C))),multiply(inverse(multiply(D,B)),multiply(D,E)))) = inverse(multiply(inverse(multiply(F,multiply(inverse(V6),V6))),multiply(F,multiply(inverse(C),E)))).  [para(4413(a,1),163(a,1,1,1,1))].
+8757 inverse(inverse(multiply(inverse(multiply(A,multiply(inverse(multiply(inverse(B),B)),multiply(inverse(C),D)))),multiply(A,multiply(inverse(multiply(inverse(D),C)),E))))) = inverse(inverse(multiply(inverse(multiply(F,multiply(V6,multiply(inverse(V7),V7)))),multiply(F,multiply(V6,E))))).  [para(4413(a,1),941(a,1,1,1,1,1,2))].
+8759 inverse(inverse(multiply(inverse(multiply(A,multiply(inverse(multiply(inverse(B),C)),D))),multiply(A,multiply(inverse(multiply(inverse(E),E)),multiply(inverse(C),B)))))) = inverse(inverse(multiply(inverse(multiply(F,multiply(V6,D))),multiply(F,multiply(V6,multiply(inverse(V7),V7)))))).  [para(4413(a,1),941(a,1,1,1,2,2))].
+8801 multiply(inverse(multiply(inverse(multiply(A,B)),multiply(A,C))),multiply(inverse(D),D)) = multiply(inverse(multiply(inverse(E),E)),multiply(inverse(multiply(inverse(F),F)),multiply(inverse(C),B))).  [para(2608(a,2),4413(a,2,2))].
+8986 inverse(inverse(multiply(inverse(multiply(A,inverse(multiply(B,multiply(multiply(inverse(C),inverse(multiply(inverse(C),C))),inverse(multiply(multiply(inverse(C),inverse(multiply(inverse(C),C))),multiply(inverse(multiply(inverse(inverse(multiply(inverse(D),D))),inverse(multiply(inverse(multiply(inverse(C),inverse(multiply(inverse(C),C)))),multiply(inverse(C),inverse(multiply(inverse(C),C))))))),multiply(inverse(inverse(multiply(inverse(D),D))),C))))))))),multiply(A,multiply(inverse(multiply(inverse(E),E)),multiply(inverse(inverse(multiply(inverse(D),D))),C)))))) = B.  [para(3038(a,1),24(a,1,1,1,2,2,1,1))].
+9045 multiply(inverse(multiply(A,B)),multiply(inverse(C),C)) = multiply(inverse(multiply(D,B)),multiply(D,inverse(multiply(inverse(multiply(E,inverse(multiply(A,multiply(F,inverse(multiply(F,multiply(inverse(multiply(V6,inverse(multiply(inverse(F),multiply(inverse(V7),inverse(multiply(inverse(V7),V7))))))),multiply(V6,V7))))))))),multiply(E,multiply(inverse(multiply(V6,inverse(multiply(inverse(F),multiply(inverse(V7),inverse(multiply(inverse(V7),V7))))))),multiply(V6,V7))))))).  [para(24(a,1),2609(a,1,1,1,1))].
+9085 multiply(A,multiply(inverse(multiply(inverse(B),B)),multiply(inverse(C),C))) = multiply(A,multiply(D,inverse(multiply(inverse(multiply(E,inverse(multiply(D,multiply(F,inverse(multiply(F,multiply(inverse(multiply(V6,inverse(multiply(inverse(F),multiply(inverse(V7),inverse(multiply(inverse(V7),V7))))))),multiply(V6,V7))))))))),multiply(E,multiply(inverse(multiply(V6,inverse(multiply(inverse(F),multiply(inverse(V7),inverse(multiply(inverse(V7),V7))))))),multiply(V6,V7))))))).  [para(24(a,1),3272(a,2,2,1))].
+9090 multiply(inverse(inverse(multiply(A,inverse(multiply(inverse(multiply(B,inverse(multiply(A,multiply(C,inverse(multiply(C,multiply(inverse(multiply(D,inverse(multiply(inverse(C),multiply(inverse(E),inverse(multiply(inverse(E),E))))))),multiply(D,E))))))))),multiply(B,multiply(inverse(multiply(D,inverse(multiply(inverse(C),multiply(inverse(E),inverse(multiply(inverse(E),E))))))),multiply(D,E)))))))),multiply(inverse(inverse(F)),inverse(multiply(inverse(V6),V6)))) = F.  [para(24(a,1),5223(a,1,1,1,1,1))].
+9091 multiply(inverse(inverse(multiply(inverse(A),A))),multiply(inverse(B),inverse(multiply(inverse(C),C)))) = inverse(multiply(inverse(multiply(D,inverse(multiply(B,multiply(E,inverse(multiply(E,multiply(inverse(multiply(F,inverse(multiply(inverse(E),multiply(inverse(V6),inverse(multiply(inverse(V6),V6))))))),multiply(F,V6))))))))),multiply(D,multiply(inverse(multiply(F,inverse(multiply(inverse(E),multiply(inverse(V6),inverse(multiply(inverse(V6),V6))))))),multiply(F,V6))))).  [para(24(a,1),5223(a,1,2,1,1))].
+9123 multiply(inverse(inverse(multiply(inverse(A),A))),B) = multiply(inverse(inverse(multiply(C,inverse(multiply(inverse(multiply(D,inverse(multiply(C,multiply(E,inverse(multiply(E,multiply(inverse(multiply(F,inverse(multiply(inverse(E),multiply(inverse(V6),inverse(multiply(inverse(V6),V6))))))),multiply(F,V6))))))))),multiply(D,multiply(inverse(multiply(F,inverse(multiply(inverse(E),multiply(inverse(V6),inverse(multiply(inverse(V6),V6))))))),multiply(F,V6)))))))),B).  [para(24(a,1),6713(a,1,1,1,1,1)),flip(a)].
+9157 inverse(inverse(multiply(inverse(multiply(A,inverse(multiply(B,multiply(C,inverse(multiply(C,multiply(inverse(multiply(inverse(inverse(multiply(inverse(C),multiply(inverse(D),inverse(multiply(inverse(D),D)))))),inverse(multiply(inverse(C),multiply(inverse(D),inverse(multiply(inverse(D),D))))))),multiply(inverse(inverse(multiply(inverse(C),multiply(inverse(D),inverse(multiply(inverse(D),D)))))),D))))))))),multiply(A,multiply(inverse(multiply(inverse(multiply(E,multiply(inverse(F),F))),multiply(E,multiply(inverse(V6),V6)))),multiply(inverse(inverse(multiply(inverse(C),multiply(inverse(D),inverse(multiply(inverse(D),D)))))),D)))))) = B.  [para(7155(a,2),24(a,1,1,1,2,2,1,1))].
+9158 inverse(inverse(multiply(inverse(multiply(A,inverse(multiply(B,multiply(C,inverse(multiply(C,multiply(inverse(multiply(inverse(D),inverse(multiply(inverse(C),multiply(inverse(D),inverse(multiply(inverse(D),D))))))),multiply(inverse(D),D))))))))),multiply(A,multiply(inverse(multiply(inverse(D),inverse(multiply(inverse(C),multiply(inverse(D),inverse(multiply(inverse(D),D))))))),multiply(inverse(multiply(E,multiply(inverse(F),F))),multiply(E,multiply(inverse(V6),V6)))))))) = B.  [para(7155(a,2),24(a,1,1,1,2,2,2))].
+9173 inverse(inverse(multiply(inverse(multiply(A,inverse(multiply(B,multiply(C,inverse(multiply(C,multiply(inverse(multiply(inverse(D),inverse(multiply(inverse(C),multiply(inverse(D),inverse(multiply(inverse(D),D))))))),multiply(inverse(D),D))))))))),multiply(A,multiply(inverse(multiply(inverse(D),inverse(multiply(inverse(C),multiply(inverse(D),inverse(multiply(inverse(D),D))))))),multiply(inverse(multiply(inverse(E),E)),multiply(inverse(multiply(inverse(F),F)),multiply(inverse(V6),V6)))))))) = B.  [para(3006(a,2),24(a,1,1,1,2,2,2))].
+9216 inverse(inverse(multiply(inverse(multiply(inverse(multiply(inverse(multiply(inverse(A),A)),multiply(inverse(B),B))),C)),multiply(inverse(multiply(inverse(D),D)),E)))) = inverse(inverse(multiply(inverse(multiply(F,C)),multiply(F,E)))).  [para(4683(a,1),182(a,1,1,1,2))].
+9516 inverse(multiply(inverse(multiply(inverse(A),B)),multiply(inverse(multiply(inverse(multiply(C,multiply(inverse(D),D))),multiply(C,multiply(inverse(E),E)))),multiply(inverse(F),F)))) = inverse(multiply(inverse(multiply(V6,B)),multiply(V6,A))).  [para(7150(a,2),2606(a,1,1,2,1))].
+9589 multiply(inverse(multiply(inverse(multiply(inverse(multiply(A,multiply(inverse(B),B))),multiply(A,multiply(inverse(C),C)))),multiply(inverse(D),D))),multiply(inverse(E),F)) = multiply(inverse(multiply(inverse(F),E)),multiply(inverse(V6),V6)).  [para(7150(a,2),4413(a,2,1,1,1)),flip(a)].
+9596 multiply(inverse(multiply(inverse(multiply(inverse(multiply(A,multiply(inverse(B),B))),multiply(A,multiply(inverse(C),C)))),multiply(inverse(D),D))),E) = multiply(inverse(multiply(inverse(multiply(inverse(F),F)),multiply(inverse(V6),V6))),E).  [para(7150(a,2),4683(a,2,1,1,1)),flip(a)].
+9712 inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(multiply(inverse(B),B)),multiply(inverse(C),inverse(multiply(inverse(D),D))))))),multiply(A,E))) = multiply(inverse(E),C).  [para(2608(a,2),2580(a,1,1,1,1,2,1))].
+9718 inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(multiply(B,C)),multiply(B,D))))),multiply(A,inverse(multiply(inverse(E),E))))) = multiply(inverse(D),C).  [para(2609(a,1),2580(a,1,1,1,1,2,1))].
+9736 inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(B),multiply(inverse(multiply(inverse(inverse(multiply(inverse(C),C))),inverse(multiply(inverse(D),D)))),inverse(multiply(inverse(E),E))))))),multiply(A,multiply(inverse(F),F)))) = B.  [para(3039(a,2),2580(a,1,1,1,1,2,1,2,1))].
+9748 inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(B),multiply(inverse(inverse(multiply(inverse(C),C))),inverse(multiply(inverse(D),D))))))),multiply(A,inverse(multiply(inverse(inverse(multiply(inverse(E),E))),multiply(inverse(F),F)))))) = B.  [para(3887(a,1),2580(a,1,1,1,1,2,1,2,1))].
+9750 inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(B),multiply(inverse(inverse(multiply(inverse(inverse(multiply(inverse(C),C))),multiply(inverse(D),D)))),inverse(multiply(inverse(E),E))))))),multiply(A,inverse(multiply(inverse(F),F))))) = B.  [para(3887(a,2),2580(a,1,1,1,1,2,1,2,1))].
+9754 multiply(inverse(A),A) = inverse(multiply(inverse(B),B)).  [para(3937(a,2),2580(a,1,1,1,1,2,1)),rewrite([9718(13)])].
+9824 inverse(multiply(inverse(multiply(A,inverse(multiply(inverse(multiply(inverse(B),B)),multiply(inverse(C),D))))),multiply(A,inverse(multiply(inverse(E),E))))) = multiply(inverse(D),C).  [para(4413(a,1),2580(a,1,1,1,1,2,1))].
+9843 multiply(inverse(A),inverse(multiply(inverse(B),multiply(inverse(inverse(multiply(inverse(C),C))),inverse(multiply(inverse(D),D)))))) = inverse(multiply(inverse(multiply(E,B)),multiply(E,A))).  [para(2580(a,1),2580(a,1,1,1,1,2)),flip(a)].
+9847 inverse(multiply(multiply(inverse(A),A),multiply(inverse(B),C))) = inverse(multiply(inverse(multiply(D,B)),multiply(D,C))).  [para(9754(a,2),79(a,1,1,1))].
+9975 inverse(multiply(inverse(multiply(inverse(A),A)),multiply(inverse(B),inverse(multiply(inverse(C),C))))) = B.  [para(9754(a,2),3714(a,1,1,1,1))].
+10035 multiply(inverse(multiply(inverse(A),A)),multiply(inverse(inverse(B)),inverse(multiply(inverse(C),C)))) = B.  [para(9754(a,2),5223(a,1,1,1))].
+10162 inverse(multiply(inverse(multiply(A,B)),multiply(A,C))) = multiply(inverse(C),B).  [back_rewrite(9712),rewrite([9975(10)])].
+10190 inverse(multiply(inverse(multiply(inverse(A),A)),multiply(inverse(B),C))) = multiply(inverse(C),B).  [back_rewrite(6413),rewrite([10035(12),10162(12)])].
+10294 inverse(multiply(multiply(inverse(A),A),multiply(inverse(B),C))) = multiply(inverse(C),B).  [back_rewrite(9847),rewrite([10162(11)])].
+10295 multiply(inverse(A),inverse(multiply(inverse(B),multiply(inverse(inverse(multiply(inverse(C),C))),inverse(multiply(inverse(D),D)))))) = multiply(inverse(A),B).  [back_rewrite(9843),rewrite([10162(18)])].
+10306 multiply(inverse(inverse(multiply(inverse(A),A))),multiply(inverse(B),C)) = multiply(inverse(B),C).  [back_rewrite(9824),rewrite([10190(7),10162(10)])].
+10323 multiply(inverse(inverse(multiply(inverse(A),A))),B) = B.  [back_rewrite(9750),rewrite([10306(8),10162(19),10295(16)])].
+10324 inverse(multiply(inverse(A),inverse(multiply(inverse(B),B)))) = A.  [back_rewrite(9748),rewrite([10323(9),10323(15),10162(14),10323(11)])].
+10326 multiply(inverse(multiply(inverse(A),A)),B) = B.  [back_rewrite(9736),rewrite([10323(9),10323(9),10324(6),10162(7)])].
+10349 multiply(multiply(inverse(A),A),B) = B.  [back_rewrite(9596),rewrite([10162(9),10326(6),10294(6),10326(9),10326(7)])].
+10351 multiply(inverse(multiply(inverse(A),B)),multiply(inverse(C),C)) = multiply(inverse(B),A).  [back_rewrite(9589),rewrite([10162(9),10326(6),10349(5),10326(6)]),flip(a)].
+10360 inverse(multiply(inverse(A),B)) = multiply(inverse(B),A).  [back_rewrite(9516),rewrite([10162(12),10326(9),10349(8),10351(6),10162(8)])].
+10427 multiply(inverse(multiply(A,B)),multiply(A,C)) = multiply(inverse(B),C).  [back_rewrite(9216),rewrite([10360(3),10349(5),10360(3),10349(3),10360(4),10349(4),10360(3),10360(3),10360(7),10360(7)]),flip(a)].
+10449 multiply(inverse(inverse(multiply(A,multiply(B,inverse(multiply(B,multiply(multiply(inverse(multiply(C,B)),C),multiply(inverse(C),C)))))))),multiply(multiply(inverse(multiply(C,B)),C),multiply(inverse(D),D))) = A.  [back_rewrite(9173),rewrite([10360(6),10360(8),10360(6),10360(4),10349(4),10360(4),10360(19),10360(21),10360(19),10360(17),10349(17),10360(17),10360(19),10360(21),10349(23),10349(21),10427(21),10360(20),10360(20)])].
+10455 inverse(inverse(A)) = A.  [back_rewrite(9158),rewrite([10360(6),10360(8),10360(6),10360(4),10349(4),10360(4),10360(19),10360(21),10360(19),10360(17),10349(17),10360(17),10427(24),10360(19),10349(21),10427(21),10449(19)])].
+10456 multiply(multiply(A,multiply(B,inverse(multiply(B,multiply(inverse(multiply(C,B)),C))))),multiply(inverse(multiply(C,B)),C)) = A.  [back_rewrite(9157),rewrite([10360(5),10360(7),10360(5),10360(3),10349(3),10360(7),10360(9),10360(7),10360(5),10349(5),10427(4),10360(3),10360(7),10360(9),10360(7),10360(5),10349(5),10349(6),10427(18),10360(13),10349(15),10360(13),10360(17),10360(19),10360(17),10360(15),10349(15),10349(16),10427(15),10455(9),10455(13)])].
+10465 multiply(multiply(A,inverse(A)),B) = B.  [back_rewrite(9123),rewrite([10360(3),10360(3),10349(3),10360(5),10360(7),10360(5),10360(3),10349(3),10427(5),10360(15),10360(17),10360(15),10360(13),10349(13),10427(15),10427(15),10455(9),10456(11),10455(4)]),flip(a)].
+10476 multiply(inverse(A),multiply(inverse(B),B)) = inverse(A).  [back_rewrite(9091),rewrite([10360(3),10360(3),10360(6),10349(7),10360(9),10360(11),10360(9),10360(7),10349(7),10427(9),10360(19),10360(21),10360(19),10360(17),10349(17),10427(19),10427(19),10455(13),10456(15)])].
+10477 multiply(A,multiply(inverse(B),B)) = A.  [back_rewrite(9090),rewrite([10360(5),10476(5),10360(4),10455(2),10427(5),10360(15),10476(15),10360(14),10455(12),10427(15),10427(15),10455(9),10456(11),10455(4),10455(4),10360(5),10465(6)])].
+10478 multiply(A,multiply(B,inverse(B))) = A.  [back_rewrite(9085),rewrite([10360(3),10477(5),10477(3),10360(5),10477(5),10360(4),10455(2),10427(5),10360(15),10477(15),10360(14),10455(12),10427(15),10427(15),10455(9),10456(11)]),flip(a)].
+10486 inverse(multiply(A,B)) = multiply(inverse(B),inverse(A)).  [back_rewrite(9045),rewrite([10477(5),10360(9),10477(9),10360(8),10455(6),10427(9),10360(19),10477(19),10360(18),10455(16),10427(19),10427(19),10455(13),10456(15),10427(7)])].
+10505 multiply(multiply(multiply(A,inverse(B)),inverse(C)),multiply(C,B)) = A.  [back_rewrite(8986),rewrite([10486(4),10455(4),10477(4),10486(5),10455(5),10477(5),10486(5),10455(5),10486(5),10455(5),10486(8),10455(8),10477(8),10455(6),10486(8),10455(8),10477(8),10486(7),10455(6),10478(7),10486(5),10455(5),10486(7),10455(7),10486(7),10455(7),10349(7),10349(5),10486(4),10455(4),10477(4),10486(3),10455(2),10486(4),10486(3),10455(2),10486(7),10455(7),10486(9),10455(9),10486(9),10455(9),10349(9),10349(7),10486(7),10486(2),10486(8),10455(5),10486(6),10455(5),10486(8),10486(4),10486(3),10455(2),10486(8),10455(6),10455(6)])].
+10541 multiply(multiply(inverse(A),inverse(B)),multiply(B,C)) = multiply(inverse(A),C).  [back_rewrite(8801),rewrite([10486(2),10486(6),10486(2),10486(7),10455(5),10455(5),10477(8),10486(8),10455(8),10486(10),10455(10),10349(12),10349(10)])].
+10549 multiply(multiply(multiply(inverse(A),multiply(inverse(B),C)),inverse(D)),multiply(D,multiply(inverse(C),B))) = inverse(A).  [back_rewrite(8759),rewrite([10486(3),10455(3),10486(5),10486(4),10486(4),10455(4),10486(9),10455(9),10349(11),10486(11),10486(4),10486(3),10455(3),10486(11),10455(6),10486(9),10486(7),10455(7),10455(8),10486(10),10486(5),10486(4),10486(4),10455(4),10486(11),10455(8),10486(9),10455(9),10486(13),10486(12),10477(18),10505(17),10455(12)])].
+10551 multiply(inverse(A),multiply(A,B)) = B.  [back_rewrite(8757),rewrite([10486(3),10455(3),10349(5),10486(4),10486(3),10455(3),10486(7),10455(7),10486(10),10486(5),10486(4),10486(4),10455(4),10486(11),10455(8),10486(9),10455(9),10549(10),10455(2),10477(3),10486(2),10541(6),10486(4),10486(2),10455(5),10486(5),10486(5),10455(3),10455(3)]),flip(a)].
+10564 multiply(multiply(inverse(A),B),multiply(inverse(B),C)) = multiply(inverse(A),C).  [back_rewrite(8736),rewrite([10486(3),10455(3),10349(5),10486(3),10455(3),10486(4),10541(7),10486(6),10486(3),10455(3),10486(5),10455(5),10477(8),10551(10),10486(8),10455(8)])].
+10565 multiply(multiply(inverse(A),multiply(inverse(B),C)),D) = multiply(inverse(A),multiply(multiply(inverse(B),C),D)).  [back_rewrite(8735),rewrite([10486(3),10455(3),10349(5),10486(3),10455(3),10486(4),10486(4),10455(4),10477(7),10551(7),10486(6),10486(6),10486(4),10455(4),10455(5),10486(7),10486(11),10455(11),10541(13),10486(11),10486(9),10486(9),10455(9),10455(11)]),flip(a)].
+10578 multiply(multiply(inverse(A),B),C) = multiply(inverse(A),multiply(B,C)).  [back_rewrite(8713),rewrite([10486(3),10455(3),10349(5),10486(3),10455(3),10486(5),10455(5),10486(7),10486(4),10486(4),10455(4),10486(7),10455(7),10565(7),10564(6),10477(4),10477(4),10486(5),10486(3),10455(3),10455(4),10486(6),10486(5),10486(11),10486(5),10486(12),10455(8),10486(10),10455(8),10455(8),10541(9)])].
+10585 multiply(inverse(A),multiply(multiply(B,C),multiply(inverse(C),D))) = multiply(inverse(A),multiply(B,D)).  [back_rewrite(8670),rewrite([10486(3),10486(2),10578(5),10578(7),10578(6),10551(5),10486(5),10486(3),10455(3),10455(4),10578(3),10477(6),10486(6),10455(6),10486(7),10578(9),10486(10),10486(8),10455(8),10455(9),10578(8),10486(10),10578(13),10551(12),10578(11),10349(12)]),flip(a)].
+10587 multiply(inverse(A),multiply(multiply(B,inverse(C)),multiply(C,D))) = multiply(inverse(A),multiply(B,D)).  [back_rewrite(8667),rewrite([10486(2),10578(7),10551(6),10486(5),10486(3),10455(3),10455(4),10578(3),10486(6),10455(6),10349(6),10578(6),10585(6),10486(6),10455(6),10477(8),10486(7),10486(6),10455(6),10578(7),10578(9)]),flip(a)].
+10591 multiply(multiply(A,B),multiply(inverse(B),C)) = multiply(A,C).  [back_rewrite(8551),rewrite([10486(2),10578(5),10551(4),10486(3),10455(3),10486(5),10455(5),10486(5),10455(5),10349(6),10349(4),10486(3),10486(7),10455(7),10477(7),10486(5),10455(3),10455(3),10486(4),10578(7),10551(6)]),flip(a)].
+10599 multiply(multiply(A,inverse(B)),multiply(B,C)) = multiply(A,C).  [back_rewrite(8089),rewrite([10486(3),10455(3),10349(4),10486(6),10455(6),10477(6),10486(5),10455(4),10486(6),10486(5),10455(4),10505(8),10486(5),10455(4),10478(5),10486(4),10455(4),10486(5),10486(4),10455(4),10578(5),10486(9),10455(9),10477(9),10486(8),10455(7),10486(9),10486(8),10455(7),10505(11),10578(8),10587(8),10478(5),10486(4),10455(3)]),flip(a)].
+10608 multiply(multiply(A,B),C) = multiply(A,multiply(B,C)).  [back_rewrite(7968),rewrite([10486(2),10599(5),10486(3),10455(3),10486(4),10486(9),10455(9),10477(9),10486(8),10455(7),10486(9),10486(8),10455(7),10599(11),10486(9),10486(9),10455(8),10551(9),10486(8),10455(7),10478(8),10591(6),10486(4),10455(2),10455(2),10486(3),10486(2),10578(5),10486(9),10455(9),10477(9),10486(8),10455(7),10486(9),10486(8),10455(7),10599(11),10486(9),10486(9),10455(8),10551(9),10578(8),10599(7),10486(6),10486(4),10455(2),10455(2),10455(3)])].
+10609 $F # answer(prove_these_axioms_3).  [resolve(10608,a,2,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=87. Generated=33258. Kept=10608. proofs=1.
+Usable=50. Sos=7629. Demods=1031. Limbo=446, Disabled=2484. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=3022.
+Forward_subsumed=19628. Back_subsumed=1103.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=1867 (0 lex), Back_demodulated=1379. Back_unit_deleted=0.
+Demod_attempts=1221724. Demod_rewrites=39549.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=40.98.
+User_CPU=3.03, System_CPU=0.05, Wall_clock=3.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 149 exit (max_proofs) Fri Oct 23 15:00:49 2026
+-------- Proof 1 -------- prove_these_axioms_3.
+
+THEOREM PROVED
+
+------ process 149 exit (max_proofs) ------
+

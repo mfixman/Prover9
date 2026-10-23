@@ -1,0 +1,114 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 101 was started by mfixman on bodoque,
+Fri Oct 23 15:00:34 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-is_a_theorem(equivalent(X,Y)) | -is_a_theorem(X) | is_a_theorem(Y) # label(condensed_detachment) # label(axiom).
+is_a_theorem(equivalent(equivalent(equivalent(equivalent(X,Y),Z),equivalent(equivalent(U,V),equivalent(equivalent(equivalent(W,V),equivalent(W,U)),V6))),equivalent(Z,equivalent(equivalent(Y,X),V6)))) # label(lg_27_1690) # label(axiom).
+-is_a_theorem(equivalent(equivalent(equivalent(a,b),c),equivalent(equivalent(e,b),equivalent(equivalent(a,e),c)))) # label(prove_p_1) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_p_1 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ is_a_theorem ]).
+Function symbol precedence:  function_order([ a, b, c, e, equivalent ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(hyper_resolution).  % (HNE depth_diff=1)
+    % set(hyper_resolution) -> set(pos_hyper_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds: prove_p_1.
+% Length of proof is 9.
+% Level of proof is 6.
+% Maximum clause weight is 32.000.
+% Given clauses 35 (5.833 givens/level).
+
+1 -is_a_theorem(equivalent(A,B)) | -is_a_theorem(A) | is_a_theorem(B) # label(condensed_detachment) # label(axiom).  [assumption].
+2 is_a_theorem(equivalent(equivalent(equivalent(equivalent(A,B),C),equivalent(equivalent(D,E),equivalent(equivalent(equivalent(F,E),equivalent(F,D)),V6))),equivalent(C,equivalent(equivalent(B,A),V6)))) # label(lg_27_1690) # label(axiom).  [assumption].
+3 -is_a_theorem(equivalent(equivalent(equivalent(a,b),c),equivalent(equivalent(e,b),equivalent(equivalent(a,e),c)))) # label(prove_p_1) # label(negated_conjecture) # answer(prove_p_1).  [assumption].
+4 is_a_theorem(equivalent(equivalent(equivalent(A,B),equivalent(equivalent(equivalent(C,B),equivalent(C,A)),D)),equivalent(equivalent(equivalent(E,F),equivalent(equivalent(V6,E),equivalent(V6,F))),D))).  [hyper(1,a,2,a,b,2,a)].
+5 is_a_theorem(equivalent(equivalent(equivalent(equivalent(A,B),equivalent(A,C)),equivalent(equivalent(equivalent(D,equivalent(equivalent(E,F),equivalent(E,V6))),equivalent(D,equivalent(F,V6))),V7)),equivalent(equivalent(B,C),V7))).  [hyper(1,a,2,a,b,4,a)].
+8 is_a_theorem(equivalent(equivalent(equivalent(equivalent(A,equivalent(equivalent(B,C),equivalent(B,D))),equivalent(A,equivalent(C,D))),equivalent(equivalent(equivalent(E,F),equivalent(E,V6)),V7)),equivalent(equivalent(F,V6),V7))).  [hyper(1,a,5,a,b,2,a)].
+63 is_a_theorem(equivalent(equivalent(equivalent(equivalent(A,B),equivalent(A,C)),D),equivalent(equivalent(B,C),D))).  [hyper(1,a,8,a,b,2,a)].
+235 is_a_theorem(equivalent(equivalent(equivalent(A,B),C),equivalent(equivalent(D,B),equivalent(equivalent(A,D),C)))).  [hyper(1,a,63,a,b,63,a)].
+236 $F # answer(prove_p_1).  [resolve(235,a,3,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=35. Generated=518. Kept=235. proofs=1.
+Usable=35. Sos=199. Demods=0. Limbo=0, Disabled=3. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=283. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=1.
+Megabytes=0.62.
+User_CPU=0.02, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 101 exit (max_proofs) Fri Oct 23 15:00:34 2026
+-------- Proof 1 -------- prove_p_1.
+
+THEOREM PROVED
+
+------ process 101 exit (max_proofs) ------
+

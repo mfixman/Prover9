@@ -1,0 +1,12 @@
+{
+  "problem": "MSC015-1.027",
+  "domain": "MSC",
+  "rating": 0.33,
+  "conversion_wall_seconds": 0.006853910002973862,
+  "exit_code": 4,
+  "search_wall_seconds": 20.80624225900101,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.06,
+  "total_wall_seconds": 20.813792875007493
+}

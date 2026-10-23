@@ -1,0 +1,128 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 175 was started by mfixman on bodoque,
+Fri Oct 23 15:01:04 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+mult(A,mult(B,mult(A,B))) = mult(A,B) # label(c01) # label(axiom).
+mult(A,mult(B,mult(C,D))) = mult(C,mult(B,mult(A,D))) # label(c02) # label(axiom).
+mult(mult(A,mult(B,mult(C,B))),D) = mult(A,mult(D,mult(mult(C,B),D))) # label(c03) # label(axiom).
+mult(mult(a,b),mult(c,mult(d,e))) != mult(a,mult(c,mult(mult(d,b),e))) # label(goals) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label goals to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ a, b, c, d, e, mult ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.62 (+ 0.01) seconds: goals.
+% Length of proof is 23.
+% Level of proof is 8.
+% Maximum clause weight is 23.000.
+% Given clauses 49 (6.125 givens/level).
+
+1 mult(A,mult(B,mult(A,B))) = mult(A,B) # label(c01) # label(axiom).  [assumption].
+2 mult(A,mult(B,mult(C,D))) = mult(C,mult(B,mult(A,D))) # label(c02) # label(axiom).  [assumption].
+3 mult(mult(A,mult(B,mult(C,B))),D) = mult(A,mult(D,mult(mult(C,B),D))) # label(c03) # label(axiom).  [assumption].
+4 mult(mult(a,b),mult(c,mult(d,e))) != mult(a,mult(c,mult(mult(d,b),e))) # label(goals) # label(negated_conjecture) # answer(goals).  [assumption].
+5 mult(a,mult(c,mult(mult(d,b),e))) != mult(mult(a,b),mult(c,mult(d,e))) # answer(goals).  [copy(4),flip(a)].
+10 mult(A,mult(B,mult(C,mult(B,A)))) = mult(C,mult(B,A)).  [para(1(a,1),2(a,1,2)),flip(a)].
+20 mult(A,mult(B,mult(mult(A,C),B))) = mult(mult(A,C),B).  [para(1(a,1),3(a,1,1)),flip(a)].
+68 mult(mult(A,B),mult(B,mult(A,B))) = mult(A,B).  [para(1(a,1),10(a,1,2,2)),rewrite([1(7)])].
+70 mult(A,mult(B,mult(C,mult(D,mult(A,B))))) = mult(C,mult(D,mult(A,B))).  [para(10(a,1),2(a,1,2)),flip(a)].
+92 mult(mult(A,B),B) = mult(A,B).  [para(68(a,1),2(a,1)),rewrite([20(5)]),flip(a)].
+108 mult(mult(A,B),mult(C,mult(D,B))) = mult(D,mult(C,mult(A,B))).  [para(92(a,1),2(a,1,2,2)),flip(a)].
+117 mult(mult(A,B),mult(C,mult(A,C))) = mult(mult(A,B),C).  [para(20(a,1),2(a,1)),flip(a)].
+182 mult(A,mult(mult(B,C),mult(D,mult(B,A)))) = mult(D,mult(mult(B,C),A)).  [para(117(a,1),2(a,1,2)),flip(a)].
+185 mult(mult(A,B),mult(C,mult(A,mult(C,D)))) = mult(mult(A,B),mult(C,D)).  [para(2(a,1),117(a,1,2)),rewrite([92(3)])].
+187 mult(mult(mult(A,B),C),D) = mult(mult(A,B),mult(D,mult(mult(A,C),D))).  [para(117(a,1),3(a,1,1))].
+238 mult(mult(A,B),mult(C,mult(D,B))) = mult(A,mult(C,mult(D,B))).  [para(108(a,2),2(a,1))].
+2716 mult(a,mult(e,mult(mult(d,b),mult(c,mult(d,e))))) != mult(mult(a,b),mult(c,mult(d,e))) # answer(goals).  [para(182(a,2),5(a,1,2))].
+2919 mult(mult(A,B),mult(C,mult(A,mult(D,mult(E,C))))) = mult(mult(A,B),mult(D,mult(E,C))).  [para(10(a,1),185(a,1,2,2,2)),rewrite([10(11)])].
+3317 mult(mult(d,b),mult(e,mult(a,mult(c,mult(d,e))))) != mult(mult(a,b),mult(c,mult(d,e))) # answer(goals).  [para(2(a,1),2716(a,1))].
+3374 mult(mult(mult(A,B),C),B) = mult(mult(A,C),B).  [para(187(a,2),238(a,1)),rewrite([20(7)])].
+3589 mult(mult(mult(A,B),C),mult(D,mult(A,B))) = mult(mult(A,C),mult(D,mult(A,B))).  [para(187(a,2),182(a,1)),rewrite([92(10)])].
+3674 mult(mult(A,B),mult(C,mult(D,mult(E,mult(A,C))))) = mult(mult(D,B),mult(E,mult(A,C))).  [para(70(a,1),3374(a,1,1,1)),rewrite([3589(9),2919(6)]),flip(a)].
+3675 $F # answer(goals).  [resolve(3674,a,3317,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=49. Generated=11965. Kept=3673. proofs=1.
+Usable=40. Sos=2799. Demods=564. Limbo=33, Disabled=804. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=8292. Back_subsumed=106.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=964 (0 lex), Back_demodulated=694. Back_unit_deleted=0.
+Demod_attempts=248446. Demod_rewrites=17532.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=8.84.
+User_CPU=0.62, System_CPU=0.01, Wall_clock=1.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 175 exit (max_proofs) Fri Oct 23 15:01:05 2026
+-------- Proof 1 -------- goals.
+
+THEOREM PROVED
+
+------ process 175 exit (max_proofs) ------
+

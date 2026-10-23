@@ -1,0 +1,12 @@
+{
+  "problem": "COL114-2",
+  "domain": "COL",
+  "rating": 0.0,
+  "conversion_wall_seconds": 0.006378084988682531,
+  "exit_code": 0,
+  "search_wall_seconds": 0.005696120002539828,
+  "outcome": "proved",
+  "reason": "max_proofs",
+  "reported_cpu_seconds": 0.0,
+  "total_wall_seconds": 0.014427241010707803
+}

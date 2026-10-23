@@ -1,0 +1,2249 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 24 was started by mfixman on bodoque,
+Fri Oct 23 14:54:34 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,10).
+assign(max_megs,256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-connection(P1,P2) | -zero(P1) | zero(P2) # label(value_propagation_zero1) # label(axiom).
+-connection(P1,P2) | -one(P1) | one(P2) # label(value_propagation_one1) # label(axiom).
+-connection(P1,P2) | -zero(P2) | zero(P1) # label(value_propagation_zero2) # label(axiom).
+-connection(P1,P2) | -one(P2) | one(P1) # label(value_propagation_one2) # label(axiom).
+-zero(P) | -one(P) # label(unique_value) # label(axiom).
+-and_ok(K) | -zero(in1(K)) | zero(out1(K)) # label(and_0x_0) # label(axiom).
+-and_ok(K) | -zero(in2(K)) | zero(out1(K)) # label(and_x0_0) # label(axiom).
+-and_ok(K) | -one(in1(K)) | -one(in2(K)) | one(out1(K)) # label(and_11_1) # label(axiom).
+-and_ok(K) | -zero(out1(K)) | zero(in1(K)) | zero(in2(K)) # label(and_0_00) # label(axiom).
+-and_ok(K) | -one(out1(K)) | one(in1(K)) # label(and_1_1x) # label(axiom).
+-and_ok(K) | -one(out1(K)) | one(in2(K)) # label(and_1_x1) # label(axiom).
+-and_ok(K) | -abnormal(K) # label(not_and_ok_and_abnormal) # label(axiom).
+-logic_and(K) | and_ok(K) | abnormal(K) # label(and_ok_or_abnormal) # label(axiom).
+-or_ok(K) | -one(in1(K)) | one(out1(K)) # label(or_1x_1) # label(axiom).
+-or_ok(K) | -one(in2(K)) | one(out1(K)) # label(or_x1_1) # label(axiom).
+-or_ok(K) | -zero(in1(K)) | -zero(in2(K)) | zero(out1(K)) # label(or_00_0) # label(axiom).
+-or_ok(K) | -one(out1(K)) | one(in1(K)) | one(in2(K)) # label(or_1_11) # label(axiom).
+-or_ok(K) | -zero(out1(K)) | zero(in1(K)) # label(or_0_0x) # label(axiom).
+-or_ok(K) | -zero(out1(K)) | zero(in2(K)) # label(or_0_01) # label(axiom).
+-or_ok(K) | -abnormal(K) # label(not_or_ok_and_abnormal) # label(axiom).
+-logic_or(K) | or_ok(K) | abnormal(K) # label(or_ok_or_abnormal) # label(axiom).
+-not_ok(K) | -zero(in1(K)) | one(out1(K)) # label(not_0_1_fw) # label(axiom).
+-not_ok(K) | -one(in1(K)) | zero(out1(K)) # label(not_1_0_fw) # label(axiom).
+-not_ok(K) | -zero(out1(K)) | one(in1(K)) # label(not_0_1_bw) # label(axiom).
+-not_ok(K) | -one(out1(K)) | zero(in1(K)) # label(not_1_0_bw) # label(axiom).
+-not_ok(K) | -abnormal(K) # label(not__not_ok_and_abnormal) # label(axiom).
+-logic_not(K) | not_ok(K) | abnormal(K) # label(not_ok_or_abnormal) # label(axiom).
+-halfadder(X) | logic_and(and1(X)) # label(halfadder_and1) # label(axiom).
+-halfadder(X) | logic_and(and2(X)) # label(halfadder_and2) # label(axiom).
+-halfadder(X) | logic_not(not1(X)) # label(halfadder_not1) # label(axiom).
+-halfadder(X) | logic_or(or1(X)) # label(halfadder_or1) # label(axiom).
+-halfadder(X) | connection(in1(X),in1(or1(X))) # label(halfadder_connection_in1_in1or1) # label(axiom).
+-halfadder(X) | connection(in2(X),in2(or1(X))) # label(halfadder_connection_in2_in2or1) # label(axiom).
+-halfadder(X) | connection(in1(X),in1(and2(X))) # label(halfadder_connection_in1_in1and2) # label(axiom).
+-halfadder(X) | connection(in2(X),in2(and2(X))) # label(halfadder_connection_in2_in2and2) # label(axiom).
+-halfadder(X) | connection(outs(X),out1(and1(X))) # label(halfadder_connection_outs_out1and1) # label(axiom).
+-halfadder(X) | connection(outc(X),out1(and2(X))) # label(halfadder_connection_outc_out1and2) # label(axiom).
+-halfadder(X) | connection(out1(or1(X)),in1(and1(X))) # label(halfadder_connection_out1or1_in1_and1) # label(axiom).
+-halfadder(X) | connection(out1(and2(X)),in1(not1(X))) # label(halfadder_connection_out1and2_in1not1) # label(axiom).
+-halfadder(X) | connection(out1(not1(X)),in2(and1(X))) # label(halfadder_connection_out1not1_in2and1) # label(axiom).
+-fulladder(X) | halfadder(h1(X)) # label(fulladder_halfadder1) # label(axiom).
+-fulladder(X) | halfadder(h2(X)) # label(fulladder_halfadder2) # label(axiom).
+-fulladder(X) | logic_or(or1(X)) # label(fulladder_or1) # label(axiom).
+-fulladder(X) | connection(outs(h1(X)),in2(h2(X))) # label(fulladder_connection_outsh1_in2h2) # label(axiom).
+-fulladder(X) | connection(outc(h1(X)),in2(or1(X))) # label(fulladder_connection_outch1_in2or1) # label(axiom).
+-fulladder(X) | connection(outc(h2(X)),in1(or1(X))) # label(fulladder_connection_outch2_in1or1) # label(axiom).
+-fulladder(X) | connection(in1(X),in1(h2(X))) # label(fulladder_connection_in1_in1h2) # label(axiom).
+-fulladder(X) | connection(in2(X),in1(h1(X))) # label(fulladder_connection_in2_in1h1) # label(axiom).
+-fulladder(X) | connection(inc(X),in2(h1(X))) # label(fulladder_connection_inc_in2h1) # label(axiom).
+-fulladder(X) | connection(outs(X),outs(h2(X))) # label(fulladder_connection_outs_outsh2) # label(axiom).
+-fulladder(X) | connection(outc(X),out1(or1(X))) # label(fulladder_connection_outc_out1or1) # label(axiom).
+-nbit_adder2(X) | fulladder(f1(X)) # label(nbit_adder_fulladder1) # label(axiom).
+-nbit_adder2(X) | fulladder(f2(X)) # label(nbit_adder_fulladder2) # label(axiom).
+-nbit_adder2(X) | connection(out1(X),out1(f1(X))) # label(nbit_adder_connection_out1_out1f1) # label(axiom).
+-nbit_adder2(X) | connection(out2(X),out1(f2(X))) # label(nbit_adder_connection_out2_out1f2) # label(axiom).
+-nbit_adder2(X) | connection(outc(X),outc(f2(X))) # label(nbit_adder_connection_outc_outcf1) # label(axiom).
+-nbit_adder2(X) | connection(ina1(X),in1(f1(X))) # label(nbit_adder_connection_ina1_in1f1) # label(axiom).
+-nbit_adder2(X) | connection(inb1(X),in2(f1(X))) # label(nbit_adder_connection_inb1_in2f1) # label(axiom).
+-nbit_adder2(X) | connection(ina2(X),in1(f2(X))) # label(nbit_adder_connection_ina2_in1f2) # label(axiom).
+-nbit_adder2(X) | connection(inb2(X),in2(f2(X))) # label(nbit_adder_connection_inb2_in2f2) # label(axiom).
+-nbit_adder2(X) | connection(outc(f1(X)),inc(f2(X))) # label(nbit_adder_connection_inc_incf1) # label(axiom).
+-nbit_adder2(X) | connection(inc(X),inc(f1(X))) # label(nbit_adder_connection_inc_incf2) # label(axiom).
+nbit_adder2(a) # label(a_isa_2bit_adder) # label(hypothesis).
+zero(ina1(a)) # label(ina1_0) # label(hypothesis).
+zero(ina2(a)) # label(ina2_0) # label(hypothesis).
+zero(inb1(a)) # label(inb1_0) # label(hypothesis).
+zero(inb2(a)) # label(inb2_0) # label(hypothesis).
+zero(inc(a)) # label(inc_0) # label(hypothesis).
+zero(out1(a)) # label(out1_0) # label(hypothesis).
+zero(out2(a)) # label(out2_0) # label(hypothesis).
+one(outc(a)) # label(outc_1) # label(hypothesis).
+-abnormal(or1(f2(a))) # label(diagnosis_or1f2a) # label(negated_conjecture).
+-abnormal(and2(h1(f2(a)))) # label(diagnosis_and2h1f2a) # label(negated_conjecture).
+-abnormal(and2(h2(f2(a)))) # label(diagnosis_and2h2f2a) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-connection(A,B) | -zero(A) | zero(B) # label(value_propagation_zero1) # label(axiom).  [assumption].
+-connection(A,B) | -one(A) | one(B) # label(value_propagation_one1) # label(axiom).  [assumption].
+-connection(A,B) | -zero(B) | zero(A) # label(value_propagation_zero2) # label(axiom).  [assumption].
+-connection(A,B) | -one(B) | one(A) # label(value_propagation_one2) # label(axiom).  [assumption].
+-zero(A) | -one(A) # label(unique_value) # label(axiom).  [assumption].
+-and_ok(A) | -zero(in1(A)) | zero(out1(A)) # label(and_0x_0) # label(axiom).  [assumption].
+-and_ok(A) | -zero(in2(A)) | zero(out1(A)) # label(and_x0_0) # label(axiom).  [assumption].
+-and_ok(A) | -one(in1(A)) | -one(in2(A)) | one(out1(A)) # label(and_11_1) # label(axiom).  [assumption].
+-and_ok(A) | -zero(out1(A)) | zero(in1(A)) | zero(in2(A)) # label(and_0_00) # label(axiom).  [assumption].
+-and_ok(A) | -one(out1(A)) | one(in1(A)) # label(and_1_1x) # label(axiom).  [assumption].
+-and_ok(A) | -one(out1(A)) | one(in2(A)) # label(and_1_x1) # label(axiom).  [assumption].
+-and_ok(A) | -abnormal(A) # label(not_and_ok_and_abnormal) # label(axiom).  [assumption].
+-logic_and(A) | and_ok(A) | abnormal(A) # label(and_ok_or_abnormal) # label(axiom).  [assumption].
+-or_ok(A) | -one(in1(A)) | one(out1(A)) # label(or_1x_1) # label(axiom).  [assumption].
+-or_ok(A) | -one(in2(A)) | one(out1(A)) # label(or_x1_1) # label(axiom).  [assumption].
+-or_ok(A) | -zero(in1(A)) | -zero(in2(A)) | zero(out1(A)) # label(or_00_0) # label(axiom).  [assumption].
+-or_ok(A) | -one(out1(A)) | one(in1(A)) | one(in2(A)) # label(or_1_11) # label(axiom).  [assumption].
+-or_ok(A) | -zero(out1(A)) | zero(in1(A)) # label(or_0_0x) # label(axiom).  [assumption].
+-or_ok(A) | -zero(out1(A)) | zero(in2(A)) # label(or_0_01) # label(axiom).  [assumption].
+-or_ok(A) | -abnormal(A) # label(not_or_ok_and_abnormal) # label(axiom).  [assumption].
+-logic_or(A) | or_ok(A) | abnormal(A) # label(or_ok_or_abnormal) # label(axiom).  [assumption].
+-not_ok(A) | -zero(in1(A)) | one(out1(A)) # label(not_0_1_fw) # label(axiom).  [assumption].
+-not_ok(A) | -one(in1(A)) | zero(out1(A)) # label(not_1_0_fw) # label(axiom).  [assumption].
+-not_ok(A) | -zero(out1(A)) | one(in1(A)) # label(not_0_1_bw) # label(axiom).  [assumption].
+-not_ok(A) | -one(out1(A)) | zero(in1(A)) # label(not_1_0_bw) # label(axiom).  [assumption].
+-not_ok(A) | -abnormal(A) # label(not__not_ok_and_abnormal) # label(axiom).  [assumption].
+-logic_not(A) | not_ok(A) | abnormal(A) # label(not_ok_or_abnormal) # label(axiom).  [assumption].
+-halfadder(A) | logic_and(and1(A)) # label(halfadder_and1) # label(axiom).  [assumption].
+-halfadder(A) | logic_and(and2(A)) # label(halfadder_and2) # label(axiom).  [assumption].
+-halfadder(A) | logic_not(not1(A)) # label(halfadder_not1) # label(axiom).  [assumption].
+-halfadder(A) | logic_or(or1(A)) # label(halfadder_or1) # label(axiom).  [assumption].
+-halfadder(A) | connection(in1(A),in1(or1(A))) # label(halfadder_connection_in1_in1or1) # label(axiom).  [assumption].
+-halfadder(A) | connection(in2(A),in2(or1(A))) # label(halfadder_connection_in2_in2or1) # label(axiom).  [assumption].
+-halfadder(A) | connection(in1(A),in1(and2(A))) # label(halfadder_connection_in1_in1and2) # label(axiom).  [assumption].
+-halfadder(A) | connection(in2(A),in2(and2(A))) # label(halfadder_connection_in2_in2and2) # label(axiom).  [assumption].
+-halfadder(A) | connection(outs(A),out1(and1(A))) # label(halfadder_connection_outs_out1and1) # label(axiom).  [assumption].
+-halfadder(A) | connection(outc(A),out1(and2(A))) # label(halfadder_connection_outc_out1and2) # label(axiom).  [assumption].
+-halfadder(A) | connection(out1(or1(A)),in1(and1(A))) # label(halfadder_connection_out1or1_in1_and1) # label(axiom).  [assumption].
+-halfadder(A) | connection(out1(and2(A)),in1(not1(A))) # label(halfadder_connection_out1and2_in1not1) # label(axiom).  [assumption].
+-halfadder(A) | connection(out1(not1(A)),in2(and1(A))) # label(halfadder_connection_out1not1_in2and1) # label(axiom).  [assumption].
+-fulladder(A) | halfadder(h1(A)) # label(fulladder_halfadder1) # label(axiom).  [assumption].
+-fulladder(A) | halfadder(h2(A)) # label(fulladder_halfadder2) # label(axiom).  [assumption].
+-fulladder(A) | logic_or(or1(A)) # label(fulladder_or1) # label(axiom).  [assumption].
+-fulladder(A) | connection(outs(h1(A)),in2(h2(A))) # label(fulladder_connection_outsh1_in2h2) # label(axiom).  [assumption].
+-fulladder(A) | connection(outc(h1(A)),in2(or1(A))) # label(fulladder_connection_outch1_in2or1) # label(axiom).  [assumption].
+-fulladder(A) | connection(outc(h2(A)),in1(or1(A))) # label(fulladder_connection_outch2_in1or1) # label(axiom).  [assumption].
+-fulladder(A) | connection(in1(A),in1(h2(A))) # label(fulladder_connection_in1_in1h2) # label(axiom).  [assumption].
+-fulladder(A) | connection(in2(A),in1(h1(A))) # label(fulladder_connection_in2_in1h1) # label(axiom).  [assumption].
+-fulladder(A) | connection(inc(A),in2(h1(A))) # label(fulladder_connection_inc_in2h1) # label(axiom).  [assumption].
+-fulladder(A) | connection(outs(A),outs(h2(A))) # label(fulladder_connection_outs_outsh2) # label(axiom).  [assumption].
+-fulladder(A) | connection(outc(A),out1(or1(A))) # label(fulladder_connection_outc_out1or1) # label(axiom).  [assumption].
+-nbit_adder2(A) | fulladder(f1(A)) # label(nbit_adder_fulladder1) # label(axiom).  [assumption].
+-nbit_adder2(A) | fulladder(f2(A)) # label(nbit_adder_fulladder2) # label(axiom).  [assumption].
+-nbit_adder2(A) | connection(out1(A),out1(f1(A))) # label(nbit_adder_connection_out1_out1f1) # label(axiom).  [assumption].
+-nbit_adder2(A) | connection(out2(A),out1(f2(A))) # label(nbit_adder_connection_out2_out1f2) # label(axiom).  [assumption].
+-nbit_adder2(A) | connection(outc(A),outc(f2(A))) # label(nbit_adder_connection_outc_outcf1) # label(axiom).  [assumption].
+-nbit_adder2(A) | connection(ina1(A),in1(f1(A))) # label(nbit_adder_connection_ina1_in1f1) # label(axiom).  [assumption].
+-nbit_adder2(A) | connection(inb1(A),in2(f1(A))) # label(nbit_adder_connection_inb1_in2f1) # label(axiom).  [assumption].
+-nbit_adder2(A) | connection(ina2(A),in1(f2(A))) # label(nbit_adder_connection_ina2_in1f2) # label(axiom).  [assumption].
+-nbit_adder2(A) | connection(inb2(A),in2(f2(A))) # label(nbit_adder_connection_inb2_in2f2) # label(axiom).  [assumption].
+-nbit_adder2(A) | connection(outc(f1(A)),inc(f2(A))) # label(nbit_adder_connection_inc_incf1) # label(axiom).  [assumption].
+-nbit_adder2(A) | connection(inc(A),inc(f1(A))) # label(nbit_adder_connection_inc_incf2) # label(axiom).  [assumption].
+nbit_adder2(a) # label(a_isa_2bit_adder) # label(hypothesis).  [assumption].
+zero(ina1(a)) # label(ina1_0) # label(hypothesis).  [assumption].
+zero(ina2(a)) # label(ina2_0) # label(hypothesis).  [assumption].
+zero(inb1(a)) # label(inb1_0) # label(hypothesis).  [assumption].
+zero(inb2(a)) # label(inb2_0) # label(hypothesis).  [assumption].
+zero(inc(a)) # label(inc_0) # label(hypothesis).  [assumption].
+zero(out1(a)) # label(out1_0) # label(hypothesis).  [assumption].
+zero(out2(a)) # label(out2_0) # label(hypothesis).  [assumption].
+one(outc(a)) # label(outc_1) # label(hypothesis).  [assumption].
+-abnormal(or1(f2(a))) # label(diagnosis_or1f2a) # label(negated_conjecture).  [assumption].
+-abnormal(and2(h1(f2(a)))) # label(diagnosis_and2h1f2a) # label(negated_conjecture).  [assumption].
+-abnormal(and2(h2(f2(a)))) # label(diagnosis_and2h2f2a) # label(negated_conjecture).  [assumption].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating connection/2
+1 -halfadder(A) | connection(in1(A),in1(or1(A))) # label(halfadder_connection_in1_in1or1) # label(axiom).  [assumption].
+2 -connection(A,B) | -zero(A) | zero(B) # label(value_propagation_zero1) # label(axiom).  [assumption].
+3 -connection(A,B) | -one(A) | one(B) # label(value_propagation_one1) # label(axiom).  [assumption].
+4 -connection(A,B) | -zero(B) | zero(A) # label(value_propagation_zero2) # label(axiom).  [assumption].
+5 -connection(A,B) | -one(B) | one(A) # label(value_propagation_one2) # label(axiom).  [assumption].
+Derived: -halfadder(A) | -zero(in1(A)) | zero(in1(or1(A))).  [resolve(1,b,2,a)].
+Derived: -halfadder(A) | -one(in1(A)) | one(in1(or1(A))).  [resolve(1,b,3,a)].
+Derived: -halfadder(A) | -zero(in1(or1(A))) | zero(in1(A)).  [resolve(1,b,4,a)].
+Derived: -halfadder(A) | -one(in1(or1(A))) | one(in1(A)).  [resolve(1,b,5,a)].
+6 -halfadder(A) | connection(in2(A),in2(or1(A))) # label(halfadder_connection_in2_in2or1) # label(axiom).  [assumption].
+Derived: -halfadder(A) | -zero(in2(A)) | zero(in2(or1(A))).  [resolve(6,b,2,a)].
+Derived: -halfadder(A) | -one(in2(A)) | one(in2(or1(A))).  [resolve(6,b,3,a)].
+Derived: -halfadder(A) | -zero(in2(or1(A))) | zero(in2(A)).  [resolve(6,b,4,a)].
+Derived: -halfadder(A) | -one(in2(or1(A))) | one(in2(A)).  [resolve(6,b,5,a)].
+7 -halfadder(A) | connection(in1(A),in1(and2(A))) # label(halfadder_connection_in1_in1and2) # label(axiom).  [assumption].
+Derived: -halfadder(A) | -zero(in1(A)) | zero(in1(and2(A))).  [resolve(7,b,2,a)].
+Derived: -halfadder(A) | -one(in1(A)) | one(in1(and2(A))).  [resolve(7,b,3,a)].
+Derived: -halfadder(A) | -zero(in1(and2(A))) | zero(in1(A)).  [resolve(7,b,4,a)].
+Derived: -halfadder(A) | -one(in1(and2(A))) | one(in1(A)).  [resolve(7,b,5,a)].
+8 -halfadder(A) | connection(in2(A),in2(and2(A))) # label(halfadder_connection_in2_in2and2) # label(axiom).  [assumption].
+Derived: -halfadder(A) | -zero(in2(A)) | zero(in2(and2(A))).  [resolve(8,b,2,a)].
+Derived: -halfadder(A) | -one(in2(A)) | one(in2(and2(A))).  [resolve(8,b,3,a)].
+Derived: -halfadder(A) | -zero(in2(and2(A))) | zero(in2(A)).  [resolve(8,b,4,a)].
+Derived: -halfadder(A) | -one(in2(and2(A))) | one(in2(A)).  [resolve(8,b,5,a)].
+9 -halfadder(A) | connection(outs(A),out1(and1(A))) # label(halfadder_connection_outs_out1and1) # label(axiom).  [assumption].
+Derived: -halfadder(A) | -zero(outs(A)) | zero(out1(and1(A))).  [resolve(9,b,2,a)].
+Derived: -halfadder(A) | -one(outs(A)) | one(out1(and1(A))).  [resolve(9,b,3,a)].
+Derived: -halfadder(A) | -zero(out1(and1(A))) | zero(outs(A)).  [resolve(9,b,4,a)].
+Derived: -halfadder(A) | -one(out1(and1(A))) | one(outs(A)).  [resolve(9,b,5,a)].
+10 -halfadder(A) | connection(outc(A),out1(and2(A))) # label(halfadder_connection_outc_out1and2) # label(axiom).  [assumption].
+Derived: -halfadder(A) | -zero(outc(A)) | zero(out1(and2(A))).  [resolve(10,b,2,a)].
+Derived: -halfadder(A) | -one(outc(A)) | one(out1(and2(A))).  [resolve(10,b,3,a)].
+Derived: -halfadder(A) | -zero(out1(and2(A))) | zero(outc(A)).  [resolve(10,b,4,a)].
+Derived: -halfadder(A) | -one(out1(and2(A))) | one(outc(A)).  [resolve(10,b,5,a)].
+11 -halfadder(A) | connection(out1(or1(A)),in1(and1(A))) # label(halfadder_connection_out1or1_in1_and1) # label(axiom).  [assumption].
+Derived: -halfadder(A) | -zero(out1(or1(A))) | zero(in1(and1(A))).  [resolve(11,b,2,a)].
+Derived: -halfadder(A) | -one(out1(or1(A))) | one(in1(and1(A))).  [resolve(11,b,3,a)].
+Derived: -halfadder(A) | -zero(in1(and1(A))) | zero(out1(or1(A))).  [resolve(11,b,4,a)].
+Derived: -halfadder(A) | -one(in1(and1(A))) | one(out1(or1(A))).  [resolve(11,b,5,a)].
+12 -halfadder(A) | connection(out1(and2(A)),in1(not1(A))) # label(halfadder_connection_out1and2_in1not1) # label(axiom).  [assumption].
+Derived: -halfadder(A) | -zero(out1(and2(A))) | zero(in1(not1(A))).  [resolve(12,b,2,a)].
+Derived: -halfadder(A) | -one(out1(and2(A))) | one(in1(not1(A))).  [resolve(12,b,3,a)].
+Derived: -halfadder(A) | -zero(in1(not1(A))) | zero(out1(and2(A))).  [resolve(12,b,4,a)].
+Derived: -halfadder(A) | -one(in1(not1(A))) | one(out1(and2(A))).  [resolve(12,b,5,a)].
+13 -halfadder(A) | connection(out1(not1(A)),in2(and1(A))) # label(halfadder_connection_out1not1_in2and1) # label(axiom).  [assumption].
+Derived: -halfadder(A) | -zero(out1(not1(A))) | zero(in2(and1(A))).  [resolve(13,b,2,a)].
+Derived: -halfadder(A) | -one(out1(not1(A))) | one(in2(and1(A))).  [resolve(13,b,3,a)].
+Derived: -halfadder(A) | -zero(in2(and1(A))) | zero(out1(not1(A))).  [resolve(13,b,4,a)].
+Derived: -halfadder(A) | -one(in2(and1(A))) | one(out1(not1(A))).  [resolve(13,b,5,a)].
+14 -fulladder(A) | connection(outs(h1(A)),in2(h2(A))) # label(fulladder_connection_outsh1_in2h2) # label(axiom).  [assumption].
+Derived: -fulladder(A) | -zero(outs(h1(A))) | zero(in2(h2(A))).  [resolve(14,b,2,a)].
+Derived: -fulladder(A) | -one(outs(h1(A))) | one(in2(h2(A))).  [resolve(14,b,3,a)].
+Derived: -fulladder(A) | -zero(in2(h2(A))) | zero(outs(h1(A))).  [resolve(14,b,4,a)].
+Derived: -fulladder(A) | -one(in2(h2(A))) | one(outs(h1(A))).  [resolve(14,b,5,a)].
+15 -fulladder(A) | connection(outc(h1(A)),in2(or1(A))) # label(fulladder_connection_outch1_in2or1) # label(axiom).  [assumption].
+Derived: -fulladder(A) | -zero(outc(h1(A))) | zero(in2(or1(A))).  [resolve(15,b,2,a)].
+Derived: -fulladder(A) | -one(outc(h1(A))) | one(in2(or1(A))).  [resolve(15,b,3,a)].
+Derived: -fulladder(A) | -zero(in2(or1(A))) | zero(outc(h1(A))).  [resolve(15,b,4,a)].
+Derived: -fulladder(A) | -one(in2(or1(A))) | one(outc(h1(A))).  [resolve(15,b,5,a)].
+16 -fulladder(A) | connection(outc(h2(A)),in1(or1(A))) # label(fulladder_connection_outch2_in1or1) # label(axiom).  [assumption].
+Derived: -fulladder(A) | -zero(outc(h2(A))) | zero(in1(or1(A))).  [resolve(16,b,2,a)].
+Derived: -fulladder(A) | -one(outc(h2(A))) | one(in1(or1(A))).  [resolve(16,b,3,a)].
+Derived: -fulladder(A) | -zero(in1(or1(A))) | zero(outc(h2(A))).  [resolve(16,b,4,a)].
+Derived: -fulladder(A) | -one(in1(or1(A))) | one(outc(h2(A))).  [resolve(16,b,5,a)].
+17 -fulladder(A) | connection(in1(A),in1(h2(A))) # label(fulladder_connection_in1_in1h2) # label(axiom).  [assumption].
+Derived: -fulladder(A) | -zero(in1(A)) | zero(in1(h2(A))).  [resolve(17,b,2,a)].
+Derived: -fulladder(A) | -one(in1(A)) | one(in1(h2(A))).  [resolve(17,b,3,a)].
+Derived: -fulladder(A) | -zero(in1(h2(A))) | zero(in1(A)).  [resolve(17,b,4,a)].
+Derived: -fulladder(A) | -one(in1(h2(A))) | one(in1(A)).  [resolve(17,b,5,a)].
+18 -fulladder(A) | connection(in2(A),in1(h1(A))) # label(fulladder_connection_in2_in1h1) # label(axiom).  [assumption].
+Derived: -fulladder(A) | -zero(in2(A)) | zero(in1(h1(A))).  [resolve(18,b,2,a)].
+Derived: -fulladder(A) | -one(in2(A)) | one(in1(h1(A))).  [resolve(18,b,3,a)].
+Derived: -fulladder(A) | -zero(in1(h1(A))) | zero(in2(A)).  [resolve(18,b,4,a)].
+Derived: -fulladder(A) | -one(in1(h1(A))) | one(in2(A)).  [resolve(18,b,5,a)].
+19 -fulladder(A) | connection(inc(A),in2(h1(A))) # label(fulladder_connection_inc_in2h1) # label(axiom).  [assumption].
+Derived: -fulladder(A) | -zero(inc(A)) | zero(in2(h1(A))).  [resolve(19,b,2,a)].
+Derived: -fulladder(A) | -one(inc(A)) | one(in2(h1(A))).  [resolve(19,b,3,a)].
+Derived: -fulladder(A) | -zero(in2(h1(A))) | zero(inc(A)).  [resolve(19,b,4,a)].
+Derived: -fulladder(A) | -one(in2(h1(A))) | one(inc(A)).  [resolve(19,b,5,a)].
+20 -fulladder(A) | connection(outs(A),outs(h2(A))) # label(fulladder_connection_outs_outsh2) # label(axiom).  [assumption].
+Derived: -fulladder(A) | -zero(outs(A)) | zero(outs(h2(A))).  [resolve(20,b,2,a)].
+Derived: -fulladder(A) | -one(outs(A)) | one(outs(h2(A))).  [resolve(20,b,3,a)].
+Derived: -fulladder(A) | -zero(outs(h2(A))) | zero(outs(A)).  [resolve(20,b,4,a)].
+Derived: -fulladder(A) | -one(outs(h2(A))) | one(outs(A)).  [resolve(20,b,5,a)].
+21 -fulladder(A) | connection(outc(A),out1(or1(A))) # label(fulladder_connection_outc_out1or1) # label(axiom).  [assumption].
+Derived: -fulladder(A) | -zero(outc(A)) | zero(out1(or1(A))).  [resolve(21,b,2,a)].
+Derived: -fulladder(A) | -one(outc(A)) | one(out1(or1(A))).  [resolve(21,b,3,a)].
+Derived: -fulladder(A) | -zero(out1(or1(A))) | zero(outc(A)).  [resolve(21,b,4,a)].
+Derived: -fulladder(A) | -one(out1(or1(A))) | one(outc(A)).  [resolve(21,b,5,a)].
+22 -nbit_adder2(A) | connection(out1(A),out1(f1(A))) # label(nbit_adder_connection_out1_out1f1) # label(axiom).  [assumption].
+Derived: -nbit_adder2(A) | -zero(out1(A)) | zero(out1(f1(A))).  [resolve(22,b,2,a)].
+Derived: -nbit_adder2(A) | -one(out1(A)) | one(out1(f1(A))).  [resolve(22,b,3,a)].
+Derived: -nbit_adder2(A) | -zero(out1(f1(A))) | zero(out1(A)).  [resolve(22,b,4,a)].
+Derived: -nbit_adder2(A) | -one(out1(f1(A))) | one(out1(A)).  [resolve(22,b,5,a)].
+23 -nbit_adder2(A) | connection(out2(A),out1(f2(A))) # label(nbit_adder_connection_out2_out1f2) # label(axiom).  [assumption].
+Derived: -nbit_adder2(A) | -zero(out2(A)) | zero(out1(f2(A))).  [resolve(23,b,2,a)].
+Derived: -nbit_adder2(A) | -one(out2(A)) | one(out1(f2(A))).  [resolve(23,b,3,a)].
+Derived: -nbit_adder2(A) | -zero(out1(f2(A))) | zero(out2(A)).  [resolve(23,b,4,a)].
+Derived: -nbit_adder2(A) | -one(out1(f2(A))) | one(out2(A)).  [resolve(23,b,5,a)].
+24 -nbit_adder2(A) | connection(outc(A),outc(f2(A))) # label(nbit_adder_connection_outc_outcf1) # label(axiom).  [assumption].
+Derived: -nbit_adder2(A) | -zero(outc(A)) | zero(outc(f2(A))).  [resolve(24,b,2,a)].
+Derived: -nbit_adder2(A) | -one(outc(A)) | one(outc(f2(A))).  [resolve(24,b,3,a)].
+Derived: -nbit_adder2(A) | -zero(outc(f2(A))) | zero(outc(A)).  [resolve(24,b,4,a)].
+Derived: -nbit_adder2(A) | -one(outc(f2(A))) | one(outc(A)).  [resolve(24,b,5,a)].
+25 -nbit_adder2(A) | connection(ina1(A),in1(f1(A))) # label(nbit_adder_connection_ina1_in1f1) # label(axiom).  [assumption].
+Derived: -nbit_adder2(A) | -zero(ina1(A)) | zero(in1(f1(A))).  [resolve(25,b,2,a)].
+Derived: -nbit_adder2(A) | -one(ina1(A)) | one(in1(f1(A))).  [resolve(25,b,3,a)].
+Derived: -nbit_adder2(A) | -zero(in1(f1(A))) | zero(ina1(A)).  [resolve(25,b,4,a)].
+Derived: -nbit_adder2(A) | -one(in1(f1(A))) | one(ina1(A)).  [resolve(25,b,5,a)].
+26 -nbit_adder2(A) | connection(inb1(A),in2(f1(A))) # label(nbit_adder_connection_inb1_in2f1) # label(axiom).  [assumption].
+Derived: -nbit_adder2(A) | -zero(inb1(A)) | zero(in2(f1(A))).  [resolve(26,b,2,a)].
+Derived: -nbit_adder2(A) | -one(inb1(A)) | one(in2(f1(A))).  [resolve(26,b,3,a)].
+Derived: -nbit_adder2(A) | -zero(in2(f1(A))) | zero(inb1(A)).  [resolve(26,b,4,a)].
+Derived: -nbit_adder2(A) | -one(in2(f1(A))) | one(inb1(A)).  [resolve(26,b,5,a)].
+27 -nbit_adder2(A) | connection(ina2(A),in1(f2(A))) # label(nbit_adder_connection_ina2_in1f2) # label(axiom).  [assumption].
+Derived: -nbit_adder2(A) | -zero(ina2(A)) | zero(in1(f2(A))).  [resolve(27,b,2,a)].
+Derived: -nbit_adder2(A) | -one(ina2(A)) | one(in1(f2(A))).  [resolve(27,b,3,a)].
+Derived: -nbit_adder2(A) | -zero(in1(f2(A))) | zero(ina2(A)).  [resolve(27,b,4,a)].
+Derived: -nbit_adder2(A) | -one(in1(f2(A))) | one(ina2(A)).  [resolve(27,b,5,a)].
+28 -nbit_adder2(A) | connection(inb2(A),in2(f2(A))) # label(nbit_adder_connection_inb2_in2f2) # label(axiom).  [assumption].
+Derived: -nbit_adder2(A) | -zero(inb2(A)) | zero(in2(f2(A))).  [resolve(28,b,2,a)].
+Derived: -nbit_adder2(A) | -one(inb2(A)) | one(in2(f2(A))).  [resolve(28,b,3,a)].
+Derived: -nbit_adder2(A) | -zero(in2(f2(A))) | zero(inb2(A)).  [resolve(28,b,4,a)].
+Derived: -nbit_adder2(A) | -one(in2(f2(A))) | one(inb2(A)).  [resolve(28,b,5,a)].
+29 -nbit_adder2(A) | connection(outc(f1(A)),inc(f2(A))) # label(nbit_adder_connection_inc_incf1) # label(axiom).  [assumption].
+Derived: -nbit_adder2(A) | -zero(outc(f1(A))) | zero(inc(f2(A))).  [resolve(29,b,2,a)].
+Derived: -nbit_adder2(A) | -one(outc(f1(A))) | one(inc(f2(A))).  [resolve(29,b,3,a)].
+Derived: -nbit_adder2(A) | -zero(inc(f2(A))) | zero(outc(f1(A))).  [resolve(29,b,4,a)].
+Derived: -nbit_adder2(A) | -one(inc(f2(A))) | one(outc(f1(A))).  [resolve(29,b,5,a)].
+30 -nbit_adder2(A) | connection(inc(A),inc(f1(A))) # label(nbit_adder_connection_inc_incf2) # label(axiom).  [assumption].
+Derived: -nbit_adder2(A) | -zero(inc(A)) | zero(inc(f1(A))).  [resolve(30,b,2,a)].
+Derived: -nbit_adder2(A) | -one(inc(A)) | one(inc(f1(A))).  [resolve(30,b,3,a)].
+Derived: -nbit_adder2(A) | -zero(inc(f1(A))) | zero(inc(A)).  [resolve(30,b,4,a)].
+Derived: -nbit_adder2(A) | -one(inc(f1(A))) | one(inc(A)).  [resolve(30,b,5,a)].
+
+Eliminating and_ok/1
+31 -logic_and(A) | and_ok(A) | abnormal(A) # label(and_ok_or_abnormal) # label(axiom).  [assumption].
+32 -and_ok(A) | -zero(in1(A)) | zero(out1(A)) # label(and_0x_0) # label(axiom).  [assumption].
+33 -and_ok(A) | -zero(in2(A)) | zero(out1(A)) # label(and_x0_0) # label(axiom).  [assumption].
+34 -and_ok(A) | -one(in1(A)) | -one(in2(A)) | one(out1(A)) # label(and_11_1) # label(axiom).  [assumption].
+35 -and_ok(A) | -zero(out1(A)) | zero(in1(A)) | zero(in2(A)) # label(and_0_00) # label(axiom).  [assumption].
+36 -and_ok(A) | -one(out1(A)) | one(in1(A)) # label(and_1_1x) # label(axiom).  [assumption].
+37 -and_ok(A) | -one(out1(A)) | one(in2(A)) # label(and_1_x1) # label(axiom).  [assumption].
+38 -and_ok(A) | -abnormal(A) # label(not_and_ok_and_abnormal) # label(axiom).  [assumption].
+Derived: -logic_and(A) | abnormal(A) | -zero(in1(A)) | zero(out1(A)).  [resolve(31,b,32,a)].
+Derived: -logic_and(A) | abnormal(A) | -zero(in2(A)) | zero(out1(A)).  [resolve(31,b,33,a)].
+Derived: -logic_and(A) | abnormal(A) | -one(in1(A)) | -one(in2(A)) | one(out1(A)).  [resolve(31,b,34,a)].
+Derived: -logic_and(A) | abnormal(A) | -zero(out1(A)) | zero(in1(A)) | zero(in2(A)).  [resolve(31,b,35,a)].
+Derived: -logic_and(A) | abnormal(A) | -one(out1(A)) | one(in1(A)).  [resolve(31,b,36,a)].
+Derived: -logic_and(A) | abnormal(A) | -one(out1(A)) | one(in2(A)).  [resolve(31,b,37,a)].
+
+Eliminating or_ok/1
+39 -logic_or(A) | or_ok(A) | abnormal(A) # label(or_ok_or_abnormal) # label(axiom).  [assumption].
+40 -or_ok(A) | -one(in1(A)) | one(out1(A)) # label(or_1x_1) # label(axiom).  [assumption].
+41 -or_ok(A) | -one(in2(A)) | one(out1(A)) # label(or_x1_1) # label(axiom).  [assumption].
+42 -or_ok(A) | -zero(in1(A)) | -zero(in2(A)) | zero(out1(A)) # label(or_00_0) # label(axiom).  [assumption].
+43 -or_ok(A) | -one(out1(A)) | one(in1(A)) | one(in2(A)) # label(or_1_11) # label(axiom).  [assumption].
+44 -or_ok(A) | -zero(out1(A)) | zero(in1(A)) # label(or_0_0x) # label(axiom).  [assumption].
+45 -or_ok(A) | -zero(out1(A)) | zero(in2(A)) # label(or_0_01) # label(axiom).  [assumption].
+46 -or_ok(A) | -abnormal(A) # label(not_or_ok_and_abnormal) # label(axiom).  [assumption].
+Derived: -logic_or(A) | abnormal(A) | -one(in1(A)) | one(out1(A)).  [resolve(39,b,40,a)].
+Derived: -logic_or(A) | abnormal(A) | -one(in2(A)) | one(out1(A)).  [resolve(39,b,41,a)].
+Derived: -logic_or(A) | abnormal(A) | -zero(in1(A)) | -zero(in2(A)) | zero(out1(A)).  [resolve(39,b,42,a)].
+Derived: -logic_or(A) | abnormal(A) | -one(out1(A)) | one(in1(A)) | one(in2(A)).  [resolve(39,b,43,a)].
+Derived: -logic_or(A) | abnormal(A) | -zero(out1(A)) | zero(in1(A)).  [resolve(39,b,44,a)].
+Derived: -logic_or(A) | abnormal(A) | -zero(out1(A)) | zero(in2(A)).  [resolve(39,b,45,a)].
+
+Eliminating not_ok/1
+47 -logic_not(A) | not_ok(A) | abnormal(A) # label(not_ok_or_abnormal) # label(axiom).  [assumption].
+48 -not_ok(A) | -zero(in1(A)) | one(out1(A)) # label(not_0_1_fw) # label(axiom).  [assumption].
+49 -not_ok(A) | -one(in1(A)) | zero(out1(A)) # label(not_1_0_fw) # label(axiom).  [assumption].
+50 -not_ok(A) | -zero(out1(A)) | one(in1(A)) # label(not_0_1_bw) # label(axiom).  [assumption].
+51 -not_ok(A) | -one(out1(A)) | zero(in1(A)) # label(not_1_0_bw) # label(axiom).  [assumption].
+52 -not_ok(A) | -abnormal(A) # label(not__not_ok_and_abnormal) # label(axiom).  [assumption].
+Derived: -logic_not(A) | abnormal(A) | -zero(in1(A)) | one(out1(A)).  [resolve(47,b,48,a)].
+Derived: -logic_not(A) | abnormal(A) | -one(in1(A)) | zero(out1(A)).  [resolve(47,b,49,a)].
+Derived: -logic_not(A) | abnormal(A) | -zero(out1(A)) | one(in1(A)).  [resolve(47,b,50,a)].
+Derived: -logic_not(A) | abnormal(A) | -one(out1(A)) | zero(in1(A)).  [resolve(47,b,51,a)].
+
+Eliminating halfadder/1
+53 -fulladder(A) | halfadder(h1(A)) # label(fulladder_halfadder1) # label(axiom).  [assumption].
+54 -halfadder(A) | logic_and(and1(A)) # label(halfadder_and1) # label(axiom).  [assumption].
+55 -halfadder(A) | logic_and(and2(A)) # label(halfadder_and2) # label(axiom).  [assumption].
+56 -halfadder(A) | logic_not(not1(A)) # label(halfadder_not1) # label(axiom).  [assumption].
+57 -halfadder(A) | logic_or(or1(A)) # label(halfadder_or1) # label(axiom).  [assumption].
+Derived: -fulladder(A) | logic_and(and1(h1(A))).  [resolve(53,b,54,a)].
+Derived: -fulladder(A) | logic_and(and2(h1(A))).  [resolve(53,b,55,a)].
+Derived: -fulladder(A) | logic_not(not1(h1(A))).  [resolve(53,b,56,a)].
+Derived: -fulladder(A) | logic_or(or1(h1(A))).  [resolve(53,b,57,a)].
+58 -fulladder(A) | halfadder(h2(A)) # label(fulladder_halfadder2) # label(axiom).  [assumption].
+Derived: -fulladder(A) | logic_and(and1(h2(A))).  [resolve(58,b,54,a)].
+Derived: -fulladder(A) | logic_and(and2(h2(A))).  [resolve(58,b,55,a)].
+Derived: -fulladder(A) | logic_not(not1(h2(A))).  [resolve(58,b,56,a)].
+Derived: -fulladder(A) | logic_or(or1(h2(A))).  [resolve(58,b,57,a)].
+59 -halfadder(A) | -zero(in1(A)) | zero(in1(or1(A))).  [resolve(1,b,2,a)].
+Derived: -zero(in1(h1(A))) | zero(in1(or1(h1(A)))) | -fulladder(A).  [resolve(59,a,53,b)].
+Derived: -zero(in1(h2(A))) | zero(in1(or1(h2(A)))) | -fulladder(A).  [resolve(59,a,58,b)].
+60 -halfadder(A) | -one(in1(A)) | one(in1(or1(A))).  [resolve(1,b,3,a)].
+Derived: -one(in1(h1(A))) | one(in1(or1(h1(A)))) | -fulladder(A).  [resolve(60,a,53,b)].
+Derived: -one(in1(h2(A))) | one(in1(or1(h2(A)))) | -fulladder(A).  [resolve(60,a,58,b)].
+61 -halfadder(A) | -zero(in1(or1(A))) | zero(in1(A)).  [resolve(1,b,4,a)].
+Derived: -zero(in1(or1(h1(A)))) | zero(in1(h1(A))) | -fulladder(A).  [resolve(61,a,53,b)].
+Derived: -zero(in1(or1(h2(A)))) | zero(in1(h2(A))) | -fulladder(A).  [resolve(61,a,58,b)].
+62 -halfadder(A) | -one(in1(or1(A))) | one(in1(A)).  [resolve(1,b,5,a)].
+Derived: -one(in1(or1(h1(A)))) | one(in1(h1(A))) | -fulladder(A).  [resolve(62,a,53,b)].
+Derived: -one(in1(or1(h2(A)))) | one(in1(h2(A))) | -fulladder(A).  [resolve(62,a,58,b)].
+63 -halfadder(A) | -zero(in2(A)) | zero(in2(or1(A))).  [resolve(6,b,2,a)].
+Derived: -zero(in2(h1(A))) | zero(in2(or1(h1(A)))) | -fulladder(A).  [resolve(63,a,53,b)].
+Derived: -zero(in2(h2(A))) | zero(in2(or1(h2(A)))) | -fulladder(A).  [resolve(63,a,58,b)].
+64 -halfadder(A) | -one(in2(A)) | one(in2(or1(A))).  [resolve(6,b,3,a)].
+Derived: -one(in2(h1(A))) | one(in2(or1(h1(A)))) | -fulladder(A).  [resolve(64,a,53,b)].
+Derived: -one(in2(h2(A))) | one(in2(or1(h2(A)))) | -fulladder(A).  [resolve(64,a,58,b)].
+65 -halfadder(A) | -zero(in2(or1(A))) | zero(in2(A)).  [resolve(6,b,4,a)].
+Derived: -zero(in2(or1(h1(A)))) | zero(in2(h1(A))) | -fulladder(A).  [resolve(65,a,53,b)].
+Derived: -zero(in2(or1(h2(A)))) | zero(in2(h2(A))) | -fulladder(A).  [resolve(65,a,58,b)].
+66 -halfadder(A) | -one(in2(or1(A))) | one(in2(A)).  [resolve(6,b,5,a)].
+Derived: -one(in2(or1(h1(A)))) | one(in2(h1(A))) | -fulladder(A).  [resolve(66,a,53,b)].
+Derived: -one(in2(or1(h2(A)))) | one(in2(h2(A))) | -fulladder(A).  [resolve(66,a,58,b)].
+67 -halfadder(A) | -zero(in1(A)) | zero(in1(and2(A))).  [resolve(7,b,2,a)].
+Derived: -zero(in1(h1(A))) | zero(in1(and2(h1(A)))) | -fulladder(A).  [resolve(67,a,53,b)].
+Derived: -zero(in1(h2(A))) | zero(in1(and2(h2(A)))) | -fulladder(A).  [resolve(67,a,58,b)].
+68 -halfadder(A) | -one(in1(A)) | one(in1(and2(A))).  [resolve(7,b,3,a)].
+Derived: -one(in1(h1(A))) | one(in1(and2(h1(A)))) | -fulladder(A).  [resolve(68,a,53,b)].
+Derived: -one(in1(h2(A))) | one(in1(and2(h2(A)))) | -fulladder(A).  [resolve(68,a,58,b)].
+69 -halfadder(A) | -zero(in1(and2(A))) | zero(in1(A)).  [resolve(7,b,4,a)].
+Derived: -zero(in1(and2(h1(A)))) | zero(in1(h1(A))) | -fulladder(A).  [resolve(69,a,53,b)].
+Derived: -zero(in1(and2(h2(A)))) | zero(in1(h2(A))) | -fulladder(A).  [resolve(69,a,58,b)].
+70 -halfadder(A) | -one(in1(and2(A))) | one(in1(A)).  [resolve(7,b,5,a)].
+Derived: -one(in1(and2(h1(A)))) | one(in1(h1(A))) | -fulladder(A).  [resolve(70,a,53,b)].
+Derived: -one(in1(and2(h2(A)))) | one(in1(h2(A))) | -fulladder(A).  [resolve(70,a,58,b)].
+71 -halfadder(A) | -zero(in2(A)) | zero(in2(and2(A))).  [resolve(8,b,2,a)].
+Derived: -zero(in2(h1(A))) | zero(in2(and2(h1(A)))) | -fulladder(A).  [resolve(71,a,53,b)].
+Derived: -zero(in2(h2(A))) | zero(in2(and2(h2(A)))) | -fulladder(A).  [resolve(71,a,58,b)].
+72 -halfadder(A) | -one(in2(A)) | one(in2(and2(A))).  [resolve(8,b,3,a)].
+Derived: -one(in2(h1(A))) | one(in2(and2(h1(A)))) | -fulladder(A).  [resolve(72,a,53,b)].
+Derived: -one(in2(h2(A))) | one(in2(and2(h2(A)))) | -fulladder(A).  [resolve(72,a,58,b)].
+73 -halfadder(A) | -zero(in2(and2(A))) | zero(in2(A)).  [resolve(8,b,4,a)].
+Derived: -zero(in2(and2(h1(A)))) | zero(in2(h1(A))) | -fulladder(A).  [resolve(73,a,53,b)].
+Derived: -zero(in2(and2(h2(A)))) | zero(in2(h2(A))) | -fulladder(A).  [resolve(73,a,58,b)].
+74 -halfadder(A) | -one(in2(and2(A))) | one(in2(A)).  [resolve(8,b,5,a)].
+Derived: -one(in2(and2(h1(A)))) | one(in2(h1(A))) | -fulladder(A).  [resolve(74,a,53,b)].
+Derived: -one(in2(and2(h2(A)))) | one(in2(h2(A))) | -fulladder(A).  [resolve(74,a,58,b)].
+75 -halfadder(A) | -zero(outs(A)) | zero(out1(and1(A))).  [resolve(9,b,2,a)].
+Derived: -zero(outs(h1(A))) | zero(out1(and1(h1(A)))) | -fulladder(A).  [resolve(75,a,53,b)].
+Derived: -zero(outs(h2(A))) | zero(out1(and1(h2(A)))) | -fulladder(A).  [resolve(75,a,58,b)].
+76 -halfadder(A) | -one(outs(A)) | one(out1(and1(A))).  [resolve(9,b,3,a)].
+Derived: -one(outs(h1(A))) | one(out1(and1(h1(A)))) | -fulladder(A).  [resolve(76,a,53,b)].
+Derived: -one(outs(h2(A))) | one(out1(and1(h2(A)))) | -fulladder(A).  [resolve(76,a,58,b)].
+77 -halfadder(A) | -zero(out1(and1(A))) | zero(outs(A)).  [resolve(9,b,4,a)].
+Derived: -zero(out1(and1(h1(A)))) | zero(outs(h1(A))) | -fulladder(A).  [resolve(77,a,53,b)].
+Derived: -zero(out1(and1(h2(A)))) | zero(outs(h2(A))) | -fulladder(A).  [resolve(77,a,58,b)].
+78 -halfadder(A) | -one(out1(and1(A))) | one(outs(A)).  [resolve(9,b,5,a)].
+Derived: -one(out1(and1(h1(A)))) | one(outs(h1(A))) | -fulladder(A).  [resolve(78,a,53,b)].
+Derived: -one(out1(and1(h2(A)))) | one(outs(h2(A))) | -fulladder(A).  [resolve(78,a,58,b)].
+79 -halfadder(A) | -zero(outc(A)) | zero(out1(and2(A))).  [resolve(10,b,2,a)].
+Derived: -zero(outc(h1(A))) | zero(out1(and2(h1(A)))) | -fulladder(A).  [resolve(79,a,53,b)].
+Derived: -zero(outc(h2(A))) | zero(out1(and2(h2(A)))) | -fulladder(A).  [resolve(79,a,58,b)].
+80 -halfadder(A) | -one(outc(A)) | one(out1(and2(A))).  [resolve(10,b,3,a)].
+Derived: -one(outc(h1(A))) | one(out1(and2(h1(A)))) | -fulladder(A).  [resolve(80,a,53,b)].
+Derived: -one(outc(h2(A))) | one(out1(and2(h2(A)))) | -fulladder(A).  [resolve(80,a,58,b)].
+81 -halfadder(A) | -zero(out1(and2(A))) | zero(outc(A)).  [resolve(10,b,4,a)].
+Derived: -zero(out1(and2(h1(A)))) | zero(outc(h1(A))) | -fulladder(A).  [resolve(81,a,53,b)].
+Derived: -zero(out1(and2(h2(A)))) | zero(outc(h2(A))) | -fulladder(A).  [resolve(81,a,58,b)].
+82 -halfadder(A) | -one(out1(and2(A))) | one(outc(A)).  [resolve(10,b,5,a)].
+Derived: -one(out1(and2(h1(A)))) | one(outc(h1(A))) | -fulladder(A).  [resolve(82,a,53,b)].
+Derived: -one(out1(and2(h2(A)))) | one(outc(h2(A))) | -fulladder(A).  [resolve(82,a,58,b)].
+83 -halfadder(A) | -zero(out1(or1(A))) | zero(in1(and1(A))).  [resolve(11,b,2,a)].
+Derived: -zero(out1(or1(h1(A)))) | zero(in1(and1(h1(A)))) | -fulladder(A).  [resolve(83,a,53,b)].
+Derived: -zero(out1(or1(h2(A)))) | zero(in1(and1(h2(A)))) | -fulladder(A).  [resolve(83,a,58,b)].
+84 -halfadder(A) | -one(out1(or1(A))) | one(in1(and1(A))).  [resolve(11,b,3,a)].
+Derived: -one(out1(or1(h1(A)))) | one(in1(and1(h1(A)))) | -fulladder(A).  [resolve(84,a,53,b)].
+Derived: -one(out1(or1(h2(A)))) | one(in1(and1(h2(A)))) | -fulladder(A).  [resolve(84,a,58,b)].
+85 -halfadder(A) | -zero(in1(and1(A))) | zero(out1(or1(A))).  [resolve(11,b,4,a)].
+Derived: -zero(in1(and1(h1(A)))) | zero(out1(or1(h1(A)))) | -fulladder(A).  [resolve(85,a,53,b)].
+Derived: -zero(in1(and1(h2(A)))) | zero(out1(or1(h2(A)))) | -fulladder(A).  [resolve(85,a,58,b)].
+86 -halfadder(A) | -one(in1(and1(A))) | one(out1(or1(A))).  [resolve(11,b,5,a)].
+Derived: -one(in1(and1(h1(A)))) | one(out1(or1(h1(A)))) | -fulladder(A).  [resolve(86,a,53,b)].
+Derived: -one(in1(and1(h2(A)))) | one(out1(or1(h2(A)))) | -fulladder(A).  [resolve(86,a,58,b)].
+87 -halfadder(A) | -zero(out1(and2(A))) | zero(in1(not1(A))).  [resolve(12,b,2,a)].
+Derived: -zero(out1(and2(h1(A)))) | zero(in1(not1(h1(A)))) | -fulladder(A).  [resolve(87,a,53,b)].
+Derived: -zero(out1(and2(h2(A)))) | zero(in1(not1(h2(A)))) | -fulladder(A).  [resolve(87,a,58,b)].
+88 -halfadder(A) | -one(out1(and2(A))) | one(in1(not1(A))).  [resolve(12,b,3,a)].
+Derived: -one(out1(and2(h1(A)))) | one(in1(not1(h1(A)))) | -fulladder(A).  [resolve(88,a,53,b)].
+Derived: -one(out1(and2(h2(A)))) | one(in1(not1(h2(A)))) | -fulladder(A).  [resolve(88,a,58,b)].
+89 -halfadder(A) | -zero(in1(not1(A))) | zero(out1(and2(A))).  [resolve(12,b,4,a)].
+Derived: -zero(in1(not1(h1(A)))) | zero(out1(and2(h1(A)))) | -fulladder(A).  [resolve(89,a,53,b)].
+Derived: -zero(in1(not1(h2(A)))) | zero(out1(and2(h2(A)))) | -fulladder(A).  [resolve(89,a,58,b)].
+90 -halfadder(A) | -one(in1(not1(A))) | one(out1(and2(A))).  [resolve(12,b,5,a)].
+Derived: -one(in1(not1(h1(A)))) | one(out1(and2(h1(A)))) | -fulladder(A).  [resolve(90,a,53,b)].
+Derived: -one(in1(not1(h2(A)))) | one(out1(and2(h2(A)))) | -fulladder(A).  [resolve(90,a,58,b)].
+91 -halfadder(A) | -zero(out1(not1(A))) | zero(in2(and1(A))).  [resolve(13,b,2,a)].
+Derived: -zero(out1(not1(h1(A)))) | zero(in2(and1(h1(A)))) | -fulladder(A).  [resolve(91,a,53,b)].
+Derived: -zero(out1(not1(h2(A)))) | zero(in2(and1(h2(A)))) | -fulladder(A).  [resolve(91,a,58,b)].
+92 -halfadder(A) | -one(out1(not1(A))) | one(in2(and1(A))).  [resolve(13,b,3,a)].
+Derived: -one(out1(not1(h1(A)))) | one(in2(and1(h1(A)))) | -fulladder(A).  [resolve(92,a,53,b)].
+Derived: -one(out1(not1(h2(A)))) | one(in2(and1(h2(A)))) | -fulladder(A).  [resolve(92,a,58,b)].
+93 -halfadder(A) | -zero(in2(and1(A))) | zero(out1(not1(A))).  [resolve(13,b,4,a)].
+Derived: -zero(in2(and1(h1(A)))) | zero(out1(not1(h1(A)))) | -fulladder(A).  [resolve(93,a,53,b)].
+Derived: -zero(in2(and1(h2(A)))) | zero(out1(not1(h2(A)))) | -fulladder(A).  [resolve(93,a,58,b)].
+94 -halfadder(A) | -one(in2(and1(A))) | one(out1(not1(A))).  [resolve(13,b,5,a)].
+Derived: -one(in2(and1(h1(A)))) | one(out1(not1(h1(A)))) | -fulladder(A).  [resolve(94,a,53,b)].
+Derived: -one(in2(and1(h2(A)))) | one(out1(not1(h2(A)))) | -fulladder(A).  [resolve(94,a,58,b)].
+
+Eliminating fulladder/1
+95 -nbit_adder2(A) | fulladder(f1(A)) # label(nbit_adder_fulladder1) # label(axiom).  [assumption].
+96 -fulladder(A) | logic_or(or1(A)) # label(fulladder_or1) # label(axiom).  [assumption].
+Derived: -nbit_adder2(A) | logic_or(or1(f1(A))).  [resolve(95,b,96,a)].
+97 -nbit_adder2(A) | fulladder(f2(A)) # label(nbit_adder_fulladder2) # label(axiom).  [assumption].
+Derived: -nbit_adder2(A) | logic_or(or1(f2(A))).  [resolve(97,b,96,a)].
+98 -fulladder(A) | -zero(outs(h1(A))) | zero(in2(h2(A))).  [resolve(14,b,2,a)].
+Derived: -zero(outs(h1(f1(A)))) | zero(in2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(98,a,95,b)].
+Derived: -zero(outs(h1(f2(A)))) | zero(in2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(98,a,97,b)].
+99 -fulladder(A) | -one(outs(h1(A))) | one(in2(h2(A))).  [resolve(14,b,3,a)].
+Derived: -one(outs(h1(f1(A)))) | one(in2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(99,a,95,b)].
+Derived: -one(outs(h1(f2(A)))) | one(in2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(99,a,97,b)].
+100 -fulladder(A) | -zero(in2(h2(A))) | zero(outs(h1(A))).  [resolve(14,b,4,a)].
+Derived: -zero(in2(h2(f1(A)))) | zero(outs(h1(f1(A)))) | -nbit_adder2(A).  [resolve(100,a,95,b)].
+Derived: -zero(in2(h2(f2(A)))) | zero(outs(h1(f2(A)))) | -nbit_adder2(A).  [resolve(100,a,97,b)].
+101 -fulladder(A) | -one(in2(h2(A))) | one(outs(h1(A))).  [resolve(14,b,5,a)].
+Derived: -one(in2(h2(f1(A)))) | one(outs(h1(f1(A)))) | -nbit_adder2(A).  [resolve(101,a,95,b)].
+Derived: -one(in2(h2(f2(A)))) | one(outs(h1(f2(A)))) | -nbit_adder2(A).  [resolve(101,a,97,b)].
+102 -fulladder(A) | -zero(outc(h1(A))) | zero(in2(or1(A))).  [resolve(15,b,2,a)].
+Derived: -zero(outc(h1(f1(A)))) | zero(in2(or1(f1(A)))) | -nbit_adder2(A).  [resolve(102,a,95,b)].
+Derived: -zero(outc(h1(f2(A)))) | zero(in2(or1(f2(A)))) | -nbit_adder2(A).  [resolve(102,a,97,b)].
+103 -fulladder(A) | -one(outc(h1(A))) | one(in2(or1(A))).  [resolve(15,b,3,a)].
+Derived: -one(outc(h1(f1(A)))) | one(in2(or1(f1(A)))) | -nbit_adder2(A).  [resolve(103,a,95,b)].
+Derived: -one(outc(h1(f2(A)))) | one(in2(or1(f2(A)))) | -nbit_adder2(A).  [resolve(103,a,97,b)].
+104 -fulladder(A) | -zero(in2(or1(A))) | zero(outc(h1(A))).  [resolve(15,b,4,a)].
+Derived: -zero(in2(or1(f1(A)))) | zero(outc(h1(f1(A)))) | -nbit_adder2(A).  [resolve(104,a,95,b)].
+Derived: -zero(in2(or1(f2(A)))) | zero(outc(h1(f2(A)))) | -nbit_adder2(A).  [resolve(104,a,97,b)].
+105 -fulladder(A) | -one(in2(or1(A))) | one(outc(h1(A))).  [resolve(15,b,5,a)].
+Derived: -one(in2(or1(f1(A)))) | one(outc(h1(f1(A)))) | -nbit_adder2(A).  [resolve(105,a,95,b)].
+Derived: -one(in2(or1(f2(A)))) | one(outc(h1(f2(A)))) | -nbit_adder2(A).  [resolve(105,a,97,b)].
+106 -fulladder(A) | -zero(outc(h2(A))) | zero(in1(or1(A))).  [resolve(16,b,2,a)].
+Derived: -zero(outc(h2(f1(A)))) | zero(in1(or1(f1(A)))) | -nbit_adder2(A).  [resolve(106,a,95,b)].
+Derived: -zero(outc(h2(f2(A)))) | zero(in1(or1(f2(A)))) | -nbit_adder2(A).  [resolve(106,a,97,b)].
+107 -fulladder(A) | -one(outc(h2(A))) | one(in1(or1(A))).  [resolve(16,b,3,a)].
+Derived: -one(outc(h2(f1(A)))) | one(in1(or1(f1(A)))) | -nbit_adder2(A).  [resolve(107,a,95,b)].
+Derived: -one(outc(h2(f2(A)))) | one(in1(or1(f2(A)))) | -nbit_adder2(A).  [resolve(107,a,97,b)].
+108 -fulladder(A) | -zero(in1(or1(A))) | zero(outc(h2(A))).  [resolve(16,b,4,a)].
+Derived: -zero(in1(or1(f1(A)))) | zero(outc(h2(f1(A)))) | -nbit_adder2(A).  [resolve(108,a,95,b)].
+Derived: -zero(in1(or1(f2(A)))) | zero(outc(h2(f2(A)))) | -nbit_adder2(A).  [resolve(108,a,97,b)].
+109 -fulladder(A) | -one(in1(or1(A))) | one(outc(h2(A))).  [resolve(16,b,5,a)].
+Derived: -one(in1(or1(f1(A)))) | one(outc(h2(f1(A)))) | -nbit_adder2(A).  [resolve(109,a,95,b)].
+Derived: -one(in1(or1(f2(A)))) | one(outc(h2(f2(A)))) | -nbit_adder2(A).  [resolve(109,a,97,b)].
+110 -fulladder(A) | -zero(in1(A)) | zero(in1(h2(A))).  [resolve(17,b,2,a)].
+Derived: -zero(in1(f1(A))) | zero(in1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(110,a,95,b)].
+Derived: -zero(in1(f2(A))) | zero(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(110,a,97,b)].
+111 -fulladder(A) | -one(in1(A)) | one(in1(h2(A))).  [resolve(17,b,3,a)].
+Derived: -one(in1(f1(A))) | one(in1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(111,a,95,b)].
+Derived: -one(in1(f2(A))) | one(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(111,a,97,b)].
+112 -fulladder(A) | -zero(in1(h2(A))) | zero(in1(A)).  [resolve(17,b,4,a)].
+Derived: -zero(in1(h2(f1(A)))) | zero(in1(f1(A))) | -nbit_adder2(A).  [resolve(112,a,95,b)].
+Derived: -zero(in1(h2(f2(A)))) | zero(in1(f2(A))) | -nbit_adder2(A).  [resolve(112,a,97,b)].
+113 -fulladder(A) | -one(in1(h2(A))) | one(in1(A)).  [resolve(17,b,5,a)].
+Derived: -one(in1(h2(f1(A)))) | one(in1(f1(A))) | -nbit_adder2(A).  [resolve(113,a,95,b)].
+Derived: -one(in1(h2(f2(A)))) | one(in1(f2(A))) | -nbit_adder2(A).  [resolve(113,a,97,b)].
+114 -fulladder(A) | -zero(in2(A)) | zero(in1(h1(A))).  [resolve(18,b,2,a)].
+Derived: -zero(in2(f1(A))) | zero(in1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(114,a,95,b)].
+Derived: -zero(in2(f2(A))) | zero(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(114,a,97,b)].
+115 -fulladder(A) | -one(in2(A)) | one(in1(h1(A))).  [resolve(18,b,3,a)].
+Derived: -one(in2(f1(A))) | one(in1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(115,a,95,b)].
+Derived: -one(in2(f2(A))) | one(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(115,a,97,b)].
+116 -fulladder(A) | -zero(in1(h1(A))) | zero(in2(A)).  [resolve(18,b,4,a)].
+Derived: -zero(in1(h1(f1(A)))) | zero(in2(f1(A))) | -nbit_adder2(A).  [resolve(116,a,95,b)].
+Derived: -zero(in1(h1(f2(A)))) | zero(in2(f2(A))) | -nbit_adder2(A).  [resolve(116,a,97,b)].
+117 -fulladder(A) | -one(in1(h1(A))) | one(in2(A)).  [resolve(18,b,5,a)].
+Derived: -one(in1(h1(f1(A)))) | one(in2(f1(A))) | -nbit_adder2(A).  [resolve(117,a,95,b)].
+Derived: -one(in1(h1(f2(A)))) | one(in2(f2(A))) | -nbit_adder2(A).  [resolve(117,a,97,b)].
+118 -fulladder(A) | -zero(inc(A)) | zero(in2(h1(A))).  [resolve(19,b,2,a)].
+Derived: -zero(inc(f1(A))) | zero(in2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(118,a,95,b)].
+Derived: -zero(inc(f2(A))) | zero(in2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(118,a,97,b)].
+119 -fulladder(A) | -one(inc(A)) | one(in2(h1(A))).  [resolve(19,b,3,a)].
+Derived: -one(inc(f1(A))) | one(in2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(119,a,95,b)].
+Derived: -one(inc(f2(A))) | one(in2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(119,a,97,b)].
+120 -fulladder(A) | -zero(in2(h1(A))) | zero(inc(A)).  [resolve(19,b,4,a)].
+Derived: -zero(in2(h1(f1(A)))) | zero(inc(f1(A))) | -nbit_adder2(A).  [resolve(120,a,95,b)].
+Derived: -zero(in2(h1(f2(A)))) | zero(inc(f2(A))) | -nbit_adder2(A).  [resolve(120,a,97,b)].
+121 -fulladder(A) | -one(in2(h1(A))) | one(inc(A)).  [resolve(19,b,5,a)].
+Derived: -one(in2(h1(f1(A)))) | one(inc(f1(A))) | -nbit_adder2(A).  [resolve(121,a,95,b)].
+Derived: -one(in2(h1(f2(A)))) | one(inc(f2(A))) | -nbit_adder2(A).  [resolve(121,a,97,b)].
+122 -fulladder(A) | -zero(outs(A)) | zero(outs(h2(A))).  [resolve(20,b,2,a)].
+Derived: -zero(outs(f1(A))) | zero(outs(h2(f1(A)))) | -nbit_adder2(A).  [resolve(122,a,95,b)].
+Derived: -zero(outs(f2(A))) | zero(outs(h2(f2(A)))) | -nbit_adder2(A).  [resolve(122,a,97,b)].
+123 -fulladder(A) | -one(outs(A)) | one(outs(h2(A))).  [resolve(20,b,3,a)].
+Derived: -one(outs(f1(A))) | one(outs(h2(f1(A)))) | -nbit_adder2(A).  [resolve(123,a,95,b)].
+Derived: -one(outs(f2(A))) | one(outs(h2(f2(A)))) | -nbit_adder2(A).  [resolve(123,a,97,b)].
+124 -fulladder(A) | -zero(outs(h2(A))) | zero(outs(A)).  [resolve(20,b,4,a)].
+Derived: -zero(outs(h2(f1(A)))) | zero(outs(f1(A))) | -nbit_adder2(A).  [resolve(124,a,95,b)].
+Derived: -zero(outs(h2(f2(A)))) | zero(outs(f2(A))) | -nbit_adder2(A).  [resolve(124,a,97,b)].
+125 -fulladder(A) | -one(outs(h2(A))) | one(outs(A)).  [resolve(20,b,5,a)].
+Derived: -one(outs(h2(f1(A)))) | one(outs(f1(A))) | -nbit_adder2(A).  [resolve(125,a,95,b)].
+Derived: -one(outs(h2(f2(A)))) | one(outs(f2(A))) | -nbit_adder2(A).  [resolve(125,a,97,b)].
+126 -fulladder(A) | -zero(outc(A)) | zero(out1(or1(A))).  [resolve(21,b,2,a)].
+Derived: -zero(outc(f1(A))) | zero(out1(or1(f1(A)))) | -nbit_adder2(A).  [resolve(126,a,95,b)].
+Derived: -zero(outc(f2(A))) | zero(out1(or1(f2(A)))) | -nbit_adder2(A).  [resolve(126,a,97,b)].
+127 -fulladder(A) | -one(outc(A)) | one(out1(or1(A))).  [resolve(21,b,3,a)].
+Derived: -one(outc(f1(A))) | one(out1(or1(f1(A)))) | -nbit_adder2(A).  [resolve(127,a,95,b)].
+Derived: -one(outc(f2(A))) | one(out1(or1(f2(A)))) | -nbit_adder2(A).  [resolve(127,a,97,b)].
+128 -fulladder(A) | -zero(out1(or1(A))) | zero(outc(A)).  [resolve(21,b,4,a)].
+Derived: -zero(out1(or1(f1(A)))) | zero(outc(f1(A))) | -nbit_adder2(A).  [resolve(128,a,95,b)].
+Derived: -zero(out1(or1(f2(A)))) | zero(outc(f2(A))) | -nbit_adder2(A).  [resolve(128,a,97,b)].
+129 -fulladder(A) | -one(out1(or1(A))) | one(outc(A)).  [resolve(21,b,5,a)].
+Derived: -one(out1(or1(f1(A)))) | one(outc(f1(A))) | -nbit_adder2(A).  [resolve(129,a,95,b)].
+Derived: -one(out1(or1(f2(A)))) | one(outc(f2(A))) | -nbit_adder2(A).  [resolve(129,a,97,b)].
+130 -fulladder(A) | logic_and(and1(h1(A))).  [resolve(53,b,54,a)].
+Derived: logic_and(and1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(130,a,95,b)].
+Derived: logic_and(and1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(130,a,97,b)].
+131 -fulladder(A) | logic_and(and2(h1(A))).  [resolve(53,b,55,a)].
+Derived: logic_and(and2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(131,a,95,b)].
+Derived: logic_and(and2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(131,a,97,b)].
+132 -fulladder(A) | logic_not(not1(h1(A))).  [resolve(53,b,56,a)].
+Derived: logic_not(not1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(132,a,95,b)].
+Derived: logic_not(not1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(132,a,97,b)].
+133 -fulladder(A) | logic_or(or1(h1(A))).  [resolve(53,b,57,a)].
+Derived: logic_or(or1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(133,a,95,b)].
+Derived: logic_or(or1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(133,a,97,b)].
+134 -fulladder(A) | logic_and(and1(h2(A))).  [resolve(58,b,54,a)].
+Derived: logic_and(and1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(134,a,95,b)].
+Derived: logic_and(and1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(134,a,97,b)].
+135 -fulladder(A) | logic_and(and2(h2(A))).  [resolve(58,b,55,a)].
+Derived: logic_and(and2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(135,a,95,b)].
+Derived: logic_and(and2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(135,a,97,b)].
+136 -fulladder(A) | logic_not(not1(h2(A))).  [resolve(58,b,56,a)].
+Derived: logic_not(not1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(136,a,95,b)].
+Derived: logic_not(not1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(136,a,97,b)].
+137 -fulladder(A) | logic_or(or1(h2(A))).  [resolve(58,b,57,a)].
+Derived: logic_or(or1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(137,a,95,b)].
+Derived: logic_or(or1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(137,a,97,b)].
+138 -zero(in1(h1(A))) | zero(in1(or1(h1(A)))) | -fulladder(A).  [resolve(59,a,53,b)].
+Derived: -zero(in1(h1(f1(A)))) | zero(in1(or1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(138,c,95,b)].
+Derived: -zero(in1(h1(f2(A)))) | zero(in1(or1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(138,c,97,b)].
+139 -zero(in1(h2(A))) | zero(in1(or1(h2(A)))) | -fulladder(A).  [resolve(59,a,58,b)].
+Derived: -zero(in1(h2(f1(A)))) | zero(in1(or1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(139,c,95,b)].
+Derived: -zero(in1(h2(f2(A)))) | zero(in1(or1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(139,c,97,b)].
+140 -one(in1(h1(A))) | one(in1(or1(h1(A)))) | -fulladder(A).  [resolve(60,a,53,b)].
+Derived: -one(in1(h1(f1(A)))) | one(in1(or1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(140,c,95,b)].
+Derived: -one(in1(h1(f2(A)))) | one(in1(or1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(140,c,97,b)].
+141 -one(in1(h2(A))) | one(in1(or1(h2(A)))) | -fulladder(A).  [resolve(60,a,58,b)].
+Derived: -one(in1(h2(f1(A)))) | one(in1(or1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(141,c,95,b)].
+Derived: -one(in1(h2(f2(A)))) | one(in1(or1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(141,c,97,b)].
+142 -zero(in1(or1(h1(A)))) | zero(in1(h1(A))) | -fulladder(A).  [resolve(61,a,53,b)].
+Derived: -zero(in1(or1(h1(f1(A))))) | zero(in1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(142,c,95,b)].
+Derived: -zero(in1(or1(h1(f2(A))))) | zero(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(142,c,97,b)].
+143 -zero(in1(or1(h2(A)))) | zero(in1(h2(A))) | -fulladder(A).  [resolve(61,a,58,b)].
+Derived: -zero(in1(or1(h2(f1(A))))) | zero(in1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(143,c,95,b)].
+Derived: -zero(in1(or1(h2(f2(A))))) | zero(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(143,c,97,b)].
+144 -one(in1(or1(h1(A)))) | one(in1(h1(A))) | -fulladder(A).  [resolve(62,a,53,b)].
+Derived: -one(in1(or1(h1(f1(A))))) | one(in1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(144,c,95,b)].
+Derived: -one(in1(or1(h1(f2(A))))) | one(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(144,c,97,b)].
+145 -one(in1(or1(h2(A)))) | one(in1(h2(A))) | -fulladder(A).  [resolve(62,a,58,b)].
+Derived: -one(in1(or1(h2(f1(A))))) | one(in1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(145,c,95,b)].
+Derived: -one(in1(or1(h2(f2(A))))) | one(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(145,c,97,b)].
+146 -zero(in2(h1(A))) | zero(in2(or1(h1(A)))) | -fulladder(A).  [resolve(63,a,53,b)].
+Derived: -zero(in2(h1(f1(A)))) | zero(in2(or1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(146,c,95,b)].
+Derived: -zero(in2(h1(f2(A)))) | zero(in2(or1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(146,c,97,b)].
+147 -zero(in2(h2(A))) | zero(in2(or1(h2(A)))) | -fulladder(A).  [resolve(63,a,58,b)].
+Derived: -zero(in2(h2(f1(A)))) | zero(in2(or1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(147,c,95,b)].
+Derived: -zero(in2(h2(f2(A)))) | zero(in2(or1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(147,c,97,b)].
+148 -one(in2(h1(A))) | one(in2(or1(h1(A)))) | -fulladder(A).  [resolve(64,a,53,b)].
+Derived: -one(in2(h1(f1(A)))) | one(in2(or1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(148,c,95,b)].
+Derived: -one(in2(h1(f2(A)))) | one(in2(or1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(148,c,97,b)].
+149 -one(in2(h2(A))) | one(in2(or1(h2(A)))) | -fulladder(A).  [resolve(64,a,58,b)].
+Derived: -one(in2(h2(f1(A)))) | one(in2(or1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(149,c,95,b)].
+Derived: -one(in2(h2(f2(A)))) | one(in2(or1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(149,c,97,b)].
+150 -zero(in2(or1(h1(A)))) | zero(in2(h1(A))) | -fulladder(A).  [resolve(65,a,53,b)].
+Derived: -zero(in2(or1(h1(f1(A))))) | zero(in2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(150,c,95,b)].
+Derived: -zero(in2(or1(h1(f2(A))))) | zero(in2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(150,c,97,b)].
+151 -zero(in2(or1(h2(A)))) | zero(in2(h2(A))) | -fulladder(A).  [resolve(65,a,58,b)].
+Derived: -zero(in2(or1(h2(f1(A))))) | zero(in2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(151,c,95,b)].
+Derived: -zero(in2(or1(h2(f2(A))))) | zero(in2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(151,c,97,b)].
+152 -one(in2(or1(h1(A)))) | one(in2(h1(A))) | -fulladder(A).  [resolve(66,a,53,b)].
+Derived: -one(in2(or1(h1(f1(A))))) | one(in2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(152,c,95,b)].
+Derived: -one(in2(or1(h1(f2(A))))) | one(in2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(152,c,97,b)].
+153 -one(in2(or1(h2(A)))) | one(in2(h2(A))) | -fulladder(A).  [resolve(66,a,58,b)].
+Derived: -one(in2(or1(h2(f1(A))))) | one(in2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(153,c,95,b)].
+Derived: -one(in2(or1(h2(f2(A))))) | one(in2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(153,c,97,b)].
+154 -zero(in1(h1(A))) | zero(in1(and2(h1(A)))) | -fulladder(A).  [resolve(67,a,53,b)].
+Derived: -zero(in1(h1(f1(A)))) | zero(in1(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(154,c,95,b)].
+Derived: -zero(in1(h1(f2(A)))) | zero(in1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(154,c,97,b)].
+155 -zero(in1(h2(A))) | zero(in1(and2(h2(A)))) | -fulladder(A).  [resolve(67,a,58,b)].
+Derived: -zero(in1(h2(f1(A)))) | zero(in1(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(155,c,95,b)].
+Derived: -zero(in1(h2(f2(A)))) | zero(in1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(155,c,97,b)].
+156 -one(in1(h1(A))) | one(in1(and2(h1(A)))) | -fulladder(A).  [resolve(68,a,53,b)].
+Derived: -one(in1(h1(f1(A)))) | one(in1(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(156,c,95,b)].
+Derived: -one(in1(h1(f2(A)))) | one(in1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(156,c,97,b)].
+157 -one(in1(h2(A))) | one(in1(and2(h2(A)))) | -fulladder(A).  [resolve(68,a,58,b)].
+Derived: -one(in1(h2(f1(A)))) | one(in1(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(157,c,95,b)].
+Derived: -one(in1(h2(f2(A)))) | one(in1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(157,c,97,b)].
+158 -zero(in1(and2(h1(A)))) | zero(in1(h1(A))) | -fulladder(A).  [resolve(69,a,53,b)].
+Derived: -zero(in1(and2(h1(f1(A))))) | zero(in1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(158,c,95,b)].
+Derived: -zero(in1(and2(h1(f2(A))))) | zero(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(158,c,97,b)].
+159 -zero(in1(and2(h2(A)))) | zero(in1(h2(A))) | -fulladder(A).  [resolve(69,a,58,b)].
+Derived: -zero(in1(and2(h2(f1(A))))) | zero(in1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(159,c,95,b)].
+Derived: -zero(in1(and2(h2(f2(A))))) | zero(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(159,c,97,b)].
+160 -one(in1(and2(h1(A)))) | one(in1(h1(A))) | -fulladder(A).  [resolve(70,a,53,b)].
+Derived: -one(in1(and2(h1(f1(A))))) | one(in1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(160,c,95,b)].
+Derived: -one(in1(and2(h1(f2(A))))) | one(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(160,c,97,b)].
+161 -one(in1(and2(h2(A)))) | one(in1(h2(A))) | -fulladder(A).  [resolve(70,a,58,b)].
+Derived: -one(in1(and2(h2(f1(A))))) | one(in1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(161,c,95,b)].
+Derived: -one(in1(and2(h2(f2(A))))) | one(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(161,c,97,b)].
+162 -zero(in2(h1(A))) | zero(in2(and2(h1(A)))) | -fulladder(A).  [resolve(71,a,53,b)].
+Derived: -zero(in2(h1(f1(A)))) | zero(in2(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(162,c,95,b)].
+Derived: -zero(in2(h1(f2(A)))) | zero(in2(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(162,c,97,b)].
+163 -zero(in2(h2(A))) | zero(in2(and2(h2(A)))) | -fulladder(A).  [resolve(71,a,58,b)].
+Derived: -zero(in2(h2(f1(A)))) | zero(in2(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(163,c,95,b)].
+Derived: -zero(in2(h2(f2(A)))) | zero(in2(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(163,c,97,b)].
+164 -one(in2(h1(A))) | one(in2(and2(h1(A)))) | -fulladder(A).  [resolve(72,a,53,b)].
+Derived: -one(in2(h1(f1(A)))) | one(in2(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(164,c,95,b)].
+Derived: -one(in2(h1(f2(A)))) | one(in2(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(164,c,97,b)].
+165 -one(in2(h2(A))) | one(in2(and2(h2(A)))) | -fulladder(A).  [resolve(72,a,58,b)].
+Derived: -one(in2(h2(f1(A)))) | one(in2(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(165,c,95,b)].
+Derived: -one(in2(h2(f2(A)))) | one(in2(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(165,c,97,b)].
+166 -zero(in2(and2(h1(A)))) | zero(in2(h1(A))) | -fulladder(A).  [resolve(73,a,53,b)].
+Derived: -zero(in2(and2(h1(f1(A))))) | zero(in2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(166,c,95,b)].
+Derived: -zero(in2(and2(h1(f2(A))))) | zero(in2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(166,c,97,b)].
+167 -zero(in2(and2(h2(A)))) | zero(in2(h2(A))) | -fulladder(A).  [resolve(73,a,58,b)].
+Derived: -zero(in2(and2(h2(f1(A))))) | zero(in2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(167,c,95,b)].
+Derived: -zero(in2(and2(h2(f2(A))))) | zero(in2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(167,c,97,b)].
+168 -one(in2(and2(h1(A)))) | one(in2(h1(A))) | -fulladder(A).  [resolve(74,a,53,b)].
+Derived: -one(in2(and2(h1(f1(A))))) | one(in2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(168,c,95,b)].
+Derived: -one(in2(and2(h1(f2(A))))) | one(in2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(168,c,97,b)].
+169 -one(in2(and2(h2(A)))) | one(in2(h2(A))) | -fulladder(A).  [resolve(74,a,58,b)].
+Derived: -one(in2(and2(h2(f1(A))))) | one(in2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(169,c,95,b)].
+Derived: -one(in2(and2(h2(f2(A))))) | one(in2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(169,c,97,b)].
+170 -zero(outs(h1(A))) | zero(out1(and1(h1(A)))) | -fulladder(A).  [resolve(75,a,53,b)].
+Derived: -zero(outs(h1(f1(A)))) | zero(out1(and1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(170,c,95,b)].
+Derived: -zero(outs(h1(f2(A)))) | zero(out1(and1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(170,c,97,b)].
+171 -zero(outs(h2(A))) | zero(out1(and1(h2(A)))) | -fulladder(A).  [resolve(75,a,58,b)].
+Derived: -zero(outs(h2(f1(A)))) | zero(out1(and1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(171,c,95,b)].
+Derived: -zero(outs(h2(f2(A)))) | zero(out1(and1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(171,c,97,b)].
+172 -one(outs(h1(A))) | one(out1(and1(h1(A)))) | -fulladder(A).  [resolve(76,a,53,b)].
+Derived: -one(outs(h1(f1(A)))) | one(out1(and1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(172,c,95,b)].
+Derived: -one(outs(h1(f2(A)))) | one(out1(and1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(172,c,97,b)].
+173 -one(outs(h2(A))) | one(out1(and1(h2(A)))) | -fulladder(A).  [resolve(76,a,58,b)].
+Derived: -one(outs(h2(f1(A)))) | one(out1(and1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(173,c,95,b)].
+Derived: -one(outs(h2(f2(A)))) | one(out1(and1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(173,c,97,b)].
+174 -zero(out1(and1(h1(A)))) | zero(outs(h1(A))) | -fulladder(A).  [resolve(77,a,53,b)].
+Derived: -zero(out1(and1(h1(f1(A))))) | zero(outs(h1(f1(A)))) | -nbit_adder2(A).  [resolve(174,c,95,b)].
+Derived: -zero(out1(and1(h1(f2(A))))) | zero(outs(h1(f2(A)))) | -nbit_adder2(A).  [resolve(174,c,97,b)].
+175 -zero(out1(and1(h2(A)))) | zero(outs(h2(A))) | -fulladder(A).  [resolve(77,a,58,b)].
+Derived: -zero(out1(and1(h2(f1(A))))) | zero(outs(h2(f1(A)))) | -nbit_adder2(A).  [resolve(175,c,95,b)].
+Derived: -zero(out1(and1(h2(f2(A))))) | zero(outs(h2(f2(A)))) | -nbit_adder2(A).  [resolve(175,c,97,b)].
+176 -one(out1(and1(h1(A)))) | one(outs(h1(A))) | -fulladder(A).  [resolve(78,a,53,b)].
+Derived: -one(out1(and1(h1(f1(A))))) | one(outs(h1(f1(A)))) | -nbit_adder2(A).  [resolve(176,c,95,b)].
+Derived: -one(out1(and1(h1(f2(A))))) | one(outs(h1(f2(A)))) | -nbit_adder2(A).  [resolve(176,c,97,b)].
+177 -one(out1(and1(h2(A)))) | one(outs(h2(A))) | -fulladder(A).  [resolve(78,a,58,b)].
+Derived: -one(out1(and1(h2(f1(A))))) | one(outs(h2(f1(A)))) | -nbit_adder2(A).  [resolve(177,c,95,b)].
+Derived: -one(out1(and1(h2(f2(A))))) | one(outs(h2(f2(A)))) | -nbit_adder2(A).  [resolve(177,c,97,b)].
+178 -zero(outc(h1(A))) | zero(out1(and2(h1(A)))) | -fulladder(A).  [resolve(79,a,53,b)].
+Derived: -zero(outc(h1(f1(A)))) | zero(out1(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(178,c,95,b)].
+Derived: -zero(outc(h1(f2(A)))) | zero(out1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(178,c,97,b)].
+179 -zero(outc(h2(A))) | zero(out1(and2(h2(A)))) | -fulladder(A).  [resolve(79,a,58,b)].
+Derived: -zero(outc(h2(f1(A)))) | zero(out1(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(179,c,95,b)].
+Derived: -zero(outc(h2(f2(A)))) | zero(out1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(179,c,97,b)].
+180 -one(outc(h1(A))) | one(out1(and2(h1(A)))) | -fulladder(A).  [resolve(80,a,53,b)].
+Derived: -one(outc(h1(f1(A)))) | one(out1(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(180,c,95,b)].
+Derived: -one(outc(h1(f2(A)))) | one(out1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(180,c,97,b)].
+181 -one(outc(h2(A))) | one(out1(and2(h2(A)))) | -fulladder(A).  [resolve(80,a,58,b)].
+Derived: -one(outc(h2(f1(A)))) | one(out1(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(181,c,95,b)].
+Derived: -one(outc(h2(f2(A)))) | one(out1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(181,c,97,b)].
+182 -zero(out1(and2(h1(A)))) | zero(outc(h1(A))) | -fulladder(A).  [resolve(81,a,53,b)].
+Derived: -zero(out1(and2(h1(f1(A))))) | zero(outc(h1(f1(A)))) | -nbit_adder2(A).  [resolve(182,c,95,b)].
+Derived: -zero(out1(and2(h1(f2(A))))) | zero(outc(h1(f2(A)))) | -nbit_adder2(A).  [resolve(182,c,97,b)].
+183 -zero(out1(and2(h2(A)))) | zero(outc(h2(A))) | -fulladder(A).  [resolve(81,a,58,b)].
+Derived: -zero(out1(and2(h2(f1(A))))) | zero(outc(h2(f1(A)))) | -nbit_adder2(A).  [resolve(183,c,95,b)].
+Derived: -zero(out1(and2(h2(f2(A))))) | zero(outc(h2(f2(A)))) | -nbit_adder2(A).  [resolve(183,c,97,b)].
+184 -one(out1(and2(h1(A)))) | one(outc(h1(A))) | -fulladder(A).  [resolve(82,a,53,b)].
+Derived: -one(out1(and2(h1(f1(A))))) | one(outc(h1(f1(A)))) | -nbit_adder2(A).  [resolve(184,c,95,b)].
+Derived: -one(out1(and2(h1(f2(A))))) | one(outc(h1(f2(A)))) | -nbit_adder2(A).  [resolve(184,c,97,b)].
+185 -one(out1(and2(h2(A)))) | one(outc(h2(A))) | -fulladder(A).  [resolve(82,a,58,b)].
+Derived: -one(out1(and2(h2(f1(A))))) | one(outc(h2(f1(A)))) | -nbit_adder2(A).  [resolve(185,c,95,b)].
+Derived: -one(out1(and2(h2(f2(A))))) | one(outc(h2(f2(A)))) | -nbit_adder2(A).  [resolve(185,c,97,b)].
+186 -zero(out1(or1(h1(A)))) | zero(in1(and1(h1(A)))) | -fulladder(A).  [resolve(83,a,53,b)].
+Derived: -zero(out1(or1(h1(f1(A))))) | zero(in1(and1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(186,c,95,b)].
+Derived: -zero(out1(or1(h1(f2(A))))) | zero(in1(and1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(186,c,97,b)].
+187 -zero(out1(or1(h2(A)))) | zero(in1(and1(h2(A)))) | -fulladder(A).  [resolve(83,a,58,b)].
+Derived: -zero(out1(or1(h2(f1(A))))) | zero(in1(and1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(187,c,95,b)].
+Derived: -zero(out1(or1(h2(f2(A))))) | zero(in1(and1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(187,c,97,b)].
+188 -one(out1(or1(h1(A)))) | one(in1(and1(h1(A)))) | -fulladder(A).  [resolve(84,a,53,b)].
+Derived: -one(out1(or1(h1(f1(A))))) | one(in1(and1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(188,c,95,b)].
+Derived: -one(out1(or1(h1(f2(A))))) | one(in1(and1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(188,c,97,b)].
+189 -one(out1(or1(h2(A)))) | one(in1(and1(h2(A)))) | -fulladder(A).  [resolve(84,a,58,b)].
+Derived: -one(out1(or1(h2(f1(A))))) | one(in1(and1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(189,c,95,b)].
+Derived: -one(out1(or1(h2(f2(A))))) | one(in1(and1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(189,c,97,b)].
+190 -zero(in1(and1(h1(A)))) | zero(out1(or1(h1(A)))) | -fulladder(A).  [resolve(85,a,53,b)].
+Derived: -zero(in1(and1(h1(f1(A))))) | zero(out1(or1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(190,c,95,b)].
+Derived: -zero(in1(and1(h1(f2(A))))) | zero(out1(or1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(190,c,97,b)].
+191 -zero(in1(and1(h2(A)))) | zero(out1(or1(h2(A)))) | -fulladder(A).  [resolve(85,a,58,b)].
+Derived: -zero(in1(and1(h2(f1(A))))) | zero(out1(or1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(191,c,95,b)].
+Derived: -zero(in1(and1(h2(f2(A))))) | zero(out1(or1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(191,c,97,b)].
+192 -one(in1(and1(h1(A)))) | one(out1(or1(h1(A)))) | -fulladder(A).  [resolve(86,a,53,b)].
+Derived: -one(in1(and1(h1(f1(A))))) | one(out1(or1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(192,c,95,b)].
+Derived: -one(in1(and1(h1(f2(A))))) | one(out1(or1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(192,c,97,b)].
+193 -one(in1(and1(h2(A)))) | one(out1(or1(h2(A)))) | -fulladder(A).  [resolve(86,a,58,b)].
+Derived: -one(in1(and1(h2(f1(A))))) | one(out1(or1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(193,c,95,b)].
+Derived: -one(in1(and1(h2(f2(A))))) | one(out1(or1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(193,c,97,b)].
+194 -zero(out1(and2(h1(A)))) | zero(in1(not1(h1(A)))) | -fulladder(A).  [resolve(87,a,53,b)].
+Derived: -zero(out1(and2(h1(f1(A))))) | zero(in1(not1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(194,c,95,b)].
+Derived: -zero(out1(and2(h1(f2(A))))) | zero(in1(not1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(194,c,97,b)].
+195 -zero(out1(and2(h2(A)))) | zero(in1(not1(h2(A)))) | -fulladder(A).  [resolve(87,a,58,b)].
+Derived: -zero(out1(and2(h2(f1(A))))) | zero(in1(not1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(195,c,95,b)].
+Derived: -zero(out1(and2(h2(f2(A))))) | zero(in1(not1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(195,c,97,b)].
+196 -one(out1(and2(h1(A)))) | one(in1(not1(h1(A)))) | -fulladder(A).  [resolve(88,a,53,b)].
+Derived: -one(out1(and2(h1(f1(A))))) | one(in1(not1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(196,c,95,b)].
+Derived: -one(out1(and2(h1(f2(A))))) | one(in1(not1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(196,c,97,b)].
+197 -one(out1(and2(h2(A)))) | one(in1(not1(h2(A)))) | -fulladder(A).  [resolve(88,a,58,b)].
+Derived: -one(out1(and2(h2(f1(A))))) | one(in1(not1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(197,c,95,b)].
+Derived: -one(out1(and2(h2(f2(A))))) | one(in1(not1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(197,c,97,b)].
+198 -zero(in1(not1(h1(A)))) | zero(out1(and2(h1(A)))) | -fulladder(A).  [resolve(89,a,53,b)].
+Derived: -zero(in1(not1(h1(f1(A))))) | zero(out1(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(198,c,95,b)].
+Derived: -zero(in1(not1(h1(f2(A))))) | zero(out1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(198,c,97,b)].
+199 -zero(in1(not1(h2(A)))) | zero(out1(and2(h2(A)))) | -fulladder(A).  [resolve(89,a,58,b)].
+Derived: -zero(in1(not1(h2(f1(A))))) | zero(out1(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(199,c,95,b)].
+Derived: -zero(in1(not1(h2(f2(A))))) | zero(out1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(199,c,97,b)].
+200 -one(in1(not1(h1(A)))) | one(out1(and2(h1(A)))) | -fulladder(A).  [resolve(90,a,53,b)].
+Derived: -one(in1(not1(h1(f1(A))))) | one(out1(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(200,c,95,b)].
+Derived: -one(in1(not1(h1(f2(A))))) | one(out1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(200,c,97,b)].
+201 -one(in1(not1(h2(A)))) | one(out1(and2(h2(A)))) | -fulladder(A).  [resolve(90,a,58,b)].
+Derived: -one(in1(not1(h2(f1(A))))) | one(out1(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(201,c,95,b)].
+Derived: -one(in1(not1(h2(f2(A))))) | one(out1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(201,c,97,b)].
+202 -zero(out1(not1(h1(A)))) | zero(in2(and1(h1(A)))) | -fulladder(A).  [resolve(91,a,53,b)].
+Derived: -zero(out1(not1(h1(f1(A))))) | zero(in2(and1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(202,c,95,b)].
+Derived: -zero(out1(not1(h1(f2(A))))) | zero(in2(and1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(202,c,97,b)].
+203 -zero(out1(not1(h2(A)))) | zero(in2(and1(h2(A)))) | -fulladder(A).  [resolve(91,a,58,b)].
+Derived: -zero(out1(not1(h2(f1(A))))) | zero(in2(and1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(203,c,95,b)].
+Derived: -zero(out1(not1(h2(f2(A))))) | zero(in2(and1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(203,c,97,b)].
+204 -one(out1(not1(h1(A)))) | one(in2(and1(h1(A)))) | -fulladder(A).  [resolve(92,a,53,b)].
+Derived: -one(out1(not1(h1(f1(A))))) | one(in2(and1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(204,c,95,b)].
+Derived: -one(out1(not1(h1(f2(A))))) | one(in2(and1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(204,c,97,b)].
+205 -one(out1(not1(h2(A)))) | one(in2(and1(h2(A)))) | -fulladder(A).  [resolve(92,a,58,b)].
+Derived: -one(out1(not1(h2(f1(A))))) | one(in2(and1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(205,c,95,b)].
+Derived: -one(out1(not1(h2(f2(A))))) | one(in2(and1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(205,c,97,b)].
+206 -zero(in2(and1(h1(A)))) | zero(out1(not1(h1(A)))) | -fulladder(A).  [resolve(93,a,53,b)].
+Derived: -zero(in2(and1(h1(f1(A))))) | zero(out1(not1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(206,c,95,b)].
+Derived: -zero(in2(and1(h1(f2(A))))) | zero(out1(not1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(206,c,97,b)].
+207 -zero(in2(and1(h2(A)))) | zero(out1(not1(h2(A)))) | -fulladder(A).  [resolve(93,a,58,b)].
+Derived: -zero(in2(and1(h2(f1(A))))) | zero(out1(not1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(207,c,95,b)].
+Derived: -zero(in2(and1(h2(f2(A))))) | zero(out1(not1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(207,c,97,b)].
+208 -one(in2(and1(h1(A)))) | one(out1(not1(h1(A)))) | -fulladder(A).  [resolve(94,a,53,b)].
+Derived: -one(in2(and1(h1(f1(A))))) | one(out1(not1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(208,c,95,b)].
+Derived: -one(in2(and1(h1(f2(A))))) | one(out1(not1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(208,c,97,b)].
+209 -one(in2(and1(h2(A)))) | one(out1(not1(h2(A)))) | -fulladder(A).  [resolve(94,a,58,b)].
+Derived: -one(in2(and1(h2(f1(A))))) | one(out1(not1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(209,c,95,b)].
+Derived: -one(in2(and1(h2(f2(A))))) | one(out1(not1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(209,c,97,b)].
+
+Eliminating nbit_adder2/1
+210 -nbit_adder2(A) | -zero(out1(A)) | zero(out1(f1(A))).  [resolve(22,b,2,a)].
+211 nbit_adder2(a) # label(a_isa_2bit_adder) # label(hypothesis).  [assumption].
+Derived: -zero(out1(a)) | zero(out1(f1(a))).  [resolve(210,a,211,a)].
+212 -nbit_adder2(A) | -one(out1(A)) | one(out1(f1(A))).  [resolve(22,b,3,a)].
+Derived: -one(out1(a)) | one(out1(f1(a))).  [resolve(212,a,211,a)].
+213 -nbit_adder2(A) | -zero(out1(f1(A))) | zero(out1(A)).  [resolve(22,b,4,a)].
+Derived: -zero(out1(f1(a))) | zero(out1(a)).  [resolve(213,a,211,a)].
+214 -nbit_adder2(A) | -one(out1(f1(A))) | one(out1(A)).  [resolve(22,b,5,a)].
+Derived: -one(out1(f1(a))) | one(out1(a)).  [resolve(214,a,211,a)].
+215 -nbit_adder2(A) | -zero(out2(A)) | zero(out1(f2(A))).  [resolve(23,b,2,a)].
+Derived: -zero(out2(a)) | zero(out1(f2(a))).  [resolve(215,a,211,a)].
+216 -nbit_adder2(A) | -one(out2(A)) | one(out1(f2(A))).  [resolve(23,b,3,a)].
+Derived: -one(out2(a)) | one(out1(f2(a))).  [resolve(216,a,211,a)].
+217 -nbit_adder2(A) | -zero(out1(f2(A))) | zero(out2(A)).  [resolve(23,b,4,a)].
+Derived: -zero(out1(f2(a))) | zero(out2(a)).  [resolve(217,a,211,a)].
+218 -nbit_adder2(A) | -one(out1(f2(A))) | one(out2(A)).  [resolve(23,b,5,a)].
+Derived: -one(out1(f2(a))) | one(out2(a)).  [resolve(218,a,211,a)].
+219 -nbit_adder2(A) | -zero(outc(A)) | zero(outc(f2(A))).  [resolve(24,b,2,a)].
+Derived: -zero(outc(a)) | zero(outc(f2(a))).  [resolve(219,a,211,a)].
+220 -nbit_adder2(A) | -one(outc(A)) | one(outc(f2(A))).  [resolve(24,b,3,a)].
+Derived: -one(outc(a)) | one(outc(f2(a))).  [resolve(220,a,211,a)].
+221 -nbit_adder2(A) | -zero(outc(f2(A))) | zero(outc(A)).  [resolve(24,b,4,a)].
+Derived: -zero(outc(f2(a))) | zero(outc(a)).  [resolve(221,a,211,a)].
+222 -nbit_adder2(A) | -one(outc(f2(A))) | one(outc(A)).  [resolve(24,b,5,a)].
+Derived: -one(outc(f2(a))) | one(outc(a)).  [resolve(222,a,211,a)].
+223 -nbit_adder2(A) | -zero(ina1(A)) | zero(in1(f1(A))).  [resolve(25,b,2,a)].
+Derived: -zero(ina1(a)) | zero(in1(f1(a))).  [resolve(223,a,211,a)].
+224 -nbit_adder2(A) | -one(ina1(A)) | one(in1(f1(A))).  [resolve(25,b,3,a)].
+Derived: -one(ina1(a)) | one(in1(f1(a))).  [resolve(224,a,211,a)].
+225 -nbit_adder2(A) | -zero(in1(f1(A))) | zero(ina1(A)).  [resolve(25,b,4,a)].
+Derived: -zero(in1(f1(a))) | zero(ina1(a)).  [resolve(225,a,211,a)].
+226 -nbit_adder2(A) | -one(in1(f1(A))) | one(ina1(A)).  [resolve(25,b,5,a)].
+Derived: -one(in1(f1(a))) | one(ina1(a)).  [resolve(226,a,211,a)].
+227 -nbit_adder2(A) | -zero(inb1(A)) | zero(in2(f1(A))).  [resolve(26,b,2,a)].
+Derived: -zero(inb1(a)) | zero(in2(f1(a))).  [resolve(227,a,211,a)].
+228 -nbit_adder2(A) | -one(inb1(A)) | one(in2(f1(A))).  [resolve(26,b,3,a)].
+Derived: -one(inb1(a)) | one(in2(f1(a))).  [resolve(228,a,211,a)].
+229 -nbit_adder2(A) | -zero(in2(f1(A))) | zero(inb1(A)).  [resolve(26,b,4,a)].
+Derived: -zero(in2(f1(a))) | zero(inb1(a)).  [resolve(229,a,211,a)].
+230 -nbit_adder2(A) | -one(in2(f1(A))) | one(inb1(A)).  [resolve(26,b,5,a)].
+Derived: -one(in2(f1(a))) | one(inb1(a)).  [resolve(230,a,211,a)].
+231 -nbit_adder2(A) | -zero(ina2(A)) | zero(in1(f2(A))).  [resolve(27,b,2,a)].
+Derived: -zero(ina2(a)) | zero(in1(f2(a))).  [resolve(231,a,211,a)].
+232 -nbit_adder2(A) | -one(ina2(A)) | one(in1(f2(A))).  [resolve(27,b,3,a)].
+Derived: -one(ina2(a)) | one(in1(f2(a))).  [resolve(232,a,211,a)].
+233 -nbit_adder2(A) | -zero(in1(f2(A))) | zero(ina2(A)).  [resolve(27,b,4,a)].
+Derived: -zero(in1(f2(a))) | zero(ina2(a)).  [resolve(233,a,211,a)].
+234 -nbit_adder2(A) | -one(in1(f2(A))) | one(ina2(A)).  [resolve(27,b,5,a)].
+Derived: -one(in1(f2(a))) | one(ina2(a)).  [resolve(234,a,211,a)].
+235 -nbit_adder2(A) | -zero(inb2(A)) | zero(in2(f2(A))).  [resolve(28,b,2,a)].
+Derived: -zero(inb2(a)) | zero(in2(f2(a))).  [resolve(235,a,211,a)].
+236 -nbit_adder2(A) | -one(inb2(A)) | one(in2(f2(A))).  [resolve(28,b,3,a)].
+Derived: -one(inb2(a)) | one(in2(f2(a))).  [resolve(236,a,211,a)].
+237 -nbit_adder2(A) | -zero(in2(f2(A))) | zero(inb2(A)).  [resolve(28,b,4,a)].
+Derived: -zero(in2(f2(a))) | zero(inb2(a)).  [resolve(237,a,211,a)].
+238 -nbit_adder2(A) | -one(in2(f2(A))) | one(inb2(A)).  [resolve(28,b,5,a)].
+Derived: -one(in2(f2(a))) | one(inb2(a)).  [resolve(238,a,211,a)].
+239 -nbit_adder2(A) | -zero(outc(f1(A))) | zero(inc(f2(A))).  [resolve(29,b,2,a)].
+Derived: -zero(outc(f1(a))) | zero(inc(f2(a))).  [resolve(239,a,211,a)].
+240 -nbit_adder2(A) | -one(outc(f1(A))) | one(inc(f2(A))).  [resolve(29,b,3,a)].
+Derived: -one(outc(f1(a))) | one(inc(f2(a))).  [resolve(240,a,211,a)].
+241 -nbit_adder2(A) | -zero(inc(f2(A))) | zero(outc(f1(A))).  [resolve(29,b,4,a)].
+Derived: -zero(inc(f2(a))) | zero(outc(f1(a))).  [resolve(241,a,211,a)].
+242 -nbit_adder2(A) | -one(inc(f2(A))) | one(outc(f1(A))).  [resolve(29,b,5,a)].
+Derived: -one(inc(f2(a))) | one(outc(f1(a))).  [resolve(242,a,211,a)].
+243 -nbit_adder2(A) | -zero(inc(A)) | zero(inc(f1(A))).  [resolve(30,b,2,a)].
+Derived: -zero(inc(a)) | zero(inc(f1(a))).  [resolve(243,a,211,a)].
+244 -nbit_adder2(A) | -one(inc(A)) | one(inc(f1(A))).  [resolve(30,b,3,a)].
+Derived: -one(inc(a)) | one(inc(f1(a))).  [resolve(244,a,211,a)].
+245 -nbit_adder2(A) | -zero(inc(f1(A))) | zero(inc(A)).  [resolve(30,b,4,a)].
+Derived: -zero(inc(f1(a))) | zero(inc(a)).  [resolve(245,a,211,a)].
+246 -nbit_adder2(A) | -one(inc(f1(A))) | one(inc(A)).  [resolve(30,b,5,a)].
+Derived: -one(inc(f1(a))) | one(inc(a)).  [resolve(246,a,211,a)].
+247 -nbit_adder2(A) | logic_or(or1(f1(A))).  [resolve(95,b,96,a)].
+Derived: logic_or(or1(f1(a))).  [resolve(247,a,211,a)].
+248 -nbit_adder2(A) | logic_or(or1(f2(A))).  [resolve(97,b,96,a)].
+Derived: logic_or(or1(f2(a))).  [resolve(248,a,211,a)].
+249 -zero(outs(h1(f1(A)))) | zero(in2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(98,a,95,b)].
+Derived: -zero(outs(h1(f1(a)))) | zero(in2(h2(f1(a)))).  [resolve(249,c,211,a)].
+250 -zero(outs(h1(f2(A)))) | zero(in2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(98,a,97,b)].
+Derived: -zero(outs(h1(f2(a)))) | zero(in2(h2(f2(a)))).  [resolve(250,c,211,a)].
+251 -one(outs(h1(f1(A)))) | one(in2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(99,a,95,b)].
+Derived: -one(outs(h1(f1(a)))) | one(in2(h2(f1(a)))).  [resolve(251,c,211,a)].
+252 -one(outs(h1(f2(A)))) | one(in2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(99,a,97,b)].
+Derived: -one(outs(h1(f2(a)))) | one(in2(h2(f2(a)))).  [resolve(252,c,211,a)].
+253 -zero(in2(h2(f1(A)))) | zero(outs(h1(f1(A)))) | -nbit_adder2(A).  [resolve(100,a,95,b)].
+Derived: -zero(in2(h2(f1(a)))) | zero(outs(h1(f1(a)))).  [resolve(253,c,211,a)].
+254 -zero(in2(h2(f2(A)))) | zero(outs(h1(f2(A)))) | -nbit_adder2(A).  [resolve(100,a,97,b)].
+Derived: -zero(in2(h2(f2(a)))) | zero(outs(h1(f2(a)))).  [resolve(254,c,211,a)].
+255 -one(in2(h2(f1(A)))) | one(outs(h1(f1(A)))) | -nbit_adder2(A).  [resolve(101,a,95,b)].
+Derived: -one(in2(h2(f1(a)))) | one(outs(h1(f1(a)))).  [resolve(255,c,211,a)].
+256 -one(in2(h2(f2(A)))) | one(outs(h1(f2(A)))) | -nbit_adder2(A).  [resolve(101,a,97,b)].
+Derived: -one(in2(h2(f2(a)))) | one(outs(h1(f2(a)))).  [resolve(256,c,211,a)].
+257 -zero(outc(h1(f1(A)))) | zero(in2(or1(f1(A)))) | -nbit_adder2(A).  [resolve(102,a,95,b)].
+Derived: -zero(outc(h1(f1(a)))) | zero(in2(or1(f1(a)))).  [resolve(257,c,211,a)].
+258 -zero(outc(h1(f2(A)))) | zero(in2(or1(f2(A)))) | -nbit_adder2(A).  [resolve(102,a,97,b)].
+Derived: -zero(outc(h1(f2(a)))) | zero(in2(or1(f2(a)))).  [resolve(258,c,211,a)].
+259 -one(outc(h1(f1(A)))) | one(in2(or1(f1(A)))) | -nbit_adder2(A).  [resolve(103,a,95,b)].
+Derived: -one(outc(h1(f1(a)))) | one(in2(or1(f1(a)))).  [resolve(259,c,211,a)].
+260 -one(outc(h1(f2(A)))) | one(in2(or1(f2(A)))) | -nbit_adder2(A).  [resolve(103,a,97,b)].
+Derived: -one(outc(h1(f2(a)))) | one(in2(or1(f2(a)))).  [resolve(260,c,211,a)].
+261 -zero(in2(or1(f1(A)))) | zero(outc(h1(f1(A)))) | -nbit_adder2(A).  [resolve(104,a,95,b)].
+Derived: -zero(in2(or1(f1(a)))) | zero(outc(h1(f1(a)))).  [resolve(261,c,211,a)].
+262 -zero(in2(or1(f2(A)))) | zero(outc(h1(f2(A)))) | -nbit_adder2(A).  [resolve(104,a,97,b)].
+Derived: -zero(in2(or1(f2(a)))) | zero(outc(h1(f2(a)))).  [resolve(262,c,211,a)].
+263 -one(in2(or1(f1(A)))) | one(outc(h1(f1(A)))) | -nbit_adder2(A).  [resolve(105,a,95,b)].
+Derived: -one(in2(or1(f1(a)))) | one(outc(h1(f1(a)))).  [resolve(263,c,211,a)].
+264 -one(in2(or1(f2(A)))) | one(outc(h1(f2(A)))) | -nbit_adder2(A).  [resolve(105,a,97,b)].
+Derived: -one(in2(or1(f2(a)))) | one(outc(h1(f2(a)))).  [resolve(264,c,211,a)].
+265 -zero(outc(h2(f1(A)))) | zero(in1(or1(f1(A)))) | -nbit_adder2(A).  [resolve(106,a,95,b)].
+Derived: -zero(outc(h2(f1(a)))) | zero(in1(or1(f1(a)))).  [resolve(265,c,211,a)].
+266 -zero(outc(h2(f2(A)))) | zero(in1(or1(f2(A)))) | -nbit_adder2(A).  [resolve(106,a,97,b)].
+Derived: -zero(outc(h2(f2(a)))) | zero(in1(or1(f2(a)))).  [resolve(266,c,211,a)].
+267 -one(outc(h2(f1(A)))) | one(in1(or1(f1(A)))) | -nbit_adder2(A).  [resolve(107,a,95,b)].
+Derived: -one(outc(h2(f1(a)))) | one(in1(or1(f1(a)))).  [resolve(267,c,211,a)].
+268 -one(outc(h2(f2(A)))) | one(in1(or1(f2(A)))) | -nbit_adder2(A).  [resolve(107,a,97,b)].
+Derived: -one(outc(h2(f2(a)))) | one(in1(or1(f2(a)))).  [resolve(268,c,211,a)].
+269 -zero(in1(or1(f1(A)))) | zero(outc(h2(f1(A)))) | -nbit_adder2(A).  [resolve(108,a,95,b)].
+Derived: -zero(in1(or1(f1(a)))) | zero(outc(h2(f1(a)))).  [resolve(269,c,211,a)].
+270 -zero(in1(or1(f2(A)))) | zero(outc(h2(f2(A)))) | -nbit_adder2(A).  [resolve(108,a,97,b)].
+Derived: -zero(in1(or1(f2(a)))) | zero(outc(h2(f2(a)))).  [resolve(270,c,211,a)].
+271 -one(in1(or1(f1(A)))) | one(outc(h2(f1(A)))) | -nbit_adder2(A).  [resolve(109,a,95,b)].
+Derived: -one(in1(or1(f1(a)))) | one(outc(h2(f1(a)))).  [resolve(271,c,211,a)].
+272 -one(in1(or1(f2(A)))) | one(outc(h2(f2(A)))) | -nbit_adder2(A).  [resolve(109,a,97,b)].
+Derived: -one(in1(or1(f2(a)))) | one(outc(h2(f2(a)))).  [resolve(272,c,211,a)].
+273 -zero(in1(f1(A))) | zero(in1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(110,a,95,b)].
+Derived: -zero(in1(f1(a))) | zero(in1(h2(f1(a)))).  [resolve(273,c,211,a)].
+274 -zero(in1(f2(A))) | zero(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(110,a,97,b)].
+Derived: -zero(in1(f2(a))) | zero(in1(h2(f2(a)))).  [resolve(274,c,211,a)].
+275 -one(in1(f1(A))) | one(in1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(111,a,95,b)].
+Derived: -one(in1(f1(a))) | one(in1(h2(f1(a)))).  [resolve(275,c,211,a)].
+276 -one(in1(f2(A))) | one(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(111,a,97,b)].
+Derived: -one(in1(f2(a))) | one(in1(h2(f2(a)))).  [resolve(276,c,211,a)].
+277 -zero(in1(h2(f1(A)))) | zero(in1(f1(A))) | -nbit_adder2(A).  [resolve(112,a,95,b)].
+Derived: -zero(in1(h2(f1(a)))) | zero(in1(f1(a))).  [resolve(277,c,211,a)].
+278 -zero(in1(h2(f2(A)))) | zero(in1(f2(A))) | -nbit_adder2(A).  [resolve(112,a,97,b)].
+Derived: -zero(in1(h2(f2(a)))) | zero(in1(f2(a))).  [resolve(278,c,211,a)].
+279 -one(in1(h2(f1(A)))) | one(in1(f1(A))) | -nbit_adder2(A).  [resolve(113,a,95,b)].
+Derived: -one(in1(h2(f1(a)))) | one(in1(f1(a))).  [resolve(279,c,211,a)].
+280 -one(in1(h2(f2(A)))) | one(in1(f2(A))) | -nbit_adder2(A).  [resolve(113,a,97,b)].
+Derived: -one(in1(h2(f2(a)))) | one(in1(f2(a))).  [resolve(280,c,211,a)].
+281 -zero(in2(f1(A))) | zero(in1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(114,a,95,b)].
+Derived: -zero(in2(f1(a))) | zero(in1(h1(f1(a)))).  [resolve(281,c,211,a)].
+282 -zero(in2(f2(A))) | zero(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(114,a,97,b)].
+Derived: -zero(in2(f2(a))) | zero(in1(h1(f2(a)))).  [resolve(282,c,211,a)].
+283 -one(in2(f1(A))) | one(in1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(115,a,95,b)].
+Derived: -one(in2(f1(a))) | one(in1(h1(f1(a)))).  [resolve(283,c,211,a)].
+284 -one(in2(f2(A))) | one(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(115,a,97,b)].
+Derived: -one(in2(f2(a))) | one(in1(h1(f2(a)))).  [resolve(284,c,211,a)].
+285 -zero(in1(h1(f1(A)))) | zero(in2(f1(A))) | -nbit_adder2(A).  [resolve(116,a,95,b)].
+Derived: -zero(in1(h1(f1(a)))) | zero(in2(f1(a))).  [resolve(285,c,211,a)].
+286 -zero(in1(h1(f2(A)))) | zero(in2(f2(A))) | -nbit_adder2(A).  [resolve(116,a,97,b)].
+Derived: -zero(in1(h1(f2(a)))) | zero(in2(f2(a))).  [resolve(286,c,211,a)].
+287 -one(in1(h1(f1(A)))) | one(in2(f1(A))) | -nbit_adder2(A).  [resolve(117,a,95,b)].
+Derived: -one(in1(h1(f1(a)))) | one(in2(f1(a))).  [resolve(287,c,211,a)].
+288 -one(in1(h1(f2(A)))) | one(in2(f2(A))) | -nbit_adder2(A).  [resolve(117,a,97,b)].
+Derived: -one(in1(h1(f2(a)))) | one(in2(f2(a))).  [resolve(288,c,211,a)].
+289 -zero(inc(f1(A))) | zero(in2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(118,a,95,b)].
+Derived: -zero(inc(f1(a))) | zero(in2(h1(f1(a)))).  [resolve(289,c,211,a)].
+290 -zero(inc(f2(A))) | zero(in2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(118,a,97,b)].
+Derived: -zero(inc(f2(a))) | zero(in2(h1(f2(a)))).  [resolve(290,c,211,a)].
+291 -one(inc(f1(A))) | one(in2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(119,a,95,b)].
+Derived: -one(inc(f1(a))) | one(in2(h1(f1(a)))).  [resolve(291,c,211,a)].
+292 -one(inc(f2(A))) | one(in2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(119,a,97,b)].
+Derived: -one(inc(f2(a))) | one(in2(h1(f2(a)))).  [resolve(292,c,211,a)].
+293 -zero(in2(h1(f1(A)))) | zero(inc(f1(A))) | -nbit_adder2(A).  [resolve(120,a,95,b)].
+Derived: -zero(in2(h1(f1(a)))) | zero(inc(f1(a))).  [resolve(293,c,211,a)].
+294 -zero(in2(h1(f2(A)))) | zero(inc(f2(A))) | -nbit_adder2(A).  [resolve(120,a,97,b)].
+Derived: -zero(in2(h1(f2(a)))) | zero(inc(f2(a))).  [resolve(294,c,211,a)].
+295 -one(in2(h1(f1(A)))) | one(inc(f1(A))) | -nbit_adder2(A).  [resolve(121,a,95,b)].
+Derived: -one(in2(h1(f1(a)))) | one(inc(f1(a))).  [resolve(295,c,211,a)].
+296 -one(in2(h1(f2(A)))) | one(inc(f2(A))) | -nbit_adder2(A).  [resolve(121,a,97,b)].
+Derived: -one(in2(h1(f2(a)))) | one(inc(f2(a))).  [resolve(296,c,211,a)].
+297 -zero(outs(f1(A))) | zero(outs(h2(f1(A)))) | -nbit_adder2(A).  [resolve(122,a,95,b)].
+Derived: -zero(outs(f1(a))) | zero(outs(h2(f1(a)))).  [resolve(297,c,211,a)].
+298 -zero(outs(f2(A))) | zero(outs(h2(f2(A)))) | -nbit_adder2(A).  [resolve(122,a,97,b)].
+Derived: -zero(outs(f2(a))) | zero(outs(h2(f2(a)))).  [resolve(298,c,211,a)].
+299 -one(outs(f1(A))) | one(outs(h2(f1(A)))) | -nbit_adder2(A).  [resolve(123,a,95,b)].
+Derived: -one(outs(f1(a))) | one(outs(h2(f1(a)))).  [resolve(299,c,211,a)].
+300 -one(outs(f2(A))) | one(outs(h2(f2(A)))) | -nbit_adder2(A).  [resolve(123,a,97,b)].
+Derived: -one(outs(f2(a))) | one(outs(h2(f2(a)))).  [resolve(300,c,211,a)].
+301 -zero(outs(h2(f1(A)))) | zero(outs(f1(A))) | -nbit_adder2(A).  [resolve(124,a,95,b)].
+Derived: -zero(outs(h2(f1(a)))) | zero(outs(f1(a))).  [resolve(301,c,211,a)].
+302 -zero(outs(h2(f2(A)))) | zero(outs(f2(A))) | -nbit_adder2(A).  [resolve(124,a,97,b)].
+Derived: -zero(outs(h2(f2(a)))) | zero(outs(f2(a))).  [resolve(302,c,211,a)].
+303 -one(outs(h2(f1(A)))) | one(outs(f1(A))) | -nbit_adder2(A).  [resolve(125,a,95,b)].
+Derived: -one(outs(h2(f1(a)))) | one(outs(f1(a))).  [resolve(303,c,211,a)].
+304 -one(outs(h2(f2(A)))) | one(outs(f2(A))) | -nbit_adder2(A).  [resolve(125,a,97,b)].
+Derived: -one(outs(h2(f2(a)))) | one(outs(f2(a))).  [resolve(304,c,211,a)].
+305 -zero(outc(f1(A))) | zero(out1(or1(f1(A)))) | -nbit_adder2(A).  [resolve(126,a,95,b)].
+Derived: -zero(outc(f1(a))) | zero(out1(or1(f1(a)))).  [resolve(305,c,211,a)].
+306 -zero(outc(f2(A))) | zero(out1(or1(f2(A)))) | -nbit_adder2(A).  [resolve(126,a,97,b)].
+Derived: -zero(outc(f2(a))) | zero(out1(or1(f2(a)))).  [resolve(306,c,211,a)].
+307 -one(outc(f1(A))) | one(out1(or1(f1(A)))) | -nbit_adder2(A).  [resolve(127,a,95,b)].
+Derived: -one(outc(f1(a))) | one(out1(or1(f1(a)))).  [resolve(307,c,211,a)].
+308 -one(outc(f2(A))) | one(out1(or1(f2(A)))) | -nbit_adder2(A).  [resolve(127,a,97,b)].
+Derived: -one(outc(f2(a))) | one(out1(or1(f2(a)))).  [resolve(308,c,211,a)].
+309 -zero(out1(or1(f1(A)))) | zero(outc(f1(A))) | -nbit_adder2(A).  [resolve(128,a,95,b)].
+Derived: -zero(out1(or1(f1(a)))) | zero(outc(f1(a))).  [resolve(309,c,211,a)].
+310 -zero(out1(or1(f2(A)))) | zero(outc(f2(A))) | -nbit_adder2(A).  [resolve(128,a,97,b)].
+Derived: -zero(out1(or1(f2(a)))) | zero(outc(f2(a))).  [resolve(310,c,211,a)].
+311 -one(out1(or1(f1(A)))) | one(outc(f1(A))) | -nbit_adder2(A).  [resolve(129,a,95,b)].
+Derived: -one(out1(or1(f1(a)))) | one(outc(f1(a))).  [resolve(311,c,211,a)].
+312 -one(out1(or1(f2(A)))) | one(outc(f2(A))) | -nbit_adder2(A).  [resolve(129,a,97,b)].
+Derived: -one(out1(or1(f2(a)))) | one(outc(f2(a))).  [resolve(312,c,211,a)].
+313 logic_and(and1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(130,a,95,b)].
+Derived: logic_and(and1(h1(f1(a)))).  [resolve(313,b,211,a)].
+314 logic_and(and1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(130,a,97,b)].
+Derived: logic_and(and1(h1(f2(a)))).  [resolve(314,b,211,a)].
+315 logic_and(and2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(131,a,95,b)].
+Derived: logic_and(and2(h1(f1(a)))).  [resolve(315,b,211,a)].
+316 logic_and(and2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(131,a,97,b)].
+Derived: logic_and(and2(h1(f2(a)))).  [resolve(316,b,211,a)].
+317 logic_not(not1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(132,a,95,b)].
+Derived: logic_not(not1(h1(f1(a)))).  [resolve(317,b,211,a)].
+318 logic_not(not1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(132,a,97,b)].
+Derived: logic_not(not1(h1(f2(a)))).  [resolve(318,b,211,a)].
+319 logic_or(or1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(133,a,95,b)].
+Derived: logic_or(or1(h1(f1(a)))).  [resolve(319,b,211,a)].
+320 logic_or(or1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(133,a,97,b)].
+Derived: logic_or(or1(h1(f2(a)))).  [resolve(320,b,211,a)].
+321 logic_and(and1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(134,a,95,b)].
+Derived: logic_and(and1(h2(f1(a)))).  [resolve(321,b,211,a)].
+322 logic_and(and1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(134,a,97,b)].
+Derived: logic_and(and1(h2(f2(a)))).  [resolve(322,b,211,a)].
+323 logic_and(and2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(135,a,95,b)].
+Derived: logic_and(and2(h2(f1(a)))).  [resolve(323,b,211,a)].
+324 logic_and(and2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(135,a,97,b)].
+Derived: logic_and(and2(h2(f2(a)))).  [resolve(324,b,211,a)].
+325 logic_not(not1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(136,a,95,b)].
+Derived: logic_not(not1(h2(f1(a)))).  [resolve(325,b,211,a)].
+326 logic_not(not1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(136,a,97,b)].
+Derived: logic_not(not1(h2(f2(a)))).  [resolve(326,b,211,a)].
+327 logic_or(or1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(137,a,95,b)].
+Derived: logic_or(or1(h2(f1(a)))).  [resolve(327,b,211,a)].
+328 logic_or(or1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(137,a,97,b)].
+Derived: logic_or(or1(h2(f2(a)))).  [resolve(328,b,211,a)].
+329 -zero(in1(h1(f1(A)))) | zero(in1(or1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(138,c,95,b)].
+Derived: -zero(in1(h1(f1(a)))) | zero(in1(or1(h1(f1(a))))).  [resolve(329,c,211,a)].
+330 -zero(in1(h1(f2(A)))) | zero(in1(or1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(138,c,97,b)].
+Derived: -zero(in1(h1(f2(a)))) | zero(in1(or1(h1(f2(a))))).  [resolve(330,c,211,a)].
+331 -zero(in1(h2(f1(A)))) | zero(in1(or1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(139,c,95,b)].
+Derived: -zero(in1(h2(f1(a)))) | zero(in1(or1(h2(f1(a))))).  [resolve(331,c,211,a)].
+332 -zero(in1(h2(f2(A)))) | zero(in1(or1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(139,c,97,b)].
+Derived: -zero(in1(h2(f2(a)))) | zero(in1(or1(h2(f2(a))))).  [resolve(332,c,211,a)].
+333 -one(in1(h1(f1(A)))) | one(in1(or1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(140,c,95,b)].
+Derived: -one(in1(h1(f1(a)))) | one(in1(or1(h1(f1(a))))).  [resolve(333,c,211,a)].
+334 -one(in1(h1(f2(A)))) | one(in1(or1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(140,c,97,b)].
+Derived: -one(in1(h1(f2(a)))) | one(in1(or1(h1(f2(a))))).  [resolve(334,c,211,a)].
+335 -one(in1(h2(f1(A)))) | one(in1(or1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(141,c,95,b)].
+Derived: -one(in1(h2(f1(a)))) | one(in1(or1(h2(f1(a))))).  [resolve(335,c,211,a)].
+336 -one(in1(h2(f2(A)))) | one(in1(or1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(141,c,97,b)].
+Derived: -one(in1(h2(f2(a)))) | one(in1(or1(h2(f2(a))))).  [resolve(336,c,211,a)].
+337 -zero(in1(or1(h1(f1(A))))) | zero(in1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(142,c,95,b)].
+Derived: -zero(in1(or1(h1(f1(a))))) | zero(in1(h1(f1(a)))).  [resolve(337,c,211,a)].
+338 -zero(in1(or1(h1(f2(A))))) | zero(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(142,c,97,b)].
+Derived: -zero(in1(or1(h1(f2(a))))) | zero(in1(h1(f2(a)))).  [resolve(338,c,211,a)].
+339 -zero(in1(or1(h2(f1(A))))) | zero(in1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(143,c,95,b)].
+Derived: -zero(in1(or1(h2(f1(a))))) | zero(in1(h2(f1(a)))).  [resolve(339,c,211,a)].
+340 -zero(in1(or1(h2(f2(A))))) | zero(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(143,c,97,b)].
+Derived: -zero(in1(or1(h2(f2(a))))) | zero(in1(h2(f2(a)))).  [resolve(340,c,211,a)].
+341 -one(in1(or1(h1(f1(A))))) | one(in1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(144,c,95,b)].
+Derived: -one(in1(or1(h1(f1(a))))) | one(in1(h1(f1(a)))).  [resolve(341,c,211,a)].
+342 -one(in1(or1(h1(f2(A))))) | one(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(144,c,97,b)].
+Derived: -one(in1(or1(h1(f2(a))))) | one(in1(h1(f2(a)))).  [resolve(342,c,211,a)].
+343 -one(in1(or1(h2(f1(A))))) | one(in1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(145,c,95,b)].
+Derived: -one(in1(or1(h2(f1(a))))) | one(in1(h2(f1(a)))).  [resolve(343,c,211,a)].
+344 -one(in1(or1(h2(f2(A))))) | one(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(145,c,97,b)].
+Derived: -one(in1(or1(h2(f2(a))))) | one(in1(h2(f2(a)))).  [resolve(344,c,211,a)].
+345 -zero(in2(h1(f1(A)))) | zero(in2(or1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(146,c,95,b)].
+Derived: -zero(in2(h1(f1(a)))) | zero(in2(or1(h1(f1(a))))).  [resolve(345,c,211,a)].
+346 -zero(in2(h1(f2(A)))) | zero(in2(or1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(146,c,97,b)].
+Derived: -zero(in2(h1(f2(a)))) | zero(in2(or1(h1(f2(a))))).  [resolve(346,c,211,a)].
+347 -zero(in2(h2(f1(A)))) | zero(in2(or1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(147,c,95,b)].
+Derived: -zero(in2(h2(f1(a)))) | zero(in2(or1(h2(f1(a))))).  [resolve(347,c,211,a)].
+348 -zero(in2(h2(f2(A)))) | zero(in2(or1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(147,c,97,b)].
+Derived: -zero(in2(h2(f2(a)))) | zero(in2(or1(h2(f2(a))))).  [resolve(348,c,211,a)].
+349 -one(in2(h1(f1(A)))) | one(in2(or1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(148,c,95,b)].
+Derived: -one(in2(h1(f1(a)))) | one(in2(or1(h1(f1(a))))).  [resolve(349,c,211,a)].
+350 -one(in2(h1(f2(A)))) | one(in2(or1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(148,c,97,b)].
+Derived: -one(in2(h1(f2(a)))) | one(in2(or1(h1(f2(a))))).  [resolve(350,c,211,a)].
+351 -one(in2(h2(f1(A)))) | one(in2(or1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(149,c,95,b)].
+Derived: -one(in2(h2(f1(a)))) | one(in2(or1(h2(f1(a))))).  [resolve(351,c,211,a)].
+352 -one(in2(h2(f2(A)))) | one(in2(or1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(149,c,97,b)].
+Derived: -one(in2(h2(f2(a)))) | one(in2(or1(h2(f2(a))))).  [resolve(352,c,211,a)].
+353 -zero(in2(or1(h1(f1(A))))) | zero(in2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(150,c,95,b)].
+Derived: -zero(in2(or1(h1(f1(a))))) | zero(in2(h1(f1(a)))).  [resolve(353,c,211,a)].
+354 -zero(in2(or1(h1(f2(A))))) | zero(in2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(150,c,97,b)].
+Derived: -zero(in2(or1(h1(f2(a))))) | zero(in2(h1(f2(a)))).  [resolve(354,c,211,a)].
+355 -zero(in2(or1(h2(f1(A))))) | zero(in2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(151,c,95,b)].
+Derived: -zero(in2(or1(h2(f1(a))))) | zero(in2(h2(f1(a)))).  [resolve(355,c,211,a)].
+356 -zero(in2(or1(h2(f2(A))))) | zero(in2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(151,c,97,b)].
+Derived: -zero(in2(or1(h2(f2(a))))) | zero(in2(h2(f2(a)))).  [resolve(356,c,211,a)].
+357 -one(in2(or1(h1(f1(A))))) | one(in2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(152,c,95,b)].
+Derived: -one(in2(or1(h1(f1(a))))) | one(in2(h1(f1(a)))).  [resolve(357,c,211,a)].
+358 -one(in2(or1(h1(f2(A))))) | one(in2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(152,c,97,b)].
+Derived: -one(in2(or1(h1(f2(a))))) | one(in2(h1(f2(a)))).  [resolve(358,c,211,a)].
+359 -one(in2(or1(h2(f1(A))))) | one(in2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(153,c,95,b)].
+Derived: -one(in2(or1(h2(f1(a))))) | one(in2(h2(f1(a)))).  [resolve(359,c,211,a)].
+360 -one(in2(or1(h2(f2(A))))) | one(in2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(153,c,97,b)].
+Derived: -one(in2(or1(h2(f2(a))))) | one(in2(h2(f2(a)))).  [resolve(360,c,211,a)].
+361 -zero(in1(h1(f1(A)))) | zero(in1(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(154,c,95,b)].
+Derived: -zero(in1(h1(f1(a)))) | zero(in1(and2(h1(f1(a))))).  [resolve(361,c,211,a)].
+362 -zero(in1(h1(f2(A)))) | zero(in1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(154,c,97,b)].
+Derived: -zero(in1(h1(f2(a)))) | zero(in1(and2(h1(f2(a))))).  [resolve(362,c,211,a)].
+363 -zero(in1(h2(f1(A)))) | zero(in1(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(155,c,95,b)].
+Derived: -zero(in1(h2(f1(a)))) | zero(in1(and2(h2(f1(a))))).  [resolve(363,c,211,a)].
+364 -zero(in1(h2(f2(A)))) | zero(in1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(155,c,97,b)].
+Derived: -zero(in1(h2(f2(a)))) | zero(in1(and2(h2(f2(a))))).  [resolve(364,c,211,a)].
+365 -one(in1(h1(f1(A)))) | one(in1(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(156,c,95,b)].
+Derived: -one(in1(h1(f1(a)))) | one(in1(and2(h1(f1(a))))).  [resolve(365,c,211,a)].
+366 -one(in1(h1(f2(A)))) | one(in1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(156,c,97,b)].
+Derived: -one(in1(h1(f2(a)))) | one(in1(and2(h1(f2(a))))).  [resolve(366,c,211,a)].
+367 -one(in1(h2(f1(A)))) | one(in1(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(157,c,95,b)].
+Derived: -one(in1(h2(f1(a)))) | one(in1(and2(h2(f1(a))))).  [resolve(367,c,211,a)].
+368 -one(in1(h2(f2(A)))) | one(in1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(157,c,97,b)].
+Derived: -one(in1(h2(f2(a)))) | one(in1(and2(h2(f2(a))))).  [resolve(368,c,211,a)].
+369 -zero(in1(and2(h1(f1(A))))) | zero(in1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(158,c,95,b)].
+Derived: -zero(in1(and2(h1(f1(a))))) | zero(in1(h1(f1(a)))).  [resolve(369,c,211,a)].
+370 -zero(in1(and2(h1(f2(A))))) | zero(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(158,c,97,b)].
+Derived: -zero(in1(and2(h1(f2(a))))) | zero(in1(h1(f2(a)))).  [resolve(370,c,211,a)].
+371 -zero(in1(and2(h2(f1(A))))) | zero(in1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(159,c,95,b)].
+Derived: -zero(in1(and2(h2(f1(a))))) | zero(in1(h2(f1(a)))).  [resolve(371,c,211,a)].
+372 -zero(in1(and2(h2(f2(A))))) | zero(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(159,c,97,b)].
+Derived: -zero(in1(and2(h2(f2(a))))) | zero(in1(h2(f2(a)))).  [resolve(372,c,211,a)].
+373 -one(in1(and2(h1(f1(A))))) | one(in1(h1(f1(A)))) | -nbit_adder2(A).  [resolve(160,c,95,b)].
+Derived: -one(in1(and2(h1(f1(a))))) | one(in1(h1(f1(a)))).  [resolve(373,c,211,a)].
+374 -one(in1(and2(h1(f2(A))))) | one(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(160,c,97,b)].
+Derived: -one(in1(and2(h1(f2(a))))) | one(in1(h1(f2(a)))).  [resolve(374,c,211,a)].
+375 -one(in1(and2(h2(f1(A))))) | one(in1(h2(f1(A)))) | -nbit_adder2(A).  [resolve(161,c,95,b)].
+Derived: -one(in1(and2(h2(f1(a))))) | one(in1(h2(f1(a)))).  [resolve(375,c,211,a)].
+376 -one(in1(and2(h2(f2(A))))) | one(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(161,c,97,b)].
+Derived: -one(in1(and2(h2(f2(a))))) | one(in1(h2(f2(a)))).  [resolve(376,c,211,a)].
+377 -zero(in2(h1(f1(A)))) | zero(in2(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(162,c,95,b)].
+Derived: -zero(in2(h1(f1(a)))) | zero(in2(and2(h1(f1(a))))).  [resolve(377,c,211,a)].
+378 -zero(in2(h1(f2(A)))) | zero(in2(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(162,c,97,b)].
+Derived: -zero(in2(h1(f2(a)))) | zero(in2(and2(h1(f2(a))))).  [resolve(378,c,211,a)].
+379 -zero(in2(h2(f1(A)))) | zero(in2(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(163,c,95,b)].
+Derived: -zero(in2(h2(f1(a)))) | zero(in2(and2(h2(f1(a))))).  [resolve(379,c,211,a)].
+380 -zero(in2(h2(f2(A)))) | zero(in2(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(163,c,97,b)].
+Derived: -zero(in2(h2(f2(a)))) | zero(in2(and2(h2(f2(a))))).  [resolve(380,c,211,a)].
+381 -one(in2(h1(f1(A)))) | one(in2(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(164,c,95,b)].
+Derived: -one(in2(h1(f1(a)))) | one(in2(and2(h1(f1(a))))).  [resolve(381,c,211,a)].
+382 -one(in2(h1(f2(A)))) | one(in2(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(164,c,97,b)].
+Derived: -one(in2(h1(f2(a)))) | one(in2(and2(h1(f2(a))))).  [resolve(382,c,211,a)].
+383 -one(in2(h2(f1(A)))) | one(in2(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(165,c,95,b)].
+Derived: -one(in2(h2(f1(a)))) | one(in2(and2(h2(f1(a))))).  [resolve(383,c,211,a)].
+384 -one(in2(h2(f2(A)))) | one(in2(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(165,c,97,b)].
+Derived: -one(in2(h2(f2(a)))) | one(in2(and2(h2(f2(a))))).  [resolve(384,c,211,a)].
+385 -zero(in2(and2(h1(f1(A))))) | zero(in2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(166,c,95,b)].
+Derived: -zero(in2(and2(h1(f1(a))))) | zero(in2(h1(f1(a)))).  [resolve(385,c,211,a)].
+386 -zero(in2(and2(h1(f2(A))))) | zero(in2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(166,c,97,b)].
+Derived: -zero(in2(and2(h1(f2(a))))) | zero(in2(h1(f2(a)))).  [resolve(386,c,211,a)].
+387 -zero(in2(and2(h2(f1(A))))) | zero(in2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(167,c,95,b)].
+Derived: -zero(in2(and2(h2(f1(a))))) | zero(in2(h2(f1(a)))).  [resolve(387,c,211,a)].
+388 -zero(in2(and2(h2(f2(A))))) | zero(in2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(167,c,97,b)].
+Derived: -zero(in2(and2(h2(f2(a))))) | zero(in2(h2(f2(a)))).  [resolve(388,c,211,a)].
+389 -one(in2(and2(h1(f1(A))))) | one(in2(h1(f1(A)))) | -nbit_adder2(A).  [resolve(168,c,95,b)].
+Derived: -one(in2(and2(h1(f1(a))))) | one(in2(h1(f1(a)))).  [resolve(389,c,211,a)].
+390 -one(in2(and2(h1(f2(A))))) | one(in2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(168,c,97,b)].
+Derived: -one(in2(and2(h1(f2(a))))) | one(in2(h1(f2(a)))).  [resolve(390,c,211,a)].
+391 -one(in2(and2(h2(f1(A))))) | one(in2(h2(f1(A)))) | -nbit_adder2(A).  [resolve(169,c,95,b)].
+Derived: -one(in2(and2(h2(f1(a))))) | one(in2(h2(f1(a)))).  [resolve(391,c,211,a)].
+392 -one(in2(and2(h2(f2(A))))) | one(in2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(169,c,97,b)].
+Derived: -one(in2(and2(h2(f2(a))))) | one(in2(h2(f2(a)))).  [resolve(392,c,211,a)].
+393 -zero(outs(h1(f1(A)))) | zero(out1(and1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(170,c,95,b)].
+Derived: -zero(outs(h1(f1(a)))) | zero(out1(and1(h1(f1(a))))).  [resolve(393,c,211,a)].
+394 -zero(outs(h1(f2(A)))) | zero(out1(and1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(170,c,97,b)].
+Derived: -zero(outs(h1(f2(a)))) | zero(out1(and1(h1(f2(a))))).  [resolve(394,c,211,a)].
+395 -zero(outs(h2(f1(A)))) | zero(out1(and1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(171,c,95,b)].
+Derived: -zero(outs(h2(f1(a)))) | zero(out1(and1(h2(f1(a))))).  [resolve(395,c,211,a)].
+396 -zero(outs(h2(f2(A)))) | zero(out1(and1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(171,c,97,b)].
+Derived: -zero(outs(h2(f2(a)))) | zero(out1(and1(h2(f2(a))))).  [resolve(396,c,211,a)].
+397 -one(outs(h1(f1(A)))) | one(out1(and1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(172,c,95,b)].
+Derived: -one(outs(h1(f1(a)))) | one(out1(and1(h1(f1(a))))).  [resolve(397,c,211,a)].
+398 -one(outs(h1(f2(A)))) | one(out1(and1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(172,c,97,b)].
+Derived: -one(outs(h1(f2(a)))) | one(out1(and1(h1(f2(a))))).  [resolve(398,c,211,a)].
+399 -one(outs(h2(f1(A)))) | one(out1(and1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(173,c,95,b)].
+Derived: -one(outs(h2(f1(a)))) | one(out1(and1(h2(f1(a))))).  [resolve(399,c,211,a)].
+400 -one(outs(h2(f2(A)))) | one(out1(and1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(173,c,97,b)].
+Derived: -one(outs(h2(f2(a)))) | one(out1(and1(h2(f2(a))))).  [resolve(400,c,211,a)].
+401 -zero(out1(and1(h1(f1(A))))) | zero(outs(h1(f1(A)))) | -nbit_adder2(A).  [resolve(174,c,95,b)].
+Derived: -zero(out1(and1(h1(f1(a))))) | zero(outs(h1(f1(a)))).  [resolve(401,c,211,a)].
+402 -zero(out1(and1(h1(f2(A))))) | zero(outs(h1(f2(A)))) | -nbit_adder2(A).  [resolve(174,c,97,b)].
+Derived: -zero(out1(and1(h1(f2(a))))) | zero(outs(h1(f2(a)))).  [resolve(402,c,211,a)].
+403 -zero(out1(and1(h2(f1(A))))) | zero(outs(h2(f1(A)))) | -nbit_adder2(A).  [resolve(175,c,95,b)].
+Derived: -zero(out1(and1(h2(f1(a))))) | zero(outs(h2(f1(a)))).  [resolve(403,c,211,a)].
+404 -zero(out1(and1(h2(f2(A))))) | zero(outs(h2(f2(A)))) | -nbit_adder2(A).  [resolve(175,c,97,b)].
+Derived: -zero(out1(and1(h2(f2(a))))) | zero(outs(h2(f2(a)))).  [resolve(404,c,211,a)].
+405 -one(out1(and1(h1(f1(A))))) | one(outs(h1(f1(A)))) | -nbit_adder2(A).  [resolve(176,c,95,b)].
+Derived: -one(out1(and1(h1(f1(a))))) | one(outs(h1(f1(a)))).  [resolve(405,c,211,a)].
+406 -one(out1(and1(h1(f2(A))))) | one(outs(h1(f2(A)))) | -nbit_adder2(A).  [resolve(176,c,97,b)].
+Derived: -one(out1(and1(h1(f2(a))))) | one(outs(h1(f2(a)))).  [resolve(406,c,211,a)].
+407 -one(out1(and1(h2(f1(A))))) | one(outs(h2(f1(A)))) | -nbit_adder2(A).  [resolve(177,c,95,b)].
+Derived: -one(out1(and1(h2(f1(a))))) | one(outs(h2(f1(a)))).  [resolve(407,c,211,a)].
+408 -one(out1(and1(h2(f2(A))))) | one(outs(h2(f2(A)))) | -nbit_adder2(A).  [resolve(177,c,97,b)].
+Derived: -one(out1(and1(h2(f2(a))))) | one(outs(h2(f2(a)))).  [resolve(408,c,211,a)].
+409 -zero(outc(h1(f1(A)))) | zero(out1(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(178,c,95,b)].
+Derived: -zero(outc(h1(f1(a)))) | zero(out1(and2(h1(f1(a))))).  [resolve(409,c,211,a)].
+410 -zero(outc(h1(f2(A)))) | zero(out1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(178,c,97,b)].
+Derived: -zero(outc(h1(f2(a)))) | zero(out1(and2(h1(f2(a))))).  [resolve(410,c,211,a)].
+411 -zero(outc(h2(f1(A)))) | zero(out1(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(179,c,95,b)].
+Derived: -zero(outc(h2(f1(a)))) | zero(out1(and2(h2(f1(a))))).  [resolve(411,c,211,a)].
+412 -zero(outc(h2(f2(A)))) | zero(out1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(179,c,97,b)].
+Derived: -zero(outc(h2(f2(a)))) | zero(out1(and2(h2(f2(a))))).  [resolve(412,c,211,a)].
+413 -one(outc(h1(f1(A)))) | one(out1(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(180,c,95,b)].
+Derived: -one(outc(h1(f1(a)))) | one(out1(and2(h1(f1(a))))).  [resolve(413,c,211,a)].
+414 -one(outc(h1(f2(A)))) | one(out1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(180,c,97,b)].
+Derived: -one(outc(h1(f2(a)))) | one(out1(and2(h1(f2(a))))).  [resolve(414,c,211,a)].
+415 -one(outc(h2(f1(A)))) | one(out1(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(181,c,95,b)].
+Derived: -one(outc(h2(f1(a)))) | one(out1(and2(h2(f1(a))))).  [resolve(415,c,211,a)].
+416 -one(outc(h2(f2(A)))) | one(out1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(181,c,97,b)].
+Derived: -one(outc(h2(f2(a)))) | one(out1(and2(h2(f2(a))))).  [resolve(416,c,211,a)].
+417 -zero(out1(and2(h1(f1(A))))) | zero(outc(h1(f1(A)))) | -nbit_adder2(A).  [resolve(182,c,95,b)].
+Derived: -zero(out1(and2(h1(f1(a))))) | zero(outc(h1(f1(a)))).  [resolve(417,c,211,a)].
+418 -zero(out1(and2(h1(f2(A))))) | zero(outc(h1(f2(A)))) | -nbit_adder2(A).  [resolve(182,c,97,b)].
+Derived: -zero(out1(and2(h1(f2(a))))) | zero(outc(h1(f2(a)))).  [resolve(418,c,211,a)].
+419 -zero(out1(and2(h2(f1(A))))) | zero(outc(h2(f1(A)))) | -nbit_adder2(A).  [resolve(183,c,95,b)].
+Derived: -zero(out1(and2(h2(f1(a))))) | zero(outc(h2(f1(a)))).  [resolve(419,c,211,a)].
+420 -zero(out1(and2(h2(f2(A))))) | zero(outc(h2(f2(A)))) | -nbit_adder2(A).  [resolve(183,c,97,b)].
+Derived: -zero(out1(and2(h2(f2(a))))) | zero(outc(h2(f2(a)))).  [resolve(420,c,211,a)].
+421 -one(out1(and2(h1(f1(A))))) | one(outc(h1(f1(A)))) | -nbit_adder2(A).  [resolve(184,c,95,b)].
+Derived: -one(out1(and2(h1(f1(a))))) | one(outc(h1(f1(a)))).  [resolve(421,c,211,a)].
+422 -one(out1(and2(h1(f2(A))))) | one(outc(h1(f2(A)))) | -nbit_adder2(A).  [resolve(184,c,97,b)].
+Derived: -one(out1(and2(h1(f2(a))))) | one(outc(h1(f2(a)))).  [resolve(422,c,211,a)].
+423 -one(out1(and2(h2(f1(A))))) | one(outc(h2(f1(A)))) | -nbit_adder2(A).  [resolve(185,c,95,b)].
+Derived: -one(out1(and2(h2(f1(a))))) | one(outc(h2(f1(a)))).  [resolve(423,c,211,a)].
+424 -one(out1(and2(h2(f2(A))))) | one(outc(h2(f2(A)))) | -nbit_adder2(A).  [resolve(185,c,97,b)].
+Derived: -one(out1(and2(h2(f2(a))))) | one(outc(h2(f2(a)))).  [resolve(424,c,211,a)].
+425 -zero(out1(or1(h1(f1(A))))) | zero(in1(and1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(186,c,95,b)].
+Derived: -zero(out1(or1(h1(f1(a))))) | zero(in1(and1(h1(f1(a))))).  [resolve(425,c,211,a)].
+426 -zero(out1(or1(h1(f2(A))))) | zero(in1(and1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(186,c,97,b)].
+Derived: -zero(out1(or1(h1(f2(a))))) | zero(in1(and1(h1(f2(a))))).  [resolve(426,c,211,a)].
+427 -zero(out1(or1(h2(f1(A))))) | zero(in1(and1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(187,c,95,b)].
+Derived: -zero(out1(or1(h2(f1(a))))) | zero(in1(and1(h2(f1(a))))).  [resolve(427,c,211,a)].
+428 -zero(out1(or1(h2(f2(A))))) | zero(in1(and1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(187,c,97,b)].
+Derived: -zero(out1(or1(h2(f2(a))))) | zero(in1(and1(h2(f2(a))))).  [resolve(428,c,211,a)].
+429 -one(out1(or1(h1(f1(A))))) | one(in1(and1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(188,c,95,b)].
+Derived: -one(out1(or1(h1(f1(a))))) | one(in1(and1(h1(f1(a))))).  [resolve(429,c,211,a)].
+430 -one(out1(or1(h1(f2(A))))) | one(in1(and1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(188,c,97,b)].
+Derived: -one(out1(or1(h1(f2(a))))) | one(in1(and1(h1(f2(a))))).  [resolve(430,c,211,a)].
+431 -one(out1(or1(h2(f1(A))))) | one(in1(and1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(189,c,95,b)].
+Derived: -one(out1(or1(h2(f1(a))))) | one(in1(and1(h2(f1(a))))).  [resolve(431,c,211,a)].
+432 -one(out1(or1(h2(f2(A))))) | one(in1(and1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(189,c,97,b)].
+Derived: -one(out1(or1(h2(f2(a))))) | one(in1(and1(h2(f2(a))))).  [resolve(432,c,211,a)].
+433 -zero(in1(and1(h1(f1(A))))) | zero(out1(or1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(190,c,95,b)].
+Derived: -zero(in1(and1(h1(f1(a))))) | zero(out1(or1(h1(f1(a))))).  [resolve(433,c,211,a)].
+434 -zero(in1(and1(h1(f2(A))))) | zero(out1(or1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(190,c,97,b)].
+Derived: -zero(in1(and1(h1(f2(a))))) | zero(out1(or1(h1(f2(a))))).  [resolve(434,c,211,a)].
+435 -zero(in1(and1(h2(f1(A))))) | zero(out1(or1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(191,c,95,b)].
+Derived: -zero(in1(and1(h2(f1(a))))) | zero(out1(or1(h2(f1(a))))).  [resolve(435,c,211,a)].
+436 -zero(in1(and1(h2(f2(A))))) | zero(out1(or1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(191,c,97,b)].
+Derived: -zero(in1(and1(h2(f2(a))))) | zero(out1(or1(h2(f2(a))))).  [resolve(436,c,211,a)].
+437 -one(in1(and1(h1(f1(A))))) | one(out1(or1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(192,c,95,b)].
+Derived: -one(in1(and1(h1(f1(a))))) | one(out1(or1(h1(f1(a))))).  [resolve(437,c,211,a)].
+438 -one(in1(and1(h1(f2(A))))) | one(out1(or1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(192,c,97,b)].
+Derived: -one(in1(and1(h1(f2(a))))) | one(out1(or1(h1(f2(a))))).  [resolve(438,c,211,a)].
+439 -one(in1(and1(h2(f1(A))))) | one(out1(or1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(193,c,95,b)].
+Derived: -one(in1(and1(h2(f1(a))))) | one(out1(or1(h2(f1(a))))).  [resolve(439,c,211,a)].
+440 -one(in1(and1(h2(f2(A))))) | one(out1(or1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(193,c,97,b)].
+Derived: -one(in1(and1(h2(f2(a))))) | one(out1(or1(h2(f2(a))))).  [resolve(440,c,211,a)].
+441 -zero(out1(and2(h1(f1(A))))) | zero(in1(not1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(194,c,95,b)].
+Derived: -zero(out1(and2(h1(f1(a))))) | zero(in1(not1(h1(f1(a))))).  [resolve(441,c,211,a)].
+442 -zero(out1(and2(h1(f2(A))))) | zero(in1(not1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(194,c,97,b)].
+Derived: -zero(out1(and2(h1(f2(a))))) | zero(in1(not1(h1(f2(a))))).  [resolve(442,c,211,a)].
+443 -zero(out1(and2(h2(f1(A))))) | zero(in1(not1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(195,c,95,b)].
+Derived: -zero(out1(and2(h2(f1(a))))) | zero(in1(not1(h2(f1(a))))).  [resolve(443,c,211,a)].
+444 -zero(out1(and2(h2(f2(A))))) | zero(in1(not1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(195,c,97,b)].
+Derived: -zero(out1(and2(h2(f2(a))))) | zero(in1(not1(h2(f2(a))))).  [resolve(444,c,211,a)].
+445 -one(out1(and2(h1(f1(A))))) | one(in1(not1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(196,c,95,b)].
+Derived: -one(out1(and2(h1(f1(a))))) | one(in1(not1(h1(f1(a))))).  [resolve(445,c,211,a)].
+446 -one(out1(and2(h1(f2(A))))) | one(in1(not1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(196,c,97,b)].
+Derived: -one(out1(and2(h1(f2(a))))) | one(in1(not1(h1(f2(a))))).  [resolve(446,c,211,a)].
+447 -one(out1(and2(h2(f1(A))))) | one(in1(not1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(197,c,95,b)].
+Derived: -one(out1(and2(h2(f1(a))))) | one(in1(not1(h2(f1(a))))).  [resolve(447,c,211,a)].
+448 -one(out1(and2(h2(f2(A))))) | one(in1(not1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(197,c,97,b)].
+Derived: -one(out1(and2(h2(f2(a))))) | one(in1(not1(h2(f2(a))))).  [resolve(448,c,211,a)].
+449 -zero(in1(not1(h1(f1(A))))) | zero(out1(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(198,c,95,b)].
+Derived: -zero(in1(not1(h1(f1(a))))) | zero(out1(and2(h1(f1(a))))).  [resolve(449,c,211,a)].
+450 -zero(in1(not1(h1(f2(A))))) | zero(out1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(198,c,97,b)].
+Derived: -zero(in1(not1(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(450,c,211,a)].
+451 -zero(in1(not1(h2(f1(A))))) | zero(out1(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(199,c,95,b)].
+Derived: -zero(in1(not1(h2(f1(a))))) | zero(out1(and2(h2(f1(a))))).  [resolve(451,c,211,a)].
+452 -zero(in1(not1(h2(f2(A))))) | zero(out1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(199,c,97,b)].
+Derived: -zero(in1(not1(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(452,c,211,a)].
+453 -one(in1(not1(h1(f1(A))))) | one(out1(and2(h1(f1(A))))) | -nbit_adder2(A).  [resolve(200,c,95,b)].
+Derived: -one(in1(not1(h1(f1(a))))) | one(out1(and2(h1(f1(a))))).  [resolve(453,c,211,a)].
+454 -one(in1(not1(h1(f2(A))))) | one(out1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(200,c,97,b)].
+Derived: -one(in1(not1(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(454,c,211,a)].
+455 -one(in1(not1(h2(f1(A))))) | one(out1(and2(h2(f1(A))))) | -nbit_adder2(A).  [resolve(201,c,95,b)].
+Derived: -one(in1(not1(h2(f1(a))))) | one(out1(and2(h2(f1(a))))).  [resolve(455,c,211,a)].
+456 -one(in1(not1(h2(f2(A))))) | one(out1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(201,c,97,b)].
+Derived: -one(in1(not1(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(456,c,211,a)].
+457 -zero(out1(not1(h1(f1(A))))) | zero(in2(and1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(202,c,95,b)].
+Derived: -zero(out1(not1(h1(f1(a))))) | zero(in2(and1(h1(f1(a))))).  [resolve(457,c,211,a)].
+458 -zero(out1(not1(h1(f2(A))))) | zero(in2(and1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(202,c,97,b)].
+Derived: -zero(out1(not1(h1(f2(a))))) | zero(in2(and1(h1(f2(a))))).  [resolve(458,c,211,a)].
+459 -zero(out1(not1(h2(f1(A))))) | zero(in2(and1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(203,c,95,b)].
+Derived: -zero(out1(not1(h2(f1(a))))) | zero(in2(and1(h2(f1(a))))).  [resolve(459,c,211,a)].
+460 -zero(out1(not1(h2(f2(A))))) | zero(in2(and1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(203,c,97,b)].
+Derived: -zero(out1(not1(h2(f2(a))))) | zero(in2(and1(h2(f2(a))))).  [resolve(460,c,211,a)].
+461 -one(out1(not1(h1(f1(A))))) | one(in2(and1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(204,c,95,b)].
+Derived: -one(out1(not1(h1(f1(a))))) | one(in2(and1(h1(f1(a))))).  [resolve(461,c,211,a)].
+462 -one(out1(not1(h1(f2(A))))) | one(in2(and1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(204,c,97,b)].
+Derived: -one(out1(not1(h1(f2(a))))) | one(in2(and1(h1(f2(a))))).  [resolve(462,c,211,a)].
+463 -one(out1(not1(h2(f1(A))))) | one(in2(and1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(205,c,95,b)].
+Derived: -one(out1(not1(h2(f1(a))))) | one(in2(and1(h2(f1(a))))).  [resolve(463,c,211,a)].
+464 -one(out1(not1(h2(f2(A))))) | one(in2(and1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(205,c,97,b)].
+Derived: -one(out1(not1(h2(f2(a))))) | one(in2(and1(h2(f2(a))))).  [resolve(464,c,211,a)].
+465 -zero(in2(and1(h1(f1(A))))) | zero(out1(not1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(206,c,95,b)].
+Derived: -zero(in2(and1(h1(f1(a))))) | zero(out1(not1(h1(f1(a))))).  [resolve(465,c,211,a)].
+466 -zero(in2(and1(h1(f2(A))))) | zero(out1(not1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(206,c,97,b)].
+Derived: -zero(in2(and1(h1(f2(a))))) | zero(out1(not1(h1(f2(a))))).  [resolve(466,c,211,a)].
+467 -zero(in2(and1(h2(f1(A))))) | zero(out1(not1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(207,c,95,b)].
+Derived: -zero(in2(and1(h2(f1(a))))) | zero(out1(not1(h2(f1(a))))).  [resolve(467,c,211,a)].
+468 -zero(in2(and1(h2(f2(A))))) | zero(out1(not1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(207,c,97,b)].
+Derived: -zero(in2(and1(h2(f2(a))))) | zero(out1(not1(h2(f2(a))))).  [resolve(468,c,211,a)].
+469 -one(in2(and1(h1(f1(A))))) | one(out1(not1(h1(f1(A))))) | -nbit_adder2(A).  [resolve(208,c,95,b)].
+Derived: -one(in2(and1(h1(f1(a))))) | one(out1(not1(h1(f1(a))))).  [resolve(469,c,211,a)].
+470 -one(in2(and1(h1(f2(A))))) | one(out1(not1(h1(f2(A))))) | -nbit_adder2(A).  [resolve(208,c,97,b)].
+Derived: -one(in2(and1(h1(f2(a))))) | one(out1(not1(h1(f2(a))))).  [resolve(470,c,211,a)].
+471 -one(in2(and1(h2(f1(A))))) | one(out1(not1(h2(f1(A))))) | -nbit_adder2(A).  [resolve(209,c,95,b)].
+Derived: -one(in2(and1(h2(f1(a))))) | one(out1(not1(h2(f1(a))))).  [resolve(471,c,211,a)].
+472 -one(in2(and1(h2(f2(A))))) | one(out1(not1(h2(f2(A))))) | -nbit_adder2(A).  [resolve(209,c,97,b)].
+Derived: -one(in2(and1(h2(f2(a))))) | one(out1(not1(h2(f2(a))))).  [resolve(472,c,211,a)].
+
+Eliminating abnormal/1
+473 -logic_and(A) | abnormal(A) | -zero(in1(A)) | zero(out1(A)).  [resolve(31,b,32,a)].
+474 -abnormal(or1(f2(a))) # label(diagnosis_or1f2a) # label(negated_conjecture).  [assumption].
+475 -abnormal(and2(h1(f2(a)))) # label(diagnosis_and2h1f2a) # label(negated_conjecture).  [assumption].
+476 -abnormal(and2(h2(f2(a)))) # label(diagnosis_and2h2f2a) # label(negated_conjecture).  [assumption].
+Derived: -logic_and(or1(f2(a))) | -zero(in1(or1(f2(a)))) | zero(out1(or1(f2(a)))).  [resolve(473,b,474,a)].
+Derived: -logic_and(and2(h1(f2(a)))) | -zero(in1(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(473,b,475,a)].
+Derived: -logic_and(and2(h2(f2(a)))) | -zero(in1(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(473,b,476,a)].
+477 -logic_and(A) | abnormal(A) | -zero(in2(A)) | zero(out1(A)).  [resolve(31,b,33,a)].
+Derived: -logic_and(or1(f2(a))) | -zero(in2(or1(f2(a)))) | zero(out1(or1(f2(a)))).  [resolve(477,b,474,a)].
+Derived: -logic_and(and2(h1(f2(a)))) | -zero(in2(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(477,b,475,a)].
+Derived: -logic_and(and2(h2(f2(a)))) | -zero(in2(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(477,b,476,a)].
+478 -logic_and(A) | abnormal(A) | -one(in1(A)) | -one(in2(A)) | one(out1(A)).  [resolve(31,b,34,a)].
+Derived: -logic_and(or1(f2(a))) | -one(in1(or1(f2(a)))) | -one(in2(or1(f2(a)))) | one(out1(or1(f2(a)))).  [resolve(478,b,474,a)].
+Derived: -logic_and(and2(h1(f2(a)))) | -one(in1(and2(h1(f2(a))))) | -one(in2(and2(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(478,b,475,a)].
+Derived: -logic_and(and2(h2(f2(a)))) | -one(in1(and2(h2(f2(a))))) | -one(in2(and2(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(478,b,476,a)].
+479 -logic_and(A) | abnormal(A) | -zero(out1(A)) | zero(in1(A)) | zero(in2(A)).  [resolve(31,b,35,a)].
+Derived: -logic_and(or1(f2(a))) | -zero(out1(or1(f2(a)))) | zero(in1(or1(f2(a)))) | zero(in2(or1(f2(a)))).  [resolve(479,b,474,a)].
+Derived: -logic_and(and2(h1(f2(a)))) | -zero(out1(and2(h1(f2(a))))) | zero(in1(and2(h1(f2(a))))) | zero(in2(and2(h1(f2(a))))).  [resolve(479,b,475,a)].
+Derived: -logic_and(and2(h2(f2(a)))) | -zero(out1(and2(h2(f2(a))))) | zero(in1(and2(h2(f2(a))))) | zero(in2(and2(h2(f2(a))))).  [resolve(479,b,476,a)].
+480 -logic_and(A) | abnormal(A) | -one(out1(A)) | one(in1(A)).  [resolve(31,b,36,a)].
+Derived: -logic_and(or1(f2(a))) | -one(out1(or1(f2(a)))) | one(in1(or1(f2(a)))).  [resolve(480,b,474,a)].
+Derived: -logic_and(and2(h1(f2(a)))) | -one(out1(and2(h1(f2(a))))) | one(in1(and2(h1(f2(a))))).  [resolve(480,b,475,a)].
+Derived: -logic_and(and2(h2(f2(a)))) | -one(out1(and2(h2(f2(a))))) | one(in1(and2(h2(f2(a))))).  [resolve(480,b,476,a)].
+481 -logic_and(A) | abnormal(A) | -one(out1(A)) | one(in2(A)).  [resolve(31,b,37,a)].
+Derived: -logic_and(or1(f2(a))) | -one(out1(or1(f2(a)))) | one(in2(or1(f2(a)))).  [resolve(481,b,474,a)].
+Derived: -logic_and(and2(h1(f2(a)))) | -one(out1(and2(h1(f2(a))))) | one(in2(and2(h1(f2(a))))).  [resolve(481,b,475,a)].
+Derived: -logic_and(and2(h2(f2(a)))) | -one(out1(and2(h2(f2(a))))) | one(in2(and2(h2(f2(a))))).  [resolve(481,b,476,a)].
+482 -logic_or(A) | abnormal(A) | -one(in1(A)) | one(out1(A)).  [resolve(39,b,40,a)].
+Derived: -logic_or(or1(f2(a))) | -one(in1(or1(f2(a)))) | one(out1(or1(f2(a)))).  [resolve(482,b,474,a)].
+Derived: -logic_or(and2(h1(f2(a)))) | -one(in1(and2(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(482,b,475,a)].
+Derived: -logic_or(and2(h2(f2(a)))) | -one(in1(and2(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(482,b,476,a)].
+483 -logic_or(A) | abnormal(A) | -one(in2(A)) | one(out1(A)).  [resolve(39,b,41,a)].
+Derived: -logic_or(or1(f2(a))) | -one(in2(or1(f2(a)))) | one(out1(or1(f2(a)))).  [resolve(483,b,474,a)].
+Derived: -logic_or(and2(h1(f2(a)))) | -one(in2(and2(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(483,b,475,a)].
+Derived: -logic_or(and2(h2(f2(a)))) | -one(in2(and2(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(483,b,476,a)].
+484 -logic_or(A) | abnormal(A) | -zero(in1(A)) | -zero(in2(A)) | zero(out1(A)).  [resolve(39,b,42,a)].
+Derived: -logic_or(or1(f2(a))) | -zero(in1(or1(f2(a)))) | -zero(in2(or1(f2(a)))) | zero(out1(or1(f2(a)))).  [resolve(484,b,474,a)].
+Derived: -logic_or(and2(h1(f2(a)))) | -zero(in1(and2(h1(f2(a))))) | -zero(in2(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(484,b,475,a)].
+Derived: -logic_or(and2(h2(f2(a)))) | -zero(in1(and2(h2(f2(a))))) | -zero(in2(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(484,b,476,a)].
+485 -logic_or(A) | abnormal(A) | -one(out1(A)) | one(in1(A)) | one(in2(A)).  [resolve(39,b,43,a)].
+Derived: -logic_or(or1(f2(a))) | -one(out1(or1(f2(a)))) | one(in1(or1(f2(a)))) | one(in2(or1(f2(a)))).  [resolve(485,b,474,a)].
+Derived: -logic_or(and2(h1(f2(a)))) | -one(out1(and2(h1(f2(a))))) | one(in1(and2(h1(f2(a))))) | one(in2(and2(h1(f2(a))))).  [resolve(485,b,475,a)].
+Derived: -logic_or(and2(h2(f2(a)))) | -one(out1(and2(h2(f2(a))))) | one(in1(and2(h2(f2(a))))) | one(in2(and2(h2(f2(a))))).  [resolve(485,b,476,a)].
+486 -logic_or(A) | abnormal(A) | -zero(out1(A)) | zero(in1(A)).  [resolve(39,b,44,a)].
+Derived: -logic_or(or1(f2(a))) | -zero(out1(or1(f2(a)))) | zero(in1(or1(f2(a)))).  [resolve(486,b,474,a)].
+Derived: -logic_or(and2(h1(f2(a)))) | -zero(out1(and2(h1(f2(a))))) | zero(in1(and2(h1(f2(a))))).  [resolve(486,b,475,a)].
+Derived: -logic_or(and2(h2(f2(a)))) | -zero(out1(and2(h2(f2(a))))) | zero(in1(and2(h2(f2(a))))).  [resolve(486,b,476,a)].
+487 -logic_or(A) | abnormal(A) | -zero(out1(A)) | zero(in2(A)).  [resolve(39,b,45,a)].
+Derived: -logic_or(or1(f2(a))) | -zero(out1(or1(f2(a)))) | zero(in2(or1(f2(a)))).  [resolve(487,b,474,a)].
+Derived: -logic_or(and2(h1(f2(a)))) | -zero(out1(and2(h1(f2(a))))) | zero(in2(and2(h1(f2(a))))).  [resolve(487,b,475,a)].
+Derived: -logic_or(and2(h2(f2(a)))) | -zero(out1(and2(h2(f2(a))))) | zero(in2(and2(h2(f2(a))))).  [resolve(487,b,476,a)].
+488 -logic_not(A) | abnormal(A) | -zero(in1(A)) | one(out1(A)).  [resolve(47,b,48,a)].
+Derived: -logic_not(or1(f2(a))) | -zero(in1(or1(f2(a)))) | one(out1(or1(f2(a)))).  [resolve(488,b,474,a)].
+Derived: -logic_not(and2(h1(f2(a)))) | -zero(in1(and2(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(488,b,475,a)].
+Derived: -logic_not(and2(h2(f2(a)))) | -zero(in1(and2(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(488,b,476,a)].
+489 -logic_not(A) | abnormal(A) | -one(in1(A)) | zero(out1(A)).  [resolve(47,b,49,a)].
+Derived: -logic_not(or1(f2(a))) | -one(in1(or1(f2(a)))) | zero(out1(or1(f2(a)))).  [resolve(489,b,474,a)].
+Derived: -logic_not(and2(h1(f2(a)))) | -one(in1(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(489,b,475,a)].
+Derived: -logic_not(and2(h2(f2(a)))) | -one(in1(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(489,b,476,a)].
+490 -logic_not(A) | abnormal(A) | -zero(out1(A)) | one(in1(A)).  [resolve(47,b,50,a)].
+Derived: -logic_not(or1(f2(a))) | -zero(out1(or1(f2(a)))) | one(in1(or1(f2(a)))).  [resolve(490,b,474,a)].
+Derived: -logic_not(and2(h1(f2(a)))) | -zero(out1(and2(h1(f2(a))))) | one(in1(and2(h1(f2(a))))).  [resolve(490,b,475,a)].
+Derived: -logic_not(and2(h2(f2(a)))) | -zero(out1(and2(h2(f2(a))))) | one(in1(and2(h2(f2(a))))).  [resolve(490,b,476,a)].
+491 -logic_not(A) | abnormal(A) | -one(out1(A)) | zero(in1(A)).  [resolve(47,b,51,a)].
+Derived: -logic_not(or1(f2(a))) | -one(out1(or1(f2(a)))) | zero(in1(or1(f2(a)))).  [resolve(491,b,474,a)].
+Derived: -logic_not(and2(h1(f2(a)))) | -one(out1(and2(h1(f2(a))))) | zero(in1(and2(h1(f2(a))))).  [resolve(491,b,475,a)].
+Derived: -logic_not(and2(h2(f2(a)))) | -one(out1(and2(h2(f2(a))))) | zero(in1(and2(h2(f2(a))))).  [resolve(491,b,476,a)].
+
+Eliminating logic_or/1
+492 -logic_or(or1(f2(a))) | -one(in1(or1(f2(a)))) | one(out1(or1(f2(a)))).  [resolve(482,b,474,a)].
+493 logic_or(or1(f1(a))).  [resolve(247,a,211,a)].
+494 logic_or(or1(f2(a))).  [resolve(248,a,211,a)].
+495 logic_or(or1(h1(f1(a)))).  [resolve(319,b,211,a)].
+496 logic_or(or1(h1(f2(a)))).  [resolve(320,b,211,a)].
+497 logic_or(or1(h2(f1(a)))).  [resolve(327,b,211,a)].
+498 logic_or(or1(h2(f2(a)))).  [resolve(328,b,211,a)].
+Derived: -one(in1(or1(f2(a)))) | one(out1(or1(f2(a)))).  [resolve(492,a,494,a)].
+499 -logic_or(and2(h1(f2(a)))) | -one(in1(and2(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(482,b,475,a)].
+500 -logic_or(and2(h2(f2(a)))) | -one(in1(and2(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(482,b,476,a)].
+501 -logic_or(or1(f2(a))) | -one(in2(or1(f2(a)))) | one(out1(or1(f2(a)))).  [resolve(483,b,474,a)].
+Derived: -one(in2(or1(f2(a)))) | one(out1(or1(f2(a)))).  [resolve(501,a,494,a)].
+502 -logic_or(and2(h1(f2(a)))) | -one(in2(and2(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(483,b,475,a)].
+503 -logic_or(and2(h2(f2(a)))) | -one(in2(and2(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(483,b,476,a)].
+504 -logic_or(or1(f2(a))) | -zero(in1(or1(f2(a)))) | -zero(in2(or1(f2(a)))) | zero(out1(or1(f2(a)))).  [resolve(484,b,474,a)].
+Derived: -zero(in1(or1(f2(a)))) | -zero(in2(or1(f2(a)))) | zero(out1(or1(f2(a)))).  [resolve(504,a,494,a)].
+505 -logic_or(and2(h1(f2(a)))) | -zero(in1(and2(h1(f2(a))))) | -zero(in2(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(484,b,475,a)].
+506 -logic_or(and2(h2(f2(a)))) | -zero(in1(and2(h2(f2(a))))) | -zero(in2(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(484,b,476,a)].
+507 -logic_or(or1(f2(a))) | -one(out1(or1(f2(a)))) | one(in1(or1(f2(a)))) | one(in2(or1(f2(a)))).  [resolve(485,b,474,a)].
+Derived: -one(out1(or1(f2(a)))) | one(in1(or1(f2(a)))) | one(in2(or1(f2(a)))).  [resolve(507,a,494,a)].
+508 -logic_or(and2(h1(f2(a)))) | -one(out1(and2(h1(f2(a))))) | one(in1(and2(h1(f2(a))))) | one(in2(and2(h1(f2(a))))).  [resolve(485,b,475,a)].
+509 -logic_or(and2(h2(f2(a)))) | -one(out1(and2(h2(f2(a))))) | one(in1(and2(h2(f2(a))))) | one(in2(and2(h2(f2(a))))).  [resolve(485,b,476,a)].
+510 -logic_or(or1(f2(a))) | -zero(out1(or1(f2(a)))) | zero(in1(or1(f2(a)))).  [resolve(486,b,474,a)].
+Derived: -zero(out1(or1(f2(a)))) | zero(in1(or1(f2(a)))).  [resolve(510,a,494,a)].
+511 -logic_or(and2(h1(f2(a)))) | -zero(out1(and2(h1(f2(a))))) | zero(in1(and2(h1(f2(a))))).  [resolve(486,b,475,a)].
+512 -logic_or(and2(h2(f2(a)))) | -zero(out1(and2(h2(f2(a))))) | zero(in1(and2(h2(f2(a))))).  [resolve(486,b,476,a)].
+513 -logic_or(or1(f2(a))) | -zero(out1(or1(f2(a)))) | zero(in2(or1(f2(a)))).  [resolve(487,b,474,a)].
+Derived: -zero(out1(or1(f2(a)))) | zero(in2(or1(f2(a)))).  [resolve(513,a,494,a)].
+514 -logic_or(and2(h1(f2(a)))) | -zero(out1(and2(h1(f2(a))))) | zero(in2(and2(h1(f2(a))))).  [resolve(487,b,475,a)].
+515 -logic_or(and2(h2(f2(a)))) | -zero(out1(and2(h2(f2(a))))) | zero(in2(and2(h2(f2(a))))).  [resolve(487,b,476,a)].
+
+Eliminating logic_and/1
+516 -logic_and(or1(f2(a))) | -zero(in1(or1(f2(a)))) | zero(out1(or1(f2(a)))).  [resolve(473,b,474,a)].
+517 logic_and(and1(h1(f1(a)))).  [resolve(313,b,211,a)].
+518 logic_and(and1(h1(f2(a)))).  [resolve(314,b,211,a)].
+519 logic_and(and2(h1(f1(a)))).  [resolve(315,b,211,a)].
+520 logic_and(and2(h1(f2(a)))).  [resolve(316,b,211,a)].
+521 logic_and(and1(h2(f1(a)))).  [resolve(321,b,211,a)].
+522 logic_and(and1(h2(f2(a)))).  [resolve(322,b,211,a)].
+523 logic_and(and2(h2(f1(a)))).  [resolve(323,b,211,a)].
+524 logic_and(and2(h2(f2(a)))).  [resolve(324,b,211,a)].
+525 -logic_and(and2(h1(f2(a)))) | -zero(in1(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(473,b,475,a)].
+Derived: -zero(in1(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(525,a,520,a)].
+526 -logic_and(and2(h2(f2(a)))) | -zero(in1(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(473,b,476,a)].
+Derived: -zero(in1(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(526,a,524,a)].
+527 -logic_and(or1(f2(a))) | -zero(in2(or1(f2(a)))) | zero(out1(or1(f2(a)))).  [resolve(477,b,474,a)].
+528 -logic_and(and2(h1(f2(a)))) | -zero(in2(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(477,b,475,a)].
+Derived: -zero(in2(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(528,a,520,a)].
+529 -logic_and(and2(h2(f2(a)))) | -zero(in2(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(477,b,476,a)].
+Derived: -zero(in2(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(529,a,524,a)].
+530 -logic_and(or1(f2(a))) | -one(in1(or1(f2(a)))) | -one(in2(or1(f2(a)))) | one(out1(or1(f2(a)))).  [resolve(478,b,474,a)].
+531 -logic_and(and2(h1(f2(a)))) | -one(in1(and2(h1(f2(a))))) | -one(in2(and2(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(478,b,475,a)].
+Derived: -one(in1(and2(h1(f2(a))))) | -one(in2(and2(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(531,a,520,a)].
+532 -logic_and(and2(h2(f2(a)))) | -one(in1(and2(h2(f2(a))))) | -one(in2(and2(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(478,b,476,a)].
+Derived: -one(in1(and2(h2(f2(a))))) | -one(in2(and2(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(532,a,524,a)].
+533 -logic_and(or1(f2(a))) | -zero(out1(or1(f2(a)))) | zero(in1(or1(f2(a)))) | zero(in2(or1(f2(a)))).  [resolve(479,b,474,a)].
+534 -logic_and(and2(h1(f2(a)))) | -zero(out1(and2(h1(f2(a))))) | zero(in1(and2(h1(f2(a))))) | zero(in2(and2(h1(f2(a))))).  [resolve(479,b,475,a)].
+Derived: -zero(out1(and2(h1(f2(a))))) | zero(in1(and2(h1(f2(a))))) | zero(in2(and2(h1(f2(a))))).  [resolve(534,a,520,a)].
+535 -logic_and(and2(h2(f2(a)))) | -zero(out1(and2(h2(f2(a))))) | zero(in1(and2(h2(f2(a))))) | zero(in2(and2(h2(f2(a))))).  [resolve(479,b,476,a)].
+Derived: -zero(out1(and2(h2(f2(a))))) | zero(in1(and2(h2(f2(a))))) | zero(in2(and2(h2(f2(a))))).  [resolve(535,a,524,a)].
+536 -logic_and(or1(f2(a))) | -one(out1(or1(f2(a)))) | one(in1(or1(f2(a)))).  [resolve(480,b,474,a)].
+537 -logic_and(and2(h1(f2(a)))) | -one(out1(and2(h1(f2(a))))) | one(in1(and2(h1(f2(a))))).  [resolve(480,b,475,a)].
+Derived: -one(out1(and2(h1(f2(a))))) | one(in1(and2(h1(f2(a))))).  [resolve(537,a,520,a)].
+538 -logic_and(and2(h2(f2(a)))) | -one(out1(and2(h2(f2(a))))) | one(in1(and2(h2(f2(a))))).  [resolve(480,b,476,a)].
+Derived: -one(out1(and2(h2(f2(a))))) | one(in1(and2(h2(f2(a))))).  [resolve(538,a,524,a)].
+539 -logic_and(or1(f2(a))) | -one(out1(or1(f2(a)))) | one(in2(or1(f2(a)))).  [resolve(481,b,474,a)].
+540 -logic_and(and2(h1(f2(a)))) | -one(out1(and2(h1(f2(a))))) | one(in2(and2(h1(f2(a))))).  [resolve(481,b,475,a)].
+Derived: -one(out1(and2(h1(f2(a))))) | one(in2(and2(h1(f2(a))))).  [resolve(540,a,520,a)].
+541 -logic_and(and2(h2(f2(a)))) | -one(out1(and2(h2(f2(a))))) | one(in2(and2(h2(f2(a))))).  [resolve(481,b,476,a)].
+Derived: -one(out1(and2(h2(f2(a))))) | one(in2(and2(h2(f2(a))))).  [resolve(541,a,524,a)].
+
+Eliminating logic_not/1
+542 -logic_not(or1(f2(a))) | -zero(in1(or1(f2(a)))) | one(out1(or1(f2(a)))).  [resolve(488,b,474,a)].
+543 logic_not(not1(h1(f1(a)))).  [resolve(317,b,211,a)].
+544 logic_not(not1(h1(f2(a)))).  [resolve(318,b,211,a)].
+545 logic_not(not1(h2(f1(a)))).  [resolve(325,b,211,a)].
+546 logic_not(not1(h2(f2(a)))).  [resolve(326,b,211,a)].
+547 -logic_not(and2(h1(f2(a)))) | -zero(in1(and2(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(488,b,475,a)].
+548 -logic_not(and2(h2(f2(a)))) | -zero(in1(and2(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(488,b,476,a)].
+549 -logic_not(or1(f2(a))) | -one(in1(or1(f2(a)))) | zero(out1(or1(f2(a)))).  [resolve(489,b,474,a)].
+550 -logic_not(and2(h1(f2(a)))) | -one(in1(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(489,b,475,a)].
+551 -logic_not(and2(h2(f2(a)))) | -one(in1(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(489,b,476,a)].
+552 -logic_not(or1(f2(a))) | -zero(out1(or1(f2(a)))) | one(in1(or1(f2(a)))).  [resolve(490,b,474,a)].
+553 -logic_not(and2(h1(f2(a)))) | -zero(out1(and2(h1(f2(a))))) | one(in1(and2(h1(f2(a))))).  [resolve(490,b,475,a)].
+554 -logic_not(and2(h2(f2(a)))) | -zero(out1(and2(h2(f2(a))))) | one(in1(and2(h2(f2(a))))).  [resolve(490,b,476,a)].
+555 -logic_not(or1(f2(a))) | -one(out1(or1(f2(a)))) | zero(in1(or1(f2(a)))).  [resolve(491,b,474,a)].
+556 -logic_not(and2(h1(f2(a)))) | -one(out1(and2(h1(f2(a))))) | zero(in1(and2(h1(f2(a))))).  [resolve(491,b,475,a)].
+557 -logic_not(and2(h2(f2(a)))) | -one(out1(and2(h2(f2(a))))) | zero(in1(and2(h2(f2(a))))).  [resolve(491,b,476,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ zero, one ]).
+Function symbol precedence:  function_order([ a, f2, f1, h1, h2, in1, in2, out1, and2, or1, outc, and1, outs, not1, inc, ina1, ina2, inb1, inb2, out2 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(binary_resolution).  % (non-Horn)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+kept:      558 -zero(A) | -one(A) # label(unique_value) # label(axiom).  [assumption].
+kept:      559 zero(ina1(a)) # label(ina1_0) # label(hypothesis).  [assumption].
+kept:      560 zero(ina2(a)) # label(ina2_0) # label(hypothesis).  [assumption].
+kept:      561 zero(inb1(a)) # label(inb1_0) # label(hypothesis).  [assumption].
+kept:      562 zero(inb2(a)) # label(inb2_0) # label(hypothesis).  [assumption].
+kept:      563 zero(inc(a)) # label(inc_0) # label(hypothesis).  [assumption].
+kept:      564 zero(out1(a)) # label(out1_0) # label(hypothesis).  [assumption].
+kept:      565 zero(out2(a)) # label(out2_0) # label(hypothesis).  [assumption].
+kept:      566 one(outc(a)) # label(outc_1) # label(hypothesis).  [assumption].
+           567 -zero(out1(a)) | zero(out1(f1(a))).  [resolve(210,a,211,a)].
+kept:      568 zero(out1(f1(a))).  [copy(567),unit_del(a,564)].
+kept:      569 -one(out1(a)) | one(out1(f1(a))).  [resolve(212,a,211,a)].
+           570 -zero(out1(f1(a))) | zero(out1(a)).  [resolve(213,a,211,a)].
+kept:      571 -one(out1(f1(a))) | one(out1(a)).  [resolve(214,a,211,a)].
+           572 -zero(out2(a)) | zero(out1(f2(a))).  [resolve(215,a,211,a)].
+kept:      573 zero(out1(f2(a))).  [copy(572),unit_del(a,565)].
+kept:      574 -one(out2(a)) | one(out1(f2(a))).  [resolve(216,a,211,a)].
+           575 -zero(out1(f2(a))) | zero(out2(a)).  [resolve(217,a,211,a)].
+kept:      576 -one(out1(f2(a))) | one(out2(a)).  [resolve(218,a,211,a)].
+kept:      577 -zero(outc(a)) | zero(outc(f2(a))).  [resolve(219,a,211,a)].
+           578 -one(outc(a)) | one(outc(f2(a))).  [resolve(220,a,211,a)].
+kept:      579 one(outc(f2(a))).  [copy(578),unit_del(a,566)].
+kept:      580 -zero(outc(f2(a))) | zero(outc(a)).  [resolve(221,a,211,a)].
+           581 -one(outc(f2(a))) | one(outc(a)).  [resolve(222,a,211,a)].
+           582 -zero(ina1(a)) | zero(in1(f1(a))).  [resolve(223,a,211,a)].
+kept:      583 zero(in1(f1(a))).  [copy(582),unit_del(a,559)].
+kept:      584 -one(ina1(a)) | one(in1(f1(a))).  [resolve(224,a,211,a)].
+           585 -zero(in1(f1(a))) | zero(ina1(a)).  [resolve(225,a,211,a)].
+kept:      586 -one(in1(f1(a))) | one(ina1(a)).  [resolve(226,a,211,a)].
+           587 -zero(inb1(a)) | zero(in2(f1(a))).  [resolve(227,a,211,a)].
+kept:      588 zero(in2(f1(a))).  [copy(587),unit_del(a,561)].
+kept:      589 -one(inb1(a)) | one(in2(f1(a))).  [resolve(228,a,211,a)].
+           590 -zero(in2(f1(a))) | zero(inb1(a)).  [resolve(229,a,211,a)].
+kept:      591 -one(in2(f1(a))) | one(inb1(a)).  [resolve(230,a,211,a)].
+           592 -zero(ina2(a)) | zero(in1(f2(a))).  [resolve(231,a,211,a)].
+kept:      593 zero(in1(f2(a))).  [copy(592),unit_del(a,560)].
+kept:      594 -one(ina2(a)) | one(in1(f2(a))).  [resolve(232,a,211,a)].
+           595 -zero(in1(f2(a))) | zero(ina2(a)).  [resolve(233,a,211,a)].
+kept:      596 -one(in1(f2(a))) | one(ina2(a)).  [resolve(234,a,211,a)].
+           597 -zero(inb2(a)) | zero(in2(f2(a))).  [resolve(235,a,211,a)].
+kept:      598 zero(in2(f2(a))).  [copy(597),unit_del(a,562)].
+kept:      599 -one(inb2(a)) | one(in2(f2(a))).  [resolve(236,a,211,a)].
+           600 -zero(in2(f2(a))) | zero(inb2(a)).  [resolve(237,a,211,a)].
+kept:      601 -one(in2(f2(a))) | one(inb2(a)).  [resolve(238,a,211,a)].
+kept:      602 -zero(outc(f1(a))) | zero(inc(f2(a))).  [resolve(239,a,211,a)].
+kept:      603 -one(outc(f1(a))) | one(inc(f2(a))).  [resolve(240,a,211,a)].
+kept:      604 -zero(inc(f2(a))) | zero(outc(f1(a))).  [resolve(241,a,211,a)].
+kept:      605 -one(inc(f2(a))) | one(outc(f1(a))).  [resolve(242,a,211,a)].
+           606 -zero(inc(a)) | zero(inc(f1(a))).  [resolve(243,a,211,a)].
+kept:      607 zero(inc(f1(a))).  [copy(606),unit_del(a,563)].
+kept:      608 -one(inc(a)) | one(inc(f1(a))).  [resolve(244,a,211,a)].
+           609 -zero(inc(f1(a))) | zero(inc(a)).  [resolve(245,a,211,a)].
+kept:      610 -one(inc(f1(a))) | one(inc(a)).  [resolve(246,a,211,a)].
+kept:      611 -zero(outs(h1(f1(a)))) | zero(in2(h2(f1(a)))).  [resolve(249,c,211,a)].
+kept:      612 -zero(outs(h1(f2(a)))) | zero(in2(h2(f2(a)))).  [resolve(250,c,211,a)].
+kept:      613 -one(outs(h1(f1(a)))) | one(in2(h2(f1(a)))).  [resolve(251,c,211,a)].
+kept:      614 -one(outs(h1(f2(a)))) | one(in2(h2(f2(a)))).  [resolve(252,c,211,a)].
+kept:      615 -zero(in2(h2(f1(a)))) | zero(outs(h1(f1(a)))).  [resolve(253,c,211,a)].
+kept:      616 -zero(in2(h2(f2(a)))) | zero(outs(h1(f2(a)))).  [resolve(254,c,211,a)].
+kept:      617 -one(in2(h2(f1(a)))) | one(outs(h1(f1(a)))).  [resolve(255,c,211,a)].
+kept:      618 -one(in2(h2(f2(a)))) | one(outs(h1(f2(a)))).  [resolve(256,c,211,a)].
+kept:      619 -zero(outc(h1(f1(a)))) | zero(in2(or1(f1(a)))).  [resolve(257,c,211,a)].
+kept:      620 -zero(outc(h1(f2(a)))) | zero(in2(or1(f2(a)))).  [resolve(258,c,211,a)].
+kept:      621 -one(outc(h1(f1(a)))) | one(in2(or1(f1(a)))).  [resolve(259,c,211,a)].
+kept:      622 -one(outc(h1(f2(a)))) | one(in2(or1(f2(a)))).  [resolve(260,c,211,a)].
+kept:      623 -zero(in2(or1(f1(a)))) | zero(outc(h1(f1(a)))).  [resolve(261,c,211,a)].
+kept:      624 -zero(in2(or1(f2(a)))) | zero(outc(h1(f2(a)))).  [resolve(262,c,211,a)].
+kept:      625 -one(in2(or1(f1(a)))) | one(outc(h1(f1(a)))).  [resolve(263,c,211,a)].
+kept:      626 -one(in2(or1(f2(a)))) | one(outc(h1(f2(a)))).  [resolve(264,c,211,a)].
+kept:      627 -zero(outc(h2(f1(a)))) | zero(in1(or1(f1(a)))).  [resolve(265,c,211,a)].
+kept:      628 -zero(outc(h2(f2(a)))) | zero(in1(or1(f2(a)))).  [resolve(266,c,211,a)].
+kept:      629 -one(outc(h2(f1(a)))) | one(in1(or1(f1(a)))).  [resolve(267,c,211,a)].
+kept:      630 -one(outc(h2(f2(a)))) | one(in1(or1(f2(a)))).  [resolve(268,c,211,a)].
+kept:      631 -zero(in1(or1(f1(a)))) | zero(outc(h2(f1(a)))).  [resolve(269,c,211,a)].
+kept:      632 -zero(in1(or1(f2(a)))) | zero(outc(h2(f2(a)))).  [resolve(270,c,211,a)].
+kept:      633 -one(in1(or1(f1(a)))) | one(outc(h2(f1(a)))).  [resolve(271,c,211,a)].
+kept:      634 -one(in1(or1(f2(a)))) | one(outc(h2(f2(a)))).  [resolve(272,c,211,a)].
+           635 -zero(in1(f1(a))) | zero(in1(h2(f1(a)))).  [resolve(273,c,211,a)].
+kept:      636 zero(in1(h2(f1(a)))).  [copy(635),unit_del(a,583)].
+           637 -zero(in1(f2(a))) | zero(in1(h2(f2(a)))).  [resolve(274,c,211,a)].
+kept:      638 zero(in1(h2(f2(a)))).  [copy(637),unit_del(a,593)].
+kept:      639 -one(in1(f1(a))) | one(in1(h2(f1(a)))).  [resolve(275,c,211,a)].
+kept:      640 -one(in1(f2(a))) | one(in1(h2(f2(a)))).  [resolve(276,c,211,a)].
+           641 -zero(in1(h2(f1(a)))) | zero(in1(f1(a))).  [resolve(277,c,211,a)].
+           642 -zero(in1(h2(f2(a)))) | zero(in1(f2(a))).  [resolve(278,c,211,a)].
+kept:      643 -one(in1(h2(f1(a)))) | one(in1(f1(a))).  [resolve(279,c,211,a)].
+kept:      644 -one(in1(h2(f2(a)))) | one(in1(f2(a))).  [resolve(280,c,211,a)].
+           645 -zero(in2(f1(a))) | zero(in1(h1(f1(a)))).  [resolve(281,c,211,a)].
+kept:      646 zero(in1(h1(f1(a)))).  [copy(645),unit_del(a,588)].
+           647 -zero(in2(f2(a))) | zero(in1(h1(f2(a)))).  [resolve(282,c,211,a)].
+kept:      648 zero(in1(h1(f2(a)))).  [copy(647),unit_del(a,598)].
+kept:      649 -one(in2(f1(a))) | one(in1(h1(f1(a)))).  [resolve(283,c,211,a)].
+kept:      650 -one(in2(f2(a))) | one(in1(h1(f2(a)))).  [resolve(284,c,211,a)].
+           651 -zero(in1(h1(f1(a)))) | zero(in2(f1(a))).  [resolve(285,c,211,a)].
+           652 -zero(in1(h1(f2(a)))) | zero(in2(f2(a))).  [resolve(286,c,211,a)].
+kept:      653 -one(in1(h1(f1(a)))) | one(in2(f1(a))).  [resolve(287,c,211,a)].
+kept:      654 -one(in1(h1(f2(a)))) | one(in2(f2(a))).  [resolve(288,c,211,a)].
+           655 -zero(inc(f1(a))) | zero(in2(h1(f1(a)))).  [resolve(289,c,211,a)].
+kept:      656 zero(in2(h1(f1(a)))).  [copy(655),unit_del(a,607)].
+kept:      657 -zero(inc(f2(a))) | zero(in2(h1(f2(a)))).  [resolve(290,c,211,a)].
+kept:      658 -one(inc(f1(a))) | one(in2(h1(f1(a)))).  [resolve(291,c,211,a)].
+kept:      659 -one(inc(f2(a))) | one(in2(h1(f2(a)))).  [resolve(292,c,211,a)].
+           660 -zero(in2(h1(f1(a)))) | zero(inc(f1(a))).  [resolve(293,c,211,a)].
+kept:      661 -zero(in2(h1(f2(a)))) | zero(inc(f2(a))).  [resolve(294,c,211,a)].
+kept:      662 -one(in2(h1(f1(a)))) | one(inc(f1(a))).  [resolve(295,c,211,a)].
+kept:      663 -one(in2(h1(f2(a)))) | one(inc(f2(a))).  [resolve(296,c,211,a)].
+kept:      664 -zero(outs(f1(a))) | zero(outs(h2(f1(a)))).  [resolve(297,c,211,a)].
+kept:      665 -zero(outs(f2(a))) | zero(outs(h2(f2(a)))).  [resolve(298,c,211,a)].
+kept:      666 -one(outs(f1(a))) | one(outs(h2(f1(a)))).  [resolve(299,c,211,a)].
+kept:      667 -one(outs(f2(a))) | one(outs(h2(f2(a)))).  [resolve(300,c,211,a)].
+kept:      668 -zero(outs(h2(f1(a)))) | zero(outs(f1(a))).  [resolve(301,c,211,a)].
+kept:      669 -zero(outs(h2(f2(a)))) | zero(outs(f2(a))).  [resolve(302,c,211,a)].
+kept:      670 -one(outs(h2(f1(a)))) | one(outs(f1(a))).  [resolve(303,c,211,a)].
+kept:      671 -one(outs(h2(f2(a)))) | one(outs(f2(a))).  [resolve(304,c,211,a)].
+kept:      672 -zero(outc(f1(a))) | zero(out1(or1(f1(a)))).  [resolve(305,c,211,a)].
+kept:      673 -zero(outc(f2(a))) | zero(out1(or1(f2(a)))).  [resolve(306,c,211,a)].
+kept:      674 -one(outc(f1(a))) | one(out1(or1(f1(a)))).  [resolve(307,c,211,a)].
+           675 -one(outc(f2(a))) | one(out1(or1(f2(a)))).  [resolve(308,c,211,a)].
+kept:      676 one(out1(or1(f2(a)))).  [copy(675),unit_del(a,579)].
+kept:      677 -zero(out1(or1(f1(a)))) | zero(outc(f1(a))).  [resolve(309,c,211,a)].
+kept:      678 -zero(out1(or1(f2(a)))) | zero(outc(f2(a))).  [resolve(310,c,211,a)].
+kept:      679 -one(out1(or1(f1(a)))) | one(outc(f1(a))).  [resolve(311,c,211,a)].
+           680 -one(out1(or1(f2(a)))) | one(outc(f2(a))).  [resolve(312,c,211,a)].
+           681 -zero(in1(h1(f1(a)))) | zero(in1(or1(h1(f1(a))))).  [resolve(329,c,211,a)].
+kept:      682 zero(in1(or1(h1(f1(a))))).  [copy(681),unit_del(a,646)].
+           683 -zero(in1(h1(f2(a)))) | zero(in1(or1(h1(f2(a))))).  [resolve(330,c,211,a)].
+kept:      684 zero(in1(or1(h1(f2(a))))).  [copy(683),unit_del(a,648)].
+           685 -zero(in1(h2(f1(a)))) | zero(in1(or1(h2(f1(a))))).  [resolve(331,c,211,a)].
+kept:      686 zero(in1(or1(h2(f1(a))))).  [copy(685),unit_del(a,636)].
+           687 -zero(in1(h2(f2(a)))) | zero(in1(or1(h2(f2(a))))).  [resolve(332,c,211,a)].
+kept:      688 zero(in1(or1(h2(f2(a))))).  [copy(687),unit_del(a,638)].
+kept:      689 -one(in1(h1(f1(a)))) | one(in1(or1(h1(f1(a))))).  [resolve(333,c,211,a)].
+kept:      690 -one(in1(h1(f2(a)))) | one(in1(or1(h1(f2(a))))).  [resolve(334,c,211,a)].
+kept:      691 -one(in1(h2(f1(a)))) | one(in1(or1(h2(f1(a))))).  [resolve(335,c,211,a)].
+kept:      692 -one(in1(h2(f2(a)))) | one(in1(or1(h2(f2(a))))).  [resolve(336,c,211,a)].
+           693 -zero(in1(or1(h1(f1(a))))) | zero(in1(h1(f1(a)))).  [resolve(337,c,211,a)].
+           694 -zero(in1(or1(h1(f2(a))))) | zero(in1(h1(f2(a)))).  [resolve(338,c,211,a)].
+           695 -zero(in1(or1(h2(f1(a))))) | zero(in1(h2(f1(a)))).  [resolve(339,c,211,a)].
+           696 -zero(in1(or1(h2(f2(a))))) | zero(in1(h2(f2(a)))).  [resolve(340,c,211,a)].
+kept:      697 -one(in1(or1(h1(f1(a))))) | one(in1(h1(f1(a)))).  [resolve(341,c,211,a)].
+kept:      698 -one(in1(or1(h1(f2(a))))) | one(in1(h1(f2(a)))).  [resolve(342,c,211,a)].
+kept:      699 -one(in1(or1(h2(f1(a))))) | one(in1(h2(f1(a)))).  [resolve(343,c,211,a)].
+kept:      700 -one(in1(or1(h2(f2(a))))) | one(in1(h2(f2(a)))).  [resolve(344,c,211,a)].
+           701 -zero(in2(h1(f1(a)))) | zero(in2(or1(h1(f1(a))))).  [resolve(345,c,211,a)].
+kept:      702 zero(in2(or1(h1(f1(a))))).  [copy(701),unit_del(a,656)].
+kept:      703 -zero(in2(h1(f2(a)))) | zero(in2(or1(h1(f2(a))))).  [resolve(346,c,211,a)].
+kept:      704 -zero(in2(h2(f1(a)))) | zero(in2(or1(h2(f1(a))))).  [resolve(347,c,211,a)].
+kept:      705 -zero(in2(h2(f2(a)))) | zero(in2(or1(h2(f2(a))))).  [resolve(348,c,211,a)].
+kept:      706 -one(in2(h1(f1(a)))) | one(in2(or1(h1(f1(a))))).  [resolve(349,c,211,a)].
+kept:      707 -one(in2(h1(f2(a)))) | one(in2(or1(h1(f2(a))))).  [resolve(350,c,211,a)].
+kept:      708 -one(in2(h2(f1(a)))) | one(in2(or1(h2(f1(a))))).  [resolve(351,c,211,a)].
+kept:      709 -one(in2(h2(f2(a)))) | one(in2(or1(h2(f2(a))))).  [resolve(352,c,211,a)].
+           710 -zero(in2(or1(h1(f1(a))))) | zero(in2(h1(f1(a)))).  [resolve(353,c,211,a)].
+kept:      711 -zero(in2(or1(h1(f2(a))))) | zero(in2(h1(f2(a)))).  [resolve(354,c,211,a)].
+kept:      712 -zero(in2(or1(h2(f1(a))))) | zero(in2(h2(f1(a)))).  [resolve(355,c,211,a)].
+kept:      713 -zero(in2(or1(h2(f2(a))))) | zero(in2(h2(f2(a)))).  [resolve(356,c,211,a)].
+kept:      714 -one(in2(or1(h1(f1(a))))) | one(in2(h1(f1(a)))).  [resolve(357,c,211,a)].
+kept:      715 -one(in2(or1(h1(f2(a))))) | one(in2(h1(f2(a)))).  [resolve(358,c,211,a)].
+kept:      716 -one(in2(or1(h2(f1(a))))) | one(in2(h2(f1(a)))).  [resolve(359,c,211,a)].
+kept:      717 -one(in2(or1(h2(f2(a))))) | one(in2(h2(f2(a)))).  [resolve(360,c,211,a)].
+           718 -zero(in1(h1(f1(a)))) | zero(in1(and2(h1(f1(a))))).  [resolve(361,c,211,a)].
+kept:      719 zero(in1(and2(h1(f1(a))))).  [copy(718),unit_del(a,646)].
+           720 -zero(in1(h1(f2(a)))) | zero(in1(and2(h1(f2(a))))).  [resolve(362,c,211,a)].
+kept:      721 zero(in1(and2(h1(f2(a))))).  [copy(720),unit_del(a,648)].
+           722 -zero(in1(h2(f1(a)))) | zero(in1(and2(h2(f1(a))))).  [resolve(363,c,211,a)].
+kept:      723 zero(in1(and2(h2(f1(a))))).  [copy(722),unit_del(a,636)].
+           724 -zero(in1(h2(f2(a)))) | zero(in1(and2(h2(f2(a))))).  [resolve(364,c,211,a)].
+kept:      725 zero(in1(and2(h2(f2(a))))).  [copy(724),unit_del(a,638)].
+kept:      726 -one(in1(h1(f1(a)))) | one(in1(and2(h1(f1(a))))).  [resolve(365,c,211,a)].
+kept:      727 -one(in1(h1(f2(a)))) | one(in1(and2(h1(f2(a))))).  [resolve(366,c,211,a)].
+kept:      728 -one(in1(h2(f1(a)))) | one(in1(and2(h2(f1(a))))).  [resolve(367,c,211,a)].
+kept:      729 -one(in1(h2(f2(a)))) | one(in1(and2(h2(f2(a))))).  [resolve(368,c,211,a)].
+           730 -zero(in1(and2(h1(f1(a))))) | zero(in1(h1(f1(a)))).  [resolve(369,c,211,a)].
+           731 -zero(in1(and2(h1(f2(a))))) | zero(in1(h1(f2(a)))).  [resolve(370,c,211,a)].
+           732 -zero(in1(and2(h2(f1(a))))) | zero(in1(h2(f1(a)))).  [resolve(371,c,211,a)].
+           733 -zero(in1(and2(h2(f2(a))))) | zero(in1(h2(f2(a)))).  [resolve(372,c,211,a)].
+kept:      734 -one(in1(and2(h1(f1(a))))) | one(in1(h1(f1(a)))).  [resolve(373,c,211,a)].
+kept:      735 -one(in1(and2(h1(f2(a))))) | one(in1(h1(f2(a)))).  [resolve(374,c,211,a)].
+kept:      736 -one(in1(and2(h2(f1(a))))) | one(in1(h2(f1(a)))).  [resolve(375,c,211,a)].
+kept:      737 -one(in1(and2(h2(f2(a))))) | one(in1(h2(f2(a)))).  [resolve(376,c,211,a)].
+           738 -zero(in2(h1(f1(a)))) | zero(in2(and2(h1(f1(a))))).  [resolve(377,c,211,a)].
+kept:      739 zero(in2(and2(h1(f1(a))))).  [copy(738),unit_del(a,656)].
+kept:      740 -zero(in2(h1(f2(a)))) | zero(in2(and2(h1(f2(a))))).  [resolve(378,c,211,a)].
+kept:      741 -zero(in2(h2(f1(a)))) | zero(in2(and2(h2(f1(a))))).  [resolve(379,c,211,a)].
+kept:      742 -zero(in2(h2(f2(a)))) | zero(in2(and2(h2(f2(a))))).  [resolve(380,c,211,a)].
+kept:      743 -one(in2(h1(f1(a)))) | one(in2(and2(h1(f1(a))))).  [resolve(381,c,211,a)].
+kept:      744 -one(in2(h1(f2(a)))) | one(in2(and2(h1(f2(a))))).  [resolve(382,c,211,a)].
+kept:      745 -one(in2(h2(f1(a)))) | one(in2(and2(h2(f1(a))))).  [resolve(383,c,211,a)].
+kept:      746 -one(in2(h2(f2(a)))) | one(in2(and2(h2(f2(a))))).  [resolve(384,c,211,a)].
+           747 -zero(in2(and2(h1(f1(a))))) | zero(in2(h1(f1(a)))).  [resolve(385,c,211,a)].
+kept:      748 -zero(in2(and2(h1(f2(a))))) | zero(in2(h1(f2(a)))).  [resolve(386,c,211,a)].
+kept:      749 -zero(in2(and2(h2(f1(a))))) | zero(in2(h2(f1(a)))).  [resolve(387,c,211,a)].
+kept:      750 -zero(in2(and2(h2(f2(a))))) | zero(in2(h2(f2(a)))).  [resolve(388,c,211,a)].
+kept:      751 -one(in2(and2(h1(f1(a))))) | one(in2(h1(f1(a)))).  [resolve(389,c,211,a)].
+kept:      752 -one(in2(and2(h1(f2(a))))) | one(in2(h1(f2(a)))).  [resolve(390,c,211,a)].
+kept:      753 -one(in2(and2(h2(f1(a))))) | one(in2(h2(f1(a)))).  [resolve(391,c,211,a)].
+kept:      754 -one(in2(and2(h2(f2(a))))) | one(in2(h2(f2(a)))).  [resolve(392,c,211,a)].
+kept:      755 -zero(outs(h1(f1(a)))) | zero(out1(and1(h1(f1(a))))).  [resolve(393,c,211,a)].
+kept:      756 -zero(outs(h1(f2(a)))) | zero(out1(and1(h1(f2(a))))).  [resolve(394,c,211,a)].
+kept:      757 -zero(outs(h2(f1(a)))) | zero(out1(and1(h2(f1(a))))).  [resolve(395,c,211,a)].
+kept:      758 -zero(outs(h2(f2(a)))) | zero(out1(and1(h2(f2(a))))).  [resolve(396,c,211,a)].
+kept:      759 -one(outs(h1(f1(a)))) | one(out1(and1(h1(f1(a))))).  [resolve(397,c,211,a)].
+kept:      760 -one(outs(h1(f2(a)))) | one(out1(and1(h1(f2(a))))).  [resolve(398,c,211,a)].
+kept:      761 -one(outs(h2(f1(a)))) | one(out1(and1(h2(f1(a))))).  [resolve(399,c,211,a)].
+kept:      762 -one(outs(h2(f2(a)))) | one(out1(and1(h2(f2(a))))).  [resolve(400,c,211,a)].
+kept:      763 -zero(out1(and1(h1(f1(a))))) | zero(outs(h1(f1(a)))).  [resolve(401,c,211,a)].
+kept:      764 -zero(out1(and1(h1(f2(a))))) | zero(outs(h1(f2(a)))).  [resolve(402,c,211,a)].
+kept:      765 -zero(out1(and1(h2(f1(a))))) | zero(outs(h2(f1(a)))).  [resolve(403,c,211,a)].
+kept:      766 -zero(out1(and1(h2(f2(a))))) | zero(outs(h2(f2(a)))).  [resolve(404,c,211,a)].
+kept:      767 -one(out1(and1(h1(f1(a))))) | one(outs(h1(f1(a)))).  [resolve(405,c,211,a)].
+kept:      768 -one(out1(and1(h1(f2(a))))) | one(outs(h1(f2(a)))).  [resolve(406,c,211,a)].
+kept:      769 -one(out1(and1(h2(f1(a))))) | one(outs(h2(f1(a)))).  [resolve(407,c,211,a)].
+kept:      770 -one(out1(and1(h2(f2(a))))) | one(outs(h2(f2(a)))).  [resolve(408,c,211,a)].
+kept:      771 -zero(outc(h1(f1(a)))) | zero(out1(and2(h1(f1(a))))).  [resolve(409,c,211,a)].
+kept:      772 -zero(outc(h1(f2(a)))) | zero(out1(and2(h1(f2(a))))).  [resolve(410,c,211,a)].
+kept:      773 -zero(outc(h2(f1(a)))) | zero(out1(and2(h2(f1(a))))).  [resolve(411,c,211,a)].
+kept:      774 -zero(outc(h2(f2(a)))) | zero(out1(and2(h2(f2(a))))).  [resolve(412,c,211,a)].
+kept:      775 -one(outc(h1(f1(a)))) | one(out1(and2(h1(f1(a))))).  [resolve(413,c,211,a)].
+kept:      776 -one(outc(h1(f2(a)))) | one(out1(and2(h1(f2(a))))).  [resolve(414,c,211,a)].
+kept:      777 -one(outc(h2(f1(a)))) | one(out1(and2(h2(f1(a))))).  [resolve(415,c,211,a)].
+kept:      778 -one(outc(h2(f2(a)))) | one(out1(and2(h2(f2(a))))).  [resolve(416,c,211,a)].
+kept:      779 -zero(out1(and2(h1(f1(a))))) | zero(outc(h1(f1(a)))).  [resolve(417,c,211,a)].
+kept:      780 -zero(out1(and2(h1(f2(a))))) | zero(outc(h1(f2(a)))).  [resolve(418,c,211,a)].
+kept:      781 -zero(out1(and2(h2(f1(a))))) | zero(outc(h2(f1(a)))).  [resolve(419,c,211,a)].
+kept:      782 -zero(out1(and2(h2(f2(a))))) | zero(outc(h2(f2(a)))).  [resolve(420,c,211,a)].
+kept:      783 -one(out1(and2(h1(f1(a))))) | one(outc(h1(f1(a)))).  [resolve(421,c,211,a)].
+kept:      784 -one(out1(and2(h1(f2(a))))) | one(outc(h1(f2(a)))).  [resolve(422,c,211,a)].
+kept:      785 -one(out1(and2(h2(f1(a))))) | one(outc(h2(f1(a)))).  [resolve(423,c,211,a)].
+kept:      786 -one(out1(and2(h2(f2(a))))) | one(outc(h2(f2(a)))).  [resolve(424,c,211,a)].
+kept:      787 -zero(out1(or1(h1(f1(a))))) | zero(in1(and1(h1(f1(a))))).  [resolve(425,c,211,a)].
+kept:      788 -zero(out1(or1(h1(f2(a))))) | zero(in1(and1(h1(f2(a))))).  [resolve(426,c,211,a)].
+kept:      789 -zero(out1(or1(h2(f1(a))))) | zero(in1(and1(h2(f1(a))))).  [resolve(427,c,211,a)].
+kept:      790 -zero(out1(or1(h2(f2(a))))) | zero(in1(and1(h2(f2(a))))).  [resolve(428,c,211,a)].
+kept:      791 -one(out1(or1(h1(f1(a))))) | one(in1(and1(h1(f1(a))))).  [resolve(429,c,211,a)].
+kept:      792 -one(out1(or1(h1(f2(a))))) | one(in1(and1(h1(f2(a))))).  [resolve(430,c,211,a)].
+kept:      793 -one(out1(or1(h2(f1(a))))) | one(in1(and1(h2(f1(a))))).  [resolve(431,c,211,a)].
+kept:      794 -one(out1(or1(h2(f2(a))))) | one(in1(and1(h2(f2(a))))).  [resolve(432,c,211,a)].
+kept:      795 -zero(in1(and1(h1(f1(a))))) | zero(out1(or1(h1(f1(a))))).  [resolve(433,c,211,a)].
+kept:      796 -zero(in1(and1(h1(f2(a))))) | zero(out1(or1(h1(f2(a))))).  [resolve(434,c,211,a)].
+kept:      797 -zero(in1(and1(h2(f1(a))))) | zero(out1(or1(h2(f1(a))))).  [resolve(435,c,211,a)].
+kept:      798 -zero(in1(and1(h2(f2(a))))) | zero(out1(or1(h2(f2(a))))).  [resolve(436,c,211,a)].
+kept:      799 -one(in1(and1(h1(f1(a))))) | one(out1(or1(h1(f1(a))))).  [resolve(437,c,211,a)].
+kept:      800 -one(in1(and1(h1(f2(a))))) | one(out1(or1(h1(f2(a))))).  [resolve(438,c,211,a)].
+kept:      801 -one(in1(and1(h2(f1(a))))) | one(out1(or1(h2(f1(a))))).  [resolve(439,c,211,a)].
+kept:      802 -one(in1(and1(h2(f2(a))))) | one(out1(or1(h2(f2(a))))).  [resolve(440,c,211,a)].
+kept:      803 -zero(out1(and2(h1(f1(a))))) | zero(in1(not1(h1(f1(a))))).  [resolve(441,c,211,a)].
+kept:      804 -zero(out1(and2(h1(f2(a))))) | zero(in1(not1(h1(f2(a))))).  [resolve(442,c,211,a)].
+kept:      805 -zero(out1(and2(h2(f1(a))))) | zero(in1(not1(h2(f1(a))))).  [resolve(443,c,211,a)].
+kept:      806 -zero(out1(and2(h2(f2(a))))) | zero(in1(not1(h2(f2(a))))).  [resolve(444,c,211,a)].
+kept:      807 -one(out1(and2(h1(f1(a))))) | one(in1(not1(h1(f1(a))))).  [resolve(445,c,211,a)].
+kept:      808 -one(out1(and2(h1(f2(a))))) | one(in1(not1(h1(f2(a))))).  [resolve(446,c,211,a)].
+kept:      809 -one(out1(and2(h2(f1(a))))) | one(in1(not1(h2(f1(a))))).  [resolve(447,c,211,a)].
+kept:      810 -one(out1(and2(h2(f2(a))))) | one(in1(not1(h2(f2(a))))).  [resolve(448,c,211,a)].
+kept:      811 -zero(in1(not1(h1(f1(a))))) | zero(out1(and2(h1(f1(a))))).  [resolve(449,c,211,a)].
+kept:      812 -zero(in1(not1(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(450,c,211,a)].
+kept:      813 -zero(in1(not1(h2(f1(a))))) | zero(out1(and2(h2(f1(a))))).  [resolve(451,c,211,a)].
+kept:      814 -zero(in1(not1(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(452,c,211,a)].
+kept:      815 -one(in1(not1(h1(f1(a))))) | one(out1(and2(h1(f1(a))))).  [resolve(453,c,211,a)].
+kept:      816 -one(in1(not1(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(454,c,211,a)].
+kept:      817 -one(in1(not1(h2(f1(a))))) | one(out1(and2(h2(f1(a))))).  [resolve(455,c,211,a)].
+kept:      818 -one(in1(not1(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(456,c,211,a)].
+kept:      819 -zero(out1(not1(h1(f1(a))))) | zero(in2(and1(h1(f1(a))))).  [resolve(457,c,211,a)].
+kept:      820 -zero(out1(not1(h1(f2(a))))) | zero(in2(and1(h1(f2(a))))).  [resolve(458,c,211,a)].
+kept:      821 -zero(out1(not1(h2(f1(a))))) | zero(in2(and1(h2(f1(a))))).  [resolve(459,c,211,a)].
+kept:      822 -zero(out1(not1(h2(f2(a))))) | zero(in2(and1(h2(f2(a))))).  [resolve(460,c,211,a)].
+kept:      823 -one(out1(not1(h1(f1(a))))) | one(in2(and1(h1(f1(a))))).  [resolve(461,c,211,a)].
+kept:      824 -one(out1(not1(h1(f2(a))))) | one(in2(and1(h1(f2(a))))).  [resolve(462,c,211,a)].
+kept:      825 -one(out1(not1(h2(f1(a))))) | one(in2(and1(h2(f1(a))))).  [resolve(463,c,211,a)].
+kept:      826 -one(out1(not1(h2(f2(a))))) | one(in2(and1(h2(f2(a))))).  [resolve(464,c,211,a)].
+kept:      827 -zero(in2(and1(h1(f1(a))))) | zero(out1(not1(h1(f1(a))))).  [resolve(465,c,211,a)].
+kept:      828 -zero(in2(and1(h1(f2(a))))) | zero(out1(not1(h1(f2(a))))).  [resolve(466,c,211,a)].
+kept:      829 -zero(in2(and1(h2(f1(a))))) | zero(out1(not1(h2(f1(a))))).  [resolve(467,c,211,a)].
+kept:      830 -zero(in2(and1(h2(f2(a))))) | zero(out1(not1(h2(f2(a))))).  [resolve(468,c,211,a)].
+kept:      831 -one(in2(and1(h1(f1(a))))) | one(out1(not1(h1(f1(a))))).  [resolve(469,c,211,a)].
+kept:      832 -one(in2(and1(h1(f2(a))))) | one(out1(not1(h1(f2(a))))).  [resolve(470,c,211,a)].
+kept:      833 -one(in2(and1(h2(f1(a))))) | one(out1(not1(h2(f1(a))))).  [resolve(471,c,211,a)].
+kept:      834 -one(in2(and1(h2(f2(a))))) | one(out1(not1(h2(f2(a))))).  [resolve(472,c,211,a)].
+kept:      835 -zero(in1(or1(f2(a)))) | -zero(in2(or1(f2(a)))) | zero(out1(or1(f2(a)))).  [resolve(504,a,494,a)].
+           836 -one(out1(or1(f2(a)))) | one(in1(or1(f2(a)))) | one(in2(or1(f2(a)))).  [resolve(507,a,494,a)].
+kept:      837 one(in1(or1(f2(a)))) | one(in2(or1(f2(a)))).  [copy(836),unit_del(a,676)].
+kept:      838 -zero(out1(or1(f2(a)))) | zero(in1(or1(f2(a)))).  [resolve(510,a,494,a)].
+kept:      839 -zero(out1(or1(f2(a)))) | zero(in2(or1(f2(a)))).  [resolve(513,a,494,a)].
+           840 -zero(in1(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(525,a,520,a)].
+kept:      841 zero(out1(and2(h1(f2(a))))).  [copy(840),unit_del(a,721)].
+           842 -zero(in1(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(526,a,524,a)].
+kept:      843 zero(out1(and2(h2(f2(a))))).  [copy(842),unit_del(a,725)].
+kept:      844 -one(in1(and2(h1(f2(a))))) | -one(in2(and2(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(531,a,520,a)].
+kept:      845 -one(in1(and2(h2(f2(a))))) | -one(in2(and2(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(532,a,524,a)].
+           846 -zero(out1(and2(h1(f2(a))))) | zero(in1(and2(h1(f2(a))))) | zero(in2(and2(h1(f2(a))))).  [resolve(534,a,520,a)].
+           847 -zero(out1(and2(h2(f2(a))))) | zero(in1(and2(h2(f2(a))))) | zero(in2(and2(h2(f2(a))))).  [resolve(535,a,524,a)].
+kept:      848 -one(out1(and2(h1(f2(a))))) | one(in1(and2(h1(f2(a))))).  [resolve(537,a,520,a)].
+kept:      849 -one(out1(and2(h2(f2(a))))) | one(in1(and2(h2(f2(a))))).  [resolve(538,a,524,a)].
+kept:      850 -one(out1(and2(h1(f2(a))))) | one(in2(and2(h1(f2(a))))).  [resolve(540,a,520,a)].
+kept:      851 -one(out1(and2(h2(f2(a))))) | one(in2(and2(h2(f2(a))))).  [resolve(541,a,524,a)].
+kept:      852 zero(in1(not1(h1(f2(a))))).  [back_unit_del(804),unit_del(a,841)].
+kept:      853 zero(outc(h1(f2(a)))).  [back_unit_del(780),unit_del(a,841)].
+kept:      854 zero(in1(not1(h2(f2(a))))).  [back_unit_del(806),unit_del(a,843)].
+kept:      855 zero(outc(h2(f2(a)))).  [back_unit_del(782),unit_del(a,843)].
+kept:      856 zero(in2(or1(f2(a)))).  [back_unit_del(620),unit_del(a,853)].
+kept:      857 zero(in1(or1(f2(a)))).  [back_unit_del(628),unit_del(a,855)].
+kept:      858 zero(out1(or1(f2(a)))).  [back_unit_del(835),unit_del(a,857),unit_del(b,856)].
+kept:      859 zero(outc(f2(a))).  [back_unit_del(678),unit_del(a,858)].
+kept:      860 zero(outc(a)).  [back_unit_del(580),unit_del(a,859)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+558 -zero(A) | -one(A) # label(unique_value) # label(axiom).  [assumption].
+559 zero(ina1(a)) # label(ina1_0) # label(hypothesis).  [assumption].
+560 zero(ina2(a)) # label(ina2_0) # label(hypothesis).  [assumption].
+561 zero(inb1(a)) # label(inb1_0) # label(hypothesis).  [assumption].
+562 zero(inb2(a)) # label(inb2_0) # label(hypothesis).  [assumption].
+563 zero(inc(a)) # label(inc_0) # label(hypothesis).  [assumption].
+564 zero(out1(a)) # label(out1_0) # label(hypothesis).  [assumption].
+565 zero(out2(a)) # label(out2_0) # label(hypothesis).  [assumption].
+566 one(outc(a)) # label(outc_1) # label(hypothesis).  [assumption].
+568 zero(out1(f1(a))).  [copy(567),unit_del(a,564)].
+569 -one(out1(a)) | one(out1(f1(a))).  [resolve(212,a,211,a)].
+571 -one(out1(f1(a))) | one(out1(a)).  [resolve(214,a,211,a)].
+573 zero(out1(f2(a))).  [copy(572),unit_del(a,565)].
+574 -one(out2(a)) | one(out1(f2(a))).  [resolve(216,a,211,a)].
+576 -one(out1(f2(a))) | one(out2(a)).  [resolve(218,a,211,a)].
+579 one(outc(f2(a))).  [copy(578),unit_del(a,566)].
+583 zero(in1(f1(a))).  [copy(582),unit_del(a,559)].
+584 -one(ina1(a)) | one(in1(f1(a))).  [resolve(224,a,211,a)].
+586 -one(in1(f1(a))) | one(ina1(a)).  [resolve(226,a,211,a)].
+588 zero(in2(f1(a))).  [copy(587),unit_del(a,561)].
+589 -one(inb1(a)) | one(in2(f1(a))).  [resolve(228,a,211,a)].
+591 -one(in2(f1(a))) | one(inb1(a)).  [resolve(230,a,211,a)].
+593 zero(in1(f2(a))).  [copy(592),unit_del(a,560)].
+594 -one(ina2(a)) | one(in1(f2(a))).  [resolve(232,a,211,a)].
+596 -one(in1(f2(a))) | one(ina2(a)).  [resolve(234,a,211,a)].
+598 zero(in2(f2(a))).  [copy(597),unit_del(a,562)].
+599 -one(inb2(a)) | one(in2(f2(a))).  [resolve(236,a,211,a)].
+601 -one(in2(f2(a))) | one(inb2(a)).  [resolve(238,a,211,a)].
+602 -zero(outc(f1(a))) | zero(inc(f2(a))).  [resolve(239,a,211,a)].
+603 -one(outc(f1(a))) | one(inc(f2(a))).  [resolve(240,a,211,a)].
+604 -zero(inc(f2(a))) | zero(outc(f1(a))).  [resolve(241,a,211,a)].
+605 -one(inc(f2(a))) | one(outc(f1(a))).  [resolve(242,a,211,a)].
+607 zero(inc(f1(a))).  [copy(606),unit_del(a,563)].
+608 -one(inc(a)) | one(inc(f1(a))).  [resolve(244,a,211,a)].
+610 -one(inc(f1(a))) | one(inc(a)).  [resolve(246,a,211,a)].
+611 -zero(outs(h1(f1(a)))) | zero(in2(h2(f1(a)))).  [resolve(249,c,211,a)].
+612 -zero(outs(h1(f2(a)))) | zero(in2(h2(f2(a)))).  [resolve(250,c,211,a)].
+613 -one(outs(h1(f1(a)))) | one(in2(h2(f1(a)))).  [resolve(251,c,211,a)].
+614 -one(outs(h1(f2(a)))) | one(in2(h2(f2(a)))).  [resolve(252,c,211,a)].
+615 -zero(in2(h2(f1(a)))) | zero(outs(h1(f1(a)))).  [resolve(253,c,211,a)].
+616 -zero(in2(h2(f2(a)))) | zero(outs(h1(f2(a)))).  [resolve(254,c,211,a)].
+617 -one(in2(h2(f1(a)))) | one(outs(h1(f1(a)))).  [resolve(255,c,211,a)].
+618 -one(in2(h2(f2(a)))) | one(outs(h1(f2(a)))).  [resolve(256,c,211,a)].
+619 -zero(outc(h1(f1(a)))) | zero(in2(or1(f1(a)))).  [resolve(257,c,211,a)].
+621 -one(outc(h1(f1(a)))) | one(in2(or1(f1(a)))).  [resolve(259,c,211,a)].
+622 -one(outc(h1(f2(a)))) | one(in2(or1(f2(a)))).  [resolve(260,c,211,a)].
+623 -zero(in2(or1(f1(a)))) | zero(outc(h1(f1(a)))).  [resolve(261,c,211,a)].
+625 -one(in2(or1(f1(a)))) | one(outc(h1(f1(a)))).  [resolve(263,c,211,a)].
+626 -one(in2(or1(f2(a)))) | one(outc(h1(f2(a)))).  [resolve(264,c,211,a)].
+627 -zero(outc(h2(f1(a)))) | zero(in1(or1(f1(a)))).  [resolve(265,c,211,a)].
+629 -one(outc(h2(f1(a)))) | one(in1(or1(f1(a)))).  [resolve(267,c,211,a)].
+630 -one(outc(h2(f2(a)))) | one(in1(or1(f2(a)))).  [resolve(268,c,211,a)].
+631 -zero(in1(or1(f1(a)))) | zero(outc(h2(f1(a)))).  [resolve(269,c,211,a)].
+633 -one(in1(or1(f1(a)))) | one(outc(h2(f1(a)))).  [resolve(271,c,211,a)].
+634 -one(in1(or1(f2(a)))) | one(outc(h2(f2(a)))).  [resolve(272,c,211,a)].
+636 zero(in1(h2(f1(a)))).  [copy(635),unit_del(a,583)].
+638 zero(in1(h2(f2(a)))).  [copy(637),unit_del(a,593)].
+639 -one(in1(f1(a))) | one(in1(h2(f1(a)))).  [resolve(275,c,211,a)].
+640 -one(in1(f2(a))) | one(in1(h2(f2(a)))).  [resolve(276,c,211,a)].
+643 -one(in1(h2(f1(a)))) | one(in1(f1(a))).  [resolve(279,c,211,a)].
+644 -one(in1(h2(f2(a)))) | one(in1(f2(a))).  [resolve(280,c,211,a)].
+646 zero(in1(h1(f1(a)))).  [copy(645),unit_del(a,588)].
+648 zero(in1(h1(f2(a)))).  [copy(647),unit_del(a,598)].
+649 -one(in2(f1(a))) | one(in1(h1(f1(a)))).  [resolve(283,c,211,a)].
+650 -one(in2(f2(a))) | one(in1(h1(f2(a)))).  [resolve(284,c,211,a)].
+653 -one(in1(h1(f1(a)))) | one(in2(f1(a))).  [resolve(287,c,211,a)].
+654 -one(in1(h1(f2(a)))) | one(in2(f2(a))).  [resolve(288,c,211,a)].
+656 zero(in2(h1(f1(a)))).  [copy(655),unit_del(a,607)].
+657 -zero(inc(f2(a))) | zero(in2(h1(f2(a)))).  [resolve(290,c,211,a)].
+658 -one(inc(f1(a))) | one(in2(h1(f1(a)))).  [resolve(291,c,211,a)].
+659 -one(inc(f2(a))) | one(in2(h1(f2(a)))).  [resolve(292,c,211,a)].
+661 -zero(in2(h1(f2(a)))) | zero(inc(f2(a))).  [resolve(294,c,211,a)].
+662 -one(in2(h1(f1(a)))) | one(inc(f1(a))).  [resolve(295,c,211,a)].
+663 -one(in2(h1(f2(a)))) | one(inc(f2(a))).  [resolve(296,c,211,a)].
+664 -zero(outs(f1(a))) | zero(outs(h2(f1(a)))).  [resolve(297,c,211,a)].
+665 -zero(outs(f2(a))) | zero(outs(h2(f2(a)))).  [resolve(298,c,211,a)].
+666 -one(outs(f1(a))) | one(outs(h2(f1(a)))).  [resolve(299,c,211,a)].
+667 -one(outs(f2(a))) | one(outs(h2(f2(a)))).  [resolve(300,c,211,a)].
+668 -zero(outs(h2(f1(a)))) | zero(outs(f1(a))).  [resolve(301,c,211,a)].
+669 -zero(outs(h2(f2(a)))) | zero(outs(f2(a))).  [resolve(302,c,211,a)].
+670 -one(outs(h2(f1(a)))) | one(outs(f1(a))).  [resolve(303,c,211,a)].
+671 -one(outs(h2(f2(a)))) | one(outs(f2(a))).  [resolve(304,c,211,a)].
+672 -zero(outc(f1(a))) | zero(out1(or1(f1(a)))).  [resolve(305,c,211,a)].
+674 -one(outc(f1(a))) | one(out1(or1(f1(a)))).  [resolve(307,c,211,a)].
+676 one(out1(or1(f2(a)))).  [copy(675),unit_del(a,579)].
+677 -zero(out1(or1(f1(a)))) | zero(outc(f1(a))).  [resolve(309,c,211,a)].
+679 -one(out1(or1(f1(a)))) | one(outc(f1(a))).  [resolve(311,c,211,a)].
+682 zero(in1(or1(h1(f1(a))))).  [copy(681),unit_del(a,646)].
+684 zero(in1(or1(h1(f2(a))))).  [copy(683),unit_del(a,648)].
+686 zero(in1(or1(h2(f1(a))))).  [copy(685),unit_del(a,636)].
+688 zero(in1(or1(h2(f2(a))))).  [copy(687),unit_del(a,638)].
+689 -one(in1(h1(f1(a)))) | one(in1(or1(h1(f1(a))))).  [resolve(333,c,211,a)].
+690 -one(in1(h1(f2(a)))) | one(in1(or1(h1(f2(a))))).  [resolve(334,c,211,a)].
+691 -one(in1(h2(f1(a)))) | one(in1(or1(h2(f1(a))))).  [resolve(335,c,211,a)].
+692 -one(in1(h2(f2(a)))) | one(in1(or1(h2(f2(a))))).  [resolve(336,c,211,a)].
+697 -one(in1(or1(h1(f1(a))))) | one(in1(h1(f1(a)))).  [resolve(341,c,211,a)].
+698 -one(in1(or1(h1(f2(a))))) | one(in1(h1(f2(a)))).  [resolve(342,c,211,a)].
+699 -one(in1(or1(h2(f1(a))))) | one(in1(h2(f1(a)))).  [resolve(343,c,211,a)].
+700 -one(in1(or1(h2(f2(a))))) | one(in1(h2(f2(a)))).  [resolve(344,c,211,a)].
+702 zero(in2(or1(h1(f1(a))))).  [copy(701),unit_del(a,656)].
+703 -zero(in2(h1(f2(a)))) | zero(in2(or1(h1(f2(a))))).  [resolve(346,c,211,a)].
+704 -zero(in2(h2(f1(a)))) | zero(in2(or1(h2(f1(a))))).  [resolve(347,c,211,a)].
+705 -zero(in2(h2(f2(a)))) | zero(in2(or1(h2(f2(a))))).  [resolve(348,c,211,a)].
+706 -one(in2(h1(f1(a)))) | one(in2(or1(h1(f1(a))))).  [resolve(349,c,211,a)].
+707 -one(in2(h1(f2(a)))) | one(in2(or1(h1(f2(a))))).  [resolve(350,c,211,a)].
+708 -one(in2(h2(f1(a)))) | one(in2(or1(h2(f1(a))))).  [resolve(351,c,211,a)].
+709 -one(in2(h2(f2(a)))) | one(in2(or1(h2(f2(a))))).  [resolve(352,c,211,a)].
+711 -zero(in2(or1(h1(f2(a))))) | zero(in2(h1(f2(a)))).  [resolve(354,c,211,a)].
+712 -zero(in2(or1(h2(f1(a))))) | zero(in2(h2(f1(a)))).  [resolve(355,c,211,a)].
+713 -zero(in2(or1(h2(f2(a))))) | zero(in2(h2(f2(a)))).  [resolve(356,c,211,a)].
+714 -one(in2(or1(h1(f1(a))))) | one(in2(h1(f1(a)))).  [resolve(357,c,211,a)].
+715 -one(in2(or1(h1(f2(a))))) | one(in2(h1(f2(a)))).  [resolve(358,c,211,a)].
+716 -one(in2(or1(h2(f1(a))))) | one(in2(h2(f1(a)))).  [resolve(359,c,211,a)].
+717 -one(in2(or1(h2(f2(a))))) | one(in2(h2(f2(a)))).  [resolve(360,c,211,a)].
+719 zero(in1(and2(h1(f1(a))))).  [copy(718),unit_del(a,646)].
+721 zero(in1(and2(h1(f2(a))))).  [copy(720),unit_del(a,648)].
+723 zero(in1(and2(h2(f1(a))))).  [copy(722),unit_del(a,636)].
+725 zero(in1(and2(h2(f2(a))))).  [copy(724),unit_del(a,638)].
+726 -one(in1(h1(f1(a)))) | one(in1(and2(h1(f1(a))))).  [resolve(365,c,211,a)].
+727 -one(in1(h1(f2(a)))) | one(in1(and2(h1(f2(a))))).  [resolve(366,c,211,a)].
+728 -one(in1(h2(f1(a)))) | one(in1(and2(h2(f1(a))))).  [resolve(367,c,211,a)].
+729 -one(in1(h2(f2(a)))) | one(in1(and2(h2(f2(a))))).  [resolve(368,c,211,a)].
+734 -one(in1(and2(h1(f1(a))))) | one(in1(h1(f1(a)))).  [resolve(373,c,211,a)].
+735 -one(in1(and2(h1(f2(a))))) | one(in1(h1(f2(a)))).  [resolve(374,c,211,a)].
+736 -one(in1(and2(h2(f1(a))))) | one(in1(h2(f1(a)))).  [resolve(375,c,211,a)].
+737 -one(in1(and2(h2(f2(a))))) | one(in1(h2(f2(a)))).  [resolve(376,c,211,a)].
+739 zero(in2(and2(h1(f1(a))))).  [copy(738),unit_del(a,656)].
+740 -zero(in2(h1(f2(a)))) | zero(in2(and2(h1(f2(a))))).  [resolve(378,c,211,a)].
+741 -zero(in2(h2(f1(a)))) | zero(in2(and2(h2(f1(a))))).  [resolve(379,c,211,a)].
+742 -zero(in2(h2(f2(a)))) | zero(in2(and2(h2(f2(a))))).  [resolve(380,c,211,a)].
+743 -one(in2(h1(f1(a)))) | one(in2(and2(h1(f1(a))))).  [resolve(381,c,211,a)].
+744 -one(in2(h1(f2(a)))) | one(in2(and2(h1(f2(a))))).  [resolve(382,c,211,a)].
+745 -one(in2(h2(f1(a)))) | one(in2(and2(h2(f1(a))))).  [resolve(383,c,211,a)].
+746 -one(in2(h2(f2(a)))) | one(in2(and2(h2(f2(a))))).  [resolve(384,c,211,a)].
+748 -zero(in2(and2(h1(f2(a))))) | zero(in2(h1(f2(a)))).  [resolve(386,c,211,a)].
+749 -zero(in2(and2(h2(f1(a))))) | zero(in2(h2(f1(a)))).  [resolve(387,c,211,a)].
+750 -zero(in2(and2(h2(f2(a))))) | zero(in2(h2(f2(a)))).  [resolve(388,c,211,a)].
+751 -one(in2(and2(h1(f1(a))))) | one(in2(h1(f1(a)))).  [resolve(389,c,211,a)].
+752 -one(in2(and2(h1(f2(a))))) | one(in2(h1(f2(a)))).  [resolve(390,c,211,a)].
+753 -one(in2(and2(h2(f1(a))))) | one(in2(h2(f1(a)))).  [resolve(391,c,211,a)].
+754 -one(in2(and2(h2(f2(a))))) | one(in2(h2(f2(a)))).  [resolve(392,c,211,a)].
+755 -zero(outs(h1(f1(a)))) | zero(out1(and1(h1(f1(a))))).  [resolve(393,c,211,a)].
+756 -zero(outs(h1(f2(a)))) | zero(out1(and1(h1(f2(a))))).  [resolve(394,c,211,a)].
+757 -zero(outs(h2(f1(a)))) | zero(out1(and1(h2(f1(a))))).  [resolve(395,c,211,a)].
+758 -zero(outs(h2(f2(a)))) | zero(out1(and1(h2(f2(a))))).  [resolve(396,c,211,a)].
+759 -one(outs(h1(f1(a)))) | one(out1(and1(h1(f1(a))))).  [resolve(397,c,211,a)].
+760 -one(outs(h1(f2(a)))) | one(out1(and1(h1(f2(a))))).  [resolve(398,c,211,a)].
+761 -one(outs(h2(f1(a)))) | one(out1(and1(h2(f1(a))))).  [resolve(399,c,211,a)].
+762 -one(outs(h2(f2(a)))) | one(out1(and1(h2(f2(a))))).  [resolve(400,c,211,a)].
+763 -zero(out1(and1(h1(f1(a))))) | zero(outs(h1(f1(a)))).  [resolve(401,c,211,a)].
+764 -zero(out1(and1(h1(f2(a))))) | zero(outs(h1(f2(a)))).  [resolve(402,c,211,a)].
+765 -zero(out1(and1(h2(f1(a))))) | zero(outs(h2(f1(a)))).  [resolve(403,c,211,a)].
+766 -zero(out1(and1(h2(f2(a))))) | zero(outs(h2(f2(a)))).  [resolve(404,c,211,a)].
+767 -one(out1(and1(h1(f1(a))))) | one(outs(h1(f1(a)))).  [resolve(405,c,211,a)].
+768 -one(out1(and1(h1(f2(a))))) | one(outs(h1(f2(a)))).  [resolve(406,c,211,a)].
+769 -one(out1(and1(h2(f1(a))))) | one(outs(h2(f1(a)))).  [resolve(407,c,211,a)].
+770 -one(out1(and1(h2(f2(a))))) | one(outs(h2(f2(a)))).  [resolve(408,c,211,a)].
+771 -zero(outc(h1(f1(a)))) | zero(out1(and2(h1(f1(a))))).  [resolve(409,c,211,a)].
+773 -zero(outc(h2(f1(a)))) | zero(out1(and2(h2(f1(a))))).  [resolve(411,c,211,a)].
+775 -one(outc(h1(f1(a)))) | one(out1(and2(h1(f1(a))))).  [resolve(413,c,211,a)].
+776 -one(outc(h1(f2(a)))) | one(out1(and2(h1(f2(a))))).  [resolve(414,c,211,a)].
+777 -one(outc(h2(f1(a)))) | one(out1(and2(h2(f1(a))))).  [resolve(415,c,211,a)].
+778 -one(outc(h2(f2(a)))) | one(out1(and2(h2(f2(a))))).  [resolve(416,c,211,a)].
+779 -zero(out1(and2(h1(f1(a))))) | zero(outc(h1(f1(a)))).  [resolve(417,c,211,a)].
+781 -zero(out1(and2(h2(f1(a))))) | zero(outc(h2(f1(a)))).  [resolve(419,c,211,a)].
+783 -one(out1(and2(h1(f1(a))))) | one(outc(h1(f1(a)))).  [resolve(421,c,211,a)].
+784 -one(out1(and2(h1(f2(a))))) | one(outc(h1(f2(a)))).  [resolve(422,c,211,a)].
+785 -one(out1(and2(h2(f1(a))))) | one(outc(h2(f1(a)))).  [resolve(423,c,211,a)].
+786 -one(out1(and2(h2(f2(a))))) | one(outc(h2(f2(a)))).  [resolve(424,c,211,a)].
+787 -zero(out1(or1(h1(f1(a))))) | zero(in1(and1(h1(f1(a))))).  [resolve(425,c,211,a)].
+788 -zero(out1(or1(h1(f2(a))))) | zero(in1(and1(h1(f2(a))))).  [resolve(426,c,211,a)].
+789 -zero(out1(or1(h2(f1(a))))) | zero(in1(and1(h2(f1(a))))).  [resolve(427,c,211,a)].
+790 -zero(out1(or1(h2(f2(a))))) | zero(in1(and1(h2(f2(a))))).  [resolve(428,c,211,a)].
+791 -one(out1(or1(h1(f1(a))))) | one(in1(and1(h1(f1(a))))).  [resolve(429,c,211,a)].
+792 -one(out1(or1(h1(f2(a))))) | one(in1(and1(h1(f2(a))))).  [resolve(430,c,211,a)].
+793 -one(out1(or1(h2(f1(a))))) | one(in1(and1(h2(f1(a))))).  [resolve(431,c,211,a)].
+794 -one(out1(or1(h2(f2(a))))) | one(in1(and1(h2(f2(a))))).  [resolve(432,c,211,a)].
+795 -zero(in1(and1(h1(f1(a))))) | zero(out1(or1(h1(f1(a))))).  [resolve(433,c,211,a)].
+796 -zero(in1(and1(h1(f2(a))))) | zero(out1(or1(h1(f2(a))))).  [resolve(434,c,211,a)].
+797 -zero(in1(and1(h2(f1(a))))) | zero(out1(or1(h2(f1(a))))).  [resolve(435,c,211,a)].
+798 -zero(in1(and1(h2(f2(a))))) | zero(out1(or1(h2(f2(a))))).  [resolve(436,c,211,a)].
+799 -one(in1(and1(h1(f1(a))))) | one(out1(or1(h1(f1(a))))).  [resolve(437,c,211,a)].
+800 -one(in1(and1(h1(f2(a))))) | one(out1(or1(h1(f2(a))))).  [resolve(438,c,211,a)].
+801 -one(in1(and1(h2(f1(a))))) | one(out1(or1(h2(f1(a))))).  [resolve(439,c,211,a)].
+802 -one(in1(and1(h2(f2(a))))) | one(out1(or1(h2(f2(a))))).  [resolve(440,c,211,a)].
+803 -zero(out1(and2(h1(f1(a))))) | zero(in1(not1(h1(f1(a))))).  [resolve(441,c,211,a)].
+805 -zero(out1(and2(h2(f1(a))))) | zero(in1(not1(h2(f1(a))))).  [resolve(443,c,211,a)].
+807 -one(out1(and2(h1(f1(a))))) | one(in1(not1(h1(f1(a))))).  [resolve(445,c,211,a)].
+808 -one(out1(and2(h1(f2(a))))) | one(in1(not1(h1(f2(a))))).  [resolve(446,c,211,a)].
+809 -one(out1(and2(h2(f1(a))))) | one(in1(not1(h2(f1(a))))).  [resolve(447,c,211,a)].
+810 -one(out1(and2(h2(f2(a))))) | one(in1(not1(h2(f2(a))))).  [resolve(448,c,211,a)].
+811 -zero(in1(not1(h1(f1(a))))) | zero(out1(and2(h1(f1(a))))).  [resolve(449,c,211,a)].
+813 -zero(in1(not1(h2(f1(a))))) | zero(out1(and2(h2(f1(a))))).  [resolve(451,c,211,a)].
+815 -one(in1(not1(h1(f1(a))))) | one(out1(and2(h1(f1(a))))).  [resolve(453,c,211,a)].
+816 -one(in1(not1(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(454,c,211,a)].
+817 -one(in1(not1(h2(f1(a))))) | one(out1(and2(h2(f1(a))))).  [resolve(455,c,211,a)].
+818 -one(in1(not1(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(456,c,211,a)].
+819 -zero(out1(not1(h1(f1(a))))) | zero(in2(and1(h1(f1(a))))).  [resolve(457,c,211,a)].
+820 -zero(out1(not1(h1(f2(a))))) | zero(in2(and1(h1(f2(a))))).  [resolve(458,c,211,a)].
+821 -zero(out1(not1(h2(f1(a))))) | zero(in2(and1(h2(f1(a))))).  [resolve(459,c,211,a)].
+822 -zero(out1(not1(h2(f2(a))))) | zero(in2(and1(h2(f2(a))))).  [resolve(460,c,211,a)].
+823 -one(out1(not1(h1(f1(a))))) | one(in2(and1(h1(f1(a))))).  [resolve(461,c,211,a)].
+824 -one(out1(not1(h1(f2(a))))) | one(in2(and1(h1(f2(a))))).  [resolve(462,c,211,a)].
+825 -one(out1(not1(h2(f1(a))))) | one(in2(and1(h2(f1(a))))).  [resolve(463,c,211,a)].
+826 -one(out1(not1(h2(f2(a))))) | one(in2(and1(h2(f2(a))))).  [resolve(464,c,211,a)].
+827 -zero(in2(and1(h1(f1(a))))) | zero(out1(not1(h1(f1(a))))).  [resolve(465,c,211,a)].
+828 -zero(in2(and1(h1(f2(a))))) | zero(out1(not1(h1(f2(a))))).  [resolve(466,c,211,a)].
+829 -zero(in2(and1(h2(f1(a))))) | zero(out1(not1(h2(f1(a))))).  [resolve(467,c,211,a)].
+830 -zero(in2(and1(h2(f2(a))))) | zero(out1(not1(h2(f2(a))))).  [resolve(468,c,211,a)].
+831 -one(in2(and1(h1(f1(a))))) | one(out1(not1(h1(f1(a))))).  [resolve(469,c,211,a)].
+832 -one(in2(and1(h1(f2(a))))) | one(out1(not1(h1(f2(a))))).  [resolve(470,c,211,a)].
+833 -one(in2(and1(h2(f1(a))))) | one(out1(not1(h2(f1(a))))).  [resolve(471,c,211,a)].
+834 -one(in2(and1(h2(f2(a))))) | one(out1(not1(h2(f2(a))))).  [resolve(472,c,211,a)].
+837 one(in1(or1(f2(a)))) | one(in2(or1(f2(a)))).  [copy(836),unit_del(a,676)].
+841 zero(out1(and2(h1(f2(a))))).  [copy(840),unit_del(a,721)].
+843 zero(out1(and2(h2(f2(a))))).  [copy(842),unit_del(a,725)].
+844 -one(in1(and2(h1(f2(a))))) | -one(in2(and2(h1(f2(a))))) | one(out1(and2(h1(f2(a))))).  [resolve(531,a,520,a)].
+845 -one(in1(and2(h2(f2(a))))) | -one(in2(and2(h2(f2(a))))) | one(out1(and2(h2(f2(a))))).  [resolve(532,a,524,a)].
+848 -one(out1(and2(h1(f2(a))))) | one(in1(and2(h1(f2(a))))).  [resolve(537,a,520,a)].
+849 -one(out1(and2(h2(f2(a))))) | one(in1(and2(h2(f2(a))))).  [resolve(538,a,524,a)].
+850 -one(out1(and2(h1(f2(a))))) | one(in2(and2(h1(f2(a))))).  [resolve(540,a,520,a)].
+851 -one(out1(and2(h2(f2(a))))) | one(in2(and2(h2(f2(a))))).  [resolve(541,a,524,a)].
+852 zero(in1(not1(h1(f2(a))))).  [back_unit_del(804),unit_del(a,841)].
+853 zero(outc(h1(f2(a)))).  [back_unit_del(780),unit_del(a,841)].
+854 zero(in1(not1(h2(f2(a))))).  [back_unit_del(806),unit_del(a,843)].
+855 zero(outc(h2(f2(a)))).  [back_unit_del(782),unit_del(a,843)].
+856 zero(in2(or1(f2(a)))).  [back_unit_del(620),unit_del(a,853)].
+857 zero(in1(or1(f2(a)))).  [back_unit_del(628),unit_del(a,855)].
+858 zero(out1(or1(f2(a)))).  [back_unit_del(835),unit_del(a,857),unit_del(b,856)].
+859 zero(outc(f2(a))).  [back_unit_del(678),unit_del(a,858)].
+860 zero(outc(a)).  [back_unit_del(580),unit_del(a,859)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.03 seconds.
+
+given #1 (I,wt=4): 558 -zero(A) | -one(A) # label(unique_value) # label(axiom).  [assumption].
+
+given #2 (I,wt=3): 559 zero(ina1(a)) # label(ina1_0) # label(hypothesis).  [assumption].
+
+given #3 (I,wt=3): 560 zero(ina2(a)) # label(ina2_0) # label(hypothesis).  [assumption].
+
+given #4 (I,wt=3): 561 zero(inb1(a)) # label(inb1_0) # label(hypothesis).  [assumption].
+
+given #5 (I,wt=3): 562 zero(inb2(a)) # label(inb2_0) # label(hypothesis).  [assumption].
+
+given #6 (I,wt=3): 563 zero(inc(a)) # label(inc_0) # label(hypothesis).  [assumption].
+
+given #7 (I,wt=3): 564 zero(out1(a)) # label(out1_0) # label(hypothesis).  [assumption].
+
+given #8 (I,wt=3): 565 zero(out2(a)) # label(out2_0) # label(hypothesis).  [assumption].
+
+given #9 (I,wt=3): 566 one(outc(a)) # label(outc_1) # label(hypothesis).  [assumption].
+
+============================== PROOF =================================
+
+% Proof 1 at 0.03 (+ 0.00) seconds.
+% Length of proof is 96.
+% Level of proof is 12.
+% Maximum clause weight is 15.000.
+% Given clauses 9 (0.750 givens/level).
+
+2 -connection(A,B) | -zero(A) | zero(B) # label(value_propagation_zero1) # label(axiom).  [assumption].
+4 -connection(A,B) | -zero(B) | zero(A) # label(value_propagation_zero2) # label(axiom).  [assumption].
+7 -halfadder(A) | connection(in1(A),in1(and2(A))) # label(halfadder_connection_in1_in1and2) # label(axiom).  [assumption].
+10 -halfadder(A) | connection(outc(A),out1(and2(A))) # label(halfadder_connection_outc_out1and2) # label(axiom).  [assumption].
+15 -fulladder(A) | connection(outc(h1(A)),in2(or1(A))) # label(fulladder_connection_outch1_in2or1) # label(axiom).  [assumption].
+16 -fulladder(A) | connection(outc(h2(A)),in1(or1(A))) # label(fulladder_connection_outch2_in1or1) # label(axiom).  [assumption].
+17 -fulladder(A) | connection(in1(A),in1(h2(A))) # label(fulladder_connection_in1_in1h2) # label(axiom).  [assumption].
+18 -fulladder(A) | connection(in2(A),in1(h1(A))) # label(fulladder_connection_in2_in1h1) # label(axiom).  [assumption].
+21 -fulladder(A) | connection(outc(A),out1(or1(A))) # label(fulladder_connection_outc_out1or1) # label(axiom).  [assumption].
+24 -nbit_adder2(A) | connection(outc(A),outc(f2(A))) # label(nbit_adder_connection_outc_outcf1) # label(axiom).  [assumption].
+27 -nbit_adder2(A) | connection(ina2(A),in1(f2(A))) # label(nbit_adder_connection_ina2_in1f2) # label(axiom).  [assumption].
+28 -nbit_adder2(A) | connection(inb2(A),in2(f2(A))) # label(nbit_adder_connection_inb2_in2f2) # label(axiom).  [assumption].
+31 -logic_and(A) | and_ok(A) | abnormal(A) # label(and_ok_or_abnormal) # label(axiom).  [assumption].
+32 -and_ok(A) | -zero(in1(A)) | zero(out1(A)) # label(and_0x_0) # label(axiom).  [assumption].
+39 -logic_or(A) | or_ok(A) | abnormal(A) # label(or_ok_or_abnormal) # label(axiom).  [assumption].
+42 -or_ok(A) | -zero(in1(A)) | -zero(in2(A)) | zero(out1(A)) # label(or_00_0) # label(axiom).  [assumption].
+53 -fulladder(A) | halfadder(h1(A)) # label(fulladder_halfadder1) # label(axiom).  [assumption].
+55 -halfadder(A) | logic_and(and2(A)) # label(halfadder_and2) # label(axiom).  [assumption].
+58 -fulladder(A) | halfadder(h2(A)) # label(fulladder_halfadder2) # label(axiom).  [assumption].
+67 -halfadder(A) | -zero(in1(A)) | zero(in1(and2(A))).  [resolve(7,b,2,a)].
+81 -halfadder(A) | -zero(out1(and2(A))) | zero(outc(A)).  [resolve(10,b,4,a)].
+96 -fulladder(A) | logic_or(or1(A)) # label(fulladder_or1) # label(axiom).  [assumption].
+97 -nbit_adder2(A) | fulladder(f2(A)) # label(nbit_adder_fulladder2) # label(axiom).  [assumption].
+102 -fulladder(A) | -zero(outc(h1(A))) | zero(in2(or1(A))).  [resolve(15,b,2,a)].
+106 -fulladder(A) | -zero(outc(h2(A))) | zero(in1(or1(A))).  [resolve(16,b,2,a)].
+110 -fulladder(A) | -zero(in1(A)) | zero(in1(h2(A))).  [resolve(17,b,2,a)].
+114 -fulladder(A) | -zero(in2(A)) | zero(in1(h1(A))).  [resolve(18,b,2,a)].
+128 -fulladder(A) | -zero(out1(or1(A))) | zero(outc(A)).  [resolve(21,b,4,a)].
+131 -fulladder(A) | logic_and(and2(h1(A))).  [resolve(53,b,55,a)].
+135 -fulladder(A) | logic_and(and2(h2(A))).  [resolve(58,b,55,a)].
+154 -zero(in1(h1(A))) | zero(in1(and2(h1(A)))) | -fulladder(A).  [resolve(67,a,53,b)].
+155 -zero(in1(h2(A))) | zero(in1(and2(h2(A)))) | -fulladder(A).  [resolve(67,a,58,b)].
+182 -zero(out1(and2(h1(A)))) | zero(outc(h1(A))) | -fulladder(A).  [resolve(81,a,53,b)].
+183 -zero(out1(and2(h2(A)))) | zero(outc(h2(A))) | -fulladder(A).  [resolve(81,a,58,b)].
+211 nbit_adder2(a) # label(a_isa_2bit_adder) # label(hypothesis).  [assumption].
+221 -nbit_adder2(A) | -zero(outc(f2(A))) | zero(outc(A)).  [resolve(24,b,4,a)].
+231 -nbit_adder2(A) | -zero(ina2(A)) | zero(in1(f2(A))).  [resolve(27,b,2,a)].
+235 -nbit_adder2(A) | -zero(inb2(A)) | zero(in2(f2(A))).  [resolve(28,b,2,a)].
+248 -nbit_adder2(A) | logic_or(or1(f2(A))).  [resolve(97,b,96,a)].
+258 -zero(outc(h1(f2(A)))) | zero(in2(or1(f2(A)))) | -nbit_adder2(A).  [resolve(102,a,97,b)].
+266 -zero(outc(h2(f2(A)))) | zero(in1(or1(f2(A)))) | -nbit_adder2(A).  [resolve(106,a,97,b)].
+274 -zero(in1(f2(A))) | zero(in1(h2(f2(A)))) | -nbit_adder2(A).  [resolve(110,a,97,b)].
+282 -zero(in2(f2(A))) | zero(in1(h1(f2(A)))) | -nbit_adder2(A).  [resolve(114,a,97,b)].
+310 -zero(out1(or1(f2(A)))) | zero(outc(f2(A))) | -nbit_adder2(A).  [resolve(128,a,97,b)].
+316 logic_and(and2(h1(f2(A)))) | -nbit_adder2(A).  [resolve(131,a,97,b)].
+324 logic_and(and2(h2(f2(A)))) | -nbit_adder2(A).  [resolve(135,a,97,b)].
+362 -zero(in1(h1(f2(A)))) | zero(in1(and2(h1(f2(A))))) | -nbit_adder2(A).  [resolve(154,c,97,b)].
+364 -zero(in1(h2(f2(A)))) | zero(in1(and2(h2(f2(A))))) | -nbit_adder2(A).  [resolve(155,c,97,b)].
+418 -zero(out1(and2(h1(f2(A))))) | zero(outc(h1(f2(A)))) | -nbit_adder2(A).  [resolve(182,c,97,b)].
+420 -zero(out1(and2(h2(f2(A))))) | zero(outc(h2(f2(A)))) | -nbit_adder2(A).  [resolve(183,c,97,b)].
+473 -logic_and(A) | abnormal(A) | -zero(in1(A)) | zero(out1(A)).  [resolve(31,b,32,a)].
+474 -abnormal(or1(f2(a))) # label(diagnosis_or1f2a) # label(negated_conjecture).  [assumption].
+475 -abnormal(and2(h1(f2(a)))) # label(diagnosis_and2h1f2a) # label(negated_conjecture).  [assumption].
+476 -abnormal(and2(h2(f2(a)))) # label(diagnosis_and2h2f2a) # label(negated_conjecture).  [assumption].
+484 -logic_or(A) | abnormal(A) | -zero(in1(A)) | -zero(in2(A)) | zero(out1(A)).  [resolve(39,b,42,a)].
+494 logic_or(or1(f2(a))).  [resolve(248,a,211,a)].
+504 -logic_or(or1(f2(a))) | -zero(in1(or1(f2(a)))) | -zero(in2(or1(f2(a)))) | zero(out1(or1(f2(a)))).  [resolve(484,b,474,a)].
+520 logic_and(and2(h1(f2(a)))).  [resolve(316,b,211,a)].
+524 logic_and(and2(h2(f2(a)))).  [resolve(324,b,211,a)].
+525 -logic_and(and2(h1(f2(a)))) | -zero(in1(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(473,b,475,a)].
+526 -logic_and(and2(h2(f2(a)))) | -zero(in1(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(473,b,476,a)].
+558 -zero(A) | -one(A) # label(unique_value) # label(axiom).  [assumption].
+560 zero(ina2(a)) # label(ina2_0) # label(hypothesis).  [assumption].
+562 zero(inb2(a)) # label(inb2_0) # label(hypothesis).  [assumption].
+566 one(outc(a)) # label(outc_1) # label(hypothesis).  [assumption].
+580 -zero(outc(f2(a))) | zero(outc(a)).  [resolve(221,a,211,a)].
+592 -zero(ina2(a)) | zero(in1(f2(a))).  [resolve(231,a,211,a)].
+593 zero(in1(f2(a))).  [copy(592),unit_del(a,560)].
+597 -zero(inb2(a)) | zero(in2(f2(a))).  [resolve(235,a,211,a)].
+598 zero(in2(f2(a))).  [copy(597),unit_del(a,562)].
+620 -zero(outc(h1(f2(a)))) | zero(in2(or1(f2(a)))).  [resolve(258,c,211,a)].
+628 -zero(outc(h2(f2(a)))) | zero(in1(or1(f2(a)))).  [resolve(266,c,211,a)].
+637 -zero(in1(f2(a))) | zero(in1(h2(f2(a)))).  [resolve(274,c,211,a)].
+638 zero(in1(h2(f2(a)))).  [copy(637),unit_del(a,593)].
+647 -zero(in2(f2(a))) | zero(in1(h1(f2(a)))).  [resolve(282,c,211,a)].
+648 zero(in1(h1(f2(a)))).  [copy(647),unit_del(a,598)].
+678 -zero(out1(or1(f2(a)))) | zero(outc(f2(a))).  [resolve(310,c,211,a)].
+720 -zero(in1(h1(f2(a)))) | zero(in1(and2(h1(f2(a))))).  [resolve(362,c,211,a)].
+721 zero(in1(and2(h1(f2(a))))).  [copy(720),unit_del(a,648)].
+724 -zero(in1(h2(f2(a)))) | zero(in1(and2(h2(f2(a))))).  [resolve(364,c,211,a)].
+725 zero(in1(and2(h2(f2(a))))).  [copy(724),unit_del(a,638)].
+780 -zero(out1(and2(h1(f2(a))))) | zero(outc(h1(f2(a)))).  [resolve(418,c,211,a)].
+782 -zero(out1(and2(h2(f2(a))))) | zero(outc(h2(f2(a)))).  [resolve(420,c,211,a)].
+835 -zero(in1(or1(f2(a)))) | -zero(in2(or1(f2(a)))) | zero(out1(or1(f2(a)))).  [resolve(504,a,494,a)].
+840 -zero(in1(and2(h1(f2(a))))) | zero(out1(and2(h1(f2(a))))).  [resolve(525,a,520,a)].
+841 zero(out1(and2(h1(f2(a))))).  [copy(840),unit_del(a,721)].
+842 -zero(in1(and2(h2(f2(a))))) | zero(out1(and2(h2(f2(a))))).  [resolve(526,a,524,a)].
+843 zero(out1(and2(h2(f2(a))))).  [copy(842),unit_del(a,725)].
+853 zero(outc(h1(f2(a)))).  [back_unit_del(780),unit_del(a,841)].
+855 zero(outc(h2(f2(a)))).  [back_unit_del(782),unit_del(a,843)].
+856 zero(in2(or1(f2(a)))).  [back_unit_del(620),unit_del(a,853)].
+857 zero(in1(or1(f2(a)))).  [back_unit_del(628),unit_del(a,855)].
+858 zero(out1(or1(f2(a)))).  [back_unit_del(835),unit_del(a,857),unit_del(b,856)].
+859 zero(outc(f2(a))).  [back_unit_del(678),unit_del(a,858)].
+860 zero(outc(a)).  [back_unit_del(580),unit_del(a,859)].
+861 $F.  [resolve(566,a,558,b),unit_del(a,860)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=9. Generated=281. Kept=250. proofs=1.
+Usable=9. Sos=222. Demods=0. Limbo=0, Disabled=847. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=30. Back_subsumed=10.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=9.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=16. Nonunit_bsub_feature_tests=349.
+Megabytes=1.08.
+User_CPU=0.03, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 24 exit (max_proofs) Fri Oct 23 14:54:34 2026
+-------- Proof 1 -------- 
+
+THEOREM PROVED
+
+------ process 24 exit (max_proofs) ------
+

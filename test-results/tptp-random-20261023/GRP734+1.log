@@ -1,0 +1,1912 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 30 was started by mfixman on bodoque,
+Fri Oct 23 14:54:34 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,10).
+assign(max_megs,256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all B all A mult(A,ld(A,B)) = B) # label(c01) # label(axiom).
+(all B all A ld(A,mult(A,B)) = B) # label(c02) # label(axiom).
+(all B all A mult(rd(A,B),B) = A) # label(c03) # label(axiom).
+(all B all A rd(mult(A,B),B) = A) # label(c04) # label(axiom).
+(all A mult(A,unit) = A) # label(c05) # label(axiom).
+(all A mult(unit,A) = A) # label(c06) # label(axiom).
+(all A mult(A,A) = unit) # label(c07) # label(axiom).
+mult(op_a,op_b) != mult(op_b,op_a) # label(c08) # label(axiom).
+(all X0 all X1 all X2 (mult(X0,X1) = X2 -> mult(X0,X2) = X1 & mult(X1,X2) = X0 | mult(X0,X2) = X1 & mult(X2,X1) = X0 | mult(X2,X0) = X1 & mult(X2,X1) = X0)) # label(c09) # label(axiom).
+(all X3 all X4 (mult(X3,X4) = mult(X4,X3) -> X3 = unit | X4 = unit | mult(X3,X4) = unit)) # label(c10) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all B all A mult(A,ld(A,B)) = B) # label(c01) # label(axiom) # label(non_clause).  [assumption].
+2 (all B all A ld(A,mult(A,B)) = B) # label(c02) # label(axiom) # label(non_clause).  [assumption].
+3 (all B all A mult(rd(A,B),B) = A) # label(c03) # label(axiom) # label(non_clause).  [assumption].
+4 (all B all A rd(mult(A,B),B) = A) # label(c04) # label(axiom) # label(non_clause).  [assumption].
+5 (all A mult(A,unit) = A) # label(c05) # label(axiom) # label(non_clause).  [assumption].
+6 (all A mult(unit,A) = A) # label(c06) # label(axiom) # label(non_clause).  [assumption].
+7 (all A mult(A,A) = unit) # label(c07) # label(axiom) # label(non_clause).  [assumption].
+8 (all X0 all X1 all X2 (mult(X0,X1) = X2 -> mult(X0,X2) = X1 & mult(X1,X2) = X0 | mult(X0,X2) = X1 & mult(X2,X1) = X0 | mult(X2,X0) = X1 & mult(X2,X1) = X0)) # label(c09) # label(axiom) # label(non_clause).  [assumption].
+9 (all X3 all X4 (mult(X3,X4) = mult(X4,X3) -> X3 = unit | X4 = unit | mult(X3,X4) = unit)) # label(c10) # label(axiom) # label(non_clause).  [assumption].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+mult(A,ld(A,B)) = B # label(c01) # label(axiom).  [clausify(1)].
+ld(A,mult(A,B)) = B # label(c02) # label(axiom).  [clausify(2)].
+mult(rd(A,B),B) = A # label(c03) # label(axiom).  [clausify(3)].
+rd(mult(A,B),B) = A # label(c04) # label(axiom).  [clausify(4)].
+mult(A,unit) = A # label(c05) # label(axiom).  [clausify(5)].
+mult(unit,A) = A # label(c06) # label(axiom).  [clausify(6)].
+mult(A,A) = unit # label(c07) # label(axiom).  [clausify(7)].
+mult(op_a,op_b) != mult(op_b,op_a) # label(c08) # label(axiom).  [assumption].
+mult(A,B) != C | mult(A,C) = B | mult(C,A) = B # label(c09) # label(axiom).  [clausify(8)].
+mult(A,B) != C | mult(A,C) = B | mult(C,B) = A # label(c09) # label(axiom).  [clausify(8)].
+mult(A,B) != C | mult(B,C) = A | mult(C,B) = A # label(c09) # label(axiom).  [clausify(8)].
+mult(A,B) != mult(B,A) | B = unit | A = unit | mult(B,A) = unit # label(c10) # label(axiom).  [clausify(9)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ unit, op_a, op_b, mult, ld, rd ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+kept:      10 mult(A,ld(A,B)) = B # label(c01) # label(axiom).  [clausify(1)].
+kept:      11 ld(A,mult(A,B)) = B # label(c02) # label(axiom).  [clausify(2)].
+kept:      12 mult(rd(A,B),B) = A # label(c03) # label(axiom).  [clausify(3)].
+kept:      13 rd(mult(A,B),B) = A # label(c04) # label(axiom).  [clausify(4)].
+kept:      14 mult(A,unit) = A # label(c05) # label(axiom).  [clausify(5)].
+kept:      15 mult(unit,A) = A # label(c06) # label(axiom).  [clausify(6)].
+kept:      16 mult(A,A) = unit # label(c07) # label(axiom).  [clausify(7)].
+           17 mult(op_a,op_b) != mult(op_b,op_a) # label(c08) # label(axiom).  [assumption].
+kept:      18 mult(op_b,op_a) != mult(op_a,op_b).  [copy(17),flip(a)].
+kept:      19 mult(A,B) != C | mult(A,C) = B | mult(C,A) = B # label(c09) # label(axiom).  [clausify(8)].
+kept:      20 mult(A,B) != C | mult(A,C) = B | mult(C,B) = A # label(c09) # label(axiom).  [clausify(8)].
+kept:      21 mult(A,B) != C | mult(B,C) = A | mult(C,B) = A # label(c09) # label(axiom).  [clausify(8)].
+           22 mult(A,B) != mult(B,A) | B = unit | A = unit | mult(B,A) = unit # label(c10) # label(axiom).  [clausify(9)].
+kept:      23 mult(A,B) != mult(B,A) | unit = B | unit = A | mult(B,A) = unit.  [copy(22),flip(b),flip(c)].
+kept:      24 mult(A,B) != A | unit = B.  [factor(19,b,c),rewrite([16(3)])].
+kept:      25 mult(A,B) != B | unit = A.  [factor(21,b,c),rewrite([16(3)])].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+10 mult(A,ld(A,B)) = B # label(c01) # label(axiom).  [clausify(1)].
+11 ld(A,mult(A,B)) = B # label(c02) # label(axiom).  [clausify(2)].
+12 mult(rd(A,B),B) = A # label(c03) # label(axiom).  [clausify(3)].
+13 rd(mult(A,B),B) = A # label(c04) # label(axiom).  [clausify(4)].
+14 mult(A,unit) = A # label(c05) # label(axiom).  [clausify(5)].
+15 mult(unit,A) = A # label(c06) # label(axiom).  [clausify(6)].
+16 mult(A,A) = unit # label(c07) # label(axiom).  [clausify(7)].
+18 mult(op_b,op_a) != mult(op_a,op_b).  [copy(17),flip(a)].
+19 mult(A,B) != C | mult(A,C) = B | mult(C,A) = B # label(c09) # label(axiom).  [clausify(8)].
+20 mult(A,B) != C | mult(A,C) = B | mult(C,B) = A # label(c09) # label(axiom).  [clausify(8)].
+21 mult(A,B) != C | mult(B,C) = A | mult(C,B) = A # label(c09) # label(axiom).  [clausify(8)].
+23 mult(A,B) != mult(B,A) | unit = B | unit = A | mult(B,A) = unit.  [copy(22),flip(b),flip(c)].
+24 mult(A,B) != A | unit = B.  [factor(19,b,c),rewrite([16(3)])].
+25 mult(A,B) != B | unit = A.  [factor(21,b,c),rewrite([16(3)])].
+end_of_list.
+
+formulas(demodulators).
+10 mult(A,ld(A,B)) = B # label(c01) # label(axiom).  [clausify(1)].
+11 ld(A,mult(A,B)) = B # label(c02) # label(axiom).  [clausify(2)].
+12 mult(rd(A,B),B) = A # label(c03) # label(axiom).  [clausify(3)].
+13 rd(mult(A,B),B) = A # label(c04) # label(axiom).  [clausify(4)].
+14 mult(A,unit) = A # label(c05) # label(axiom).  [clausify(5)].
+15 mult(unit,A) = A # label(c06) # label(axiom).  [clausify(6)].
+16 mult(A,A) = unit # label(c07) # label(axiom).  [clausify(7)].
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+given #1 (I,wt=7): 10 mult(A,ld(A,B)) = B # label(c01) # label(axiom).  [clausify(1)].
+
+given #2 (I,wt=7): 11 ld(A,mult(A,B)) = B # label(c02) # label(axiom).  [clausify(2)].
+
+given #3 (I,wt=7): 12 mult(rd(A,B),B) = A # label(c03) # label(axiom).  [clausify(3)].
+
+given #4 (I,wt=7): 13 rd(mult(A,B),B) = A # label(c04) # label(axiom).  [clausify(4)].
+
+given #5 (I,wt=5): 14 mult(A,unit) = A # label(c05) # label(axiom).  [clausify(5)].
+
+given #6 (I,wt=5): 15 mult(unit,A) = A # label(c06) # label(axiom).  [clausify(6)].
+
+given #7 (I,wt=5): 16 mult(A,A) = unit # label(c07) # label(axiom).  [clausify(7)].
+
+given #8 (I,wt=7): 18 mult(op_b,op_a) != mult(op_a,op_b).  [copy(17),flip(a)].
+
+given #9 (I,wt=15): 19 mult(A,B) != C | mult(A,C) = B | mult(C,A) = B # label(c09) # label(axiom).  [clausify(8)].
+
+given #10 (I,wt=15): 20 mult(A,B) != C | mult(A,C) = B | mult(C,B) = A # label(c09) # label(axiom).  [clausify(8)].
+
+given #11 (I,wt=15): 21 mult(A,B) != C | mult(B,C) = A | mult(C,B) = A # label(c09) # label(axiom).  [clausify(8)].
+
+given #12 (I,wt=18): 23 mult(A,B) != mult(B,A) | unit = B | unit = A | mult(B,A) = unit.  [copy(22),flip(b),flip(c)].
+
+given #13 (I,wt=8): 24 mult(A,B) != A | unit = B.  [factor(19,b,c),rewrite([16(3)])].
+
+given #14 (I,wt=8): 25 mult(A,B) != B | unit = A.  [factor(21,b,c),rewrite([16(3)])].
+
+given #15 (A,wt=7): 26 ld(rd(A,B),A) = B.  [para(12(a,1),11(a,1,2))].
+
+given #16 (T,wt=5): 28 ld(A,A) = unit.  [para(14(a,1),11(a,1,2))].
+
+given #17 (T,wt=5): 29 rd(A,unit) = A.  [para(14(a,1),12(a,1))].
+
+given #18 (T,wt=5): 30 ld(unit,A) = A.  [para(15(a,1),10(a,1))].
+
+given #19 (T,wt=5): 31 rd(A,A) = unit.  [para(15(a,1),13(a,1,1))].
+
+given #20 (A,wt=7): 27 rd(A,ld(B,A)) = B.  [para(10(a,1),13(a,1,1))].
+
+given #21 (T,wt=5): 32 ld(A,unit) = A.  [para(16(a,1),11(a,1,2))].
+
+given #22 (T,wt=5): 33 rd(unit,A) = A.  [para(16(a,1),13(a,1,1))].
+
+given #23 (T,wt=6): 40 A != B | B = A.  [para(15(a,1),19(a,1)),rewrite([15(3),14(4)]),merge(c)].
+
+given #24 (T,wt=8): 42 A != B | ld(B,A) = unit.  [factor(37,b,c),rewrite([16(2)]),flip(b)].
+
+given #25 (A,wt=14): 34 mult(rd(A,B),A) = B | mult(A,rd(A,B)) = B.  [resolve(19,a,12,a)].
+
+given #26 (T,wt=8): 43 rd(A,B) != A | unit = B.  [factor(38,b,c),rewrite([16(5)]),flip(a)].
+
+given #27 (T,wt=8): 54 ld(A,B) != B | unit = A.  [factor(52,b,c),rewrite([16(5)]),flip(a)].
+
+given #28 (T,wt=8): 55 A != B | rd(A,B) = unit.  [factor(53,b,c),rewrite([16(3)])].
+
+given #29 (T,wt=8): 72 A != B | ld(A,B) = unit.  [para(27(a,1),43(a,1)),flip(b)].
+
+given #30 (A,wt=14): 35 ld(A,B) = mult(A,B) | ld(A,B) = mult(B,A).  [resolve(19,a,10,a),flip(a),flip(b)].
+
+given #31 (T,wt=8): 73 A != B | rd(B,A) = unit.  [para(26(a,1),54(a,1)),flip(b)].
+
+given #32 (T,wt=13): 39 A != B | mult(A,B) = unit | mult(B,A) = unit.  [para(14(a,1),19(a,1))].
+
+given #33 (T,wt=13): 41 unit != A | mult(B,A) = B | mult(A,B) = B.  [para(16(a,1),19(a,1))].
+
+given #34 (T,wt=14): 36 mult(A,mult(A,B)) = B | mult(mult(A,B),A) = B.  [resolve(19,a,15,a(flip)),rewrite([15(3),15(6)])].
+
+given #35 (A,wt=17): 37 A != B | mult(C,B) = ld(C,A) | mult(B,C) = ld(C,A).  [para(10(a,1),19(a,1))].
+
+given #36 (T,wt=14): 44 mult(rd(A,B),A) = B | rd(A,B) = mult(A,B).  [resolve(20,a,12,a),flip(b)].
+
+given #37 (T,wt=14): 45 ld(A,B) = mult(A,B) | mult(B,ld(A,B)) = A.  [resolve(20,a,10,a),flip(a)].
+
+given #38 (T,wt=14): 46 mult(A,mult(A,B)) = B | mult(mult(A,B),B) = A.  [resolve(20,a,15,a(flip)),rewrite([15(3),15(6)])].
+
+given #39 (T,wt=14): 49 rd(A,B) = mult(B,A) | rd(A,B) = mult(A,B).  [resolve(21,a,12,a),flip(a),flip(b)].
+
+given #40 (A,wt=17): 38 A != B | mult(rd(A,C),B) = C | mult(B,rd(A,C)) = C.  [para(12(a,1),19(a,1))].
+
+given #41 (T,wt=14): 50 mult(ld(A,B),B) = A | mult(B,ld(A,B)) = A.  [resolve(21,a,10,a)].
+
+given #42 (T,wt=14): 51 mult(A,mult(B,A)) = B | mult(mult(B,A),A) = B.  [resolve(21,a,15,a(flip)),rewrite([15(3),15(6)])].
+
+given #43 (T,wt=14): 65 mult(A,rd(A,B)) = B | ld(rd(A,B),B) = A.  [para(34(a,1),11(a,1,2))].
+
+given #44 (T,wt=14): 66 mult(A,rd(A,B)) = B | rd(B,A) = rd(A,B).  [para(34(a,1),13(a,1,1))].
+
+given #45 (A,wt=17): 47 A != B | mult(C,B) = ld(C,A) | mult(B,ld(C,A)) = C.  [para(10(a,1),20(a,1))].
+
+given #46 (T,wt=14): 84 ld(A,B) = mult(B,A) | mult(A,mult(A,B)) = B.  [para(35(a,1),10(a,1,2))].
+
+given #47 (T,wt=14): 85 ld(A,B) = mult(A,B) | mult(A,mult(B,A)) = B.  [para(35(b,1),10(a,1,2))].
+
+given #48 (T,wt=14): 90 ld(A,B) = mult(B,A) | rd(B,mult(A,B)) = A.  [para(35(a,1),27(a,1,2))].
+
+given #49 (T,wt=14): 91 ld(A,B) = mult(A,B) | rd(B,mult(B,A)) = A.  [para(35(b,1),27(a,1,2))].
+
+given #50 (A,wt=17): 48 A != B | mult(rd(A,C),B) = C | rd(A,C) = mult(B,C).  [para(12(a,1),20(a,1)),flip(c)].
+
+given #51 (T,wt=14): 104 mult(A,mult(A,B)) = B | ld(mult(A,B),B) = A.  [para(36(b,1),11(a,1,2))].
+
+given #52 (T,wt=14): 105 mult(A,mult(A,B)) = B | rd(B,A) = mult(A,B).  [para(36(b,1),13(a,1,1))].
+
+given #53 (T,wt=14): 131 rd(A,B) = mult(A,B) | ld(rd(A,B),B) = A.  [para(44(a,1),11(a,1,2))].
+
+given #54 (T,wt=14): 132 rd(A,B) = mult(A,B) | rd(B,A) = rd(A,B).  [para(44(a,1),13(a,1,1))].
+
+given #55 (A,wt=17): 52 A != B | mult(ld(C,A),B) = C | mult(B,ld(C,A)) = C.  [para(10(a,1),21(a,1))].
+
+given #56 (T,wt=14): 151 ld(A,B) = mult(A,B) | ld(B,A) = ld(A,B).  [para(45(b,1),11(a,1,2))].
+
+given #57 (T,wt=14): 152 ld(A,B) = mult(A,B) | rd(A,ld(A,B)) = B.  [para(45(b,1),13(a,1,1))].
+
+given #58 (T,wt=14): 161 ld(A,B) = mult(A,B) | mult(B,mult(B,A)) = A.  [para(35(b,1),45(b,1,2)),merge(b)].
+
+given #59 (T,wt=14): 173 mult(A,mult(A,B)) = B | ld(mult(A,B),A) = B.  [para(46(b,1),11(a,1,2))].
+
+given #60 (A,wt=17): 53 A != B | rd(A,C) = mult(C,B) | rd(A,C) = mult(B,C).  [para(12(a,1),21(a,1)),flip(b),flip(c)].
+
+given #61 (T,wt=14): 174 mult(A,mult(A,B)) = B | rd(A,B) = mult(A,B).  [para(46(b,1),13(a,1,1))].
+
+given #62 (T,wt=14): 201 rd(A,B) = mult(A,B) | mult(mult(B,A),B) = A.  [para(49(a,1),12(a,1,1))].
+
+given #63 (T,wt=14): 202 rd(A,B) = mult(B,A) | mult(mult(A,B),B) = A.  [para(49(b,1),12(a,1,1))].
+
+given #64 (T,wt=14): 205 rd(A,B) = mult(A,B) | ld(mult(B,A),A) = B.  [para(49(a,1),26(a,1,1))].
+
+given #65 (A,wt=22): 56 mult(ld(A,B),A) != B | ld(A,B) = unit | unit = A | mult(ld(A,B),A) = unit.  [para(10(a,1),23(a,1)),flip(a),flip(b)].
+
+given #66 (T,wt=14): 206 rd(A,B) = mult(B,A) | ld(mult(A,B),A) = B.  [para(49(b,1),26(a,1,1))].
+
+given #67 (T,wt=14): 213 rd(A,B) = mult(A,B) | mult(mult(B,A),A) = B.  [para(49(a,1),44(a,1,1)),merge(c)].
+
+given #68 (T,wt=14): 248 mult(A,ld(B,A)) = B | ld(ld(B,A),B) = A.  [para(50(a,1),11(a,1,2))].
+
+given #69 (T,wt=14): 249 mult(A,ld(B,A)) = B | rd(B,A) = ld(B,A).  [para(50(a,1),13(a,1,1))].
+
+given #70 (A,wt=18): 57 mult(ld(A,B),A) != B | unit = A | ld(A,B) = unit | unit = B.  [para(10(a,1),23(a,2)),rewrite([10(10)]),flip(c),flip(d)].
+
+given #71 (T,wt=14): 270 mult(A,mult(B,A)) = B | ld(mult(B,A),B) = A.  [para(51(b,1),11(a,1,2))].
+
+given #72 (T,wt=14): 271 mult(A,mult(B,A)) = B | rd(B,A) = mult(B,A).  [para(51(b,1),13(a,1,1))].
+
+given #73 (T,wt=14): 293 mult(mult(A,B),A) = B | ld(A,B) = mult(A,B).  [para(13(a,1),65(b,1,1)),rewrite([13(3)])].
+
+given #74 (T,wt=14): 294 ld(A,B) = mult(B,A) | ld(A,ld(A,B)) = B.  [para(27(a,1),65(b,1,1)),rewrite([27(2)]),flip(a)].
+
+given #75 (A,wt=22): 58 mult(A,rd(B,A)) != B | unit = A | rd(B,A) = unit | mult(A,rd(B,A)) = unit.  [para(12(a,1),23(a,1)),flip(a),flip(c)].
+
+given #76 (T,wt=14): 314 mult(A,rd(A,B)) = B | rd(A,B) = rd(B,A).  [resolve(66,b,40,a)].
+
+given #77 (T,wt=14): 320 rd(A,B) = rd(B,A) | rd(B,A) = ld(B,A).  [para(66(a,1),11(a,1,2)),flip(b)].
+
+given #78 (T,wt=14): 321 mult(A,rd(A,B)) = B | mult(rd(B,A),B) = A.  [para(66(b,2),12(a,1,1))].
+
+given #79 (T,wt=14): 322 rd(A,B) = rd(B,A) | rd(A,rd(B,A)) = B.  [para(66(a,1),13(a,1,1))].
+
+given #80 (A,wt=18): 59 mult(A,rd(B,A)) != B | rd(B,A) = unit | unit = A | unit = B.  [para(12(a,1),23(a,2)),rewrite([12(10)]),flip(b),flip(d)].
+
+given #81 (T,wt=14): 324 mult(mult(A,B),A) = B | rd(B,mult(A,B)) = A.  [para(66(b,2),13(a,1)),rewrite([13(3)])].
+
+given #82 (T,wt=14): 331 mult(A,rd(A,B)) = B | ld(rd(B,A),A) = B.  [para(66(b,2),26(a,1,1))].
+
+given #83 (T,wt=14): 333 ld(A,B) = mult(B,A) | rd(ld(A,B),B) = A.  [para(66(b,2),27(a,1)),rewrite([27(2)]),flip(a)].
+
+given #84 (T,wt=14): 384 mult(A,mult(A,B)) = B | mult(A,mult(B,A)) = B.  [para(84(a,1),10(a,1,2))].
+
+given #85 (A,wt=16): 60 mult(A,rd(A,B)) = B | ld(B,mult(rd(A,B),A)) = unit.  [resolve(34,a,42,a)].
+
+given #86 (T,wt=14): 389 mult(A,mult(A,B)) = B | rd(B,mult(B,A)) = A.  [para(84(a,1),27(a,1,2))].
+
+given #87 (T,wt=14): 412 mult(A,mult(B,A)) = B | rd(B,mult(A,B)) = A.  [para(85(a,1),27(a,1,2))].
+
+given #88 (T,wt=14): 522 ld(A,B) = mult(A,B) | ld(B,ld(A,B)) = A.  [para(10(a,1),104(b,1,1)),rewrite([10(2)]),flip(a)].
+
+given #89 (T,wt=14): 523 mult(rd(A,B),A) = B | rd(A,B) = ld(A,B).  [para(12(a,1),104(b,1,1)),rewrite([12(3)]),flip(b)].
+
+given #90 (A,wt=16): 61 mult(A,rd(A,B)) = B | ld(mult(rd(A,B),A),B) = unit.  [resolve(34,a,42,a(flip))].
+
+given #91 (T,wt=14): 544 ld(A,B) = mult(A,B) | rd(ld(A,B),A) = B.  [para(10(a,1),105(b,2)),rewrite([10(2)]),flip(a)].
+
+given #92 (T,wt=14): 545 mult(rd(A,B),A) = B | rd(B,rd(A,B)) = A.  [para(12(a,1),105(b,2)),rewrite([12(3)])].
+
+given #93 (T,wt=14): 571 mult(mult(A,B),B) = A | ld(A,B) = mult(A,B).  [para(13(a,1),131(b,1,1)),rewrite([13(2)]),flip(a)].
+
+given #94 (T,wt=14): 572 mult(A,ld(B,A)) = B | ld(B,ld(B,A)) = A.  [para(27(a,1),131(b,1,1)),rewrite([27(2)]),flip(a)].
+
+given #95 (A,wt=33): 62 mult(A,rd(A,mult(B,C))) = mult(B,C) | mult(C,mult(rd(A,mult(B,C)),A)) = B | mult(mult(rd(A,mult(B,C)),A),C) = B.  [resolve(34,a,21,a(flip))].
+
+given #96 (T,wt=14): 573 rd(A,B) = mult(A,B) | ld(mult(B,A),B) = A.  [para(49(a,1),131(b,1,1)),merge(b)].
+
+given #97 (T,wt=14): 582 rd(A,B) = mult(A,B) | rd(A,B) = rd(B,A).  [resolve(132,b,40,a)].
+
+given #98 (T,wt=14): 590 rd(A,B) = mult(A,B) | mult(rd(B,A),B) = A.  [para(132(b,2),12(a,1,1))].
+
+given #99 (T,wt=14): 592 mult(mult(A,B),B) = A | rd(B,mult(A,B)) = A.  [para(132(b,2),13(a,1)),rewrite([13(2)]),flip(a)].
+
+given #100 (A,wt=33): 63 mult(A,rd(A,mult(B,C))) = mult(B,C) | mult(B,mult(rd(A,mult(B,C)),A)) = C | mult(mult(rd(A,mult(B,C)),A),C) = B.  [resolve(34,a,20,a(flip))].
+
+given #101 (T,wt=14): 593 rd(A,B) = mult(A,B) | ld(rd(B,A),A) = B.  [para(132(b,2),26(a,1,1))].
+
+given #102 (T,wt=14): 595 mult(A,ld(B,A)) = B | rd(ld(B,A),A) = B.  [para(132(b,2),27(a,1)),rewrite([27(2)]),flip(a)].
+
+given #103 (T,wt=14): 597 rd(A,B) = mult(A,B) | rd(B,A) = mult(B,A).  [para(132(b,1),49(a,1)),merge(b)].
+
+given #104 (T,wt=14): 651 ld(A,B) = mult(A,B) | ld(A,B) = ld(B,A).  [resolve(151,b,40,a)].
+
+given #105 (A,wt=33): 64 mult(A,rd(A,mult(B,C))) = mult(B,C) | mult(B,mult(rd(A,mult(B,C)),A)) = C | mult(mult(rd(A,mult(B,C)),A),B) = C.  [resolve(34,a,19,a(flip))].
+
+given #106 (T,wt=14): 660 ld(A,B) = mult(A,B) | mult(A,ld(B,A)) = B.  [para(151(b,2),10(a,1,2))].
+
+given #107 (T,wt=14): 663 mult(rd(A,B),A) = B | ld(A,rd(A,B)) = B.  [para(151(b,2),26(a,1)),rewrite([26(2)]),flip(a)].
+
+given #108 (T,wt=14): 664 ld(A,B) = mult(A,B) | rd(B,ld(B,A)) = A.  [para(151(b,2),27(a,1,2))].
+
+given #109 (T,wt=14): 666 ld(A,B) = mult(A,B) | ld(B,A) = mult(B,A).  [para(151(b,1),35(b,1)),merge(c)].
+
+given #110 (A,wt=24): 67 mult(A,rd(A,B)) = B | B != C | mult(rd(A,B),C) = A | mult(C,rd(A,B)) = A.  [para(34(a,1),19(a,1))].
+
+given #111 (T,wt=14): 686 mult(rd(A,B),A) = B | rd(rd(A,B),B) = A.  [para(26(a,1),152(b,1,2)),rewrite([26(2)]),flip(a)].
+
+given #112 (T,wt=14): 687 ld(A,B) = mult(A,B) | rd(A,mult(B,A)) = B.  [para(35(b,1),152(b,1,2)),merge(b)].
+
+given #113 (T,wt=14): 706 mult(A,mult(A,B)) = B | mult(B,mult(B,A)) = A.  [para(161(a,1),10(a,1,2))].
+
+given #114 (T,wt=14): 711 mult(A,mult(A,B)) = B | rd(A,mult(B,A)) = B.  [para(161(a,1),27(a,1,2))].
+
+given #115 (A,wt=24): 68 mult(A,rd(A,B)) = B | B != C | mult(rd(A,B),C) = A | rd(A,B) = mult(C,A).  [para(34(a,1),20(a,1)),flip(d)].
+
+given #116 (T,wt=14): 809 mult(A,mult(A,B)) = B | rd(B,A) = rd(A,B).  [para(174(b,1),66(a,1,2)),merge(b)].
+
+given #117 (T,wt=14): 829 mult(mult(A,B),A) = B | mult(mult(B,A),A) = B.  [para(201(a,1),12(a,1,1))].
+
+given #118 (T,wt=14): 832 mult(mult(A,B),A) = B | ld(mult(B,A),B) = A.  [para(201(a,1),26(a,1,1))].
+
+given #119 (T,wt=14): 863 mult(mult(A,B),B) = A | ld(mult(B,A),A) = B.  [para(202(a,1),26(a,1,1))].
+
+given #120 (A,wt=24): 69 mult(A,rd(A,B)) = B | B != C | rd(A,B) = mult(A,C) | rd(A,B) = mult(C,A).  [para(34(a,1),21(a,1)),flip(c),flip(d)].
+
+given #121 (T,wt=14): 897 ld(mult(A,B),B) = A | ld(mult(B,A),B) = A.  [para(205(a,1),26(a,1,1))].
+
+given #122 (T,wt=14): 969 mult(mult(A,B),B) = A | mult(mult(B,A),A) = B.  [para(213(a,1),12(a,1,1))].
+
+given #123 (T,wt=14): 972 mult(mult(A,B),B) = A | ld(mult(B,A),B) = A.  [para(213(a,1),26(a,1,1))].
+
+given #124 (T,wt=14): 998 mult(mult(A,B),B) = A | ld(B,A) = mult(A,B).  [para(11(a,1),248(b,1,1)),rewrite([11(3)])].
+
+given #125 (A,wt=15): 70 mult(A,rd(A,B)) = B | rd(A,B) != B | unit = A.  [para(34(a,1),24(a,1)),flip(b)].
+
+given #126 (T,wt=14): 999 rd(A,B) = mult(A,B) | ld(B,rd(A,B)) = A.  [para(26(a,1),248(b,1,1)),rewrite([26(2)]),flip(a)].
+
+given #127 (T,wt=14): 1025 mult(mult(A,B),B) = A | rd(A,mult(A,B)) = B.  [para(11(a,1),249(b,2)),rewrite([11(3)])].
+
+given #128 (T,wt=14): 1027 rd(A,B) = mult(A,B) | rd(rd(A,B),A) = B.  [para(26(a,1),249(b,2)),rewrite([26(2)]),flip(a)].
+
+given #129 (T,wt=14): 1076 mult(ld(A,B),B) = A | ld(B,A) = ld(A,B).  [para(10(a,1),270(b,1,1)),rewrite([10(3)])].
+
+given #130 (A,wt=16): 74 rd(mult(rd(A,B),A),B) = unit | mult(A,rd(A,B)) = B.  [resolve(55,a,34,a)].
+
+given #131 (T,wt=14): 1077 rd(A,B) = mult(B,A) | ld(A,rd(A,B)) = B.  [para(12(a,1),270(b,1,1)),rewrite([12(2)]),flip(a)].
+
+given #132 (T,wt=14): 1103 mult(ld(A,B),B) = A | rd(A,ld(A,B)) = B.  [para(10(a,1),271(b,2)),rewrite([10(3)])].
+
+given #133 (T,wt=14): 1104 rd(A,B) = mult(B,A) | rd(rd(A,B),B) = A.  [para(12(a,1),271(b,2)),rewrite([12(2)]),flip(a)].
+
+given #134 (T,wt=14): 1195 rd(A,B) = rd(B,A) | rd(A,B) = ld(A,B).  [para(314(a,1),11(a,1,2)),flip(b)].
+
+given #135 (A,wt=16): 75 rd(A,mult(rd(B,A),B)) = unit | mult(B,rd(B,A)) = A.  [resolve(55,a,34,a(flip))].
+
+given #136 (T,wt=14): 1196 rd(A,B) = rd(B,A) | rd(B,rd(A,B)) = A.  [para(314(a,1),13(a,1,1))].
+
+given #137 (T,wt=14): 1217 mult(A,mult(A,B)) = B | rd(A,B) = rd(B,A).  [para(174(b,1),314(a,1,2)),merge(b)].
+
+given #138 (T,wt=14): 1245 rd(A,B) = ld(A,B) | mult(rd(B,A),B) = A.  [para(320(a,2),12(a,1,1))].
+
+given #139 (T,wt=14): 1247 ld(mult(A,B),B) = A | rd(B,mult(A,B)) = A.  [para(320(a,2),13(a,1)),rewrite([13(2)]),flip(a)].
+
+given #140 (A,wt=16): 76 ld(A,B) = mult(B,A) | ld(ld(A,B),mult(A,B)) = unit.  [resolve(35,a,72,a)].
+
+given #141 (T,wt=14): 1248 rd(A,B) = ld(A,B) | ld(rd(A,B),B) = A.  [para(320(a,1),26(a,1,1))].
+
+given #142 (T,wt=14): 1249 rd(A,B) = ld(A,B) | ld(rd(B,A),A) = B.  [para(320(a,2),26(a,1,1))].
+
+given #143 (T,wt=14): 1251 ld(A,ld(B,A)) = B | rd(ld(B,A),A) = B.  [para(320(a,2),27(a,1)),rewrite([27(2)]),flip(a)].
+
+given #144 (T,wt=14): 1305 mult(rd(A,B),A) = B | rd(A,rd(B,A)) = B.  [para(321(a,1),13(a,1,1))].
+
+given #145 (A,wt=16): 77 ld(A,B) = mult(B,A) | rd(ld(A,B),mult(A,B)) = unit.  [resolve(35,a,55,a)].
+
+given #146 (T,wt=14): 1349 mult(A,mult(A,B)) = B | mult(rd(B,A),B) = A.  [para(174(b,1),321(a,1,2)),merge(b)].
+
+given #147 (T,wt=14): 1389 rd(A,mult(B,A)) = B | rd(A,B) = mult(B,A).  [para(13(a,1),322(b,1,2)),rewrite([13(4)])].
+
+given #148 (T,wt=14): 1390 rd(ld(A,B),B) = A | rd(ld(A,B),A) = B.  [para(27(a,1),322(b,1,2)),rewrite([27(4)])].
+
+given #149 (T,wt=14): 1397 rd(A,B) = rd(B,A) | rd(rd(B,A),A) = B.  [para(322(b,1),132(b,1)),rewrite([12(7)]),flip(c),merge(c)].
+
+given #150 (A,wt=16): 78 ld(A,B) = mult(B,A) | ld(mult(A,B),ld(A,B)) = unit.  [resolve(35,a,42,a)].
+
+given #151 (T,wt=14): 1498 ld(rd(A,B),B) = A | rd(A,rd(B,A)) = B.  [para(331(a,1),13(a,1,1))].
+
+given #152 (T,wt=14): 1526 mult(A,mult(A,B)) = B | ld(rd(B,A),A) = B.  [para(174(b,1),331(a,1,2)),merge(b)].
+
+given #153 (T,wt=14): 1795 ld(A,B) = mult(A,B) | ld(B,ld(B,A)) = A.  [para(151(b,2),522(b,1,2)),merge(b)].
+
+given #154 (T,wt=14): 1888 ld(A,B) = mult(A,B) | rd(ld(B,A),A) = B.  [para(151(b,2),544(b,1,1)),merge(b)].
+
+given #155 (A,wt=16): 79 ld(A,B) = mult(B,A) | rd(mult(A,B),ld(A,B)) = unit.  [resolve(35,a,55,a(flip))].
+
+given #156 (T,wt=14): 1954 mult(mult(A,B),B) = A | mult(B,ld(A,B)) = A.  [para(571(b,1),50(a,1,1)),merge(b)].
+
+given #157 (T,wt=14): 2098 ld(mult(A,B),A) = B | ld(mult(B,A),B) = A.  [para(573(a,1),26(a,1,1))].
+
+given #158 (T,wt=14): 2156 mult(rd(A,B),A) = B | mult(mult(B,A),A) = B.  [para(590(a,1),12(a,1,1))].
+
+given #159 (T,wt=14): 2165 mult(rd(A,B),A) = B | ld(mult(B,A),B) = A.  [para(590(a,1),26(a,1,1))].
+
+given #160 (A,wt=16): 80 ld(A,B) = mult(A,B) | ld(ld(A,B),mult(B,A)) = unit.  [resolve(35,b,72,a)].
+
+given #161 (T,wt=14): 2368 ld(rd(A,B),B) = A | mult(mult(B,A),A) = B.  [para(593(a,1),12(a,1,1))].
+
+given #162 (T,wt=14): 2372 ld(rd(A,B),B) = A | ld(mult(B,A),B) = A.  [para(593(a,1),26(a,1,1))].
+
+given #163 (T,wt=14): 2592 mult(A,ld(B,A)) = B | mult(A,mult(A,B)) = B.  [para(660(a,1),10(a,1,2))].
+
+given #164 (T,wt=14): 2604 mult(A,ld(B,A)) = B | rd(B,mult(A,B)) = A.  [para(660(a,1),27(a,1,2))].
+
+given #165 (A,wt=16): 81 ld(A,B) = mult(A,B) | rd(ld(A,B),mult(B,A)) = unit.  [resolve(35,b,55,a)].
+
+given #166 (T,wt=14): 3209 mult(A,mult(A,B)) = B | mult(rd(A,B),A) = B.  [para(809(b,1),12(a,1,1))].
+
+given #167 (T,wt=14): 3212 mult(A,mult(A,B)) = B | ld(rd(A,B),B) = A.  [para(809(b,1),26(a,1,1))].
+
+given #168 (T,wt=14): 3947 rd(A,B) = mult(A,B) | ld(B,rd(B,A)) = A.  [para(132(b,2),999(b,1,2)),merge(b)].
+
+given #169 (T,wt=14): 4062 rd(A,B) = mult(A,B) | rd(rd(B,A),A) = B.  [para(132(b,2),1027(b,1,1)),merge(b)].
+
+given #170 (A,wt=16): 82 ld(A,B) = mult(A,B) | ld(mult(B,A),ld(A,B)) = unit.  [resolve(35,b,42,a)].
+
+given #171 (T,wt=14): 4122 mult(ld(A,B),B) = A | ld(A,B) = ld(B,A).  [resolve(1076,b,40,a)].
+
+given #172 (T,wt=14): 4135 mult(ld(A,B),B) = A | mult(A,ld(B,A)) = B.  [para(1076(b,2),10(a,1,2))].
+
+given #173 (T,wt=14): 4136 ld(A,B) = ld(B,A) | ld(ld(B,A),B) = A.  [para(1076(a,1),11(a,1,2))].
+
+given #174 (T,wt=14): 4138 ld(A,B) = ld(B,A) | rd(B,A) = ld(B,A).  [para(1076(a,1),13(a,1,1))].
+
+given #175 (A,wt=16): 83 ld(A,B) = mult(A,B) | rd(mult(B,A),ld(A,B)) = unit.  [resolve(35,b,55,a(flip))].
+
+given #176 (T,wt=14): 4146 mult(ld(A,B),B) = A | rd(B,ld(B,A)) = A.  [para(1076(b,2),27(a,1,2))].
+
+given #177 (T,wt=14): 4199 mult(mult(A,B),B) = A | ld(B,A) = ld(A,B).  [para(571(b,1),1076(a,1,1)),merge(b)].
+
+given #178 (T,wt=14): 4478 rd(A,B) = rd(B,A) | rd(rd(A,B),B) = A.  [para(1196(b,1),132(b,1)),rewrite([12(7)]),flip(c),merge(c)].
+
+given #179 (T,wt=14): 4557 mult(rd(A,B),A) = B | mult(ld(B,A),A) = B.  [para(1245(a,1),12(a,1,1))].
+
+given #180 (A,wt=18): 86 ld(A,ld(A,B)) = B | ld(A,ld(A,B)) = mult(ld(A,B),A).  [para(10(a,1),35(a,2))].
+
+given #181 (T,wt=14): 4565 mult(rd(A,B),A) = B | ld(ld(B,A),B) = A.  [para(1245(a,1),26(a,1,1))].
+
+given #182 (T,wt=14): 4610 mult(rd(A,B),A) = B | ld(B,A) = mult(B,A).  [para(1245(a,1),590(a,1)),merge(c)].
+
+given #183 (T,wt=14): 4670 ld(mult(A,B),B) = A | ld(A,B) = mult(A,B).  [para(1247(b,1),26(a,1,1))].
+
+given #184 (T,wt=14): 4753 ld(A,ld(B,A)) = B | ld(B,ld(B,A)) = A.  [para(27(a,1),1248(b,1,1)),rewrite([27(2)]),flip(a)].
+
+given #185 (A,wt=18): 87 ld(ld(A,B),A) = mult(ld(A,B),A) | ld(ld(A,B),A) = B.  [para(10(a,1),35(b,2))].
+
+given #186 (T,wt=14): 4819 ld(rd(A,B),B) = A | mult(ld(B,A),A) = B.  [para(1249(a,1),12(a,1,1))].
+
+given #187 (T,wt=14): 4822 ld(rd(A,B),B) = A | ld(ld(B,A),B) = A.  [para(1249(a,1),26(a,1,1))].
+
+given #188 (T,wt=14): 4851 ld(rd(A,B),B) = A | ld(B,A) = mult(B,A).  [para(1249(a,1),593(a,1)),merge(c)].
+
+given #189 (T,wt=14): 4959 mult(rd(A,B),A) = B | rd(rd(B,A),A) = B.  [para(1305(b,1),132(b,1)),rewrite([12(7)]),flip(c),merge(c)].
+
+given #190 (A,wt=18): 88 ld(rd(A,B),B) = A | ld(rd(A,B),B) = mult(B,rd(A,B)).  [para(12(a,1),35(a,2))].
+
+given #191 (T,wt=14): 4980 mult(rd(A,B),A) = B | rd(A,mult(B,A)) = B.  [para(590(a,1),1305(b,1,2)),merge(b)].
+
+given #192 (T,wt=14): 5129 rd(A,B) = mult(B,A) | ld(B,A) = mult(B,A).  [para(1389(a,1),26(a,1,1))].
+
+given #193 (T,wt=14): 5195 rd(ld(A,B),A) = B | ld(A,ld(A,B)) = B.  [para(1390(a,1),26(a,1,1))].
+
+given #194 (T,wt=14): 5207 rd(ld(A,B),B) = A | rd(A,ld(A,B)) = B.  [para(1390(b,1),132(b,1)),rewrite([10(7)]),flip(c),merge(c)].
+
+given #195 (A,wt=18): 89 ld(A,rd(B,A)) = mult(A,rd(B,A)) | ld(A,rd(B,A)) = B.  [para(12(a,1),35(b,2))].
+
+given #196 (T,wt=14): 5297 rd(A,mult(B,A)) = B | rd(B,A) = mult(B,A).  [para(13(a,1),1397(b,1,1)),rewrite([13(4)])].
+
+given #197 (T,wt=14): 5298 rd(A,B) = rd(B,A) | ld(B,rd(B,A)) = A.  [para(1397(b,1),26(a,1,1))].
+
+given #198 (T,wt=14): 5382 ld(rd(A,B),B) = A | rd(rd(B,A),A) = B.  [para(1498(b,1),132(b,1)),rewrite([12(7)]),flip(c),merge(c)].
+
+given #199 (T,wt=14): 5404 ld(rd(A,B),B) = A | rd(A,mult(B,A)) = B.  [para(593(a,1),1498(b,1,2)),merge(b)].
+
+given #200 (A,wt=25): 93 mult(ld(A,B),mult(B,A)) = unit | mult(mult(B,A),ld(A,B)) = unit | ld(A,B) = mult(A,B).  [resolve(39,a,35,b)].
+
+given #201 (T,wt=14): 5510 ld(A,ld(A,B)) = B | mult(B,mult(B,A)) = A.  [para(1795(a,1),10(a,1,2))].
+
+given #202 (T,wt=14): 5517 ld(A,ld(A,B)) = B | rd(A,mult(B,A)) = B.  [para(1795(a,1),27(a,1,2))].
+
+given #203 (T,wt=14): 5649 mult(mult(A,B),B) = A | rd(A,ld(A,B)) = B.  [para(1954(b,1),13(a,1,1))].
+
+given #204 (T,wt=14): 5782 mult(mult(A,B),B) = A | rd(A,B) = rd(B,A).  [para(2156(a,1),13(a,1,1))].
+
+given #205 (A,wt=25): 94 mult(ld(A,B),mult(A,B)) = unit | mult(mult(A,B),ld(A,B)) = unit | ld(A,B) = mult(B,A).  [resolve(39,a,35,a)].
+
+given #206 (T,wt=14): 5853 ld(mult(A,B),A) = B | rd(A,B) = rd(B,A).  [para(2165(a,1),13(a,1,1))].
+
+given #207 (T,wt=14): 6041 rd(A,B) = rd(B,A) | ld(A,rd(A,B)) = B.  [para(1196(b,1),2372(a,1,1)),rewrite([12(8)]),merge(c)].
+
+given #208 (T,wt=14): 6044 mult(rd(A,B),A) = B | ld(B,rd(B,A)) = A.  [para(1305(b,1),2372(a,1,1)),rewrite([12(8)]),merge(c)].
+
+given #209 (T,wt=14): 6046 rd(ld(A,B),B) = A | ld(B,A) = ld(A,B).  [para(1390(b,1),2372(a,1,1)),rewrite([10(8)]),merge(c)].
+
+given #210 (A,wt=25): 95 mult(mult(rd(A,B),A),B) = unit | mult(B,mult(rd(A,B),A)) = unit | mult(A,rd(A,B)) = B.  [resolve(39,a,34,a)].
+
+given #211 (T,wt=14): 6047 ld(rd(A,B),B) = A | ld(B,rd(B,A)) = A.  [para(1498(b,1),2372(a,1,1)),rewrite([12(8)]),merge(c)].
+
+given #212 (T,wt=14): 6074 mult(A,mult(A,B)) = B | ld(A,B) = ld(B,A).  [para(2592(a,1),11(a,1,2))].
+
+given #213 (T,wt=14): 6076 mult(A,mult(A,B)) = B | rd(B,ld(B,A)) = A.  [para(2592(a,1),13(a,1,1))].
+
+given #214 (T,wt=14): 6390 ld(A,rd(A,B)) = B | mult(mult(B,A),A) = B.  [para(3947(a,1),12(a,1,1))].
+
+given #215 (A,wt=16): 96 mult(A,mult(A,B)) = B | rd(B,mult(mult(A,B),A)) = unit.  [resolve(36,b,73,a)].
+
+given #216 (T,wt=14): 6394 ld(A,rd(A,B)) = B | ld(mult(B,A),B) = A.  [para(3947(a,1),26(a,1,1))].
+
+given #217 (T,wt=14): 6593 ld(A,B) = ld(B,A) | ld(ld(A,B),A) = B.  [para(4122(a,1),11(a,1,2))].
+
+given #218 (T,wt=14): 6594 ld(A,B) = ld(B,A) | rd(A,B) = ld(A,B).  [para(4122(a,1),13(a,1,1))].
+
+given #219 (T,wt=14): 6624 mult(mult(A,B),B) = A | ld(A,B) = ld(B,A).  [para(571(b,1),4122(a,1,1)),merge(b)].
+
+given #220 (A,wt=16): 97 mult(A,mult(A,B)) = B | ld(mult(mult(A,B),A),B) = unit.  [resolve(36,b,72,a)].
+
+given #221 (T,wt=14): 6704 mult(A,ld(B,A)) = B | ld(ld(A,B),A) = B.  [para(4135(a,1),11(a,1,2))].
+
+given #222 (T,wt=14): 6707 mult(A,ld(B,A)) = B | rd(A,B) = ld(A,B).  [para(4135(a,1),13(a,1,1))].
+
+given #223 (T,wt=14): 6768 mult(mult(A,B),B) = A | mult(A,ld(B,A)) = B.  [para(571(b,1),4135(a,1,1)),merge(b)].
+
+given #224 (T,wt=14): 6855 ld(mult(A,B),A) = B | ld(B,A) = mult(A,B).  [para(11(a,1),4136(b,1,1)),rewrite([11(4)])].
+
+given #225 (A,wt=16): 98 mult(A,mult(A,B)) = B | rd(mult(mult(A,B),A),B) = unit.  [resolve(36,b,55,a)].
+
+given #226 (T,wt=14): 6856 ld(A,rd(A,B)) = B | ld(B,rd(A,B)) = A.  [para(26(a,1),4136(b,1,1)),rewrite([26(4)])].
+
+given #227 (T,wt=14): 6862 ld(A,B) = ld(B,A) | ld(B,ld(B,A)) = A.  [para(4136(b,1),151(b,1)),rewrite([10(7)]),flip(c),merge(c)].
+
+given #228 (T,wt=14): 6908 ld(mult(A,B),A) = B | rd(A,mult(A,B)) = B.  [para(11(a,1),4138(b,2)),rewrite([11(4)])].
+
+given #229 (T,wt=14): 6910 ld(A,rd(A,B)) = B | rd(rd(A,B),A) = B.  [para(26(a,1),4138(b,2)),rewrite([26(4)])].
+
+given #230 (A,wt=16): 99 mult(A,mult(A,B)) = B | ld(B,mult(mult(A,B),A)) = unit.  [resolve(36,b,42,a)].
+
+given #231 (T,wt=14): 7138 mult(mult(A,B),B) = A | rd(B,ld(B,A)) = A.  [para(4199(b,2),27(a,1,2))].
+
+given #232 (T,wt=14): 7220 mult(ld(A,B),B) = A | rd(A,B) = rd(B,A).  [para(4557(a,1),13(a,1,1))].
+
+given #233 (T,wt=14): 7434 ld(ld(A,B),A) = B | rd(A,B) = rd(B,A).  [para(4565(a,1),13(a,1,1))].
+
+given #234 (T,wt=14): 7525 ld(A,B) = mult(A,B) | rd(A,B) = rd(B,A).  [para(4610(a,1),13(a,1,1))].
+
+given #235 (A,wt=25): 100 mult(A,mult(A,B)) = B | mult(mult(mult(A,B),A),B) = unit | mult(B,mult(mult(A,B),A)) = unit.  [resolve(36,b,39,a)].
+
+given #236 (T,wt=14): 8177 mult(rd(A,B),A) = B | rd(ld(B,A),A) = B.  [para(1245(a,1),4959(b,1,1)),merge(b)].
+
+given #237 (T,wt=14): 8380 rd(A,rd(B,A)) = B | ld(rd(B,A),A) = B.  [para(12(a,1),5129(a,2)),rewrite([12(7)])].
+
+given #238 (T,wt=14): 8391 ld(A,B) = mult(A,B) | rd(A,B) = mult(A,B).  [para(5129(a,1),132(b,1)),flip(c),merge(c)].
+
+given #239 (T,wt=14): 8440 ld(A,B) = mult(A,B) | ld(mult(A,B),A) = B.  [para(5129(a,1),2372(a,1,1)),merge(c)].
+
+given #240 (A,wt=33): 101 mult(A,mult(A,mult(B,C))) = mult(B,C) | mult(C,mult(mult(A,mult(B,C)),A)) = B | mult(mult(mult(A,mult(B,C)),A),C) = B.  [resolve(36,b,21,a(flip))].
+
+Low Water (keep): wt=75.000, iters=6673
+
+given #241 (T,wt=14): 8485 ld(A,ld(A,B)) = B | rd(A,ld(A,B)) = B.  [para(5195(a,1),132(b,1)),rewrite([10(7)]),flip(c),merge(c)].
+
+given #242 (T,wt=14): 8820 rd(A,mult(B,A)) = B | ld(mult(B,A),B) = A.  [para(5297(b,1),26(a,1,1))].
+
+Low Water (keep): wt=52.000, iters=6704
+
+given #243 (T,wt=14): 8833 rd(A,mult(B,A)) = B | rd(A,B) = rd(B,A).  [para(5297(b,1),322(b,1,2)),merge(c)].
+
+given #244 (T,wt=14): 8847 rd(A,mult(B,A)) = B | mult(rd(B,A),B) = A.  [para(5297(b,1),545(b,1,2)),merge(c)].
+
+given #245 (A,wt=33): 102 mult(A,mult(A,mult(B,C))) = mult(B,C) | mult(B,mult(mult(A,mult(B,C)),A)) = C | mult(mult(mult(A,mult(B,C)),A),C) = B.  [resolve(36,b,20,a(flip))].
+
+Low Water (keep): wt=48.000, iters=6705
+
+given #246 (T,wt=14): 8864 rd(A,mult(B,A)) = B | rd(B,A) = rd(A,B).  [para(5297(b,1),1196(b,1,2)),merge(c)].
+
+given #247 (T,wt=14): 8951 ld(A,rd(A,B)) = B | ld(rd(A,B),B) = A.  [para(5298(a,1),26(a,1,1))].
+
+given #248 (T,wt=14): 9047 ld(rd(A,B),B) = A | rd(ld(B,A),A) = B.  [para(1249(a,1),5382(b,1,1)),merge(b)].
+
+given #249 (T,wt=14): 9187 mult(A,mult(A,B)) = B | rd(ld(B,A),A) = B.  [para(5510(a,1),27(a,1,2))].
+
+Low Water (keep): wt=44.000, iters=6676
+
+given #250 (A,wt=33): 103 mult(A,mult(A,mult(B,C))) = mult(B,C) | mult(B,mult(mult(A,mult(B,C)),A)) = C | mult(mult(mult(A,mult(B,C)),A),B) = C.  [resolve(36,b,19,a(flip))].
+
+given #251 (T,wt=14): 9355 mult(mult(A,B),B) = A | rd(B,A) = rd(A,B).  [resolve(5782,b,40,a)].
+
+given #252 (T,wt=14): 9368 mult(mult(A,B),B) = A | mult(rd(A,B),A) = B.  [para(5782(b,2),12(a,1,1))].
+
+given #253 (T,wt=14): 9371 mult(mult(A,B),B) = A | ld(rd(A,B),B) = A.  [para(5782(b,2),26(a,1,1))].
+
+given #254 (T,wt=14): 9453 ld(mult(A,B),A) = B | rd(B,A) = rd(A,B).  [resolve(5853,b,40,a)].
+
+given #255 (A,wt=24): 106 mult(A,mult(A,B)) = B | B != C | mult(mult(A,B),C) = A | mult(C,mult(A,B)) = A.  [para(36(b,1),19(a,1))].
+
+given #256 (T,wt=14): 9466 ld(mult(A,B),A) = B | mult(rd(A,B),A) = B.  [para(5853(b,2),12(a,1,1))].
+
+given #257 (T,wt=14): 9469 ld(mult(A,B),A) = B | ld(rd(A,B),B) = A.  [para(5853(b,2),26(a,1,1))].
+
+given #258 (T,wt=14): 9646 mult(rd(A,B),A) = B | ld(B,ld(B,A)) = A.  [para(1245(a,1),6044(b,1,2)),merge(b)].
+
+Low Water (keep): wt=40.000, iters=6680
+
+given #259 (T,wt=14): 9656 ld(A,rd(A,B)) = B | mult(mult(B,A),B) = A.  [para(3947(a,1),6044(a,1,1)),merge(c)].
+
+given #260 (A,wt=24): 107 mult(A,mult(A,B)) = B | B != C | mult(mult(A,B),C) = A | mult(A,B) = mult(C,A).  [para(36(b,1),20(a,1)),flip(d)].
+
+given #261 (T,wt=14): 9852 ld(rd(A,B),B) = A | ld(B,ld(B,A)) = A.  [para(1249(a,1),6047(b,1,2)),merge(b)].
+
+given #262 (T,wt=14): 9859 ld(A,rd(A,B)) = B | ld(mult(B,A),A) = B.  [para(3947(a,1),6047(a,1,1)),merge(c)].
+
+given #263 (T,wt=14): 9897 mult(A,mult(A,B)) = B | ld(B,A) = ld(A,B).  [resolve(6074,b,40,a)].
+
+given #264 (T,wt=14): 9910 mult(A,mult(A,B)) = B | mult(B,ld(A,B)) = A.  [para(6074(b,2),10(a,1,2))].
+
+given #265 (A,wt=24): 108 mult(A,mult(A,B)) = B | B != C | mult(A,C) = mult(A,B) | mult(A,B) = mult(C,A).  [para(36(b,1),21(a,1)),flip(d)].
+
+given #266 (T,wt=14): 9915 mult(A,mult(A,B)) = B | rd(A,ld(A,B)) = B.  [para(6074(b,2),27(a,1,2))].
+
+Low Water (keep): wt=36.000, iters=6740
+
+given #267 (T,wt=14): 9938 mult(A,mult(A,B)) = B | ld(B,ld(A,B)) = A.  [para(6074(b,2),5510(a,1,2)),merge(c)].
+
+given #268 (T,wt=14): 10039 mult(mult(A,B),B) = A | rd(rd(B,A),A) = B.  [para(6390(a,1),27(a,1,2))].
+
+given #269 (T,wt=14): 10088 mult(mult(A,B),B) = A | ld(B,rd(A,B)) = A.  [para(5782(b,2),6390(a,1,2)),merge(c)].
+
+given #270 (A,wt=15): 109 mult(A,mult(A,B)) = B | B != A | mult(A,B) = unit.  [para(36(b,1),25(a,1)),flip(c)].
+
+given #271 (T,wt=14): 10173 ld(mult(A,B),A) = B | rd(rd(B,A),A) = B.  [para(6394(a,1),27(a,1,2))].
+
+given #272 (T,wt=14): 10223 ld(mult(A,B),A) = B | ld(B,rd(A,B)) = A.  [para(5853(b,2),6394(a,1,2)),merge(c)].
+
+given #273 (T,wt=14): 10250 ld(A,B) = ld(B,A) | ld(A,ld(A,B)) = B.  [para(6593(b,1),151(b,1)),rewrite([10(7)]),flip(c),merge(c)].
+
+given #274 (T,wt=14): 10422 mult(A,ld(B,A)) = B | ld(A,ld(A,B)) = B.  [para(6704(b,1),151(b,1)),rewrite([10(7)]),flip(c),merge(c)].
+
+given #275 (A,wt=29): 113 ld(A,mult(mult(B,C),B)) = mult(A,C) | ld(A,mult(mult(B,C),B)) = mult(C,A) | mult(B,mult(B,C)) = C.  [resolve(37,a,36,b),flip(a),flip(b)].
+
+given #276 (T,wt=14): 10434 mult(A,ld(B,A)) = B | ld(mult(A,B),A) = B.  [para(660(a,1),6704(b,1,1)),merge(b)].
+
+given #277 (T,wt=14): 10524 mult(A,ld(B,A)) = B | rd(A,B) = mult(A,B).  [para(660(a,1),6707(b,2)),merge(b)].
+
+given #278 (T,wt=14): 10685 ld(A,B) = mult(B,A) | rd(B,A) = mult(B,A).  [para(6855(a,1),27(a,1,2))].
+
+given #279 (T,wt=14): 10835 ld(A,rd(B,A)) = B | rd(rd(B,A),A) = B.  [para(6856(a,1),27(a,1,2))].
+
+Low Water (keep): wt=33.000, iters=6683
+
+given #280 (A,wt=29): 114 ld(A,ld(B,C)) = mult(A,mult(C,B)) | ld(A,ld(B,C)) = mult(mult(C,B),A) | ld(B,C) = mult(B,C).  [resolve(37,a,35,b),flip(a),flip(b)].
+
+given #281 (T,wt=14): 10937 ld(A,rd(A,B)) = B | ld(B,rd(B,A)) = A.  [para(5298(a,1),6856(b,1,2)),merge(c)].
+
+given #282 (T,wt=14): 11001 ld(A,ld(A,B)) = B | rd(B,ld(B,A)) = A.  [para(6862(a,2),27(a,1,2))].
+
+given #283 (T,wt=14): 11060 ld(A,ld(A,B)) = B | ld(B,ld(B,A)) = A.  [para(6862(a,1),4753(a,1,2)),merge(b)].
+
+given #284 (T,wt=14): 11080 ld(A,ld(A,B)) = B | rd(ld(B,A),A) = B.  [para(6862(a,2),5195(a,1,1)),merge(c)].
+
+given #285 (A,wt=29): 115 ld(A,ld(B,C)) = mult(A,mult(B,C)) | ld(A,ld(B,C)) = mult(mult(B,C),A) | ld(B,C) = mult(C,B).  [resolve(37,a,35,a),flip(a),flip(b)].
+
+given #286 (T,wt=14): 11289 ld(A,rd(A,B)) = B | rd(rd(B,A),A) = B.  [para(5298(a,2),6910(b,1,1)),merge(b)].
+
+given #287 (T,wt=14): 11431 mult(ld(A,B),B) = A | rd(B,A) = rd(A,B).  [resolve(7220,b,40,a)].
+
+given #288 (T,wt=14): 11444 mult(ld(A,B),B) = A | mult(rd(A,B),A) = B.  [para(7220(b,2),12(a,1,1))].
+
+given #289 (T,wt=14): 11447 mult(ld(A,B),B) = A | ld(rd(A,B),B) = A.  [para(7220(b,2),26(a,1,1))].
+
+given #290 (A,wt=29): 116 ld(A,mult(rd(B,C),B)) = mult(A,C) | ld(A,mult(rd(B,C),B)) = mult(C,A) | mult(B,rd(B,C)) = C.  [resolve(37,a,34,a),flip(a),flip(b)].
+
+given #291 (T,wt=14): 11498 ld(ld(A,B),A) = B | rd(B,A) = rd(A,B).  [resolve(7434,b,40,a)].
+
+given #292 (T,wt=14): 11511 ld(ld(A,B),A) = B | mult(rd(A,B),A) = B.  [para(7434(b,2),12(a,1,1))].
+
+given #293 (T,wt=14): 11514 ld(ld(A,B),A) = B | ld(rd(A,B),B) = A.  [para(7434(b,2),26(a,1,1))].
+
+given #294 (T,wt=14): 11569 ld(A,B) = mult(A,B) | rd(B,A) = rd(A,B).  [resolve(7525,b,40,a)].
+
+given #295 (A,wt=29): 117 mult(A,mult(mult(B,C),B)) = ld(A,C) | mult(mult(mult(B,C),B),A) = ld(A,C) | mult(B,mult(B,C)) = C.  [resolve(37,a,36,b(flip))].
+
+given #296 (T,wt=14): 11582 ld(A,B) = mult(A,B) | mult(rd(A,B),A) = B.  [para(7525(b,2),12(a,1,1))].
+
+given #297 (T,wt=14): 11585 ld(A,B) = mult(A,B) | ld(rd(A,B),B) = A.  [para(7525(b,2),26(a,1,1))].
+
+given #298 (T,wt=14): 11733 ld(rd(A,B),B) = A | rd(rd(A,B),B) = A.  [para(8380(a,1),132(b,1)),rewrite([12(7)]),flip(c),merge(c)].
+
+given #299 (T,wt=14): 11777 rd(A,mult(B,A)) = B | ld(rd(B,A),A) = B.  [para(5297(b,1),8380(a,1,2)),merge(b)].
+
+given #300 (A,wt=29): 118 mult(A,ld(B,C)) = ld(A,mult(C,B)) | mult(ld(B,C),A) = ld(A,mult(C,B)) | ld(B,C) = mult(B,C).  [resolve(37,a,35,b(flip))].
+
+Low Water (keep): wt=31.000, iters=6706
+
+given #301 (T,wt=14): 12651 mult(A,mult(A,B)) = B | rd(ld(A,B),A) = B.  [para(6074(b,2),9187(b,1,1)),merge(b)].
+
+given #302 (T,wt=14): 13195 ld(A,ld(A,B)) = B | rd(A,B) = rd(B,A).  [para(9646(a,1),13(a,1,1))].
+
+given #303 (T,wt=14): 13287 mult(mult(A,B),A) = B | rd(rd(B,A),A) = B.  [para(9656(a,1),27(a,1,2))].
+
+given #304 (T,wt=14): 13609 ld(mult(A,B),B) = A | rd(rd(B,A),A) = B.  [para(9859(a,1),27(a,1,2))].
+
+given #305 (A,wt=29): 119 mult(A,ld(B,C)) = ld(A,mult(B,C)) | mult(ld(B,C),A) = ld(A,mult(B,C)) | ld(B,C) = mult(C,B).  [resolve(37,a,35,a(flip))].
+
+given #306 (T,wt=14): 14220 mult(mult(A,B),B) = A | rd(rd(A,B),A) = B.  [para(5782(b,2),10039(b,1,1)),merge(b)].
+
+given #307 (T,wt=14): 14633 ld(mult(A,B),A) = B | rd(rd(A,B),A) = B.  [para(5853(b,2),10173(b,1,1)),merge(b)].
+
+given #308 (T,wt=14): 14735 ld(A,B) = ld(B,A) | rd(ld(A,B),B) = A.  [para(10250(b,1),27(a,1,2))].
+
+given #309 (T,wt=14): 14801 mult(A,ld(B,A)) = B | rd(ld(A,B),B) = A.  [para(10422(b,1),27(a,1,2))].
+
+given #310 (A,wt=29): 120 mult(A,mult(rd(B,C),B)) = ld(A,C) | mult(mult(rd(B,C),B),A) = ld(A,C) | mult(B,rd(B,C)) = C.  [resolve(37,a,34,a(flip))].
+
+given #311 (T,wt=14): 14839 ld(A,ld(A,B)) = B | mult(A,mult(B,A)) = B.  [para(1795(a,1),10422(a,1,2)),merge(c)].
+
+given #312 (T,wt=14): 15031 ld(ld(A,B),A) = B | rd(A,ld(A,B)) = B.  [para(10(a,1),10685(b,2)),rewrite([10(4)])].
+
+given #313 (T,wt=14): 15348 ld(A,ld(A,B)) = B | rd(B,mult(B,A)) = A.  [para(1795(a,1),11001(b,1,2)),merge(b)].
+
+Low Water (keep): wt=29.000, iters=6704
+
+given #314 (T,wt=14): 16224 ld(A,ld(A,B)) = B | rd(B,A) = rd(A,B).  [resolve(13195,b,40,a)].
+
+given #315 (A,wt=16): 121 rd(A,B) = mult(A,B) | rd(B,mult(rd(A,B),A)) = unit.  [resolve(44,a,73,a)].
+
+given #316 (T,wt=14): 16234 ld(A,ld(A,B)) = B | mult(rd(A,B),A) = B.  [para(13195(b,2),12(a,1,1))].
+
+given #317 (T,wt=14): 16237 ld(A,ld(A,B)) = B | ld(rd(A,B),B) = A.  [para(13195(b,2),26(a,1,1))].
+
+given #318 (T,wt=14): 16795 mult(A,mult(B,A)) = B | rd(ld(A,B),B) = A.  [para(14839(a,1),27(a,1,2))].
+
+given #319 (T,wt=15): 138 rd(A,B) = mult(A,B) | rd(A,B) != B | unit = A.  [para(44(a,1),24(a,1)),flip(b)].
+
+given #320 (A,wt=16): 122 rd(A,B) = mult(A,B) | ld(mult(rd(A,B),A),B) = unit.  [resolve(44,a,72,a)].
+
+given #321 (T,wt=15): 158 ld(A,B) = mult(A,B) | ld(A,B) != A | unit = B.  [para(45(b,1),25(a,1)),flip(b)].
+
+given #322 (T,wt=15): 180 mult(A,mult(A,B)) = B | A != B | mult(A,B) = unit.  [para(46(b,1),25(a,1)),flip(c)].
+
+given #323 (T,wt=15): 253 mult(A,ld(B,A)) = B | ld(B,A) != B | unit = A.  [para(50(a,1),24(a,1)),flip(b)].
+
+given #324 (T,wt=15): 275 mult(A,mult(B,A)) = B | B != A | mult(B,A) = unit.  [para(51(b,1),25(a,1)),flip(c)].
+
+given #325 (A,wt=16): 123 rd(A,B) = mult(A,B) | rd(mult(rd(A,B),A),B) = unit.  [resolve(44,a,55,a)].
+
+given #326 (T,wt=15): 330 rd(A,B) = rd(B,A) | rd(B,A) != A | unit = B.  [para(66(a,1),25(a,1)),flip(b)].
+
+given #327 (T,wt=15): 334 mult(A,rd(A,B)) = B | rd(B,A) != A | unit = B.  [para(66(b,2),43(a,1))].
+
+given #328 (T,wt=15): 434 ld(A,B) = mult(B,A) | A != B | mult(A,B) = unit.  [para(90(b,1),43(a,1)),flip(c)].
+
+given #329 (T,wt=15): 459 ld(A,B) = mult(A,B) | A != B | mult(B,A) = unit.  [para(91(b,1),43(a,1)),flip(c)].
+
+given #330 (A,wt=16): 124 rd(A,B) = mult(A,B) | ld(B,mult(rd(A,B),A)) = unit.  [resolve(44,a,42,a)].
+
+given #331 (T,wt=15): 596 rd(A,B) = mult(A,B) | rd(B,A) != A | unit = B.  [para(132(b,2),43(a,1))].
+
+given #332 (T,wt=15): 665 ld(A,B) = mult(A,B) | ld(B,A) != B | unit = A.  [para(151(b,2),54(a,1))].
+
+given #333 (T,wt=15): 1079 mult(A,mult(B,A)) = B | A != B | mult(B,A) = unit.  [para(270(b,1),54(a,1)),flip(c)].
+
+given #334 (T,wt=15): 1202 rd(A,B) = rd(B,A) | rd(A,B) != B | unit = A.  [para(314(a,1),25(a,1)),flip(b)].
+
+given #335 (A,wt=25): 125 rd(A,B) = mult(A,B) | mult(mult(rd(A,B),A),B) = unit | mult(B,mult(rd(A,B),A)) = unit.  [resolve(44,a,39,a)].
+
+given #336 (T,wt=15): 1252 rd(A,B) = ld(A,B) | rd(A,B) != B | unit = A.  [para(320(a,1),43(a,1))].
+
+given #337 (T,wt=15): 1253 rd(A,B) = ld(A,B) | rd(B,A) != A | unit = B.  [para(320(a,2),43(a,1))].
+
+given #338 (T,wt=15): 1318 mult(rd(A,B),A) = B | rd(B,A) != A | unit = B.  [para(321(a,1),25(a,1)),flip(b)].
+
+given #339 (T,wt=15): 1447 mult(mult(A,B),A) = B | A != B | mult(A,B) = unit.  [para(324(b,1),43(a,1)),flip(c)].
+
+given #340 (A,wt=29): 126 rd(A,B) = mult(A,B) | ld(C,mult(rd(A,B),A)) = mult(C,B) | ld(C,mult(rd(A,B),A)) = mult(B,C).  [resolve(44,a,37,a),flip(b),flip(c)].
+
+given #341 (T,wt=15): 1506 ld(rd(A,B),B) = A | rd(B,A) != A | unit = B.  [para(331(a,1),25(a,1)),flip(b)].
+
+given #342 (T,wt=15): 1566 ld(A,B) = mult(B,A) | ld(A,B) != A | unit = B.  [para(333(b,1),43(a,1)),flip(b)].
+
+given #343 (T,wt=15): 1629 mult(A,mult(B,A)) = B | B != A | mult(A,B) = unit.  [para(384(a,1),24(a,1)),flip(c)].
+
+given #344 (T,wt=15): 1630 mult(A,mult(A,B)) = B | B != A | mult(B,A) = unit.  [para(384(b,1),24(a,1)),flip(c)].
+
+given #345 (A,wt=29): 127 rd(A,B) = mult(A,B) | mult(C,mult(rd(A,B),A)) = ld(C,B) | mult(mult(rd(A,B),A),C) = ld(C,B).  [resolve(44,a,37,a(flip))].
+
+given #346 (T,wt=15): 1711 mult(A,mult(A,B)) = B | A != B | mult(B,A) = unit.  [para(389(b,1),43(a,1)),flip(c)].
+
+given #347 (T,wt=15): 1756 mult(A,mult(B,A)) = B | A != B | mult(A,B) = unit.  [para(412(b,1),43(a,1)),flip(c)].
+
+given #348 (T,wt=15): 2231 mult(mult(A,B),B) = A | A != B | mult(A,B) = unit.  [para(592(b,1),43(a,1)),flip(c)].
+
+given #349 (T,wt=15): 2660 mult(rd(A,B),A) = B | rd(A,B) != B | unit = A.  [para(663(b,1),54(a,1)),flip(b)].
+
+given #350 (A,wt=33): 128 rd(A,mult(B,C)) = mult(A,mult(B,C)) | mult(C,mult(rd(A,mult(B,C)),A)) = B | mult(mult(rd(A,mult(B,C)),A),C) = B.  [resolve(44,a,21,a(flip))].
+
+given #351 (T,wt=15): 2946 ld(A,B) = mult(A,B) | B != A | mult(B,A) = unit.  [para(687(b,1),43(a,1)),flip(c)].
+
+given #352 (T,wt=15): 3215 mult(A,mult(A,B)) = B | rd(A,B) != B | unit = A.  [para(809(b,1),43(a,1))].
+
+given #353 (T,wt=15): 3216 mult(A,mult(A,B)) = B | rd(B,A) != A | unit = B.  [para(809(b,2),43(a,1))].
+
+given #354 (T,wt=15): 3288 mult(mult(A,B),B) = A | A != B | mult(B,A) = unit.  [para(829(a,1),25(a,1)),flip(c)].
+
+given #355 (A,wt=33): 129 rd(A,mult(B,C)) = mult(A,mult(B,C)) | mult(B,mult(rd(A,mult(B,C)),A)) = C | mult(mult(rd(A,mult(B,C)),A),C) = B.  [resolve(44,a,20,a(flip))].
+
+given #356 (T,wt=15): 3289 mult(mult(A,B),A) = B | B != A | mult(B,A) = unit.  [para(829(b,1),25(a,1)),flip(c)].
+
+given #357 (T,wt=15): 3395 mult(mult(A,B),A) = B | A != B | mult(B,A) = unit.  [para(832(b,1),54(a,1)),flip(c)].
+
+given #358 (T,wt=15): 3450 mult(mult(A,B),B) = A | B != A | mult(B,A) = unit.  [para(863(b,1),54(a,1)),flip(c)].
+
+given #359 (T,wt=15): 3701 ld(mult(A,B),A) = B | B != A | mult(B,A) = unit.  [para(897(a,1),54(a,1)),flip(c)].
+
+given #360 (A,wt=33): 130 rd(A,mult(B,C)) = mult(A,mult(B,C)) | mult(B,mult(rd(A,mult(B,C)),A)) = C | mult(mult(rd(A,mult(B,C)),A),B) = C.  [resolve(44,a,19,a(flip))].
+
+given #361 (T,wt=15): 3702 ld(mult(A,B),B) = A | A != B | mult(B,A) = unit.  [para(897(b,1),54(a,1)),flip(c)].
+
+given #362 (T,wt=15): 3987 mult(mult(A,B),B) = A | B != A | mult(A,B) = unit.  [para(1025(b,1),43(a,1)),flip(c)].
+
+given #363 (T,wt=15): 4144 ld(A,B) = ld(B,A) | ld(B,A) != B | unit = A.  [para(1076(a,1),24(a,1)),flip(b)].
+
+given #364 (T,wt=15): 4147 mult(ld(A,B),B) = A | ld(A,B) != A | unit = B.  [para(1076(b,1),54(a,1))].
+
+given #365 (A,wt=24): 133 rd(A,B) = mult(A,B) | B != C | mult(rd(A,B),C) = A | mult(C,rd(A,B)) = A.  [para(44(a,1),19(a,1))].
+
+given #366 (T,wt=15): 4148 mult(ld(A,B),B) = A | ld(B,A) != B | unit = A.  [para(1076(b,2),54(a,1))].
+
+given #367 (T,wt=15): 4289 rd(A,B) = mult(B,A) | rd(A,B) != B | unit = A.  [para(1077(b,1),54(a,1)),flip(b)].
+
+given #368 (T,wt=15): 4569 mult(rd(A,B),A) = B | ld(B,A) != B | unit = A.  [para(1245(a,1),43(a,1))].
+
+given #369 (T,wt=15): 4671 ld(mult(A,B),B) = A | A != B | mult(A,B) = unit.  [para(1247(b,1),43(a,1)),flip(c)].
+
+given #370 (A,wt=24): 134 rd(A,B) = mult(A,B) | B != C | mult(rd(A,B),C) = A | rd(A,B) = mult(C,A).  [para(44(a,1),20(a,1)),flip(d)].
+
+given #371 (T,wt=15): 4826 ld(rd(A,B),B) = A | ld(B,A) != B | unit = A.  [para(1249(a,1),43(a,1))].
+
+given #372 (T,wt=15): 4903 ld(A,ld(B,A)) = B | ld(B,A) != B | unit = A.  [para(1251(b,1),43(a,1)),flip(b)].
+
+given #373 (T,wt=15): 5130 rd(A,B) = mult(B,A) | B != A | mult(B,A) = unit.  [para(1389(a,1),43(a,1)),flip(c)].
+
+given #374 (T,wt=15): 5196 rd(ld(A,B),A) = B | ld(A,B) != A | unit = B.  [para(1390(a,1),43(a,1)),flip(b)].
+
+given #375 (A,wt=24): 135 rd(A,B) = mult(A,B) | B != C | rd(A,B) = mult(A,C) | rd(A,B) = mult(C,A).  [para(44(a,1),21(a,1)),flip(c),flip(d)].
+
+given #376 (T,wt=15): 5655 mult(mult(A,B),B) = A | ld(A,B) != A | unit = B.  [para(1954(b,1),25(a,1)),flip(b)].
+
+given #377 (T,wt=15): 5727 ld(mult(A,B),A) = B | A != B | mult(B,A) = unit.  [para(2098(a,1),54(a,1)),flip(c)].
+
+given #378 (T,wt=15): 5788 mult(mult(A,B),B) = A | rd(B,A) != A | unit = B.  [para(2156(a,1),24(a,1)),flip(b)].
+
+given #379 (T,wt=15): 5860 ld(mult(A,B),A) = B | rd(B,A) != A | unit = B.  [para(2165(a,1),24(a,1)),flip(b)].
+
+given #380 (A,wt=29): 136 rd(A,B) = mult(A,B) | mult(A,rd(A,B)) != B | unit = A | rd(A,B) = unit | mult(A,rd(A,B)) = unit.  [para(44(a,1),23(a,1)),flip(b),flip(d)].
+
+given #381 (T,wt=15): 6082 mult(A,mult(A,B)) = B | ld(B,A) != B | unit = A.  [para(2592(a,1),25(a,1)),flip(b)].
+
+given #382 (T,wt=15): 6147 mult(A,ld(B,A)) = B | A != B | mult(A,B) = unit.  [para(2604(b,1),43(a,1)),flip(c)].
+
+given #383 (T,wt=15): 6600 ld(A,B) = ld(B,A) | ld(A,B) != A | unit = B.  [para(4122(a,1),24(a,1)),flip(b)].
+
+given #384 (T,wt=15): 6718 mult(A,ld(B,A)) = B | ld(A,B) != A | unit = B.  [para(4135(a,1),24(a,1)),flip(b)].
+
+given #385 (A,wt=29): 137 rd(A,B) = mult(A,B) | mult(A,rd(A,B)) != B | rd(A,B) = unit | unit = A | mult(rd(A,B),A) = unit.  [para(44(a,1),23(a,2)),flip(c)].
+
+given #386 (T,wt=15): 7139 mult(mult(A,B),B) = A | ld(B,A) != B | unit = A.  [para(4199(b,2),54(a,1))].
+
+given #387 (T,wt=15): 7227 mult(ld(A,B),B) = A | rd(B,A) != A | unit = B.  [para(4557(a,1),24(a,1)),flip(b)].
+
+given #388 (T,wt=15): 7441 ld(ld(A,B),A) = B | rd(B,A) != A | unit = B.  [para(4565(a,1),24(a,1)),flip(b)].
+
+given #389 (T,wt=15): 7532 ld(A,B) = mult(A,B) | rd(B,A) != A | unit = B.  [para(4610(a,1),24(a,1)),flip(b)].
+
+given #390 (A,wt=16): 141 ld(A,B) = mult(A,B) | rd(A,mult(B,ld(A,B))) = unit.  [resolve(45,b,73,a)].
+
+given #391 (T,wt=15): 7604 ld(A,B) = mult(A,B) | A != B | mult(A,B) = unit.  [para(4670(a,1),54(a,1)),flip(c)].
+
+given #392 (T,wt=15): 7707 ld(A,ld(A,B)) = B | ld(A,B) != A | unit = B.  [para(4753(a,1),54(a,1)),flip(b)].
+
+given #393 (T,wt=15): 8340 mult(rd(A,B),A) = B | B != A | mult(B,A) = unit.  [para(4980(b,1),43(a,1)),flip(c)].
+
+given #394 (T,wt=15): 8574 rd(A,ld(A,B)) = B | ld(A,B) != A | unit = B.  [para(5207(a,1),43(a,1)),flip(b)].
+
+given #395 (A,wt=16): 142 ld(A,B) = mult(A,B) | ld(mult(B,ld(A,B)),A) = unit.  [resolve(45,b,72,a)].
+
+given #396 (T,wt=15): 8823 rd(A,B) = mult(A,B) | A != B | mult(A,B) = unit.  [para(5297(a,1),43(a,1)),flip(c)].
+
+given #397 (T,wt=15): 8953 ld(A,rd(A,B)) = B | rd(A,B) != B | unit = A.  [para(5298(a,1),43(a,1))].
+
+given #398 (T,wt=15): 8954 ld(A,rd(A,B)) = B | rd(B,A) != A | unit = B.  [para(5298(a,2),43(a,1))].
+
+given #399 (T,wt=15): 9086 ld(rd(A,B),B) = A | B != A | mult(B,A) = unit.  [para(5404(b,1),43(a,1)),flip(c)].
+
+given #400 (A,wt=16): 143 ld(A,B) = mult(A,B) | rd(mult(B,ld(A,B)),A) = unit.  [resolve(45,b,55,a)].
+
+given #401 (T,wt=15): 9240 ld(A,ld(A,B)) = B | B != A | mult(B,A) = unit.  [para(5517(b,1),43(a,1)),flip(c)].
+
+given #402 (T,wt=15): 9374 mult(mult(A,B),B) = A | rd(A,B) != B | unit = A.  [para(5782(b,2),43(a,1))].
+
+given #403 (T,wt=15): 9472 ld(mult(A,B),A) = B | rd(A,B) != B | unit = A.  [para(5853(b,2),43(a,1))].
+
+given #404 (T,wt=15): 9916 mult(A,mult(A,B)) = B | ld(A,B) != A | unit = B.  [para(6074(b,2),54(a,1))].
+
+given #405 (A,wt=16): 144 ld(A,B) = mult(A,B) | ld(A,mult(B,ld(A,B))) = unit.  [resolve(45,b,42,a)].
+
+given #406 (T,wt=15): 10687 ld(A,B) = mult(B,A) | A != B | mult(B,A) = unit.  [para(6855(a,1),54(a,1)),flip(c)].
+
+given #407 (T,wt=15): 10836 ld(A,rd(B,A)) = B | rd(B,A) != A | unit = B.  [para(6856(a,1),54(a,1)),flip(b)].
+
+given #408 (T,wt=15): 11002 ld(A,ld(A,B)) = B | ld(B,A) != B | unit = A.  [para(6862(a,2),54(a,1))].
+
+given #409 (T,wt=15): 11120 ld(mult(A,B),A) = B | B != A | mult(A,B) = unit.  [para(6908(b,1),43(a,1)),flip(c)].
+
+given #410 (A,wt=25): 145 ld(A,B) = mult(A,B) | mult(mult(B,ld(A,B)),A) = unit | mult(A,mult(B,ld(A,B))) = unit.  [resolve(45,b,39,a)].
+
+given #411 (T,wt=15): 11450 mult(ld(A,B),B) = A | rd(A,B) != B | unit = A.  [para(7220(b,2),43(a,1))].
+
+given #412 (T,wt=15): 11517 ld(ld(A,B),A) = B | rd(A,B) != B | unit = A.  [para(7434(b,2),43(a,1))].
+
+given #413 (T,wt=15): 11588 ld(A,B) = mult(A,B) | rd(A,B) != B | unit = A.  [para(7525(b,2),43(a,1))].
+
+given #414 (T,wt=15): 11861 ld(A,B) = mult(A,B) | B != A | mult(A,B) = unit.  [para(8440(b,1),54(a,1)),flip(c)].
+
+given #415 (A,wt=29): 146 ld(A,B) = mult(A,B) | ld(C,mult(B,ld(A,B))) = mult(C,A) | ld(C,mult(B,ld(A,B))) = mult(A,C).  [resolve(45,b,37,a),flip(b),flip(c)].
+
+given #416 (T,wt=15): 12148 ld(mult(A,B),A) = B | A != B | mult(A,B) = unit.  [para(8820(a,1),43(a,1)),flip(c)].
+
+given #417 (T,wt=15): 12220 rd(A,B) = rd(B,A) | B != A | mult(B,A) = unit.  [para(8833(a,1),43(a,1)),flip(c)].
+
+given #418 (T,wt=15): 12221 rd(A,mult(B,A)) = B | rd(B,A) != A | unit = B.  [para(8833(b,1),43(a,1))].
+
+given #419 (T,wt=15): 12222 rd(A,mult(B,A)) = B | rd(A,B) != B | unit = A.  [para(8833(b,2),43(a,1))].
+
+given #420 (A,wt=29): 147 ld(A,B) = mult(A,B) | mult(C,mult(B,ld(A,B))) = ld(C,A) | mult(mult(B,ld(A,B)),C) = ld(C,A).  [resolve(45,b,37,a(flip))].
+
+given #421 (T,wt=15): 12345 mult(rd(A,B),A) = B | A != B | mult(A,B) = unit.  [para(8847(a,1),43(a,1)),flip(c)].
+
+given #422 (T,wt=15): 12464 rd(A,B) = rd(B,A) | A != B | mult(A,B) = unit.  [para(8864(a,1),43(a,1)),flip(c)].
+
+given #423 (T,wt=15): 13202 ld(A,ld(A,B)) = B | rd(B,A) != A | unit = B.  [para(9646(a,1),24(a,1)),flip(b)].
+
+given #424 (T,wt=15): 13289 mult(mult(A,B),A) = B | rd(B,A) != A | unit = B.  [para(9656(a,1),54(a,1)),flip(b)].
+
+given #425 (A,wt=33): 148 ld(mult(A,B),C) = mult(mult(A,B),C) | mult(B,mult(C,ld(mult(A,B),C))) = A | mult(mult(C,ld(mult(A,B),C)),B) = A.  [resolve(45,b,21,a(flip))].
+
+given #426 (T,wt=15): 13611 ld(mult(A,B),B) = A | rd(B,A) != A | unit = B.  [para(9859(a,1),54(a,1)),flip(b)].
+
+given #427 (T,wt=15): 14912 mult(A,ld(B,A)) = B | B != A | mult(A,B) = unit.  [para(10434(b,1),54(a,1)),flip(c)].
+
+given #428 (T,wt=15): 16080 ld(rd(A,B),B) = A | A != B | mult(A,B) = unit.  [para(11777(a,1),43(a,1)),flip(c)].
+
+given #429 (T,wt=15): 16240 ld(A,ld(A,B)) = B | rd(A,B) != B | unit = A.  [para(13195(b,2),43(a,1))].
+
+given #430 (A,wt=33): 149 ld(mult(A,B),C) = mult(mult(A,B),C) | mult(A,mult(C,ld(mult(A,B),C))) = B | mult(mult(C,ld(mult(A,B),C)),B) = A.  [resolve(45,b,20,a(flip))].
+
+given #431 (T,wt=15): 16929 ld(A,ld(A,B)) = B | A != B | mult(B,A) = unit.  [para(15348(b,1),43(a,1)),flip(c)].
+
+given #432 (T,wt=15): 17151 mult(A,mult(B,A)) = B | ld(A,B) != A | unit = B.  [para(16795(b,1),43(a,1)),flip(b)].
+
+given #433 (T,wt=15): 17239 rd(A,mult(B,A)) = B | B != A | mult(B,A) = unit.  [para(13(a,1),330(b,1)),rewrite([13(4)]),flip(c)].
+
+given #434 (T,wt=15): 17240 rd(ld(A,B),B) = A | ld(A,B) != A | unit = B.  [para(27(a,1),330(b,1)),rewrite([27(4)]),flip(b)].
+
+given #435 (A,wt=33): 150 ld(mult(A,B),C) = mult(mult(A,B),C) | mult(A,mult(C,ld(mult(A,B),C))) = B | mult(mult(C,ld(mult(A,B),C)),A) = B.  [resolve(45,b,19,a(flip))].
+
+given #436 (T,wt=15): 17283 mult(mult(A,B),A) = B | B != A | mult(A,B) = unit.  [para(11(a,1),1566(b,1)),rewrite([11(2)]),flip(a),flip(c)].
+
+given #437 (T,wt=15): 17297 ld(mult(A,B),B) = A | B != A | mult(A,B) = unit.  [para(11(a,1),4903(b,1)),rewrite([11(3)]),flip(c)].
+
+given #438 (T,wt=15): 17298 rd(A,B) = mult(B,A) | A != B | mult(B,A) = unit.  [para(11(a,1),5196(b,1)),rewrite([11(2)]),flip(c)].
+
+given #439 (T,wt=15): 17299 rd(A,rd(B,A)) = B | rd(B,A) != A | unit = B.  [para(26(a,1),5196(b,1)),rewrite([26(2)]),flip(b)].
+
+given #440 (A,wt=24): 153 ld(A,B) = mult(A,B) | A != C | mult(B,C) = ld(A,B) | mult(C,B) = ld(A,B).  [para(45(b,1),19(a,1))].
+
+given #441 (T,wt=15): 17333 ld(rd(A,B),B) = A | rd(A,B) != B | unit = A.  [para(26(a,1),7707(b,1)),rewrite([26(3)]),flip(b)].
+
+given #442 (T,wt=15): 17334 rd(A,B) = mult(A,B) | B != A | mult(A,B) = unit.  [para(11(a,1),8574(b,1)),rewrite([11(2)]),flip(c)].
+
+given #443 (T,wt=15): 17335 rd(rd(A,B),B) = A | rd(A,B) != B | unit = A.  [para(26(a,1),8574(b,1)),rewrite([26(3)]),flip(b)].
+
+given #444 (T,wt=15): 17381 ld(A,B) = mult(B,A) | B != A | mult(B,A) = unit.  [para(13(a,1),10836(b,1)),rewrite([13(2)]),flip(c)].
+
+given #445 (A,wt=24): 154 ld(A,B) = mult(A,B) | A != C | mult(B,C) = ld(A,B) | mult(C,ld(A,B)) = B.  [para(45(b,1),20(a,1))].
+
+given #446 (T,wt=15): 17382 ld(ld(A,B),A) = B | ld(A,B) != A | unit = B.  [para(27(a,1),10836(b,1)),rewrite([27(3)]),flip(b)].
+
+given #447 (T,wt=15): 17413 rd(A,mult(B,A)) = B | A != B | mult(B,A) = unit.  [para(11(a,1),17240(b,1)),rewrite([11(2)]),flip(c)].
+
+given #448 (T,wt=16): 163 mult(A,mult(A,B)) = B | rd(A,mult(mult(A,B),B)) = unit.  [resolve(46,b,73,a)].
+
+given #449 (T,wt=16): 164 mult(A,mult(A,B)) = B | ld(mult(mult(A,B),B),A) = unit.  [resolve(46,b,72,a)].
+
+given #450 (A,wt=24): 155 ld(A,B) = mult(A,B) | A != C | mult(ld(A,B),C) = B | mult(C,ld(A,B)) = B.  [para(45(b,1),21(a,1))].
+
+given #451 (T,wt=16): 165 mult(A,mult(A,B)) = B | rd(mult(mult(A,B),B),A) = unit.  [resolve(46,b,55,a)].
+
+given #452 (T,wt=16): 166 mult(A,mult(A,B)) = B | ld(A,mult(mult(A,B),B)) = unit.  [resolve(46,b,42,a)].
+
+given #453 (T,wt=16): 185 rd(A,B) = mult(A,B) | rd(mult(B,A),rd(A,B)) = unit.  [resolve(49,a,73,a)].
+
+given #454 (T,wt=16): 186 rd(A,B) = mult(A,B) | ld(rd(A,B),mult(B,A)) = unit.  [resolve(49,a,72,a)].
+
+given #455 (A,wt=29): 156 ld(A,B) = mult(A,B) | mult(ld(A,B),B) != A | ld(A,B) = unit | unit = B | mult(ld(A,B),B) = unit.  [para(45(b,1),23(a,1)),flip(b),flip(c)].
+
+given #456 (T,wt=16): 187 rd(A,B) = mult(A,B) | rd(rd(A,B),mult(B,A)) = unit.  [resolve(49,a,55,a)].
+
+given #457 (T,wt=16): 188 rd(A,B) = mult(A,B) | ld(mult(B,A),rd(A,B)) = unit.  [resolve(49,a,42,a)].
+
+given #458 (T,wt=16): 192 rd(A,B) = mult(B,A) | rd(mult(A,B),rd(A,B)) = unit.  [resolve(49,b,73,a)].
+
+given #459 (T,wt=16): 193 rd(A,B) = mult(B,A) | ld(rd(A,B),mult(A,B)) = unit.  [resolve(49,b,72,a)].
+
+given #460 (A,wt=29): 157 ld(A,B) = mult(A,B) | mult(ld(A,B),B) != A | unit = B | ld(A,B) = unit | mult(B,ld(A,B)) = unit.  [para(45(b,1),23(a,2)),flip(d)].
+
+given #461 (T,wt=16): 194 rd(A,B) = mult(B,A) | rd(rd(A,B),mult(A,B)) = unit.  [resolve(49,b,55,a)].
+
+given #462 (T,wt=16): 195 rd(A,B) = mult(B,A) | ld(mult(A,B),rd(A,B)) = unit.  [resolve(49,b,42,a)].
+
+given #463 (T,wt=16): 236 mult(A,ld(B,A)) = B | rd(B,mult(ld(B,A),A)) = unit.  [resolve(50,a,73,a)].
+
+given #464 (T,wt=16): 237 mult(A,ld(B,A)) = B | ld(mult(ld(B,A),A),B) = unit.  [resolve(50,a,72,a)].
+
+given #465 (A,wt=18): 162 ld(A,B) = mult(A,B) | mult(B,mult(B,ld(A,B))) = ld(A,B).  [para(45(b,1),36(b,1,1)),flip(c),merge(c)].
+
+given #466 (T,wt=16): 238 mult(A,ld(B,A)) = B | rd(mult(ld(B,A),A),B) = unit.  [resolve(50,a,55,a)].
+
+given #467 (T,wt=16): 239 mult(A,ld(B,A)) = B | ld(B,mult(ld(B,A),A)) = unit.  [resolve(50,a,42,a)].
+
+given #468 (T,wt=16): 258 mult(A,mult(B,A)) = B | rd(B,mult(mult(B,A),A)) = unit.  [resolve(51,b,73,a)].
+
+given #469 (T,wt=16): 259 mult(A,mult(B,A)) = B | ld(mult(mult(B,A),A),B) = unit.  [resolve(51,b,72,a)].
+
+given #470 (A,wt=25): 167 mult(A,mult(A,B)) = B | mult(mult(mult(A,B),B),A) = unit | mult(A,mult(mult(A,B),B)) = unit.  [resolve(46,b,39,a)].
+
+given #471 (T,wt=16): 260 mult(A,mult(B,A)) = B | rd(mult(mult(B,A),A),B) = unit.  [resolve(51,b,55,a)].
+
+given #472 (T,wt=16): 261 mult(A,mult(B,A)) = B | ld(B,mult(mult(B,A),A)) = unit.  [resolve(51,b,42,a)].
+
+given #473 (T,wt=16): 281 mult(A,rd(A,B)) = B | rd(A,ld(rd(A,B),B)) = unit.  [resolve(65,b,73,a)].
+
+given #474 (T,wt=16): 282 mult(A,rd(A,B)) = B | ld(ld(rd(A,B),B),A) = unit.  [resolve(65,b,72,a)].
+
+given #475 (A,wt=29): 168 mult(A,mult(A,B)) = B | ld(C,mult(mult(A,B),B)) = mult(C,A) | ld(C,mult(mult(A,B),B)) = mult(A,C).  [resolve(46,b,37,a),flip(b),flip(c)].
+
+given #476 (T,wt=16): 283 mult(A,rd(A,B)) = B | rd(ld(rd(A,B),B),A) = unit.  [resolve(65,b,55,a)].
+
+given #477 (T,wt=16): 284 mult(A,rd(A,B)) = B | ld(A,ld(rd(A,B),B)) = unit.  [resolve(65,b,42,a)].
+
+given #478 (T,wt=16): 298 rd(A,B) = rd(B,A) | rd(A,mult(B,rd(B,A))) = unit.  [resolve(66,a,73,a)].
+
+given #479 (T,wt=16): 299 rd(A,B) = rd(B,A) | ld(mult(B,rd(B,A)),A) = unit.  [resolve(66,a,72,a)].
+
+given #480 (A,wt=29): 169 mult(A,mult(A,B)) = B | mult(C,mult(mult(A,B),B)) = ld(C,A) | mult(mult(mult(A,B),B),C) = ld(C,A).  [resolve(46,b,37,a(flip))].
+
+given #481 (T,wt=16): 300 rd(A,B) = rd(B,A) | rd(mult(B,rd(B,A)),A) = unit.  [resolve(66,a,55,a)].
+
+given #482 (T,wt=16): 301 rd(A,B) = rd(B,A) | ld(A,mult(B,rd(B,A))) = unit.  [resolve(66,a,42,a)].
+
+given #483 (T,wt=16): 310 mult(A,rd(A,B)) = B | rd(rd(A,B),rd(B,A)) = unit.  [resolve(66,b,73,a)].
+
+given #484 (T,wt=16): 311 mult(A,rd(A,B)) = B | ld(rd(B,A),rd(A,B)) = unit.  [resolve(66,b,72,a)].
+
+given #485 (A,wt=33): 170 mult(mult(A,B),mult(mult(A,B),C)) = C | mult(B,mult(mult(mult(A,B),C),C)) = A | mult(mult(mult(mult(A,B),C),C),B) = A.  [resolve(46,b,21,a(flip))].
+
+given #486 (T,wt=16): 312 mult(A,rd(A,B)) = B | rd(rd(B,A),rd(A,B)) = unit.  [resolve(66,b,55,a)].
+
+given #487 (T,wt=16): 313 mult(A,rd(A,B)) = B | ld(rd(A,B),rd(B,A)) = unit.  [resolve(66,b,42,a)].
+
+given #488 (T,wt=16): 372 mult(A,mult(A,B)) = B | rd(mult(B,A),ld(A,B)) = unit.  [resolve(84,a,73,a)].
+
+given #489 (T,wt=16): 373 mult(A,mult(A,B)) = B | ld(ld(A,B),mult(B,A)) = unit.  [resolve(84,a,72,a)].
+
+given #490 (A,wt=33): 171 mult(mult(A,B),mult(mult(A,B),C)) = C | mult(A,mult(mult(mult(A,B),C),C)) = B | mult(mult(mult(mult(A,B),C),C),B) = A.  [resolve(46,b,20,a(flip))].
+
+given #491 (T,wt=16): 374 mult(A,mult(A,B)) = B | rd(ld(A,B),mult(B,A)) = unit.  [resolve(84,a,55,a)].
+
+given #492 (T,wt=16): 376 mult(A,mult(A,B)) = B | ld(mult(B,A),ld(A,B)) = unit.  [resolve(84,a,42,a)].
+
+given #493 (T,wt=16): 397 mult(A,mult(B,A)) = B | rd(mult(A,B),ld(A,B)) = unit.  [resolve(85,a,73,a)].
+
+given #494 (T,wt=16): 398 mult(A,mult(B,A)) = B | ld(ld(A,B),mult(A,B)) = unit.  [resolve(85,a,72,a)].
+
+given #495 (A,wt=33): 172 mult(mult(A,B),mult(mult(A,B),C)) = C | mult(A,mult(mult(mult(A,B),C),C)) = B | mult(mult(mult(mult(A,B),C),C),A) = B.  [resolve(46,b,19,a(flip))].
+
+given #496 (T,wt=16): 399 mult(A,mult(B,A)) = B | rd(ld(A,B),mult(A,B)) = unit.  [resolve(85,a,55,a)].
+
+given #497 (T,wt=16): 401 mult(A,mult(B,A)) = B | ld(mult(A,B),ld(A,B)) = unit.  [resolve(85,a,42,a)].
+
+given #498 (T,wt=16): 418 ld(A,B) = mult(B,A) | rd(A,rd(B,mult(A,B))) = unit.  [resolve(90,b,73,a)].
+
+given #499 (T,wt=16): 419 ld(A,B) = mult(B,A) | ld(rd(B,mult(A,B)),A) = unit.  [resolve(90,b,72,a)].
+
+given #500 (A,wt=24): 175 mult(A,mult(A,B)) = B | A != C | mult(mult(A,B),C) = B | mult(C,mult(A,B)) = B.  [para(46(b,1),19(a,1))].
+
+given #501 (T,wt=16): 420 ld(A,B) = mult(B,A) | rd(rd(B,mult(A,B)),A) = unit.  [resolve(90,b,55,a)].
+
+given #502 (T,wt=16): 422 ld(A,B) = mult(B,A) | ld(A,rd(B,mult(A,B))) = unit.  [resolve(90,b,42,a)].
+
+given #503 (T,wt=16): 441 ld(A,B) = mult(A,B) | rd(A,rd(B,mult(B,A))) = unit.  [resolve(91,b,73,a)].
+
+given #504 (T,wt=16): 442 ld(A,B) = mult(A,B) | ld(rd(B,mult(B,A)),A) = unit.  [resolve(91,b,72,a)].
+
+given #505 (A,wt=24): 176 mult(A,mult(A,B)) = B | A != C | mult(mult(A,B),C) = B | mult(C,B) = mult(A,B).  [para(46(b,1),20(a,1))].
+
+given #506 (T,wt=16): 443 ld(A,B) = mult(A,B) | rd(rd(B,mult(B,A)),A) = unit.  [resolve(91,b,55,a)].
+
+given #507 (T,wt=16): 445 ld(A,B) = mult(A,B) | ld(A,rd(B,mult(B,A))) = unit.  [resolve(91,b,42,a)].
+
+given #508 (T,wt=16): 506 mult(A,mult(A,B)) = B | rd(A,ld(mult(A,B),B)) = unit.  [resolve(104,b,73,a)].
+
+given #509 (T,wt=16): 507 mult(A,mult(A,B)) = B | ld(ld(mult(A,B),B),A) = unit.  [resolve(104,b,72,a)].
+
+given #510 (A,wt=24): 177 mult(A,mult(A,B)) = B | A != C | mult(B,C) = mult(A,B) | mult(C,B) = mult(A,B).  [para(46(b,1),21(a,1))].
+
+given #511 (T,wt=16): 508 mult(A,mult(A,B)) = B | rd(ld(mult(A,B),B),A) = unit.  [resolve(104,b,55,a)].
+
+given #512 (T,wt=16): 511 mult(A,mult(A,B)) = B | ld(A,ld(mult(A,B),B)) = unit.  [resolve(104,b,42,a)].
+
+given #513 (T,wt=16): 530 mult(A,mult(A,B)) = B | rd(mult(A,B),rd(B,A)) = unit.  [resolve(105,b,73,a)].
+
+given #514 (T,wt=16): 531 mult(A,mult(A,B)) = B | ld(rd(B,A),mult(A,B)) = unit.  [resolve(105,b,72,a)].
+
+given #515 (A,wt=29): 178 mult(A,mult(A,B)) = B | mult(B,mult(A,B)) != A | unit = B | mult(A,B) = unit | mult(B,mult(A,B)) = unit.  [para(46(b,1),23(a,1)),flip(b),flip(d)].
+
+given #516 (T,wt=16): 532 mult(A,mult(A,B)) = B | rd(rd(B,A),mult(A,B)) = unit.  [resolve(105,b,55,a)].
+
+given #517 (T,wt=16): 535 mult(A,mult(A,B)) = B | ld(mult(A,B),rd(B,A)) = unit.  [resolve(105,b,42,a)].
+
+given #518 (T,wt=16): 555 rd(A,B) = mult(A,B) | rd(A,ld(rd(A,B),B)) = unit.  [resolve(131,b,73,a)].
+
+given #519 (T,wt=16): 556 rd(A,B) = mult(A,B) | ld(ld(rd(A,B),B),A) = unit.  [resolve(131,b,72,a)].
+
+given #520 (A,wt=29): 179 mult(A,mult(A,B)) = B | mult(B,mult(A,B)) != A | mult(A,B) = unit | unit = B | mult(mult(A,B),B) = unit.  [para(46(b,1),23(a,2)),flip(c)].
+
+given #521 (T,wt=16): 557 rd(A,B) = mult(A,B) | rd(ld(rd(A,B),B),A) = unit.  [resolve(131,b,55,a)].
+
+given #522 (T,wt=16): 560 rd(A,B) = mult(A,B) | ld(A,ld(rd(A,B),B)) = unit.  [resolve(131,b,42,a)].
+
+given #523 (T,wt=16): 576 rd(A,B) = mult(A,B) | rd(rd(A,B),rd(B,A)) = unit.  [resolve(132,b,73,a)].
+
+given #524 (T,wt=16): 577 rd(A,B) = mult(A,B) | ld(rd(B,A),rd(A,B)) = unit.  [resolve(132,b,72,a)].
+
+given #525 (A,wt=18): 183 mult(A,mult(A,B)) = B | mult(mult(A,B),mult(mult(A,B),B)) = B.  [para(46(b,1),36(b,1,1)),merge(c)].
+
+given #526 (T,wt=16): 578 rd(A,B) = mult(A,B) | rd(rd(B,A),rd(A,B)) = unit.  [resolve(132,b,55,a)].
+
+given #527 (T,wt=16): 581 rd(A,B) = mult(A,B) | ld(rd(A,B),rd(B,A)) = unit.  [resolve(132,b,42,a)].
+
+given #528 (T,wt=16): 644 ld(A,B) = mult(A,B) | rd(ld(A,B),ld(B,A)) = unit.  [resolve(151,b,73,a)].
+
+given #529 (T,wt=16): 645 ld(A,B) = mult(A,B) | ld(ld(B,A),ld(A,B)) = unit.  [resolve(151,b,72,a)].
+
+given #530 (A,wt=25): 189 rd(A,B) = mult(A,B) | mult(rd(A,B),mult(B,A)) = unit | mult(mult(B,A),rd(A,B)) = unit.  [resolve(49,a,39,a)].
+
+given #531 (T,wt=16): 646 ld(A,B) = mult(A,B) | rd(ld(B,A),ld(A,B)) = unit.  [resolve(151,b,55,a)].
+
+given #532 (T,wt=16): 650 ld(A,B) = mult(A,B) | ld(ld(A,B),ld(B,A)) = unit.  [resolve(151,b,42,a)].
+
+given #533 (T,wt=16): 668 ld(A,B) = mult(A,B) | rd(B,rd(A,ld(A,B))) = unit.  [resolve(152,b,73,a)].
+
+given #534 (T,wt=16): 669 ld(A,B) = mult(A,B) | ld(rd(A,ld(A,B)),B) = unit.  [resolve(152,b,72,a)].
+
+given #535 (A,wt=29): 190 rd(A,B) = mult(A,B) | ld(C,rd(A,B)) = mult(C,mult(B,A)) | ld(C,rd(A,B)) = mult(mult(B,A),C).  [resolve(49,a,37,a),flip(b),flip(c)].
+
+given #536 (T,wt=16): 670 ld(A,B) = mult(A,B) | rd(rd(A,ld(A,B)),B) = unit.  [resolve(152,b,55,a)].
+
+given #537 (T,wt=16): 674 ld(A,B) = mult(A,B) | ld(B,rd(A,ld(A,B))) = unit.  [resolve(152,b,42,a)].
+
+given #538 (T,wt=16): 691 mult(A,mult(A,B)) = B | rd(mult(B,A),ld(B,A)) = unit.  [resolve(161,a,73,a)].
+
+given #539 (T,wt=16): 692 mult(A,mult(A,B)) = B | ld(ld(B,A),mult(B,A)) = unit.  [resolve(161,a,72,a)].
+
+given #540 (A,wt=29): 191 rd(A,B) = mult(A,B) | mult(C,rd(A,B)) = ld(C,mult(B,A)) | mult(rd(A,B),C) = ld(C,mult(B,A)).  [resolve(49,a,37,a(flip))].
+
+given #541 (T,wt=16): 693 mult(A,mult(A,B)) = B | rd(ld(B,A),mult(B,A)) = unit.  [resolve(161,a,55,a)].
+
+given #542 (T,wt=16): 697 mult(A,mult(A,B)) = B | ld(mult(B,A),ld(B,A)) = unit.  [resolve(161,a,42,a)].
+
+given #543 (T,wt=16): 715 mult(A,mult(A,B)) = B | rd(B,ld(mult(A,B),A)) = unit.  [resolve(173,b,73,a)].
+
+given #544 (T,wt=16): 716 mult(A,mult(A,B)) = B | ld(ld(mult(A,B),A),B) = unit.  [resolve(173,b,72,a)].
+
+given #545 (A,wt=25): 196 rd(A,B) = mult(B,A) | mult(rd(A,B),mult(A,B)) = unit | mult(mult(A,B),rd(A,B)) = unit.  [resolve(49,b,39,a)].
+
+Low Water (keep): wt=27.000, iters=6668
+
+given #546 (T,wt=16): 717 mult(A,mult(A,B)) = B | rd(ld(mult(A,B),A),B) = unit.  [resolve(173,b,55,a)].
+
+given #547 (T,wt=16): 721 mult(A,mult(A,B)) = B | ld(B,ld(mult(A,B),A)) = unit.  [resolve(173,b,42,a)].
+
+given #548 (T,wt=16): 789 mult(A,mult(A,B)) = B | rd(mult(A,B),rd(A,B)) = unit.  [resolve(174,b,73,a)].
+
+given #549 (T,wt=16): 790 mult(A,mult(A,B)) = B | ld(rd(A,B),mult(A,B)) = unit.  [resolve(174,b,72,a)].
+
+given #550 (A,wt=29): 197 rd(A,B) = mult(B,A) | ld(C,rd(A,B)) = mult(C,mult(A,B)) | ld(C,rd(A,B)) = mult(mult(A,B),C).  [resolve(49,b,37,a),flip(b),flip(c)].
+
+given #551 (T,wt=16): 791 mult(A,mult(A,B)) = B | rd(rd(A,B),mult(A,B)) = unit.  [resolve(174,b,55,a)].
+
+given #552 (T,wt=16): 796 mult(A,mult(A,B)) = B | ld(mult(A,B),rd(A,B)) = unit.  [resolve(174,b,42,a)].
+
+given #553 (T,wt=16): 811 mult(mult(A,B),A) = B | rd(mult(B,A),rd(B,A)) = unit.  [resolve(201,a,73,a)].
+
+given #554 (T,wt=16): 812 mult(mult(A,B),A) = B | ld(rd(B,A),mult(B,A)) = unit.  [resolve(201,a,72,a)].
+
+given #555 (A,wt=29): 198 rd(A,B) = mult(B,A) | mult(C,rd(A,B)) = ld(C,mult(A,B)) | mult(rd(A,B),C) = ld(C,mult(A,B)).  [resolve(49,b,37,a(flip))].
+
+given #556 (T,wt=16): 813 mult(mult(A,B),A) = B | rd(rd(B,A),mult(B,A)) = unit.  [resolve(201,a,55,a)].
+
+given #557 (T,wt=16): 818 mult(mult(A,B),A) = B | ld(mult(B,A),rd(B,A)) = unit.  [resolve(201,a,42,a)].
+
+given #558 (T,wt=16): 842 mult(mult(A,B),B) = A | rd(mult(B,A),rd(A,B)) = unit.  [resolve(202,a,73,a)].
+
+given #559 (T,wt=16): 843 mult(mult(A,B),B) = A | ld(rd(A,B),mult(B,A)) = unit.  [resolve(202,a,72,a)].
+
+given #560 (A,wt=18): 199 rd(ld(A,B),A) = B | rd(ld(A,B),A) = mult(ld(A,B),A).  [para(10(a,1),49(a,2))].
+
+given #561 (T,wt=16): 844 mult(mult(A,B),B) = A | rd(rd(A,B),mult(B,A)) = unit.  [resolve(202,a,55,a)].
+
+given #562 (T,wt=16): 849 mult(mult(A,B),B) = A | ld(mult(B,A),rd(A,B)) = unit.  [resolve(202,a,42,a)].
+
+given #563 (T,wt=16): 877 ld(mult(A,B),B) = A | rd(mult(B,A),rd(B,A)) = unit.  [resolve(205,a,73,a)].
+
+given #564 (T,wt=16): 878 ld(mult(A,B),B) = A | ld(rd(B,A),mult(B,A)) = unit.  [resolve(205,a,72,a)].
+
+given #565 (A,wt=18): 200 rd(A,ld(A,B)) = mult(ld(A,B),A) | rd(A,ld(A,B)) = B.  [para(10(a,1),49(b,2))].
+
+given #566 (T,wt=16): 879 ld(mult(A,B),B) = A | rd(rd(B,A),mult(B,A)) = unit.  [resolve(205,a,55,a)].
+
+given #567 (T,wt=16): 884 ld(mult(A,B),B) = A | ld(mult(B,A),rd(B,A)) = unit.  [resolve(205,a,42,a)].
+
+given #568 (T,wt=16): 917 ld(mult(A,B),A) = B | rd(mult(B,A),rd(A,B)) = unit.  [resolve(206,a,73,a)].
+
+given #569 (T,wt=16): 918 ld(mult(A,B),A) = B | ld(rd(A,B),mult(B,A)) = unit.  [resolve(206,a,72,a)].
+
+given #570 (A,wt=18): 203 rd(A,rd(B,A)) = B | rd(A,rd(B,A)) = mult(A,rd(B,A)).  [para(12(a,1),49(a,2))].
+
+given #571 (T,wt=16): 919 ld(mult(A,B),A) = B | rd(rd(A,B),mult(B,A)) = unit.  [resolve(206,a,55,a)].
+
+given #572 (T,wt=16): 924 ld(mult(A,B),A) = B | ld(mult(B,A),rd(A,B)) = unit.  [resolve(206,a,42,a)].
+
+given #573 (T,wt=16): 951 mult(mult(A,B),B) = A | rd(mult(B,A),rd(B,A)) = unit.  [resolve(213,a,73,a)].
+
+given #574 (T,wt=16): 952 mult(mult(A,B),B) = A | ld(rd(B,A),mult(B,A)) = unit.  [resolve(213,a,72,a)].
+
+given #575 (A,wt=18): 204 rd(rd(A,B),B) = mult(B,rd(A,B)) | rd(rd(A,B),B) = A.  [para(12(a,1),49(b,2))].
+
+given #576 (T,wt=16): 953 mult(mult(A,B),B) = A | rd(rd(B,A),mult(B,A)) = unit.  [resolve(213,a,55,a)].
+
+given #577 (T,wt=16): 958 mult(mult(A,B),B) = A | ld(mult(B,A),rd(B,A)) = unit.  [resolve(213,a,42,a)].
+
+given #578 (T,wt=16): 978 mult(A,ld(B,A)) = B | rd(A,ld(ld(B,A),B)) = unit.  [resolve(248,b,73,a)].
+
+given #579 (T,wt=16): 979 mult(A,ld(B,A)) = B | ld(ld(ld(B,A),B),A) = unit.  [resolve(248,b,72,a)].
+
+given #580 (A,wt=21): 208 rd(A,B) = mult(B,A) | mult(mult(A,B),A) = B | mult(A,rd(A,B)) = B.  [para(49(b,1),34(a,1,1))].
+
+given #581 (T,wt=16): 980 mult(A,ld(B,A)) = B | rd(ld(ld(B,A),B),A) = unit.  [resolve(248,b,55,a)].
+
+given #582 (T,wt=16): 985 mult(A,ld(B,A)) = B | ld(A,ld(ld(B,A),B)) = unit.  [resolve(248,b,42,a)].
+
+given #583 (T,wt=16): 1008 mult(A,ld(B,A)) = B | rd(ld(B,A),rd(B,A)) = unit.  [resolve(249,b,73,a)].
+
+given #584 (T,wt=16): 1009 mult(A,ld(B,A)) = B | ld(rd(B,A),ld(B,A)) = unit.  [resolve(249,b,72,a)].
+
+given #585 (A,wt=25): 209 mult(A,rd(A,B)) = B | rd(A,rd(A,B)) = B | rd(A,rd(A,B)) = mult(A,rd(A,B)).  [para(34(a,1),49(a,2))].
+
+given #586 (T,wt=16): 1010 mult(A,ld(B,A)) = B | rd(rd(B,A),ld(B,A)) = unit.  [resolve(249,b,55,a)].
+
+given #587 (T,wt=16): 1015 mult(A,ld(B,A)) = B | ld(ld(B,A),rd(B,A)) = unit.  [resolve(249,b,42,a)].
+
+given #588 (T,wt=16): 1056 mult(A,mult(B,A)) = B | rd(A,ld(mult(B,A),B)) = unit.  [resolve(270,b,73,a)].
+
+given #589 (T,wt=16): 1057 mult(A,mult(B,A)) = B | ld(ld(mult(B,A),B),A) = unit.  [resolve(270,b,72,a)].
+
+given #590 (A,wt=25): 210 mult(A,rd(A,B)) = B | rd(rd(A,B),A) = mult(A,rd(A,B)) | rd(rd(A,B),A) = B.  [para(34(a,1),49(b,2))].
+
+given #591 (T,wt=16): 1058 mult(A,mult(B,A)) = B | rd(ld(mult(B,A),B),A) = unit.  [resolve(270,b,55,a)].
+
+given #592 (T,wt=16): 1063 mult(A,mult(B,A)) = B | ld(A,ld(mult(B,A),B)) = unit.  [resolve(270,b,42,a)].
+
+given #593 (T,wt=16): 1086 mult(A,mult(B,A)) = B | rd(mult(B,A),rd(B,A)) = unit.  [resolve(271,b,73,a)].
+
+given #594 (T,wt=16): 1087 mult(A,mult(B,A)) = B | ld(rd(B,A),mult(B,A)) = unit.  [resolve(271,b,72,a)].
+
+given #595 (A,wt=25): 211 mult(A,mult(A,B)) = B | rd(A,mult(A,B)) = B | rd(A,mult(A,B)) = mult(A,mult(A,B)).  [para(36(b,1),49(a,2))].
+
+given #596 (T,wt=16): 1088 mult(A,mult(B,A)) = B | rd(rd(B,A),mult(B,A)) = unit.  [resolve(271,b,55,a)].
+
+given #597 (T,wt=16): 1093 mult(A,mult(B,A)) = B | ld(mult(B,A),rd(B,A)) = unit.  [resolve(271,b,42,a)].
+
+given #598 (T,wt=16): 1114 mult(mult(A,B),A) = B | rd(mult(A,B),ld(A,B)) = unit.  [resolve(293,b,73,a)].
+
+given #599 (T,wt=16): 1115 mult(mult(A,B),A) = B | ld(ld(A,B),mult(A,B)) = unit.  [resolve(293,b,72,a)].
+
+given #600 (A,wt=25): 212 mult(A,mult(A,B)) = B | rd(mult(A,B),A) = mult(A,mult(A,B)) | rd(mult(A,B),A) = B.  [para(36(b,1),49(b,2))].
+
+given #601 (T,wt=16): 1116 mult(mult(A,B),A) = B | rd(ld(A,B),mult(A,B)) = unit.  [resolve(293,b,55,a)].
+
+given #602 (T,wt=16): 1121 mult(mult(A,B),A) = B | ld(mult(A,B),ld(A,B)) = unit.  [resolve(293,b,42,a)].
+
+given #603 (T,wt=16): 1140 ld(A,B) = mult(B,A) | rd(B,ld(A,ld(A,B))) = unit.  [resolve(294,b,73,a)].
+
+given #604 (T,wt=16): 1141 ld(A,B) = mult(B,A) | ld(ld(A,ld(A,B)),B) = unit.  [resolve(294,b,72,a)].
+
+given #605 (A,wt=25): 214 rd(A,B) = mult(A,B) | rd(A,rd(A,B)) = B | rd(A,rd(A,B)) = mult(A,rd(A,B)).  [para(44(a,1),49(a,2))].
+
+given #606 (T,wt=16): 1142 ld(A,B) = mult(B,A) | rd(ld(A,ld(A,B)),B) = unit.  [resolve(294,b,55,a)].
+
+given #607 (T,wt=16): 1147 ld(A,B) = mult(B,A) | ld(B,ld(A,ld(A,B))) = unit.  [resolve(294,b,42,a)].
+
+given #608 (T,wt=16): 1178 rd(A,B) = rd(B,A) | rd(B,mult(A,rd(A,B))) = unit.  [resolve(314,a,73,a)].
+
+given #609 (T,wt=16): 1179 rd(A,B) = rd(B,A) | ld(mult(A,rd(A,B)),B) = unit.  [resolve(314,a,72,a)].
+
+given #610 (A,wt=29): 218 mult(rd(rd(A,B),C),mult(A,B)) = C | mult(mult(A,B),rd(rd(A,B),C)) = C | rd(A,B) = mult(B,A).  [resolve(38,a,49,b)].
+
+given #611 (T,wt=16): 1180 rd(A,B) = rd(B,A) | rd(mult(A,rd(A,B)),B) = unit.  [resolve(314,a,55,a)].
+
+given #612 (T,wt=16): 1185 rd(A,B) = rd(B,A) | ld(B,mult(A,rd(A,B))) = unit.  [resolve(314,a,42,a)].
+
+given #613 (T,wt=16): 1228 rd(A,B) = ld(A,B) | rd(rd(A,B),rd(B,A)) = unit.  [resolve(320,a,73,a)].
+
+given #614 (T,wt=16): 1229 rd(A,B) = ld(A,B) | ld(rd(B,A),rd(A,B)) = unit.  [resolve(320,a,72,a)].
+
+given #615 (A,wt=29): 219 mult(rd(rd(A,B),C),mult(B,A)) = C | mult(mult(B,A),rd(rd(A,B),C)) = C | rd(A,B) = mult(A,B).  [resolve(38,a,49,a)].
+
+given #616 (T,wt=16): 1230 rd(A,B) = ld(A,B) | rd(rd(B,A),rd(A,B)) = unit.  [resolve(320,a,55,a)].
+
+given #617 (T,wt=16): 1235 rd(A,B) = ld(A,B) | ld(rd(A,B),rd(B,A)) = unit.  [resolve(320,a,42,a)].
+
+given #618 (T,wt=16): 1265 mult(rd(A,B),A) = B | rd(A,mult(B,rd(B,A))) = unit.  [resolve(321,a,73,a)].
+
+given #619 (T,wt=16): 1266 mult(rd(A,B),A) = B | ld(mult(B,rd(B,A)),A) = unit.  [resolve(321,a,72,a)].
+
+given #620 (A,wt=29): 220 mult(rd(mult(mult(A,B),B),C),A) = C | mult(A,rd(mult(mult(A,B),B),C)) = C | mult(A,mult(A,B)) = B.  [resolve(38,a,46,b)].
+
+given #621 (T,wt=16): 1267 mult(rd(A,B),A) = B | rd(mult(B,rd(B,A)),A) = unit.  [resolve(321,a,55,a)].
+
+given #622 (T,wt=16): 1272 mult(rd(A,B),A) = B | ld(A,mult(B,rd(B,A))) = unit.  [resolve(321,a,42,a)].
+
+given #623 (T,wt=16): 1285 mult(A,rd(A,B)) = B | rd(A,mult(rd(B,A),B)) = unit.  [resolve(321,b,73,a)].
+
+given #624 (T,wt=16): 1286 mult(A,rd(A,B)) = B | ld(mult(rd(B,A),B),A) = unit.  [resolve(321,b,72,a)].
+
+given #625 (A,wt=29): 221 mult(rd(mult(A,ld(B,A)),C),B) = C | mult(B,rd(mult(A,ld(B,A)),C)) = C | ld(B,A) = mult(B,A).  [resolve(38,a,45,b)].
+
+given #626 (T,wt=16): 1287 mult(A,rd(A,B)) = B | rd(mult(rd(B,A),B),A) = unit.  [resolve(321,b,55,a)].
+
+given #627 (T,wt=16): 1292 mult(A,rd(A,B)) = B | ld(A,mult(rd(B,A),B)) = unit.  [resolve(321,b,42,a)].
+
+given #628 (T,wt=16): 1369 rd(A,B) = rd(B,A) | rd(B,rd(A,rd(B,A))) = unit.  [resolve(322,b,73,a)].
+
+given #629 (T,wt=16): 1370 rd(A,B) = rd(B,A) | ld(rd(A,rd(B,A)),B) = unit.  [resolve(322,b,72,a)].
+
+given #630 (A,wt=29): 222 mult(rd(mult(rd(A,B),A),C),B) = C | mult(B,rd(mult(rd(A,B),A),C)) = C | rd(A,B) = mult(A,B).  [resolve(38,a,44,a)].
+
+given #631 (T,wt=16): 1371 rd(A,B) = rd(B,A) | rd(rd(A,rd(B,A)),B) = unit.  [resolve(322,b,55,a)].
+
+given #632 (T,wt=16): 1376 rd(A,B) = rd(B,A) | ld(B,rd(A,rd(B,A))) = unit.  [resolve(322,b,42,a)].
+
+given #633 (T,wt=16): 1427 mult(mult(A,B),A) = B | rd(A,rd(B,mult(A,B))) = unit.  [resolve(324,b,73,a)].
+
+given #634 (T,wt=16): 1428 mult(mult(A,B),A) = B | ld(rd(B,mult(A,B)),A) = unit.  [resolve(324,b,72,a)].
+
+given #635 (A,wt=29): 223 mult(rd(mult(mult(A,B),A),C),B) = C | mult(B,rd(mult(mult(A,B),A),C)) = C | mult(A,mult(A,B)) = B.  [resolve(38,a,36,b)].
+
+given #636 (T,wt=16): 1429 mult(mult(A,B),A) = B | rd(rd(B,mult(A,B)),A) = unit.  [resolve(324,b,55,a)].
+
+given #637 (T,wt=16): 1434 mult(mult(A,B),A) = B | ld(A,rd(B,mult(A,B))) = unit.  [resolve(324,b,42,a)].
+
+given #638 (T,wt=16): 1458 ld(rd(A,B),B) = A | rd(A,mult(B,rd(B,A))) = unit.  [resolve(331,a,73,a)].
+
+given #639 (T,wt=16): 1459 ld(rd(A,B),B) = A | ld(mult(B,rd(B,A)),A) = unit.  [resolve(331,a,72,a)].
+
+given #640 (A,wt=29): 224 mult(rd(ld(A,B),C),mult(B,A)) = C | mult(mult(B,A),rd(ld(A,B),C)) = C | ld(A,B) = mult(A,B).  [resolve(38,a,35,b)].
+
+given #641 (T,wt=16): 1460 ld(rd(A,B),B) = A | rd(mult(B,rd(B,A)),A) = unit.  [resolve(331,a,55,a)].
+
+given #642 (T,wt=16): 1465 ld(rd(A,B),B) = A | ld(A,mult(B,rd(B,A))) = unit.  [resolve(331,a,42,a)].
+
+given #643 (T,wt=16): 1478 mult(A,rd(A,B)) = B | rd(B,ld(rd(B,A),A)) = unit.  [resolve(331,b,73,a)].
+
+given #644 (T,wt=16): 1479 mult(A,rd(A,B)) = B | ld(ld(rd(B,A),A),B) = unit.  [resolve(331,b,72,a)].
+
+given #645 (A,wt=29): 225 mult(rd(ld(A,B),C),mult(A,B)) = C | mult(mult(A,B),rd(ld(A,B),C)) = C | ld(A,B) = mult(B,A).  [resolve(38,a,35,a)].
+
+given #646 (T,wt=16): 1480 mult(A,rd(A,B)) = B | rd(ld(rd(B,A),A),B) = unit.  [resolve(331,b,55,a)].
+
+given #647 (T,wt=16): 1485 mult(A,rd(A,B)) = B | ld(B,ld(rd(B,A),A)) = unit.  [resolve(331,b,42,a)].
+
+given #648 (T,wt=16): 1546 ld(A,B) = mult(B,A) | rd(A,rd(ld(A,B),B)) = unit.  [resolve(333,b,73,a)].
+
+given #649 (T,wt=16): 1547 ld(A,B) = mult(B,A) | ld(rd(ld(A,B),B),A) = unit.  [resolve(333,b,72,a)].
+
+given #650 (A,wt=29): 226 mult(rd(mult(rd(A,B),A),C),B) = C | mult(B,rd(mult(rd(A,B),A),C)) = C | mult(A,rd(A,B)) = B.  [resolve(38,a,34,a)].
+
+given #651 (T,wt=16): 1548 ld(A,B) = mult(B,A) | rd(rd(ld(A,B),B),A) = unit.  [resolve(333,b,55,a)].
+
+given #652 (T,wt=16): 1553 ld(A,B) = mult(B,A) | ld(A,rd(ld(A,B),B)) = unit.  [resolve(333,b,42,a)].
+
+given #653 (T,wt=16): 1575 mult(A,mult(B,A)) = B | rd(B,mult(A,mult(A,B))) = unit.  [resolve(384,a,73,a)].
+
+given #654 (T,wt=16): 1576 mult(A,mult(B,A)) = B | ld(mult(A,mult(A,B)),B) = unit.  [resolve(384,a,72,a)].
+
+given #655 (A,wt=29): 227 mult(rd(mult(A,B),C),rd(A,B)) = C | mult(rd(A,B),rd(mult(A,B),C)) = C | rd(A,B) = mult(B,A).  [resolve(38,a,49,b(flip))].
+
+given #656 (T,wt=16): 1577 mult(A,mult(B,A)) = B | rd(mult(A,mult(A,B)),B) = unit.  [resolve(384,a,55,a)].
+
+given #657 (T,wt=16): 1582 mult(A,mult(B,A)) = B | ld(B,mult(A,mult(A,B))) = unit.  [resolve(384,a,42,a)].
+
+given #658 (T,wt=16): 1595 mult(A,mult(A,B)) = B | rd(B,mult(A,mult(B,A))) = unit.  [resolve(384,b,73,a)].
+
+given #659 (T,wt=16): 1596 mult(A,mult(A,B)) = B | ld(mult(A,mult(B,A)),B) = unit.  [resolve(384,b,72,a)].
+
+given #660 (A,wt=29): 228 mult(rd(mult(A,B),C),rd(B,A)) = C | mult(rd(B,A),rd(mult(A,B),C)) = C | rd(B,A) = mult(B,A).  [resolve(38,a,49,a(flip))].
+
+given #661 (T,wt=16): 1597 mult(A,mult(A,B)) = B | rd(mult(A,mult(B,A)),B) = unit.  [resolve(384,b,55,a)].
+
+given #662 (T,wt=16): 1602 mult(A,mult(A,B)) = B | ld(B,mult(A,mult(B,A))) = unit.  [resolve(384,b,42,a)].
+
+given #663 (T,wt=16): 1668 mult(mult(A,B),A) = B | ld(B,mult(A,mult(A,B))) = unit.  [para(13(a,1),60(b,1,2,1)),rewrite([13(3)])].
+
+given #664 (T,wt=16): 1687 mult(A,mult(A,B)) = B | rd(A,rd(B,mult(B,A))) = unit.  [resolve(389,b,73,a)].
+
+given #665 (A,wt=29): 229 mult(rd(A,B),mult(mult(A,C),C)) = B | mult(mult(mult(A,C),C),rd(A,B)) = B | mult(A,mult(A,C)) = C.  [resolve(38,a,46,b(flip))].
+
+given #666 (T,wt=16): 1688 mult(A,mult(A,B)) = B | ld(rd(B,mult(B,A)),A) = unit.  [resolve(389,b,72,a)].
+
+given #667 (T,wt=16): 1689 mult(A,mult(A,B)) = B | rd(rd(B,mult(B,A)),A) = unit.  [resolve(389,b,55,a)].
+
+given #668 (T,wt=16): 1694 mult(A,mult(A,B)) = B | ld(A,rd(B,mult(B,A))) = unit.  [resolve(389,b,42,a)].
+
+given #669 (T,wt=16): 1734 mult(A,mult(B,A)) = B | rd(A,rd(B,mult(A,B))) = unit.  [resolve(412,b,73,a)].
+
+given #670 (A,wt=29): 230 mult(rd(A,B),mult(C,ld(A,C))) = B | mult(mult(C,ld(A,C)),rd(A,B)) = B | ld(A,C) = mult(A,C).  [resolve(38,a,45,b(flip))].
+
+given #671 (T,wt=16): 1735 mult(A,mult(B,A)) = B | ld(rd(B,mult(A,B)),A) = unit.  [resolve(412,b,72,a)].
+
+given #672 (T,wt=16): 1736 mult(A,mult(B,A)) = B | rd(rd(B,mult(A,B)),A) = unit.  [resolve(412,b,55,a)].
+
+given #673 (T,wt=16): 1741 mult(A,mult(B,A)) = B | ld(A,rd(B,mult(A,B))) = unit.  [resolve(412,b,42,a)].
+
+given #674 (T,wt=16): 1771 ld(A,B) = mult(A,B) | rd(A,ld(B,ld(A,B))) = unit.  [resolve(522,b,73,a)].
+
+given #675 (A,wt=29): 231 mult(rd(A,B),mult(rd(C,A),C)) = B | mult(mult(rd(C,A),C),rd(A,B)) = B | rd(C,A) = mult(C,A).  [resolve(38,a,44,a(flip))].
+
+given #676 (T,wt=16): 1772 ld(A,B) = mult(A,B) | ld(ld(B,ld(A,B)),A) = unit.  [resolve(522,b,72,a)].
+
+given #677 (T,wt=16): 1773 ld(A,B) = mult(A,B) | rd(ld(B,ld(A,B)),A) = unit.  [resolve(522,b,55,a)].
+
+given #678 (T,wt=16): 1778 ld(A,B) = mult(A,B) | ld(A,ld(B,ld(A,B))) = unit.  [resolve(522,b,42,a)].
+
+given #679 (T,wt=16): 1799 rd(A,B) = ld(A,B) | rd(B,mult(rd(A,B),A)) = unit.  [resolve(523,a,73,a)].
+
+given #680 (A,wt=29): 232 mult(rd(A,B),mult(mult(C,A),C)) = B | mult(mult(mult(C,A),C),rd(A,B)) = B | mult(C,mult(C,A)) = A.  [resolve(38,a,36,b(flip))].
+
+given #681 (T,wt=16): 1800 rd(A,B) = ld(A,B) | ld(mult(rd(A,B),A),B) = unit.  [resolve(523,a,72,a)].
+
+given #682 (T,wt=16): 1801 rd(A,B) = ld(A,B) | rd(mult(rd(A,B),A),B) = unit.  [resolve(523,a,55,a)].
+
+given #683 (T,wt=16): 1806 rd(A,B) = ld(A,B) | ld(B,mult(rd(A,B),A)) = unit.  [resolve(523,a,42,a)].
+
+given #684 (T,wt=16): 1849 mult(mult(A,B),A) = B | ld(mult(A,mult(A,B)),B) = unit.  [para(13(a,1),61(b,1,1,1)),rewrite([13(3)])].
+
+given #685 (A,wt=29): 233 mult(rd(mult(A,B),C),ld(B,A)) = C | mult(ld(B,A),rd(mult(A,B),C)) = C | ld(B,A) = mult(B,A).  [resolve(38,a,35,b(flip))].
+
+given #686 (T,wt=16): 1867 ld(A,B) = mult(A,B) | rd(B,rd(ld(A,B),A)) = unit.  [resolve(544,b,73,a)].
+
+given #687 (T,wt=16): 1868 ld(A,B) = mult(A,B) | ld(rd(ld(A,B),A),B) = unit.  [resolve(544,b,72,a)].
+
+given #688 (T,wt=16): 1869 ld(A,B) = mult(A,B) | rd(rd(ld(A,B),A),B) = unit.  [resolve(544,b,55,a)].
+
+given #689 (T,wt=16): 1874 ld(A,B) = mult(A,B) | ld(B,rd(ld(A,B),A)) = unit.  [resolve(544,b,42,a)].
+
+given #690 (A,wt=29): 234 mult(rd(mult(A,B),C),ld(A,B)) = C | mult(ld(A,B),rd(mult(A,B),C)) = C | ld(A,B) = mult(B,A).  [resolve(38,a,35,a(flip))].
+
+given #691 (T,wt=16): 1894 mult(rd(A,B),A) = B | rd(A,rd(B,rd(A,B))) = unit.  [resolve(545,b,73,a)].
+
+given #692 (T,wt=16): 1895 mult(rd(A,B),A) = B | ld(rd(B,rd(A,B)),A) = unit.  [resolve(545,b,72,a)].
+
+given #693 (T,wt=16): 1896 mult(rd(A,B),A) = B | rd(rd(B,rd(A,B)),A) = unit.  [resolve(545,b,55,a)].
+
+given #694 (T,wt=16): 1901 mult(rd(A,B),A) = B | ld(A,rd(B,rd(A,B))) = unit.  [resolve(545,b,42,a)].
+
+given #695 (A,wt=29): 235 mult(rd(A,B),mult(rd(C,A),C)) = B | mult(mult(rd(C,A),C),rd(A,B)) = B | mult(C,rd(C,A)) = A.  [resolve(38,a,34,a(flip))].
+
+given #696 (T,wt=16): 1935 mult(mult(A,B),B) = A | rd(mult(A,B),ld(A,B)) = unit.  [resolve(571,b,73,a)].
+
+given #697 (T,wt=16): 1936 mult(mult(A,B),B) = A | ld(ld(A,B),mult(A,B)) = unit.  [resolve(571,b,72,a)].
+
+Low Water (displace): id=2554, wt=83.000
+
+given #698 (T,wt=16): 1937 mult(mult(A,B),B) = A | rd(ld(A,B),mult(A,B)) = unit.  [resolve(571,b,55,a)].
+
+given #699 (T,wt=16): 1942 mult(mult(A,B),B) = A | ld(mult(A,B),ld(A,B)) = unit.  [resolve(571,b,42,a)].
+
+given #700 (A,wt=25): 240 mult(A,ld(B,A)) = B | mult(mult(ld(B,A),A),B) = unit | mult(B,mult(ld(B,A),A)) = unit.  [resolve(50,a,39,a)].
+
+given #701 (T,wt=16): 1966 mult(A,ld(B,A)) = B | rd(A,ld(B,ld(B,A))) = unit.  [resolve(572,b,73,a)].
+
+Low Water (displace): id=11628, wt=75.000
+
+given #702 (T,wt=16): 1967 mult(A,ld(B,A)) = B | ld(ld(B,ld(B,A)),A) = unit.  [resolve(572,b,72,a)].
+
+given #703 (T,wt=16): 1968 mult(A,ld(B,A)) = B | rd(ld(B,ld(B,A)),A) = unit.  [resolve(572,b,55,a)].
+
+given #704 (T,wt=16): 1973 mult(A,ld(B,A)) = B | ld(A,ld(B,ld(B,A))) = unit.  [resolve(572,b,42,a)].
+
+given #705 (A,wt=29): 241 mult(A,ld(B,A)) = B | mult(rd(mult(ld(B,A),A),C),B) = C | mult(B,rd(mult(ld(B,A),A),C)) = C.  [resolve(50,a,38,a)].
+
+given #706 (T,wt=16): 2078 ld(mult(A,B),A) = B | rd(mult(B,A),rd(B,A)) = unit.  [resolve(573,a,73,a)].
+
+given #707 (T,wt=16): 2079 ld(mult(A,B),A) = B | ld(rd(B,A),mult(B,A)) = unit.  [resolve(573,a,72,a)].
+
+given #708 (T,wt=16): 2080 ld(mult(A,B),A) = B | rd(rd(B,A),mult(B,A)) = unit.  [resolve(573,a,55,a)].
+
+Low Water (displace): id=10759, wt=68.000
+
+Low Water (displace): id=12039, wt=60.000
+
+given #709 (T,wt=16): 2085 ld(mult(A,B),A) = B | ld(mult(B,A),rd(B,A)) = unit.  [resolve(573,a,42,a)].
+
+given #710 (A,wt=29): 242 mult(A,ld(B,A)) = B | ld(C,mult(ld(B,A),A)) = mult(C,B) | ld(C,mult(ld(B,A),A)) = mult(B,C).  [resolve(50,a,37,a),flip(b),flip(c)].
+
+given #711 (T,wt=16): 2118 mult(rd(A,B),A) = B | rd(mult(B,A),rd(B,A)) = unit.  [resolve(590,a,73,a)].
+
+given #712 (T,wt=16): 2119 mult(rd(A,B),A) = B | ld(rd(B,A),mult(B,A)) = unit.  [resolve(590,a,72,a)].
+
+given #713 (T,wt=16): 2120 mult(rd(A,B),A) = B | rd(rd(B,A),mult(B,A)) = unit.  [resolve(590,a,55,a)].
+
+given #714 (T,wt=16): 2125 mult(rd(A,B),A) = B | ld(mult(B,A),rd(B,A)) = unit.  [resolve(590,a,42,a)].
+
+given #715 (A,wt=29): 243 mult(A,ld(B,A)) = B | mult(rd(B,C),mult(ld(B,A),A)) = C | mult(mult(ld(B,A),A),rd(B,C)) = C.  [resolve(50,a,38,a(flip))].
+
+given #716 (T,wt=16): 2135 rd(A,B) = mult(A,B) | rd(A,mult(rd(B,A),B)) = unit.  [resolve(590,b,73,a)].
+
+given #717 (T,wt=16): 2136 rd(A,B) = mult(A,B) | ld(mult(rd(B,A),B),A) = unit.  [resolve(590,b,72,a)].
+
+Low Water (displace): id=22825, wt=25.000
+
+given #718 (T,wt=16): 2137 rd(A,B) = mult(A,B) | rd(mult(rd(B,A),B),A) = unit.  [resolve(590,b,55,a)].
+
+given #719 (T,wt=16): 2142 rd(A,B) = mult(A,B) | ld(A,mult(rd(B,A),B)) = unit.  [resolve(590,b,42,a)].
+
+given #720 (A,wt=29): 244 mult(A,ld(B,A)) = B | mult(C,mult(ld(B,A),A)) = ld(C,B) | mult(mult(ld(B,A),A),C) = ld(C,B).  [resolve(50,a,37,a(flip))].
+
+given #721 (T,wt=16): 2211 mult(mult(A,B),B) = A | rd(A,rd(B,mult(A,B))) = unit.  [resolve(592,b,73,a)].
+
+given #722 (T,wt=16): 2212 mult(mult(A,B),B) = A | ld(rd(B,mult(A,B)),A) = unit.  [resolve(592,b,72,a)].
+
+given #723 (T,wt=16): 2213 mult(mult(A,B),B) = A | rd(rd(B,mult(A,B)),A) = unit.  [resolve(592,b,55,a)].
+
+given #724 (T,wt=16): 2218 mult(mult(A,B),B) = A | ld(A,rd(B,mult(A,B))) = unit.  [resolve(592,b,42,a)].
+
+given #725 (A,wt=33): 245 mult(A,ld(mult(B,C),A)) = mult(B,C) | mult(C,mult(ld(mult(B,C),A),A)) = B | mult(mult(ld(mult(B,C),A),A),C) = B.  [resolve(50,a,21,a(flip))].
+
+given #726 (T,wt=16): 2330 ld(rd(A,B),B) = A | rd(mult(B,A),rd(B,A)) = unit.  [resolve(593,a,73,a)].
+
+given #727 (T,wt=16): 2331 ld(rd(A,B),B) = A | ld(rd(B,A),mult(B,A)) = unit.  [resolve(593,a,72,a)].
+
+given #728 (T,wt=16): 2332 ld(rd(A,B),B) = A | rd(rd(B,A),mult(B,A)) = unit.  [resolve(593,a,55,a)].
+
+given #729 (T,wt=16): 2337 ld(rd(A,B),B) = A | ld(mult(B,A),rd(B,A)) = unit.  [resolve(593,a,42,a)].
+
+given #730 (A,wt=33): 246 mult(A,ld(mult(B,C),A)) = mult(B,C) | mult(B,mult(ld(mult(B,C),A),A)) = C | mult(mult(ld(mult(B,C),A),A),C) = B.  [resolve(50,a,20,a(flip))].
+
+given #731 (T,wt=16): 2347 rd(A,B) = mult(A,B) | rd(B,ld(rd(B,A),A)) = unit.  [resolve(593,b,73,a)].
+
+given #732 (T,wt=16): 2348 rd(A,B) = mult(A,B) | ld(ld(rd(B,A),A),B) = unit.  [resolve(593,b,72,a)].
+
+given #733 (T,wt=16): 2349 rd(A,B) = mult(A,B) | rd(ld(rd(B,A),A),B) = unit.  [resolve(593,b,55,a)].
+
+given #734 (T,wt=16): 2354 rd(A,B) = mult(A,B) | ld(B,ld(rd(B,A),A)) = unit.  [resolve(593,b,42,a)].
+
+given #735 (A,wt=33): 247 mult(A,ld(mult(B,C),A)) = mult(B,C) | mult(B,mult(ld(mult(B,C),A),A)) = C | mult(mult(ld(mult(B,C),A),A),B) = C.  [resolve(50,a,19,a(flip))].
+
+given #736 (T,wt=16): 2402 mult(A,ld(B,A)) = B | rd(B,rd(ld(B,A),A)) = unit.  [resolve(595,b,73,a)].
+
+given #737 (T,wt=16): 2403 mult(A,ld(B,A)) = B | ld(rd(ld(B,A),A),B) = unit.  [resolve(595,b,72,a)].
+
+given #738 (T,wt=16): 2404 mult(A,ld(B,A)) = B | rd(rd(ld(B,A),A),B) = unit.  [resolve(595,b,55,a)].
+
+given #739 (T,wt=16): 2409 mult(A,ld(B,A)) = B | ld(B,rd(ld(B,A),A)) = unit.  [resolve(595,b,42,a)].
+
+given #740 (A,wt=24): 250 mult(A,ld(B,A)) = B | B != C | mult(ld(B,A),C) = A | mult(C,ld(B,A)) = A.  [para(50(a,1),19(a,1))].
+
+given #741 (T,wt=16): 2429 rd(A,B) = mult(A,B) | rd(mult(B,A),rd(B,A)) = unit.  [resolve(597,a,73,a)].
+
+given #742 (T,wt=16): 2430 rd(A,B) = mult(A,B) | ld(rd(B,A),mult(B,A)) = unit.  [resolve(597,a,72,a)].
+
+given #743 (T,wt=16): 2431 rd(A,B) = mult(A,B) | rd(rd(B,A),mult(B,A)) = unit.  [resolve(597,a,55,a)].
+
+given #744 (T,wt=16): 2436 rd(A,B) = mult(A,B) | ld(mult(B,A),rd(B,A)) = unit.  [resolve(597,a,42,a)].
+
+given #745 (A,wt=24): 251 mult(A,ld(B,A)) = B | B != C | mult(ld(B,A),C) = A | mult(C,A) = ld(B,A).  [para(50(a,1),20(a,1))].
+
+given #746 (T,wt=16): 2555 mult(A,ld(B,A)) = B | rd(mult(A,B),ld(A,B)) = unit.  [resolve(660,a,73,a)].
+
+given #747 (T,wt=16): 2556 mult(A,ld(B,A)) = B | ld(ld(A,B),mult(A,B)) = unit.  [resolve(660,a,72,a)].
+
+given #748 (T,wt=16): 2557 mult(A,ld(B,A)) = B | rd(ld(A,B),mult(A,B)) = unit.  [resolve(660,a,55,a)].
+
+given #749 (T,wt=16): 2562 mult(A,ld(B,A)) = B | ld(mult(A,B),ld(A,B)) = unit.  [resolve(660,a,42,a)].
+
+given #750 (A,wt=24): 252 mult(A,ld(B,A)) = B | B != C | mult(A,C) = ld(B,A) | mult(C,A) = ld(B,A).  [para(50(a,1),21(a,1))].
+
+given #751 (T,wt=16): 2572 ld(A,B) = mult(A,B) | rd(B,mult(A,ld(B,A))) = unit.  [resolve(660,b,73,a)].
+
+given #752 (T,wt=16): 2573 ld(A,B) = mult(A,B) | ld(mult(A,ld(B,A)),B) = unit.  [resolve(660,b,72,a)].
+
+given #753 (T,wt=16): 2574 ld(A,B) = mult(A,B) | rd(mult(A,ld(B,A)),B) = unit.  [resolve(660,b,55,a)].
+
+given #754 (T,wt=16): 2579 ld(A,B) = mult(A,B) | ld(B,mult(A,ld(B,A))) = unit.  [resolve(660,b,42,a)].
+
+given #755 (A,wt=25): 262 mult(A,mult(B,A)) = B | mult(mult(mult(B,A),A),B) = unit | mult(B,mult(mult(B,A),A)) = unit.  [resolve(51,b,39,a)].
+
+given #756 (T,wt=16): 2640 mult(rd(A,B),A) = B | rd(B,ld(A,rd(A,B))) = unit.  [resolve(663,b,73,a)].
+
+given #757 (T,wt=16): 2641 mult(rd(A,B),A) = B | ld(ld(A,rd(A,B)),B) = unit.  [resolve(663,b,72,a)].
+
+given #758 (T,wt=16): 2642 mult(rd(A,B),A) = B | rd(ld(A,rd(A,B)),B) = unit.  [resolve(663,b,55,a)].
+
+given #759 (T,wt=16): 2647 mult(rd(A,B),A) = B | ld(B,ld(A,rd(A,B))) = unit.  [resolve(663,b,42,a)].
+
+given #760 (A,wt=29): 263 mult(A,mult(B,A)) = B | mult(rd(mult(mult(B,A),A),C),B) = C | mult(B,rd(mult(mult(B,A),A),C)) = C.  [resolve(51,b,38,a)].
+
+given #761 (T,wt=16): 2670 ld(A,B) = mult(A,B) | rd(A,rd(B,ld(B,A))) = unit.  [resolve(664,b,73,a)].
+
+given #762 (T,wt=16): 2671 ld(A,B) = mult(A,B) | ld(rd(B,ld(B,A)),A) = unit.  [resolve(664,b,72,a)].
+
+given #763 (T,wt=16): 2672 ld(A,B) = mult(A,B) | rd(rd(B,ld(B,A)),A) = unit.  [resolve(664,b,55,a)].
+
+given #764 (T,wt=16): 2677 ld(A,B) = mult(A,B) | ld(A,rd(B,ld(B,A))) = unit.  [resolve(664,b,42,a)].
+
+given #765 (A,wt=29): 264 mult(A,mult(B,A)) = B | ld(C,mult(mult(B,A),A)) = mult(C,B) | ld(C,mult(mult(B,A),A)) = mult(B,C).  [resolve(51,b,37,a),flip(b),flip(c)].
+
+given #766 (T,wt=16): 2708 ld(A,B) = mult(A,B) | rd(mult(B,A),ld(B,A)) = unit.  [resolve(666,a,73,a)].
+
+given #767 (T,wt=16): 2709 ld(A,B) = mult(A,B) | ld(ld(B,A),mult(B,A)) = unit.  [resolve(666,a,72,a)].
+
+given #768 (T,wt=16): 2710 ld(A,B) = mult(A,B) | rd(ld(B,A),mult(B,A)) = unit.  [resolve(666,a,55,a)].
+
+given #769 (T,wt=16): 2715 ld(A,B) = mult(A,B) | ld(mult(B,A),ld(B,A)) = unit.  [resolve(666,a,42,a)].
+
+given #770 (A,wt=29): 265 mult(A,mult(B,A)) = B | mult(rd(B,C),mult(mult(B,A),A)) = C | mult(mult(mult(B,A),A),rd(B,C)) = C.  [resolve(51,b,38,a(flip))].
+
+given #771 (T,wt=16): 2883 mult(rd(A,B),A) = B | rd(A,rd(rd(A,B),B)) = unit.  [resolve(686,b,73,a)].
+
+given #772 (T,wt=16): 2884 mult(rd(A,B),A) = B | ld(rd(rd(A,B),B),A) = unit.  [resolve(686,b,72,a)].
+
+given #773 (T,wt=16): 2886 mult(rd(A,B),A) = B | rd(rd(rd(A,B),B),A) = unit.  [resolve(686,b,55,a)].
+
+given #774 (T,wt=16): 2891 mult(rd(A,B),A) = B | ld(A,rd(rd(A,B),B)) = unit.  [resolve(686,b,42,a)].
+
+given #775 (A,wt=29): 266 mult(A,mult(B,A)) = B | mult(C,mult(mult(B,A),A)) = ld(C,B) | mult(mult(mult(B,A),A),C) = ld(C,B).  [resolve(51,b,37,a(flip))].
+
+given #776 (T,wt=16): 2922 ld(A,B) = mult(A,B) | rd(B,rd(A,mult(B,A))) = unit.  [resolve(687,b,73,a)].
+
+given #777 (T,wt=16): 2923 ld(A,B) = mult(A,B) | ld(rd(A,mult(B,A)),B) = unit.  [resolve(687,b,72,a)].
+
+given #778 (T,wt=16): 2925 ld(A,B) = mult(A,B) | rd(rd(A,mult(B,A)),B) = unit.  [resolve(687,b,55,a)].
+
+given #779 (T,wt=16): 2930 ld(A,B) = mult(A,B) | ld(B,rd(A,mult(B,A))) = unit.  [resolve(687,b,42,a)].
+
+given #780 (A,wt=33): 267 mult(A,mult(mult(B,C),A)) = mult(B,C) | mult(C,mult(mult(mult(B,C),A),A)) = B | mult(mult(mult(mult(B,C),A),A),C) = B.  [resolve(51,b,21,a(flip))].
+
+given #781 (T,wt=16): 2956 mult(A,mult(A,B)) = B | rd(A,mult(B,mult(B,A))) = unit.  [resolve(706,a,73,a)].
+
+given #782 (T,wt=16): 2957 mult(A,mult(A,B)) = B | ld(mult(B,mult(B,A)),A) = unit.  [resolve(706,a,72,a)].
+
+given #783 (T,wt=16): 2959 mult(A,mult(A,B)) = B | rd(mult(B,mult(B,A)),A) = unit.  [resolve(706,a,55,a)].
+
+given #784 (T,wt=16): 2964 mult(A,mult(A,B)) = B | ld(A,mult(B,mult(B,A))) = unit.  [resolve(706,a,42,a)].
+
+given #785 (A,wt=33): 268 mult(A,mult(mult(B,C),A)) = mult(B,C) | mult(B,mult(mult(mult(B,C),A),A)) = C | mult(mult(mult(mult(B,C),A),A),C) = B.  [resolve(51,b,20,a(flip))].
+
+given #786 (T,wt=16): 2999 mult(A,mult(A,B)) = B | rd(B,rd(A,mult(B,A))) = unit.  [resolve(711,b,73,a)].
+
+given #787 (T,wt=16): 3000 mult(A,mult(A,B)) = B | ld(rd(A,mult(B,A)),B) = unit.  [resolve(711,b,72,a)].
+
+given #788 (T,wt=16): 3002 mult(A,mult(A,B)) = B | rd(rd(A,mult(B,A)),B) = unit.  [resolve(711,b,55,a)].
+
+given #789 (T,wt=16): 3007 mult(A,mult(A,B)) = B | ld(B,rd(A,mult(B,A))) = unit.  [resolve(711,b,42,a)].
+
+given #790 (A,wt=33): 269 mult(A,mult(mult(B,C),A)) = mult(B,C) | mult(B,mult(mult(mult(B,C),A),A)) = C | mult(mult(mult(mult(B,C),A),A),B) = C.  [resolve(51,b,19,a(flip))].
+
+given #791 (T,wt=16): 3188 mult(A,mult(A,B)) = B | rd(rd(A,B),rd(B,A)) = unit.  [resolve(809,b,73,a)].
+
+given #792 (T,wt=16): 3189 mult(A,mult(A,B)) = B | ld(rd(B,A),rd(A,B)) = unit.  [resolve(809,b,72,a)].
+
+given #793 (T,wt=16): 3192 mult(A,mult(A,B)) = B | rd(rd(B,A),rd(A,B)) = unit.  [resolve(809,b,55,a)].
+
+given #794 (T,wt=16): 3197 mult(A,mult(A,B)) = B | ld(rd(A,B),rd(B,A)) = unit.  [resolve(809,b,42,a)].
+
+given #795 (A,wt=24): 272 mult(A,mult(B,A)) = B | B != C | mult(mult(B,A),C) = A | mult(C,mult(B,A)) = A.  [para(51(b,1),19(a,1))].
+
+given #796 (T,wt=16): 3226 mult(mult(A,B),B) = A | rd(A,mult(mult(B,A),B)) = unit.  [resolve(829,a,73,a)].
+
+given #797 (T,wt=16): 3227 mult(mult(A,B),B) = A | ld(mult(mult(B,A),B),A) = unit.  [resolve(829,a,72,a)].
+
+given #798 (T,wt=16): 3230 mult(mult(A,B),B) = A | rd(mult(mult(B,A),B),A) = unit.  [resolve(829,a,55,a)].
+
+given #799 (T,wt=16): 3235 mult(mult(A,B),B) = A | ld(A,mult(mult(B,A),B)) = unit.  [resolve(829,a,42,a)].
+
+given #800 (A,wt=24): 273 mult(A,mult(B,A)) = B | B != C | mult(mult(B,A),C) = A | mult(C,A) = mult(B,A).  [para(51(b,1),20(a,1))].
+
+given #801 (T,wt=16): 3250 mult(mult(A,B),A) = B | rd(B,mult(mult(B,A),A)) = unit.  [resolve(829,b,73,a)].
+
+given #802 (T,wt=16): 3251 mult(mult(A,B),A) = B | ld(mult(mult(B,A),A),B) = unit.  [resolve(829,b,72,a)].
+
+given #803 (T,wt=16): 3254 mult(mult(A,B),A) = B | rd(mult(mult(B,A),A),B) = unit.  [resolve(829,b,55,a)].
+
+given #804 (T,wt=16): 3259 mult(mult(A,B),A) = B | ld(B,mult(mult(B,A),A)) = unit.  [resolve(829,b,42,a)].
+
+given #805 (A,wt=24): 274 mult(A,mult(B,A)) = B | B != C | mult(A,C) = mult(B,A) | mult(C,A) = mult(B,A).  [para(51(b,1),21(a,1))].
+
+given #806 (T,wt=16): 3368 mult(mult(A,B),A) = B | rd(A,ld(mult(B,A),B)) = unit.  [resolve(832,b,73,a)].
+
+given #807 (T,wt=16): 3369 mult(mult(A,B),A) = B | ld(ld(mult(B,A),B),A) = unit.  [resolve(832,b,72,a)].
+
+given #808 (T,wt=16): 3372 mult(mult(A,B),A) = B | rd(ld(mult(B,A),B),A) = unit.  [resolve(832,b,55,a)].
+
+given #809 (T,wt=16): 3377 mult(mult(A,B),A) = B | ld(A,ld(mult(B,A),B)) = unit.  [resolve(832,b,42,a)].
+
+given #810 (A,wt=25): 276 mult(A,rd(A,B)) = B | mult(A,mult(rd(A,B),A)) = rd(A,B) | rd(A,B) = mult(B,A).  [para(34(a,1),51(b,1,1)),flip(c)].
+
+given #811 (T,wt=16): 3423 mult(mult(A,B),B) = A | rd(B,ld(mult(B,A),A)) = unit.  [resolve(863,b,73,a)].
+
+given #812 (T,wt=16): 3424 mult(mult(A,B),B) = A | ld(ld(mult(B,A),A),B) = unit.  [resolve(863,b,72,a)].
+
+given #813 (T,wt=16): 3427 mult(mult(A,B),B) = A | rd(ld(mult(B,A),A),B) = unit.  [resolve(863,b,55,a)].
+
+given #814 (T,wt=16): 3432 mult(mult(A,B),B) = A | ld(B,ld(mult(B,A),A)) = unit.  [resolve(863,b,42,a)].
+
+given #815 (A,wt=25): 277 mult(A,mult(B,A)) = B | ld(mult(B,A),A) = B | ld(mult(B,A),A) = mult(A,mult(B,A)).  [para(51(b,1),35(a,2))].
+
+given #816 (T,wt=16): 3643 ld(mult(A,B),A) = B | rd(B,ld(mult(B,A),A)) = unit.  [resolve(897,a,73,a)].
+
+given #817 (T,wt=16): 3644 ld(mult(A,B),A) = B | ld(ld(mult(B,A),A),B) = unit.  [resolve(897,a,72,a)].
+
+given #818 (T,wt=16): 3648 ld(mult(A,B),A) = B | rd(ld(mult(B,A),A),B) = unit.  [resolve(897,a,55,a)].
+
+given #819 (T,wt=16): 3653 ld(mult(A,B),A) = B | ld(B,ld(mult(B,A),A)) = unit.  [resolve(897,a,42,a)].
+
+given #820 (A,wt=25): 285 mult(A,rd(A,B)) = B | mult(ld(rd(A,B),B),A) = unit | mult(A,ld(rd(A,B),B)) = unit.  [resolve(65,b,39,a)].
+
+given #821 (T,wt=16): 3669 ld(mult(A,B),B) = A | rd(A,ld(mult(B,A),B)) = unit.  [resolve(897,b,73,a)].
+
+given #822 (T,wt=16): 3670 ld(mult(A,B),B) = A | ld(ld(mult(B,A),B),A) = unit.  [resolve(897,b,72,a)].
+
+given #823 (T,wt=16): 3674 ld(mult(A,B),B) = A | rd(ld(mult(B,A),B),A) = unit.  [resolve(897,b,55,a)].
+
+given #824 (T,wt=16): 3679 ld(mult(A,B),B) = A | ld(A,ld(mult(B,A),B)) = unit.  [resolve(897,b,42,a)].
+
+given #825 (A,wt=29): 286 mult(A,rd(A,B)) = B | mult(rd(ld(rd(A,B),B),C),A) = C | mult(A,rd(ld(rd(A,B),B),C)) = C.  [resolve(65,b,38,a)].
+
+given #826 (T,wt=16): 3762 mult(mult(A,B),B) = A | rd(B,mult(mult(B,A),A)) = unit.  [resolve(969,a,73,a)].
+
+given #827 (T,wt=16): 3763 mult(mult(A,B),B) = A | ld(mult(mult(B,A),A),B) = unit.  [resolve(969,a,72,a)].
+
+given #828 (T,wt=16): 3767 mult(mult(A,B),B) = A | rd(mult(mult(B,A),A),B) = unit.  [resolve(969,a,55,a)].
+
+given #829 (T,wt=16): 3772 mult(mult(A,B),B) = A | ld(B,mult(mult(B,A),A)) = unit.  [resolve(969,a,42,a)].
+
+given #830 (A,wt=29): 287 mult(A,rd(A,B)) = B | ld(C,ld(rd(A,B),B)) = mult(C,A) | ld(C,ld(rd(A,B),B)) = mult(A,C).  [resolve(65,b,37,a),flip(b),flip(c)].
+
+given #831 (T,wt=16): 3818 mult(mult(A,B),B) = A | rd(A,ld(mult(B,A),B)) = unit.  [resolve(972,b,73,a)].
+
+given #832 (T,wt=16): 3819 mult(mult(A,B),B) = A | ld(ld(mult(B,A),B),A) = unit.  [resolve(972,b,72,a)].
+
+given #833 (T,wt=16): 3823 mult(mult(A,B),B) = A | rd(ld(mult(B,A),B),A) = unit.  [resolve(972,b,55,a)].
+
+given #834 (T,wt=16): 3828 mult(mult(A,B),B) = A | ld(A,ld(mult(B,A),B)) = unit.  [resolve(972,b,42,a)].
+
+given #835 (A,wt=29): 288 mult(A,rd(A,B)) = B | mult(rd(A,C),ld(rd(A,B),B)) = C | mult(ld(rd(A,B),B),rd(A,C)) = C.  [resolve(65,b,38,a(flip))].
+
+given #836 (T,wt=16): 3865 mult(mult(A,B),B) = A | rd(mult(A,B),ld(B,A)) = unit.  [resolve(998,b,73,a)].
+
+given #837 (T,wt=16): 3866 mult(mult(A,B),B) = A | ld(ld(B,A),mult(A,B)) = unit.  [resolve(998,b,72,a)].
+
+given #838 (T,wt=16): 3870 mult(mult(A,B),B) = A | rd(ld(B,A),mult(A,B)) = unit.  [resolve(998,b,55,a)].
+
+given #839 (T,wt=16): 3875 mult(mult(A,B),B) = A | ld(mult(A,B),ld(B,A)) = unit.  [resolve(998,b,42,a)].
+
+given #840 (A,wt=29): 289 mult(A,rd(A,B)) = B | mult(C,ld(rd(A,B),B)) = ld(C,A) | mult(ld(rd(A,B),B),C) = ld(C,A).  [resolve(65,b,37,a(flip))].
+
+given #841 (T,wt=16): 3916 rd(A,B) = mult(A,B) | rd(A,ld(B,rd(A,B))) = unit.  [resolve(999,b,73,a)].
+
+given #842 (T,wt=16): 3917 rd(A,B) = mult(A,B) | ld(ld(B,rd(A,B)),A) = unit.  [resolve(999,b,72,a)].
+
+given #843 (T,wt=16): 3921 rd(A,B) = mult(A,B) | rd(ld(B,rd(A,B)),A) = unit.  [resolve(999,b,55,a)].
+
+given #844 (T,wt=16): 3926 rd(A,B) = mult(A,B) | ld(A,ld(B,rd(A,B))) = unit.  [resolve(999,b,42,a)].
+
+given #845 (A,wt=33): 290 mult(mult(A,B),rd(mult(A,B),C)) = C | mult(B,ld(rd(mult(A,B),C),C)) = A | mult(ld(rd(mult(A,B),C),C),B) = A.  [resolve(65,b,21,a(flip))].
+
+given #846 (T,wt=16): 3959 mult(mult(A,B),B) = A | rd(B,rd(A,mult(A,B))) = unit.  [resolve(1025,b,73,a)].
+
+given #847 (T,wt=16): 3960 mult(mult(A,B),B) = A | ld(rd(A,mult(A,B)),B) = unit.  [resolve(1025,b,72,a)].
+
+given #848 (T,wt=16): 3964 mult(mult(A,B),B) = A | rd(rd(A,mult(A,B)),B) = unit.  [resolve(1025,b,55,a)].
+
+given #849 (T,wt=16): 3969 mult(mult(A,B),B) = A | ld(B,rd(A,mult(A,B))) = unit.  [resolve(1025,b,42,a)].
+
+given #850 (A,wt=33): 291 mult(mult(A,B),rd(mult(A,B),C)) = C | mult(A,ld(rd(mult(A,B),C),C)) = B | mult(ld(rd(mult(A,B),C),C),B) = A.  [resolve(65,b,20,a(flip))].
+
+given #851 (T,wt=16): 4024 rd(A,B) = mult(A,B) | rd(B,rd(rd(A,B),A)) = unit.  [resolve(1027,b,73,a)].
+
+============================== STATISTICS ============================
+
+Given=851. Generated=504378. Kept=23748. proofs=0.
+Usable=851. Sos=19998. Demods=15. Limbo=4, Disabled=2907. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=168607. Back_subsumed=2344.
+Sos_limit_deleted=312023. Sos_displaced=551. Sos_removed=0.
+New_demodulators=15 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=8896708. Demod_rewrites=463800.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=14423377. Nonunit_bsub_feature_tests=7924394.
+Megabytes=33.49.
+User_CPU=10.00, System_CPU=0.23, Wall_clock=10.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 30 exit (max_seconds) Fri Oct 23 14:54:44 2026
+
+SEARCH FAILED
+
+------ process 30 exit (max_seconds) ------
+

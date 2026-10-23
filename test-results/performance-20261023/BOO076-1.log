@@ -1,0 +1,117 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 130 was started by mfixman on bodoque,
+Fri Oct 23 15:00:44 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+nand(nand(A,nand(nand(B,A),A)),nand(B,nand(C,A))) = B # label(sh_1) # label(axiom).
+nand(a,nand(b,nand(a,c))) != nand(nand(nand(c,b),b),a) # label(prove_meredith_2_basis_2) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_meredith_2_basis_2 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ a, b, c, nand ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+% Operation nand is commutative; C redundancy checks enabled.
+
+Low Water (keep): wt=69.000, iters=6737
+
+Low Water (keep): wt=65.000, iters=6731
+
+Low Water (keep): wt=61.000, iters=6728
+
+Low Water (keep): wt=59.000, iters=6714
+
+Low Water (keep): wt=53.000, iters=6680
+
+Low Water (keep): wt=49.000, iters=6671
+
+Low Water (keep): wt=47.000, iters=6778
+
+Low Water (keep): wt=45.000, iters=6691
+
+Low Water (keep): wt=41.000, iters=6670
+
+Low Water (keep): wt=39.000, iters=6829
+
+Low Water (keep): wt=37.000, iters=6731
+
+Low Water (keep): wt=35.000, iters=6747
+
+============================== STATISTICS ============================
+
+Given=210. Generated=136927. Kept=16153. proofs=0.
+Usable=162. Sos=14752. Demods=14542. Limbo=0, Disabled=1241. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=305.
+Forward_subsumed=117808. Back_subsumed=649.
+Sos_limit_deleted=2661. Sos_displaced=0. Sos_removed=0.
+New_demodulators=15669 (5 lex), Back_demodulated=590. Back_unit_deleted=0.
+Demod_attempts=2354628. Demod_rewrites=296301.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=34.57.
+User_CPU=20.03, System_CPU=0.11, Wall_clock=21.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 130 exit (max_seconds) Fri Oct 23 15:01:05 2026
+
+SEARCH FAILED
+
+------ process 130 exit (max_seconds) ------
+

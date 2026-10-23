@@ -1,0 +1,14 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+divide(A,divide(divide(divide(identity,B),C),divide(divide(divide(A,A),A),C))) = B # label(single_axiom) # label(axiom).
+multiply(A,B) = divide(A,divide(identity,B)) # label(multiply) # label(axiom).
+inverse(A) = divide(identity,A) # label(inverse) # label(axiom).
+identity = divide(A,A) # label(identity) # label(axiom).
+multiply(identity,a2) != a2 # label(prove_these_axioms_2) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

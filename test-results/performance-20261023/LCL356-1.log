@@ -1,0 +1,113 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 51 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-is_a_theorem(implies(X,Y)) | -is_a_theorem(X) | is_a_theorem(Y) # label(condensed_detachment) # label(axiom).
+is_a_theorem(implies(implies(X,Y),implies(implies(Y,Z),implies(X,Z)))) # label(cn_1) # label(axiom).
+is_a_theorem(implies(implies(not(X),X),X)) # label(cn_2) # label(axiom).
+is_a_theorem(implies(X,implies(not(X),Y))) # label(cn_3) # label(axiom).
+-is_a_theorem(implies(implies(x,implies(y,z)),implies(implies(u,y),implies(x,implies(u,z))))) # label(prove_cn_05) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_cn_05 to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ is_a_theorem ]).
+Function symbol precedence:  function_order([ u, x, y, z, implies, not ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(hyper_resolution).  % (HNE depth_diff=1)
+    % set(hyper_resolution) -> set(pos_hyper_resolution).
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds: prove_cn_05.
+% Length of proof is 6.
+% Level of proof is 3.
+% Maximum clause weight is 16.000.
+% Given clauses 6 (2.000 givens/level).
+
+1 -is_a_theorem(implies(A,B)) | -is_a_theorem(A) | is_a_theorem(B) # label(condensed_detachment) # label(axiom).  [assumption].
+2 is_a_theorem(implies(implies(A,B),implies(implies(B,C),implies(A,C)))) # label(cn_1) # label(axiom).  [assumption].
+5 -is_a_theorem(implies(implies(x,implies(y,z)),implies(implies(u,y),implies(x,implies(u,z))))) # label(prove_cn_05) # label(negated_conjecture) # answer(prove_cn_05).  [assumption].
+6 is_a_theorem(implies(implies(implies(implies(A,B),implies(C,B)),D),implies(implies(C,A),D))).  [hyper(1,a,2,a,b,2,a)].
+12 is_a_theorem(implies(implies(A,implies(B,C)),implies(implies(D,B),implies(A,implies(D,C))))).  [hyper(1,a,6,a,b,6,a)].
+13 $F # answer(prove_cn_05).  [resolve(12,a,5,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=6. Generated=14. Kept=12. proofs=1.
+Usable=6. Sos=5. Demods=0. Limbo=0, Disabled=5. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=2. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=1.
+Megabytes=0.07.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 51 exit (max_proofs) Fri Oct 23 15:00:23 2026
+-------- Proof 1 -------- prove_cn_05.
+
+THEOREM PROVED
+
+------ process 51 exit (max_proofs) ------
+

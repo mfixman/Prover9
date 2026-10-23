@@ -1,0 +1,113 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 65 was started by mfixman on bodoque,
+Fri Oct 23 15:00:23 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+apply(apply(apply(b,X),Y),Z) = apply(X,apply(Y,Z)) # label(b_definition) # label(axiom).
+apply(apply(t,X),Y) = apply(Y,X) # label(t_definition) # label(axiom).
+apply(apply(apply(apply(apply(b,apply(apply(b,apply(t,t)),b)),apply(apply(b,b),t)),x),y),z) != apply(apply(z,y),x) # label(prove_f_combinator) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_f_combinator to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ b, t, x, y, z, apply ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds: prove_f_combinator.
+% Length of proof is 9.
+% Level of proof is 3.
+% Maximum clause weight is 21.000.
+% Given clauses 3 (1.000 givens/level).
+
+1 apply(apply(apply(b,A),B),C) = apply(A,apply(B,C)) # label(b_definition) # label(axiom).  [assumption].
+2 apply(apply(t,A),B) = apply(B,A) # label(t_definition) # label(axiom).  [assumption].
+3 apply(apply(apply(apply(apply(b,apply(apply(b,apply(t,t)),b)),apply(apply(b,b),t)),x),y),z) != apply(apply(z,y),x) # label(prove_f_combinator) # label(negated_conjecture) # answer(prove_f_combinator).  [assumption].
+4 apply(apply(apply(apply(t,t),apply(b,apply(b,apply(t,x)))),y),z) != apply(apply(z,y),x) # answer(prove_f_combinator).  [copy(3),rewrite([1(17),1(14),1(13)])].
+5 apply(A,apply(apply(t,B),C)) = apply(A,apply(C,B)).  [para(2(a,1),1(a,2,2)),rewrite([1(6)])].
+7 apply(apply(apply(t,A),apply(b,B)),C) = apply(B,apply(A,C)).  [para(2(a,2),1(a,1,1))].
+11 apply(apply(z,y),x) != apply(apply(t,x),apply(apply(t,y),z)) # answer(prove_f_combinator).  [back_rewrite(4),rewrite([7(13),1(11)]),flip(a)].
+19 apply(apply(t,A),apply(apply(t,B),C)) = apply(apply(C,B),A).  [para(5(a,2),2(a,1))].
+20 $F # answer(prove_f_combinator).  [resolve(19,a,11,a(flip))].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=3. Generated=38. Kept=18. proofs=1.
+Usable=3. Sos=6. Demods=4. Limbo=7, Disabled=4. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=20. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=4 (0 lex), Back_demodulated=1. Back_unit_deleted=0.
+Demod_attempts=446. Demod_rewrites=28.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.07.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 65 exit (max_proofs) Fri Oct 23 15:00:23 2026
+-------- Proof 1 -------- prove_f_combinator.
+
+THEOREM PROVED
+
+------ process 65 exit (max_proofs) ------
+

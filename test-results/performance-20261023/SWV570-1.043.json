@@ -1,0 +1,12 @@
+{
+  "problem": "SWV570-1.043",
+  "domain": "SWV",
+  "rating": 0.27,
+  "conversion_wall_seconds": 0.01913205100572668,
+  "exit_code": 4,
+  "search_wall_seconds": 20.621280951003428,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.38,
+  "total_wall_seconds": 20.64499808200344
+}

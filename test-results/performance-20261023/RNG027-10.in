@@ -1,0 +1,35 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+ifeq(A,A,B,C) = B # label(ifeq_axiom) # label(axiom).
+add(additive_identity,X) = X # label(left_additive_identity) # label(axiom).
+multiply(additive_identity,X) = additive_identity # label(left_multiplicative_zero) # label(axiom).
+multiply(X,additive_identity) = additive_identity # label(right_multiplicative_zero) # label(axiom).
+add(additive_inverse(X),X) = additive_identity # label(add_inverse) # label(axiom).
+additive_inverse(add(X,Y)) = add(additive_inverse(X),additive_inverse(Y)) # label(sum_of_inverses) # label(axiom).
+additive_inverse(additive_inverse(X)) = X # label(additive_inverse_additive_inverse) # label(axiom).
+multiply(X,add(Y,Z)) = add(multiply(X,Y),multiply(X,Z)) # label(multiply_over_add1) # label(axiom).
+multiply(add(X,Y),Z) = add(multiply(X,Z),multiply(Y,Z)) # label(multiply_over_add2) # label(axiom).
+multiply(multiply(X,Y),Y) = multiply(X,multiply(Y,Y)) # label(right_alternative) # label(axiom).
+multiply(multiply(X,X),Y) = multiply(X,multiply(X,Y)) # label(left_alternative) # label(axiom).
+multiply(additive_inverse(X),Y) = additive_inverse(multiply(X,Y)) # label(inverse_product1) # label(axiom).
+multiply(X,additive_inverse(Y)) = additive_inverse(multiply(X,Y)) # label(inverse_product2) # label(axiom).
+additive_inverse(additive_identity) = additive_identity # label(inverse_additive_identity) # label(axiom).
+add(X,Y) = add(Y,X) # label(commutativity_for_addition) # label(axiom).
+add(X,add(Y,Z)) = add(add(X,Y),Z) # label(associativity_for_addition) # label(axiom).
+ifeq(add(X,Z),add(Y,Z),X,Y) = Y # label(left_cancellation_for_addition) # label(axiom).
+ifeq(add(Z,X),add(Z,Y),X,Y) = Y # label(right_cancellation_for_addition) # label(axiom).
+associator(X,Y,Z) = add(multiply(multiply(X,Y),Z),additive_inverse(multiply(X,multiply(Y,Z)))) # label(associator) # label(axiom).
+multiply(multiply(Y,X),Y) = multiply(Y,multiply(X,Y)) # label(middle_law) # label(axiom).
+associator(Y,X,Z) = additive_inverse(associator(X,Y,Z)) # label(associator_skew_symmetry1) # label(axiom).
+associator(Z,Y,X) = additive_inverse(associator(X,Y,Z)) # label(associator_skew_symmetry2) # label(axiom).
+multiply(cz,multiply(cx,multiply(cy,cx))) != multiply(multiply(multiply(cz,cx),cy),cx) # label(prove_right_moufang) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

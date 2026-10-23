@@ -1,0 +1,12 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all X reachable(X,X)) # label(reflexivity_of_reachable) # label(axiom).
+(all X all Y all Z (reachable(X,Y) & reachable(Y,Z) -> reachable(X,Z))) # label(transitivity_of_reachable) # label(axiom).
+end_of_list.
+
+formulas(goals).
+(exists X (reachable(initial_world,X) & (all Y (reachable(X,Y) -> ((all Z (reachable(Y,Z) -> p(Z) | (all V (reachable(Z,V) -> q(V))))) <-> (all W (reachable(Y,W) -> p(W))) | (all W (reachable(Y,W) -> q(W)))))))) # label(prove_this) # label(conjecture).
+end_of_list.

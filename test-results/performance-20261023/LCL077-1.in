@@ -1,0 +1,17 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-is_a_theorem(implies(X,Y)) | -is_a_theorem(X) | is_a_theorem(Y) # label(condensed_detachment) # label(axiom).
+is_a_theorem(implies(X,implies(Y,X))) # label(cn_18) # label(axiom).
+is_a_theorem(implies(implies(X,implies(Y,Z)),implies(implies(X,Y),implies(X,Z)))) # label(cn_35) # label(axiom).
+is_a_theorem(implies(implies(not(X),not(Y)),implies(Y,X))) # label(cn_49) # label(axiom).
+-is_a_theorem(implies(not(not(a)),a)) # label(prove_cn_39) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

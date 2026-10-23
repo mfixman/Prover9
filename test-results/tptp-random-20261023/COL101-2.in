@@ -1,0 +1,11 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-c_in(c_Pair(c_Comb_Ocomb_Oop_A_D_D(v_x,v_z),c_Comb_Ocomb_Oop_A_D_D(v_x,v_z),tc_Comb_Ocomb,tc_Comb_Ocomb),c_Transitive__Closure_Ortrancl(c_Comb_Ocontract,tc_Comb_Ocomb),tc_prod(tc_Comb_Ocomb,tc_Comb_Ocomb)) # label(cls_conjecture_0) # label(negated_conjecture).
+c_in(c_Pair(V_a,V_a,T_a,T_a),c_Transitive__Closure_Ortrancl(V_r,T_a),tc_prod(T_a,T_a)) # label(cls_Transitive__Closure_Ortrancl_Ortrancl__refl_0) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.

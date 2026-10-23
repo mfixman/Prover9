@@ -1,0 +1,840 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+v9(VarCurr) | -v13(VarNext) | -nextState(VarCurr,VarNext) # label(addAssignment_11_2) # label(axiom).
+v13(VarNext) | -v9(VarCurr) | -nextState(VarCurr,VarNext) # label(addAssignment_11_1) # label(axiom).
+v19(VarCurr) | v13(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_44_1_1_2) # label(axiom).
+v19(VarCurr) | v1(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_44_1_1_1) # label(axiom).
+v22(VarCurr) | -v13(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_1_1_1_1_2) # label(axiom).
+v22(VarCurr) | -v1(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_1_1_1_1_1) # label(axiom).
+v18(VarCurr) | -v22(VarCurr) | -v19(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_2_1_1_1) # label(axiom).
+-v26(VarCurr) # label(addAssignment_1_1_1) # label(axiom).
+v36(constB0) # label(addAssignmentInitValue_8_1) # label(axiom).
+v36(VarCurr) | -v34(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_4_1_1_3) # label(axiom).
+-v141(VarCurr) | -v34(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_4_1_1_2) # label(axiom).
+v34(VarCurr) | v141(VarCurr) | -v36(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_4_1_1_1) # label(axiom).
+v34(VarCurr) | -v36(VarNext) | -nextState(VarCurr,VarNext) # label(addAssignment_2_1_2) # label(axiom).
+v36(VarNext) | -v34(VarCurr) | -nextState(VarCurr,VarNext) # label(addAssignment_2_1_1) # label(axiom).
+-v46(constB0) # label(addAssignmentInitValue_1_1_1_1) # label(axiom).
+v46(VarCurr) | -v47(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_5_1_1_3) # label(axiom).
+-v141(VarCurr) | -v47(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_5_1_1_2) # label(axiom).
+v47(VarCurr) | v141(VarCurr) | -v46(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_5_1_1_1) # label(axiom).
+v36(VarCurr) | -v48(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_7_1_1_3) # label(axiom).
+v54(VarCurr) | -v48(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_7_1_1_2) # label(axiom).
+v48(VarCurr) | -v54(VarCurr) | -v36(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_7_1_1_1) # label(axiom).
+v48(VarCurr) | v47(VarCurr) | -v44(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_8_1_3) # label(axiom).
+v44(VarCurr) | -v47(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_8_1_2) # label(axiom).
+v44(VarCurr) | -v48(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_8_1_1) # label(axiom).
+v44(VarCurr) | -v46(VarNext) | -nextState(VarCurr,VarNext) # label(addAssignment_3_1_2) # label(axiom).
+v46(VarNext) | -v44(VarCurr) | -nextState(VarCurr,VarNext) # label(addAssignment_3_1_1) # label(axiom).
+v26(VarCurr) | -v54(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_9_1_1_3) # label(axiom).
+v141(VarCurr) | -v54(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_9_1_1_2) # label(axiom).
+v54(VarCurr) | -v141(VarCurr) | -v26(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_9_1_1_1) # label(axiom).
+v53(VarCurr) | -v54(VarCurr) | -v46(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_10_1_1_1_1) # label(axiom).
+v1(VarCurr) | v9(VarCurr) | -v64(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_11_1_4) # label(axiom).
+-v1(VarCurr) | -v9(VarCurr) | -v64(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_11_1_3) # label(axiom).
+v64(VarCurr) | v1(VarCurr) | -v9(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_11_1_2) # label(axiom).
+v64(VarCurr) | v9(VarCurr) | -v1(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_11_1_1) # label(axiom).
+v26(VarCurr) | -v66(VarNext) | -nextState(VarCurr,VarNext) # label(addAssignment_4_1_2) # label(axiom).
+v66(VarNext) | -v26(VarCurr) | -nextState(VarCurr,VarNext) # label(addAssignment_4_1_1) # label(axiom).
+v66(VarNext) | -v60(VarNext) | -v64(VarNext) # label(addConditionBooleanCondEqualRangesThenBranch_3_1_2) # label(axiom).
+v60(VarNext) | -v66(VarNext) | -v64(VarNext) # label(addConditionBooleanCondEqualRangesThenBranch_3_1_1) # label(axiom).
+v60(VarCurr) | -v60(VarNext) | v64(VarNext) | -nextState(VarCurr,VarNext) # label(aaddConditionBooleanCondEqualRangesElseBranch_3_1_1_2) # label(axiom).
+v60(VarNext) | -v60(VarCurr) | v64(VarNext) | -nextState(VarCurr,VarNext) # label(aaddConditionBooleanCondEqualRangesElseBranch_3_1_1_1) # label(axiom).
+v60(VarCurr) | -v26(VarCurr) | -v74(VarCurr) # label(addBitVectorEqualityBitBlasted_11_1_2) # label(axiom).
+v26(VarCurr) | -v60(VarCurr) | -v74(VarCurr) # label(addBitVectorEqualityBitBlasted_11_1_1) # label(axiom).
+v72(VarCurr) | v74(VarCurr) | v1(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_13_1_1_1_1) # label(axiom).
+v78(VarCurr) | v9(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_14_1_1_1_2) # label(axiom).
+v78(VarCurr) | v1(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_14_1_1_1_1) # label(axiom).
+v80(VarCurr) | -v9(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_15_1_1_1_2) # label(axiom).
+v80(VarCurr) | -v1(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_15_1_1_1_1) # label(axiom).
+v76(VarCurr) | -v80(VarCurr) | -v78(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_16_1_1_1) # label(axiom).
+v71(VarCurr) | -v76(VarCurr) | -v72(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_17_1_1_1) # label(axiom).
+-v84(constB0,bitIndex0) # label(addAssignmentInitValue_2_1_1) # label(axiom).
+-v84(constB0,bitIndex1) # label(addAssignmentInitValue_3_1_1) # label(axiom).
+-v84(constB0,bitIndex2) # label(addAssignmentInitValue_4_1_1) # label(axiom).
+v1(VarCurr) | -v98(VarNext) | -nextState(VarCurr,VarNext) # label(addAssignment_5_1_2) # label(axiom).
+v98(VarNext) | -v1(VarCurr) | -nextState(VarCurr,VarNext) # label(addAssignment_5_1_1) # label(axiom).
+v98(VarNext) | v96(VarNext) | -nextState(VarCurr,VarNext) # label(writeUnaryOperator_12_1_2) # label(axiom).
+-v96(VarNext) | -v98(VarNext) | -nextState(VarCurr,VarNext) # label(writeUnaryOperator_12_1_1) # label(axiom).
+v96(VarNext) | -v95(VarNext) | -nextState(VarCurr,VarNext) # label(writeBinaryOperatorEqualRangesSingleBits_18_1_3) # label(axiom).
+v1(VarNext) | -v95(VarNext) | -nextState(VarCurr,VarNext) # label(writeBinaryOperatorEqualRangesSingleBits_18_1_2) # label(axiom).
+v95(VarNext) | -v1(VarNext) | -v96(VarNext) | -nextState(VarCurr,VarNext) # label(writeBinaryOperatorEqualRangesSingleBits_18_1_1) # label(axiom).
+-v84(VarCurr,bitIndex0) | -v113(VarCurr) # label(addBitVectorEqualityBitBlasted_2_1_1_4) # label(axiom).
+-v84(VarCurr,bitIndex1) | -v113(VarCurr) # label(addBitVectorEqualityBitBlasted_2_1_1_3) # label(axiom).
+-v84(VarCurr,bitIndex2) | -v113(VarCurr) # label(addBitVectorEqualityBitBlasted_2_1_1_2) # label(axiom).
+v113(VarCurr) | v84(VarCurr,bitIndex2) | v84(VarCurr,bitIndex1) | v84(VarCurr,bitIndex0) # label(addBitVectorEqualityBitBlasted_2_1_1_1) # label(axiom).
+b001(bitIndex0) # label(bitBlastConstant_3_1) # label(axiom).
+-b001(bitIndex1) # label(bitBlastConstant_4_1_1) # label(axiom).
+-b001(bitIndex2) # label(bitBlastConstant_5_1_1) # label(axiom).
+v145(VarCurr) | v113(VarCurr) | -v112(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_19_1_1_3) # label(axiom).
+v112(VarCurr) | -v113(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_19_1_1_2) # label(axiom).
+v112(VarCurr) | -v145(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_19_1_1_1) # label(axiom).
+-b010(bitIndex0) # label(bitBlastConstant_6_1_1) # label(axiom).
+b010(bitIndex1) # label(bitBlastConstant_7_1) # label(axiom).
+-b010(bitIndex2) # label(bitBlastConstant_8_1_1) # label(axiom).
+-v84(VarCurr,bitIndex0) | -v115(VarCurr) # label(addBitVectorEqualityBitBlasted_4_1_1_4) # label(axiom).
+-v84(VarCurr,bitIndex2) | -v115(VarCurr) # label(addBitVectorEqualityBitBlasted_4_1_1_3) # label(axiom).
+v84(VarCurr,bitIndex1) | -v115(VarCurr) # label(addBitVectorEqualityBitBlasted_4_1_1_2) # label(axiom).
+v115(VarCurr) | -v84(VarCurr,bitIndex1) | v84(VarCurr,bitIndex2) | v84(VarCurr,bitIndex0) # label(addBitVectorEqualityBitBlasted_4_1_1_1) # label(axiom).
+v115(VarCurr) | v112(VarCurr) | -v111(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_20_1_3) # label(axiom).
+v111(VarCurr) | -v112(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_20_1_2) # label(axiom).
+v111(VarCurr) | -v115(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_20_1_1) # label(axiom).
+b011(bitIndex0) # label(bitBlastConstant_9_1) # label(axiom).
+b011(bitIndex1) # label(bitBlastConstant_10_1) # label(axiom).
+-b011(bitIndex2) # label(bitBlastConstant_11_1_1) # label(axiom).
+-v84(VarCurr,bitIndex2) | -v116(VarCurr) # label(addBitVectorEqualityBitBlasted_5_1_1_4) # label(axiom).
+v84(VarCurr,bitIndex0) | -v116(VarCurr) # label(addBitVectorEqualityBitBlasted_5_1_1_3) # label(axiom).
+v84(VarCurr,bitIndex1) | -v116(VarCurr) # label(addBitVectorEqualityBitBlasted_5_1_1_2) # label(axiom).
+v116(VarCurr) | -v84(VarCurr,bitIndex1) | -v84(VarCurr,bitIndex0) | v84(VarCurr,bitIndex2) # label(addBitVectorEqualityBitBlasted_5_1_1_1) # label(axiom).
+v116(VarCurr) | v111(VarCurr) | -v110(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_21_1_3) # label(axiom).
+v110(VarCurr) | -v111(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_21_1_2) # label(axiom).
+v110(VarCurr) | -v116(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_21_1_1) # label(axiom).
+-b100(bitIndex0) # label(bitBlastConstant_12_1_1) # label(axiom).
+-b100(bitIndex1) # label(bitBlastConstant_13_1_1) # label(axiom).
+b100(bitIndex2) # label(bitBlastConstant_14_1) # label(axiom).
+v172(VarCurr) | v110(VarCurr) | -v109(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_22_1_1_3) # label(axiom).
+v109(VarCurr) | -v110(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_22_1_1_2) # label(axiom).
+v109(VarCurr) | -v172(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_22_1_1_1) # label(axiom).
+b101(bitIndex0) # label(bitBlastConstant_15_1) # label(axiom).
+-b101(bitIndex1) # label(bitBlastConstant_16_1_1) # label(axiom).
+b101(bitIndex2) # label(bitBlastConstant_17_1) # label(axiom).
+-v84(VarCurr,bitIndex1) | -v118(VarCurr) # label(addBitVectorEqualityBitBlasted_7_1_1_4) # label(axiom).
+v84(VarCurr,bitIndex0) | -v118(VarCurr) # label(addBitVectorEqualityBitBlasted_7_1_1_3) # label(axiom).
+v84(VarCurr,bitIndex2) | -v118(VarCurr) # label(addBitVectorEqualityBitBlasted_7_1_1_2) # label(axiom).
+v118(VarCurr) | -v84(VarCurr,bitIndex2) | -v84(VarCurr,bitIndex0) | v84(VarCurr,bitIndex1) # label(addBitVectorEqualityBitBlasted_7_1_1_1) # label(axiom).
+v118(VarCurr) | v109(VarCurr) | -v108(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_23_1_3) # label(axiom).
+v108(VarCurr) | -v109(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_23_1_2) # label(axiom).
+v108(VarCurr) | -v118(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_23_1_1) # label(axiom).
+-b110(bitIndex0) # label(bitBlastConstant_18_1_1) # label(axiom).
+b110(bitIndex1) # label(bitBlastConstant_19_1) # label(axiom).
+b110(bitIndex2) # label(bitBlastConstant_20_1) # label(axiom).
+-v84(VarCurr,bitIndex0) | -v119(VarCurr) # label(addBitVectorEqualityBitBlasted_8_1_1_4) # label(axiom).
+v84(VarCurr,bitIndex1) | -v119(VarCurr) # label(addBitVectorEqualityBitBlasted_8_1_1_3) # label(axiom).
+v84(VarCurr,bitIndex2) | -v119(VarCurr) # label(addBitVectorEqualityBitBlasted_8_1_1_2) # label(axiom).
+v119(VarCurr) | -v84(VarCurr,bitIndex2) | -v84(VarCurr,bitIndex1) | v84(VarCurr,bitIndex0) # label(addBitVectorEqualityBitBlasted_8_1_1_1) # label(axiom).
+v119(VarCurr) | v108(VarCurr) | -v107(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_24_1_3) # label(axiom).
+v107(VarCurr) | -v108(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_24_1_2) # label(axiom).
+v107(VarCurr) | -v119(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_24_1_1) # label(axiom).
+-v26(VarCurr) | -v106(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_25_1_1_3) # label(axiom).
+v107(VarCurr) | -v106(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_25_1_1_2) # label(axiom).
+v106(VarCurr) | -v107(VarCurr) | v26(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_25_1_1_1) # label(axiom).
+v106(VarCurr) | v26(VarCurr) | -v102(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_26_1_1_3) # label(axiom).
+v102(VarCurr) | -v26(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_26_1_1_2) # label(axiom).
+v102(VarCurr) | -v106(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_26_1_1_1) # label(axiom).
+v102(VarCurr) | -v104(VarNext) | -nextState(VarCurr,VarNext) # label(addAssignment_6_1_2) # label(axiom).
+v104(VarNext) | -v102(VarCurr) | -nextState(VarCurr,VarNext) # label(addAssignment_6_1_1) # label(axiom).
+v95(VarNext) | -v94(VarNext) | -nextState(VarCurr,VarNext) # label(writeBinaryOperatorEqualRangesSingleBits_27_1_3) # label(axiom).
+v104(VarNext) | -v94(VarNext) | -nextState(VarCurr,VarNext) # label(writeBinaryOperatorEqualRangesSingleBits_27_1_2) # label(axiom).
+v94(VarNext) | -v104(VarNext) | -v95(VarNext) | -nextState(VarCurr,VarNext) # label(writeBinaryOperatorEqualRangesSingleBits_27_1_1) # label(axiom).
+b100(B) | -v124(VarCurr,B) | -less_3(B) | -v113(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges0_2_2) # label(axiom).
+v124(VarCurr,B) | -b100(B) | -less_3(B) | -v113(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges0_2_1) # label(axiom).
+b010(B) | -v124(VarCurr,B) | -less_3(B) | -v145(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges1_2_1_2) # label(axiom).
+v124(VarCurr,B) | -b010(B) | -less_3(B) | -v145(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges1_2_1_1) # label(axiom).
+b011(B) | -v124(VarCurr,B) | -less_3(B) | -v115(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges2_1_2) # label(axiom).
+v124(VarCurr,B) | -b011(B) | -less_3(B) | -v115(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges2_1_1) # label(axiom).
+b100(B) | -v124(VarCurr,B) | -less_3(B) | -v116(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges3_1_2) # label(axiom).
+v124(VarCurr,B) | -b100(B) | -less_3(B) | -v116(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges3_1_1) # label(axiom).
+b110(B) | -v124(VarCurr,B) | -less_3(B) | -v172(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges4_1_1_2) # label(axiom).
+v124(VarCurr,B) | -b110(B) | -less_3(B) | -v172(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges4_1_1_1) # label(axiom).
+b011(B) | -v124(VarCurr,B) | -less_3(B) | -v118(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges5_1_2) # label(axiom).
+v124(VarCurr,B) | -b011(B) | -less_3(B) | -v118(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges5_1_1) # label(axiom).
+b001(B) | -v124(VarCurr,B) | -less_3(B) | v118(VarCurr) | v172(VarCurr) | v116(VarCurr) | v115(VarCurr) | v145(VarCurr) | v113(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges6_1_1_2) # label(axiom).
+v124(VarCurr,B) | -b001(B) | -less_3(B) | v118(VarCurr) | v172(VarCurr) | v116(VarCurr) | v115(VarCurr) | v145(VarCurr) | v113(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges6_1_1_1) # label(axiom).
+-v121(VarCurr,B) | -less_3(B) | -v26(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges0_1_1_1_1) # label(axiom).
+v124(VarCurr,B) | -v121(VarCurr,B) | -less_3(B) | v26(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges1_1_1_1_2) # label(axiom).
+v121(VarCurr,B) | -v124(VarCurr,B) | -less_3(B) | v26(VarCurr) # label(addParallelCaseBooleanConditionEqualRanges1_1_1_1_1) # label(axiom).
+v121(VarCurr,B) | -v123(VarNext,B) | -less_3(B) | -nextState(VarCurr,VarNext) # label(addAssignment_7_1_2) # label(axiom).
+v123(VarNext,B) | -v121(VarCurr,B) | -less_3(B) | -nextState(VarCurr,VarNext) # label(addAssignment_7_1_1) # label(axiom).
+v123(VarNext,B) | -v84(VarNext,B) | -less_3(B) | -v94(VarNext) # label(addCaseBooleanConditionEqualRanges0_2) # label(axiom).
+v84(VarNext,B) | -v123(VarNext,B) | -less_3(B) | -v94(VarNext) # label(addCaseBooleanConditionEqualRanges0_1) # label(axiom).
+v84(VarCurr,B) | -v84(VarNext,B) | -less_3(B) | v94(VarNext) | -nextState(VarCurr,VarNext) # label(addCaseBooleanConditionEqualRanges1_1_2) # label(axiom).
+v84(VarNext,B) | -v84(VarCurr,B) | -less_3(B) | v94(VarNext) | -nextState(VarCurr,VarNext) # label(addCaseBooleanConditionEqualRanges1_1_1) # label(axiom).
+-v137(constB0) # label(addAssignmentInitValue_5_1_1_1) # label(axiom).
+v9(VarCurr) | -v141(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_28_1_1_3) # label(axiom).
+-v1(VarCurr) | -v141(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_28_1_1_2) # label(axiom).
+v141(VarCurr) | v1(VarCurr) | -v9(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_28_1_1_1) # label(axiom).
+v141(VarCurr) | v26(VarCurr) | -v140(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_29_1_1_3) # label(axiom).
+v140(VarCurr) | -v26(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_29_1_1_2) # label(axiom).
+v140(VarCurr) | -v141(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_29_1_1_1) # label(axiom).
+-v140(VarCurr) | -v138(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_30_1_1_3) # label(axiom).
+v137(VarCurr) | -v138(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_30_1_1_2) # label(axiom).
+v138(VarCurr) | -v137(VarCurr) | v140(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_30_1_1_1) # label(axiom).
+-v84(VarCurr,bitIndex1) | -v145(VarCurr) # label(addBitVectorEqualityBitBlasted_9_1_1_4) # label(axiom).
+-v84(VarCurr,bitIndex2) | -v145(VarCurr) # label(addBitVectorEqualityBitBlasted_9_1_1_3) # label(axiom).
+v84(VarCurr,bitIndex0) | -v145(VarCurr) # label(addBitVectorEqualityBitBlasted_9_1_1_2) # label(axiom).
+v145(VarCurr) | -v84(VarCurr,bitIndex0) | v84(VarCurr,bitIndex2) | v84(VarCurr,bitIndex1) # label(addBitVectorEqualityBitBlasted_9_1_1_1) # label(axiom).
+v141(VarCurr) | -v144(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_31_1_3) # label(axiom).
+v145(VarCurr) | -v144(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_31_1_2) # label(axiom).
+v144(VarCurr) | -v145(VarCurr) | -v141(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_31_1_1) # label(axiom).
+-v26(VarCurr) | -v142(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_32_1_1_3) # label(axiom).
+v144(VarCurr) | -v142(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_32_1_1_2) # label(axiom).
+v142(VarCurr) | -v144(VarCurr) | v26(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_32_1_1_1) # label(axiom).
+v142(VarCurr) | v138(VarCurr) | -v135(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_33_1_3) # label(axiom).
+v135(VarCurr) | -v138(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_33_1_2) # label(axiom).
+v135(VarCurr) | -v142(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_33_1_1) # label(axiom).
+v135(VarCurr) | -v137(VarNext) | -nextState(VarCurr,VarNext) # label(addAssignment_8_1_2) # label(axiom).
+v137(VarNext) | -v135(VarCurr) | -nextState(VarCurr,VarNext) # label(addAssignment_8_1_1) # label(axiom).
+-v152(constB0) # label(addAssignmentInitValue_6_1_1_1) # label(axiom).
+-v140(VarCurr) | -v153(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_34_1_1_3) # label(axiom).
+v152(VarCurr) | -v153(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_34_1_1_2) # label(axiom).
+v153(VarCurr) | -v152(VarCurr) | v140(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_34_1_1_1) # label(axiom).
+-v26(VarCurr) | -v155(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_35_1_1_3) # label(axiom).
+v141(VarCurr) | -v155(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_35_1_1_2) # label(axiom).
+v155(VarCurr) | -v141(VarCurr) | v26(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_35_1_1_1) # label(axiom).
+v137(VarCurr) | -v154(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_36_1_1_3) # label(axiom).
+v155(VarCurr) | -v154(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_36_1_1_2) # label(axiom).
+v154(VarCurr) | -v155(VarCurr) | -v137(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_36_1_1_1) # label(axiom).
+v154(VarCurr) | v153(VarCurr) | -v150(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_37_1_3) # label(axiom).
+v150(VarCurr) | -v153(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_37_1_2) # label(axiom).
+v150(VarCurr) | -v154(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_37_1_1) # label(axiom).
+v150(VarCurr) | -v152(VarNext) | -nextState(VarCurr,VarNext) # label(addAssignment_9_1_2) # label(axiom).
+v152(VarNext) | -v150(VarCurr) | -nextState(VarCurr,VarNext) # label(addAssignment_9_1_1) # label(axiom).
+-v162(constB0) # label(addAssignmentInitValue_7_1_1_1) # label(axiom).
+-v140(VarCurr) | -v163(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_38_1_1_3) # label(axiom).
+v162(VarCurr) | -v163(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_38_1_1_2) # label(axiom).
+v163(VarCurr) | -v162(VarCurr) | v140(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_38_1_1_1) # label(axiom).
+v155(VarCurr) | -v164(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_39_1_1_3) # label(axiom).
+v152(VarCurr) | -v164(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_39_1_1_2) # label(axiom).
+v164(VarCurr) | -v152(VarCurr) | -v155(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_39_1_1_1) # label(axiom).
+v164(VarCurr) | v163(VarCurr) | -v160(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_40_1_3) # label(axiom).
+v160(VarCurr) | -v163(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_40_1_2) # label(axiom).
+v160(VarCurr) | -v164(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_40_1_1) # label(axiom).
+v160(VarCurr) | -v162(VarNext) | -nextState(VarCurr,VarNext) # label(addAssignment_10_1_2) # label(axiom).
+v162(VarNext) | -v160(VarCurr) | -nextState(VarCurr,VarNext) # label(addAssignment_10_1_1) # label(axiom).
+-v84(VarCurr,bitIndex0) | -v172(VarCurr) # label(addBitVectorEqualityBitBlasted_10_1_1_4) # label(axiom).
+-v84(VarCurr,bitIndex1) | -v172(VarCurr) # label(addBitVectorEqualityBitBlasted_10_1_1_3) # label(axiom).
+v84(VarCurr,bitIndex2) | -v172(VarCurr) # label(addBitVectorEqualityBitBlasted_10_1_1_2) # label(axiom).
+v172(VarCurr) | -v84(VarCurr,bitIndex2) | v84(VarCurr,bitIndex1) | v84(VarCurr,bitIndex0) # label(addBitVectorEqualityBitBlasted_10_1_1_1) # label(axiom).
+v141(VarCurr) | -v170(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_41_1_1_1_2) # label(axiom).
+-v172(VarCurr) | -v170(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_41_1_1_1_1) # label(axiom).
+-v26(VarCurr) | -v169(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_42_1_1_1_2) # label(axiom).
+v170(VarCurr) | -v169(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_42_1_1_1_1) # label(axiom).
+v162(VarCurr) | -v168(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_43_1_1_1_2) # label(axiom).
+v169(VarCurr) | -v168(VarCurr) # label(writeBinaryOperatorEqualRangesSingleBits_43_1_1_1_1) # label(axiom).
+-v18(VarCurr) # label(addGlobalAssumption_3_1_1) # label(axiom).
+-v71(VarCurr) # label(addGlobalAssumption_1_1_1_1) # label(axiom).
+-v53(VarCurr) # label(addGlobalAssumption_2_1_1_1) # label(axiom).
+reachableState(sK0_VarCurr) # label(addAssertion_1_1_2) # label(negated_conjecture).
+v168(sK0_VarCurr) # label(addAssertion_1_1_1) # label(negated_conjecture).
+less_3(bitIndex0) # label(lessPredicateGroundAxiom_3_1) # label(axiom).
+less_3(bitIndex1) # label(lessPredicateGroundAxiom_4_1) # label(axiom).
+less_3(bitIndex2) # label(lessPredicateGroundAxiom_5_1) # label(axiom).
+bitIndex2 = B | bitIndex1 = B | bitIndex0 = B | -less_3(B) # label(lessPredicateDefiningAxiom_1_1_4) # label(axiom).
+less_3(B) | bitIndex0 != B # label(lessPredicateDefiningAxiom_1_1_3) # label(axiom).
+less_3(B) | bitIndex1 != B # label(lessPredicateDefiningAxiom_1_1_2) # label(axiom).
+less_3(B) | bitIndex2 != B # label(lessPredicateDefiningAxiom_1_1_1) # label(axiom).
+reachableState(constB0) # label(reachableStateAxiom_203) # label(axiom).
+reachableState(constB1) # label(reachableStateAxiom_1_1) # label(axiom).
+reachableState(constB2) # label(reachableStateAxiom_2_1) # label(axiom).
+reachableState(constB3) # label(reachableStateAxiom_3_1) # label(axiom).
+reachableState(constB4) # label(reachableStateAxiom_4_1) # label(axiom).
+reachableState(constB5) # label(reachableStateAxiom_5_1) # label(axiom).
+reachableState(constB6) # label(reachableStateAxiom_6_1) # label(axiom).
+reachableState(constB7) # label(reachableStateAxiom_7_1) # label(axiom).
+reachableState(constB8) # label(reachableStateAxiom_8_1) # label(axiom).
+reachableState(constB9) # label(reachableStateAxiom_9_1) # label(axiom).
+reachableState(constB10) # label(reachableStateAxiom_10_1) # label(axiom).
+reachableState(constB11) # label(reachableStateAxiom_11_1) # label(axiom).
+reachableState(constB12) # label(reachableStateAxiom_12_1) # label(axiom).
+reachableState(constB13) # label(reachableStateAxiom_13_1) # label(axiom).
+reachableState(constB14) # label(reachableStateAxiom_14_1) # label(axiom).
+reachableState(constB15) # label(reachableStateAxiom_15_1) # label(axiom).
+reachableState(constB16) # label(reachableStateAxiom_16_1) # label(axiom).
+reachableState(constB17) # label(reachableStateAxiom_17_1) # label(axiom).
+reachableState(constB18) # label(reachableStateAxiom_18_1) # label(axiom).
+reachableState(constB19) # label(reachableStateAxiom_19_1) # label(axiom).
+reachableState(constB20) # label(reachableStateAxiom_20_1) # label(axiom).
+reachableState(constB21) # label(reachableStateAxiom_21_1) # label(axiom).
+reachableState(constB22) # label(reachableStateAxiom_22_1) # label(axiom).
+reachableState(constB23) # label(reachableStateAxiom_23_1) # label(axiom).
+reachableState(constB24) # label(reachableStateAxiom_24_1) # label(axiom).
+reachableState(constB25) # label(reachableStateAxiom_25_1) # label(axiom).
+reachableState(constB26) # label(reachableStateAxiom_26_1) # label(axiom).
+reachableState(constB27) # label(reachableStateAxiom_27_1) # label(axiom).
+reachableState(constB28) # label(reachableStateAxiom_28_1) # label(axiom).
+reachableState(constB29) # label(reachableStateAxiom_29_1) # label(axiom).
+reachableState(constB30) # label(reachableStateAxiom_30_1) # label(axiom).
+reachableState(constB31) # label(reachableStateAxiom_31_1) # label(axiom).
+reachableState(constB32) # label(reachableStateAxiom_32_1) # label(axiom).
+reachableState(constB33) # label(reachableStateAxiom_33_1) # label(axiom).
+reachableState(constB34) # label(reachableStateAxiom_34_1) # label(axiom).
+reachableState(constB35) # label(reachableStateAxiom_35_1) # label(axiom).
+reachableState(constB36) # label(reachableStateAxiom_36_1) # label(axiom).
+reachableState(constB37) # label(reachableStateAxiom_37_1) # label(axiom).
+reachableState(constB38) # label(reachableStateAxiom_38_1) # label(axiom).
+reachableState(constB39) # label(reachableStateAxiom_39_1) # label(axiom).
+reachableState(constB40) # label(reachableStateAxiom_40_1) # label(axiom).
+reachableState(constB41) # label(reachableStateAxiom_41_1) # label(axiom).
+reachableState(constB42) # label(reachableStateAxiom_42_1) # label(axiom).
+reachableState(constB43) # label(reachableStateAxiom_43_1) # label(axiom).
+reachableState(constB44) # label(reachableStateAxiom_44_1) # label(axiom).
+reachableState(constB45) # label(reachableStateAxiom_45_1) # label(axiom).
+reachableState(constB46) # label(reachableStateAxiom_46_1) # label(axiom).
+reachableState(constB47) # label(reachableStateAxiom_47_1) # label(axiom).
+reachableState(constB48) # label(reachableStateAxiom_48_1) # label(axiom).
+reachableState(constB49) # label(reachableStateAxiom_49_1) # label(axiom).
+reachableState(constB50) # label(reachableStateAxiom_50_1) # label(axiom).
+reachableState(constB51) # label(reachableStateAxiom_51_1) # label(axiom).
+reachableState(constB52) # label(reachableStateAxiom_52_1) # label(axiom).
+reachableState(constB53) # label(reachableStateAxiom_53_1) # label(axiom).
+reachableState(constB54) # label(reachableStateAxiom_54_1) # label(axiom).
+reachableState(constB55) # label(reachableStateAxiom_55_1) # label(axiom).
+reachableState(constB56) # label(reachableStateAxiom_56_1) # label(axiom).
+reachableState(constB57) # label(reachableStateAxiom_57_1) # label(axiom).
+reachableState(constB58) # label(reachableStateAxiom_58_1) # label(axiom).
+reachableState(constB59) # label(reachableStateAxiom_59_1) # label(axiom).
+reachableState(constB60) # label(reachableStateAxiom_60_1) # label(axiom).
+reachableState(constB61) # label(reachableStateAxiom_61_1) # label(axiom).
+reachableState(constB62) # label(reachableStateAxiom_62_1) # label(axiom).
+reachableState(constB63) # label(reachableStateAxiom_63_1) # label(axiom).
+reachableState(constB64) # label(reachableStateAxiom_64_1) # label(axiom).
+reachableState(constB65) # label(reachableStateAxiom_65_1) # label(axiom).
+reachableState(constB66) # label(reachableStateAxiom_66_1) # label(axiom).
+reachableState(constB67) # label(reachableStateAxiom_67_1) # label(axiom).
+reachableState(constB68) # label(reachableStateAxiom_68_1) # label(axiom).
+reachableState(constB69) # label(reachableStateAxiom_69_1) # label(axiom).
+reachableState(constB70) # label(reachableStateAxiom_70_1) # label(axiom).
+reachableState(constB71) # label(reachableStateAxiom_71_1) # label(axiom).
+reachableState(constB72) # label(reachableStateAxiom_72_1) # label(axiom).
+reachableState(constB73) # label(reachableStateAxiom_73_1) # label(axiom).
+reachableState(constB74) # label(reachableStateAxiom_74_1) # label(axiom).
+reachableState(constB75) # label(reachableStateAxiom_75_1) # label(axiom).
+reachableState(constB76) # label(reachableStateAxiom_76_1) # label(axiom).
+reachableState(constB77) # label(reachableStateAxiom_77_1) # label(axiom).
+reachableState(constB78) # label(reachableStateAxiom_78_1) # label(axiom).
+reachableState(constB79) # label(reachableStateAxiom_79_1) # label(axiom).
+reachableState(constB80) # label(reachableStateAxiom_80_1) # label(axiom).
+reachableState(constB81) # label(reachableStateAxiom_81_1) # label(axiom).
+reachableState(constB82) # label(reachableStateAxiom_82_1) # label(axiom).
+reachableState(constB83) # label(reachableStateAxiom_83_1) # label(axiom).
+reachableState(constB84) # label(reachableStateAxiom_84_1) # label(axiom).
+reachableState(constB85) # label(reachableStateAxiom_85_1) # label(axiom).
+reachableState(constB86) # label(reachableStateAxiom_86_1) # label(axiom).
+reachableState(constB87) # label(reachableStateAxiom_87_1) # label(axiom).
+reachableState(constB88) # label(reachableStateAxiom_88_1) # label(axiom).
+reachableState(constB89) # label(reachableStateAxiom_89_1) # label(axiom).
+reachableState(constB90) # label(reachableStateAxiom_90_1) # label(axiom).
+reachableState(constB91) # label(reachableStateAxiom_91_1) # label(axiom).
+reachableState(constB92) # label(reachableStateAxiom_92_1) # label(axiom).
+reachableState(constB93) # label(reachableStateAxiom_93_1) # label(axiom).
+reachableState(constB94) # label(reachableStateAxiom_94_1) # label(axiom).
+reachableState(constB95) # label(reachableStateAxiom_95_1) # label(axiom).
+reachableState(constB96) # label(reachableStateAxiom_96_1) # label(axiom).
+reachableState(constB97) # label(reachableStateAxiom_97_1) # label(axiom).
+reachableState(constB98) # label(reachableStateAxiom_98_1) # label(axiom).
+reachableState(constB99) # label(reachableStateAxiom_99_1) # label(axiom).
+reachableState(constB100) # label(reachableStateAxiom_100_1) # label(axiom).
+reachableState(constB101) # label(reachableStateAxiom_101_1) # label(axiom).
+reachableState(constB102) # label(reachableStateAxiom_102_1) # label(axiom).
+reachableState(constB103) # label(reachableStateAxiom_103_1) # label(axiom).
+reachableState(constB104) # label(reachableStateAxiom_104_1) # label(axiom).
+reachableState(constB105) # label(reachableStateAxiom_105_1) # label(axiom).
+reachableState(constB106) # label(reachableStateAxiom_106_1) # label(axiom).
+reachableState(constB107) # label(reachableStateAxiom_107_1) # label(axiom).
+reachableState(constB108) # label(reachableStateAxiom_108_1) # label(axiom).
+reachableState(constB109) # label(reachableStateAxiom_109_1) # label(axiom).
+reachableState(constB110) # label(reachableStateAxiom_110_1) # label(axiom).
+reachableState(constB111) # label(reachableStateAxiom_111_1) # label(axiom).
+reachableState(constB112) # label(reachableStateAxiom_112_1) # label(axiom).
+reachableState(constB113) # label(reachableStateAxiom_113_1) # label(axiom).
+reachableState(constB114) # label(reachableStateAxiom_114_1) # label(axiom).
+reachableState(constB115) # label(reachableStateAxiom_115_1) # label(axiom).
+reachableState(constB116) # label(reachableStateAxiom_116_1) # label(axiom).
+reachableState(constB117) # label(reachableStateAxiom_117_1) # label(axiom).
+reachableState(constB118) # label(reachableStateAxiom_118_1) # label(axiom).
+reachableState(constB119) # label(reachableStateAxiom_119_1) # label(axiom).
+reachableState(constB120) # label(reachableStateAxiom_120_1) # label(axiom).
+reachableState(constB121) # label(reachableStateAxiom_121_1) # label(axiom).
+reachableState(constB122) # label(reachableStateAxiom_122_1) # label(axiom).
+reachableState(constB123) # label(reachableStateAxiom_123_1) # label(axiom).
+reachableState(constB124) # label(reachableStateAxiom_124_1) # label(axiom).
+reachableState(constB125) # label(reachableStateAxiom_125_1) # label(axiom).
+reachableState(constB126) # label(reachableStateAxiom_126_1) # label(axiom).
+reachableState(constB127) # label(reachableStateAxiom_127_1) # label(axiom).
+reachableState(constB128) # label(reachableStateAxiom_128_1) # label(axiom).
+reachableState(constB129) # label(reachableStateAxiom_129_1) # label(axiom).
+reachableState(constB130) # label(reachableStateAxiom_130_1) # label(axiom).
+reachableState(constB131) # label(reachableStateAxiom_131_1) # label(axiom).
+reachableState(constB132) # label(reachableStateAxiom_132_1) # label(axiom).
+reachableState(constB133) # label(reachableStateAxiom_133_1) # label(axiom).
+reachableState(constB134) # label(reachableStateAxiom_134_1) # label(axiom).
+reachableState(constB135) # label(reachableStateAxiom_135_1) # label(axiom).
+reachableState(constB136) # label(reachableStateAxiom_136_1) # label(axiom).
+reachableState(constB137) # label(reachableStateAxiom_137_1) # label(axiom).
+reachableState(constB138) # label(reachableStateAxiom_138_1) # label(axiom).
+reachableState(constB139) # label(reachableStateAxiom_139_1) # label(axiom).
+reachableState(constB140) # label(reachableStateAxiom_140_1) # label(axiom).
+reachableState(constB141) # label(reachableStateAxiom_141_1) # label(axiom).
+reachableState(constB142) # label(reachableStateAxiom_142_1) # label(axiom).
+reachableState(constB143) # label(reachableStateAxiom_143_1) # label(axiom).
+reachableState(constB144) # label(reachableStateAxiom_144_1) # label(axiom).
+reachableState(constB145) # label(reachableStateAxiom_145_1) # label(axiom).
+reachableState(constB146) # label(reachableStateAxiom_146_1) # label(axiom).
+reachableState(constB147) # label(reachableStateAxiom_147_1) # label(axiom).
+reachableState(constB148) # label(reachableStateAxiom_148_1) # label(axiom).
+reachableState(constB149) # label(reachableStateAxiom_149_1) # label(axiom).
+reachableState(constB150) # label(reachableStateAxiom_150_1) # label(axiom).
+reachableState(constB151) # label(reachableStateAxiom_151_1) # label(axiom).
+reachableState(constB152) # label(reachableStateAxiom_152_1) # label(axiom).
+reachableState(constB153) # label(reachableStateAxiom_153_1) # label(axiom).
+reachableState(constB154) # label(reachableStateAxiom_154_1) # label(axiom).
+reachableState(constB155) # label(reachableStateAxiom_155_1) # label(axiom).
+reachableState(constB156) # label(reachableStateAxiom_156_1) # label(axiom).
+reachableState(constB157) # label(reachableStateAxiom_157_1) # label(axiom).
+reachableState(constB158) # label(reachableStateAxiom_158_1) # label(axiom).
+reachableState(constB159) # label(reachableStateAxiom_159_1) # label(axiom).
+reachableState(constB160) # label(reachableStateAxiom_160_1) # label(axiom).
+reachableState(constB161) # label(reachableStateAxiom_161_1) # label(axiom).
+reachableState(constB162) # label(reachableStateAxiom_162_1) # label(axiom).
+reachableState(constB163) # label(reachableStateAxiom_163_1) # label(axiom).
+reachableState(constB164) # label(reachableStateAxiom_164_1) # label(axiom).
+reachableState(constB165) # label(reachableStateAxiom_165_1) # label(axiom).
+reachableState(constB166) # label(reachableStateAxiom_166_1) # label(axiom).
+reachableState(constB167) # label(reachableStateAxiom_167_1) # label(axiom).
+reachableState(constB168) # label(reachableStateAxiom_168_1) # label(axiom).
+reachableState(constB169) # label(reachableStateAxiom_169_1) # label(axiom).
+reachableState(constB170) # label(reachableStateAxiom_170_1) # label(axiom).
+reachableState(constB171) # label(reachableStateAxiom_171_1) # label(axiom).
+reachableState(constB172) # label(reachableStateAxiom_172_1) # label(axiom).
+reachableState(constB173) # label(reachableStateAxiom_173_1) # label(axiom).
+reachableState(constB174) # label(reachableStateAxiom_174_1) # label(axiom).
+reachableState(constB175) # label(reachableStateAxiom_175_1) # label(axiom).
+reachableState(constB176) # label(reachableStateAxiom_176_1) # label(axiom).
+reachableState(constB177) # label(reachableStateAxiom_177_1) # label(axiom).
+reachableState(constB178) # label(reachableStateAxiom_178_1) # label(axiom).
+reachableState(constB179) # label(reachableStateAxiom_179_1) # label(axiom).
+reachableState(constB180) # label(reachableStateAxiom_180_1) # label(axiom).
+reachableState(constB181) # label(reachableStateAxiom_181_1) # label(axiom).
+reachableState(constB182) # label(reachableStateAxiom_182_1) # label(axiom).
+reachableState(constB183) # label(reachableStateAxiom_183_1) # label(axiom).
+reachableState(constB184) # label(reachableStateAxiom_184_1) # label(axiom).
+reachableState(constB185) # label(reachableStateAxiom_185_1) # label(axiom).
+reachableState(constB186) # label(reachableStateAxiom_186_1) # label(axiom).
+reachableState(constB187) # label(reachableStateAxiom_187_1) # label(axiom).
+reachableState(constB188) # label(reachableStateAxiom_188_1) # label(axiom).
+reachableState(constB189) # label(reachableStateAxiom_189_1) # label(axiom).
+reachableState(constB190) # label(reachableStateAxiom_190_1) # label(axiom).
+reachableState(constB191) # label(reachableStateAxiom_191_1) # label(axiom).
+reachableState(constB192) # label(reachableStateAxiom_192_1) # label(axiom).
+reachableState(constB193) # label(reachableStateAxiom_193_1) # label(axiom).
+reachableState(constB194) # label(reachableStateAxiom_194_1) # label(axiom).
+reachableState(constB195) # label(reachableStateAxiom_195_1) # label(axiom).
+reachableState(constB196) # label(reachableStateAxiom_196_1) # label(axiom).
+reachableState(constB197) # label(reachableStateAxiom_197_1) # label(axiom).
+reachableState(constB198) # label(reachableStateAxiom_198_1) # label(axiom).
+reachableState(constB199) # label(reachableStateAxiom_199_1) # label(axiom).
+reachableState(constB200) # label(reachableStateAxiom_200_1) # label(axiom).
+constB200 = VarState | constB199 = VarState | constB198 = VarState | constB197 = VarState | constB196 = VarState | constB195 = VarState | constB194 = VarState | constB193 = VarState | constB192 = VarState | constB191 = VarState | constB190 = VarState | constB189 = VarState | constB188 = VarState | constB187 = VarState | constB186 = VarState | constB185 = VarState | constB184 = VarState | constB183 = VarState | constB182 = VarState | constB181 = VarState | constB180 = VarState | constB179 = VarState | constB178 = VarState | constB177 = VarState | constB176 = VarState | constB175 = VarState | constB174 = VarState | constB173 = VarState | constB172 = VarState | constB171 = VarState | constB170 = VarState | constB169 = VarState | constB168 = VarState | constB167 = VarState | constB166 = VarState | constB165 = VarState | constB164 = VarState | constB163 = VarState | constB162 = VarState | constB161 = VarState | constB160 = VarState | constB159 = VarState | constB158 = VarState | constB157 = VarState | constB156 = VarState | constB155 = VarState | constB154 = VarState | constB153 = VarState | constB152 = VarState | constB151 = VarState | constB150 = VarState | constB149 = VarState | constB148 = VarState | constB147 = VarState | constB146 = VarState | constB145 = VarState | constB144 = VarState | constB143 = VarState | constB142 = VarState | constB141 = VarState | constB140 = VarState | constB139 = VarState | constB138 = VarState | constB137 = VarState | constB136 = VarState | constB135 = VarState | constB134 = VarState | constB133 = VarState | constB132 = VarState | constB131 = VarState | constB130 = VarState | constB129 = VarState | constB128 = VarState | constB127 = VarState | constB126 = VarState | constB125 = VarState | constB124 = VarState | constB123 = VarState | constB122 = VarState | constB121 = VarState | constB120 = VarState | constB119 = VarState | constB118 = VarState | constB117 = VarState | constB116 = VarState | constB115 = VarState | constB114 = VarState | constB113 = VarState | constB112 = VarState | constB111 = VarState | constB110 = VarState | constB109 = VarState | constB108 = VarState | constB107 = VarState | constB106 = VarState | constB105 = VarState | constB104 = VarState | constB103 = VarState | constB102 = VarState | constB101 = VarState | constB100 = VarState | constB99 = VarState | constB98 = VarState | constB97 = VarState | constB96 = VarState | constB95 = VarState | constB94 = VarState | constB93 = VarState | constB92 = VarState | constB91 = VarState | constB90 = VarState | constB89 = VarState | constB88 = VarState | constB87 = VarState | constB86 = VarState | constB85 = VarState | constB84 = VarState | constB83 = VarState | constB82 = VarState | constB81 = VarState | constB80 = VarState | constB79 = VarState | constB78 = VarState | constB77 = VarState | constB76 = VarState | constB75 = VarState | constB74 = VarState | constB73 = VarState | constB72 = VarState | constB71 = VarState | constB70 = VarState | constB69 = VarState | constB68 = VarState | constB67 = VarState | constB66 = VarState | constB65 = VarState | constB64 = VarState | constB63 = VarState | constB62 = VarState | constB61 = VarState | constB60 = VarState | constB59 = VarState | constB58 = VarState | constB57 = VarState | constB56 = VarState | constB55 = VarState | constB54 = VarState | constB53 = VarState | constB52 = VarState | constB51 = VarState | constB50 = VarState | constB49 = VarState | constB48 = VarState | constB47 = VarState | constB46 = VarState | constB45 = VarState | constB44 = VarState | constB43 = VarState | constB42 = VarState | constB41 = VarState | constB40 = VarState | constB39 = VarState | constB38 = VarState | constB37 = VarState | constB36 = VarState | constB35 = VarState | constB34 = VarState | constB33 = VarState | constB32 = VarState | constB31 = VarState | constB30 = VarState | constB29 = VarState | constB28 = VarState | constB27 = VarState | constB26 = VarState | constB25 = VarState | constB24 = VarState | constB23 = VarState | constB22 = VarState | constB21 = VarState | constB20 = VarState | constB19 = VarState | constB18 = VarState | constB17 = VarState | constB16 = VarState | constB15 = VarState | constB14 = VarState | constB13 = VarState | constB12 = VarState | constB11 = VarState | constB10 = VarState | constB9 = VarState | constB8 = VarState | constB7 = VarState | constB6 = VarState | constB5 = VarState | constB4 = VarState | constB3 = VarState | constB2 = VarState | constB1 = VarState | constB0 = VarState | -reachableState(VarState) # label(reachableStateAxiom_201_1_1) # label(axiom).
+reachableState(VarCurr) | -nextState(VarCurr,VarNext) # label(reachableStateAxiom_202_1_2) # label(axiom).
+reachableState(VarNext) | -nextState(VarCurr,VarNext) # label(reachableStateAxiom_202_1_1) # label(axiom).
+nextState(constB0,constB1) # label(pathAxiom_200) # label(axiom).
+nextState(constB1,constB2) # label(pathAxiom_1_1) # label(axiom).
+nextState(constB2,constB3) # label(pathAxiom_2_1) # label(axiom).
+nextState(constB3,constB4) # label(pathAxiom_3_1) # label(axiom).
+nextState(constB4,constB5) # label(pathAxiom_4_1) # label(axiom).
+nextState(constB5,constB6) # label(pathAxiom_5_1) # label(axiom).
+nextState(constB6,constB7) # label(pathAxiom_6_1) # label(axiom).
+nextState(constB7,constB8) # label(pathAxiom_7_1) # label(axiom).
+nextState(constB8,constB9) # label(pathAxiom_8_1) # label(axiom).
+nextState(constB9,constB10) # label(pathAxiom_9_1) # label(axiom).
+nextState(constB10,constB11) # label(pathAxiom_10_1) # label(axiom).
+nextState(constB11,constB12) # label(pathAxiom_11_1) # label(axiom).
+nextState(constB12,constB13) # label(pathAxiom_12_1) # label(axiom).
+nextState(constB13,constB14) # label(pathAxiom_13_1) # label(axiom).
+nextState(constB14,constB15) # label(pathAxiom_14_1) # label(axiom).
+nextState(constB15,constB16) # label(pathAxiom_15_1) # label(axiom).
+nextState(constB16,constB17) # label(pathAxiom_16_1) # label(axiom).
+nextState(constB17,constB18) # label(pathAxiom_17_1) # label(axiom).
+nextState(constB18,constB19) # label(pathAxiom_18_1) # label(axiom).
+nextState(constB19,constB20) # label(pathAxiom_19_1) # label(axiom).
+nextState(constB20,constB21) # label(pathAxiom_20_1) # label(axiom).
+nextState(constB21,constB22) # label(pathAxiom_21_1) # label(axiom).
+nextState(constB22,constB23) # label(pathAxiom_22_1) # label(axiom).
+nextState(constB23,constB24) # label(pathAxiom_23_1) # label(axiom).
+nextState(constB24,constB25) # label(pathAxiom_24_1) # label(axiom).
+nextState(constB25,constB26) # label(pathAxiom_25_1) # label(axiom).
+nextState(constB26,constB27) # label(pathAxiom_26_1) # label(axiom).
+nextState(constB27,constB28) # label(pathAxiom_27_1) # label(axiom).
+nextState(constB28,constB29) # label(pathAxiom_28_1) # label(axiom).
+nextState(constB29,constB30) # label(pathAxiom_29_1) # label(axiom).
+nextState(constB30,constB31) # label(pathAxiom_30_1) # label(axiom).
+nextState(constB31,constB32) # label(pathAxiom_31_1) # label(axiom).
+nextState(constB32,constB33) # label(pathAxiom_32_1) # label(axiom).
+nextState(constB33,constB34) # label(pathAxiom_33_1) # label(axiom).
+nextState(constB34,constB35) # label(pathAxiom_34_1) # label(axiom).
+nextState(constB35,constB36) # label(pathAxiom_35_1) # label(axiom).
+nextState(constB36,constB37) # label(pathAxiom_36_1) # label(axiom).
+nextState(constB37,constB38) # label(pathAxiom_37_1) # label(axiom).
+nextState(constB38,constB39) # label(pathAxiom_38_1) # label(axiom).
+nextState(constB39,constB40) # label(pathAxiom_39_1) # label(axiom).
+nextState(constB40,constB41) # label(pathAxiom_40_1) # label(axiom).
+nextState(constB41,constB42) # label(pathAxiom_41_1) # label(axiom).
+nextState(constB42,constB43) # label(pathAxiom_42_1) # label(axiom).
+nextState(constB43,constB44) # label(pathAxiom_43_1) # label(axiom).
+nextState(constB44,constB45) # label(pathAxiom_44_1) # label(axiom).
+nextState(constB45,constB46) # label(pathAxiom_45_1) # label(axiom).
+nextState(constB46,constB47) # label(pathAxiom_46_1) # label(axiom).
+nextState(constB47,constB48) # label(pathAxiom_47_1) # label(axiom).
+nextState(constB48,constB49) # label(pathAxiom_48_1) # label(axiom).
+nextState(constB49,constB50) # label(pathAxiom_49_1) # label(axiom).
+nextState(constB50,constB51) # label(pathAxiom_50_1) # label(axiom).
+nextState(constB51,constB52) # label(pathAxiom_51_1) # label(axiom).
+nextState(constB52,constB53) # label(pathAxiom_52_1) # label(axiom).
+nextState(constB53,constB54) # label(pathAxiom_53_1) # label(axiom).
+nextState(constB54,constB55) # label(pathAxiom_54_1) # label(axiom).
+nextState(constB55,constB56) # label(pathAxiom_55_1) # label(axiom).
+nextState(constB56,constB57) # label(pathAxiom_56_1) # label(axiom).
+nextState(constB57,constB58) # label(pathAxiom_57_1) # label(axiom).
+nextState(constB58,constB59) # label(pathAxiom_58_1) # label(axiom).
+nextState(constB59,constB60) # label(pathAxiom_59_1) # label(axiom).
+nextState(constB60,constB61) # label(pathAxiom_60_1) # label(axiom).
+nextState(constB61,constB62) # label(pathAxiom_61_1) # label(axiom).
+nextState(constB62,constB63) # label(pathAxiom_62_1) # label(axiom).
+nextState(constB63,constB64) # label(pathAxiom_63_1) # label(axiom).
+nextState(constB64,constB65) # label(pathAxiom_64_1) # label(axiom).
+nextState(constB65,constB66) # label(pathAxiom_65_1) # label(axiom).
+nextState(constB66,constB67) # label(pathAxiom_66_1) # label(axiom).
+nextState(constB67,constB68) # label(pathAxiom_67_1) # label(axiom).
+nextState(constB68,constB69) # label(pathAxiom_68_1) # label(axiom).
+nextState(constB69,constB70) # label(pathAxiom_69_1) # label(axiom).
+nextState(constB70,constB71) # label(pathAxiom_70_1) # label(axiom).
+nextState(constB71,constB72) # label(pathAxiom_71_1) # label(axiom).
+nextState(constB72,constB73) # label(pathAxiom_72_1) # label(axiom).
+nextState(constB73,constB74) # label(pathAxiom_73_1) # label(axiom).
+nextState(constB74,constB75) # label(pathAxiom_74_1) # label(axiom).
+nextState(constB75,constB76) # label(pathAxiom_75_1) # label(axiom).
+nextState(constB76,constB77) # label(pathAxiom_76_1) # label(axiom).
+nextState(constB77,constB78) # label(pathAxiom_77_1) # label(axiom).
+nextState(constB78,constB79) # label(pathAxiom_78_1) # label(axiom).
+nextState(constB79,constB80) # label(pathAxiom_79_1) # label(axiom).
+nextState(constB80,constB81) # label(pathAxiom_80_1) # label(axiom).
+nextState(constB81,constB82) # label(pathAxiom_81_1) # label(axiom).
+nextState(constB82,constB83) # label(pathAxiom_82_1) # label(axiom).
+nextState(constB83,constB84) # label(pathAxiom_83_1) # label(axiom).
+nextState(constB84,constB85) # label(pathAxiom_84_1) # label(axiom).
+nextState(constB85,constB86) # label(pathAxiom_85_1) # label(axiom).
+nextState(constB86,constB87) # label(pathAxiom_86_1) # label(axiom).
+nextState(constB87,constB88) # label(pathAxiom_87_1) # label(axiom).
+nextState(constB88,constB89) # label(pathAxiom_88_1) # label(axiom).
+nextState(constB89,constB90) # label(pathAxiom_89_1) # label(axiom).
+nextState(constB90,constB91) # label(pathAxiom_90_1) # label(axiom).
+nextState(constB91,constB92) # label(pathAxiom_91_1) # label(axiom).
+nextState(constB92,constB93) # label(pathAxiom_92_1) # label(axiom).
+nextState(constB93,constB94) # label(pathAxiom_93_1) # label(axiom).
+nextState(constB94,constB95) # label(pathAxiom_94_1) # label(axiom).
+nextState(constB95,constB96) # label(pathAxiom_95_1) # label(axiom).
+nextState(constB96,constB97) # label(pathAxiom_96_1) # label(axiom).
+nextState(constB97,constB98) # label(pathAxiom_97_1) # label(axiom).
+nextState(constB98,constB99) # label(pathAxiom_98_1) # label(axiom).
+nextState(constB99,constB100) # label(pathAxiom_99_1) # label(axiom).
+nextState(constB100,constB101) # label(pathAxiom_100_1) # label(axiom).
+nextState(constB101,constB102) # label(pathAxiom_101_1) # label(axiom).
+nextState(constB102,constB103) # label(pathAxiom_102_1) # label(axiom).
+nextState(constB103,constB104) # label(pathAxiom_103_1) # label(axiom).
+nextState(constB104,constB105) # label(pathAxiom_104_1) # label(axiom).
+nextState(constB105,constB106) # label(pathAxiom_105_1) # label(axiom).
+nextState(constB106,constB107) # label(pathAxiom_106_1) # label(axiom).
+nextState(constB107,constB108) # label(pathAxiom_107_1) # label(axiom).
+nextState(constB108,constB109) # label(pathAxiom_108_1) # label(axiom).
+nextState(constB109,constB110) # label(pathAxiom_109_1) # label(axiom).
+nextState(constB110,constB111) # label(pathAxiom_110_1) # label(axiom).
+nextState(constB111,constB112) # label(pathAxiom_111_1) # label(axiom).
+nextState(constB112,constB113) # label(pathAxiom_112_1) # label(axiom).
+nextState(constB113,constB114) # label(pathAxiom_113_1) # label(axiom).
+nextState(constB114,constB115) # label(pathAxiom_114_1) # label(axiom).
+nextState(constB115,constB116) # label(pathAxiom_115_1) # label(axiom).
+nextState(constB116,constB117) # label(pathAxiom_116_1) # label(axiom).
+nextState(constB117,constB118) # label(pathAxiom_117_1) # label(axiom).
+nextState(constB118,constB119) # label(pathAxiom_118_1) # label(axiom).
+nextState(constB119,constB120) # label(pathAxiom_119_1) # label(axiom).
+nextState(constB120,constB121) # label(pathAxiom_120_1) # label(axiom).
+nextState(constB121,constB122) # label(pathAxiom_121_1) # label(axiom).
+nextState(constB122,constB123) # label(pathAxiom_122_1) # label(axiom).
+nextState(constB123,constB124) # label(pathAxiom_123_1) # label(axiom).
+nextState(constB124,constB125) # label(pathAxiom_124_1) # label(axiom).
+nextState(constB125,constB126) # label(pathAxiom_125_1) # label(axiom).
+nextState(constB126,constB127) # label(pathAxiom_126_1) # label(axiom).
+nextState(constB127,constB128) # label(pathAxiom_127_1) # label(axiom).
+nextState(constB128,constB129) # label(pathAxiom_128_1) # label(axiom).
+nextState(constB129,constB130) # label(pathAxiom_129_1) # label(axiom).
+nextState(constB130,constB131) # label(pathAxiom_130_1) # label(axiom).
+nextState(constB131,constB132) # label(pathAxiom_131_1) # label(axiom).
+nextState(constB132,constB133) # label(pathAxiom_132_1) # label(axiom).
+nextState(constB133,constB134) # label(pathAxiom_133_1) # label(axiom).
+nextState(constB134,constB135) # label(pathAxiom_134_1) # label(axiom).
+nextState(constB135,constB136) # label(pathAxiom_135_1) # label(axiom).
+nextState(constB136,constB137) # label(pathAxiom_136_1) # label(axiom).
+nextState(constB137,constB138) # label(pathAxiom_137_1) # label(axiom).
+nextState(constB138,constB139) # label(pathAxiom_138_1) # label(axiom).
+nextState(constB139,constB140) # label(pathAxiom_139_1) # label(axiom).
+nextState(constB140,constB141) # label(pathAxiom_140_1) # label(axiom).
+nextState(constB141,constB142) # label(pathAxiom_141_1) # label(axiom).
+nextState(constB142,constB143) # label(pathAxiom_142_1) # label(axiom).
+nextState(constB143,constB144) # label(pathAxiom_143_1) # label(axiom).
+nextState(constB144,constB145) # label(pathAxiom_144_1) # label(axiom).
+nextState(constB145,constB146) # label(pathAxiom_145_1) # label(axiom).
+nextState(constB146,constB147) # label(pathAxiom_146_1) # label(axiom).
+nextState(constB147,constB148) # label(pathAxiom_147_1) # label(axiom).
+nextState(constB148,constB149) # label(pathAxiom_148_1) # label(axiom).
+nextState(constB149,constB150) # label(pathAxiom_149_1) # label(axiom).
+nextState(constB150,constB151) # label(pathAxiom_150_1) # label(axiom).
+nextState(constB151,constB152) # label(pathAxiom_151_1) # label(axiom).
+nextState(constB152,constB153) # label(pathAxiom_152_1) # label(axiom).
+nextState(constB153,constB154) # label(pathAxiom_153_1) # label(axiom).
+nextState(constB154,constB155) # label(pathAxiom_154_1) # label(axiom).
+nextState(constB155,constB156) # label(pathAxiom_155_1) # label(axiom).
+nextState(constB156,constB157) # label(pathAxiom_156_1) # label(axiom).
+nextState(constB157,constB158) # label(pathAxiom_157_1) # label(axiom).
+nextState(constB158,constB159) # label(pathAxiom_158_1) # label(axiom).
+nextState(constB159,constB160) # label(pathAxiom_159_1) # label(axiom).
+nextState(constB160,constB161) # label(pathAxiom_160_1) # label(axiom).
+nextState(constB161,constB162) # label(pathAxiom_161_1) # label(axiom).
+nextState(constB162,constB163) # label(pathAxiom_162_1) # label(axiom).
+nextState(constB163,constB164) # label(pathAxiom_163_1) # label(axiom).
+nextState(constB164,constB165) # label(pathAxiom_164_1) # label(axiom).
+nextState(constB165,constB166) # label(pathAxiom_165_1) # label(axiom).
+nextState(constB166,constB167) # label(pathAxiom_166_1) # label(axiom).
+nextState(constB167,constB168) # label(pathAxiom_167_1) # label(axiom).
+nextState(constB168,constB169) # label(pathAxiom_168_1) # label(axiom).
+nextState(constB169,constB170) # label(pathAxiom_169_1) # label(axiom).
+nextState(constB170,constB171) # label(pathAxiom_170_1) # label(axiom).
+nextState(constB171,constB172) # label(pathAxiom_171_1) # label(axiom).
+nextState(constB172,constB173) # label(pathAxiom_172_1) # label(axiom).
+nextState(constB173,constB174) # label(pathAxiom_173_1) # label(axiom).
+nextState(constB174,constB175) # label(pathAxiom_174_1) # label(axiom).
+nextState(constB175,constB176) # label(pathAxiom_175_1) # label(axiom).
+nextState(constB176,constB177) # label(pathAxiom_176_1) # label(axiom).
+nextState(constB177,constB178) # label(pathAxiom_177_1) # label(axiom).
+nextState(constB178,constB179) # label(pathAxiom_178_1) # label(axiom).
+nextState(constB179,constB180) # label(pathAxiom_179_1) # label(axiom).
+nextState(constB180,constB181) # label(pathAxiom_180_1) # label(axiom).
+nextState(constB181,constB182) # label(pathAxiom_181_1) # label(axiom).
+nextState(constB182,constB183) # label(pathAxiom_182_1) # label(axiom).
+nextState(constB183,constB184) # label(pathAxiom_183_1) # label(axiom).
+nextState(constB184,constB185) # label(pathAxiom_184_1) # label(axiom).
+nextState(constB185,constB186) # label(pathAxiom_185_1) # label(axiom).
+nextState(constB186,constB187) # label(pathAxiom_186_1) # label(axiom).
+nextState(constB187,constB188) # label(pathAxiom_187_1) # label(axiom).
+nextState(constB188,constB189) # label(pathAxiom_188_1) # label(axiom).
+nextState(constB189,constB190) # label(pathAxiom_189_1) # label(axiom).
+nextState(constB190,constB191) # label(pathAxiom_190_1) # label(axiom).
+nextState(constB191,constB192) # label(pathAxiom_191_1) # label(axiom).
+nextState(constB192,constB193) # label(pathAxiom_192_1) # label(axiom).
+nextState(constB193,constB194) # label(pathAxiom_193_1) # label(axiom).
+nextState(constB194,constB195) # label(pathAxiom_194_1) # label(axiom).
+nextState(constB195,constB196) # label(pathAxiom_195_1) # label(axiom).
+nextState(constB196,constB197) # label(pathAxiom_196_1) # label(axiom).
+nextState(constB197,constB198) # label(pathAxiom_197_1) # label(axiom).
+nextState(constB198,constB199) # label(pathAxiom_198_1) # label(axiom).
+nextState(constB199,constB200) # label(pathAxiom_199_1) # label(axiom).
+v1(constB0) # label(clock_pattern_201) # label(axiom).
+-v1(constB1) # label(clock_pattern_1_1_1) # label(axiom).
+v1(constB2) # label(clock_pattern_2_1) # label(axiom).
+-v1(constB3) # label(clock_pattern_3_1_1) # label(axiom).
+v1(constB4) # label(clock_pattern_4_1) # label(axiom).
+-v1(constB5) # label(clock_pattern_5_1_1) # label(axiom).
+v1(constB6) # label(clock_pattern_6_1) # label(axiom).
+-v1(constB7) # label(clock_pattern_7_1_1) # label(axiom).
+v1(constB8) # label(clock_pattern_8_1) # label(axiom).
+-v1(constB9) # label(clock_pattern_9_1_1) # label(axiom).
+v1(constB10) # label(clock_pattern_10_1) # label(axiom).
+-v1(constB11) # label(clock_pattern_11_1_1) # label(axiom).
+v1(constB12) # label(clock_pattern_12_1) # label(axiom).
+-v1(constB13) # label(clock_pattern_13_1_1) # label(axiom).
+v1(constB14) # label(clock_pattern_14_1) # label(axiom).
+-v1(constB15) # label(clock_pattern_15_1_1) # label(axiom).
+v1(constB16) # label(clock_pattern_16_1) # label(axiom).
+-v1(constB17) # label(clock_pattern_17_1_1) # label(axiom).
+v1(constB18) # label(clock_pattern_18_1) # label(axiom).
+-v1(constB19) # label(clock_pattern_19_1_1) # label(axiom).
+v1(constB20) # label(clock_pattern_20_1) # label(axiom).
+-v1(constB21) # label(clock_pattern_21_1_1) # label(axiom).
+v1(constB22) # label(clock_pattern_22_1) # label(axiom).
+-v1(constB23) # label(clock_pattern_23_1_1) # label(axiom).
+v1(constB24) # label(clock_pattern_24_1) # label(axiom).
+-v1(constB25) # label(clock_pattern_25_1_1) # label(axiom).
+v1(constB26) # label(clock_pattern_26_1) # label(axiom).
+-v1(constB27) # label(clock_pattern_27_1_1) # label(axiom).
+v1(constB28) # label(clock_pattern_28_1) # label(axiom).
+-v1(constB29) # label(clock_pattern_29_1_1) # label(axiom).
+v1(constB30) # label(clock_pattern_30_1) # label(axiom).
+-v1(constB31) # label(clock_pattern_31_1_1) # label(axiom).
+v1(constB32) # label(clock_pattern_32_1) # label(axiom).
+-v1(constB33) # label(clock_pattern_33_1_1) # label(axiom).
+v1(constB34) # label(clock_pattern_34_1) # label(axiom).
+-v1(constB35) # label(clock_pattern_35_1_1) # label(axiom).
+v1(constB36) # label(clock_pattern_36_1) # label(axiom).
+-v1(constB37) # label(clock_pattern_37_1_1) # label(axiom).
+v1(constB38) # label(clock_pattern_38_1) # label(axiom).
+-v1(constB39) # label(clock_pattern_39_1_1) # label(axiom).
+v1(constB40) # label(clock_pattern_40_1) # label(axiom).
+-v1(constB41) # label(clock_pattern_41_1_1) # label(axiom).
+v1(constB42) # label(clock_pattern_42_1) # label(axiom).
+-v1(constB43) # label(clock_pattern_43_1_1) # label(axiom).
+v1(constB44) # label(clock_pattern_44_1) # label(axiom).
+-v1(constB45) # label(clock_pattern_45_1_1) # label(axiom).
+v1(constB46) # label(clock_pattern_46_1) # label(axiom).
+-v1(constB47) # label(clock_pattern_47_1_1) # label(axiom).
+v1(constB48) # label(clock_pattern_48_1) # label(axiom).
+-v1(constB49) # label(clock_pattern_49_1_1) # label(axiom).
+v1(constB50) # label(clock_pattern_50_1) # label(axiom).
+-v1(constB51) # label(clock_pattern_51_1_1) # label(axiom).
+v1(constB52) # label(clock_pattern_52_1) # label(axiom).
+-v1(constB53) # label(clock_pattern_53_1_1) # label(axiom).
+v1(constB54) # label(clock_pattern_54_1) # label(axiom).
+-v1(constB55) # label(clock_pattern_55_1_1) # label(axiom).
+v1(constB56) # label(clock_pattern_56_1) # label(axiom).
+-v1(constB57) # label(clock_pattern_57_1_1) # label(axiom).
+v1(constB58) # label(clock_pattern_58_1) # label(axiom).
+-v1(constB59) # label(clock_pattern_59_1_1) # label(axiom).
+v1(constB60) # label(clock_pattern_60_1) # label(axiom).
+-v1(constB61) # label(clock_pattern_61_1_1) # label(axiom).
+v1(constB62) # label(clock_pattern_62_1) # label(axiom).
+-v1(constB63) # label(clock_pattern_63_1_1) # label(axiom).
+v1(constB64) # label(clock_pattern_64_1) # label(axiom).
+-v1(constB65) # label(clock_pattern_65_1_1) # label(axiom).
+v1(constB66) # label(clock_pattern_66_1) # label(axiom).
+-v1(constB67) # label(clock_pattern_67_1_1) # label(axiom).
+v1(constB68) # label(clock_pattern_68_1) # label(axiom).
+-v1(constB69) # label(clock_pattern_69_1_1) # label(axiom).
+v1(constB70) # label(clock_pattern_70_1) # label(axiom).
+-v1(constB71) # label(clock_pattern_71_1_1) # label(axiom).
+v1(constB72) # label(clock_pattern_72_1) # label(axiom).
+-v1(constB73) # label(clock_pattern_73_1_1) # label(axiom).
+v1(constB74) # label(clock_pattern_74_1) # label(axiom).
+-v1(constB75) # label(clock_pattern_75_1_1) # label(axiom).
+v1(constB76) # label(clock_pattern_76_1) # label(axiom).
+-v1(constB77) # label(clock_pattern_77_1_1) # label(axiom).
+v1(constB78) # label(clock_pattern_78_1) # label(axiom).
+-v1(constB79) # label(clock_pattern_79_1_1) # label(axiom).
+v1(constB80) # label(clock_pattern_80_1) # label(axiom).
+-v1(constB81) # label(clock_pattern_81_1_1) # label(axiom).
+v1(constB82) # label(clock_pattern_82_1) # label(axiom).
+-v1(constB83) # label(clock_pattern_83_1_1) # label(axiom).
+v1(constB84) # label(clock_pattern_84_1) # label(axiom).
+-v1(constB85) # label(clock_pattern_85_1_1) # label(axiom).
+v1(constB86) # label(clock_pattern_86_1) # label(axiom).
+-v1(constB87) # label(clock_pattern_87_1_1) # label(axiom).
+v1(constB88) # label(clock_pattern_88_1) # label(axiom).
+-v1(constB89) # label(clock_pattern_89_1_1) # label(axiom).
+v1(constB90) # label(clock_pattern_90_1) # label(axiom).
+-v1(constB91) # label(clock_pattern_91_1_1) # label(axiom).
+v1(constB92) # label(clock_pattern_92_1) # label(axiom).
+-v1(constB93) # label(clock_pattern_93_1_1) # label(axiom).
+v1(constB94) # label(clock_pattern_94_1) # label(axiom).
+-v1(constB95) # label(clock_pattern_95_1_1) # label(axiom).
+v1(constB96) # label(clock_pattern_96_1) # label(axiom).
+-v1(constB97) # label(clock_pattern_97_1_1) # label(axiom).
+v1(constB98) # label(clock_pattern_98_1) # label(axiom).
+-v1(constB99) # label(clock_pattern_99_1_1) # label(axiom).
+v1(constB100) # label(clock_pattern_100_1) # label(axiom).
+-v1(constB101) # label(clock_pattern_101_1_1) # label(axiom).
+v1(constB102) # label(clock_pattern_102_1) # label(axiom).
+-v1(constB103) # label(clock_pattern_103_1_1) # label(axiom).
+v1(constB104) # label(clock_pattern_104_1) # label(axiom).
+-v1(constB105) # label(clock_pattern_105_1_1) # label(axiom).
+v1(constB106) # label(clock_pattern_106_1) # label(axiom).
+-v1(constB107) # label(clock_pattern_107_1_1) # label(axiom).
+v1(constB108) # label(clock_pattern_108_1) # label(axiom).
+-v1(constB109) # label(clock_pattern_109_1_1) # label(axiom).
+v1(constB110) # label(clock_pattern_110_1) # label(axiom).
+-v1(constB111) # label(clock_pattern_111_1_1) # label(axiom).
+v1(constB112) # label(clock_pattern_112_1) # label(axiom).
+-v1(constB113) # label(clock_pattern_113_1_1) # label(axiom).
+v1(constB114) # label(clock_pattern_114_1) # label(axiom).
+-v1(constB115) # label(clock_pattern_115_1_1) # label(axiom).
+v1(constB116) # label(clock_pattern_116_1) # label(axiom).
+-v1(constB117) # label(clock_pattern_117_1_1) # label(axiom).
+v1(constB118) # label(clock_pattern_118_1) # label(axiom).
+-v1(constB119) # label(clock_pattern_119_1_1) # label(axiom).
+v1(constB120) # label(clock_pattern_120_1) # label(axiom).
+-v1(constB121) # label(clock_pattern_121_1_1) # label(axiom).
+v1(constB122) # label(clock_pattern_122_1) # label(axiom).
+-v1(constB123) # label(clock_pattern_123_1_1) # label(axiom).
+v1(constB124) # label(clock_pattern_124_1) # label(axiom).
+-v1(constB125) # label(clock_pattern_125_1_1) # label(axiom).
+v1(constB126) # label(clock_pattern_126_1) # label(axiom).
+-v1(constB127) # label(clock_pattern_127_1_1) # label(axiom).
+v1(constB128) # label(clock_pattern_128_1) # label(axiom).
+-v1(constB129) # label(clock_pattern_129_1_1) # label(axiom).
+v1(constB130) # label(clock_pattern_130_1) # label(axiom).
+-v1(constB131) # label(clock_pattern_131_1_1) # label(axiom).
+v1(constB132) # label(clock_pattern_132_1) # label(axiom).
+-v1(constB133) # label(clock_pattern_133_1_1) # label(axiom).
+v1(constB134) # label(clock_pattern_134_1) # label(axiom).
+-v1(constB135) # label(clock_pattern_135_1_1) # label(axiom).
+v1(constB136) # label(clock_pattern_136_1) # label(axiom).
+-v1(constB137) # label(clock_pattern_137_1_1) # label(axiom).
+v1(constB138) # label(clock_pattern_138_1) # label(axiom).
+-v1(constB139) # label(clock_pattern_139_1_1) # label(axiom).
+v1(constB140) # label(clock_pattern_140_1) # label(axiom).
+-v1(constB141) # label(clock_pattern_141_1_1) # label(axiom).
+v1(constB142) # label(clock_pattern_142_1) # label(axiom).
+-v1(constB143) # label(clock_pattern_143_1_1) # label(axiom).
+v1(constB144) # label(clock_pattern_144_1) # label(axiom).
+-v1(constB145) # label(clock_pattern_145_1_1) # label(axiom).
+v1(constB146) # label(clock_pattern_146_1) # label(axiom).
+-v1(constB147) # label(clock_pattern_147_1_1) # label(axiom).
+v1(constB148) # label(clock_pattern_148_1) # label(axiom).
+-v1(constB149) # label(clock_pattern_149_1_1) # label(axiom).
+v1(constB150) # label(clock_pattern_150_1) # label(axiom).
+-v1(constB151) # label(clock_pattern_151_1_1) # label(axiom).
+v1(constB152) # label(clock_pattern_152_1) # label(axiom).
+-v1(constB153) # label(clock_pattern_153_1_1) # label(axiom).
+v1(constB154) # label(clock_pattern_154_1) # label(axiom).
+-v1(constB155) # label(clock_pattern_155_1_1) # label(axiom).
+v1(constB156) # label(clock_pattern_156_1) # label(axiom).
+-v1(constB157) # label(clock_pattern_157_1_1) # label(axiom).
+v1(constB158) # label(clock_pattern_158_1) # label(axiom).
+-v1(constB159) # label(clock_pattern_159_1_1) # label(axiom).
+v1(constB160) # label(clock_pattern_160_1) # label(axiom).
+-v1(constB161) # label(clock_pattern_161_1_1) # label(axiom).
+v1(constB162) # label(clock_pattern_162_1) # label(axiom).
+-v1(constB163) # label(clock_pattern_163_1_1) # label(axiom).
+v1(constB164) # label(clock_pattern_164_1) # label(axiom).
+-v1(constB165) # label(clock_pattern_165_1_1) # label(axiom).
+v1(constB166) # label(clock_pattern_166_1) # label(axiom).
+-v1(constB167) # label(clock_pattern_167_1_1) # label(axiom).
+v1(constB168) # label(clock_pattern_168_1) # label(axiom).
+-v1(constB169) # label(clock_pattern_169_1_1) # label(axiom).
+v1(constB170) # label(clock_pattern_170_1) # label(axiom).
+-v1(constB171) # label(clock_pattern_171_1_1) # label(axiom).
+v1(constB172) # label(clock_pattern_172_1) # label(axiom).
+-v1(constB173) # label(clock_pattern_173_1_1) # label(axiom).
+v1(constB174) # label(clock_pattern_174_1) # label(axiom).
+-v1(constB175) # label(clock_pattern_175_1_1) # label(axiom).
+v1(constB176) # label(clock_pattern_176_1) # label(axiom).
+-v1(constB177) # label(clock_pattern_177_1_1) # label(axiom).
+v1(constB178) # label(clock_pattern_178_1) # label(axiom).
+-v1(constB179) # label(clock_pattern_179_1_1) # label(axiom).
+v1(constB180) # label(clock_pattern_180_1) # label(axiom).
+-v1(constB181) # label(clock_pattern_181_1_1) # label(axiom).
+v1(constB182) # label(clock_pattern_182_1) # label(axiom).
+-v1(constB183) # label(clock_pattern_183_1_1) # label(axiom).
+v1(constB184) # label(clock_pattern_184_1) # label(axiom).
+-v1(constB185) # label(clock_pattern_185_1_1) # label(axiom).
+v1(constB186) # label(clock_pattern_186_1) # label(axiom).
+-v1(constB187) # label(clock_pattern_187_1_1) # label(axiom).
+v1(constB188) # label(clock_pattern_188_1) # label(axiom).
+-v1(constB189) # label(clock_pattern_189_1_1) # label(axiom).
+v1(constB190) # label(clock_pattern_190_1) # label(axiom).
+-v1(constB191) # label(clock_pattern_191_1_1) # label(axiom).
+v1(constB192) # label(clock_pattern_192_1) # label(axiom).
+-v1(constB193) # label(clock_pattern_193_1_1) # label(axiom).
+v1(constB194) # label(clock_pattern_194_1) # label(axiom).
+-v1(constB195) # label(clock_pattern_195_1_1) # label(axiom).
+v1(constB196) # label(clock_pattern_196_1) # label(axiom).
+-v1(constB197) # label(clock_pattern_197_1_1) # label(axiom).
+v1(constB198) # label(clock_pattern_198_1) # label(axiom).
+-v1(constB199) # label(clock_pattern_199_1_1) # label(axiom).
+v1(constB200) # label(clock_pattern_200_1) # label(axiom).
+end_of_list.
+
+formulas(goals).
+end_of_list.

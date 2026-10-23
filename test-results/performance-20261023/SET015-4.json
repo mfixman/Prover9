@@ -1,0 +1,12 @@
+{
+  "problem": "SET015-4",
+  "domain": "SET",
+  "rating": 0.3,
+  "conversion_wall_seconds": 0.005522833991562948,
+  "exit_code": 4,
+  "search_wall_seconds": 21.274419752997346,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.34,
+  "total_wall_seconds": 21.280806912996923
+}

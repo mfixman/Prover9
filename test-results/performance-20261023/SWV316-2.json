@@ -1,0 +1,12 @@
+{
+  "problem": "SWV316-2",
+  "domain": "SWV",
+  "rating": 0.7,
+  "conversion_wall_seconds": 0.007314579008379951,
+  "exit_code": 4,
+  "search_wall_seconds": 20.516564734003623,
+  "outcome": "unsolved",
+  "reason": "max_seconds",
+  "reported_cpu_seconds": 20.1,
+  "total_wall_seconds": 20.52458702000149
+}

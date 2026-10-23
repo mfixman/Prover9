@@ -1,0 +1,113 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 193 was started by mfixman on bodoque,
+Fri Oct 23 15:01:05 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+apply(apply(apply(b,X),Y),Z) = apply(X,apply(Y,Z)) # label(b_definition) # label(axiom).
+apply(apply(l,X),Y) = apply(X,apply(Y,Y)) # label(l_definition) # label(axiom).
+apply(m,X) = apply(X,X) # label(m_definition) # label(axiom).
+apply(Y,f(Y)) != apply(f(Y),apply(Y,f(Y))) # label(prove_fixed_point) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+============================== PREDICATE ELIMINATION =================
+
+No predicates eliminated.
+
+============================== end predicate elimination =============
+
+Auto_denials:
+  % copying label prove_fixed_point to answer in negative clause
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ = ]).
+Function symbol precedence:  function_order([ b, l, m, apply, f ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+
+Auto_process settings:  (no changes).
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.00 seconds.
+
+============================== PROOF =================================
+
+% Proof 1 at 0.00 (+ 0.00) seconds: prove_fixed_point.
+% Length of proof is 8.
+% Level of proof is 3.
+% Maximum clause weight is 28.000.
+% Given clauses 4 (1.333 givens/level).
+
+1 apply(apply(apply(b,A),B),C) = apply(A,apply(B,C)) # label(b_definition) # label(axiom).  [assumption].
+2 apply(apply(l,A),B) = apply(A,apply(B,B)) # label(l_definition) # label(axiom).  [assumption].
+3 apply(m,A) = apply(A,A) # label(m_definition) # label(axiom).  [assumption].
+4 apply(A,f(A)) != apply(f(A),apply(A,f(A))) # label(prove_fixed_point) # label(negated_conjecture) # answer(prove_fixed_point).  [assumption].
+5 apply(f(A),apply(A,f(A))) != apply(A,f(A)) # answer(prove_fixed_point).  [copy(4),flip(a)].
+18 apply(A,apply(m,apply(l,A))) = apply(m,apply(l,A)).  [para(3(a,2),2(a,1)),rewrite([3(9,R)]),flip(a)].
+25 apply(f(apply(apply(b,A),B)),apply(A,apply(B,f(apply(apply(b,A),B))))) != apply(A,apply(B,f(apply(apply(b,A),B)))) # answer(prove_fixed_point).  [para(1(a,1),5(a,1,2)),rewrite([1(19)])].
+26 $F # answer(prove_fixed_point).  [resolve(25,a,18,a)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=4. Generated=53. Kept=24. proofs=1.
+Usable=3. Sos=10. Demods=6. Limbo=0, Disabled=14. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=29. Back_subsumed=2.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=10 (3 lex), Back_demodulated=8. Back_unit_deleted=0.
+Demod_attempts=625. Demod_rewrites=55.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=0. Nonunit_bsub_feature_tests=0.
+Megabytes=0.08.
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+Process 193 exit (max_proofs) Fri Oct 23 15:01:05 2026
+-------- Proof 1 -------- prove_fixed_point.
+
+THEOREM PROVED
+
+------ process 193 exit (max_proofs) ------
+

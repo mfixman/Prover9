@@ -1,0 +1,43 @@
+assign(max_seconds, 10).
+assign(max_megs, 256).
+
+% Including file Axioms/FLD001-0.ax
+
+set(prolog_style_variables).
+
+formulas(assumptions).
+equalish(add(X,add(Y,Z)),add(add(X,Y),Z)) | -defined(X) | -defined(Y) | -defined(Z) # label(associativity_addition) # label(axiom).
+equalish(add(additive_identity,X),X) | -defined(X) # label(existence_of_identity_addition) # label(axiom).
+equalish(add(X,additive_inverse(X)),additive_identity) | -defined(X) # label(existence_of_inverse_addition) # label(axiom).
+equalish(add(X,Y),add(Y,X)) | -defined(X) | -defined(Y) # label(commutativity_addition) # label(axiom).
+equalish(multiply(X,multiply(Y,Z)),multiply(multiply(X,Y),Z)) | -defined(X) | -defined(Y) | -defined(Z) # label(associativity_multiplication) # label(axiom).
+equalish(multiply(multiplicative_identity,X),X) | -defined(X) # label(existence_of_identity_multiplication) # label(axiom).
+equalish(multiply(X,multiplicative_inverse(X)),multiplicative_identity) | -defined(X) | equalish(X,additive_identity) # label(existence_of_inverse_multiplication) # label(axiom).
+equalish(multiply(X,Y),multiply(Y,X)) | -defined(X) | -defined(Y) # label(commutativity_multiplication) # label(axiom).
+equalish(add(multiply(X,Z),multiply(Y,Z)),multiply(add(X,Y),Z)) | -defined(X) | -defined(Y) | -defined(Z) # label(distributivity) # label(axiom).
+defined(add(X,Y)) | -defined(X) | -defined(Y) # label(well_definedness_of_addition) # label(axiom).
+defined(additive_identity) # label(well_definedness_of_additive_identity) # label(axiom).
+defined(additive_inverse(X)) | -defined(X) # label(well_definedness_of_additive_inverse) # label(axiom).
+defined(multiply(X,Y)) | -defined(X) | -defined(Y) # label(well_definedness_of_multiplication) # label(axiom).
+defined(multiplicative_identity) # label(well_definedness_of_multiplicative_identity) # label(axiom).
+defined(multiplicative_inverse(X)) | -defined(X) | equalish(X,additive_identity) # label(well_definedness_of_multiplicative_inverse) # label(axiom).
+equalish(X,Y) | -less_or_equal(X,Y) | -less_or_equal(Y,X) # label(antisymmetry_of_order_relation) # label(axiom).
+less_or_equal(X,Z) | -less_or_equal(X,Y) | -less_or_equal(Y,Z) # label(transitivity_of_order_relation) # label(axiom).
+less_or_equal(X,Y) | less_or_equal(Y,X) | -defined(X) | -defined(Y) # label(totality_of_order_relation) # label(axiom).
+less_or_equal(add(X,Z),add(Y,Z)) | -defined(Z) | -less_or_equal(X,Y) # label(compatibility_of_order_relation_and_addition) # label(axiom).
+less_or_equal(additive_identity,multiply(Y,Z)) | -less_or_equal(additive_identity,Y) | -less_or_equal(additive_identity,Z) # label(compatibility_of_order_relation_and_multiplication) # label(axiom).
+equalish(X,X) | -defined(X) # label(reflexivity_of_equality) # label(axiom).
+equalish(X,Y) | -equalish(Y,X) # label(symmetry_of_equality) # label(axiom).
+equalish(X,Z) | -equalish(X,Y) | -equalish(Y,Z) # label(transitivity_of_equality) # label(axiom).
+equalish(add(X,Z),add(Y,Z)) | -defined(Z) | -equalish(X,Y) # label(compatibility_of_equality_and_addition) # label(axiom).
+equalish(multiply(X,Z),multiply(Y,Z)) | -defined(Z) | -equalish(X,Y) # label(compatibility_of_equality_and_multiplication) # label(axiom).
+less_or_equal(Y,Z) | -less_or_equal(X,Z) | -equalish(X,Y) # label(compatibility_of_equality_and_order_relation) # label(axiom).
+-equalish(additive_identity,multiplicative_identity) # label(different_identities) # label(axiom).
+defined(a) # label(a_is_defined) # label(hypothesis).
+defined(b) # label(b_is_defined) # label(hypothesis).
+-equalish(b,additive_identity) # label(b_not_equal_to_additive_identity_3) # label(negated_conjecture).
+-equalish(multiply(a,multiply(b,multiplicative_inverse(b))),a) # label(multiply_not_equal_to_a_4) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

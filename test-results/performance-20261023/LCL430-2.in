@@ -1,0 +1,20 @@
+assign(max_seconds,20).
+assign(max_megs,256).
+clear(print_given).
+clear(print_initial_clauses).
+clear(print_kept).
+set(prolog_style_variables).
+
+formulas(assumptions).
+-c_in(V_p,c_PropLog_Othms(c_minus(V_A,V_B,tc_set(tc_PropLog_Opl(T_a))),T_a),tc_PropLog_Opl(T_a)) | -c_lessequals(V_A,V_C,tc_set(tc_PropLog_Opl(T_a))) | c_in(V_p,c_PropLog_Othms(c_minus(V_C,V_B,tc_set(tc_PropLog_Opl(T_a))),T_a),tc_PropLog_Opl(T_a)) # label(cls_PropLog_ODiff__weaken__left_0) # label(axiom).
+c_lessequals(c_PropLog_Ohyps(V_p,c_insert(V_v,V_t,T_a),T_a),c_insert(c_PropLog_Opl_Ovar(V_v,T_a),c_minus(c_PropLog_Ohyps(V_p,V_t,T_a),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(V_v,T_a),c_PropLog_Opl_Ofalse,T_a),c_emptyset,tc_PropLog_Opl(T_a)),tc_set(tc_PropLog_Opl(T_a))),tc_PropLog_Opl(T_a)),tc_set(tc_PropLog_Opl(T_a))) # label(cls_PropLog_Ohyps__insert_0) # label(axiom).
+c_lessequals(c_minus(V_B,V_C,tc_set(T_a)),c_insert(V_a,c_minus(V_B,c_insert(V_a,V_C,T_a),tc_set(T_a)),T_a),tc_set(T_a)) # label(cls_PropLog_Oinsert__Diff__same_0) # label(axiom).
+c_lessequals(c_minus(c_insert(V_a,c_minus(V_B,c_insert(V_c,c_emptyset,T_a),tc_set(T_a)),T_a),V_D,tc_set(T_a)),c_insert(V_a,c_minus(V_B,c_insert(V_c,V_D,T_a),tc_set(T_a)),T_a),tc_set(T_a)) # label(cls_PropLog_Oinsert__Diff__subset2_0) # label(axiom).
+-c_in(V_q,c_PropLog_Othms(c_insert(V_p,V_H,tc_PropLog_Opl(T_a)),T_a),tc_PropLog_Opl(T_a)) | -c_in(V_q,c_PropLog_Othms(c_insert(c_PropLog_Opl_Oop_A_N_62(V_p,c_PropLog_Opl_Ofalse,T_a),V_H,tc_PropLog_Opl(T_a)),T_a),tc_PropLog_Opl(T_a)) | c_in(V_q,c_PropLog_Othms(V_H,T_a),tc_PropLog_Opl(T_a)) # label(cls_PropLog_Othms__excluded__middle__rule_0) # label(axiom).
+-c_in(V_p,c_PropLog_Othms(V_G,T_a),tc_PropLog_Opl(T_a)) | -c_lessequals(V_G,V_H,tc_set(tc_PropLog_Opl(T_a))) | c_in(V_p,c_PropLog_Othms(V_H,T_a),tc_PropLog_Opl(T_a)) # label(cls_PropLog_Oweaken__left_0) # label(axiom).
+c_in(v_p,c_PropLog_Othms(c_minus(c_PropLog_Ohyps(v_p,V_U,t_a),v_F,tc_set(tc_PropLog_Opl(t_a))),t_a),tc_PropLog_Opl(t_a)) # label(cls_conjecture_3) # label(negated_conjecture).
+-c_in(v_p,c_PropLog_Othms(c_minus(c_PropLog_Ohyps(v_p,v_t,t_a),c_insert(c_PropLog_Opl_Oop_A_N_62(c_PropLog_Opl_Ovar(v_v,t_a),c_PropLog_Opl_Ofalse,t_a),v_F,tc_PropLog_Opl(t_a)),tc_set(tc_PropLog_Opl(t_a))),t_a),tc_PropLog_Opl(t_a)) # label(cls_conjecture_5) # label(negated_conjecture).
+end_of_list.
+
+formulas(goals).
+end_of_list.

@@ -1,0 +1,1343 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2017-11A (CIIRC), November 2017.
+Process 22 was started by mfixman on bodoque,
+Fri Oct 23 14:55:26 2026
+The command was "/home/mfixman/Dropbox/continuous/TP/Prover9/provers.src/prover9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+assign(max_seconds,10).
+assign(max_megs,256).
+set(prolog_style_variables).
+
+formulas(assumptions).
+(all X0 all X1 (occurrence_of(X1,X0) & -atomic(X0) -> (exists X2 (root(X2,X0) & subactivity_occurrence(X2,X1))))) # label(sos) # label(axiom).
+(all X3 all X4 all X5 all X6 all X7 (occurrence_of(X4,X3) & root_occ(X6,X4) & leaf_occ(X7,X4) & subactivity_occurrence(X5,X4) & min_precedes(X6,X5,X3) & X5 != X7 -> min_precedes(X5,X7,X3))) # label(sos_01) # label(axiom).
+(all X8 all X9 all X10 all X11 (occurrence_of(X9,X8) & subactivity_occurrence(X10,X9) & leaf_occ(X11,X9) & arboreal(X10) & -min_precedes(X10,X11,X8) -> X11 = X10)) # label(sos_02) # label(axiom).
+(all X12 all X13 (occurrence_of(X13,X12) -> activity(X12) & activity_occurrence(X13))) # label(sos_03) # label(axiom).
+(all X14 all X15 all X16 all X17 (occurrence_of(X15,X14) & arboreal(X16) & arboreal(X17) & subactivity_occurrence(X16,X15) & subactivity_occurrence(X17,X15) -> min_precedes(X16,X17,X14) | min_precedes(X17,X16,X14) | X16 = X17)) # label(sos_04) # label(axiom).
+(all X18 all X19 (root(X19,X18) -> (exists X20 (subactivity(X20,X18) & atocc(X19,X20))))) # label(sos_05) # label(axiom).
+(all X21 all X22 all X23 (min_precedes(X22,X23,X21) -> (exists X24 (occurrence_of(X24,X21) & subactivity_occurrence(X22,X24) & subactivity_occurrence(X23,X24))))) # label(sos_06) # label(axiom).
+(all X25 all X26 (leaf(X25,X26) & -atomic(X26) -> (exists X27 (occurrence_of(X27,X26) & leaf_occ(X25,X27))))) # label(sos_07) # label(axiom).
+(all X28 all X29 all X30 (occurrence_of(X28,X29) & occurrence_of(X28,X30) -> X29 = X30)) # label(sos_08) # label(axiom).
+(all X31 all X32 all X33 (occurrence_of(X31,X33) & leaf_occ(X32,X31) -> min_precedes(X32,X34,X33))) # label(sos_09) # label(axiom).
+(all X35 all X36 all X37 (occurrence_of(X35,X37) & root_occ(X36,X35) -> min_precedes(X38,X36,X37))) # label(sos_10) # label(axiom).
+(all X39 all X40 (subactivity_occurrence(X39,X40) -> activity_occurrence(X39) & activity_occurrence(X40))) # label(sos_11) # label(axiom).
+(all X41 (activity_occurrence(X41) -> (exists X42 (activity(X42) & occurrence_of(X41,X42))))) # label(sos_12) # label(axiom).
+(all X43 (legal(X43) -> arboreal(X43))) # label(sos_13) # label(axiom).
+(all X44 all X45 (atocc(X44,X45) <-> (exists X46 (subactivity(X45,X46) & atomic(X46) & occurrence_of(X44,X46))))) # label(sos_14) # label(axiom).
+(all X47 all X48 (leaf(X47,X48) <-> (root(X47,X48) | (exists X49 min_precedes(X49,X47,X48))) & min_precedes(X47,X50,X48))) # label(sos_15) # label(axiom).
+(all X51 all X52 (occurrence_of(X51,X52) -> (arboreal(X51) <-> atomic(X52)))) # label(sos_16) # label(axiom).
+(all X53 all X54 (root(X53,X54) -> legal(X53))) # label(sos_17) # label(axiom).
+(all X55 all X56 (leaf_occ(X55,X56) <-> (exists X57 (occurrence_of(X56,X57) & subactivity_occurrence(X55,X56) & leaf(X55,X57))))) # label(sos_18) # label(axiom).
+(all X58 all X59 (root_occ(X58,X59) <-> (exists X60 (occurrence_of(X59,X60) & subactivity_occurrence(X58,X59) & root(X58,X60))))) # label(sos_19) # label(axiom).
+(all X61 all X62 (earlier(X61,X62) -> -earlier(X62,X61))) # label(sos_20) # label(axiom).
+(all X63 all X64 (precedes(X63,X64) <-> earlier(X63,X64) & legal(X64))) # label(sos_21) # label(axiom).
+(all X65 all X66 all X67 (min_precedes(X65,X66,X67) -> -root(X66,X67))) # label(sos_22) # label(axiom).
+(all X68 all X69 all X70 (min_precedes(X68,X69,X70) -> (exists X71 (root(X71,X70) & min_precedes(X71,X69,X70))))) # label(sos_23) # label(axiom).
+(all X72 all X73 all X74 (min_precedes(X72,X73,X74) -> precedes(X72,X73))) # label(sos_24) # label(axiom).
+(all X75 all X76 all X77 (next_subocc(X75,X76,X77) -> arboreal(X75) & arboreal(X76))) # label(sos_25) # label(axiom).
+(all X78 all X79 all X80 (next_subocc(X78,X79,X80) <-> min_precedes(X78,X79,X80) & min_precedes(X78,X81,X80) & min_precedes(X81,X79,X80))) # label(sos_26) # label(axiom).
+(all X82 all X83 all X84 all X85 (min_precedes(X82,X83,X84) & occurrence_of(X85,X84) & subactivity_occurrence(X83,X85) -> subactivity_occurrence(X82,X85))) # label(sos_27) # label(axiom).
+(all X86 all X87 all X88 all X89 (occurrence_of(X88,X89) & -atomic(X89) & leaf_occ(X86,X88) & leaf_occ(X87,X88) -> X86 = X87)) # label(sos_28) # label(axiom).
+(all X90 all X91 all X92 all X93 (occurrence_of(X92,X93) & root_occ(X90,X92) & root_occ(X91,X92) -> X90 = X91)) # label(sos_29) # label(axiom).
+(all X94 all X95 all X96 (earlier(X94,X95) & earlier(X95,X96) -> earlier(X94,X96))) # label(sos_30) # label(axiom).
+(all X97 all X98 all X99 all X100 (min_precedes(X97,X98,X100) & min_precedes(X97,X99,X100) & precedes(X98,X99) -> min_precedes(X98,X99,X100))) # label(sos_31) # label(axiom).
+(all X101 (occurrence_of(X101,tptp0) -> (exists X102 exists X103 (occurrence_of(X102,tptp4) & root_occ(X102,X101) & (occurrence_of(X103,tptp3) | occurrence_of(X103,tptp2)) & leaf_occ(X103,X101) & next_subocc(X102,X103,tptp0))))) # label(sos_32) # label(axiom).
+activity(tptp0) # label(sos_33) # label(axiom).
+-atomic(tptp0) # label(sos_34) # label(axiom).
+atomic(tptp4) # label(sos_35) # label(axiom).
+atomic(tptp3) # label(sos_36) # label(axiom).
+atomic(tptp2) # label(sos_37) # label(axiom).
+atomic(tptp5) # label(sos_38) # label(axiom).
+tptp4 != tptp5 # label(sos_39) # label(axiom).
+tptp4 != tptp3 # label(sos_40) # label(axiom).
+tptp4 != tptp2 # label(sos_41) # label(axiom).
+tptp5 != tptp3 # label(sos_42) # label(axiom).
+tptp5 != tptp2 # label(sos_43) # label(axiom).
+tptp3 != tptp2 # label(sos_44) # label(axiom).
+(all X104 all X105 all X106 all X107 all X108 (send_message(X104,X105,X106,X107,X108) -> activity(X104) & atomic(X104) & root(X105,X106) & root(X107,X108))) # label(sos_45) # label(axiom).
+(all X109 all X110 all X111 all X112 all X113 (send_message(X109,X110,X111,X112,X113) -> X109 != tptp4 & X109 != tptp3 & X109 != tptp2)) # label(sos_46) # label(axiom).
+(all X114 all X115 all X116 all X117 all X118 all X119 (send_message(X114,X115,X116,X117,X118) & occurrence_of(X119,X114) -> min_precedes(X117,X119,X118))) # label(sos_47) # label(axiom).
+(all X120 all X121 all X122 all X123 all X124 (transmit_message(X120,X121,X122,X123,X124) -> activity(X120) & -atomic(X120) & root(X121,X122) & root(X123,X124))) # label(sos_48) # label(axiom).
+(all X125 all X126 all X127 all X128 -transmit_message(tptp0,X125,X126,X127,X128)) # label(sos_49) # label(axiom).
+(all X129 all X130 all X131 all X132 all X133 all X134 all X135 (transmit_message(X129,X130,X131,X132,X133) -> -tptp1(X129,X134,X135))) # label(sos_50) # label(axiom).
+(all X136 all X137 all X138 all X139 all X140 all X141 (transmit_message(X136,X137,X138,X139,X140) & occurrence_of(X141,X136) -> (exists X142 exists X143 (send_message(X142,X137,X138,X139,X140) & occurrence_of(X143,X142) & root_occ(X143,X141))))) # label(sos_51) # label(axiom).
+(all X144 all X145 all X146 (tptp1(X144,X145,X146) -> activity(X144) & -atomic(X144) & -atomic(X145) & root(X146,X145))) # label(sos_52) # label(axiom).
+(all X147 all X148 all X149 all X150 (tptp1(X147,X148,X149) & occurrence_of(X150,X147) -> (exists X151 exists X152 exists X153 exists X154 (transmit_message(X151,X152,X153,X149,X148) & occurrence_of(X154,X151) & subactivity_occurrence(X154,X150))))) # label(sos_53) # label(axiom).
+(all X155 all X156 -tptp1(tptp0,X155,X156)) # label(sos_54) # label(axiom).
+end_of_list.
+
+formulas(goals).
+tptp1(X157,tptp0,X158) & occurrence_of(X159,X157) # label(goals) # label(conjecture).
+end_of_list.
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all X0 all X1 (occurrence_of(X1,X0) & -atomic(X0) -> (exists X2 (root(X2,X0) & subactivity_occurrence(X2,X1))))) # label(sos) # label(axiom) # label(non_clause).  [assumption].
+2 (all X3 all X4 all X5 all X6 all X7 (occurrence_of(X4,X3) & root_occ(X6,X4) & leaf_occ(X7,X4) & subactivity_occurrence(X5,X4) & min_precedes(X6,X5,X3) & X5 != X7 -> min_precedes(X5,X7,X3))) # label(sos_01) # label(axiom) # label(non_clause).  [assumption].
+3 (all X8 all X9 all X10 all X11 (occurrence_of(X9,X8) & subactivity_occurrence(X10,X9) & leaf_occ(X11,X9) & arboreal(X10) & -min_precedes(X10,X11,X8) -> X11 = X10)) # label(sos_02) # label(axiom) # label(non_clause).  [assumption].
+4 (all X12 all X13 (occurrence_of(X13,X12) -> activity(X12) & activity_occurrence(X13))) # label(sos_03) # label(axiom) # label(non_clause).  [assumption].
+5 (all X14 all X15 all X16 all X17 (occurrence_of(X15,X14) & arboreal(X16) & arboreal(X17) & subactivity_occurrence(X16,X15) & subactivity_occurrence(X17,X15) -> min_precedes(X16,X17,X14) | min_precedes(X17,X16,X14) | X16 = X17)) # label(sos_04) # label(axiom) # label(non_clause).  [assumption].
+6 (all X18 all X19 (root(X19,X18) -> (exists X20 (subactivity(X20,X18) & atocc(X19,X20))))) # label(sos_05) # label(axiom) # label(non_clause).  [assumption].
+7 (all X21 all X22 all X23 (min_precedes(X22,X23,X21) -> (exists X24 (occurrence_of(X24,X21) & subactivity_occurrence(X22,X24) & subactivity_occurrence(X23,X24))))) # label(sos_06) # label(axiom) # label(non_clause).  [assumption].
+8 (all X25 all X26 (leaf(X25,X26) & -atomic(X26) -> (exists X27 (occurrence_of(X27,X26) & leaf_occ(X25,X27))))) # label(sos_07) # label(axiom) # label(non_clause).  [assumption].
+9 (all X28 all X29 all X30 (occurrence_of(X28,X29) & occurrence_of(X28,X30) -> X29 = X30)) # label(sos_08) # label(axiom) # label(non_clause).  [assumption].
+10 (all X31 all X32 all X33 (occurrence_of(X31,X33) & leaf_occ(X32,X31) -> min_precedes(X32,X34,X33))) # label(sos_09) # label(axiom) # label(non_clause).  [assumption].
+11 (all X35 all X36 all X37 (occurrence_of(X35,X37) & root_occ(X36,X35) -> min_precedes(X38,X36,X37))) # label(sos_10) # label(axiom) # label(non_clause).  [assumption].
+12 (all X39 all X40 (subactivity_occurrence(X39,X40) -> activity_occurrence(X39) & activity_occurrence(X40))) # label(sos_11) # label(axiom) # label(non_clause).  [assumption].
+13 (all X41 (activity_occurrence(X41) -> (exists X42 (activity(X42) & occurrence_of(X41,X42))))) # label(sos_12) # label(axiom) # label(non_clause).  [assumption].
+14 (all X43 (legal(X43) -> arboreal(X43))) # label(sos_13) # label(axiom) # label(non_clause).  [assumption].
+15 (all X44 all X45 (atocc(X44,X45) <-> (exists X46 (subactivity(X45,X46) & atomic(X46) & occurrence_of(X44,X46))))) # label(sos_14) # label(axiom) # label(non_clause).  [assumption].
+16 (all X47 all X48 (leaf(X47,X48) <-> (root(X47,X48) | (exists X49 min_precedes(X49,X47,X48))) & min_precedes(X47,X50,X48))) # label(sos_15) # label(axiom) # label(non_clause).  [assumption].
+17 (all X51 all X52 (occurrence_of(X51,X52) -> (arboreal(X51) <-> atomic(X52)))) # label(sos_16) # label(axiom) # label(non_clause).  [assumption].
+18 (all X53 all X54 (root(X53,X54) -> legal(X53))) # label(sos_17) # label(axiom) # label(non_clause).  [assumption].
+19 (all X55 all X56 (leaf_occ(X55,X56) <-> (exists X57 (occurrence_of(X56,X57) & subactivity_occurrence(X55,X56) & leaf(X55,X57))))) # label(sos_18) # label(axiom) # label(non_clause).  [assumption].
+20 (all X58 all X59 (root_occ(X58,X59) <-> (exists X60 (occurrence_of(X59,X60) & subactivity_occurrence(X58,X59) & root(X58,X60))))) # label(sos_19) # label(axiom) # label(non_clause).  [assumption].
+21 (all X61 all X62 (earlier(X61,X62) -> -earlier(X62,X61))) # label(sos_20) # label(axiom) # label(non_clause).  [assumption].
+22 (all X63 all X64 (precedes(X63,X64) <-> earlier(X63,X64) & legal(X64))) # label(sos_21) # label(axiom) # label(non_clause).  [assumption].
+23 (all X65 all X66 all X67 (min_precedes(X65,X66,X67) -> -root(X66,X67))) # label(sos_22) # label(axiom) # label(non_clause).  [assumption].
+24 (all X68 all X69 all X70 (min_precedes(X68,X69,X70) -> (exists X71 (root(X71,X70) & min_precedes(X71,X69,X70))))) # label(sos_23) # label(axiom) # label(non_clause).  [assumption].
+25 (all X72 all X73 all X74 (min_precedes(X72,X73,X74) -> precedes(X72,X73))) # label(sos_24) # label(axiom) # label(non_clause).  [assumption].
+26 (all X75 all X76 all X77 (next_subocc(X75,X76,X77) -> arboreal(X75) & arboreal(X76))) # label(sos_25) # label(axiom) # label(non_clause).  [assumption].
+27 (all X78 all X79 all X80 (next_subocc(X78,X79,X80) <-> min_precedes(X78,X79,X80) & min_precedes(X78,X81,X80) & min_precedes(X81,X79,X80))) # label(sos_26) # label(axiom) # label(non_clause).  [assumption].
+28 (all X82 all X83 all X84 all X85 (min_precedes(X82,X83,X84) & occurrence_of(X85,X84) & subactivity_occurrence(X83,X85) -> subactivity_occurrence(X82,X85))) # label(sos_27) # label(axiom) # label(non_clause).  [assumption].
+29 (all X86 all X87 all X88 all X89 (occurrence_of(X88,X89) & -atomic(X89) & leaf_occ(X86,X88) & leaf_occ(X87,X88) -> X86 = X87)) # label(sos_28) # label(axiom) # label(non_clause).  [assumption].
+30 (all X90 all X91 all X92 all X93 (occurrence_of(X92,X93) & root_occ(X90,X92) & root_occ(X91,X92) -> X90 = X91)) # label(sos_29) # label(axiom) # label(non_clause).  [assumption].
+31 (all X94 all X95 all X96 (earlier(X94,X95) & earlier(X95,X96) -> earlier(X94,X96))) # label(sos_30) # label(axiom) # label(non_clause).  [assumption].
+32 (all X97 all X98 all X99 all X100 (min_precedes(X97,X98,X100) & min_precedes(X97,X99,X100) & precedes(X98,X99) -> min_precedes(X98,X99,X100))) # label(sos_31) # label(axiom) # label(non_clause).  [assumption].
+33 (all X101 (occurrence_of(X101,tptp0) -> (exists X102 exists X103 (occurrence_of(X102,tptp4) & root_occ(X102,X101) & (occurrence_of(X103,tptp3) | occurrence_of(X103,tptp2)) & leaf_occ(X103,X101) & next_subocc(X102,X103,tptp0))))) # label(sos_32) # label(axiom) # label(non_clause).  [assumption].
+34 (all X104 all X105 all X106 all X107 all X108 (send_message(X104,X105,X106,X107,X108) -> activity(X104) & atomic(X104) & root(X105,X106) & root(X107,X108))) # label(sos_45) # label(axiom) # label(non_clause).  [assumption].
+35 (all X109 all X110 all X111 all X112 all X113 (send_message(X109,X110,X111,X112,X113) -> X109 != tptp4 & X109 != tptp3 & X109 != tptp2)) # label(sos_46) # label(axiom) # label(non_clause).  [assumption].
+36 (all X114 all X115 all X116 all X117 all X118 all X119 (send_message(X114,X115,X116,X117,X118) & occurrence_of(X119,X114) -> min_precedes(X117,X119,X118))) # label(sos_47) # label(axiom) # label(non_clause).  [assumption].
+37 (all X120 all X121 all X122 all X123 all X124 (transmit_message(X120,X121,X122,X123,X124) -> activity(X120) & -atomic(X120) & root(X121,X122) & root(X123,X124))) # label(sos_48) # label(axiom) # label(non_clause).  [assumption].
+38 (all X125 all X126 all X127 all X128 -transmit_message(tptp0,X125,X126,X127,X128)) # label(sos_49) # label(axiom) # label(non_clause).  [assumption].
+39 (all X129 all X130 all X131 all X132 all X133 all X134 all X135 (transmit_message(X129,X130,X131,X132,X133) -> -tptp1(X129,X134,X135))) # label(sos_50) # label(axiom) # label(non_clause).  [assumption].
+40 (all X136 all X137 all X138 all X139 all X140 all X141 (transmit_message(X136,X137,X138,X139,X140) & occurrence_of(X141,X136) -> (exists X142 exists X143 (send_message(X142,X137,X138,X139,X140) & occurrence_of(X143,X142) & root_occ(X143,X141))))) # label(sos_51) # label(axiom) # label(non_clause).  [assumption].
+41 (all X144 all X145 all X146 (tptp1(X144,X145,X146) -> activity(X144) & -atomic(X144) & -atomic(X145) & root(X146,X145))) # label(sos_52) # label(axiom) # label(non_clause).  [assumption].
+42 (all X147 all X148 all X149 all X150 (tptp1(X147,X148,X149) & occurrence_of(X150,X147) -> (exists X151 exists X152 exists X153 exists X154 (transmit_message(X151,X152,X153,X149,X148) & occurrence_of(X154,X151) & subactivity_occurrence(X154,X150))))) # label(sos_53) # label(axiom) # label(non_clause).  [assumption].
+43 (all X155 all X156 -tptp1(tptp0,X155,X156)) # label(sos_54) # label(axiom) # label(non_clause).  [assumption].
+44 tptp1(X157,tptp0,X158) & occurrence_of(X159,X157) # label(goals) # label(conjecture) # label(non_clause) # label(goal).  [goal].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-occurrence_of(A,B) | atomic(B) | root(f1(B,A),B) # label(sos) # label(axiom).  [clausify(1)].
+-occurrence_of(A,B) | atomic(B) | subactivity_occurrence(f1(B,A),A) # label(sos) # label(axiom).  [clausify(1)].
+-occurrence_of(A,B) | -root_occ(C,A) | -leaf_occ(D,A) | -subactivity_occurrence(E,A) | -min_precedes(C,E,B) | D = E | min_precedes(E,D,B) # label(sos_01) # label(axiom).  [clausify(2)].
+-occurrence_of(A,B) | -subactivity_occurrence(C,A) | -leaf_occ(D,A) | -arboreal(C) | min_precedes(C,D,B) | D = C # label(sos_02) # label(axiom).  [clausify(3)].
+-occurrence_of(A,B) | activity(B) # label(sos_03) # label(axiom).  [clausify(4)].
+-occurrence_of(A,B) | activity_occurrence(A) # label(sos_03) # label(axiom).  [clausify(4)].
+-occurrence_of(A,B) | -arboreal(C) | -arboreal(D) | -subactivity_occurrence(C,A) | -subactivity_occurrence(D,A) | min_precedes(C,D,B) | min_precedes(D,C,B) | D = C # label(sos_04) # label(axiom).  [clausify(5)].
+-root(A,B) | subactivity(f2(B,A),B) # label(sos_05) # label(axiom).  [clausify(6)].
+-root(A,B) | atocc(A,f2(B,A)) # label(sos_05) # label(axiom).  [clausify(6)].
+-min_precedes(A,B,C) | occurrence_of(f3(C,A,B),C) # label(sos_06) # label(axiom).  [clausify(7)].
+-min_precedes(A,B,C) | subactivity_occurrence(A,f3(C,A,B)) # label(sos_06) # label(axiom).  [clausify(7)].
+-min_precedes(A,B,C) | subactivity_occurrence(B,f3(C,A,B)) # label(sos_06) # label(axiom).  [clausify(7)].
+-leaf(A,B) | atomic(B) | occurrence_of(f4(A,B),B) # label(sos_07) # label(axiom).  [clausify(8)].
+-leaf(A,B) | atomic(B) | leaf_occ(A,f4(A,B)) # label(sos_07) # label(axiom).  [clausify(8)].
+-occurrence_of(A,B) | -occurrence_of(A,C) | C = B # label(sos_08) # label(axiom).  [clausify(9)].
+-occurrence_of(A,B) | -leaf_occ(C,A) | min_precedes(C,D,B) # label(sos_09) # label(axiom).  [clausify(10)].
+-occurrence_of(A,B) | -root_occ(C,A) | min_precedes(D,C,B) # label(sos_10) # label(axiom).  [clausify(11)].
+-subactivity_occurrence(A,B) | activity_occurrence(A) # label(sos_11) # label(axiom).  [clausify(12)].
+-subactivity_occurrence(A,B) | activity_occurrence(B) # label(sos_11) # label(axiom).  [clausify(12)].
+-activity_occurrence(A) | activity(f5(A)) # label(sos_12) # label(axiom).  [clausify(13)].
+-activity_occurrence(A) | occurrence_of(A,f5(A)) # label(sos_12) # label(axiom).  [clausify(13)].
+-legal(A) | arboreal(A) # label(sos_13) # label(axiom).  [clausify(14)].
+-atocc(A,B) | subactivity(B,f6(A,B)) # label(sos_14) # label(axiom).  [clausify(15)].
+-atocc(A,B) | atomic(f6(A,B)) # label(sos_14) # label(axiom).  [clausify(15)].
+-atocc(A,B) | occurrence_of(A,f6(A,B)) # label(sos_14) # label(axiom).  [clausify(15)].
+atocc(A,B) | -subactivity(B,C) | -atomic(C) | -occurrence_of(A,C) # label(sos_14) # label(axiom).  [clausify(15)].
+-leaf(A,B) | root(A,B) | min_precedes(f7(C,A,B),A,B) # label(sos_15) # label(axiom).  [clausify(16)].
+-leaf(A,B) | min_precedes(A,C,B) # label(sos_15) # label(axiom).  [clausify(16)].
+leaf(A,B) | -root(A,B) | -min_precedes(A,C,B) # label(sos_15) # label(axiom).  [clausify(16)].
+leaf(A,B) | -min_precedes(C,A,B) | -min_precedes(A,D,B) # label(sos_15) # label(axiom).  [clausify(16)].
+-occurrence_of(A,B) | -arboreal(A) | atomic(B) # label(sos_16) # label(axiom).  [clausify(17)].
+-occurrence_of(A,B) | arboreal(A) | -atomic(B) # label(sos_16) # label(axiom).  [clausify(17)].
+-root(A,B) | legal(A) # label(sos_17) # label(axiom).  [clausify(18)].
+-leaf_occ(A,B) | occurrence_of(B,f8(A,B)) # label(sos_18) # label(axiom).  [clausify(19)].
+-leaf_occ(A,B) | subactivity_occurrence(A,B) # label(sos_18) # label(axiom).  [clausify(19)].
+-leaf_occ(A,B) | leaf(A,f8(A,B)) # label(sos_18) # label(axiom).  [clausify(19)].
+leaf_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -leaf(A,C) # label(sos_18) # label(axiom).  [clausify(19)].
+-root_occ(A,B) | occurrence_of(B,f9(A,B)) # label(sos_19) # label(axiom).  [clausify(20)].
+-root_occ(A,B) | subactivity_occurrence(A,B) # label(sos_19) # label(axiom).  [clausify(20)].
+-root_occ(A,B) | root(A,f9(A,B)) # label(sos_19) # label(axiom).  [clausify(20)].
+root_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -root(A,C) # label(sos_19) # label(axiom).  [clausify(20)].
+-earlier(A,B) | -earlier(B,A) # label(sos_20) # label(axiom).  [clausify(21)].
+-precedes(A,B) | earlier(A,B) # label(sos_21) # label(axiom).  [clausify(22)].
+-precedes(A,B) | legal(B) # label(sos_21) # label(axiom).  [clausify(22)].
+precedes(A,B) | -earlier(A,B) | -legal(B) # label(sos_21) # label(axiom).  [clausify(22)].
+-min_precedes(A,B,C) | -root(B,C) # label(sos_22) # label(axiom).  [clausify(23)].
+-min_precedes(A,B,C) | root(f10(A,B,C),C) # label(sos_23) # label(axiom).  [clausify(24)].
+-min_precedes(A,B,C) | min_precedes(f10(A,B,C),B,C) # label(sos_23) # label(axiom).  [clausify(24)].
+-min_precedes(A,B,C) | precedes(A,B) # label(sos_24) # label(axiom).  [clausify(25)].
+-next_subocc(A,B,C) | arboreal(A) # label(sos_25) # label(axiom).  [clausify(26)].
+-next_subocc(A,B,C) | arboreal(B) # label(sos_25) # label(axiom).  [clausify(26)].
+-next_subocc(A,B,C) | min_precedes(A,B,C) # label(sos_26) # label(axiom).  [clausify(27)].
+-next_subocc(A,B,C) | min_precedes(A,D,C) # label(sos_26) # label(axiom).  [clausify(27)].
+-next_subocc(A,B,C) | min_precedes(D,B,C) # label(sos_26) # label(axiom).  [clausify(27)].
+next_subocc(A,B,C) | -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) # label(sos_26) # label(axiom).  [clausify(27)].
+-min_precedes(A,B,C) | -occurrence_of(D,C) | -subactivity_occurrence(B,D) | subactivity_occurrence(A,D) # label(sos_27) # label(axiom).  [clausify(28)].
+-occurrence_of(A,B) | atomic(B) | -leaf_occ(C,A) | -leaf_occ(D,A) | D = C # label(sos_28) # label(axiom).  [clausify(29)].
+-occurrence_of(A,B) | -root_occ(C,A) | -root_occ(D,A) | D = C # label(sos_29) # label(axiom).  [clausify(30)].
+-earlier(A,B) | -earlier(B,C) | earlier(A,C) # label(sos_30) # label(axiom).  [clausify(31)].
+-min_precedes(A,B,C) | -min_precedes(A,D,C) | -precedes(B,D) | min_precedes(B,D,C) # label(sos_31) # label(axiom).  [clausify(32)].
+-occurrence_of(A,tptp0) | occurrence_of(f11(A),tptp4) # label(sos_32) # label(axiom).  [clausify(33)].
+-occurrence_of(A,tptp0) | root_occ(f11(A),A) # label(sos_32) # label(axiom).  [clausify(33)].
+-occurrence_of(A,tptp0) | occurrence_of(f12(A),tptp3) | occurrence_of(f12(A),tptp2) # label(sos_32) # label(axiom).  [clausify(33)].
+-occurrence_of(A,tptp0) | leaf_occ(f12(A),A) # label(sos_32) # label(axiom).  [clausify(33)].
+-occurrence_of(A,tptp0) | next_subocc(f11(A),f12(A),tptp0) # label(sos_32) # label(axiom).  [clausify(33)].
+activity(tptp0) # label(sos_33) # label(axiom).  [assumption].
+-atomic(tptp0) # label(sos_34) # label(axiom).  [assumption].
+atomic(tptp4) # label(sos_35) # label(axiom).  [assumption].
+atomic(tptp3) # label(sos_36) # label(axiom).  [assumption].
+atomic(tptp2) # label(sos_37) # label(axiom).  [assumption].
+atomic(tptp5) # label(sos_38) # label(axiom).  [assumption].
+tptp4 != tptp5 # label(sos_39) # label(axiom).  [assumption].
+tptp4 != tptp3 # label(sos_40) # label(axiom).  [assumption].
+tptp4 != tptp2 # label(sos_41) # label(axiom).  [assumption].
+tptp5 != tptp3 # label(sos_42) # label(axiom).  [assumption].
+tptp5 != tptp2 # label(sos_43) # label(axiom).  [assumption].
+tptp3 != tptp2 # label(sos_44) # label(axiom).  [assumption].
+-send_message(A,B,C,D,E) | activity(A) # label(sos_45) # label(axiom).  [clausify(34)].
+-send_message(A,B,C,D,E) | atomic(A) # label(sos_45) # label(axiom).  [clausify(34)].
+-send_message(A,B,C,D,E) | root(B,C) # label(sos_45) # label(axiom).  [clausify(34)].
+-send_message(A,B,C,D,E) | root(D,E) # label(sos_45) # label(axiom).  [clausify(34)].
+-send_message(A,B,C,D,E) | A != tptp4 # label(sos_46) # label(axiom).  [clausify(35)].
+-send_message(A,B,C,D,E) | A != tptp3 # label(sos_46) # label(axiom).  [clausify(35)].
+-send_message(A,B,C,D,E) | A != tptp2 # label(sos_46) # label(axiom).  [clausify(35)].
+-send_message(A,B,C,D,E) | -occurrence_of(F,A) | min_precedes(D,F,E) # label(sos_47) # label(axiom).  [clausify(36)].
+-transmit_message(A,B,C,D,E) | activity(A) # label(sos_48) # label(axiom).  [clausify(37)].
+-transmit_message(A,B,C,D,E) | -atomic(A) # label(sos_48) # label(axiom).  [clausify(37)].
+-transmit_message(A,B,C,D,E) | root(B,C) # label(sos_48) # label(axiom).  [clausify(37)].
+-transmit_message(A,B,C,D,E) | root(D,E) # label(sos_48) # label(axiom).  [clausify(37)].
+-transmit_message(tptp0,A,B,C,D) # label(sos_49) # label(axiom).  [clausify(38)].
+-transmit_message(A,B,C,D,E) | -tptp1(A,F,V6) # label(sos_50) # label(axiom).  [clausify(39)].
+-transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | send_message(f13(A,B,C,D,E,F),B,C,D,E) # label(sos_51) # label(axiom).  [clausify(40)].
+-transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | occurrence_of(f14(A,B,C,D,E,F),f13(A,B,C,D,E,F)) # label(sos_51) # label(axiom).  [clausify(40)].
+-transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | root_occ(f14(A,B,C,D,E,F),F) # label(sos_51) # label(axiom).  [clausify(40)].
+-tptp1(A,B,C) | activity(A) # label(sos_52) # label(axiom).  [clausify(41)].
+-tptp1(A,B,C) | -atomic(A) # label(sos_52) # label(axiom).  [clausify(41)].
+-tptp1(A,B,C) | -atomic(B) # label(sos_52) # label(axiom).  [clausify(41)].
+-tptp1(A,B,C) | root(C,B) # label(sos_52) # label(axiom).  [clausify(41)].
+-tptp1(A,B,C) | -occurrence_of(D,A) | transmit_message(f15(A,B,C,D),f16(A,B,C,D),f17(A,B,C,D),C,B) # label(sos_53) # label(axiom).  [clausify(42)].
+-tptp1(A,B,C) | -occurrence_of(D,A) | occurrence_of(f18(A,B,C,D),f15(A,B,C,D)) # label(sos_53) # label(axiom).  [clausify(42)].
+-tptp1(A,B,C) | -occurrence_of(D,A) | subactivity_occurrence(f18(A,B,C,D),D) # label(sos_53) # label(axiom).  [clausify(42)].
+-tptp1(tptp0,A,B) # label(sos_54) # label(axiom).  [clausify(43)].
+-tptp1(c1,tptp0,c2) | -occurrence_of(c3,c1) # label(goals) # label(conjecture).  [deny(44)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating root/2
+45 -root(A,B) | subactivity(f2(B,A),B) # label(sos_05) # label(axiom).  [clausify(6)].
+46 -occurrence_of(A,B) | atomic(B) | root(f1(B,A),B) # label(sos) # label(axiom).  [clausify(1)].
+Derived: subactivity(f2(A,f1(A,B)),A) | -occurrence_of(B,A) | atomic(A).  [resolve(45,a,46,c)].
+47 -root(A,B) | atocc(A,f2(B,A)) # label(sos_05) # label(axiom).  [clausify(6)].
+Derived: atocc(f1(A,B),f2(A,f1(A,B))) | -occurrence_of(B,A) | atomic(A).  [resolve(47,a,46,c)].
+48 -leaf(A,B) | root(A,B) | min_precedes(f7(C,A,B),A,B) # label(sos_15) # label(axiom).  [clausify(16)].
+Derived: -leaf(A,B) | min_precedes(f7(C,A,B),A,B) | subactivity(f2(B,A),B).  [resolve(48,b,45,a)].
+Derived: -leaf(A,B) | min_precedes(f7(C,A,B),A,B) | atocc(A,f2(B,A)).  [resolve(48,b,47,a)].
+49 leaf(A,B) | -root(A,B) | -min_precedes(A,C,B) # label(sos_15) # label(axiom).  [clausify(16)].
+Derived: leaf(f1(A,B),A) | -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A).  [resolve(49,b,46,c)].
+50 -root(A,B) | legal(A) # label(sos_17) # label(axiom).  [clausify(18)].
+Derived: legal(f1(A,B)) | -occurrence_of(B,A) | atomic(A).  [resolve(50,a,46,c)].
+Derived: legal(A) | -leaf(A,B) | min_precedes(f7(C,A,B),A,B).  [resolve(50,a,48,b)].
+51 -root_occ(A,B) | root(A,f9(A,B)) # label(sos_19) # label(axiom).  [clausify(20)].
+Derived: -root_occ(A,B) | subactivity(f2(f9(A,B),A),f9(A,B)).  [resolve(51,b,45,a)].
+Derived: -root_occ(A,B) | atocc(A,f2(f9(A,B),A)).  [resolve(51,b,47,a)].
+Derived: -root_occ(A,B) | leaf(A,f9(A,B)) | -min_precedes(A,C,f9(A,B)).  [resolve(51,b,49,b)].
+Derived: -root_occ(A,B) | legal(A).  [resolve(51,b,50,a)].
+52 root_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -root(A,C) # label(sos_19) # label(axiom).  [clausify(20)].
+Derived: root_occ(f1(A,B),C) | -occurrence_of(C,A) | -subactivity_occurrence(f1(A,B),C) | -occurrence_of(B,A) | atomic(A).  [resolve(52,d,46,c)].
+Derived: root_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -leaf(A,C) | min_precedes(f7(D,A,C),A,C).  [resolve(52,d,48,b)].
+Derived: root_occ(A,B) | -occurrence_of(B,f9(A,C)) | -subactivity_occurrence(A,B) | -root_occ(A,C).  [resolve(52,d,51,b)].
+53 -min_precedes(A,B,C) | -root(B,C) # label(sos_22) # label(axiom).  [clausify(23)].
+Derived: -min_precedes(A,f1(B,C),B) | -occurrence_of(C,B) | atomic(B).  [resolve(53,b,46,c)].
+Derived: -min_precedes(A,B,C) | -leaf(B,C) | min_precedes(f7(D,B,C),B,C).  [resolve(53,b,48,b)].
+Derived: -min_precedes(A,B,f9(B,C)) | -root_occ(B,C).  [resolve(53,b,51,b)].
+54 -min_precedes(A,B,C) | root(f10(A,B,C),C) # label(sos_23) # label(axiom).  [clausify(24)].
+Derived: -min_precedes(A,B,C) | subactivity(f2(C,f10(A,B,C)),C).  [resolve(54,b,45,a)].
+Derived: -min_precedes(A,B,C) | atocc(f10(A,B,C),f2(C,f10(A,B,C))).  [resolve(54,b,47,a)].
+Derived: -min_precedes(A,B,C) | leaf(f10(A,B,C),C) | -min_precedes(f10(A,B,C),D,C).  [resolve(54,b,49,b)].
+Derived: -min_precedes(A,B,C) | legal(f10(A,B,C)).  [resolve(54,b,50,a)].
+Derived: -min_precedes(A,B,C) | root_occ(f10(A,B,C),D) | -occurrence_of(D,C) | -subactivity_occurrence(f10(A,B,C),D).  [resolve(54,b,52,d)].
+Derived: -min_precedes(A,B,C) | -min_precedes(D,f10(A,B,C),C).  [resolve(54,b,53,b)].
+55 -send_message(A,B,C,D,E) | root(B,C) # label(sos_45) # label(axiom).  [clausify(34)].
+Derived: -send_message(A,B,C,D,E) | subactivity(f2(C,B),C).  [resolve(55,b,45,a)].
+Derived: -send_message(A,B,C,D,E) | atocc(B,f2(C,B)).  [resolve(55,b,47,a)].
+Derived: -send_message(A,B,C,D,E) | leaf(B,C) | -min_precedes(B,F,C).  [resolve(55,b,49,b)].
+Derived: -send_message(A,B,C,D,E) | legal(B).  [resolve(55,b,50,a)].
+Derived: -send_message(A,B,C,D,E) | root_occ(B,F) | -occurrence_of(F,C) | -subactivity_occurrence(B,F).  [resolve(55,b,52,d)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(F,B,C).  [resolve(55,b,53,b)].
+56 -send_message(A,B,C,D,E) | root(D,E) # label(sos_45) # label(axiom).  [clausify(34)].
+Derived: -send_message(A,B,C,D,E) | subactivity(f2(E,D),E).  [resolve(56,b,45,a)].
+Derived: -send_message(A,B,C,D,E) | atocc(D,f2(E,D)).  [resolve(56,b,47,a)].
+Derived: -send_message(A,B,C,D,E) | leaf(D,E) | -min_precedes(D,F,E).  [resolve(56,b,49,b)].
+Derived: -send_message(A,B,C,D,E) | legal(D).  [resolve(56,b,50,a)].
+Derived: -send_message(A,B,C,D,E) | root_occ(D,F) | -occurrence_of(F,E) | -subactivity_occurrence(D,F).  [resolve(56,b,52,d)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(F,D,E).  [resolve(56,b,53,b)].
+57 -transmit_message(A,B,C,D,E) | root(B,C) # label(sos_48) # label(axiom).  [clausify(37)].
+Derived: -transmit_message(A,B,C,D,E) | subactivity(f2(C,B),C).  [resolve(57,b,45,a)].
+Derived: -transmit_message(A,B,C,D,E) | atocc(B,f2(C,B)).  [resolve(57,b,47,a)].
+Derived: -transmit_message(A,B,C,D,E) | leaf(B,C) | -min_precedes(B,F,C).  [resolve(57,b,49,b)].
+Derived: -transmit_message(A,B,C,D,E) | legal(B).  [resolve(57,b,50,a)].
+Derived: -transmit_message(A,B,C,D,E) | root_occ(B,F) | -occurrence_of(F,C) | -subactivity_occurrence(B,F).  [resolve(57,b,52,d)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(F,B,C).  [resolve(57,b,53,b)].
+58 -transmit_message(A,B,C,D,E) | root(D,E) # label(sos_48) # label(axiom).  [clausify(37)].
+Derived: -transmit_message(A,B,C,D,E) | subactivity(f2(E,D),E).  [resolve(58,b,45,a)].
+Derived: -transmit_message(A,B,C,D,E) | atocc(D,f2(E,D)).  [resolve(58,b,47,a)].
+Derived: -transmit_message(A,B,C,D,E) | leaf(D,E) | -min_precedes(D,F,E).  [resolve(58,b,49,b)].
+Derived: -transmit_message(A,B,C,D,E) | legal(D).  [resolve(58,b,50,a)].
+Derived: -transmit_message(A,B,C,D,E) | root_occ(D,F) | -occurrence_of(F,E) | -subactivity_occurrence(D,F).  [resolve(58,b,52,d)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(F,D,E).  [resolve(58,b,53,b)].
+59 -tptp1(A,B,C) | root(C,B) # label(sos_52) # label(axiom).  [clausify(41)].
+Derived: -tptp1(A,B,C) | subactivity(f2(B,C),B).  [resolve(59,b,45,a)].
+Derived: -tptp1(A,B,C) | atocc(C,f2(B,C)).  [resolve(59,b,47,a)].
+Derived: -tptp1(A,B,C) | leaf(C,B) | -min_precedes(C,D,B).  [resolve(59,b,49,b)].
+Derived: -tptp1(A,B,C) | legal(C).  [resolve(59,b,50,a)].
+Derived: -tptp1(A,B,C) | root_occ(C,D) | -occurrence_of(D,B) | -subactivity_occurrence(C,D).  [resolve(59,b,52,d)].
+Derived: -tptp1(A,B,C) | -min_precedes(D,C,B).  [resolve(59,b,53,b)].
+
+Eliminating activity/1
+
+Eliminating activity_occurrence/1
+60 -activity_occurrence(A) | occurrence_of(A,f5(A)) # label(sos_12) # label(axiom).  [clausify(13)].
+61 -occurrence_of(A,B) | activity_occurrence(A) # label(sos_03) # label(axiom).  [clausify(4)].
+62 -subactivity_occurrence(A,B) | activity_occurrence(A) # label(sos_11) # label(axiom).  [clausify(12)].
+63 -subactivity_occurrence(A,B) | activity_occurrence(B) # label(sos_11) # label(axiom).  [clausify(12)].
+Derived: occurrence_of(A,f5(A)) | -occurrence_of(A,B).  [resolve(60,a,61,b)].
+Derived: occurrence_of(A,f5(A)) | -subactivity_occurrence(A,B).  [resolve(60,a,62,b)].
+Derived: occurrence_of(A,f5(A)) | -subactivity_occurrence(B,A).  [resolve(60,a,63,b)].
+
+Eliminating leaf/2
+64 leaf(A,B) | -min_precedes(C,A,B) | -min_precedes(A,D,B) # label(sos_15) # label(axiom).  [clausify(16)].
+65 -leaf(A,B) | atomic(B) | occurrence_of(f4(A,B),B) # label(sos_07) # label(axiom).  [clausify(8)].
+66 -leaf(A,B) | atomic(B) | leaf_occ(A,f4(A,B)) # label(sos_07) # label(axiom).  [clausify(8)].
+67 -leaf(A,B) | min_precedes(A,C,B) # label(sos_15) # label(axiom).  [clausify(16)].
+Derived: -min_precedes(A,B,C) | -min_precedes(B,D,C) | atomic(C) | occurrence_of(f4(B,C),C).  [resolve(64,a,65,a)].
+Derived: -min_precedes(A,B,C) | -min_precedes(B,D,C) | atomic(C) | leaf_occ(B,f4(B,C)).  [resolve(64,a,66,a)].
+Derived: -min_precedes(A,B,C) | -min_precedes(B,D,C) | min_precedes(B,E,C).  [resolve(64,a,67,a)].
+68 -leaf_occ(A,B) | leaf(A,f8(A,B)) # label(sos_18) # label(axiom).  [clausify(19)].
+Derived: -leaf_occ(A,B) | atomic(f8(A,B)) | occurrence_of(f4(A,f8(A,B)),f8(A,B)).  [resolve(68,b,65,a)].
+Derived: -leaf_occ(A,B) | atomic(f8(A,B)) | leaf_occ(A,f4(A,f8(A,B))).  [resolve(68,b,66,a)].
+Derived: -leaf_occ(A,B) | min_precedes(A,C,f8(A,B)).  [resolve(68,b,67,a)].
+69 leaf_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -leaf(A,C) # label(sos_18) # label(axiom).  [clausify(19)].
+Derived: leaf_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -min_precedes(D,A,C) | -min_precedes(A,E,C).  [resolve(69,d,64,a)].
+Derived: leaf_occ(A,B) | -occurrence_of(B,f8(A,C)) | -subactivity_occurrence(A,B) | -leaf_occ(A,C).  [resolve(69,d,68,b)].
+70 -leaf(A,B) | min_precedes(f7(C,A,B),A,B) | subactivity(f2(B,A),B).  [resolve(48,b,45,a)].
+Derived: min_precedes(f7(A,B,C),B,C) | subactivity(f2(C,B),C) | -min_precedes(D,B,C) | -min_precedes(B,E,C).  [resolve(70,a,64,a)].
+Derived: min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | subactivity(f2(f8(B,C),B),f8(B,C)) | -leaf_occ(B,C).  [resolve(70,a,68,b)].
+71 -leaf(A,B) | min_precedes(f7(C,A,B),A,B) | atocc(A,f2(B,A)).  [resolve(48,b,47,a)].
+Derived: min_precedes(f7(A,B,C),B,C) | atocc(B,f2(C,B)) | -min_precedes(D,B,C) | -min_precedes(B,E,C).  [resolve(71,a,64,a)].
+Derived: min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | atocc(B,f2(f8(B,C),B)) | -leaf_occ(B,C).  [resolve(71,a,68,b)].
+72 leaf(f1(A,B),A) | -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A).  [resolve(49,b,46,c)].
+Derived: -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | atomic(A) | occurrence_of(f4(f1(A,B),A),A).  [resolve(72,a,65,a)].
+Derived: -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | atomic(A) | leaf_occ(f1(A,B),f4(f1(A,B),A)).  [resolve(72,a,66,a)].
+Derived: -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | min_precedes(f1(A,B),D,A).  [resolve(72,a,67,a)].
+Derived: -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | leaf_occ(f1(A,B),D) | -occurrence_of(D,A) | -subactivity_occurrence(f1(A,B),D).  [resolve(72,a,69,d)].
+Derived: -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | min_precedes(f7(D,f1(A,B),A),f1(A,B),A) | subactivity(f2(A,f1(A,B)),A).  [resolve(72,a,70,a)].
+Derived: -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | min_precedes(f7(D,f1(A,B),A),f1(A,B),A) | atocc(f1(A,B),f2(A,f1(A,B))).  [resolve(72,a,71,a)].
+73 legal(A) | -leaf(A,B) | min_precedes(f7(C,A,B),A,B).  [resolve(50,a,48,b)].
+Derived: legal(A) | min_precedes(f7(B,A,C),A,C) | -min_precedes(D,A,C) | -min_precedes(A,E,C).  [resolve(73,b,64,a)].
+Derived: legal(A) | min_precedes(f7(B,A,f8(A,C)),A,f8(A,C)) | -leaf_occ(A,C).  [resolve(73,b,68,b)].
+Derived: legal(f1(A,B)) | min_precedes(f7(C,f1(A,B),A),f1(A,B),A) | -min_precedes(f1(A,B),D,A) | -occurrence_of(B,A) | atomic(A).  [resolve(73,b,72,a)].
+74 -root_occ(A,B) | leaf(A,f9(A,B)) | -min_precedes(A,C,f9(A,B)).  [resolve(51,b,49,b)].
+Derived: -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | atomic(f9(A,B)) | occurrence_of(f4(A,f9(A,B)),f9(A,B)).  [resolve(74,b,65,a)].
+Derived: -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | atomic(f9(A,B)) | leaf_occ(A,f4(A,f9(A,B))).  [resolve(74,b,66,a)].
+Derived: -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | min_precedes(A,D,f9(A,B)).  [resolve(74,b,67,a)].
+Derived: -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | leaf_occ(A,D) | -occurrence_of(D,f9(A,B)) | -subactivity_occurrence(A,D).  [resolve(74,b,69,d)].
+Derived: -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | min_precedes(f7(D,A,f9(A,B)),A,f9(A,B)) | subactivity(f2(f9(A,B),A),f9(A,B)).  [resolve(74,b,70,a)].
+Derived: -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | min_precedes(f7(D,A,f9(A,B)),A,f9(A,B)) | atocc(A,f2(f9(A,B),A)).  [resolve(74,b,71,a)].
+75 root_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -leaf(A,C) | min_precedes(f7(D,A,C),A,C).  [resolve(52,d,48,b)].
+Derived: root_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | min_precedes(f7(D,A,C),A,C) | -min_precedes(E,A,C) | -min_precedes(A,F,C).  [resolve(75,d,64,a)].
+Derived: root_occ(A,B) | -occurrence_of(B,f8(A,C)) | -subactivity_occurrence(A,B) | min_precedes(f7(D,A,f8(A,C)),A,f8(A,C)) | -leaf_occ(A,C).  [resolve(75,d,68,b)].
+Derived: root_occ(f1(A,B),C) | -occurrence_of(C,A) | -subactivity_occurrence(f1(A,B),C) | min_precedes(f7(D,f1(A,B),A),f1(A,B),A) | -min_precedes(f1(A,B),E,A) | -occurrence_of(B,A) | atomic(A).  [resolve(75,d,72,a)].
+76 -min_precedes(A,B,C) | -leaf(B,C) | min_precedes(f7(D,B,C),B,C).  [resolve(53,b,48,b)].
+Derived: -min_precedes(A,B,C) | min_precedes(f7(D,B,C),B,C) | -min_precedes(E,B,C) | -min_precedes(B,F,C).  [resolve(76,b,64,a)].
+Derived: -min_precedes(A,B,f8(B,C)) | min_precedes(f7(D,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C).  [resolve(76,b,68,b)].
+77 -min_precedes(A,B,C) | leaf(f10(A,B,C),C) | -min_precedes(f10(A,B,C),D,C).  [resolve(54,b,49,b)].
+Derived: -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | atomic(C) | occurrence_of(f4(f10(A,B,C),C),C).  [resolve(77,b,65,a)].
+Derived: -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | atomic(C) | leaf_occ(f10(A,B,C),f4(f10(A,B,C),C)).  [resolve(77,b,66,a)].
+Derived: -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | min_precedes(f10(A,B,C),E,C).  [resolve(77,b,67,a)].
+Derived: -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | leaf_occ(f10(A,B,C),E) | -occurrence_of(E,C) | -subactivity_occurrence(f10(A,B,C),E).  [resolve(77,b,69,d)].
+Derived: -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | min_precedes(f7(E,f10(A,B,C),C),f10(A,B,C),C) | subactivity(f2(C,f10(A,B,C)),C).  [resolve(77,b,70,a)].
+Derived: -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | min_precedes(f7(E,f10(A,B,C),C),f10(A,B,C),C) | atocc(f10(A,B,C),f2(C,f10(A,B,C))).  [resolve(77,b,71,a)].
+78 -send_message(A,B,C,D,E) | leaf(B,C) | -min_precedes(B,F,C).  [resolve(55,b,49,b)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(B,F,C) | atomic(C) | occurrence_of(f4(B,C),C).  [resolve(78,b,65,a)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(B,F,C) | atomic(C) | leaf_occ(B,f4(B,C)).  [resolve(78,b,66,a)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(B,V6,C).  [resolve(78,b,67,a)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(B,F,C) | leaf_occ(B,V6) | -occurrence_of(V6,C) | -subactivity_occurrence(B,V6).  [resolve(78,b,69,d)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(f7(V6,B,C),B,C) | subactivity(f2(C,B),C).  [resolve(78,b,70,a)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(f7(V6,B,C),B,C) | atocc(B,f2(C,B)).  [resolve(78,b,71,a)].
+79 -send_message(A,B,C,D,E) | leaf(D,E) | -min_precedes(D,F,E).  [resolve(56,b,49,b)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(D,F,E) | atomic(E) | occurrence_of(f4(D,E),E).  [resolve(79,b,65,a)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(D,F,E) | atomic(E) | leaf_occ(D,f4(D,E)).  [resolve(79,b,66,a)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(D,V6,E).  [resolve(79,b,67,a)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(D,F,E) | leaf_occ(D,V6) | -occurrence_of(V6,E) | -subactivity_occurrence(D,V6).  [resolve(79,b,69,d)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(f7(V6,D,E),D,E) | subactivity(f2(E,D),E).  [resolve(79,b,70,a)].
+Derived: -send_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(f7(V6,D,E),D,E) | atocc(D,f2(E,D)).  [resolve(79,b,71,a)].
+80 -transmit_message(A,B,C,D,E) | leaf(B,C) | -min_precedes(B,F,C).  [resolve(57,b,49,b)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | atomic(C) | occurrence_of(f4(B,C),C).  [resolve(80,b,65,a)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | atomic(C) | leaf_occ(B,f4(B,C)).  [resolve(80,b,66,a)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(B,V6,C).  [resolve(80,b,67,a)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | leaf_occ(B,V6) | -occurrence_of(V6,C) | -subactivity_occurrence(B,V6).  [resolve(80,b,69,d)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(f7(V6,B,C),B,C) | subactivity(f2(C,B),C).  [resolve(80,b,70,a)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(f7(V6,B,C),B,C) | atocc(B,f2(C,B)).  [resolve(80,b,71,a)].
+81 -transmit_message(A,B,C,D,E) | leaf(D,E) | -min_precedes(D,F,E).  [resolve(58,b,49,b)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | atomic(E) | occurrence_of(f4(D,E),E).  [resolve(81,b,65,a)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | atomic(E) | leaf_occ(D,f4(D,E)).  [resolve(81,b,66,a)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(D,V6,E).  [resolve(81,b,67,a)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | leaf_occ(D,V6) | -occurrence_of(V6,E) | -subactivity_occurrence(D,V6).  [resolve(81,b,69,d)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(f7(V6,D,E),D,E) | subactivity(f2(E,D),E).  [resolve(81,b,70,a)].
+Derived: -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(f7(V6,D,E),D,E) | atocc(D,f2(E,D)).  [resolve(81,b,71,a)].
+82 -tptp1(A,B,C) | leaf(C,B) | -min_precedes(C,D,B).  [resolve(59,b,49,b)].
+Derived: -tptp1(A,B,C) | -min_precedes(C,D,B) | atomic(B) | occurrence_of(f4(C,B),B).  [resolve(82,b,65,a)].
+Derived: -tptp1(A,B,C) | -min_precedes(C,D,B) | atomic(B) | leaf_occ(C,f4(C,B)).  [resolve(82,b,66,a)].
+Derived: -tptp1(A,B,C) | -min_precedes(C,D,B) | min_precedes(C,E,B).  [resolve(82,b,67,a)].
+Derived: -tptp1(A,B,C) | -min_precedes(C,D,B) | leaf_occ(C,E) | -occurrence_of(E,B) | -subactivity_occurrence(C,E).  [resolve(82,b,69,d)].
+Derived: -tptp1(A,B,C) | -min_precedes(C,D,B) | min_precedes(f7(E,C,B),C,B) | subactivity(f2(B,C),B).  [resolve(82,b,70,a)].
+Derived: -tptp1(A,B,C) | -min_precedes(C,D,B) | min_precedes(f7(E,C,B),C,B) | atocc(C,f2(B,C)).  [resolve(82,b,71,a)].
+
+Eliminating legal/1
+83 -precedes(A,B) | legal(B) # label(sos_21) # label(axiom).  [clausify(22)].
+84 -legal(A) | arboreal(A) # label(sos_13) # label(axiom).  [clausify(14)].
+Derived: -precedes(A,B) | arboreal(B).  [resolve(83,b,84,a)].
+85 precedes(A,B) | -earlier(A,B) | -legal(B) # label(sos_21) # label(axiom).  [clausify(22)].
+Derived: precedes(A,B) | -earlier(A,B) | -precedes(C,B).  [resolve(85,c,83,b)].
+86 legal(f1(A,B)) | -occurrence_of(B,A) | atomic(A).  [resolve(50,a,46,c)].
+Derived: -occurrence_of(A,B) | atomic(B) | arboreal(f1(B,A)).  [resolve(86,a,84,a)].
+Derived: -occurrence_of(A,B) | atomic(B) | precedes(C,f1(B,A)) | -earlier(C,f1(B,A)).  [resolve(86,a,85,c)].
+87 -root_occ(A,B) | legal(A).  [resolve(51,b,50,a)].
+Derived: -root_occ(A,B) | arboreal(A).  [resolve(87,b,84,a)].
+Derived: -root_occ(A,B) | precedes(C,A) | -earlier(C,A).  [resolve(87,b,85,c)].
+88 -min_precedes(A,B,C) | legal(f10(A,B,C)).  [resolve(54,b,50,a)].
+Derived: -min_precedes(A,B,C) | arboreal(f10(A,B,C)).  [resolve(88,b,84,a)].
+Derived: -min_precedes(A,B,C) | precedes(D,f10(A,B,C)) | -earlier(D,f10(A,B,C)).  [resolve(88,b,85,c)].
+89 -send_message(A,B,C,D,E) | legal(B).  [resolve(55,b,50,a)].
+Derived: -send_message(A,B,C,D,E) | arboreal(B).  [resolve(89,b,84,a)].
+Derived: -send_message(A,B,C,D,E) | precedes(F,B) | -earlier(F,B).  [resolve(89,b,85,c)].
+90 -send_message(A,B,C,D,E) | legal(D).  [resolve(56,b,50,a)].
+Derived: -send_message(A,B,C,D,E) | arboreal(D).  [resolve(90,b,84,a)].
+Derived: -send_message(A,B,C,D,E) | precedes(F,D) | -earlier(F,D).  [resolve(90,b,85,c)].
+91 -transmit_message(A,B,C,D,E) | legal(B).  [resolve(57,b,50,a)].
+Derived: -transmit_message(A,B,C,D,E) | arboreal(B).  [resolve(91,b,84,a)].
+Derived: -transmit_message(A,B,C,D,E) | precedes(F,B) | -earlier(F,B).  [resolve(91,b,85,c)].
+92 -transmit_message(A,B,C,D,E) | legal(D).  [resolve(58,b,50,a)].
+Derived: -transmit_message(A,B,C,D,E) | arboreal(D).  [resolve(92,b,84,a)].
+Derived: -transmit_message(A,B,C,D,E) | precedes(F,D) | -earlier(F,D).  [resolve(92,b,85,c)].
+93 -tptp1(A,B,C) | legal(C).  [resolve(59,b,50,a)].
+Derived: -tptp1(A,B,C) | arboreal(C).  [resolve(93,b,84,a)].
+Derived: -tptp1(A,B,C) | precedes(D,C) | -earlier(D,C).  [resolve(93,b,85,c)].
+94 legal(A) | min_precedes(f7(B,A,C),A,C) | -min_precedes(D,A,C) | -min_precedes(A,E,C).  [resolve(73,b,64,a)].
+95 legal(A) | min_precedes(f7(B,A,f8(A,C)),A,f8(A,C)) | -leaf_occ(A,C).  [resolve(73,b,68,b)].
+Derived: min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | arboreal(B).  [resolve(95,a,84,a)].
+Derived: min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | precedes(D,B) | -earlier(D,B).  [resolve(95,a,85,c)].
+96 legal(f1(A,B)) | min_precedes(f7(C,f1(A,B),A),f1(A,B),A) | -min_precedes(f1(A,B),D,A) | -occurrence_of(B,A) | atomic(A).  [resolve(73,b,72,a)].
+
+Eliminating atocc/2
+97 atocc(A,B) | -subactivity(B,C) | -atomic(C) | -occurrence_of(A,C) # label(sos_14) # label(axiom).  [clausify(15)].
+98 -atocc(A,B) | subactivity(B,f6(A,B)) # label(sos_14) # label(axiom).  [clausify(15)].
+99 -atocc(A,B) | atomic(f6(A,B)) # label(sos_14) # label(axiom).  [clausify(15)].
+100 -atocc(A,B) | occurrence_of(A,f6(A,B)) # label(sos_14) # label(axiom).  [clausify(15)].
+Derived: -subactivity(A,B) | -atomic(B) | -occurrence_of(C,B) | subactivity(A,f6(C,A)).  [resolve(97,a,98,a)].
+Derived: -subactivity(A,B) | -atomic(B) | -occurrence_of(C,B) | atomic(f6(C,A)).  [resolve(97,a,99,a)].
+Derived: -subactivity(A,B) | -atomic(B) | -occurrence_of(C,B) | occurrence_of(C,f6(C,A)).  [resolve(97,a,100,a)].
+101 atocc(f1(A,B),f2(A,f1(A,B))) | -occurrence_of(B,A) | atomic(A).  [resolve(47,a,46,c)].
+Derived: -occurrence_of(A,B) | atomic(B) | subactivity(f2(B,f1(B,A)),f6(f1(B,A),f2(B,f1(B,A)))).  [resolve(101,a,98,a)].
+Derived: -occurrence_of(A,B) | atomic(B) | atomic(f6(f1(B,A),f2(B,f1(B,A)))).  [resolve(101,a,99,a)].
+Derived: -occurrence_of(A,B) | atomic(B) | occurrence_of(f1(B,A),f6(f1(B,A),f2(B,f1(B,A)))).  [resolve(101,a,100,a)].
+102 -root_occ(A,B) | atocc(A,f2(f9(A,B),A)).  [resolve(51,b,47,a)].
+Derived: -root_occ(A,B) | subactivity(f2(f9(A,B),A),f6(A,f2(f9(A,B),A))).  [resolve(102,b,98,a)].
+Derived: -root_occ(A,B) | atomic(f6(A,f2(f9(A,B),A))).  [resolve(102,b,99,a)].
+Derived: -root_occ(A,B) | occurrence_of(A,f6(A,f2(f9(A,B),A))).  [resolve(102,b,100,a)].
+103 -min_precedes(A,B,C) | atocc(f10(A,B,C),f2(C,f10(A,B,C))).  [resolve(54,b,47,a)].
+Derived: -min_precedes(A,B,C) | subactivity(f2(C,f10(A,B,C)),f6(f10(A,B,C),f2(C,f10(A,B,C)))).  [resolve(103,b,98,a)].
+Derived: -min_precedes(A,B,C) | atomic(f6(f10(A,B,C),f2(C,f10(A,B,C)))).  [resolve(103,b,99,a)].
+Derived: -min_precedes(A,B,C) | occurrence_of(f10(A,B,C),f6(f10(A,B,C),f2(C,f10(A,B,C)))).  [resolve(103,b,100,a)].
+104 -send_message(A,B,C,D,E) | atocc(B,f2(C,B)).  [resolve(55,b,47,a)].
+Derived: -send_message(A,B,C,D,E) | subactivity(f2(C,B),f6(B,f2(C,B))).  [resolve(104,b,98,a)].
+Derived: -send_message(A,B,C,D,E) | atomic(f6(B,f2(C,B))).  [resolve(104,b,99,a)].
+Derived: -send_message(A,B,C,D,E) | occurrence_of(B,f6(B,f2(C,B))).  [resolve(104,b,100,a)].
+105 -send_message(A,B,C,D,E) | atocc(D,f2(E,D)).  [resolve(56,b,47,a)].
+Derived: -send_message(A,B,C,D,E) | subactivity(f2(E,D),f6(D,f2(E,D))).  [resolve(105,b,98,a)].
+Derived: -send_message(A,B,C,D,E) | atomic(f6(D,f2(E,D))).  [resolve(105,b,99,a)].
+Derived: -send_message(A,B,C,D,E) | occurrence_of(D,f6(D,f2(E,D))).  [resolve(105,b,100,a)].
+106 -transmit_message(A,B,C,D,E) | atocc(B,f2(C,B)).  [resolve(57,b,47,a)].
+Derived: -transmit_message(A,B,C,D,E) | subactivity(f2(C,B),f6(B,f2(C,B))).  [resolve(106,b,98,a)].
+Derived: -transmit_message(A,B,C,D,E) | atomic(f6(B,f2(C,B))).  [resolve(106,b,99,a)].
+Derived: -transmit_message(A,B,C,D,E) | occurrence_of(B,f6(B,f2(C,B))).  [resolve(106,b,100,a)].
+107 -transmit_message(A,B,C,D,E) | atocc(D,f2(E,D)).  [resolve(58,b,47,a)].
+Derived: -transmit_message(A,B,C,D,E) | subactivity(f2(E,D),f6(D,f2(E,D))).  [resolve(107,b,98,a)].
+Derived: -transmit_message(A,B,C,D,E) | atomic(f6(D,f2(E,D))).  [resolve(107,b,99,a)].
+Derived: -transmit_message(A,B,C,D,E) | occurrence_of(D,f6(D,f2(E,D))).  [resolve(107,b,100,a)].
+108 -tptp1(A,B,C) | atocc(C,f2(B,C)).  [resolve(59,b,47,a)].
+Derived: -tptp1(A,B,C) | subactivity(f2(B,C),f6(C,f2(B,C))).  [resolve(108,b,98,a)].
+Derived: -tptp1(A,B,C) | atomic(f6(C,f2(B,C))).  [resolve(108,b,99,a)].
+Derived: -tptp1(A,B,C) | occurrence_of(C,f6(C,f2(B,C))).  [resolve(108,b,100,a)].
+109 min_precedes(f7(A,B,C),B,C) | atocc(B,f2(C,B)) | -min_precedes(D,B,C) | -min_precedes(B,E,C).  [resolve(71,a,64,a)].
+110 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | atocc(B,f2(f8(B,C),B)) | -leaf_occ(B,C).  [resolve(71,a,68,b)].
+Derived: min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | subactivity(f2(f8(B,C),B),f6(B,f2(f8(B,C),B))).  [resolve(110,b,98,a)].
+Derived: min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | atomic(f6(B,f2(f8(B,C),B))).  [resolve(110,b,99,a)].
+Derived: min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | occurrence_of(B,f6(B,f2(f8(B,C),B))).  [resolve(110,b,100,a)].
+111 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | min_precedes(f7(D,f1(A,B),A),f1(A,B),A) | atocc(f1(A,B),f2(A,f1(A,B))).  [resolve(72,a,71,a)].
+112 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | min_precedes(f7(D,A,f9(A,B)),A,f9(A,B)) | atocc(A,f2(f9(A,B),A)).  [resolve(74,b,71,a)].
+113 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | min_precedes(f7(E,f10(A,B,C),C),f10(A,B,C),C) | atocc(f10(A,B,C),f2(C,f10(A,B,C))).  [resolve(77,b,71,a)].
+114 -send_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(f7(V6,B,C),B,C) | atocc(B,f2(C,B)).  [resolve(78,b,71,a)].
+115 -send_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(f7(V6,D,E),D,E) | atocc(D,f2(E,D)).  [resolve(79,b,71,a)].
+116 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(f7(V6,B,C),B,C) | atocc(B,f2(C,B)).  [resolve(80,b,71,a)].
+117 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(f7(V6,D,E),D,E) | atocc(D,f2(E,D)).  [resolve(81,b,71,a)].
+118 -tptp1(A,B,C) | -min_precedes(C,D,B) | min_precedes(f7(E,C,B),C,B) | atocc(C,f2(B,C)).  [resolve(82,b,71,a)].
+
+Eliminating next_subocc/3
+119 next_subocc(A,B,C) | -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) # label(sos_26) # label(axiom).  [clausify(27)].
+120 -next_subocc(A,B,C) | arboreal(A) # label(sos_25) # label(axiom).  [clausify(26)].
+121 -next_subocc(A,B,C) | arboreal(B) # label(sos_25) # label(axiom).  [clausify(26)].
+122 -next_subocc(A,B,C) | min_precedes(A,B,C) # label(sos_26) # label(axiom).  [clausify(27)].
+123 -next_subocc(A,B,C) | min_precedes(A,D,C) # label(sos_26) # label(axiom).  [clausify(27)].
+124 -next_subocc(A,B,C) | min_precedes(D,B,C) # label(sos_26) # label(axiom).  [clausify(27)].
+Derived: -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | arboreal(A).  [resolve(119,a,120,a)].
+Derived: -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | arboreal(B).  [resolve(119,a,121,a)].
+Derived: -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | min_precedes(A,E,C).  [resolve(119,a,123,a)].
+Derived: -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | min_precedes(E,B,C).  [resolve(119,a,124,a)].
+125 -occurrence_of(A,tptp0) | next_subocc(f11(A),f12(A),tptp0) # label(sos_32) # label(axiom).  [clausify(33)].
+Derived: -occurrence_of(A,tptp0) | arboreal(f11(A)).  [resolve(125,b,120,a)].
+Derived: -occurrence_of(A,tptp0) | arboreal(f12(A)).  [resolve(125,b,121,a)].
+Derived: -occurrence_of(A,tptp0) | min_precedes(f11(A),f12(A),tptp0).  [resolve(125,b,122,a)].
+Derived: -occurrence_of(A,tptp0) | min_precedes(f11(A),B,tptp0).  [resolve(125,b,123,a)].
+Derived: -occurrence_of(A,tptp0) | min_precedes(B,f12(A),tptp0).  [resolve(125,b,124,a)].
+
+Eliminating send_message/5
+126 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | send_message(f13(A,B,C,D,E,F),B,C,D,E) # label(sos_51) # label(axiom).  [clausify(40)].
+127 -send_message(A,B,C,D,E) | atomic(A) # label(sos_45) # label(axiom).  [clausify(34)].
+128 -send_message(A,B,C,D,E) | A != tptp4 # label(sos_46) # label(axiom).  [clausify(35)].
+129 -send_message(A,B,C,D,E) | A != tptp3 # label(sos_46) # label(axiom).  [clausify(35)].
+130 -send_message(A,B,C,D,E) | A != tptp2 # label(sos_46) # label(axiom).  [clausify(35)].
+131 -send_message(A,B,C,D,E) | -occurrence_of(F,A) | min_precedes(D,F,E) # label(sos_47) # label(axiom).  [clausify(36)].
+Derived: -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | atomic(f13(A,B,C,D,E,F)).  [resolve(126,c,127,a)].
+Derived: -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | f13(A,B,C,D,E,F) != tptp4.  [resolve(126,c,128,a)].
+Derived: -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | f13(A,B,C,D,E,F) != tptp3.  [resolve(126,c,129,a)].
+Derived: -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | f13(A,B,C,D,E,F) != tptp2.  [resolve(126,c,130,a)].
+Derived: -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | -occurrence_of(V6,f13(A,B,C,D,E,F)) | min_precedes(D,V6,E).  [resolve(126,c,131,a)].
+132 -send_message(A,B,C,D,E) | subactivity(f2(C,B),C).  [resolve(55,b,45,a)].
+133 -send_message(A,B,C,D,E) | root_occ(B,F) | -occurrence_of(F,C) | -subactivity_occurrence(B,F).  [resolve(55,b,52,d)].
+134 -send_message(A,B,C,D,E) | -min_precedes(F,B,C).  [resolve(55,b,53,b)].
+135 -send_message(A,B,C,D,E) | subactivity(f2(E,D),E).  [resolve(56,b,45,a)].
+136 -send_message(A,B,C,D,E) | root_occ(D,F) | -occurrence_of(F,E) | -subactivity_occurrence(D,F).  [resolve(56,b,52,d)].
+137 -send_message(A,B,C,D,E) | -min_precedes(F,D,E).  [resolve(56,b,53,b)].
+138 -send_message(A,B,C,D,E) | -min_precedes(B,F,C) | atomic(C) | occurrence_of(f4(B,C),C).  [resolve(78,b,65,a)].
+139 -send_message(A,B,C,D,E) | -min_precedes(B,F,C) | atomic(C) | leaf_occ(B,f4(B,C)).  [resolve(78,b,66,a)].
+140 -send_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(B,V6,C).  [resolve(78,b,67,a)].
+141 -send_message(A,B,C,D,E) | -min_precedes(B,F,C) | leaf_occ(B,V6) | -occurrence_of(V6,C) | -subactivity_occurrence(B,V6).  [resolve(78,b,69,d)].
+142 -send_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(f7(V6,B,C),B,C) | subactivity(f2(C,B),C).  [resolve(78,b,70,a)].
+143 -send_message(A,B,C,D,E) | -min_precedes(D,F,E) | atomic(E) | occurrence_of(f4(D,E),E).  [resolve(79,b,65,a)].
+144 -send_message(A,B,C,D,E) | -min_precedes(D,F,E) | atomic(E) | leaf_occ(D,f4(D,E)).  [resolve(79,b,66,a)].
+145 -send_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(D,V6,E).  [resolve(79,b,67,a)].
+146 -send_message(A,B,C,D,E) | -min_precedes(D,F,E) | leaf_occ(D,V6) | -occurrence_of(V6,E) | -subactivity_occurrence(D,V6).  [resolve(79,b,69,d)].
+147 -send_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(f7(V6,D,E),D,E) | subactivity(f2(E,D),E).  [resolve(79,b,70,a)].
+148 -send_message(A,B,C,D,E) | arboreal(B).  [resolve(89,b,84,a)].
+149 -send_message(A,B,C,D,E) | precedes(F,B) | -earlier(F,B).  [resolve(89,b,85,c)].
+150 -send_message(A,B,C,D,E) | arboreal(D).  [resolve(90,b,84,a)].
+151 -send_message(A,B,C,D,E) | precedes(F,D) | -earlier(F,D).  [resolve(90,b,85,c)].
+152 -send_message(A,B,C,D,E) | subactivity(f2(C,B),f6(B,f2(C,B))).  [resolve(104,b,98,a)].
+153 -send_message(A,B,C,D,E) | atomic(f6(B,f2(C,B))).  [resolve(104,b,99,a)].
+154 -send_message(A,B,C,D,E) | occurrence_of(B,f6(B,f2(C,B))).  [resolve(104,b,100,a)].
+155 -send_message(A,B,C,D,E) | subactivity(f2(E,D),f6(D,f2(E,D))).  [resolve(105,b,98,a)].
+156 -send_message(A,B,C,D,E) | atomic(f6(D,f2(E,D))).  [resolve(105,b,99,a)].
+157 -send_message(A,B,C,D,E) | occurrence_of(D,f6(D,f2(E,D))).  [resolve(105,b,100,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, atomic, arboreal, occurrence_of, leaf_occ, subactivity_occurrence, root_occ, subactivity, precedes, earlier, min_precedes, tptp1, transmit_message ]).
+Function symbol precedence:  function_order([ tptp0, tptp2, tptp3, tptp4, tptp5, c1, c2, c3, f1, f2, f4, f6, f8, f9, f5, f11, f12, f3, f7, f10, f15, f16, f17, f18, f13, f14 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+kept:      158 -occurrence_of(A,B) | atomic(B) | subactivity_occurrence(f1(B,A),A) # label(sos) # label(axiom).  [clausify(1)].
+kept:      159 -occurrence_of(A,B) | -root_occ(C,A) | -leaf_occ(D,A) | -subactivity_occurrence(E,A) | -min_precedes(C,E,B) | D = E | min_precedes(E,D,B) # label(sos_01) # label(axiom).  [clausify(2)].
+kept:      160 -occurrence_of(A,B) | -subactivity_occurrence(C,A) | -leaf_occ(D,A) | -arboreal(C) | min_precedes(C,D,B) | D = C # label(sos_02) # label(axiom).  [clausify(3)].
+kept:      161 -occurrence_of(A,B) | -arboreal(C) | -arboreal(D) | -subactivity_occurrence(C,A) | -subactivity_occurrence(D,A) | min_precedes(C,D,B) | min_precedes(D,C,B) | D = C # label(sos_04) # label(axiom).  [clausify(5)].
+kept:      162 -min_precedes(A,B,C) | occurrence_of(f3(C,A,B),C) # label(sos_06) # label(axiom).  [clausify(7)].
+kept:      163 -min_precedes(A,B,C) | subactivity_occurrence(A,f3(C,A,B)) # label(sos_06) # label(axiom).  [clausify(7)].
+kept:      164 -min_precedes(A,B,C) | subactivity_occurrence(B,f3(C,A,B)) # label(sos_06) # label(axiom).  [clausify(7)].
+kept:      165 -occurrence_of(A,B) | -occurrence_of(A,C) | C = B # label(sos_08) # label(axiom).  [clausify(9)].
+kept:      166 -occurrence_of(A,B) | -leaf_occ(C,A) | min_precedes(C,D,B) # label(sos_09) # label(axiom).  [clausify(10)].
+kept:      167 -occurrence_of(A,B) | -root_occ(C,A) | min_precedes(D,C,B) # label(sos_10) # label(axiom).  [clausify(11)].
+kept:      168 -occurrence_of(A,B) | -arboreal(A) | atomic(B) # label(sos_16) # label(axiom).  [clausify(17)].
+kept:      169 -occurrence_of(A,B) | arboreal(A) | -atomic(B) # label(sos_16) # label(axiom).  [clausify(17)].
+kept:      170 -leaf_occ(A,B) | occurrence_of(B,f8(A,B)) # label(sos_18) # label(axiom).  [clausify(19)].
+kept:      171 -leaf_occ(A,B) | subactivity_occurrence(A,B) # label(sos_18) # label(axiom).  [clausify(19)].
+kept:      172 -root_occ(A,B) | occurrence_of(B,f9(A,B)) # label(sos_19) # label(axiom).  [clausify(20)].
+kept:      173 -root_occ(A,B) | subactivity_occurrence(A,B) # label(sos_19) # label(axiom).  [clausify(20)].
+kept:      174 -earlier(A,B) | -earlier(B,A) # label(sos_20) # label(axiom).  [clausify(21)].
+kept:      175 -precedes(A,B) | earlier(A,B) # label(sos_21) # label(axiom).  [clausify(22)].
+kept:      176 -min_precedes(A,B,C) | min_precedes(f10(A,B,C),B,C) # label(sos_23) # label(axiom).  [clausify(24)].
+kept:      177 -min_precedes(A,B,C) | precedes(A,B) # label(sos_24) # label(axiom).  [clausify(25)].
+kept:      178 -min_precedes(A,B,C) | -occurrence_of(D,C) | -subactivity_occurrence(B,D) | subactivity_occurrence(A,D) # label(sos_27) # label(axiom).  [clausify(28)].
+kept:      179 -occurrence_of(A,B) | atomic(B) | -leaf_occ(C,A) | -leaf_occ(D,A) | D = C # label(sos_28) # label(axiom).  [clausify(29)].
+kept:      180 -occurrence_of(A,B) | -root_occ(C,A) | -root_occ(D,A) | D = C # label(sos_29) # label(axiom).  [clausify(30)].
+kept:      181 -earlier(A,B) | -earlier(B,C) | earlier(A,C) # label(sos_30) # label(axiom).  [clausify(31)].
+kept:      182 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -precedes(B,D) | min_precedes(B,D,C) # label(sos_31) # label(axiom).  [clausify(32)].
+kept:      183 -occurrence_of(A,tptp0) | occurrence_of(f11(A),tptp4) # label(sos_32) # label(axiom).  [clausify(33)].
+kept:      184 -occurrence_of(A,tptp0) | root_occ(f11(A),A) # label(sos_32) # label(axiom).  [clausify(33)].
+kept:      185 -occurrence_of(A,tptp0) | occurrence_of(f12(A),tptp3) | occurrence_of(f12(A),tptp2) # label(sos_32) # label(axiom).  [clausify(33)].
+kept:      186 -occurrence_of(A,tptp0) | leaf_occ(f12(A),A) # label(sos_32) # label(axiom).  [clausify(33)].
+kept:      187 -atomic(tptp0) # label(sos_34) # label(axiom).  [assumption].
+kept:      188 atomic(tptp4) # label(sos_35) # label(axiom).  [assumption].
+kept:      189 atomic(tptp3) # label(sos_36) # label(axiom).  [assumption].
+kept:      190 atomic(tptp2) # label(sos_37) # label(axiom).  [assumption].
+kept:      191 atomic(tptp5) # label(sos_38) # label(axiom).  [assumption].
+           192 tptp4 != tptp5 # label(sos_39) # label(axiom).  [assumption].
+kept:      193 tptp5 != tptp4.  [copy(192),flip(a)].
+kept:      194 tptp4 != tptp3 # label(sos_40) # label(axiom).  [assumption].
+kept:      195 tptp4 != tptp2 # label(sos_41) # label(axiom).  [assumption].
+kept:      196 tptp5 != tptp3 # label(sos_42) # label(axiom).  [assumption].
+kept:      197 tptp5 != tptp2 # label(sos_43) # label(axiom).  [assumption].
+kept:      198 tptp3 != tptp2 # label(sos_44) # label(axiom).  [assumption].
+kept:      199 -transmit_message(A,B,C,D,E) | -atomic(A) # label(sos_48) # label(axiom).  [clausify(37)].
+kept:      200 -transmit_message(tptp0,A,B,C,D) # label(sos_49) # label(axiom).  [clausify(38)].
+kept:      201 -transmit_message(A,B,C,D,E) | -tptp1(A,F,V6) # label(sos_50) # label(axiom).  [clausify(39)].
+kept:      202 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | occurrence_of(f14(A,B,C,D,E,F),f13(A,B,C,D,E,F)) # label(sos_51) # label(axiom).  [clausify(40)].
+kept:      203 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | root_occ(f14(A,B,C,D,E,F),F) # label(sos_51) # label(axiom).  [clausify(40)].
+kept:      204 -tptp1(A,B,C) | -atomic(A) # label(sos_52) # label(axiom).  [clausify(41)].
+kept:      205 -tptp1(A,B,C) | -atomic(B) # label(sos_52) # label(axiom).  [clausify(41)].
+kept:      206 -tptp1(A,B,C) | -occurrence_of(D,A) | transmit_message(f15(A,B,C,D),f16(A,B,C,D),f17(A,B,C,D),C,B) # label(sos_53) # label(axiom).  [clausify(42)].
+kept:      207 -tptp1(A,B,C) | -occurrence_of(D,A) | occurrence_of(f18(A,B,C,D),f15(A,B,C,D)) # label(sos_53) # label(axiom).  [clausify(42)].
+kept:      208 -tptp1(A,B,C) | -occurrence_of(D,A) | subactivity_occurrence(f18(A,B,C,D),D) # label(sos_53) # label(axiom).  [clausify(42)].
+kept:      209 -tptp1(tptp0,A,B) # label(sos_54) # label(axiom).  [clausify(43)].
+kept:      210 -tptp1(c1,tptp0,c2) | -occurrence_of(c3,c1) # label(goals) # label(conjecture).  [deny(44)].
+kept:      211 subactivity(f2(A,f1(A,B)),A) | -occurrence_of(B,A) | atomic(A).  [resolve(45,a,46,c)].
+kept:      212 -root_occ(A,B) | subactivity(f2(f9(A,B),A),f9(A,B)).  [resolve(51,b,45,a)].
+kept:      213 root_occ(f1(A,B),C) | -occurrence_of(C,A) | -subactivity_occurrence(f1(A,B),C) | -occurrence_of(B,A) | atomic(A).  [resolve(52,d,46,c)].
+kept:      214 root_occ(A,B) | -occurrence_of(B,f9(A,C)) | -subactivity_occurrence(A,B) | -root_occ(A,C).  [resolve(52,d,51,b)].
+kept:      215 -min_precedes(A,f1(B,C),B) | -occurrence_of(C,B) | atomic(B).  [resolve(53,b,46,c)].
+kept:      216 -min_precedes(A,B,f9(B,C)) | -root_occ(B,C).  [resolve(53,b,51,b)].
+kept:      217 -min_precedes(A,B,C) | subactivity(f2(C,f10(A,B,C)),C).  [resolve(54,b,45,a)].
+kept:      218 -min_precedes(A,B,C) | root_occ(f10(A,B,C),D) | -occurrence_of(D,C) | -subactivity_occurrence(f10(A,B,C),D).  [resolve(54,b,52,d)].
+kept:      219 -min_precedes(A,B,C) | -min_precedes(D,f10(A,B,C),C).  [resolve(54,b,53,b)].
+kept:      220 -transmit_message(A,B,C,D,E) | subactivity(f2(C,B),C).  [resolve(57,b,45,a)].
+kept:      221 -transmit_message(A,B,C,D,E) | root_occ(B,F) | -occurrence_of(F,C) | -subactivity_occurrence(B,F).  [resolve(57,b,52,d)].
+kept:      222 -transmit_message(A,B,C,D,E) | -min_precedes(F,B,C).  [resolve(57,b,53,b)].
+kept:      223 -transmit_message(A,B,C,D,E) | subactivity(f2(E,D),E).  [resolve(58,b,45,a)].
+kept:      224 -transmit_message(A,B,C,D,E) | root_occ(D,F) | -occurrence_of(F,E) | -subactivity_occurrence(D,F).  [resolve(58,b,52,d)].
+kept:      225 -transmit_message(A,B,C,D,E) | -min_precedes(F,D,E).  [resolve(58,b,53,b)].
+kept:      226 -tptp1(A,B,C) | subactivity(f2(B,C),B).  [resolve(59,b,45,a)].
+kept:      227 -tptp1(A,B,C) | root_occ(C,D) | -occurrence_of(D,B) | -subactivity_occurrence(C,D).  [resolve(59,b,52,d)].
+kept:      228 -tptp1(A,B,C) | -min_precedes(D,C,B).  [resolve(59,b,53,b)].
+kept:      229 occurrence_of(A,f5(A)) | -occurrence_of(A,B).  [resolve(60,a,61,b)].
+kept:      230 occurrence_of(A,f5(A)) | -subactivity_occurrence(A,B).  [resolve(60,a,62,b)].
+kept:      231 occurrence_of(A,f5(A)) | -subactivity_occurrence(B,A).  [resolve(60,a,63,b)].
+kept:      232 -min_precedes(A,B,C) | -min_precedes(B,D,C) | atomic(C) | occurrence_of(f4(B,C),C).  [resolve(64,a,65,a)].
+kept:      233 -min_precedes(A,B,C) | -min_precedes(B,D,C) | atomic(C) | leaf_occ(B,f4(B,C)).  [resolve(64,a,66,a)].
+kept:      234 -min_precedes(A,B,C) | -min_precedes(B,D,C) | min_precedes(B,E,C).  [resolve(64,a,67,a)].
+kept:      235 -leaf_occ(A,B) | atomic(f8(A,B)) | occurrence_of(f4(A,f8(A,B)),f8(A,B)).  [resolve(68,b,65,a)].
+kept:      236 -leaf_occ(A,B) | atomic(f8(A,B)) | leaf_occ(A,f4(A,f8(A,B))).  [resolve(68,b,66,a)].
+kept:      237 -leaf_occ(A,B) | min_precedes(A,C,f8(A,B)).  [resolve(68,b,67,a)].
+kept:      238 leaf_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -min_precedes(D,A,C) | -min_precedes(A,E,C).  [resolve(69,d,64,a)].
+kept:      239 leaf_occ(A,B) | -occurrence_of(B,f8(A,C)) | -subactivity_occurrence(A,B) | -leaf_occ(A,C).  [resolve(69,d,68,b)].
+kept:      240 min_precedes(f7(A,B,C),B,C) | subactivity(f2(C,B),C) | -min_precedes(D,B,C) | -min_precedes(B,E,C).  [resolve(70,a,64,a)].
+kept:      241 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | subactivity(f2(f8(B,C),B),f8(B,C)) | -leaf_occ(B,C).  [resolve(70,a,68,b)].
+           242 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | atomic(A) | occurrence_of(f4(f1(A,B),A),A).  [resolve(72,a,65,a)].
+kept:      243 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | occurrence_of(f4(f1(A,B),A),A).  [copy(242),merge(d)].
+           244 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | atomic(A) | leaf_occ(f1(A,B),f4(f1(A,B),A)).  [resolve(72,a,66,a)].
+kept:      245 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | leaf_occ(f1(A,B),f4(f1(A,B),A)).  [copy(244),merge(d)].
+kept:      246 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | min_precedes(f1(A,B),D,A).  [resolve(72,a,67,a)].
+kept:      247 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | leaf_occ(f1(A,B),D) | -occurrence_of(D,A) | -subactivity_occurrence(f1(A,B),D).  [resolve(72,a,69,d)].
+kept:      248 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | atomic(f9(A,B)) | occurrence_of(f4(A,f9(A,B)),f9(A,B)).  [resolve(74,b,65,a)].
+kept:      249 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | atomic(f9(A,B)) | leaf_occ(A,f4(A,f9(A,B))).  [resolve(74,b,66,a)].
+kept:      250 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | min_precedes(A,D,f9(A,B)).  [resolve(74,b,67,a)].
+kept:      251 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | leaf_occ(A,D) | -occurrence_of(D,f9(A,B)) | -subactivity_occurrence(A,D).  [resolve(74,b,69,d)].
+kept:      252 root_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | min_precedes(f7(D,A,C),A,C) | -min_precedes(E,A,C) | -min_precedes(A,F,C).  [resolve(75,d,64,a)].
+kept:      253 root_occ(A,B) | -occurrence_of(B,f8(A,C)) | -subactivity_occurrence(A,B) | min_precedes(f7(D,A,f8(A,C)),A,f8(A,C)) | -leaf_occ(A,C).  [resolve(75,d,68,b)].
+kept:      254 -min_precedes(A,B,C) | min_precedes(f7(D,B,C),B,C) | -min_precedes(E,B,C) | -min_precedes(B,F,C).  [resolve(76,b,64,a)].
+kept:      255 -min_precedes(A,B,f8(B,C)) | min_precedes(f7(D,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C).  [resolve(76,b,68,b)].
+kept:      256 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | atomic(C) | occurrence_of(f4(f10(A,B,C),C),C).  [resolve(77,b,65,a)].
+kept:      257 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | atomic(C) | leaf_occ(f10(A,B,C),f4(f10(A,B,C),C)).  [resolve(77,b,66,a)].
+kept:      258 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | min_precedes(f10(A,B,C),E,C).  [resolve(77,b,67,a)].
+kept:      259 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | leaf_occ(f10(A,B,C),E) | -occurrence_of(E,C) | -subactivity_occurrence(f10(A,B,C),E).  [resolve(77,b,69,d)].
+kept:      260 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | atomic(C) | occurrence_of(f4(B,C),C).  [resolve(80,b,65,a)].
+kept:      261 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | atomic(C) | leaf_occ(B,f4(B,C)).  [resolve(80,b,66,a)].
+kept:      262 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(B,V6,C).  [resolve(80,b,67,a)].
+kept:      263 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | leaf_occ(B,V6) | -occurrence_of(V6,C) | -subactivity_occurrence(B,V6).  [resolve(80,b,69,d)].
+kept:      264 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | atomic(E) | occurrence_of(f4(D,E),E).  [resolve(81,b,65,a)].
+kept:      265 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | atomic(E) | leaf_occ(D,f4(D,E)).  [resolve(81,b,66,a)].
+kept:      266 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(D,V6,E).  [resolve(81,b,67,a)].
+kept:      267 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | leaf_occ(D,V6) | -occurrence_of(V6,E) | -subactivity_occurrence(D,V6).  [resolve(81,b,69,d)].
+kept:      268 -tptp1(A,B,C) | -min_precedes(C,D,B) | atomic(B) | occurrence_of(f4(C,B),B).  [resolve(82,b,65,a)].
+kept:      269 -tptp1(A,B,C) | -min_precedes(C,D,B) | atomic(B) | leaf_occ(C,f4(C,B)).  [resolve(82,b,66,a)].
+kept:      270 -tptp1(A,B,C) | -min_precedes(C,D,B) | min_precedes(C,E,B).  [resolve(82,b,67,a)].
+kept:      271 -tptp1(A,B,C) | -min_precedes(C,D,B) | leaf_occ(C,E) | -occurrence_of(E,B) | -subactivity_occurrence(C,E).  [resolve(82,b,69,d)].
+kept:      272 -precedes(A,B) | arboreal(B).  [resolve(83,b,84,a)].
+kept:      273 precedes(A,B) | -earlier(A,B) | -precedes(C,B).  [resolve(85,c,83,b)].
+kept:      274 -occurrence_of(A,B) | atomic(B) | arboreal(f1(B,A)).  [resolve(86,a,84,a)].
+kept:      275 -occurrence_of(A,B) | atomic(B) | precedes(C,f1(B,A)) | -earlier(C,f1(B,A)).  [resolve(86,a,85,c)].
+kept:      276 -root_occ(A,B) | arboreal(A).  [resolve(87,b,84,a)].
+kept:      277 -root_occ(A,B) | precedes(C,A) | -earlier(C,A).  [resolve(87,b,85,c)].
+kept:      278 -min_precedes(A,B,C) | arboreal(f10(A,B,C)).  [resolve(88,b,84,a)].
+kept:      279 -min_precedes(A,B,C) | precedes(D,f10(A,B,C)) | -earlier(D,f10(A,B,C)).  [resolve(88,b,85,c)].
+kept:      280 -transmit_message(A,B,C,D,E) | arboreal(B).  [resolve(91,b,84,a)].
+kept:      281 -transmit_message(A,B,C,D,E) | precedes(F,B) | -earlier(F,B).  [resolve(91,b,85,c)].
+kept:      282 -transmit_message(A,B,C,D,E) | arboreal(D).  [resolve(92,b,84,a)].
+kept:      283 -transmit_message(A,B,C,D,E) | precedes(F,D) | -earlier(F,D).  [resolve(92,b,85,c)].
+kept:      284 -tptp1(A,B,C) | arboreal(C).  [resolve(93,b,84,a)].
+kept:      285 -tptp1(A,B,C) | precedes(D,C) | -earlier(D,C).  [resolve(93,b,85,c)].
+kept:      286 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | arboreal(B).  [resolve(95,a,84,a)].
+kept:      287 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | precedes(D,B) | -earlier(D,B).  [resolve(95,a,85,c)].
+kept:      288 -subactivity(A,B) | -atomic(B) | -occurrence_of(C,B) | subactivity(A,f6(C,A)).  [resolve(97,a,98,a)].
+kept:      289 -subactivity(A,B) | -atomic(B) | -occurrence_of(C,B) | atomic(f6(C,A)).  [resolve(97,a,99,a)].
+kept:      290 -subactivity(A,B) | -atomic(B) | -occurrence_of(C,B) | occurrence_of(C,f6(C,A)).  [resolve(97,a,100,a)].
+kept:      291 -occurrence_of(A,B) | atomic(B) | subactivity(f2(B,f1(B,A)),f6(f1(B,A),f2(B,f1(B,A)))).  [resolve(101,a,98,a)].
+kept:      292 -occurrence_of(A,B) | atomic(B) | atomic(f6(f1(B,A),f2(B,f1(B,A)))).  [resolve(101,a,99,a)].
+kept:      293 -occurrence_of(A,B) | atomic(B) | occurrence_of(f1(B,A),f6(f1(B,A),f2(B,f1(B,A)))).  [resolve(101,a,100,a)].
+kept:      294 -root_occ(A,B) | subactivity(f2(f9(A,B),A),f6(A,f2(f9(A,B),A))).  [resolve(102,b,98,a)].
+kept:      295 -root_occ(A,B) | atomic(f6(A,f2(f9(A,B),A))).  [resolve(102,b,99,a)].
+kept:      296 -root_occ(A,B) | occurrence_of(A,f6(A,f2(f9(A,B),A))).  [resolve(102,b,100,a)].
+kept:      297 -min_precedes(A,B,C) | subactivity(f2(C,f10(A,B,C)),f6(f10(A,B,C),f2(C,f10(A,B,C)))).  [resolve(103,b,98,a)].
+kept:      298 -min_precedes(A,B,C) | atomic(f6(f10(A,B,C),f2(C,f10(A,B,C)))).  [resolve(103,b,99,a)].
+kept:      299 -min_precedes(A,B,C) | occurrence_of(f10(A,B,C),f6(f10(A,B,C),f2(C,f10(A,B,C)))).  [resolve(103,b,100,a)].
+kept:      300 -transmit_message(A,B,C,D,E) | subactivity(f2(C,B),f6(B,f2(C,B))).  [resolve(106,b,98,a)].
+kept:      301 -transmit_message(A,B,C,D,E) | atomic(f6(B,f2(C,B))).  [resolve(106,b,99,a)].
+kept:      302 -transmit_message(A,B,C,D,E) | occurrence_of(B,f6(B,f2(C,B))).  [resolve(106,b,100,a)].
+kept:      303 -transmit_message(A,B,C,D,E) | subactivity(f2(E,D),f6(D,f2(E,D))).  [resolve(107,b,98,a)].
+kept:      304 -transmit_message(A,B,C,D,E) | atomic(f6(D,f2(E,D))).  [resolve(107,b,99,a)].
+kept:      305 -transmit_message(A,B,C,D,E) | occurrence_of(D,f6(D,f2(E,D))).  [resolve(107,b,100,a)].
+kept:      306 -tptp1(A,B,C) | subactivity(f2(B,C),f6(C,f2(B,C))).  [resolve(108,b,98,a)].
+kept:      307 -tptp1(A,B,C) | atomic(f6(C,f2(B,C))).  [resolve(108,b,99,a)].
+kept:      308 -tptp1(A,B,C) | occurrence_of(C,f6(C,f2(B,C))).  [resolve(108,b,100,a)].
+kept:      309 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | subactivity(f2(f8(B,C),B),f6(B,f2(f8(B,C),B))).  [resolve(110,b,98,a)].
+kept:      310 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | atomic(f6(B,f2(f8(B,C),B))).  [resolve(110,b,99,a)].
+kept:      311 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | occurrence_of(B,f6(B,f2(f8(B,C),B))).  [resolve(110,b,100,a)].
+kept:      312 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | arboreal(A).  [resolve(119,a,120,a)].
+kept:      313 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | arboreal(B).  [resolve(119,a,121,a)].
+kept:      314 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | min_precedes(A,E,C).  [resolve(119,a,123,a)].
+kept:      315 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | min_precedes(E,B,C).  [resolve(119,a,124,a)].
+kept:      316 -occurrence_of(A,tptp0) | arboreal(f11(A)).  [resolve(125,b,120,a)].
+kept:      317 -occurrence_of(A,tptp0) | arboreal(f12(A)).  [resolve(125,b,121,a)].
+kept:      318 -occurrence_of(A,tptp0) | min_precedes(f11(A),f12(A),tptp0).  [resolve(125,b,122,a)].
+kept:      319 -occurrence_of(A,tptp0) | min_precedes(f11(A),B,tptp0).  [resolve(125,b,123,a)].
+kept:      320 -occurrence_of(A,tptp0) | min_precedes(B,f12(A),tptp0).  [resolve(125,b,124,a)].
+kept:      321 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | atomic(f13(A,B,C,D,E,F)).  [resolve(126,c,127,a)].
+kept:      322 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | f13(A,B,C,D,E,F) != tptp4.  [resolve(126,c,128,a)].
+kept:      323 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | f13(A,B,C,D,E,F) != tptp3.  [resolve(126,c,129,a)].
+kept:      324 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | f13(A,B,C,D,E,F) != tptp2.  [resolve(126,c,130,a)].
+kept:      325 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | -occurrence_of(V6,f13(A,B,C,D,E,F)) | min_precedes(D,V6,E).  [resolve(126,c,131,a)].
+kept:      326 -earlier(A,A).  [factor(174,a,b)].
+kept:      327 -min_precedes(A,B,C) | -precedes(B,B) | min_precedes(B,B,C).  [factor(182,a,b)].
+kept:      328 root_occ(f1(A,B),B) | -occurrence_of(B,A) | -subactivity_occurrence(f1(A,B),B) | atomic(A).  [factor(213,b,d)].
+kept:      329 -min_precedes(A,A,B) | atomic(B) | occurrence_of(f4(A,B),B).  [factor(232,a,b)].
+kept:      330 -min_precedes(A,A,B) | atomic(B) | leaf_occ(A,f4(A,B)).  [factor(233,a,b)].
+kept:      331 -min_precedes(A,A,B) | min_precedes(A,C,B).  [factor(234,a,b)].
+kept:      332 leaf_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -min_precedes(A,A,C).  [factor(238,d,e)].
+kept:      333 min_precedes(f7(A,B,C),B,C) | subactivity(f2(C,B),C) | -min_precedes(B,B,C).  [factor(240,c,d)].
+kept:      334 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | leaf_occ(f1(A,B),B) | -subactivity_occurrence(f1(A,B),B).  [factor(247,b,e)].
+kept:      335 root_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | min_precedes(f7(D,A,C),A,C) | -min_precedes(A,A,C).  [factor(252,e,f)].
+kept:      336 -min_precedes(A,B,C) | min_precedes(f7(D,B,C),B,C) | -min_precedes(B,E,C).  [factor(254,a,c)].
+kept:      337 -min_precedes(A,B,C) | -min_precedes(B,B,C) | arboreal(A).  [factor(312,a,b)].
+kept:      338 -min_precedes(A,A,B) | arboreal(A).  [factor(312,b,c),merge(b)].
+kept:      339 -min_precedes(A,B,C) | -min_precedes(A,A,C) | arboreal(B).  [factor(313,a,c)].
+kept:      340 -min_precedes(A,B,C) | -min_precedes(B,B,C) | min_precedes(A,D,C).  [factor(314,a,b)].
+kept:      341 -min_precedes(A,B,C) | -min_precedes(B,B,C) | min_precedes(D,B,C).  [factor(315,a,b)].
+kept:      342 -min_precedes(A,B,C) | -min_precedes(A,A,C) | min_precedes(D,B,C).  [factor(315,a,c)].
+kept:      343 -min_precedes(A,A,B) | min_precedes(C,A,B).  [factor(315,b,c),merge(b)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+158 -occurrence_of(A,B) | atomic(B) | subactivity_occurrence(f1(B,A),A) # label(sos) # label(axiom).  [clausify(1)].
+159 -occurrence_of(A,B) | -root_occ(C,A) | -leaf_occ(D,A) | -subactivity_occurrence(E,A) | -min_precedes(C,E,B) | D = E | min_precedes(E,D,B) # label(sos_01) # label(axiom).  [clausify(2)].
+160 -occurrence_of(A,B) | -subactivity_occurrence(C,A) | -leaf_occ(D,A) | -arboreal(C) | min_precedes(C,D,B) | D = C # label(sos_02) # label(axiom).  [clausify(3)].
+161 -occurrence_of(A,B) | -arboreal(C) | -arboreal(D) | -subactivity_occurrence(C,A) | -subactivity_occurrence(D,A) | min_precedes(C,D,B) | min_precedes(D,C,B) | D = C # label(sos_04) # label(axiom).  [clausify(5)].
+162 -min_precedes(A,B,C) | occurrence_of(f3(C,A,B),C) # label(sos_06) # label(axiom).  [clausify(7)].
+163 -min_precedes(A,B,C) | subactivity_occurrence(A,f3(C,A,B)) # label(sos_06) # label(axiom).  [clausify(7)].
+164 -min_precedes(A,B,C) | subactivity_occurrence(B,f3(C,A,B)) # label(sos_06) # label(axiom).  [clausify(7)].
+165 -occurrence_of(A,B) | -occurrence_of(A,C) | C = B # label(sos_08) # label(axiom).  [clausify(9)].
+166 -occurrence_of(A,B) | -leaf_occ(C,A) | min_precedes(C,D,B) # label(sos_09) # label(axiom).  [clausify(10)].
+167 -occurrence_of(A,B) | -root_occ(C,A) | min_precedes(D,C,B) # label(sos_10) # label(axiom).  [clausify(11)].
+168 -occurrence_of(A,B) | -arboreal(A) | atomic(B) # label(sos_16) # label(axiom).  [clausify(17)].
+169 -occurrence_of(A,B) | arboreal(A) | -atomic(B) # label(sos_16) # label(axiom).  [clausify(17)].
+170 -leaf_occ(A,B) | occurrence_of(B,f8(A,B)) # label(sos_18) # label(axiom).  [clausify(19)].
+171 -leaf_occ(A,B) | subactivity_occurrence(A,B) # label(sos_18) # label(axiom).  [clausify(19)].
+172 -root_occ(A,B) | occurrence_of(B,f9(A,B)) # label(sos_19) # label(axiom).  [clausify(20)].
+173 -root_occ(A,B) | subactivity_occurrence(A,B) # label(sos_19) # label(axiom).  [clausify(20)].
+174 -earlier(A,B) | -earlier(B,A) # label(sos_20) # label(axiom).  [clausify(21)].
+175 -precedes(A,B) | earlier(A,B) # label(sos_21) # label(axiom).  [clausify(22)].
+176 -min_precedes(A,B,C) | min_precedes(f10(A,B,C),B,C) # label(sos_23) # label(axiom).  [clausify(24)].
+177 -min_precedes(A,B,C) | precedes(A,B) # label(sos_24) # label(axiom).  [clausify(25)].
+178 -min_precedes(A,B,C) | -occurrence_of(D,C) | -subactivity_occurrence(B,D) | subactivity_occurrence(A,D) # label(sos_27) # label(axiom).  [clausify(28)].
+179 -occurrence_of(A,B) | atomic(B) | -leaf_occ(C,A) | -leaf_occ(D,A) | D = C # label(sos_28) # label(axiom).  [clausify(29)].
+180 -occurrence_of(A,B) | -root_occ(C,A) | -root_occ(D,A) | D = C # label(sos_29) # label(axiom).  [clausify(30)].
+181 -earlier(A,B) | -earlier(B,C) | earlier(A,C) # label(sos_30) # label(axiom).  [clausify(31)].
+182 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -precedes(B,D) | min_precedes(B,D,C) # label(sos_31) # label(axiom).  [clausify(32)].
+183 -occurrence_of(A,tptp0) | occurrence_of(f11(A),tptp4) # label(sos_32) # label(axiom).  [clausify(33)].
+184 -occurrence_of(A,tptp0) | root_occ(f11(A),A) # label(sos_32) # label(axiom).  [clausify(33)].
+185 -occurrence_of(A,tptp0) | occurrence_of(f12(A),tptp3) | occurrence_of(f12(A),tptp2) # label(sos_32) # label(axiom).  [clausify(33)].
+186 -occurrence_of(A,tptp0) | leaf_occ(f12(A),A) # label(sos_32) # label(axiom).  [clausify(33)].
+187 -atomic(tptp0) # label(sos_34) # label(axiom).  [assumption].
+188 atomic(tptp4) # label(sos_35) # label(axiom).  [assumption].
+189 atomic(tptp3) # label(sos_36) # label(axiom).  [assumption].
+190 atomic(tptp2) # label(sos_37) # label(axiom).  [assumption].
+191 atomic(tptp5) # label(sos_38) # label(axiom).  [assumption].
+193 tptp5 != tptp4.  [copy(192),flip(a)].
+194 tptp4 != tptp3 # label(sos_40) # label(axiom).  [assumption].
+195 tptp4 != tptp2 # label(sos_41) # label(axiom).  [assumption].
+196 tptp5 != tptp3 # label(sos_42) # label(axiom).  [assumption].
+197 tptp5 != tptp2 # label(sos_43) # label(axiom).  [assumption].
+198 tptp3 != tptp2 # label(sos_44) # label(axiom).  [assumption].
+199 -transmit_message(A,B,C,D,E) | -atomic(A) # label(sos_48) # label(axiom).  [clausify(37)].
+200 -transmit_message(tptp0,A,B,C,D) # label(sos_49) # label(axiom).  [clausify(38)].
+201 -transmit_message(A,B,C,D,E) | -tptp1(A,F,V6) # label(sos_50) # label(axiom).  [clausify(39)].
+202 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | occurrence_of(f14(A,B,C,D,E,F),f13(A,B,C,D,E,F)) # label(sos_51) # label(axiom).  [clausify(40)].
+203 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | root_occ(f14(A,B,C,D,E,F),F) # label(sos_51) # label(axiom).  [clausify(40)].
+204 -tptp1(A,B,C) | -atomic(A) # label(sos_52) # label(axiom).  [clausify(41)].
+205 -tptp1(A,B,C) | -atomic(B) # label(sos_52) # label(axiom).  [clausify(41)].
+206 -tptp1(A,B,C) | -occurrence_of(D,A) | transmit_message(f15(A,B,C,D),f16(A,B,C,D),f17(A,B,C,D),C,B) # label(sos_53) # label(axiom).  [clausify(42)].
+207 -tptp1(A,B,C) | -occurrence_of(D,A) | occurrence_of(f18(A,B,C,D),f15(A,B,C,D)) # label(sos_53) # label(axiom).  [clausify(42)].
+208 -tptp1(A,B,C) | -occurrence_of(D,A) | subactivity_occurrence(f18(A,B,C,D),D) # label(sos_53) # label(axiom).  [clausify(42)].
+209 -tptp1(tptp0,A,B) # label(sos_54) # label(axiom).  [clausify(43)].
+210 -tptp1(c1,tptp0,c2) | -occurrence_of(c3,c1) # label(goals) # label(conjecture).  [deny(44)].
+211 subactivity(f2(A,f1(A,B)),A) | -occurrence_of(B,A) | atomic(A).  [resolve(45,a,46,c)].
+212 -root_occ(A,B) | subactivity(f2(f9(A,B),A),f9(A,B)).  [resolve(51,b,45,a)].
+213 root_occ(f1(A,B),C) | -occurrence_of(C,A) | -subactivity_occurrence(f1(A,B),C) | -occurrence_of(B,A) | atomic(A).  [resolve(52,d,46,c)].
+214 root_occ(A,B) | -occurrence_of(B,f9(A,C)) | -subactivity_occurrence(A,B) | -root_occ(A,C).  [resolve(52,d,51,b)].
+215 -min_precedes(A,f1(B,C),B) | -occurrence_of(C,B) | atomic(B).  [resolve(53,b,46,c)].
+216 -min_precedes(A,B,f9(B,C)) | -root_occ(B,C).  [resolve(53,b,51,b)].
+217 -min_precedes(A,B,C) | subactivity(f2(C,f10(A,B,C)),C).  [resolve(54,b,45,a)].
+218 -min_precedes(A,B,C) | root_occ(f10(A,B,C),D) | -occurrence_of(D,C) | -subactivity_occurrence(f10(A,B,C),D).  [resolve(54,b,52,d)].
+219 -min_precedes(A,B,C) | -min_precedes(D,f10(A,B,C),C).  [resolve(54,b,53,b)].
+220 -transmit_message(A,B,C,D,E) | subactivity(f2(C,B),C).  [resolve(57,b,45,a)].
+221 -transmit_message(A,B,C,D,E) | root_occ(B,F) | -occurrence_of(F,C) | -subactivity_occurrence(B,F).  [resolve(57,b,52,d)].
+222 -transmit_message(A,B,C,D,E) | -min_precedes(F,B,C).  [resolve(57,b,53,b)].
+223 -transmit_message(A,B,C,D,E) | subactivity(f2(E,D),E).  [resolve(58,b,45,a)].
+224 -transmit_message(A,B,C,D,E) | root_occ(D,F) | -occurrence_of(F,E) | -subactivity_occurrence(D,F).  [resolve(58,b,52,d)].
+225 -transmit_message(A,B,C,D,E) | -min_precedes(F,D,E).  [resolve(58,b,53,b)].
+226 -tptp1(A,B,C) | subactivity(f2(B,C),B).  [resolve(59,b,45,a)].
+227 -tptp1(A,B,C) | root_occ(C,D) | -occurrence_of(D,B) | -subactivity_occurrence(C,D).  [resolve(59,b,52,d)].
+228 -tptp1(A,B,C) | -min_precedes(D,C,B).  [resolve(59,b,53,b)].
+229 occurrence_of(A,f5(A)) | -occurrence_of(A,B).  [resolve(60,a,61,b)].
+230 occurrence_of(A,f5(A)) | -subactivity_occurrence(A,B).  [resolve(60,a,62,b)].
+231 occurrence_of(A,f5(A)) | -subactivity_occurrence(B,A).  [resolve(60,a,63,b)].
+232 -min_precedes(A,B,C) | -min_precedes(B,D,C) | atomic(C) | occurrence_of(f4(B,C),C).  [resolve(64,a,65,a)].
+233 -min_precedes(A,B,C) | -min_precedes(B,D,C) | atomic(C) | leaf_occ(B,f4(B,C)).  [resolve(64,a,66,a)].
+234 -min_precedes(A,B,C) | -min_precedes(B,D,C) | min_precedes(B,E,C).  [resolve(64,a,67,a)].
+235 -leaf_occ(A,B) | atomic(f8(A,B)) | occurrence_of(f4(A,f8(A,B)),f8(A,B)).  [resolve(68,b,65,a)].
+236 -leaf_occ(A,B) | atomic(f8(A,B)) | leaf_occ(A,f4(A,f8(A,B))).  [resolve(68,b,66,a)].
+237 -leaf_occ(A,B) | min_precedes(A,C,f8(A,B)).  [resolve(68,b,67,a)].
+238 leaf_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -min_precedes(D,A,C) | -min_precedes(A,E,C).  [resolve(69,d,64,a)].
+239 leaf_occ(A,B) | -occurrence_of(B,f8(A,C)) | -subactivity_occurrence(A,B) | -leaf_occ(A,C).  [resolve(69,d,68,b)].
+241 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | subactivity(f2(f8(B,C),B),f8(B,C)) | -leaf_occ(B,C).  [resolve(70,a,68,b)].
+243 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | occurrence_of(f4(f1(A,B),A),A).  [copy(242),merge(d)].
+245 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | leaf_occ(f1(A,B),f4(f1(A,B),A)).  [copy(244),merge(d)].
+246 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | min_precedes(f1(A,B),D,A).  [resolve(72,a,67,a)].
+247 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | leaf_occ(f1(A,B),D) | -occurrence_of(D,A) | -subactivity_occurrence(f1(A,B),D).  [resolve(72,a,69,d)].
+248 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | atomic(f9(A,B)) | occurrence_of(f4(A,f9(A,B)),f9(A,B)).  [resolve(74,b,65,a)].
+249 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | atomic(f9(A,B)) | leaf_occ(A,f4(A,f9(A,B))).  [resolve(74,b,66,a)].
+250 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | min_precedes(A,D,f9(A,B)).  [resolve(74,b,67,a)].
+251 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | leaf_occ(A,D) | -occurrence_of(D,f9(A,B)) | -subactivity_occurrence(A,D).  [resolve(74,b,69,d)].
+253 root_occ(A,B) | -occurrence_of(B,f8(A,C)) | -subactivity_occurrence(A,B) | min_precedes(f7(D,A,f8(A,C)),A,f8(A,C)) | -leaf_occ(A,C).  [resolve(75,d,68,b)].
+255 -min_precedes(A,B,f8(B,C)) | min_precedes(f7(D,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C).  [resolve(76,b,68,b)].
+256 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | atomic(C) | occurrence_of(f4(f10(A,B,C),C),C).  [resolve(77,b,65,a)].
+257 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | atomic(C) | leaf_occ(f10(A,B,C),f4(f10(A,B,C),C)).  [resolve(77,b,66,a)].
+258 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | min_precedes(f10(A,B,C),E,C).  [resolve(77,b,67,a)].
+259 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | leaf_occ(f10(A,B,C),E) | -occurrence_of(E,C) | -subactivity_occurrence(f10(A,B,C),E).  [resolve(77,b,69,d)].
+260 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | atomic(C) | occurrence_of(f4(B,C),C).  [resolve(80,b,65,a)].
+261 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | atomic(C) | leaf_occ(B,f4(B,C)).  [resolve(80,b,66,a)].
+262 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(B,V6,C).  [resolve(80,b,67,a)].
+263 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | leaf_occ(B,V6) | -occurrence_of(V6,C) | -subactivity_occurrence(B,V6).  [resolve(80,b,69,d)].
+264 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | atomic(E) | occurrence_of(f4(D,E),E).  [resolve(81,b,65,a)].
+265 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | atomic(E) | leaf_occ(D,f4(D,E)).  [resolve(81,b,66,a)].
+266 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(D,V6,E).  [resolve(81,b,67,a)].
+267 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | leaf_occ(D,V6) | -occurrence_of(V6,E) | -subactivity_occurrence(D,V6).  [resolve(81,b,69,d)].
+268 -tptp1(A,B,C) | -min_precedes(C,D,B) | atomic(B) | occurrence_of(f4(C,B),B).  [resolve(82,b,65,a)].
+269 -tptp1(A,B,C) | -min_precedes(C,D,B) | atomic(B) | leaf_occ(C,f4(C,B)).  [resolve(82,b,66,a)].
+270 -tptp1(A,B,C) | -min_precedes(C,D,B) | min_precedes(C,E,B).  [resolve(82,b,67,a)].
+271 -tptp1(A,B,C) | -min_precedes(C,D,B) | leaf_occ(C,E) | -occurrence_of(E,B) | -subactivity_occurrence(C,E).  [resolve(82,b,69,d)].
+272 -precedes(A,B) | arboreal(B).  [resolve(83,b,84,a)].
+273 precedes(A,B) | -earlier(A,B) | -precedes(C,B).  [resolve(85,c,83,b)].
+274 -occurrence_of(A,B) | atomic(B) | arboreal(f1(B,A)).  [resolve(86,a,84,a)].
+275 -occurrence_of(A,B) | atomic(B) | precedes(C,f1(B,A)) | -earlier(C,f1(B,A)).  [resolve(86,a,85,c)].
+276 -root_occ(A,B) | arboreal(A).  [resolve(87,b,84,a)].
+277 -root_occ(A,B) | precedes(C,A) | -earlier(C,A).  [resolve(87,b,85,c)].
+278 -min_precedes(A,B,C) | arboreal(f10(A,B,C)).  [resolve(88,b,84,a)].
+279 -min_precedes(A,B,C) | precedes(D,f10(A,B,C)) | -earlier(D,f10(A,B,C)).  [resolve(88,b,85,c)].
+280 -transmit_message(A,B,C,D,E) | arboreal(B).  [resolve(91,b,84,a)].
+281 -transmit_message(A,B,C,D,E) | precedes(F,B) | -earlier(F,B).  [resolve(91,b,85,c)].
+282 -transmit_message(A,B,C,D,E) | arboreal(D).  [resolve(92,b,84,a)].
+283 -transmit_message(A,B,C,D,E) | precedes(F,D) | -earlier(F,D).  [resolve(92,b,85,c)].
+284 -tptp1(A,B,C) | arboreal(C).  [resolve(93,b,84,a)].
+285 -tptp1(A,B,C) | precedes(D,C) | -earlier(D,C).  [resolve(93,b,85,c)].
+286 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | arboreal(B).  [resolve(95,a,84,a)].
+287 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | precedes(D,B) | -earlier(D,B).  [resolve(95,a,85,c)].
+288 -subactivity(A,B) | -atomic(B) | -occurrence_of(C,B) | subactivity(A,f6(C,A)).  [resolve(97,a,98,a)].
+289 -subactivity(A,B) | -atomic(B) | -occurrence_of(C,B) | atomic(f6(C,A)).  [resolve(97,a,99,a)].
+290 -subactivity(A,B) | -atomic(B) | -occurrence_of(C,B) | occurrence_of(C,f6(C,A)).  [resolve(97,a,100,a)].
+291 -occurrence_of(A,B) | atomic(B) | subactivity(f2(B,f1(B,A)),f6(f1(B,A),f2(B,f1(B,A)))).  [resolve(101,a,98,a)].
+292 -occurrence_of(A,B) | atomic(B) | atomic(f6(f1(B,A),f2(B,f1(B,A)))).  [resolve(101,a,99,a)].
+293 -occurrence_of(A,B) | atomic(B) | occurrence_of(f1(B,A),f6(f1(B,A),f2(B,f1(B,A)))).  [resolve(101,a,100,a)].
+294 -root_occ(A,B) | subactivity(f2(f9(A,B),A),f6(A,f2(f9(A,B),A))).  [resolve(102,b,98,a)].
+295 -root_occ(A,B) | atomic(f6(A,f2(f9(A,B),A))).  [resolve(102,b,99,a)].
+296 -root_occ(A,B) | occurrence_of(A,f6(A,f2(f9(A,B),A))).  [resolve(102,b,100,a)].
+297 -min_precedes(A,B,C) | subactivity(f2(C,f10(A,B,C)),f6(f10(A,B,C),f2(C,f10(A,B,C)))).  [resolve(103,b,98,a)].
+298 -min_precedes(A,B,C) | atomic(f6(f10(A,B,C),f2(C,f10(A,B,C)))).  [resolve(103,b,99,a)].
+299 -min_precedes(A,B,C) | occurrence_of(f10(A,B,C),f6(f10(A,B,C),f2(C,f10(A,B,C)))).  [resolve(103,b,100,a)].
+300 -transmit_message(A,B,C,D,E) | subactivity(f2(C,B),f6(B,f2(C,B))).  [resolve(106,b,98,a)].
+301 -transmit_message(A,B,C,D,E) | atomic(f6(B,f2(C,B))).  [resolve(106,b,99,a)].
+302 -transmit_message(A,B,C,D,E) | occurrence_of(B,f6(B,f2(C,B))).  [resolve(106,b,100,a)].
+303 -transmit_message(A,B,C,D,E) | subactivity(f2(E,D),f6(D,f2(E,D))).  [resolve(107,b,98,a)].
+304 -transmit_message(A,B,C,D,E) | atomic(f6(D,f2(E,D))).  [resolve(107,b,99,a)].
+305 -transmit_message(A,B,C,D,E) | occurrence_of(D,f6(D,f2(E,D))).  [resolve(107,b,100,a)].
+306 -tptp1(A,B,C) | subactivity(f2(B,C),f6(C,f2(B,C))).  [resolve(108,b,98,a)].
+307 -tptp1(A,B,C) | atomic(f6(C,f2(B,C))).  [resolve(108,b,99,a)].
+308 -tptp1(A,B,C) | occurrence_of(C,f6(C,f2(B,C))).  [resolve(108,b,100,a)].
+309 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | subactivity(f2(f8(B,C),B),f6(B,f2(f8(B,C),B))).  [resolve(110,b,98,a)].
+310 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | atomic(f6(B,f2(f8(B,C),B))).  [resolve(110,b,99,a)].
+311 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | occurrence_of(B,f6(B,f2(f8(B,C),B))).  [resolve(110,b,100,a)].
+312 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | arboreal(A).  [resolve(119,a,120,a)].
+313 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | arboreal(B).  [resolve(119,a,121,a)].
+314 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | min_precedes(A,E,C).  [resolve(119,a,123,a)].
+315 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | min_precedes(E,B,C).  [resolve(119,a,124,a)].
+316 -occurrence_of(A,tptp0) | arboreal(f11(A)).  [resolve(125,b,120,a)].
+317 -occurrence_of(A,tptp0) | arboreal(f12(A)).  [resolve(125,b,121,a)].
+319 -occurrence_of(A,tptp0) | min_precedes(f11(A),B,tptp0).  [resolve(125,b,123,a)].
+320 -occurrence_of(A,tptp0) | min_precedes(B,f12(A),tptp0).  [resolve(125,b,124,a)].
+321 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | atomic(f13(A,B,C,D,E,F)).  [resolve(126,c,127,a)].
+322 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | f13(A,B,C,D,E,F) != tptp4.  [resolve(126,c,128,a)].
+323 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | f13(A,B,C,D,E,F) != tptp3.  [resolve(126,c,129,a)].
+324 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | f13(A,B,C,D,E,F) != tptp2.  [resolve(126,c,130,a)].
+325 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | -occurrence_of(V6,f13(A,B,C,D,E,F)) | min_precedes(D,V6,E).  [resolve(126,c,131,a)].
+326 -earlier(A,A).  [factor(174,a,b)].
+327 -min_precedes(A,B,C) | -precedes(B,B) | min_precedes(B,B,C).  [factor(182,a,b)].
+328 root_occ(f1(A,B),B) | -occurrence_of(B,A) | -subactivity_occurrence(f1(A,B),B) | atomic(A).  [factor(213,b,d)].
+329 -min_precedes(A,A,B) | atomic(B) | occurrence_of(f4(A,B),B).  [factor(232,a,b)].
+330 -min_precedes(A,A,B) | atomic(B) | leaf_occ(A,f4(A,B)).  [factor(233,a,b)].
+331 -min_precedes(A,A,B) | min_precedes(A,C,B).  [factor(234,a,b)].
+332 leaf_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -min_precedes(A,A,C).  [factor(238,d,e)].
+334 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | leaf_occ(f1(A,B),B) | -subactivity_occurrence(f1(A,B),B).  [factor(247,b,e)].
+336 -min_precedes(A,B,C) | min_precedes(f7(D,B,C),B,C) | -min_precedes(B,E,C).  [factor(254,a,c)].
+337 -min_precedes(A,B,C) | -min_precedes(B,B,C) | arboreal(A).  [factor(312,a,b)].
+338 -min_precedes(A,A,B) | arboreal(A).  [factor(312,b,c),merge(b)].
+339 -min_precedes(A,B,C) | -min_precedes(A,A,C) | arboreal(B).  [factor(313,a,c)].
+340 -min_precedes(A,B,C) | -min_precedes(B,B,C) | min_precedes(A,D,C).  [factor(314,a,b)].
+342 -min_precedes(A,B,C) | -min_precedes(A,A,C) | min_precedes(D,B,C).  [factor(315,a,c)].
+343 -min_precedes(A,A,B) | min_precedes(C,A,B).  [factor(315,b,c),merge(b)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.02 seconds.
+
+given #1 (I,wt=10): 158 -occurrence_of(A,B) | atomic(B) | subactivity_occurrence(f1(B,A),A) # label(sos) # label(axiom).  [clausify(1)].
+
+given #2 (I,wt=23): 159 -occurrence_of(A,B) | -root_occ(C,A) | -leaf_occ(D,A) | -subactivity_occurrence(E,A) | -min_precedes(C,E,B) | D = E | min_precedes(E,D,B) # label(sos_01) # label(axiom).  [clausify(2)].
+
+given #3 (I,wt=18): 160 -occurrence_of(A,B) | -subactivity_occurrence(C,A) | -leaf_occ(D,A) | -arboreal(C) | min_precedes(C,D,B) | D = C # label(sos_02) # label(axiom).  [clausify(3)].
+
+given #4 (I,wt=24): 161 -occurrence_of(A,B) | -arboreal(C) | -arboreal(D) | -subactivity_occurrence(C,A) | -subactivity_occurrence(D,A) | min_precedes(C,D,B) | min_precedes(D,C,B) | D = C # label(sos_04) # label(axiom).  [clausify(5)].
+
+given #5 (I,wt=10): 162 -min_precedes(A,B,C) | occurrence_of(f3(C,A,B),C) # label(sos_06) # label(axiom).  [clausify(7)].
+
+given #6 (I,wt=10): 163 -min_precedes(A,B,C) | subactivity_occurrence(A,f3(C,A,B)) # label(sos_06) # label(axiom).  [clausify(7)].
+
+given #7 (I,wt=10): 164 -min_precedes(A,B,C) | subactivity_occurrence(B,f3(C,A,B)) # label(sos_06) # label(axiom).  [clausify(7)].
+
+given #8 (I,wt=9): 165 -occurrence_of(A,B) | -occurrence_of(A,C) | C = B # label(sos_08) # label(axiom).  [clausify(9)].
+
+given #9 (I,wt=10): 166 -occurrence_of(A,B) | -leaf_occ(C,A) | min_precedes(C,D,B) # label(sos_09) # label(axiom).  [clausify(10)].
+
+given #10 (I,wt=10): 167 -occurrence_of(A,B) | -root_occ(C,A) | min_precedes(D,C,B) # label(sos_10) # label(axiom).  [clausify(11)].
+
+given #11 (I,wt=7): 168 -occurrence_of(A,B) | -arboreal(A) | atomic(B) # label(sos_16) # label(axiom).  [clausify(17)].
+
+given #12 (I,wt=7): 169 -occurrence_of(A,B) | arboreal(A) | -atomic(B) # label(sos_16) # label(axiom).  [clausify(17)].
+
+given #13 (I,wt=8): 170 -leaf_occ(A,B) | occurrence_of(B,f8(A,B)) # label(sos_18) # label(axiom).  [clausify(19)].
+
+given #14 (I,wt=6): 171 -leaf_occ(A,B) | subactivity_occurrence(A,B) # label(sos_18) # label(axiom).  [clausify(19)].
+
+given #15 (I,wt=8): 172 -root_occ(A,B) | occurrence_of(B,f9(A,B)) # label(sos_19) # label(axiom).  [clausify(20)].
+
+given #16 (I,wt=6): 173 -root_occ(A,B) | subactivity_occurrence(A,B) # label(sos_19) # label(axiom).  [clausify(20)].
+
+given #17 (I,wt=6): 174 -earlier(A,B) | -earlier(B,A) # label(sos_20) # label(axiom).  [clausify(21)].
+
+given #18 (I,wt=6): 175 -precedes(A,B) | earlier(A,B) # label(sos_21) # label(axiom).  [clausify(22)].
+
+given #19 (I,wt=11): 176 -min_precedes(A,B,C) | min_precedes(f10(A,B,C),B,C) # label(sos_23) # label(axiom).  [clausify(24)].
+
+given #20 (I,wt=7): 177 -min_precedes(A,B,C) | precedes(A,B) # label(sos_24) # label(axiom).  [clausify(25)].
+
+given #21 (I,wt=13): 178 -min_precedes(A,B,C) | -occurrence_of(D,C) | -subactivity_occurrence(B,D) | subactivity_occurrence(A,D) # label(sos_27) # label(axiom).  [clausify(28)].
+
+given #22 (I,wt=14): 179 -occurrence_of(A,B) | atomic(B) | -leaf_occ(C,A) | -leaf_occ(D,A) | D = C # label(sos_28) # label(axiom).  [clausify(29)].
+
+given #23 (I,wt=12): 180 -occurrence_of(A,B) | -root_occ(C,A) | -root_occ(D,A) | D = C # label(sos_29) # label(axiom).  [clausify(30)].
+
+given #24 (I,wt=9): 181 -earlier(A,B) | -earlier(B,C) | earlier(A,C) # label(sos_30) # label(axiom).  [clausify(31)].
+
+given #25 (I,wt=15): 182 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -precedes(B,D) | min_precedes(B,D,C) # label(sos_31) # label(axiom).  [clausify(32)].
+
+given #26 (I,wt=7): 183 -occurrence_of(A,tptp0) | occurrence_of(f11(A),tptp4) # label(sos_32) # label(axiom).  [clausify(33)].
+
+given #27 (I,wt=7): 184 -occurrence_of(A,tptp0) | root_occ(f11(A),A) # label(sos_32) # label(axiom).  [clausify(33)].
+
+given #28 (I,wt=11): 185 -occurrence_of(A,tptp0) | occurrence_of(f12(A),tptp3) | occurrence_of(f12(A),tptp2) # label(sos_32) # label(axiom).  [clausify(33)].
+
+given #29 (I,wt=7): 186 -occurrence_of(A,tptp0) | leaf_occ(f12(A),A) # label(sos_32) # label(axiom).  [clausify(33)].
+
+given #30 (I,wt=2): 187 -atomic(tptp0) # label(sos_34) # label(axiom).  [assumption].
+
+given #31 (I,wt=2): 188 atomic(tptp4) # label(sos_35) # label(axiom).  [assumption].
+
+given #32 (I,wt=2): 189 atomic(tptp3) # label(sos_36) # label(axiom).  [assumption].
+
+given #33 (I,wt=2): 190 atomic(tptp2) # label(sos_37) # label(axiom).  [assumption].
+
+given #34 (I,wt=2): 191 atomic(tptp5) # label(sos_38) # label(axiom).  [assumption].
+
+given #35 (I,wt=3): 193 tptp5 != tptp4.  [copy(192),flip(a)].
+
+given #36 (I,wt=3): 194 tptp4 != tptp3 # label(sos_40) # label(axiom).  [assumption].
+
+given #37 (I,wt=3): 195 tptp4 != tptp2 # label(sos_41) # label(axiom).  [assumption].
+
+given #38 (I,wt=3): 196 tptp5 != tptp3 # label(sos_42) # label(axiom).  [assumption].
+
+given #39 (I,wt=3): 197 tptp5 != tptp2 # label(sos_43) # label(axiom).  [assumption].
+
+given #40 (I,wt=3): 198 tptp3 != tptp2 # label(sos_44) # label(axiom).  [assumption].
+
+given #41 (I,wt=8): 199 -transmit_message(A,B,C,D,E) | -atomic(A) # label(sos_48) # label(axiom).  [clausify(37)].
+
+given #42 (I,wt=6): 200 -transmit_message(tptp0,A,B,C,D) # label(sos_49) # label(axiom).  [clausify(38)].
+
+given #43 (I,wt=10): 201 -transmit_message(A,B,C,D,E) | -tptp1(A,F,V6) # label(sos_50) # label(axiom).  [clausify(39)].
+
+given #44 (I,wt=24): 202 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | occurrence_of(f14(A,B,C,D,E,F),f13(A,B,C,D,E,F)) # label(sos_51) # label(axiom).  [clausify(40)].
+
+given #45 (I,wt=18): 203 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | root_occ(f14(A,B,C,D,E,F),F) # label(sos_51) # label(axiom).  [clausify(40)].
+
+given #46 (I,wt=6): 204 -tptp1(A,B,C) | -atomic(A) # label(sos_52) # label(axiom).  [clausify(41)].
+
+given #47 (I,wt=6): 205 -tptp1(A,B,C) | -atomic(B) # label(sos_52) # label(axiom).  [clausify(41)].
+
+given #48 (I,wt=25): 206 -tptp1(A,B,C) | -occurrence_of(D,A) | transmit_message(f15(A,B,C,D),f16(A,B,C,D),f17(A,B,C,D),C,B) # label(sos_53) # label(axiom).  [clausify(42)].
+
+given #49 (I,wt=18): 207 -tptp1(A,B,C) | -occurrence_of(D,A) | occurrence_of(f18(A,B,C,D),f15(A,B,C,D)) # label(sos_53) # label(axiom).  [clausify(42)].
+
+given #50 (I,wt=14): 208 -tptp1(A,B,C) | -occurrence_of(D,A) | subactivity_occurrence(f18(A,B,C,D),D) # label(sos_53) # label(axiom).  [clausify(42)].
+
+given #51 (I,wt=4): 209 -tptp1(tptp0,A,B) # label(sos_54) # label(axiom).  [clausify(43)].
+
+given #52 (I,wt=7): 210 -tptp1(c1,tptp0,c2) | -occurrence_of(c3,c1) # label(goals) # label(conjecture).  [deny(44)].
+
+given #53 (I,wt=12): 211 subactivity(f2(A,f1(A,B)),A) | -occurrence_of(B,A) | atomic(A).  [resolve(45,a,46,c)].
+
+given #54 (I,wt=12): 212 -root_occ(A,B) | subactivity(f2(f9(A,B),A),f9(A,B)).  [resolve(51,b,45,a)].
+
+given #55 (I,wt=18): 213 root_occ(f1(A,B),C) | -occurrence_of(C,A) | -subactivity_occurrence(f1(A,B),C) | -occurrence_of(B,A) | atomic(A).  [resolve(52,d,46,c)].
+
+given #56 (I,wt=14): 214 root_occ(A,B) | -occurrence_of(B,f9(A,C)) | -subactivity_occurrence(A,B) | -root_occ(A,C).  [resolve(52,d,51,b)].
+
+given #57 (I,wt=11): 215 -min_precedes(A,f1(B,C),B) | -occurrence_of(C,B) | atomic(B).  [resolve(53,b,46,c)].
+
+given #58 (I,wt=9): 216 -min_precedes(A,B,f9(B,C)) | -root_occ(B,C).  [resolve(53,b,51,b)].
+
+given #59 (I,wt=12): 217 -min_precedes(A,B,C) | subactivity(f2(C,f10(A,B,C)),C).  [resolve(54,b,45,a)].
+
+given #60 (I,wt=19): 218 -min_precedes(A,B,C) | root_occ(f10(A,B,C),D) | -occurrence_of(D,C) | -subactivity_occurrence(f10(A,B,C),D).  [resolve(54,b,52,d)].
+
+given #61 (I,wt=11): 219 -min_precedes(A,B,C) | -min_precedes(D,f10(A,B,C),C).  [resolve(54,b,53,b)].
+
+given #62 (I,wt=11): 220 -transmit_message(A,B,C,D,E) | subactivity(f2(C,B),C).  [resolve(57,b,45,a)].
+
+given #63 (I,wt=15): 221 -transmit_message(A,B,C,D,E) | root_occ(B,F) | -occurrence_of(F,C) | -subactivity_occurrence(B,F).  [resolve(57,b,52,d)].
+
+given #64 (I,wt=10): 222 -transmit_message(A,B,C,D,E) | -min_precedes(F,B,C).  [resolve(57,b,53,b)].
+
+given #65 (I,wt=11): 223 -transmit_message(A,B,C,D,E) | subactivity(f2(E,D),E).  [resolve(58,b,45,a)].
+
+given #66 (I,wt=15): 224 -transmit_message(A,B,C,D,E) | root_occ(D,F) | -occurrence_of(F,E) | -subactivity_occurrence(D,F).  [resolve(58,b,52,d)].
+
+given #67 (I,wt=10): 225 -transmit_message(A,B,C,D,E) | -min_precedes(F,D,E).  [resolve(58,b,53,b)].
+
+given #68 (I,wt=9): 226 -tptp1(A,B,C) | subactivity(f2(B,C),B).  [resolve(59,b,45,a)].
+
+given #69 (I,wt=13): 227 -tptp1(A,B,C) | root_occ(C,D) | -occurrence_of(D,B) | -subactivity_occurrence(C,D).  [resolve(59,b,52,d)].
+
+given #70 (I,wt=8): 228 -tptp1(A,B,C) | -min_precedes(D,C,B).  [resolve(59,b,53,b)].
+
+given #71 (I,wt=7): 229 occurrence_of(A,f5(A)) | -occurrence_of(A,B).  [resolve(60,a,61,b)].
+
+given #72 (I,wt=7): 230 occurrence_of(A,f5(A)) | -subactivity_occurrence(A,B).  [resolve(60,a,62,b)].
+
+given #73 (I,wt=7): 231 occurrence_of(A,f5(A)) | -subactivity_occurrence(B,A).  [resolve(60,a,63,b)].
+
+given #74 (I,wt=15): 232 -min_precedes(A,B,C) | -min_precedes(B,D,C) | atomic(C) | occurrence_of(f4(B,C),C).  [resolve(64,a,65,a)].
+
+given #75 (I,wt=15): 233 -min_precedes(A,B,C) | -min_precedes(B,D,C) | atomic(C) | leaf_occ(B,f4(B,C)).  [resolve(64,a,66,a)].
+
+given #76 (I,wt=12): 234 -min_precedes(A,B,C) | -min_precedes(B,D,C) | min_precedes(B,E,C).  [resolve(64,a,67,a)].
+
+given #77 (I,wt=16): 235 -leaf_occ(A,B) | atomic(f8(A,B)) | occurrence_of(f4(A,f8(A,B)),f8(A,B)).  [resolve(68,b,65,a)].
+
+given #78 (I,wt=14): 236 -leaf_occ(A,B) | atomic(f8(A,B)) | leaf_occ(A,f4(A,f8(A,B))).  [resolve(68,b,66,a)].
+
+given #79 (I,wt=9): 237 -leaf_occ(A,B) | min_precedes(A,C,f8(A,B)).  [resolve(68,b,67,a)].
+
+given #80 (I,wt=17): 238 leaf_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -min_precedes(D,A,C) | -min_precedes(A,E,C).  [resolve(69,d,64,a)].
+
+given #81 (I,wt=14): 239 leaf_occ(A,B) | -occurrence_of(B,f8(A,C)) | -subactivity_occurrence(A,B) | -leaf_occ(A,C).  [resolve(69,d,68,b)].
+
+given #82 (I,wt=23): 241 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | subactivity(f2(f8(B,C),B),f8(B,C)) | -leaf_occ(B,C).  [resolve(70,a,68,b)].
+
+given #83 (I,wt=18): 243 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | occurrence_of(f4(f1(A,B),A),A).  [copy(242),merge(d)].
+
+given #84 (I,wt=20): 245 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | leaf_occ(f1(A,B),f4(f1(A,B),A)).  [copy(244),merge(d)].
+
+given #85 (I,wt=17): 246 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | min_precedes(f1(A,B),D,A).  [resolve(72,a,67,a)].
+
+given #86 (I,wt=24): 247 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | leaf_occ(f1(A,B),D) | -occurrence_of(D,A) | -subactivity_occurrence(f1(A,B),D).  [resolve(72,a,69,d)].
+
+given #87 (I,wt=22): 248 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | atomic(f9(A,B)) | occurrence_of(f4(A,f9(A,B)),f9(A,B)).  [resolve(74,b,65,a)].
+
+given #88 (I,wt=20): 249 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | atomic(f9(A,B)) | leaf_occ(A,f4(A,f9(A,B))).  [resolve(74,b,66,a)].
+
+given #89 (I,wt=15): 250 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | min_precedes(A,D,f9(A,B)).  [resolve(74,b,67,a)].
+
+given #90 (I,wt=20): 251 -root_occ(A,B) | -min_precedes(A,C,f9(A,B)) | leaf_occ(A,D) | -occurrence_of(D,f9(A,B)) | -subactivity_occurrence(A,D).  [resolve(74,b,69,d)].
+
+given #91 (I,wt=25): 253 root_occ(A,B) | -occurrence_of(B,f8(A,C)) | -subactivity_occurrence(A,B) | min_precedes(f7(D,A,f8(A,C)),A,f8(A,C)) | -leaf_occ(A,C).  [resolve(75,d,68,b)].
+
+given #92 (I,wt=20): 255 -min_precedes(A,B,f8(B,C)) | min_precedes(f7(D,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C).  [resolve(76,b,68,b)].
+
+given #93 (I,wt=21): 256 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | atomic(C) | occurrence_of(f4(f10(A,B,C),C),C).  [resolve(77,b,65,a)].
+
+given #94 (I,wt=24): 257 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | atomic(C) | leaf_occ(f10(A,B,C),f4(f10(A,B,C),C)).  [resolve(77,b,66,a)].
+
+given #95 (I,wt=18): 258 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | min_precedes(f10(A,B,C),E,C).  [resolve(77,b,67,a)].
+
+given #96 (I,wt=26): 259 -min_precedes(A,B,C) | -min_precedes(f10(A,B,C),D,C) | leaf_occ(f10(A,B,C),E) | -occurrence_of(E,C) | -subactivity_occurrence(f10(A,B,C),E).  [resolve(77,b,69,d)].
+
+given #97 (I,wt=17): 260 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | atomic(C) | occurrence_of(f4(B,C),C).  [resolve(80,b,65,a)].
+
+given #98 (I,wt=17): 261 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | atomic(C) | leaf_occ(B,f4(B,C)).  [resolve(80,b,66,a)].
+
+given #99 (I,wt=14): 262 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | min_precedes(B,V6,C).  [resolve(80,b,67,a)].
+
+given #100 (I,wt=19): 263 -transmit_message(A,B,C,D,E) | -min_precedes(B,F,C) | leaf_occ(B,V6) | -occurrence_of(V6,C) | -subactivity_occurrence(B,V6).  [resolve(80,b,69,d)].
+
+given #101 (I,wt=17): 264 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | atomic(E) | occurrence_of(f4(D,E),E).  [resolve(81,b,65,a)].
+
+given #102 (I,wt=17): 265 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | atomic(E) | leaf_occ(D,f4(D,E)).  [resolve(81,b,66,a)].
+
+given #103 (I,wt=14): 266 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | min_precedes(D,V6,E).  [resolve(81,b,67,a)].
+
+given #104 (I,wt=19): 267 -transmit_message(A,B,C,D,E) | -min_precedes(D,F,E) | leaf_occ(D,V6) | -occurrence_of(V6,E) | -subactivity_occurrence(D,V6).  [resolve(81,b,69,d)].
+
+given #105 (I,wt=15): 268 -tptp1(A,B,C) | -min_precedes(C,D,B) | atomic(B) | occurrence_of(f4(C,B),B).  [resolve(82,b,65,a)].
+
+given #106 (I,wt=15): 269 -tptp1(A,B,C) | -min_precedes(C,D,B) | atomic(B) | leaf_occ(C,f4(C,B)).  [resolve(82,b,66,a)].
+
+given #107 (I,wt=12): 270 -tptp1(A,B,C) | -min_precedes(C,D,B) | min_precedes(C,E,B).  [resolve(82,b,67,a)].
+
+given #108 (I,wt=17): 271 -tptp1(A,B,C) | -min_precedes(C,D,B) | leaf_occ(C,E) | -occurrence_of(E,B) | -subactivity_occurrence(C,E).  [resolve(82,b,69,d)].
+
+given #109 (I,wt=5): 272 -precedes(A,B) | arboreal(B).  [resolve(83,b,84,a)].
+
+given #110 (I,wt=9): 273 precedes(A,B) | -earlier(A,B) | -precedes(C,B).  [resolve(85,c,83,b)].
+
+given #111 (I,wt=9): 274 -occurrence_of(A,B) | atomic(B) | arboreal(f1(B,A)).  [resolve(86,a,84,a)].
+
+given #112 (I,wt=15): 275 -occurrence_of(A,B) | atomic(B) | precedes(C,f1(B,A)) | -earlier(C,f1(B,A)).  [resolve(86,a,85,c)].
+
+given #113 (I,wt=5): 276 -root_occ(A,B) | arboreal(A).  [resolve(87,b,84,a)].
+
+given #114 (I,wt=9): 277 -root_occ(A,B) | precedes(C,A) | -earlier(C,A).  [resolve(87,b,85,c)].
+
+given #115 (I,wt=9): 278 -min_precedes(A,B,C) | arboreal(f10(A,B,C)).  [resolve(88,b,84,a)].
+
+given #116 (I,wt=16): 279 -min_precedes(A,B,C) | precedes(D,f10(A,B,C)) | -earlier(D,f10(A,B,C)).  [resolve(88,b,85,c)].
+
+given #117 (I,wt=8): 280 -transmit_message(A,B,C,D,E) | arboreal(B).  [resolve(91,b,84,a)].
+
+given #118 (I,wt=12): 281 -transmit_message(A,B,C,D,E) | precedes(F,B) | -earlier(F,B).  [resolve(91,b,85,c)].
+
+given #119 (I,wt=8): 282 -transmit_message(A,B,C,D,E) | arboreal(D).  [resolve(92,b,84,a)].
+
+given #120 (I,wt=12): 283 -transmit_message(A,B,C,D,E) | precedes(F,D) | -earlier(F,D).  [resolve(92,b,85,c)].
+
+given #121 (I,wt=6): 284 -tptp1(A,B,C) | arboreal(C).  [resolve(93,b,84,a)].
+
+given #122 (I,wt=10): 285 -tptp1(A,B,C) | precedes(D,C) | -earlier(D,C).  [resolve(93,b,85,c)].
+
+given #123 (I,wt=16): 286 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | arboreal(B).  [resolve(95,a,84,a)].
+
+given #124 (I,wt=20): 287 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | precedes(D,B) | -earlier(D,B).  [resolve(95,a,85,c)].
+
+given #125 (I,wt=13): 288 -subactivity(A,B) | -atomic(B) | -occurrence_of(C,B) | subactivity(A,f6(C,A)).  [resolve(97,a,98,a)].
+
+given #126 (I,wt=12): 289 -subactivity(A,B) | -atomic(B) | -occurrence_of(C,B) | atomic(f6(C,A)).  [resolve(97,a,99,a)].
+
+given #127 (I,wt=13): 290 -subactivity(A,B) | -atomic(B) | -occurrence_of(C,B) | occurrence_of(C,f6(C,A)).  [resolve(97,a,100,a)].
+
+given #128 (I,wt=20): 291 -occurrence_of(A,B) | atomic(B) | subactivity(f2(B,f1(B,A)),f6(f1(B,A),f2(B,f1(B,A)))).  [resolve(101,a,98,a)].
+
+given #129 (I,wt=15): 292 -occurrence_of(A,B) | atomic(B) | atomic(f6(f1(B,A),f2(B,f1(B,A)))).  [resolve(101,a,99,a)].
+
+given #130 (I,wt=18): 293 -occurrence_of(A,B) | atomic(B) | occurrence_of(f1(B,A),f6(f1(B,A),f2(B,f1(B,A)))).  [resolve(101,a,100,a)].
+
+given #131 (I,wt=16): 294 -root_occ(A,B) | subactivity(f2(f9(A,B),A),f6(A,f2(f9(A,B),A))).  [resolve(102,b,98,a)].
+
+given #132 (I,wt=11): 295 -root_occ(A,B) | atomic(f6(A,f2(f9(A,B),A))).  [resolve(102,b,99,a)].
+
+given #133 (I,wt=12): 296 -root_occ(A,B) | occurrence_of(A,f6(A,f2(f9(A,B),A))).  [resolve(102,b,100,a)].
+
+given #134 (I,wt=22): 297 -min_precedes(A,B,C) | subactivity(f2(C,f10(A,B,C)),f6(f10(A,B,C),f2(C,f10(A,B,C)))).  [resolve(103,b,98,a)].
+
+given #135 (I,wt=16): 298 -min_precedes(A,B,C) | atomic(f6(f10(A,B,C),f2(C,f10(A,B,C)))).  [resolve(103,b,99,a)].
+
+given #136 (I,wt=20): 299 -min_precedes(A,B,C) | occurrence_of(f10(A,B,C),f6(f10(A,B,C),f2(C,f10(A,B,C)))).  [resolve(103,b,100,a)].
+
+given #137 (I,wt=15): 300 -transmit_message(A,B,C,D,E) | subactivity(f2(C,B),f6(B,f2(C,B))).  [resolve(106,b,98,a)].
+
+given #138 (I,wt=12): 301 -transmit_message(A,B,C,D,E) | atomic(f6(B,f2(C,B))).  [resolve(106,b,99,a)].
+
+given #139 (I,wt=13): 302 -transmit_message(A,B,C,D,E) | occurrence_of(B,f6(B,f2(C,B))).  [resolve(106,b,100,a)].
+
+given #140 (I,wt=15): 303 -transmit_message(A,B,C,D,E) | subactivity(f2(E,D),f6(D,f2(E,D))).  [resolve(107,b,98,a)].
+
+given #141 (I,wt=12): 304 -transmit_message(A,B,C,D,E) | atomic(f6(D,f2(E,D))).  [resolve(107,b,99,a)].
+
+given #142 (I,wt=13): 305 -transmit_message(A,B,C,D,E) | occurrence_of(D,f6(D,f2(E,D))).  [resolve(107,b,100,a)].
+
+given #143 (I,wt=13): 306 -tptp1(A,B,C) | subactivity(f2(B,C),f6(C,f2(B,C))).  [resolve(108,b,98,a)].
+
+given #144 (I,wt=10): 307 -tptp1(A,B,C) | atomic(f6(C,f2(B,C))).  [resolve(108,b,99,a)].
+
+given #145 (I,wt=11): 308 -tptp1(A,B,C) | occurrence_of(C,f6(C,f2(B,C))).  [resolve(108,b,100,a)].
+
+given #146 (I,wt=27): 309 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | subactivity(f2(f8(B,C),B),f6(B,f2(f8(B,C),B))).  [resolve(110,b,98,a)].
+
+given #147 (I,wt=22): 310 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | atomic(f6(B,f2(f8(B,C),B))).  [resolve(110,b,99,a)].
+
+given #148 (I,wt=23): 311 min_precedes(f7(A,B,f8(B,C)),B,f8(B,C)) | -leaf_occ(B,C) | occurrence_of(B,f6(B,f2(f8(B,C),B))).  [resolve(110,b,100,a)].
+
+given #149 (I,wt=14): 312 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | arboreal(A).  [resolve(119,a,120,a)].
+
+given #150 (I,wt=14): 313 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | arboreal(B).  [resolve(119,a,121,a)].
+
+given #151 (I,wt=16): 314 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | min_precedes(A,E,C).  [resolve(119,a,123,a)].
+
+given #152 (I,wt=16): 315 -min_precedes(A,B,C) | -min_precedes(A,D,C) | -min_precedes(D,B,C) | min_precedes(E,B,C).  [resolve(119,a,124,a)].
+
+given #153 (I,wt=6): 316 -occurrence_of(A,tptp0) | arboreal(f11(A)).  [resolve(125,b,120,a)].
+
+given #154 (I,wt=6): 317 -occurrence_of(A,tptp0) | arboreal(f12(A)).  [resolve(125,b,121,a)].
+
+given #155 (I,wt=8): 319 -occurrence_of(A,tptp0) | min_precedes(f11(A),B,tptp0).  [resolve(125,b,123,a)].
+
+given #156 (I,wt=8): 320 -occurrence_of(A,tptp0) | min_precedes(B,f12(A),tptp0).  [resolve(125,b,124,a)].
+
+given #157 (I,wt=17): 321 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | atomic(f13(A,B,C,D,E,F)).  [resolve(126,c,127,a)].
+
+given #158 (I,wt=18): 322 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | f13(A,B,C,D,E,F) != tptp4.  [resolve(126,c,128,a)].
+
+given #159 (I,wt=18): 323 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | f13(A,B,C,D,E,F) != tptp3.  [resolve(126,c,129,a)].
+
+given #160 (I,wt=18): 324 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | f13(A,B,C,D,E,F) != tptp2.  [resolve(126,c,130,a)].
+
+given #161 (I,wt=22): 325 -transmit_message(A,B,C,D,E) | -occurrence_of(F,A) | -occurrence_of(V6,f13(A,B,C,D,E,F)) | min_precedes(D,V6,E).  [resolve(126,c,131,a)].
+
+given #162 (I,wt=3): 326 -earlier(A,A).  [factor(174,a,b)].
+
+given #163 (I,wt=11): 327 -min_precedes(A,B,C) | -precedes(B,B) | min_precedes(B,B,C).  [factor(182,a,b)].
+
+given #164 (I,wt=15): 328 root_occ(f1(A,B),B) | -occurrence_of(B,A) | -subactivity_occurrence(f1(A,B),B) | atomic(A).  [factor(213,b,d)].
+
+given #165 (I,wt=11): 329 -min_precedes(A,A,B) | atomic(B) | occurrence_of(f4(A,B),B).  [factor(232,a,b)].
+
+given #166 (I,wt=11): 330 -min_precedes(A,A,B) | atomic(B) | leaf_occ(A,f4(A,B)).  [factor(233,a,b)].
+
+given #167 (I,wt=8): 331 -min_precedes(A,A,B) | min_precedes(A,C,B).  [factor(234,a,b)].
+
+given #168 (I,wt=13): 332 leaf_occ(A,B) | -occurrence_of(B,C) | -subactivity_occurrence(A,B) | -min_precedes(A,A,C).  [factor(238,d,e)].
+
+given #169 (I,wt=21): 334 -min_precedes(f1(A,B),C,A) | -occurrence_of(B,A) | atomic(A) | leaf_occ(f1(A,B),B) | -subactivity_occurrence(f1(A,B),B).  [factor(247,b,e)].
+
+given #170 (I,wt=15): 336 -min_precedes(A,B,C) | min_precedes(f7(D,B,C),B,C) | -min_precedes(B,E,C).  [factor(254,a,c)].
+
+given #171 (I,wt=10): 337 -min_precedes(A,B,C) | -min_precedes(B,B,C) | arboreal(A).  [factor(312,a,b)].
+
+given #172 (I,wt=6): 338 -min_precedes(A,A,B) | arboreal(A).  [factor(312,b,c),merge(b)].
+
+given #173 (I,wt=10): 339 -min_precedes(A,B,C) | -min_precedes(A,A,C) | arboreal(B).  [factor(313,a,c)].
+
+given #174 (I,wt=12): 340 -min_precedes(A,B,C) | -min_precedes(B,B,C) | min_precedes(A,D,C).  [factor(314,a,b)].
+
+given #175 (I,wt=12): 342 -min_precedes(A,B,C) | -min_precedes(A,A,C) | min_precedes(D,B,C).  [factor(315,a,c)].
+
+given #176 (I,wt=8): 343 -min_precedes(A,A,B) | min_precedes(C,A,B).  [factor(315,b,c),merge(b)].
+
+============================== STATISTICS ============================
+
+Given=176. Generated=210. Kept=183. proofs=0.
+Usable=176. Sos=0. Demods=0. Limbo=0, Disabled=298. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=27. Back_subsumed=7.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=137. Nonunit_bsub_feature_tests=396.
+Megabytes=1.01.
+User_CPU=0.02, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+Exiting with failure.
+
+Process 22 exit (sos_empty) Fri Oct 23 14:55:26 2026
+
+SEARCH FAILED
+
+------ process 22 exit (sos_empty) ------
+
