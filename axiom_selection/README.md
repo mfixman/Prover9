@@ -159,3 +159,60 @@ the same baseline; do not present the union of two seeds as a fair 15-second
 competitor. The comparison measures this CPU wrapper, including cold model
 startup; it is not a measurement of a persistent inference service or a claim
 about all TPTP problems. Uniform guidance has no neural-inference overhead.
+
+## Compact comparison results
+
+`compare.py` now saves one CSV per strategy in each run/part directory, for
+example `results/part-0/results-Baseline.csv` and
+`results/part-0/results-ResumeSupport1.csv`. An `--output trial.csv` argument
+names the run directory `trial/`; `--output trial` has the same effect.
+There is one row per problem. With `--repeat`, additional repeats use separate
+`results-STRATEGY-repeat2.csv`, `-repeat3.csv`, etc., to retain resume identity
+without a replicate column.
+Only a run manifest and lock file accompany the CSVs; no per-problem files,
+aggregate `results.json`, or session source copies are created.
+
+Columns include:
+
+- `problem`, `declared_status`: TPTP filename (including `.p`) and declared status, preserving
+  the header spelling. Status is blank if the source/header is unavailable.
+- `result`: `Proved`, `Timeout`, `Error`, or `Unproved`. Unproved does not mean
+  satisfiable; these are search outcomes, not inferred TPTP statuses.
+- `time_ms`: measured wall time of the bounded arm, including parsing, scoring,
+  search and result collection. Worker model warm-up precedes the timed arm.
+- `steps`: total given-clause count across search stages, when every stage
+  emitted statistics. `generated` and `kept` similarly total stage counts.
+  Missing statistics stay blank, including proofs stopped before statistics
+  were printed. These are not proof lengths or exact counts for killed searches.
+- `part`: zero-based job partition, using the run manifest’s partition scheme
+  and split count. Blank for legacy runs without partition metadata. This is
+  distinct from the model’s training split.
+- `strategy`, `proved`, `clauses`, `score_ms`, `error`, and `score_error`
+  support paired analysis.
+Run settings, split, hashes and timing protocol remain in the run manifest.
+The CSV retains only the listed analysis columns, without embedded JSON or
+per-stage search details. Summaries report unavailable stage counts as unknown.
+
+
+Native inputs, proof/search logs and prediction vectors are temporary and are
+removed after statistics extraction. Set `TMPDIR` to node-local scratch on HPC
+if desired. Full proof artifacts are not embedded in the CSV; use the individual
+problem runners when those are needed. Search strategies and budgets are unchanged.
+
+Rerunning the same command recovers completed rows from CSV, repairs a truncated
+last row, and runs missing arms. Rows are saved after each paired problem group;
+if the driver is interrupted mid-group, that group's unsaved work is repeated.
+The existing summary command accepts the run directory (or its `.csv` run label).
+
+Convert a completed legacy run without rerunning searches:
+
+```sh
+python axiom_selection/export_results.py path/to/old-run --output path/to/compact-run
+```
+
+The exporter reads aggregate and per-problem checkpoints and extracts statistics
+from existing logs. Add `--tptp /new/path/to/TPTP` if the dataset moved, to recover
+declared statuses. It leaves the original directory intact and refuses to append
+to an existing CSV export. The exported directory contains just the strategy CSVs;
+these preserve the analysis columns, but not run metadata, per-stage details,
+full logs or predictions.

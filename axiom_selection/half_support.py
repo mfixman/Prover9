@@ -5,14 +5,14 @@ from live_search import LiveSearch
 from portfolio import search
 from problem import load_problem, clause_text
 
-def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume = False):
+def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume = False, shuffled = False, filter_size = 0):
     started = time.monotonic()
     output = Path(output)
     matrix = load_problem(path, tptp)
     clauses = [clause_text(c) for c in matrix.clauses]
     remaining = lambda: max(.001, budget - (time.monotonic() - started))
     baseline = LiveSearch(clauses, remaining(), output / 'baseline')
-    result = {'proved':False, 'clauses':len(clauses), 'support_size':support_size}
+    result = {'proved':False, 'clauses':len(clauses), 'support_size':support_size, 'filter_size':filter_size}
 
     def fallback():
         baseline.resume()
@@ -33,6 +33,10 @@ def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume =
             result['proved'] = True
             return result
 
+        # Filtering every axiom repeats the paused baseline.
+        if not support_size and len(clauses) - len(matrix.conjecture_clauses) <= filter_size:
+            return fallback()
+
         def score():
             weights, info = predictor.predict(matrix)
             return {'weights':weights, **info}
@@ -52,6 +56,22 @@ def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume =
         conjectures = set(matrix.conjecture_clauses)
         indices = list(range(len(clauses)))
         ranked = sorted((i for i in indices if i not in conjectures), key = lambda i:(-prediction['weights'][i], i))
+        # Ranking control: pays the same scoring cost, then ignores the scores.
+        if shuffled:
+            import random
+            random.Random(path.stem).shuffle(ranked)
+
+        if filter_size and len(ranked) > filter_size:
+            kept = conjectures | set(ranked[:filter_size])
+            filtered = search(clauses, sorted(kept), min(2, remaining()), output / 'filtered')
+            result['filtered_search'] = filtered
+            if filtered['proved']:
+                result['proved'] = True
+                return result
+
+        if not support_size:
+            return fallback()
+
         selected = conjectures | set(ranked[:support_size])
         usable = [i for i in indices if i not in selected]
         seconds = min(budget / 3, remaining()) if resume else remaining()

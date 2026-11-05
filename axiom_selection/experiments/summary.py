@@ -2,12 +2,17 @@ import argparse
 import json
 from pathlib import Path
 import statistics
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from experiment_output import read_csv_results
 
 def summarize(directory):
     if directory.suffix.lower() == '.csv':
         directory = directory.with_suffix('')
 
-    rows = json.loads((directory / 'results.json').read_text())
+    rows = read_csv_results(directory)
+    if not rows and (directory / 'results.json').exists():
+        rows = json.loads((directory / 'results.json').read_text())
     manifest = json.loads((directory / 'manifest.json').read_text())
     limit = manifest['seconds']
     invalid = [r for r in rows if all('Unsupported symbol' in x.get('error', '') for x in r['results'].values())]
@@ -32,7 +37,8 @@ def summarize(directory):
         if 'Support16' in modes:
             info.update(gains_over_support16 = [k[0] for k in sorted(solved-reference)], losses_to_support16 = [k[0] for k in sorted(reference-solved)])
 
-        info['guided_searches'] = sum(bool(r['results'][mode].get('guided_search')) or any(s['name']=='selected' for s in r['results'][mode].get('stages', [])) for r in rows)
+        stages_available = all(any(k in r['results'][mode] for k in ('stages', 'baseline_search')) for r in rows)
+        info['guided_searches'] = sum(bool(r['results'][mode].get('guided_search')) or any(s['name']=='selected' for s in r['results'][mode].get('stages', [])) for r in rows) if stages_available else None
         result['modes'][mode] = info
 
     return result

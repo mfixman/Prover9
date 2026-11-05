@@ -2,9 +2,8 @@ import csv
 import fcntl
 import json
 from pathlib import Path
-import time
 
-from experiment_output import append_result, fields
+from experiment_output import append_result, fields, read_csv_results, strategy_path, declared_status
 
 def write_json(path, value):
     temporary = path.with_suffix(path.suffix + '.tmp')
@@ -35,13 +34,14 @@ def valid_outcome(outcome):
     return isinstance(outcome, dict) and ('proved' in outcome or 'error' in outcome)
 
 def recover(directory, paths, modes, repeats):
-    saved = read_result(directory / 'results.json', [])
+    saved = read_result(directory / 'results.json', []) + read_csv_results(directory)
     indexed = {(r['problem'], r.get('replicate', 0)):r for r in saved}
     completed, pending = [], []
     for replicate in range(repeats):
         for path in paths:
             target = case_directory(directory, path, replicate)
             result = indexed.get((Path(path).stem, replicate), {'problem':Path(path).stem, 'replicate':replicate, 'results':{}})
+            result.setdefault('declared_status', declared_status(path))
             checkpoint = read_result(target / 'results.json', {})
             result['results'].update(checkpoint.get('results', {}))
             if 'cpu' in checkpoint:
@@ -77,25 +77,22 @@ def check_manifest(directory, manifest):
 
     return old
 
-def start_session(directory, manifest, source_root):
-    session = directory / 'sessions' / str(time.time_ns())
-    session.mkdir(parents = True)
-    write_json(session / 'manifest.json', manifest)
-    for name in manifest['source_sha256']:
-        destination = session / 'source' / name
-        destination.parent.mkdir(parents = True, exist_ok = True)
-        destination.write_bytes((source_root / name).read_bytes())
-
-    return session
-
-def rebuild_csv(path, results):
+def rebuild_csv(path, results, metadata = None):
     if path is None:
         return
 
-    temporary = path.with_suffix('.csv.tmp')
-    with temporary.open('w', newline = '') as stream:
-        csv.DictWriter(stream, fieldnames = fields).writeheader()
-    for result in results:
-        append_result(temporary, result)
+    modes = (metadata or {}).get('modes', [])
+    modes = set(modes) | {m for r in results for m in r['results']}
+    temporary = path.with_name('rebuilding.csv')
+    pairs = {(mode, 0) for mode in modes}
+    pairs.update((m, r.get('replicate', 0)) for r in results for m in r['results'])
+    for mode, replicate in pairs:
+        destination = strategy_path(temporary, mode, replicate)
+        with destination.open('w', newline = '') as stream:
+            csv.DictWriter(stream, fieldnames = fields).writeheader()
 
-    temporary.replace(path)
+        for result in results:
+            if mode in result['results'] and result.get('replicate', 0) == replicate:
+                append_result(temporary, {**result, 'results':{mode:result['results'][mode]}}, (metadata or {}).get('partition'))
+
+        destination.replace(strategy_path(path, mode, replicate))

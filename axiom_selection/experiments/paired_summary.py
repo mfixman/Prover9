@@ -2,9 +2,18 @@ import argparse
 import json
 from pathlib import Path
 import statistics
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from experiment_output import read_csv_results
 
 def summarize(directory):
-    rows = json.loads((directory / 'results.json').read_text())
+    rows = read_csv_results(directory)
+    if not rows and (directory / 'results.json').exists():
+        rows = json.loads((directory / 'results.json').read_text())
+    if not rows:
+        print('Cases 0')
+        return
+
     modes = list(rows[0]['results'])
     budget = json.loads((directory / 'manifest.json').read_text())['seconds']
     invalid = [r for r in rows if all('Unsupported symbol' in v.get('error', '') for v in r['results'].values())]
@@ -20,7 +29,8 @@ def summarize(directory):
         print(mode, 'solved',len(solved), 'PAR2',round(par2,3), 'common sum',round(mode_time,3), 'baseline sum',round(base_time,3))
         print(' gains',sorted(solved-baseline),'losses', sorted(baseline-solved))
         selected = [r for r in rows if any(s['name']=='selected' for s in r['results'][mode].get('stages', []))]
-        print(' selected search',len(selected),'selected proofs',sum(r['results'][mode].get('proved',False) for r in selected))
+        if all('stages' in r['results'][mode] for r in rows):
+            print(' selected search',len(selected),'selected proofs',sum(r['results'][mode].get('proved',False) for r in selected))
 
     for r in rows:
         b, t = r['results']['Baseline'], r['results'].get('TorokSupport', r['results'].get('Torok', {}))

@@ -8,6 +8,11 @@ from problem import load_problem, clause_text
 class Mode(StrEnum):
     ResumeSupport1 = 'ResumeSupport1'
     ResumeSupport16 = 'ResumeSupport16'
+    ShuffledResumeSupport1 = 'ShuffledResumeSupport1'
+    ResumeFilter16 = 'ResumeFilter16'
+    ShuffledResumeFilter16 = 'ShuffledResumeFilter16'
+    ResumeFilter16Support1 = 'ResumeFilter16Support1'
+    ShuffledResumeFilter16Support1 = 'ShuffledResumeFilter16Support1'
     Support16LongScore = 'Support16LongScore'
     HalfSupport1 = 'HalfSupport1'
     HalfSupport16 = 'HalfSupport16'
@@ -25,11 +30,27 @@ class Mode(StrEnum):
     Random = 'Random'
 
 def solve(path, tptp, predictor, mode, budget, output, threshold = 0.01, probe = 1, minimum = 64):
-    if mode in (Mode.HalfSupport1, Mode.HalfSupport16, Mode.ResumeSupport1, Mode.ResumeSupport16):
+    filters = (Mode.ResumeFilter16, Mode.ShuffledResumeFilter16)
+    combined = (Mode.ResumeFilter16Support1, Mode.ShuffledResumeFilter16Support1)
+    resumed = (Mode.ResumeSupport1, Mode.ResumeSupport16, Mode.ShuffledResumeSupport1, *filters, *combined)
+    if mode in (Mode.HalfSupport1, Mode.HalfSupport16, *resumed):
         from half_support import solve_half
-        size = 1 if mode in (Mode.HalfSupport1, Mode.ResumeSupport1) else 16
-        resume = mode in (Mode.ResumeSupport1, Mode.ResumeSupport16)
-        return solve_half(path, tptp, predictor, budget, output, size, resume)
+        size = 16 if mode in (Mode.HalfSupport16, Mode.ResumeSupport16) else 1
+        if mode in filters:
+            size = 0
+
+        filter_size = 16 if mode in (*filters, *combined) else 0
+        return solve_half(
+            path,
+            tptp,
+            predictor,
+            budget,
+            output,
+            size,
+            mode in resumed,
+            mode.startswith('Shuffled'),
+            filter_size,
+        )
 
     score_limit = budget / 4 if mode == Mode.Support16LongScore else 5
     if mode == Mode.Support16LongScore:

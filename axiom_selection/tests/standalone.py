@@ -41,34 +41,38 @@ with tempfile.TemporaryDirectory() as directory:
     command = [sys.executable, str(adapter / 'compare.py'), '--manifest', str(manifest), '--tptp', str(tptp),
                '--seconds', '3', '--workers', '1', '--modes', 'Baseline', 'ResumeSupport1', 'WeightedSupport16']
     subprocess.run(command, cwd = root, env = env, check = True, timeout = 90)
-    output = adapter / 'results/part-0.csv'
-    with output.open(newline = '') as stream:
-        rows = list(csv.DictReader(stream))
+    output = adapter / 'results/part-0'
+    files = sorted(output.glob('results-*.csv'))
+    assert len(files) == 3
+    assert {p.name for p in output.iterdir()} == {p.name for p in files} | {'manifest.json', '.lock'}
+    rows = []
+    for path in files:
+        with path.open(newline = '') as stream:
+            rows.extend(csv.DictReader(stream))
 
     assert len(rows) == 6 and all(not row['error'] for row in rows), rows
-    assert all(row['proved'] == str(row['problem'] == 'GRP001-1') for row in rows)
-    results = json.loads(output.with_suffix('').joinpath('results.json').read_text())
-    unproved = next(row for row in results if row['problem'] == 'GRP002-1')['results']
-    assert 'guided_search' in unproved['ResumeSupport1']
-    assert unproved['WeightedSupport16']['scored']
-    completed = output.with_suffix('') / 'GRP001-1/Baseline/result.json'
-    original_time = completed.stat().st_mtime_ns
-    original_csv = output.read_bytes()
+    assert all(row['proved'] == str(row['problem'] == 'GRP001-1.p') for row in rows)
+    assert all(float(row['time_ms']) > 0 for row in rows)
+    assert all('details' not in row for row in rows)
+    scored = [r for r in rows if r['problem'] == 'GRP002-1.p' and r['strategy'] == 'WeightedSupport16']
+    assert float(scored[0]['score_ms']) > 0
+    original = {p:p.read_bytes() for p in files}
     subprocess.run(command, cwd = root, env = env, check = True, timeout = 90)
-    assert completed.stat().st_mtime_ns == original_time
-    assert output.read_bytes() == original_csv
+    assert all(p.read_bytes() == data for p, data in original.items())
 
-    partial = output.with_suffix('') / 'GRP002-1'
-    (partial / 'results.json').unlink()
-    (partial / 'WeightedSupport16/result.json').write_text('{interrupted')
-    output.with_suffix('').joinpath('results.json').write_text('{interrupted')
+    partial = output / 'results-WeightedSupport16.csv'
+    with partial.open('w', newline = '') as stream:
+        writer = csv.DictWriter(stream, fieldnames = list(rows[0]))
+        writer.writeheader()
+        writer.writerows(r for r in rows if r['strategy'] == 'WeightedSupport16' and r['problem'] == 'GRP001-1.p')
+        stream.write('truncated,row')
+
     subprocess.run(command, cwd = root, env = env, check = True, timeout = 90)
-    assert completed.stat().st_mtime_ns == original_time
-    assert list(partial.glob('WeightedSupport16.interrupted-*'))
-    with output.open(newline = '') as stream:
+    assert all(p.read_bytes() == data for p, data in original.items() if p != partial)
+    with partial.open(newline = '') as stream:
         resumed_rows = list(csv.DictReader(stream))
 
-    assert len(resumed_rows) == 6 and all(not row['error'] for row in resumed_rows)
+    assert len(resumed_rows) == 2 and all(not row['error'] for row in resumed_rows)
     rejected = subprocess.run(command + ['--seconds', '4'], cwd = root, env = env, capture_output = True, text = True)
     assert rejected.returncode != 0 and 'changed seconds' in rejected.stderr
     subprocess.run([sys.executable, str(adapter / 'experiments/summary.py'), str(output)], cwd = root, env = env, check = True, capture_output = True)

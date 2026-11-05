@@ -13,7 +13,7 @@ sys.path.insert(0, str(folder / 'experiments'))
 sys.path.insert(0, str(folder))
 from paired import main
 from summary import summarize
-from experiment_output import default_output, append_result, prepare_output
+from experiment_output import default_output, append_result, prepare_output, strategy_path
 
 paths = [f'/tptp/Problems/ABC/ABC{i:03d}-{v}.p' for i in range(60) for v in (1, 2)]
 with tempfile.TemporaryDirectory() as temporary:
@@ -57,17 +57,21 @@ with tempfile.TemporaryDirectory() as temporary:
         with patch('paired.default_output', return_value = output), patch('paired.ProcessPoolExecutor'), patch('paired.as_completed', return_value = []):
             main()
 
-    assert output.is_file() and output.with_suffix('').is_dir()
+    assert output.with_suffix('').is_dir()
     assert summarize(output)['cases'] == 0
     result = {'problem':'ABC001-1', 'replicate':0, 'cpu':2,
               'results':{'Baseline':{'proved':True, 'elapsed_s':0.1},
                          'Other':{'error':'comma, newline\nerror'}}}
+    output = output.with_suffix('') / 'results.csv'
     append_result(output, result)
-    with output.open(newline = '') as stream:
-        rows = list(csv.DictReader(stream))
+    rows = []
+    for mode in ('Baseline', 'Other'):
+        with strategy_path(output, mode).open(newline = '') as stream:
+            rows.extend(csv.DictReader(stream))
 
-    assert rows[0]['proved'] == 'True' and rows[0]['elapsed_s'] == '0.1'
+    assert rows[0]['proved'] == 'True' and float(rows[0]['time_ms']) == 100
     assert rows[1]['error'] == 'comma, newline\nerror'
+    output = strategy_path(output, 'Baseline')
     original = output.read_bytes()
     prepare_output(output)
     assert output.read_bytes() == original
