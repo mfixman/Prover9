@@ -9,7 +9,9 @@ class Predictor:
         torch.set_num_threads(1)
         torch.set_num_interop_threads(1)
         model = model or Path(__file__).parent / 'models/torok.ts'
-        self.model = torch.jit.load(str(model), map_location = 'cpu').eval()
+        # A model path named "sine" selects the non-learned SInE control instead of a network.
+        self.sine = Path(model).name == 'sine'
+        self.model = None if self.sine else torch.jit.load(str(model), map_location = 'cpu').eval()
         self.torch = torch
 
     def predict(self, matrix):
@@ -29,9 +31,13 @@ class Predictor:
         graph_s = time.monotonic() - started
         weights = [1.0] * len(matrix.clauses)
 
-        with torch.inference_mode():
-            logits = self.model(nodes, edges, torch.tensor(axioms, dtype = torch.long), torch.tensor(conjectures, dtype = torch.long))
-            probabilities = logits.sigmoid().tolist()
+        if self.sine:
+            from torok_vendor.axiom_prediction.sine import clause_scores
+            probabilities = clause_scores(graph, axioms, conjectures)
+        else:
+            with torch.inference_mode():
+                logits = self.model(nodes, edges, torch.tensor(axioms, dtype = torch.long), torch.tensor(conjectures, dtype = torch.long))
+                probabilities = logits.sigmoid().tolist()
 
         for index, value in zip(axioms, probabilities, strict = True):
             if not math.isfinite(value):
