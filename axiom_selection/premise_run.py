@@ -14,6 +14,10 @@ class Mode(StrEnum):
     ResumeFilter16Support1 = 'ResumeFilter16Support1'
     ResumeLadder = 'ResumeLadder'
     ShuffledResumeLadder = 'ShuffledResumeLadder'
+    ResumeLadderSupport1 = 'ResumeLadderSupport1'
+    ShuffledResumeLadderSupport1 = 'ShuffledResumeLadderSupport1'
+    ResumeLongLadder = 'ResumeLongLadder'
+    ShuffledResumeLongLadder = 'ShuffledResumeLongLadder'
     ShuffledResumeFilter16Support1 = 'ShuffledResumeFilter16Support1'
     Support16LongScore = 'Support16LongScore'
     HalfSupport1 = 'HalfSupport1'
@@ -31,11 +35,18 @@ class Mode(StrEnum):
     TorokDirect = 'TorokDirect'
     Random = 'Random'
 
+def ladder_steps(mode, ladders, ladder_support):
+    if mode in (Mode.ResumeLongLadder, Mode.ShuffledResumeLongLadder):
+        return ((16, 12), (64, 12), (256, 12))
+
+    return ((16, 8), (64, 8), (256, 8)) if mode in (*ladders, *ladder_support) else ()
+
 def solve(path, tptp, predictor, mode, budget, output, threshold = 0.01, probe = 1, minimum = 64):
     filters = (Mode.ResumeFilter16, Mode.ShuffledResumeFilter16)
     combined = (Mode.ResumeFilter16Support1, Mode.ShuffledResumeFilter16Support1)
-    ladders = (Mode.ResumeLadder, Mode.ShuffledResumeLadder)
-    resumed = (Mode.ResumeSupport1, Mode.ResumeSupport16, Mode.ShuffledResumeSupport1, *filters, *combined, *ladders)
+    ladders = (Mode.ResumeLadder, Mode.ShuffledResumeLadder, Mode.ResumeLongLadder, Mode.ShuffledResumeLongLadder)
+    ladder_support = (Mode.ResumeLadderSupport1, Mode.ShuffledResumeLadderSupport1)
+    resumed = (Mode.ResumeSupport1, Mode.ResumeSupport16, Mode.ShuffledResumeSupport1, *filters, *combined, *ladders, *ladder_support)
     if mode in (Mode.HalfSupport1, Mode.HalfSupport16, *resumed):
         from half_support import solve_half
         size = 16 if mode in (Mode.HalfSupport16, Mode.ResumeSupport16) else 1
@@ -53,7 +64,7 @@ def solve(path, tptp, predictor, mode, budget, output, threshold = 0.01, probe =
             mode in resumed,
             mode.startswith('Shuffled'),
             filter_size,
-            ((16, 8), (64, 8), (256, 8)) if mode in ladders else (),
+            ladder_steps(mode, ladders, ladder_support),
         )
 
     score_limit = budget / 4 if mode == Mode.Support16LongScore else 5
