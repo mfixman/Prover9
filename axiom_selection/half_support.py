@@ -5,14 +5,14 @@ from live_search import LiveSearch
 from portfolio import search
 from problem import load_problem, clause_text
 
-def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume = False, shuffled = False, filter_size = 0):
+def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume = False, shuffled = False, filter_size = 0, ladder = ()):
     started = time.monotonic()
     output = Path(output)
     matrix = load_problem(path, tptp)
     clauses = [clause_text(c) for c in matrix.clauses]
     remaining = lambda: max(.001, budget - (time.monotonic() - started))
     baseline = LiveSearch(clauses, remaining(), output / 'baseline')
-    result = {'proved':False, 'clauses':len(clauses), 'support_size':support_size, 'filter_size':filter_size}
+    result = {'proved':False, 'clauses':len(clauses), 'support_size':support_size, 'filter_size':filter_size, 'ladder':list(ladder)}
 
     def fallback():
         baseline.resume()
@@ -34,7 +34,7 @@ def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume =
             return result
 
         # Filtering every axiom repeats the paused baseline.
-        if not support_size and len(clauses) - len(matrix.conjecture_clauses) <= filter_size:
+        if not support_size and not ladder and len(clauses) - len(matrix.conjecture_clauses) <= filter_size:
             return fallback()
 
         def score():
@@ -66,6 +66,19 @@ def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume =
             filtered = search(clauses, sorted(kept), min(2, remaining()), output / 'filtered')
             result['filtered_search'] = filtered
             if filtered['proved']:
+                result['proved'] = True
+                return result
+
+        # Premise-selection ladder (DeepMath-style cutoffs); a cutoff covering every axiom repeats the baseline.
+        result['ladder_searches'] = []
+        for size, seconds in ladder:
+            if len(ranked) <= size:
+                break
+
+            kept = conjectures | set(ranked[:size])
+            step = search(clauses, sorted(kept), min(seconds, remaining()), output / f'ladder{size}')
+            result['ladder_searches'].append({'size':size, **step})
+            if step['proved']:
                 result['proved'] = True
                 return result
 

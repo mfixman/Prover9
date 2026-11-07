@@ -12,6 +12,8 @@ class Mode(StrEnum):
     ResumeFilter16 = 'ResumeFilter16'
     ShuffledResumeFilter16 = 'ShuffledResumeFilter16'
     ResumeFilter16Support1 = 'ResumeFilter16Support1'
+    ResumeLadder = 'ResumeLadder'
+    ShuffledResumeLadder = 'ShuffledResumeLadder'
     ShuffledResumeFilter16Support1 = 'ShuffledResumeFilter16Support1'
     Support16LongScore = 'Support16LongScore'
     HalfSupport1 = 'HalfSupport1'
@@ -32,11 +34,12 @@ class Mode(StrEnum):
 def solve(path, tptp, predictor, mode, budget, output, threshold = 0.01, probe = 1, minimum = 64):
     filters = (Mode.ResumeFilter16, Mode.ShuffledResumeFilter16)
     combined = (Mode.ResumeFilter16Support1, Mode.ShuffledResumeFilter16Support1)
-    resumed = (Mode.ResumeSupport1, Mode.ResumeSupport16, Mode.ShuffledResumeSupport1, *filters, *combined)
+    ladders = (Mode.ResumeLadder, Mode.ShuffledResumeLadder)
+    resumed = (Mode.ResumeSupport1, Mode.ResumeSupport16, Mode.ShuffledResumeSupport1, *filters, *combined, *ladders)
     if mode in (Mode.HalfSupport1, Mode.HalfSupport16, *resumed):
         from half_support import solve_half
         size = 16 if mode in (Mode.HalfSupport16, Mode.ResumeSupport16) else 1
-        if mode in filters:
+        if mode in (*filters, *ladders):
             size = 0
 
         filter_size = 16 if mode in (*filters, *combined) else 0
@@ -50,6 +53,7 @@ def solve(path, tptp, predictor, mode, budget, output, threshold = 0.01, probe =
             mode in resumed,
             mode.startswith('Shuffled'),
             filter_size,
+            ((16, 8), (64, 8), (256, 8)) if mode in ladders else (),
         )
 
     score_limit = budget / 4 if mode == Mode.Support16LongScore else 5
