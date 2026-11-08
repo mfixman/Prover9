@@ -7,7 +7,9 @@ class Predictor:
         import torch
 
         torch.set_num_threads(1)
-        torch.set_num_interop_threads(1)
+        # A second predictor in the same process must not set the interop threads again.
+        if torch.get_num_interop_threads() != 1:
+            torch.set_num_interop_threads(1)
         model = model or Path(__file__).parent / 'models/torok.ts'
         # A model path named "sine" selects the non-learned SInE control instead of a network.
         self.sine = Path(model).name == 'sine'
