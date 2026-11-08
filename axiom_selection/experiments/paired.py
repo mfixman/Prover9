@@ -13,7 +13,7 @@ import tempfile
 folder = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(folder))
 from bounded import bounded
-from premise_run import Mode, solve
+from premise_run import Mode, duals, solve
 from validation import sample
 from problem_split import ProblemSplit
 from experiment_output import default_output, prepare_output, append_result, declared_status, log_statistics
@@ -21,17 +21,23 @@ from experiment_resume import write_json, lock_output, recover, check_manifest, 
 
 predictor = None
 
-def initialize(cpus, tptp, model):
+def initialize(cpus, tptp, model, modes):
     global predictor
     identity = multiprocessing.current_process()._identity[0]
     os.sched_setaffinity(0, {cpus[(identity - 1) % len(cpus)]})
     from predict import Predictor
     predictor = Predictor(model)
+    predictors = [predictor]
+    if set(modes) & set(duals):
+        from half_support import second_scorer
+        predictors.append(second_scorer())
+
     from problem import load_problem
     root = Path(tptp)
     warmup = load_problem(root / 'Problems/GRP/GRP001-1.p', root)
-    for i in range(3):
-        predictor.predict(warmup)
+    for scorer in predictors:
+        for i in range(3):
+            scorer.predict(warmup)
 
 def evaluate(path, tptp, output, budget, threshold, probe, minimum, modes, replicate = 0, previous = None):
     path = Path(path)
@@ -146,7 +152,7 @@ def main():
     rebuild_csv(csv_output, results + [r for _, _, r in pending], metadata)
     print(f'Resuming: {len(results)} complete problem groups; {len(pending)} pending.', flush = True)
     started = time.monotonic()
-    with ProcessPoolExecutor(max_workers = len(cpus), mp_context = multiprocessing.get_context('spawn'), initializer = initialize, initargs = (cpus, str(tptp), str(args.model.resolve()))) as pool:
+    with ProcessPoolExecutor(max_workers = len(cpus), mp_context = multiprocessing.get_context('spawn'), initializer = initialize, initargs = (cpus, str(tptp), str(args.model.resolve()), args.modes)) as pool:
         futures = {pool.submit(evaluate, p, str(tptp), str(args.output), args.seconds, args.threshold, args.probe, args.minimum, args.modes, repeat, previous):set(previous['results']) for p, repeat, previous in pending}
         for future in as_completed(futures):
             results.append(future.result())

@@ -1,9 +1,26 @@
+from enum import StrEnum
+import os
 from pathlib import Path
 import time
 from bounded import bounded
 from live_search import LiveSearch
 from portfolio import search
 from problem import load_problem, clause_text
+
+class Ranking(StrEnum):
+    Learned = 'Learned'
+    Overlap = 'Overlap'
+
+second_predictor = None
+
+# The second ladder ranking comes from an untrained symbol-overlap scorer unless TOROK_SECOND_MODEL overrides it.
+def second_scorer():
+    global second_predictor
+    if second_predictor is None:
+        from predict import Predictor
+        second_predictor = Predictor(os.environ.get('TOROK_SECOND_MODEL', '/home/msf43/axiom-goal/models/overlap.ts'))
+
+    return second_predictor
 
 def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume = False, shuffled = False, filter_size = 0, ladder = ()):
     started = time.monotonic()
@@ -13,6 +30,7 @@ def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume =
     remaining = lambda: max(.001, budget - (time.monotonic() - started))
     baseline = LiveSearch(clauses, remaining(), output / 'baseline')
     result = {'proved':False, 'clauses':len(clauses), 'support_size':support_size, 'filter_size':filter_size, 'ladder':list(ladder)}
+    dual = any(ranking == Ranking.Overlap for _, _, ranking in ladder)
 
     def fallback():
         baseline.resume()
@@ -39,6 +57,9 @@ def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume =
 
         def score():
             weights, info = predictor.predict(matrix)
+            if dual:
+                info['overlap_weights'] = second_scorer().predict(matrix)[0]
+
             return {'weights':weights, **info}
 
         scoring = time.monotonic()
@@ -55,11 +76,16 @@ def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume =
 
         conjectures = set(matrix.conjecture_clauses)
         indices = list(range(len(clauses)))
-        ranked = sorted((i for i in indices if i not in conjectures), key = lambda i:(-prediction['weights'][i], i))
-        # Ranking control: pays the same scoring cost, then ignores the scores.
+        rank = lambda weights: sorted((i for i in indices if i not in conjectures), key = lambda i:(-weights[i], i))
+        ranked = rank(prediction['weights'])
+        # Ranking control: pays the same scoring cost, then ignores the learned scores.
         if shuffled:
             import random
             random.Random(path.stem).shuffle(ranked)
+
+        rankings = {Ranking.Learned: ranked}
+        if dual:
+            rankings[Ranking.Overlap] = rank(prediction['overlap_weights'])
 
         if filter_size and len(ranked) > filter_size:
             kept = conjectures | set(ranked[:filter_size])
@@ -71,13 +97,13 @@ def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume =
 
         # Premise-selection ladder (DeepMath-style cutoffs); a cutoff covering every axiom repeats the baseline.
         result['ladder_searches'] = []
-        for size, seconds in ladder:
+        for size, seconds, ranking in ladder:
             if len(ranked) <= size:
                 break
 
-            kept = conjectures | set(ranked[:size])
-            step = search(clauses, sorted(kept), min(seconds, remaining()), output / f'ladder{size}')
-            result['ladder_searches'].append({'size':size, **step})
+            kept = conjectures | set(rankings[ranking][:size])
+            step = search(clauses, sorted(kept), min(seconds, remaining()), output / f'ladder{size}{ranking}')
+            result['ladder_searches'].append({'size':size, 'ranking':ranking, **step})
             if step['proved']:
                 result['proved'] = True
                 return result

@@ -18,6 +18,10 @@ class Mode(StrEnum):
     ShuffledResumeLadderSupport1 = 'ShuffledResumeLadderSupport1'
     ResumeLongLadder = 'ResumeLongLadder'
     ShuffledResumeLongLadder = 'ShuffledResumeLongLadder'
+    ResumeDualLadder = 'ResumeDualLadder'
+    ShuffledResumeDualLadder = 'ShuffledResumeDualLadder'
+    ResumeDualLadderSupport1 = 'ResumeDualLadderSupport1'
+    ShuffledResumeDualLadderSupport1 = 'ShuffledResumeDualLadderSupport1'
     ShuffledResumeFilter16Support1 = 'ShuffledResumeFilter16Support1'
     Support16LongScore = 'Support16LongScore'
     HalfSupport1 = 'HalfSupport1'
@@ -35,17 +39,24 @@ class Mode(StrEnum):
     TorokDirect = 'TorokDirect'
     Random = 'Random'
 
-def ladder_steps(mode, ladders, ladder_support):
-    if mode in (Mode.ResumeLongLadder, Mode.ShuffledResumeLongLadder):
-        return ((16, 12), (64, 12), (256, 12))
+ladders = (Mode.ResumeLadder, Mode.ShuffledResumeLadder, Mode.ResumeLongLadder, Mode.ShuffledResumeLongLadder, Mode.ResumeDualLadder, Mode.ShuffledResumeDualLadder)
+ladder_support = (Mode.ResumeLadderSupport1, Mode.ShuffledResumeLadderSupport1, Mode.ResumeDualLadderSupport1, Mode.ShuffledResumeDualLadderSupport1)
+duals = (Mode.ResumeDualLadder, Mode.ShuffledResumeDualLadder, Mode.ResumeDualLadderSupport1, Mode.ShuffledResumeDualLadderSupport1)
 
-    return ((16, 8), (64, 8), (256, 8)) if mode in (*ladders, *ladder_support) else ()
+# Dual ladders alternate the learned and symbol-overlap rankings at each cutoff.
+def ladder_steps(mode):
+    from half_support import Ranking
+    sizes = (16, 64, 256)
+    if mode in duals:
+        return tuple((size, 6, ranking) for size in sizes for ranking in Ranking)
+    if mode in (Mode.ResumeLongLadder, Mode.ShuffledResumeLongLadder):
+        return tuple((size, 12, Ranking.Learned) for size in sizes)
+
+    return tuple((size, 8, Ranking.Learned) for size in sizes) if mode in (*ladders, *ladder_support) else ()
 
 def solve(path, tptp, predictor, mode, budget, output, threshold = 0.01, probe = 1, minimum = 64):
     filters = (Mode.ResumeFilter16, Mode.ShuffledResumeFilter16)
     combined = (Mode.ResumeFilter16Support1, Mode.ShuffledResumeFilter16Support1)
-    ladders = (Mode.ResumeLadder, Mode.ShuffledResumeLadder, Mode.ResumeLongLadder, Mode.ShuffledResumeLongLadder)
-    ladder_support = (Mode.ResumeLadderSupport1, Mode.ShuffledResumeLadderSupport1)
     resumed = (Mode.ResumeSupport1, Mode.ResumeSupport16, Mode.ShuffledResumeSupport1, *filters, *combined, *ladders, *ladder_support)
     if mode in (Mode.HalfSupport1, Mode.HalfSupport16, *resumed):
         from half_support import solve_half
@@ -64,7 +75,7 @@ def solve(path, tptp, predictor, mode, budget, output, threshold = 0.01, probe =
             mode in resumed,
             mode.startswith('Shuffled'),
             filter_size,
-            ladder_steps(mode, ladders, ladder_support),
+            ladder_steps(mode),
         )
 
     score_limit = budget / 4 if mode == Mode.Support16LongScore else 5
