@@ -14,12 +14,12 @@ def main():
     subprocess.run(['make', '-C', str(root / 'ladr'), '-j8', 'lib'], check = True)
     subprocess.run(['make', '-C', str(root / 'provers.src'), '-j8', 'prover9'], check = True)
     for source, name in [('provers.src/giv_select.c', 'giv_select'), ('axiom_selection/selection.c', 'selection')]:
-        subprocess.run(['gcc', '-O', '-Wall', '-DPROVER9_TOROK', '-c', str(root / source), '-o', str(build / f'{name}.o')], check = True)
+        subprocess.run(['gcc', '-O', '-Wall', '-DPROVER9_WEIGHTED', '-c', str(root / source), '-o', str(build / f'{name}.o')], check = True)
 
     inputs = [root / 'provers.src' / f'{name}.o' for name in ['prover9'] + objects]
     inputs += [build / 'giv_select.o', build / 'selection.o', root / 'ladr/libladr.a']
-    subprocess.run(['gcc', '-o', str(build / 'prover9-torok'), *map(str, inputs), '-lm'], check = True)
-    shutil.copyfile(build / 'prover9-torok', build / 'prover9-soft')
+    subprocess.run(['gcc', '-o', str(build / 'prover9-weighted'), *map(str, inputs), '-lm'], check = True)
+    shutil.copyfile(build / 'prover9-weighted', build / 'prover9-soft')
     (build / 'prover9-soft').chmod(0o755)
 
 if __name__ == '__main__':

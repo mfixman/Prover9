@@ -32,7 +32,7 @@ def evaluate(directory):
     results = {}
     for mode in modes:
         charged = p['parse_s'] + 1 + (p['score_s'] if mode != 'Auto2' else 0)
-        env = {'PROVER9_TOROK_MODE':'Soft', 'PROVER9_TOROK_WEIGHTS':str(weights.resolve())} if mode == 'Auto2Soft' else {}
+        env = {'PROVER9_WEIGHTED_MODE':'Soft', 'PROVER9_WEIGHTED_SCORES':str(weights.resolve())} if mode == 'Auto2Soft' else {}
         binary = folder / 'build/prover9-soft' if mode == 'Auto2Soft' else None
         result = search(p['clauses'], selected if mode == 'Auto2Filter' else all_indices, 20 - charged, directory / mode, binary, env, ['set(auto2).'])
         results[mode] = {'charged_s':charged + result['search_s'], **result}

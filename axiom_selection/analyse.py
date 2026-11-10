@@ -25,7 +25,7 @@ def robust_changes(groups):
     gains, losses, speedups = [], [], []
     for group in groups:
         base = next(r for r in group['results'] if r['mode'] == 'Baseline')
-        runs = [r for r in group['results'] if r['mode'] == 'Torok']
+        runs = [r for r in group['results'] if r['mode'] == 'Weighted']
         both_proved = all(r['outcome'] == 'Proved' for r in runs)
         if base['outcome'] != 'Proved' and both_proved:
             gains.append(group['problem'])
@@ -35,9 +35,9 @@ def robust_changes(groups):
         if base['outcome'] == 'Proved' and both_proved and base['end_to_end_s'] > 1:
             guided = statistics.mean(r['end_to_end_s'] for r in runs)
             if guided < base['end_to_end_s']:
-                speedups.append({'problem': group['problem'], 'baseline_s': base['end_to_end_s'], 'torok_mean_s': guided, 'speedup': base['end_to_end_s'] / guided})
+                speedups.append({'problem': group['problem'], 'baseline_s': base['end_to_end_s'], 'weighted_mean_s': guided, 'speedup': base['end_to_end_s'] / guided})
 
-    return {'gains_both_torok_seeds': gains, 'losses_both_torok_seeds': losses, 'faster_common_proofs_baseline_over_1s': speedups}
+    return {'gains_both_weighted_seeds': gains, 'losses_both_weighted_seeds': losses, 'faster_common_proofs_baseline_over_1s': speedups}
 
 def main():
     parser = argparse.ArgumentParser()
@@ -49,7 +49,7 @@ def main():
     excluded = [g for g in groups if all(r['outcome'] == 'InputOrModelError' for r in g['results'])]
     valid = [g for g in groups if g not in excluded]
 
-    configs = [('Baseline', 1), ('Torok', 1), ('Torok', 2), ('Uniform', 1), ('Uniform', 2)]
+    configs = [('Baseline', 1), ('Weighted', 1), ('Weighted', 2), ('Uniform', 1), ('Uniform', 2)]
     summaries = [summarize(valid, mode, seed, metadata['seconds_per_arm_including_startup']) for mode, seed in configs]
     report = {'attempted_problems': len(groups), 'valid_matched_problems': len(valid), 'excluded_common_input_errors': [g['problem'] for g in excluded], 'input_or_runtime_errors': errors, 'elapsed_s': metadata.get('elapsed_s'), 'configurations': summaries, **robust_changes(valid)}
     (args.directory / 'summary.json').write_text(json.dumps(report, indent = 2))

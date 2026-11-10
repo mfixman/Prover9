@@ -1,9 +1,9 @@
-#ifndef TOROK_SELECTION_H
-#define TOROK_SELECTION_H
+#ifndef WEIGHTED_SELECTION_H
+#define WEIGHTED_SELECTION_H
 #include "../ladr/topform.h"
-void torok_update(Topform clause, BOOL insert);
-BOOL torok_enabled(void);
-BOOL torok_soft(void);
-Ordertype torok_compare(Topform a, Topform b);
-Topform torok_pick(void);
+void weighted_update(Topform clause, BOOL insert);
+BOOL weighted_enabled(void);
+BOOL weighted_soft(void);
+Ordertype weighted_compare(Topform a, Topform b);
+Topform weighted_pick(void);
 #endif

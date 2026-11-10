@@ -83,7 +83,7 @@ def main():
     parser.add_argument('--threshold', type = float, default = 0.01)
     parser.add_argument('--probe', type = float, default = 1)
     parser.add_argument('--minimum', type = int, default = 16)
-    parser.add_argument('--modes', nargs = '+', choices = list(Mode), default = [Mode.Baseline, Mode.TorokSupport, Mode.RandomSupport])
+    parser.add_argument('--modes', nargs = '+', choices = list(Mode), default = [Mode.Baseline, Mode.LearnedSupport, Mode.RandomSupport])
     parser.add_argument('--repeat', type = int, default = 1)
     parser.add_argument('--workers', type = int, default = len(allowed), help = 'Search workers (default: all CPUs in the process affinity mask).')
     parser.add_argument('--strategy', choices = ['support1', 'support4', 'support8', 'support16', 'weighted16', 'half1', 'half16', 'resume1', 'resume16', 'support16-longscore'])
@@ -130,7 +130,7 @@ def main():
     candidate_count = len(paths)
     paths = partition.select(paths)
     source_names = ['premise_run.py', 'portfolio.py', 'bounded.py', 'native_search.c', 'predict.py', 'problem.py', 'half_support.py', 'live_search.py', 'experiment_output.py', 'experiment_resume.py', 'problem_split.py', 'experiments/paired.py', 'experiments/validation.py']
-    source_names += [str(p.relative_to(folder)) for p in sorted((folder / 'torok_vendor').rglob('*')) if p.is_file() and (p.suffix in ('.py', '.json') or p.name == 'LICENSE')]
+    source_names += [str(p.relative_to(folder)) for p in sorted((folder / 'connections_vendor').rglob('*')) if p.is_file() and (p.suffix in ('.py', '.json') or p.name == 'LICENSE')]
     manifest = {'tptp':str(tptp), 'paths': paths, 'split': split_description, 'seconds': args.seconds,
                 'csv_output': str(csv_output) if csv_output else None,
                 'partition': partition.to_dict(), 'candidate_count': candidate_count,

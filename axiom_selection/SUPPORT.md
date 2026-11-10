@@ -1,4 +1,4 @@
-# Torok-guided set of support
+# Model-guided set of support
 
 This is the configuration to take forward. It gives a small development-set
 coverage improvement over ordinary Prover9, not a general speedup.
@@ -7,7 +7,7 @@ coverage improvement over ordinary Prover9, not a general speedup.
 
 1. If there are at most 16 non-conjecture clauses, run ordinary Prover9.
 2. Otherwise give ordinary Prover9 one second of search.
-3. If it has not proved the problem, score the input once with Torok. Put the
+3. If it has not proved the problem, score the input once with the model. Put the
    16 highest-scoring axioms and every conjecture clause in `formulas(assumptions)`
    (the initial set of support). Put every other axiom in `formulas(usable)`.
 4. Search with ordinary Prover9 and the remaining time. If this search terminates
@@ -138,7 +138,7 @@ python axiom_selection/build.py
 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
 python axiom_selection/experiments/paired.py \
   --all-cnf-unsat --seconds 60 --minimum 16 --probe 1 --workers 18 \
-  --modes Baseline TorokSupport RandomSupport \
+  --modes Baseline LearnedSupport RandomSupport \
   --output axiom_selection/results/full-cnf-comparison
 ```
 

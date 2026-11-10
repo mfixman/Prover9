@@ -25,7 +25,7 @@
 */
 
 #include "giv_select.h"
-#ifdef PROVER9_TOROK
+#ifdef PROVER9_WEIGHTED
 #include "../axiom_selection/selection.h"
 #endif
 #include "semantics.h"
@@ -177,9 +177,9 @@ void init_giv_select(Plist rules)
     if (is_constant(order_term,"weight")) {
       gs->order = GS_ORDER_WEIGHT;
       gs->compare = (Ordertype (*) (void *, void *)) cl_wt_id_compare;
-#ifdef PROVER9_TOROK
-      if (torok_enabled() && torok_soft())
-        gs->compare = (Ordertype (*) (void *, void *)) torok_compare;
+#ifdef PROVER9_WEIGHTED
+      if (weighted_enabled() && weighted_soft())
+        gs->compare = (Ordertype (*) (void *, void *)) weighted_compare;
 #endif
     }
     else if (is_constant(order_term,"age")) {
@@ -283,8 +283,8 @@ void insert_into_sos2(Topform c, Clist sos)
   if (Rule_needs_semantics)
     set_semantics(c);  /* in case not yet evaluated */
 
-#ifdef PROVER9_TOROK
-  torok_update(c, TRUE);
+#ifdef PROVER9_WEIGHTED
+  weighted_update(c, TRUE);
 #endif
   update_selectors(c, TRUE);
   clist_append(c, sos);
@@ -305,8 +305,8 @@ the index for extracting the lightest and heaviest clauses.
 /* PUBLIC */
 void remove_from_sos2(Topform c, Clist sos)
 {
-#ifdef PROVER9_TOROK
-  torok_update(c, FALSE);
+#ifdef PROVER9_WEIGHTED
+  weighted_update(c, FALSE);
 #endif
   update_selectors(c, FALSE);
   clist_remove(c, sos);
@@ -374,10 +374,10 @@ Topform get_given_clause2(Clist sos, int num_given,
 			 Prover_options opt, char **type)
 {
   Topform giv;
-#ifdef PROVER9_TOROK
-  if (torok_enabled() && !torok_soft() && num_given % 5 != 4 && Sos_size > 0) {
-    giv = torok_pick();
-    *type = "torok";
+#ifdef PROVER9_WEIGHTED
+  if (weighted_enabled() && !weighted_soft() && num_given % 5 != 4 && Sos_size > 0) {
+    giv = weighted_pick();
+    *type = "weighted";
     remove_from_sos2(giv, sos);
     return giv;
   }

@@ -1,7 +1,7 @@
-# Torok guidance for Prover9
+# Model guidance for Prover9
 
 The strongest current development coverage result is described in [RESUME.md](RESUME.md):
-a short Torok top-1 search followed by resuming the saved baseline search.
+a short top-1 search guided by the model followed by resuming the saved baseline search.
 It proves 106/178 problems versus baseline 101 and preserved top-16 103, with
 slower common successes. The earlier rule remains documented in [SUPPORT.md](SUPPORT.md). The sections below document the earlier weighted-queue
 adapter, which performed worse than baseline.
@@ -66,7 +66,7 @@ A Fenwick tree supports insertion, removal, and weighted sampling in logarithmic
 time, with a reproducible SplitMix64 generator. Clause-ID-indexed storage also
 caches inherited weights. It consumes approximately 24 bytes per allocated ID
 slot and is allocated separately from LADR's memory accounting. Default Prover9
-weight/SOS limits and its normal redundancy deletion still apply. Torok itself
+weight/SOS limits and its normal redundancy deletion still apply. The model itself
 does not filter premises. Changing the schedule does not guarantee completeness
 under the default finite resource limits.
 
@@ -77,12 +77,12 @@ A baseline run uses the original Prover9 executable and does not load PyTorch.
 ## Build and run
 
 The adapter is self-contained with respect to Connections: the required parser,
-CNF representation and graph builder are frozen under `torok_vendor/`, and the
+CNF representation and graph builder are frozen under `connections_vendor/`, and the
 TorchScript model is included under `models/`. No Connections checkout or
 `CONNECTIONS_ROOT` setting is needed. The bundled source retains its license and
-provenance in `torok_vendor/LICENSE` and `torok_vendor/provenance.json`.
+provenance in `connections_vendor/LICENSE` and `connections_vendor/provenance.json`.
 
-On the HPC, copy this Prover9 repository including `axiom_selection/torok_vendor/`
+On the HPC, copy this Prover9 repository including `axiom_selection/connections_vendor/`
 and `axiom_selection/models/torok.ts`. Install the ordinary Python dependencies
 and build the native executables on that machine:
 
@@ -109,13 +109,13 @@ python axiom_selection/tests/preprocessing.py
 ```sh
 python axiom_selection/build.py
 python axiom_selection/run.py ../TPTP/Problems/GRP/GRP001-1.p \
-  --mode Torok --seconds 20 --seed 1 --output /tmp/torok-result.json
+  --mode Weighted --seconds 20 --seed 1 --output /tmp/weighted-result.json
 python axiom_selection/run.py ../TPTP/Problems/GRP/GRP001-1.p \
   --mode Baseline --seconds 20 --output /tmp/baseline-result.json
 python axiom_selection/tests/check.py
 ```
 
-Modes are `Baseline`, `Torok`, and `Uniform`. Output includes the exact native
+Modes are `Baseline`, `Weighted`, and `Uniform`. Output includes the exact native
 input, proof/search log, and timing JSON. For a strict whole-process wall limit,
 use the benchmark driver or an external timeout: `run.py` subtracts preprocessing
 from the search budget, but cannot interrupt every Python/native preprocessing
@@ -128,10 +128,10 @@ restored from Connections' internal representation to Prover9's native equality.
 Unsupported symbol encodings fail explicitly. FOF requires a separately audited,
 shared clausification step; the old LADR TPTP translator is not used here.
 
-The enhanced executable is `axiom_selection/build/prover9-torok`. Its guidance
-is enabled only by `PROVER9_TOROK_WEIGHTS`, pointing to a text file containing a
+The enhanced executable is `axiom_selection/build/prover9-weighted`. Its guidance
+is enabled only by `PROVER9_WEIGHTED_SCORES`, pointing to a text file containing a
 clause count followed by probabilities in input-label order. Set
-`PROVER9_TOROK_SEED` for its seed. With that variable absent it follows the native
+`PROVER9_WEIGHTED_SEED` for its seed. With that variable absent it follows the native
 selection path. The wrapper sets or clears these variables automatically.
 
 The initial measured result is documented in [RESULTS.md](RESULTS.md): this
@@ -147,7 +147,7 @@ python axiom_selection/benchmark.py \
 The driver uses at most 18 single-core workers, within an affinity set of at most
 19 logical CPUs. It randomly orders known-unsatisfiable CNF families in the
 recorded held-out split, selecting one variant per family. Each completed group
-runs Baseline once and Torok/Uniform with seeds 1 and 2, in a randomized order on
+runs Baseline once and Weighted/Uniform with seeds 1 and 2, in a randomized order on
 the same CPU. Each arm gets 15 seconds including Python startup, parsing, graph
 construction, model loading, inference, and proof search. No predictions are
 precomputed for free. There is no top-k or problem-size cutoff.

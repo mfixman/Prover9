@@ -1,9 +1,9 @@
 import re
 from pathlib import Path
-from torok_vendor.connections.parsing.tptp.parser import parse_tptp_file
-from torok_vendor.connections.parsing.tptp.transformer import StmtCNF
-from torok_vendor.connections.clausification import make_matrix_from_cnf_statements
-from torok_vendor.connections.syntax.formula import Variable
+from connections_vendor.connections.parsing.tptp.parser import parse_tptp_file
+from connections_vendor.connections.parsing.tptp.transformer import StmtCNF
+from connections_vendor.connections.clausification import make_matrix_from_cnf_statements
+from connections_vendor.connections.syntax.formula import Variable
 
 def load_problem(path, tptp):
     document = parse_tptp_file(path, source_roots = (Path(tptp).resolve(),))
@@ -50,7 +50,7 @@ def prover_input(matrix, seconds = 20, memory = 512):
         'clear(print_initial_clauses).', 'clear(print_kept).', 'formulas(assumptions).',
     ]
     clauses = [
-        f'{clause_text(clause)} # label(torok_input_{i}).'
+        f'{clause_text(clause)} # label(weighted_input_{i}).'
         for i, clause in enumerate(matrix.clauses)
     ]
     return '\n'.join(options + clauses + ['end_of_list.', ''])

@@ -32,11 +32,11 @@ class Mode(StrEnum):
     Support4 = 'Support4'
     Support8 = 'Support8'
     Support16 = 'Support16'
-    TorokSupport = 'TorokSupport'
+    LearnedSupport = 'LearnedSupport'
     RandomSupport = 'RandomSupport'
     Baseline = 'Baseline'
-    Torok = 'Torok'
-    TorokDirect = 'TorokDirect'
+    Learned = 'Learned'
+    LearnedDirect = 'LearnedDirect'
     Random = 'Random'
 
 ladders = (Mode.ResumeLadder, Mode.ShuffledResumeLadder, Mode.ResumeLongLadder, Mode.ShuffledResumeLongLadder, Mode.ResumeDualLadder, Mode.ShuffledResumeDualLadder)
@@ -80,17 +80,17 @@ def solve(path, tptp, predictor, mode, budget, output, threshold = 0.01, probe =
 
     score_limit = budget / 4 if mode == Mode.Support16LongScore else 5
     if mode == Mode.Support16LongScore:
-        minimum, probe, mode = 16, 1, Mode.TorokSupport
+        minimum, probe, mode = 16, 1, Mode.LearnedSupport
 
     weighted = mode in (Mode.WeightedSupport16, Mode.WeightedSupport16Seed2)
     selection_seed = 2 if mode == Mode.WeightedSupport16Seed2 else 1
     if weighted:
-        minimum, probe, mode = 16, 1, Mode.TorokSupport
+        minimum, probe, mode = 16, 1, Mode.LearnedSupport
 
     sizes = {Mode.Support1: 1, Mode.Support4: 4, Mode.Support8: 8, Mode.Support16: 16}
     conservative_small = mode in (Mode.Support1, Mode.Support4, Mode.Support8)
     if mode in sizes:
-        minimum, probe, mode = sizes[mode], 1, Mode.TorokSupport
+        minimum, probe, mode = sizes[mode], 1, Mode.LearnedSupport
 
     started = time.monotonic()
     output = Path(output)
@@ -117,7 +117,7 @@ def solve(path, tptp, predictor, mode, budget, output, threshold = 0.01, probe =
     gate = max(16, minimum) if conservative_small else minimum
     if mode == Mode.Baseline or len(candidates) <= gate:
         return finish(attempt(indices, budget, 'baseline'))
-    if mode != Mode.TorokDirect and probe > 0 and attempt(indices, probe, 'probe'):
+    if mode != Mode.LearnedDirect and probe > 0 and attempt(indices, probe, 'probe'):
         return finish(True, scored = False)
 
     if mode == Mode.RandomSupport:
@@ -152,7 +152,7 @@ def solve(path, tptp, predictor, mode, budget, output, threshold = 0.01, probe =
         ranked = sorted(candidates, key = lambda i: -math.log(max(rng.random(), 1e-15)) / weights[i])
     required = conjectures | set(ranked[:minimum])
     selected = [i for i, p in enumerate(weights) if i in required or p >= threshold]
-    support = mode in (Mode.TorokSupport, Mode.RandomSupport)
+    support = mode in (Mode.LearnedSupport, Mode.RandomSupport)
     if support:
         selected = sorted(required)
     if mode in (Mode.Random, Mode.RandomSupport):

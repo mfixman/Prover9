@@ -27,8 +27,8 @@ def check_logic():
             matrix = load_problem(path, directory)
             text = 'clear(predicate_elim).\n' + prover_input(matrix, 2)
             outputs = []
-            for binary in [folder.parent / 'provers.src/prover9', folder / 'build/prover9-torok']:
-                env = {k: v for k, v in os.environ.items() if not k.startswith('PROVER9_TOROK_')}
+            for binary in [folder.parent / 'provers.src/prover9', folder / 'build/prover9-weighted']:
+                env = {k: v for k, v in os.environ.items() if not k.startswith('PROVER9_WEIGHTED_')}
                 result = subprocess.run([str(binary)], input = text, text = True, capture_output = True, timeout = 3, env = env)
                 outputs.append(result.stdout.split('============================== INPUT')[1].split('User_CPU=')[0])
                 assert ('THEOREM PROVED' in result.stdout) == proves

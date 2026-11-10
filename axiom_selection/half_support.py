@@ -13,12 +13,12 @@ class Ranking(StrEnum):
 
 second_predictor = None
 
-# The second ladder ranking comes from an untrained symbol-overlap scorer unless TOROK_SECOND_MODEL overrides it.
+# The second ladder ranking comes from an untrained symbol-overlap scorer unless SECOND_RANKING_MODEL overrides it.
 def second_scorer():
     global second_predictor
     if second_predictor is None:
         from predict import Predictor
-        second_predictor = Predictor(os.environ.get('TOROK_SECOND_MODEL', '/home/msf43/axiom-goal/models/overlap.ts'))
+        second_predictor = Predictor(os.environ.get('SECOND_RANKING_MODEL', '/home/msf43/axiom-goal/models/overlap.ts'))
 
     return second_predictor
 

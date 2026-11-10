@@ -53,7 +53,7 @@ def native_input(clauses, indices, seconds):
     settings = ['set(prolog_style_variables).', f'assign(max_seconds,{max(1, math.ceil(seconds))}).',
                 'assign(max_megs,512).', 'clear(print_given).',
                 'clear(print_initial_clauses).', 'clear(print_kept).', 'formulas(assumptions).']
-    lines = [f'{clauses[i]} # label(torok_input_{i}).' for i in indices]
+    lines = [f'{clauses[i]} # label(weighted_input_{i}).' for i in indices]
     return '\n'.join(settings + lines + ['end_of_list.', ''])
 
 def search(clauses, indices, seconds, output, binary = None, extra_env = None, settings = (), usable = ()):
@@ -61,10 +61,10 @@ def search(clauses, indices, seconds, output, binary = None, extra_env = None, s
     output.parent.mkdir(parents = True, exist_ok = True)
     text = '\n'.join(settings) + '\n' + native_input(clauses, indices, seconds)
     if usable:
-        lines = [f'{clauses[i]} # label(torok_input_{i}).' for i in usable]
+        lines = [f'{clauses[i]} # label(weighted_input_{i}).' for i in usable]
         text += '\nformulas(usable).\n' + '\n'.join(lines) + '\nend_of_list.\n'
     output.with_suffix('.in').write_text(text)
-    env = {k: v for k, v in os.environ.items() if not k.startswith('PROVER9_TOROK_')}
+    env = {k: v for k, v in os.environ.items() if not k.startswith('PROVER9_WEIGHTED_')}
     env.update(extra_env or {})
     binary = binary or Path(__file__).resolve().parents[1] / 'provers.src/prover9'
     started = time.monotonic()

@@ -22,7 +22,7 @@ static void reserve(int id) {
   active = realloc(active, capacity * sizeof(Topform));
   free(tree);
   tree = calloc(capacity, sizeof(double));
-  if (!weights || !active || !tree) fatal_error("Torok allocation failed");
+  if (!weights || !active || !tree) fatal_error("Weighted selection allocation failed");
 
   memset(weights + old, 0, (capacity - old) * sizeof(double));
   memset(active + old, 0, (capacity - old) * sizeof(Topform));
@@ -33,31 +33,31 @@ static void reserve(int id) {
   }
 }
 
-BOOL torok_enabled(void) {
+BOOL weighted_enabled(void) {
   if (enabled >= 0) return enabled;
-  const char *path = getenv("PROVER9_TOROK_WEIGHTS");
+  const char *path = getenv("PROVER9_WEIGHTED_SCORES");
   enabled = path && *path;
   if (!enabled) return FALSE;
 
   FILE *file = fopen(path, "r");
   if (!file || fscanf(file, "%d", &input_count) != 1 || input_count < 0)
-    fatal_error("Torok cannot read weight file");
+    fatal_error("Weighted selection cannot read weight file");
   input_weights = malloc((input_count + 1) * sizeof(double));
-  if (!input_weights) fatal_error("Torok allocation failed");
+  if (!input_weights) fatal_error("Weighted selection allocation failed");
 
   for (int i = 0; i < input_count; i++) {
     if (fscanf(file, "%lf", input_weights + i) != 1 ||
         !isfinite(input_weights[i]) || input_weights[i] <= 0 || input_weights[i] > 1)
-      fatal_error("Torok invalid probability");
+      fatal_error("Weighted selection invalid probability");
   }
 
   fclose(file);
-  const char *setting = getenv("PROVER9_TOROK_STRENGTH");
+  const char *setting = getenv("PROVER9_WEIGHTED_STRENGTH");
   if (setting) strength = strtod(setting, NULL);
-  if (!isfinite(strength) || strength < 0) fatal_error("Torok invalid strength");
-  const char *seed = getenv("PROVER9_TOROK_SEED");
+  if (!isfinite(strength) || strength < 0) fatal_error("Weighted selection invalid strength");
+  const char *seed = getenv("PROVER9_WEIGHTED_SEED");
   if (seed) random_state = strtoull(seed, NULL, 10);
-  printf("\n%% Torok: %d input scores; mode %s.\n", input_count, torok_soft() ? "Soft" : "Sample");
+  printf("\n%% Weighted: %d input scores; mode %s.\n", input_count, weighted_soft() ? "Soft" : "Sample");
   return TRUE;
 }
 
@@ -70,8 +70,8 @@ static double probability(Topform clause) {
   char *label;
   for (int i = 1; (label = get_string_attribute(clause->attributes, label_att(), i)); i++) {
     int index;
-    if (sscanf(label, "torok_input_%d", &index) == 1) {
-      if (index < 0 || index >= input_count) fatal_error("Torok input label mismatch");
+    if (sscanf(label, "weighted_input_%d", &index) == 1) {
+      if (index < 0 || index >= input_count) fatal_error("Weighted selection input label mismatch");
       return weights[id] = input_weights[index];
     }
   }
@@ -90,15 +90,15 @@ static double probability(Topform clause) {
   return weights[id] = count ? exp(sum / count) : 1.0;
 }
 
-BOOL torok_soft(void) {
+BOOL weighted_soft(void) {
   if (soft_enabled >= 0) return soft_enabled;
-  const char *mode = getenv("PROVER9_TOROK_MODE");
+  const char *mode = getenv("PROVER9_WEIGHTED_MODE");
   tie_only = mode && strcmp(mode, "Tie") == 0;
   soft_enabled = tie_only || (mode && strcmp(mode, "Soft") == 0);
   return soft_enabled;
 }
 
-Ordertype torok_compare(Topform a, Topform b) {
+Ordertype weighted_compare(Topform a, Topform b) {
   if (tie_only) {
     if (a->weight < b->weight) return LESS_THAN;
     if (a->weight > b->weight) return GREATER_THAN;
@@ -116,14 +116,14 @@ Ordertype torok_compare(Topform a, Topform b) {
   return SAME_AS;
 }
 
-void torok_update(Topform clause, BOOL insert) {
-  if (!torok_enabled()) return;
+void weighted_update(Topform clause, BOOL insert) {
+  if (!weighted_enabled()) return;
   int id = clause->id;
-  if (id <= 0) fatal_error("Torok requires assigned clause IDs");
+  if (id <= 0) fatal_error("Weighted selection requires assigned clause IDs");
   double weight = probability(clause);
-  if (torok_soft()) return;
+  if (weighted_soft()) return;
   double delta = insert ? weight : -weight;
-  if (!!active[id] == !!insert) fatal_error("Torok queue membership mismatch");
+  if (!!active[id] == !!insert) fatal_error("Weighted selection queue membership mismatch");
 
   active[id] = insert ? clause : NULL;
   for (int i = id; i < capacity; i += i & -i) tree[i] += delta;
@@ -137,10 +137,10 @@ static double uniform(void) {
   return ((value >> 11) + 0.5) * (1.0 / 9007199254740992.0);
 }
 
-Topform torok_pick(void) {
+Topform weighted_pick(void) {
   double total = 0;
   for (int i = capacity - 1; i > 0; i -= i & -i) total += tree[i];
-  if (total <= 0) fatal_error("Torok empty weighted queue");
+  if (total <= 0) fatal_error("Weighted selection empty weighted queue");
   double target = uniform() * total;
   int index = 0;
 
@@ -152,6 +152,6 @@ Topform torok_pick(void) {
     }
   }
 
-  if (index + 1 >= capacity || !active[index + 1]) fatal_error("Torok sampling failed");
+  if (index + 1 >= capacity || !active[index + 1]) fatal_error("Weighted selection sampling failed");
   return active[index + 1];
 }

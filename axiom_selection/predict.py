@@ -17,8 +17,8 @@ class Predictor:
         self.torch = torch
 
     def predict(self, matrix):
-        from torok_vendor.axiom_prediction.graph import build_axiom_graph
-        from torok_vendor.axiom_prediction.representation.schema import node_types, relations
+        from connections_vendor.axiom_prediction.graph import build_axiom_graph
+        from connections_vendor.axiom_prediction.representation.schema import node_types, relations
 
         started = time.monotonic()
         conjectures = list(matrix.conjecture_clauses)
@@ -34,7 +34,7 @@ class Predictor:
         weights = [1.0] * len(matrix.clauses)
 
         if self.sine:
-            from torok_vendor.axiom_prediction.sine import clause_scores
+            from connections_vendor.axiom_prediction.sine import clause_scores
             probabilities = clause_scores(graph, axioms, conjectures)
         else:
             with torch.inference_mode():
@@ -43,7 +43,7 @@ class Predictor:
 
         for index, value in zip(axioms, probabilities, strict = True):
             if not math.isfinite(value):
-                raise ValueError('Torok produced a non-finite probability')
+                raise ValueError('Model produced a non-finite probability')
 
             weights[index] = max(1e-6, value)
 

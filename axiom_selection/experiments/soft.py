@@ -21,7 +21,7 @@ def evaluate(directory, strength, mode):
     charged = prepared['parse_s'] + 1 + prepared['score_s']
     weights = directory / 'soft.weights'
     weights.write_text(str(len(prepared['weights'])) + '\n' + '\n'.join(map(str, prepared['weights'])) + '\n')
-    result = search(prepared['clauses'], list(range(len(prepared['clauses']))), max(0.001, 20 - charged), directory / f'{mode}-{strength:g}', folder / 'build/prover9-soft', {'PROVER9_TOROK_STRENGTH': str(strength), 'PROVER9_TOROK_MODE': mode, 'PROVER9_TOROK_WEIGHTS': str(weights.resolve())})
+    result = search(prepared['clauses'], list(range(len(prepared['clauses']))), max(0.001, 20 - charged), directory / f'{mode}-{strength:g}', folder / 'build/prover9-soft', {'PROVER9_WEIGHTED_STRENGTH': str(strength), 'PROVER9_WEIGHTED_MODE': mode, 'PROVER9_WEIGHTED_SCORES': str(weights.resolve())})
     return {'problem': directory.name, 'charged_s': charged + result['search_s'], **result}
 
 def main():

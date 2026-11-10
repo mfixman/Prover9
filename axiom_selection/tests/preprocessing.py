@@ -25,7 +25,7 @@ def check_preprocessing():
 def check_fixtures():
     from predict import Predictor
     from problem import load_problem, clause_text
-    from torok_vendor.axiom_prediction.graph import build_axiom_graph
+    from connections_vendor.axiom_prediction.graph import build_axiom_graph
 
     predictor = Predictor()
     cases = json.loads((folder / 'tests/fixtures/preprocessing.json').read_text())
@@ -48,7 +48,7 @@ def check_fixtures():
             assert all(abs(a - b) < 1e-6 for a, b in zip(weights, case['weights'])), case['name']
 
     assert not any(name.split('.')[0] in ('connections', 'axiom_prediction') for name in sys.modules)
-    print('Bundled parsing, graph fingerprints and Torok probabilities match original fixtures; external imports blocked.')
+    print('Bundled parsing, graph fingerprints and model probabilities match original fixtures; external imports blocked.')
 
 if __name__ == '__main__':
     check_preprocessing()

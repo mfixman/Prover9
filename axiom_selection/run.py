@@ -9,13 +9,13 @@ import time
 
 class Mode(StrEnum):
     Baseline = 'Baseline'
-    Torok = 'Torok'
+    Weighted = 'Weighted'
     Uniform = 'Uniform'
 
 def arguments():
-    parser = argparse.ArgumentParser(description = 'Run Prover9 on shared CNF with optional Torok guidance.')
+    parser = argparse.ArgumentParser(description = 'Run Prover9 on shared CNF with optional model guidance.')
     parser.add_argument('problem', type = Path)
-    parser.add_argument('--mode', type = Mode, choices = list(Mode), default = Mode.Torok)
+    parser.add_argument('--mode', type = Mode, choices = list(Mode), default = Mode.Weighted)
     parser.add_argument('--tptp', type = Path, default = Path(__file__).resolve().parents[2] / 'TPTP')
     parser.add_argument('--seconds', type = float, default = 20)
     parser.add_argument('--seed', type = int, default = 1)
@@ -33,7 +33,7 @@ def execute(args, started, result):
     text = prover_input(matrix, args.seconds)
     args.output.with_suffix('.in').write_text(text)
 
-    if args.mode == Mode.Torok:
+    if args.mode == Mode.Weighted:
         from predict import Predictor
         loading = time.monotonic()
         predictor = Predictor(args.model)
@@ -48,15 +48,15 @@ def execute(args, started, result):
         result['outcome'] = 'PreprocessingTimeout'
         return
 
-    env = {key: value for key, value in os.environ.items() if not key.startswith('PROVER9_TOROK_')}
-    with tempfile.TemporaryDirectory(prefix = 'prover9-torok-') as folder:
+    env = {key: value for key, value in os.environ.items() if not key.startswith('PROVER9_WEIGHTED_')}
+    with tempfile.TemporaryDirectory(prefix = 'prover9-weighted-') as folder:
         if args.mode != Mode.Baseline:
             weights_path = Path(folder) / 'weights'
             save_weights(weights_path, weights)
-            env.update(PROVER9_TOROK_WEIGHTS = str(weights_path), PROVER9_TOROK_SEED = str(args.seed))
+            env.update(PROVER9_WEIGHTED_SCORES = str(weights_path), PROVER9_WEIGHTED_SEED = str(args.seed))
 
         root = Path(__file__).resolve().parents[1]
-        binary = root / ('provers.src/prover9' if args.mode == Mode.Baseline else 'axiom_selection/build/prover9-torok')
+        binary = root / ('provers.src/prover9' if args.mode == Mode.Baseline else 'axiom_selection/build/prover9-weighted')
         run_search(binary, text, env, remaining, args.output, result)
 
 def run_search(binary, text, env, remaining, output, result):
@@ -81,7 +81,7 @@ def run_search(binary, text, env, remaining, output, result):
     if 'Fatal error' in log or 'FATAL ERROR' in log:
         result['outcome'] = 'ProverError'
 
-    result['weighted_queue_used'] = '% Torok:' in log
+    result['weighted_queue_used'] = '% Weighted:' in log
 
 def main():
     started = time.monotonic()

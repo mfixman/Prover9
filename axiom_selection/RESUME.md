@@ -1,4 +1,4 @@
-# Short Torok search, then resume Prover9
+# Short model-guided search, then resume Prover9
 
 The strongest coverage result in this development search is available as
 `--strategy resume1`. The earlier strategy remains `--strategy support16`.
@@ -6,7 +6,7 @@ The strongest coverage result in this development search is available as
 ## Rule
 
 1. Run ordinary Prover9 for one second of the total wall budget.
-2. If unsolved, pause that process and score the input with Torok, allowing up
+2. If unsolved, pause that process and score the input with the model, allowing up
    to one quarter of the total budget for scoring.
 3. Start ordinary Prover9 with the highest-scoring axiom and all conjecture
    clauses in the initial set of support. Keep every other axiom usable.
@@ -67,7 +67,7 @@ run; these results do not isolate how much the learned ranking contributes.
 ## Execute
 
 No Connections checkout is required. The parser and graph builder are bundled
-under `torok_vendor/`; install `requirements.txt` and run `build.py` on the HPC.
+under `connections_vendor/`; install `requirements.txt` and run `build.py` on the HPC.
 Use `--tptp /path/to/TPTP` if the dataset is not in the sibling TPTP directory.
 
 The defaults are 60 seconds per strategy and one worker per CPU available in

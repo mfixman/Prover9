@@ -69,7 +69,7 @@ def worker(cpu, pending, args, deadline, completed, lock):
         except queue.Empty:
             return
 
-        arms = [('Baseline', 1), ('Torok', 1), ('Torok', 2), ('Uniform', 1), ('Uniform', 2)]
+        arms = [('Baseline', 1), ('Weighted', 1), ('Weighted', 2), ('Uniform', 1), ('Uniform', 2)]
         local_seed = int.from_bytes(hashlib.sha256(path.stem.encode()).digest()[:8], 'big')
         random.Random(local_seed).shuffle(arms)
         results = [run_arm(path, mode, seed, cpu, args) for mode, seed in arms]
@@ -96,7 +96,7 @@ def main():
     paths = candidates(args.tptp, 2026102303)
     sources = list(folder.glob('*.py')) + list(folder.glob('*.c')) + [folder.parent / 'provers.src/giv_select.c']
 
-    metadata = {'seed': 2026102303, 'split': {'scheme': 4, 'split': 10, 'parts': [9]}, 'candidate_count': len(paths), 'sample_order': list(map(str, paths)), 'seconds_per_arm_including_startup': args.seconds, 'launch_seconds': args.launch_seconds, 'workers': args.workers, 'cpus': cpus, 'prover_revision': revision(folder.parent), 'preprocessing_provenance_sha256': hashlib.sha256((folder / 'torok_vendor/provenance.json').read_bytes()).hexdigest(), 'model_sha256': hashlib.sha256((folder / 'models/torok.ts').read_bytes()).hexdigest(), 'source_sha256': {str(p.relative_to(folder.parent)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}, 'selection': 'One random CNF Unsatisfiable variant per TPTP family, scheme-4 test part 9; stop launching whole matched groups at the preregistered wall deadline; no filtering on baseline outcomes.'}
+    metadata = {'seed': 2026102303, 'split': {'scheme': 4, 'split': 10, 'parts': [9]}, 'candidate_count': len(paths), 'sample_order': list(map(str, paths)), 'seconds_per_arm_including_startup': args.seconds, 'launch_seconds': args.launch_seconds, 'workers': args.workers, 'cpus': cpus, 'prover_revision': revision(folder.parent), 'preprocessing_provenance_sha256': hashlib.sha256((folder / 'connections_vendor/provenance.json').read_bytes()).hexdigest(), 'model_sha256': hashlib.sha256((folder / 'models/torok.ts').read_bytes()).hexdigest(), 'source_sha256': {str(p.relative_to(folder.parent)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}, 'selection': 'One random CNF Unsatisfiable variant per TPTP family, scheme-4 test part 9; stop launching whole matched groups at the preregistered wall deadline; no filtering on baseline outcomes.'}
     (args.output / 'manifest.json').write_text(json.dumps(metadata, indent = 2))
     started = time.monotonic()
     pending, completed, lock = queue.Queue(), [], threading.Lock()

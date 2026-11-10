@@ -33,7 +33,9 @@ def summarize(directory):
             print(' selected search',len(selected),'selected proofs',sum(r['results'][mode].get('proved',False) for r in selected))
 
     for r in rows:
-        b, t = r['results']['Baseline'], r['results'].get('TorokSupport', r['results'].get('Torok', {}))
+        # Older outputs recorded these modes under the previous names.
+        names = ('LearnedSupport', 'Learned', 'TorokSupport', 'Torok')
+        b, t = r['results']['Baseline'], next((r['results'][m] for m in names if m in r['results']), {})
         if b.get('proved') and t.get('proved') and b['elapsed_s']>1 and b['elapsed_s']/t['elapsed_s']>1.2:
             print('speedup', r['problem'], round(b['elapsed_s'],3), round(t['elapsed_s'],3))
 

@@ -16,7 +16,7 @@ with tempfile.TemporaryDirectory() as directory:
     for path in folder.glob('*.py'):
         shutil.copy2(path, adapter / path.name)
 
-    for name in ('experiments', 'torok_vendor'):
+    for name in ('experiments', 'connections_vendor'):
         shutil.copytree(folder / name, adapter / name, ignore = shutil.ignore_patterns('__pycache__'))
 
     for name in ('models/torok.ts', 'build/native-search', 'build/native-search-control', 'native_search.c'):
