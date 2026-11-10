@@ -14,6 +14,8 @@ class Mode(StrEnum):
     ResumeFilter16Support1 = 'ResumeFilter16Support1'
     ResumeLadder = 'ResumeLadder'
     ShuffledResumeLadder = 'ShuffledResumeLadder'
+    SampledResumeLadder = 'SampledResumeLadder'
+    SharpSampledResumeLadder = 'SharpSampledResumeLadder'
     ResumeLadderSupport1 = 'ResumeLadderSupport1'
     ShuffledResumeLadderSupport1 = 'ShuffledResumeLadderSupport1'
     ResumeLongLadder = 'ResumeLongLadder'
@@ -39,7 +41,8 @@ class Mode(StrEnum):
     LearnedDirect = 'LearnedDirect'
     Random = 'Random'
 
-ladders = (Mode.ResumeLadder, Mode.ShuffledResumeLadder, Mode.ResumeLongLadder, Mode.ShuffledResumeLongLadder, Mode.ResumeDualLadder, Mode.ShuffledResumeDualLadder)
+sampled = {Mode.SampledResumeLadder: 1, Mode.SharpSampledResumeLadder: 0.5}
+ladders = (Mode.ResumeLadder, Mode.ShuffledResumeLadder, *sampled, Mode.ResumeLongLadder, Mode.ShuffledResumeLongLadder, Mode.ResumeDualLadder, Mode.ShuffledResumeDualLadder)
 ladder_support = (Mode.ResumeLadderSupport1, Mode.ShuffledResumeLadderSupport1, Mode.ResumeDualLadderSupport1, Mode.ShuffledResumeDualLadderSupport1)
 duals = (Mode.ResumeDualLadder, Mode.ShuffledResumeDualLadder, Mode.ResumeDualLadderSupport1, Mode.ShuffledResumeDualLadderSupport1)
 
@@ -76,6 +79,7 @@ def solve(path, tptp, predictor, mode, budget, output, threshold = 0.01, probe =
             mode.startswith('Shuffled'),
             filter_size,
             ladder_steps(mode),
+            sampled.get(mode, 0),
         )
 
     score_limit = budget / 4 if mode == Mode.Support16LongScore else 5

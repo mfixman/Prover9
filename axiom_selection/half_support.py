@@ -22,14 +22,27 @@ def second_scorer():
 
     return second_predictor
 
-def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume = False, shuffled = False, filter_size = 0, ladder = ()):
+# An order drawn without replacement in proportion to weight ** (1 / temperature) (Gumbel top-k).
+def sampled_order(ranked, weights, temperature, seed):
+    import math
+    import random
+    min_weight = 1e-6
+    rng = random.Random(seed)
+    keys = {
+        i: math.log(max(min_weight, weights[i])) / temperature - math.log(-math.log(max(1e-300, rng.random())))
+        for i in ranked
+    }
+
+    return sorted(ranked, key = lambda i: -keys[i])
+
+def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume = False, shuffled = False, filter_size = 0, ladder = (), temperature = 0):
     started = time.monotonic()
     output = Path(output)
     matrix = load_problem(path, tptp)
     clauses = [clause_text(c) for c in matrix.clauses]
     remaining = lambda: max(.001, budget - (time.monotonic() - started))
     baseline = LiveSearch(clauses, remaining(), output / 'baseline')
-    result = {'proved':False, 'clauses':len(clauses), 'support_size':support_size, 'filter_size':filter_size, 'ladder':list(ladder)}
+    result = {'proved':False, 'clauses':len(clauses), 'support_size':support_size, 'filter_size':filter_size, 'ladder':list(ladder), 'temperature':temperature}
     dual = any(ranking == Ranking.Overlap for _, _, ranking in ladder)
 
     def fallback():
@@ -82,6 +95,10 @@ def solve_half(path, tptp, predictor, budget, output, support_size = 1, resume =
         if shuffled:
             import random
             random.Random(path.stem).shuffle(ranked)
+
+        # Noise control between the learned order (temperature 0) and the shuffled one.
+        if temperature:
+            ranked = sampled_order(ranked, prediction['weights'], temperature, path.stem)
 
         rankings = {Ranking.Learned: ranked}
         if dual:
