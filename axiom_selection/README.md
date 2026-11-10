@@ -15,8 +15,8 @@ limits remain in force. Only a small conditional hook was added to
 ## What the model learned
 
 `models/torok.ts` is a byte-for-byte copy of the exported model in
-`~/TP/vampire/Shell/Torok/torok.ts`. Its predictions were checked against
-`~/TP/connections/models/torok.pt`. The checkpoint is ExtraLargeFull at epoch 45:
+`external/vampire/Shell/Torok/torok.ts` (sibling submodule of Connections). Its predictions were checked against
+Connections' `models/torok.pt`. The checkpoint is ExtraLargeFull at epoch 45:
 256-dimensional embeddings, five message-passing rounds, four hidden layers,
 and ReLU. Hashes, configuration, provenance, and the training dataset fingerprint
 are in `models/provenance.json`.
@@ -49,7 +49,7 @@ for SATResetCoP cores; transfer to Prover9 is an experiment, not an assumption.
 
 This follows the small cross-prover input-guidance experiment proposed in
 Connections' `packages/axiom_prediction/plan.txt`. The related iProver GNN paper
-in `~/TP/connections/papers/chvalovsky2023iprover_gnn.txt` discusses internal
+in Connections' `papers/chvalovsky2023iprover_gnn.txt` discusses internal
 clause guidance, but this adapter does not retrain a model on derived clauses.
 
 ## Selection rule
